@@ -80,12 +80,10 @@
     set sidescrolloff=10 " Keep 5 lines at the size
     set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
     "              | | | | |  |   |      |  |     |    |
-    "              | | | | |  |   |      |  |     |    + current 
-    "              | | | | |  |   |      |  |     |       column
+    "              | | | | |  |   |      |  |     |    + current column
     "              | | | | |  |   |      |  |     +-- current line
     "              | | | | |  |   |      |  +-- current % into file
-    "              | | | | |  |   |      +-- current syntax in 
-    "              | | | | |  |   |          square brackets
+    "              | | | | |  |   |      +-- current syntax in square brackets
     "              | | | | |  |   +-- current fileformat
     "              | | | | |  +-- number of lines
     "              | | | | +-- preview flag in square brackets
