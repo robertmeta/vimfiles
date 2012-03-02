@@ -139,7 +139,7 @@
         let Tlist_Ctags_Cmd = 'ctags' " location of ctags
         let Tlist_Enable_Fold_Column = 0 " do show folding tree
         let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself
-        let Tlist_File_Fold_Auto_Close = 0 " fold closed other trees
+        let Tlist_File_Fold_Auto_Close = 1 " fold closed other trees
         let Tlist_Sort_Type = "name" " order by 
         let Tlist_Use_Right_Window = 1 " split to the right side of the screen
         let Tlist_WinWidth = 40 " 40 cols wide, so i can (almost always) read my functions
@@ -252,6 +252,8 @@ if &term =~ "xterm"
     endif
 endif
 
-let NERDTreeIgnore = ['\.beam']
+let NERDTreeIgnore = ['\.beam', '\.pyc']
+let NERDChristmasTree = 1
+
 hi Folded ctermbg=black
 match ErrorMsg '\%>80v.\+'
