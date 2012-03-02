@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+# This was a typical run on my home computer
+#
+#     $ ./serialization.py 
+#     Starting json...
+#     done: 5.84667515755
+#     Starting simplejson...
+#     done: 6.66061401367
+#     Starting cjson...
+#     done: 2.26730895042
+#     Starting ujson...
+#     done: 0.718111991882
+#     Starting cPickle...
+#     done: 6.19812703133
+
+
+import time
+import cPickle as pickle
+import simplejson
+import json
+import cjson # python-cjson in pypi
+import ujson
+
+cjson.dumps = cjson.encode
+cjson.loads = cjson.decode
+
+data_as_dict = {
+    'foo': 'bar',
+    'food': 'barf',
+    'good': 'bars',
+    'dood': 'wheres your car?',
+    'wheres your car': 'dude?',
+}
+
+mods = [json, simplejson, cjson, ujson, pickle]
+
+for mod in mods:
+    print 'Starting %s...' % (mod.__name__)
+    start = time.time()
+    for i in xrange(1000000):
+        mod.dumps(data_as_dict)
+    print 'done:', time.time() - start

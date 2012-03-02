@@ -1,0 +1,24 @@
+-module(user_process).
+
+-export([ go/1 ]).
+
+go(UserName) ->
+    loop([{username, UserName}]).
+
+loop(State) ->
+    receive
+        {From, stop, Why} -> % Stop the client 
+            io:format("~p~n", [Why]),
+            exit(normal);
+        {From, get_library} ->
+            UserName = proplists:get_value(username, State),
+            case proplists:get_value(library_pid) of 
+                undefined -> 
+                    LibraryPid = library_process:go(UserName),
+                    From ! {library_pid, LibraryPid},
+                    loop([{username, UserName},{library_pid, LibraryPid}]);
+                LibraryPid ->
+                    From ! {library_pid, LibraryPid},
+                    loop([{username, UserName},{library_pid, LibraryPid}])
+            end
+    end.

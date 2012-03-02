@@ -1,0 +1,13 @@
+-module(erlang).
+-export(start/0).
+
+start() ->
+    code:add_patha("jiffy/ebin"), % json library
+    Doc = {[{foo, [<<"bing">>, 2.3, true]}]}.
+    DataAsBinary = <<
+    foo: "bar",
+    food: "barf",
+    good: "bars",
+    dood: "where your car?",
+    "wheres your car": "dude"
+    >>

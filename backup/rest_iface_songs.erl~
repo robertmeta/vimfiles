@@ -1,0 +1,48 @@
+%% @doc Example webmachine_resource.
+-module(rest_iface_songs).
+-export([init/1, to_html/2, allowed_methods/2, process_post/2]).
+-define(STORE_PATH, "/tmp/fileupload_demo").
+-include_lib("webmachine/include/webmachine.hrl").
+
+init([]) -> {ok, undefined}.
+
+allowed_methods(ReqData, Context) -> {['GET', 'POST'], ReqData, Context}.
+
+process_post(ReqData, Context) ->
+    ContentType = wrq:get_req_header("content-type", ReqData),
+    Boundary = string:substr(ContentType, string:str(ContentType, "boundary=") + length("boundary=")),
+    {FileName, FileSize, Content} = get_streamed_body( webmachine_multipart:stream_parts( wrq:stream_req_body(ReqData, 1024), Boundary), [],[]),
+    StorePath = filename:join([?STORE_PATH,"/", FileName]),
+    {ok} = filelib:ensure_dir(StorePath),
+    {ok} = file:write_file(StorePath, Content),
+    NewRD = wrq:append_to_response_body(
+        io_lib:format(
+            "<html><head><title>Upload Contextomplete</title></head>"
+            "<body><h1>Upload Contextomplete</h1>"
+            "<p>Received file ~s (~.2fK)</p></body></html>",
+            [filename:basename(StorePath), FileSize]), ReqData),
+    {true, NewRD, Context}.
+
+to_html(ReqData, Context) ->
+    {"<html><head><title>Webmachine File Upload Example</title></head>"
+        "<body><h1>Webmachine File Upload Example</h1>"
+        "<form action='/songs/' method='POST' enctype='multipart/form-data'>"
+        "Upload File:&nbsp<input type='file' name='filedata'/>"
+        "<input type='submit' value='Upload'></form></body></html>", 
+        ReqData, Context}.
+
+generate_docs() -> 
+    Output = "Songs supports: <ul>"
+            "<li>HTML Methods: <b>GET</b>, <b>POST</b></li>"
+            "<li>Content-Types: <u>text/html</u>, <i>text/json</i><ul>"
+            "<li><b>GET</b> <u>text/html</u> /songs/ - return user manual</li>"
+            "<li><b>POST</b> <u>text/json</u> /songs/?auth_key=<u>auth_key generated from session</u> - returns JSON with the song_key </li>"
+            "</ul>",
+    Output.
+
+get_streamed_body(done_parts, FileName, Acc) ->
+    Bin = iolist_to_binary(lists:reverse(Acc)),
+    {FileName, size(Bin)/1024.0, Bin};
+get_streamed_body({{"filedata", {Params, _Hdrs}, Content}, Next}, Props, Acc) ->
+    FileName = binary_to_list(proplists:get_value(<<"filename">>, Params)),
+    get_streamed_body(Next(),[FileName|Props],[Content|Acc]).

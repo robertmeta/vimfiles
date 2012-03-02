@@ -1,0 +1,22 @@
+-module(common_tests).
+-export([is_ok/1, parse_external_unittests/2]).
+
+is_ok(Result) ->
+    case Result of
+        "ok" -> ok;
+        _ -> Result
+    end.
+
+% parse unit tests output into [{Name,Result},...]
+parse_external_unittests("", Results) ->
+    Results;
+parse_external_unittests(Txt, Results) ->
+    case re:run(Txt, "test_\\d+_(\\S\+)\s.*(ok|FAIL|ERROR|expected fail|unexpected success)") of
+        nomatch ->
+            Results;
+        {match, [{Pos,Len},{NamePos,NameLen},{ResultPos,ResultLen}]} ->
+            Name = string:substr(Txt, NamePos+1, NameLen),
+            Result = string:substr(Txt, ResultPos+1, ResultLen),
+            NextTxt = string:substr(Txt, Pos+Len+1),
+            parse_external_unittests(NextTxt, [[Name,Result]|Results])
+    end.

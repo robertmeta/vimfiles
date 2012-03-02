@@ -1,0 +1,50 @@
+-module(http_handler_server).
+-behaviour(gen_server).
+
+-export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3]).
+
+-export([start_link/0, handle_http/1]).
+
+start_link() ->
+    gen_server:start_link(?MODULE, [], []).
+
+init([]) ->
+    {ok, {}}.
+
+handle_call(_Request, _From, State) ->
+    {reply, undefined, State}.
+
+handle_cast(_Msg, State) ->
+    {noreply, State}.
+
+handle_info(_Info, State) ->
+    {noreply, State}.
+
+terminate(_Reason, _State) ->
+    terminated.
+
+code_change(_OldVsn, State, _Extra) ->
+    {ok, State}.
+
+handle_http(Req) ->
+    handle(Req:get(method), Req:resource([lowercase, urldecode]), Req).
+
+% handle a GET on /
+handle('GET', [], Req) ->
+    Req:ok("Main home page.");
+
+% handle a GET on /users
+handle('GET', ["users"], Req) ->
+    Req:ok("Main users root.");
+
+% handle a GET on /users/{username}
+handle('GET', ["users", UserName], Req) ->
+    Req:ok("This is ~s's page.", [UserName]);
+
+% handle a GET on /users/{username}/messages
+handle('GET', ["users", UserName, "messages"], Req) ->
+    Req:ok("This is ~s's messages page.", [UserName]);
+
+% handle the 404 page not found
+handle(_, _, Req) ->
+    Req:ok("Page not found.").

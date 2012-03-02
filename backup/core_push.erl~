@@ -1,0 +1,315 @@
+%% {{{ Handle an OLE client push
+%% Parse, validate, apply and respond to a client-supplied database transaction
+%% After push, pull will be easy.
+%% }}}
+%% {{{ Logic description
+%% client-supplied state:
+%%   UserID:
+%%       unique client id supplied by X-Winamp-ID header
+%%   rev: client database revision number (ClientRev)
+%%       indicates client's state wrt:server state;
+%%       if client rev < server then it is out-of-date
+%%           no out-of-date client may PUSH new data
+%%               out-of-date clients must receive an error 409 (Conflict)
+%%                   they must PULL and merge any changes locally before 
+%%                   re-PUSHing
+%%       clients should always PULL before they PUSH
+%%   translog: list of (op, data) (ClientXLog)
+%%       op is one of {"ADD", "UPD", "DEL", "PLAYED", "TEST-REPO-RESET"}
+%%       data is: ADD/DEL/PLAYED: [{Key, Val}, ...]
+%%                UPD: [{Key, {Oldval, Newval}}, ...]
+%%
+%% server-based state:
+%%   ServerXLog:
+%%       list of all accepted client translogs.
+%%       stored in mnesia under {Username, ole, translog, Foo}
+%%       transactions are identified by their index+1
+%%       transaction 0 is special and represents an uninitialized client state
+%%           it is empty.
+%%       the first accepted user 'translog' becomes TransLog[1]
+%%   ServerUserDB:
+%%       sqlite database for this user account; their current media metadata 
+%%           state.
+%%       contains the cumulative results of application of each statement in 
+%%           'TransLog'.
+%%       stored on filesystem (local for prototype, HSS for launch)
+%%       cached in memory by authoritative erlang process
+%%           replicated to backup erlang process
+%%           flushed to backing store on a timer if changed
+%%
+%% client transaction algorithm:
+%% given valid {ClientUsername, ClientId, ClientRev, ClientXLog}:
+%%   ServerXLog, ServerUserDB = locate/create ClientUsername sqlite process
+%%   atomic:
+%%       if ClientRev is out-of-date wrt: ServerXLog:
+%%           send error (client needs to pull first, then try pushing again)
+%%       else:
+%%           if ClientXLog contents conflict with ServerUserDB:
+%%               send error (conflict)
+%%           else:
+%%               append ClientXLog to ServerXLog
+%%               update len(ServerTransLog) if it's cached somewhere
+%%               transform actions into proper SQL
+%%               "PLAYED" must reference current ClientId
+%%               apply SQL to ServerUserDB
+%% }}}
+%% {{{ Open Questions
+%% Should we merge mediahash into fields?
+%%  Currently we have {op, mediahash, fields}
+%%  Going forward we will be adding commands that may not require mediahashes.
+%%  {op, fields}?
+%% }}}
+-module(core_push).
+-behaviour(cowboy_http_handler).
+-export([init/3, handle/2, terminate/2, tests/0]).
+
+init({_Any, http}, Req, []) ->
+    {ok, Req, undefined}.
+
+% TODO: defer parsing ClientXAction json until we verify ClientRev is legit
+handle(Req, State) ->
+    {ok, {ClientUsername}} = core_support:client_state(State),
+    {ok, DBHandle} = core_sqlite:create_or_open_db(ClientUsername),
+    {RespCode, RespBody} = case parse_client_input(Req) of
+        {error, Msg} -> {error, Msg};
+        {ok, ClientId, ClientRev, ClientXAction, RawJson} ->
+            Resp = case core_support:client_rev_check(ClientRev, DBHandle) of
+                {error, too_old, Rev} ->
+                    Msg = lists:flatten(io_lib:format(
+                            "rev out-of-date (~B < ~B)", [ClientRev, Rev])),
+                    {forbidden, [util_babel:to_binary(Msg)]};
+                {error, too_high, Rev} ->
+                    Msg = lists:flatten(io_lib:format(
+                            "rev too high (~B > ~B)", [ClientRev, Rev])),
+                    {error, [util_babel:to_binary(Msg)]};
+                {ok, _Rev} ->
+                    process_client_xlog(ClientId, ClientXAction, RawJson, 
+                        DBHandle)
+            end,
+            Resp
+    end,
+
+    % generate output...
+    HttpCode = core_support:http_code_from_resp_code(RespCode),
+    % TODO: make all returns json
+    {ok, Reply} = cowboy_http_req:reply(HttpCode, [{<<"Content-Type">>, <<"application/json">>}], RespBody, Req),
+    core_sqlite:close_db(DBHandle),
+    {ok, Reply, State}.
+
+% given a request, parse/validate all client input fields
+parse_client_input(Req) ->
+    {'POST', _Req} = cowboy_http_req:method(Req),
+    PostData = case cowboy_http_req:body_qs(Req) of
+        {undefined, _} -> <<>>;
+        {X, _} -> X
+    end,
+    lager:debug("POST: ~p", [PostData]),
+    % {{{ issue with request
+    % XXX: does cowboy force "X-Winamp-ID" -> "X-Winamp-Id"?
+    % XXX: I'm setting "ID" in the request...
+    % }}}
+    {winamp_id, RawClientId} = core_support:get_winamp_id(Req),
+    RawClientRev = proplists:get_value(<<"rev">>, PostData),
+    RawClientXAction = proplists:get_value(<<"translog">>, PostData),
+    lager:debug("RawClientXAction: ~p", [RawClientXAction]),
+    case core_support:parse_client_id(RawClientId) of
+        {error, Msg} -> {error, Msg};
+        {ok, ClientId} ->
+            case core_support:parse_client_rev(RawClientRev) of
+                {error, Msg} -> {error, Msg};
+                {ok, ClientRev} ->
+                    case core_support:parse_json(RawClientXAction) of
+                        {error, Msg} -> {error, Msg};
+                        {ok, ClientXAction} -> 
+                            {ok, ClientId, ClientRev, ClientXAction, 
+                                RawClientXAction}
+                    end
+            end
+    end.
+
+
+insert(Props, Keys, Table) -> insert(Props, Keys, Table, [], []).
+insert(Props, Keys, Table, FieldLeader, ValueLeader) ->
+    % generate an SQL INSERT query string using Props keyvals that exist
+    % in Keys, if any
+    {Fields,Values} = core_support:key_vals(Props, Keys),
+    case {Fields,Values} of 
+        {[],[]} -> "";
+        _ ->
+            % FIXME: use parameterized query
+            Query = lists:flatten(io_lib:format(
+                "INSERT OR REPLACE INTO ~s (~s) VALUES (~s);",
+                [Table,
+                string:join(FieldLeader ++ ["[~s]" || _ <- Fields ], ","),
+                string:join(ValueLeader ++ ["'~s'" || _ <- Values ], ",")])),
+            core_sqlite:format(Query, Fields ++ Values)
+    end.
+
+% {{{ Update SQL Generator
+% generate SQL UPDATE query string using Props keyvals from Keys, if any
+% NOTE: unlike other commands Values from Props are in the form [Old,New]
+% TODO: the list-mangling in this function could be simplified;
+% however we should look at erlang-sqlite3's parameterized queries first
+% }}}
+update(Props, Keys, Table) ->
+    {Fields,Values} = core_support:key_vals(Props, Keys),
+    if
+        {Fields,Values} == {[],[]} -> "";
+        true ->
+            {NewFields,OldFields} = lists:unzip([{{Name, New},{Name,Old}}
+                || {Name, [Old,New]} <- lists:zip(Fields,Values)]),
+            FieldsValues =
+                lists:umerge([[K,V] || {K,V} <- NewFields]) ++
+                lists:umerge([[K,V] || {K,V} <- OldFields]),
+            % FIXE: use parameterized query
+            Query = lists:flatten(io_lib:format(
+                "UPDATE ~s SET ~s WHERE ~s;",
+                    [Table,
+                     string:join(["[~s]='~s'" || _ <- NewFields ], ","),
+                     string:join(["[~s]='~s'" || _ <- OldFields ], " AND ")])),
+            core_sqlite:format(Query, FieldsValues)
+    end.
+
+% {{{ add_sql explained
+% NOTE: Fields can contain multiple tables-worth of fields
+% NOTE: also, we're careful to whitelist fields because you can never
+% trust your input
+% }}}
+add_sql(ClientId, F) ->
+    Fields = core_support:add_field_if_needed(<<"clientid">>, ClientId, F),
+    core_support:dump_fields("add_sql:", F),
+    MainGlobal = insert(Fields, core_support:main_global_fields(), 
+        "main_global"),
+    MainLocal = insert(Fields, core_support:main_local_fields(), "main_local",
+        ["global_id"], ["last_insert_rowid()"]), % XXX: kludge
+    [MainGlobal, MainLocal].
+
+play_sql(ClientId, F) ->
+    Fields = [{<<"clientid">>,ClientId}|F], % expose to SQL
+    Mediahash= core_support:throw_if_not_exists(<<"mediahash">>, Fields,
+                {update, mediahash_missing}),
+    core_support:dump_fields("play_sql:", F),
+    % FIXME: use parameterized query
+    PlaySql = insert(Fields, core_support:main_local_fields(), "main_local",
+        ["global_id"],
+        ["(SELECT rowid FROM main_global WHERE mediahash='"++
+         util_babel:to_list(Mediahash)++"')"]),
+    lager:debug("PlaySQL Statement ~s", [PlaySql]),
+    [PlaySql].
+
+update_sql(ClientId, F) ->
+    Fields =
+        core_support:add_field_if_needed(<<"clientid">>, 
+            [ClientId, ClientId], F),
+    core_support:dump_fields("update_sql:", F),
+    % {{{ XXX: Nasty kludge 
+    %      cause it expects pairs of values, not singles... 
+    %      so this basically makes it set the mediahash and clientid back 
+    %      to... the same value (no harm no foul)
+    % }}}
+    MainGlobal = update(Fields, core_support:main_global_fields(), 
+        "main_global"),
+    lager:debug("Update Statement ~s", [MainGlobal]),
+    [MainGlobal].
+
+delete_sql(Mediahash, Filename) ->
+    % FIXME: use parameterized query
+    DelSql = core_sqlite:format(
+            "UPDATE main_global SET deleted=1 " ++
+            "WHERE [mediahash]='~s' AND [filename]='~s'",
+            [Mediahash, Filename]),
+    lager:debug("Delete Statement ~s", [DelSql]),
+    [DelSql].
+
+test_repo_reset_action(DBHandle) ->
+    {ok, _} = core_sqlite:sql_exec(DBHandle, "DELETE FROM main_local;"),
+    {ok, _} = core_sqlite:sql_exec(DBHandle, "DELETE FROM main_global;"),
+    {ok, _} = core_sqlite:sql_exec(DBHandle, "DROP TABLE transaction_log;"),
+    {ok, _} = core_sqlite:sql_exec(DBHandle,
+        "CREATE TABLE transaction_log (rev INTEGER PRIMARY KEY,
+        json TEXT NOT NULL);").
+
+add_action(ClientId, Fields, DBHandle) ->
+    [Mg, Ml] = add_sql(ClientId, Fields),
+    {ok, _} = core_sqlite:sql_exec(DBHandle, Mg),
+    {ok, _} = core_sqlite:sql_exec(DBHandle, Ml).
+
+update_action(ClientId, Fields, DBHandle) ->
+    core_support:throw_if_not_exists(<<"filename">>, Fields, 
+        {update, filename_missing}),
+    [Mg] = update_sql(ClientId, Fields),
+    {ok, _} = core_sqlite:sql_exec(DBHandle, Mg),
+    case core_sqlite:get_changed(DBHandle) of 
+        {ok, 0} -> throw({update, zero_rows_affected});
+        X -> lager:debug("DELETE got: ~p", [X]), ok
+    end.
+
+played_action(ClientId, Fields, DBHandle) ->
+    [Ps] = play_sql(ClientId, Fields),
+    {ok, _} = core_sqlite:sql_exec(DBHandle, Ps).
+
+delete_action(_ClientId, Fields, DBHandle) ->
+    Mediahash= core_support:throw_if_not_exists(<<"mediahash">>, Fields,
+                {update, mediahash_missing}),
+    Filename = core_support:throw_if_not_exists(<<"filename">>, Fields,
+                {update, filename_missing}),
+    [Ds] = delete_sql(Mediahash, Filename),
+    {ok, _} = core_sqlite:sql_exec(DBHandle, Ds),
+    case core_sqlite:get_changed(DBHandle) of 
+        {ok, 0} -> throw({update, zero_rows_affected});
+        X -> lager:debug("DELETE got: ~p", [X]), ok
+    end.
+
+process_xlog_actions(_ClientId, _DBHandle, []) ->
+    ok;
+process_xlog_actions(ClientId, DBHandle, [Xaction|XLog]) ->
+    % convert contents of client translog to intermediate form usable by sqlite3
+    case Xaction of
+        [<<"TEST-REPO-RESET">>, _, _] ->
+            test_repo_reset_action(DBHandle);
+        [<<"ADD">>, {Fields}] ->
+            add_action(ClientId, Fields, DBHandle);
+        [<<"UPDATE">>, {Fields}] ->
+            update_action(ClientId, Fields, DBHandle);
+        [<<"PLAYED">>, {Fields}] ->
+            played_action(ClientId, Fields, DBHandle);
+        [<<"DELETE">>, {Fields}] ->
+            delete_action(ClientId, Fields, DBHandle);
+        _ -> throw({action, protocol_error})
+    end,
+    process_xlog_actions(ClientId, DBHandle, XLog).
+
+process_client_xlog(ClientId, ClientXAction, RawJson, DBHandle) ->
+    {ok, _} = core_sqlite:sql_exec(DBHandle, "BEGIN;"),
+    try
+        % We can even log the REPO-RESET because it will get blown out anyway
+        {ok, _} = core_sqlite:sql_exec(DBHandle, core_sqlite:format(
+            "INSERT INTO transaction_log([json]) VALUES('~s');",
+            [RawJson]
+        )),
+        process_xlog_actions(ClientId, DBHandle, ClientXAction),
+        {ok, _} = core_sqlite:sql_exec(DBHandle, "COMMIT;"),
+        {ok, Rev} = core_sqlite:get_rev(DBHandle),
+        {ok, util_babel:to_binary(Rev)}
+    catch
+        X:Y ->
+            core_sqlite:sql_exec(DBHandle, "ROLLBACK;"),
+            Resp = case Y of
+                {action, protocol_error} -> {error, "malformed command"};
+                {update, filename_missing} -> {conflict, "filename missing"};
+                {update, zero_rows_affected} -> {conflict, "zero rows affected"};
+                _ ->
+                    Er = io_lib:format("General Fail E: ~p | R:~p~n", [X,Y]),
+                    lager:debug(Er),
+                    {conflict, Er}
+            end,
+            Resp
+    end.
+
+terminate(_Req, _State) ->
+    ok.
+
+tests() ->
+    {tests, [
+        {tested_externally, ok}
+    ]}.

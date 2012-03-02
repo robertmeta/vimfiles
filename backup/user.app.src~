@@ -1,0 +1,14 @@
+{application,
+    user, [
+        {description, "For interacting with a user"},
+        {vsn, git},
+        {modules, []},
+        {registered, []},
+        {mod, {[], []}},
+        {env, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]}
+    ]
+}.

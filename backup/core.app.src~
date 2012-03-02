@@ -1,0 +1,17 @@
+{application, core, [
+    {description, "Core server process for cloud"},
+    {vsn, git},
+    {modules, []},
+    {registered, [core_sup]},
+    {applications, [
+        kernel,
+        stdlib,
+        lager,
+        %crypto,
+        %public_key, % uncomment for SSL support (all 3 lines)
+        %ssl,
+        cowboy
+    ]},
+    {mod, {core, []}},
+    {env, []}
+]}.

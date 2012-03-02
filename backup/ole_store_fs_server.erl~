@@ -1,0 +1,71 @@
+-module(ole_store_fs_server).
+-behaviour(gen_server).
+-define(ROOT, "mock_root").
+
+-export([
+    get_handle/1,
+    start_link/0, init/1, handle_call/3, handle_cast/2, 
+    handle_info/2, terminate/2, code_change/3
+]).
+
+start_link() ->
+    gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
+
+get_handle(Path) ->
+    gen_server:call(?MODULE, {get_handle, lists:flatten(Path)}).
+
+init([]) ->
+    {ok, []}.
+
+handle_call({get_handle, Path}, _From, State) ->
+    H = case ole_cache_server:get(Path) of 
+        {not_found} -> 
+            {handle, Han} = get_handle_recursively(Path, ?ROOT, 1),
+            ole_cache_server:put(Path, Han),
+            Han;
+        GotIt -> 
+            GotIt
+    end,
+    {reply, H, State}.
+%handle_call({get_handle, Path}, From, State) ->
+%    spawn(ole_hss_support, get_item, [From, Id]),
+%    {noreply, State}.
+
+handle_cast(_Msg, State) ->
+    {noreply, State}.
+
+handle_info(_Info, State) ->
+    {noreply, State}.
+
+terminate(_Reason, _State) ->
+    ok.
+
+code_change(_OldVsn, State, _Extra) ->
+    {ok, State}.
+
+% SLOW, needs to build from bottom up, but this was quick to write
+% Make it a side effect of getting a handle?
+get_handle_recursively(Path, Branch, Depth) ->
+    {content, BD} = ole_store_server:get_data(Branch),
+    BranchData = binary_to_term(BD),
+    Find = string:sub_word(Path,Depth,$/),
+    case Find of
+        [] -> {handle, Branch};
+        _ -> 
+            NextBranch = case proplists:get_value(Find, BranchData) of 
+                undefined ->
+                    {stored_location, SL} = ole_store_server:set_data(
+                        term_to_binary([{}])
+                    ),
+                    {{_, _}, {_, _}} = ole_store_server:update_data(
+                        term_to_binary(
+                            BranchData++[{Find, SL}]
+                        ),
+                        Branch
+                    ),
+                    SL;
+                Value ->
+                    Value
+            end,
+            get_handle_recursively(Path, NextBranch, Depth+1)
+    end.

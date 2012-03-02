@@ -1,0 +1,31 @@
+-module(winamp_stats_sup).
+-behaviour(supervisor).
+
+-export([
+    start_link/1, init/1
+]).
+
+start_link(Options) ->
+    supervisor:start_link(?MODULE, [Options]).
+
+init([Options]) ->
+    spawn(winamp_stats_collector, start, []),
+    MisultinChild = {
+        winamp_stats_misultin, 
+        {misultin, start_link, [Options]}, 
+        permanent, 
+        infinity, 
+        supervisor, 
+        [winamp_stats_misultin] 
+    },
+    HandlerChild = {
+        winamp_stats_server, 
+        {winamp_stats_server, start_link, []}, 
+        permanent, 
+        60000, 
+        worker, 
+        [winamp_stats_server]
+    },
+    Children = [MisultinChild, HandlerChild],
+    RestartStrategy = {one_for_all, 10, 30},
+    {ok, {RestartStrategy, Children}}.

@@ -1,0 +1,41 @@
+use strict;
+use warnings;
+use Data::UUID;
+use WWW::Curl::Easy;
+
+my $ug = new Data::UUID;
+my $curl = WWW::Curl::Easy->new;
+my %tests = ();
+my $how_many = 10000;
+
+
+for (my $count = 1; $count <= $how_many; $count++) {
+    my $key = $ug->create_b64();
+    $key =~ s/\=\=/\./g;
+    $key =~ s/\+/-/g;
+    $key =~ s/\//_/g;
+    $tests{$count} = { $key => 0 };
+}
+print "Generated UUIDS";
+
+while ( my ($key, $value) = each %tests ) {
+    my ($k, $v) = %{$value};
+#    print "$key $k $v\n";
+    open FILE, ">./dolphin.jpg" or die $!;
+    print FILE $k;
+    close FILE;
+}
+
+#curl --data-binary "`cat dolphin.jpg`" -H "Content-Type: image/jpeg" 'http://hss-load.hss.aol.com:8010/hss/storage/winamp' -o output.txt -D headers.txt
+#$curl->setopt(CURLOPT_URL, 'http://hss-load.hss.aol.com:8010/hss/storage/winamp');
+#$curl->setopt(CURLOPT_POST, 1);
+#$curl->setopt(CURLOPT_POSTFIELDS, );
+#$curl->setopt(CURLOPT_RETURNTRANSFER, 1);
+#$curl->setopt(CURLOPT_VERBOSE, 0);
+#$curl->setopt(CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)");
+#$curl->setopt(CURLOPT_HEADER, 0);
+#$curl->setopt(CURLOPT_HTTPHEADER, array ( "Content-Type: multipart/form-data","Expect: 100-continue"));
+
+
+#my $result = $curl->perform();
+#print $result;

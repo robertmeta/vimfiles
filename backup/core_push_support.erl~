@@ -1,0 +1,79 @@
+-module(core_push_support).
+-export([tests/0, parse_client_input/1]).
+
+parse_client_id(undefined) -> {error, "missing HTTP header: X-Winamp-ID"};
+parse_client_id(BinId) ->
+    StrId = util_babel:to_list(BinId),
+    case string:str(StrId, " ") of
+        0 -> {ok, StrId};
+        _ -> {error, [<<"invalid client id">>]}
+    end.
+
+% parse client-supplied revision and ensure it is
+% a valid integer [0, 10^15]
+parse_client_rev(undefined) -> {error, [<<"undefined POST key: rev">>]};
+parse_client_rev(<<"">>) -> {error, [<<"empty POST value: rev">>]};
+parse_client_rev(BinRev) ->
+    StrRev = util_babel:to_list(BinRev),
+    case length(StrRev) > 15 of
+        true -> {error, "rev too long"}; % FIXME: 1 quadrillion revisions
+        _ ->
+            case string:to_integer(StrRev) of
+                {error, _Msg} ->
+                    {error,
+                        [<<"rev not an integer">>]};
+                {ClientRev, []} ->
+                    case ClientRev < 0 of
+                        true ->
+                            {error, "rev < 0"};
+                        _ ->
+                            {ok, ClientRev}
+                    end;
+                {_, _Leftover} ->
+                    {error, [<<"rev not an integer">>]}
+            end
+    end.
+
+parse_client_translog(undefined) -> {error, [<<"nop">>]};
+parse_client_translog(<<"">>) -> {error, [<<"nop">>]};
+parse_client_translog(BinXLog) ->
+    try
+        ClientXLog = jiffy:decode(BinXLog),
+        {ok, ClientXLog}
+    catch
+        {error, {1, truncated_json}} -> {error, [<<"truncated json">>]};
+        {error, {2, invalid_json}} -> {error, [<<"invalid json">>]}
+    end.
+
+% given a request, parse/validate all client input fields
+parse_client_input(Req) ->
+    PostData = case cowboy_http_req:body_qs(Req) of
+        {undefined, _} -> <<>>;
+        {X, _} -> X
+    end,
+    % validate client input...
+    % XXX: does cowboy force "X-Winamp-ID" -> "X-Winamp-Id"?
+    % XXX: I'm setting "ID" in the request...
+    {RawClientId, _Req} = cowboy_http_req:header(<<"X-Winamp-Id">>, Req),
+    RawClientRev = proplists:get_value(<<"rev">>, PostData),
+    RawClientXAction = proplists:get_value(<<"translog">>, PostData),
+    case parse_client_id(RawClientId) of
+        {error, Msg} -> {error, Msg};
+        {ok, ClientId} ->
+            case parse_client_rev(RawClientRev) of
+                {error, Msg} -> {error, Msg};
+                {ok, ClientRev} ->
+                    case parse_client_translog(RawClientXAction) of
+                        {error, Msg} -> {error, Msg};
+                        {ok, ClientXAction} -> {ok, ClientId, ClientRev, ClientXAction, RawClientXAction}
+                    end
+            end
+    end.
+
+tests() ->
+    {tests, [
+        {parse_client_id,       "not implemented"},
+        {parse_client_rev,      "not implemented"},
+        {parse_client_translog, "not implemented"},
+        {parse_client_input,    "not implemented"}
+    ]}.

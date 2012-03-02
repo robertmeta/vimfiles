@@ -1,0 +1,15 @@
+{application, 
+    winamp_stats, [
+        {description, "Entry point for all http connections"},
+        {vsn, git},
+        {modules, [ ]},
+        {registered, []},
+        {mod, {winamp_stats, []}},
+        {env, []},
+        {applications, [
+            kernel,
+            stdlib,
+            ole_store
+        ]}
+    ]
+}.

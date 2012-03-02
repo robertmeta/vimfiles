@@ -1,0 +1,16 @@
+{application, protocol_tests, [
+    {description, "Application for testing the protocol (currently uses curl)"},
+    {vsn, git},
+    {modules, []},
+    {registered, [protocol_tests_sup]},
+    {applications, [
+        kernel,
+        stdlib,
+        crypto,
+        public_key,
+        ssl,
+        cowboy
+    ]},
+    {mod, {protocol_tests, []}},
+    {env, []}
+]}.

@@ -1,0 +1,73 @@
+PRAGMA encoding = "UTF-8";
+
+-- for all values in main_global there is a single global "state"
+-- any update from any client is automatically propagated to other clients
+CREATE TABLE IF NOT EXISTS  main_global (
+
+    id               INTEGER PRIMARY KEY,-- NOTE: uses built-in rowid
+    -- NOTE: a client can never DELETE from main_global, because ids will be reused
+    -- by sqlite, and we need disparate main_local records to point to different
+    -- records if a file changes
+
+    deleted          INTEGER NOT NULL DEFAULT 0,
+    -- whether the local client considers a file deleted.
+    -- only the cloud can know for sure.
+
+    mediahash        TEXT    NOT NULL UNIQUE,
+    filename         TEXT    NOT NULL,            -- NOTE: can change if file's renamed
+    filesize         INTEGER NOT NULL,            -- NOTE: technically could change and still match fileid
+    `type`           INTEGER NOT NULL,            -- 0=audio, 1=video
+    mimetype         TEXT    NOT NULL,
+    title            TEXT    NOT NULL DEFAULT '',
+    artist           TEXT    NOT NULL DEFAULT '',
+    album            TEXT    NOT NULL DEFAULT '',
+    year             INTEGER NOT NULL DEFAULT -1,
+    genre            TEXT    NOT NULL DEFAULT '',
+    `comment`        TEXT    NOT NULL DEFAULT '',
+    trackno          INTEGER NOT NULL DEFAULT -1,
+    length           INTEGER NOT NULL DEFAULT -1,
+    rating           INTEGER NOT NULL DEFAULT 0,
+    tuid2            TEXT    NOT NULL DEFAULT '', -- TODO: is this used?
+    bitrate          INTEGER NOT NULL DEFAULT -1,
+    disc             INTEGER NOT NULL DEFAULT -1,
+    albumartist      TEXT    NOT NULL DEFAULT '',
+    replaygain_album_gain TEXT NOT NULL DEFAULT '',
+    replaygain_track_gain TEXT NOT NULL DEFAULT '',
+    publisher        TEXT    NOT NULL DEFAULT '',
+    composer         TEXT    NOT NULL DEFAULT '',
+    discs            INTEGER NOT NULL DEFAULT -1,
+    tracks           INTEGER NOT NULL DEFAULT -1,
+    -- "extended" fields
+    ispodcast        INTEGER NOT NULL DEFAULT 0,
+    podcastchannel   TEXT    NOT NULL DEFAULT '',
+    podcastpubdate   INTEGER NOT NULL DEFAULT -1,
+    GracenoteFileID  TEXT    NOT NULL DEFAULT '',
+    GracenoteExtData TEXT    NOT NULL DEFAULT '',
+    lossless         INTEGER NOT NULL DEFAULT -1,
+    category         TEXT    NOT NULL DEFAULT '',
+    codec            TEXT    NOT NULL DEFAULT '',
+    director         TEXT    NOT NULL DEFAULT '',
+    producer         TEXT    NOT NULL DEFAULT '',
+    width            INTEGER NOT NULL DEFAULT -1,
+    height           INTEGER NOT NULL DEFAULT -1
+);
+
+-- main_local data maintains per-client entries
+-- each client writes to its own records only, but may read from all
+CREATE TABLE IF NOT EXISTS main_local (
+    global_id       INTEGER NOT NULL,
+    clientid        TEXT    NOT NULL,
+    filetime        INTEGER NOT NULL DEFAULT 0,
+    lastupd         INTEGER NOT NULL DEFAULT 0,
+    lastplay        INTEGER NOT NULL DEFAULT -1,
+    playcount       INTEGER NOT NULL DEFAULT 0,
+    FOREIGN KEY (global_id) REFERENCES main_global (id)
+);
+
+
+-- main_local data maintains per-client entries
+-- each client writes to its own records only, but may read from all
+CREATE TABLE IF NOT EXISTS transaction_log (
+    rev             INTEGER PRIMARY KEY,
+    json            TEXT NOT NULL
+);

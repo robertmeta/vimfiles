@@ -1,0 +1,29 @@
+{sub_dirs, [
+    "apps/util",
+    "apps/jsx",
+    "apps/bigwig",
+    "apps/core",
+    "apps/external_tests",
+    "apps/library",
+    "apps/user",
+    "rel"
+]}.
+
+{require_otp_vsn, "R15"}.
+
+{erl_opts, [
+    verbose,
+    bin_opt_info,
+    fail_on_warning,
+    debug_info
+]}.
+
+{deps, [
+    {cowboy, ".*", {git, "https://github.com/extend/cowboy.git", "HEAD"}},
+    {edate, ".*", {git, "https://github.com/dweldon/edate.git", "HEAD"}},
+    {plists, ".*", {git, "https://github.com/yrashk/plists.git", "HEAD"}},
+    {ibrowse, ".*", {git, "https://github.com/cmullaparthi/ibrowse.git", "HEAD"}},
+    {jiffy, ".*", {git, "https://github.com/davisp/jiffy.git", "HEAD"}},
+    {sqlite3, ".*", {git, "https://github.com/alexeyr/erlang-sqlite3.git", "HEAD"}},
+    {erlsha2, ".*", {git, "https://github.com/vinoski/erlsha2.git", "HEAD"}}
+]}.

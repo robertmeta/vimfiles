@@ -1,0 +1,26 @@
+-module(core_hello_world).
+-behaviour(cowboy_http_handler).
+-export([tests/0, init/3, handle/2, terminate/2]).
+
+init({_Any, http}, Req, []) ->
+    {ok, Req, undefined}.
+
+handle(Req, State) ->
+    {ok, Reply} = cowboy_http_req:reply(200, [], <<"Hello World!">>, Req),
+    {ok, Reply, State}.
+
+terminate(_Req, _State) ->
+    ok.
+
+tests() ->
+    {tests, [
+        {local_only_mode, ok},
+        test_basic_connection()
+    ]}.
+
+test_basic_connection() ->
+    case util_curl:http_get(core_server:base_url()) of 
+        {_, {content, "Hello World!"}} -> 
+            {basic_connection, ok};
+        {error, R} -> {basic_connection, R}
+    end.

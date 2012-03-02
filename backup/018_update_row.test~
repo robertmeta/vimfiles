@@ -1,0 +1,5 @@
+ID="testclient"
+REV=4
+XLOG='[["UPDATE", "3c01bdbb26f358bab27f267924aa2c9a03fcfdb8", {"filename": ["/Users/rflynn93/proj/nullsoft/ole-reference-python/src/test/media/lust-for-life.mp3", "/foo/bar.mp3"]}]]'
+EXP_CODE=200
+EXP_REV=1

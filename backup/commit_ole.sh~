@@ -1,0 +1,16 @@
+cd ole-erlang-server
+git add .
+git commit -a
+cd ..
+cd ole-reference-javascript
+git add .
+git commit -a
+cd ..
+cd ole-reference-protocol
+git add .
+git commit -a
+cd ..
+cd ole-reference-python
+git add .
+git commit -a
+cd ..

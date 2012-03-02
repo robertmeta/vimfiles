@@ -1,0 +1,30 @@
+-module(winamp_stats).
+-behaviour(application).
+
+-export([
+    start/0, start/2, stop/1, get_stats_db/0
+]).
+
+start() ->
+    application:start(winamp_stats).
+
+start(_Type, _StartArgs) ->
+    Options = [
+        {port, 8001},
+        {acceptors_poolsize, 10},
+        {max_connections, 100},
+        {backlog, 1000},
+        {name, winamp_stats},
+        {loop, fun(Req) -> winamp_stats_server:handle_http(Req) end}
+    ],
+    lager:info("Starting winamp_stats on port 8001"),
+    %winamp_stats_collector_sup:start_link({time_between_runs_minutes, 1}),
+    %winamp_stats_rollup_sup:start_link({time_between_runs_minutes, 15}),
+    winamp_stats_sup:start_link(Options).
+
+stop(_State) ->
+    ok.
+
+get_stats_db() ->
+    {ok, StatsDb} = application:get_env(winamp_stats, stats_db),
+    StatsDb.

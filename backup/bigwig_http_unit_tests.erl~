@@ -1,0 +1,25 @@
+%%
+%% show details on the VM, releases, apps, etc.
+%%
+-module(bigwig_http_unit_tests).
+-behaviour(cowboy_http_handler).
+-export([init/3, handle/2, terminate/2]).
+
+-compile(export_all).
+
+init({tcp, http}, Req, _Opts) ->
+    {ok, Req, undefined_state}.
+
+handle(Req, State) ->
+    Body = all();
+    Headers = [{<<"Content-Type">>, <<"text/html">>}],
+    {ok, Req2} = cowboy_http_req:reply(200, Headers, Body, Req),
+    {ok, Req2, State}.
+
+terminate(_Req, _State) ->
+    ok.
+
+all() ->
+    % TODO: remove nasty hardcoding
+    {ok, Html} = file:read_file("/tmp/results.html"),
+    Html.

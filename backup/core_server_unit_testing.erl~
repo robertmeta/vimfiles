@@ -1,0 +1,23 @@
+%%
+%% show details on the VM, releases, apps, etc.
+%%
+-module(bigwig_http_vm).
+-behaviour(cowboy_http_handler).
+-export([init/3, handle/2, terminate/2]).
+
+-compile(export_all).
+
+init({tcp, http}, Req, _Opts) ->
+    {ok, Req, undefined_state}.
+
+handle(Req, State) ->
+    Body = jsx:term_to_json(all()),
+    Headers = [{<<"Content-Type">>, <<"application/json">>}],
+    {ok, Reply} = cowboy_http_req:reply(200, Headers, Body, Req),
+    {ok, Reply, State}.
+
+terminate(_Req, _State) ->
+    ok.
+
+all() ->
+    [{blah, <<"Foo">>}].

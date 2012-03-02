@@ -1,0 +1,16 @@
+{application,
+    utils, [
+        {description, "Random useful tools"},
+        {vsn, git},
+        {modules, [
+        ]},
+        {registered, []},
+        {mod, {[], []}},
+        {env, []},
+        {applications, [
+            kernel,
+            stdlib,
+            lager
+        ]}
+    ]
+}.

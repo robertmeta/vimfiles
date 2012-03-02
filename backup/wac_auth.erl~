@@ -1,0 +1,12 @@
+-module(wac_auth).
+-export([is_valid_uid_pw_pair/2]).
+
+is_valid_uid_pw_pair(Uid, Pw) ->
+    case Uid of
+        "user" -> case Pw of 
+                "pass" -> true;
+                _ -> false
+            end;
+        _ -> false
+    end,
+    false.

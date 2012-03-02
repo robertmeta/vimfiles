@@ -1,0 +1,16 @@
+{application,
+    reference_tests, [
+        {description, "Application for testing the references (currently only python)"},
+        {vsn, git},
+        {modules, [
+        ]},
+        {registered, []},
+        {mod, {[], []}},
+        {env, []},
+        {applications, [
+            kernel,
+            stdlib,
+            ibrowse
+        ]}
+    ]
+}.

@@ -1,0 +1,85 @@
+commit bd54c5201759022dc44bcfd7a12fe2b39b6f9153
+Author: Robert Melton <robert@robertmelton.com>
+Date:   Fri Feb 24 00:25:48 2012 -0500
+
+    Updates and cleanups of code
+
+commit 506718e1ac119b12663fae172334b81a5c3c5ca3
+Author: Ryan Flynn <Ryan.Flynn@teamaol.com>
+Date:   Thu Feb 23 17:44:52 2012 -0500
+
+    sort our custom unit tests to the top
+
+commit fd7f8b3c382b265b9d9fae70bf5eea2ea8892642
+Author: Ryan Flynn <Ryan.Flynn@teamaol.com>
+Date:   Thu Feb 23 17:44:34 2012 -0500
+
+    mute the unittest css color a little; stick with green for pass
+
+commit 559f0ce198c0daa7805c85ded3eca97166f99ac0
+Author: Ryan Flynn <Ryan.Flynn@teamaol.com>
+Date:   Thu Feb 23 16:54:54 2012 -0500
+
+    convert bashism to dash-friendly
+
+commit bf38a31e8e62327025ede239f691f7bd56a4cac2
+Author: Ryan Flynn <Ryan.Flynn@teamaol.com>
+Date:   Thu Feb 23 16:45:55 2012 -0500
+
+    specify bash specifically for test.sh; o2d2 is running dash which doesn't like some bashisms
+
+commit cd9935284b4042ab0acd8636cc58a3934a18a123
+Author: Robert Melton <robert@robertmelton.com>
+Date:   Thu Feb 23 16:03:56 2012 -0500
+
+    more style updates
+
+commit 896d3567c6ac18099f13f7bee5a59375666dcec9
+Merge: d4623ce 79cf266
+Author: Robert Melton <robert@robertmelton.com>
+Date:   Thu Feb 23 15:52:56 2012 -0500
+
+    Merge branch 'master' of ssh://git.cm.aol.com/nullsoft/ole-erlang-server
+
+commit d4623cebd3266b5754bf9d020bb85d93e52a8e68
+Author: Robert Melton <robert@robertmelton.com>
+Date:   Thu Feb 23 15:52:42 2012 -0500
+
+    Stylized now
+
+commit 79cf266401182f5cc8922b6226156a9406068ee2
+Author: Ryan Flynn <Ryan.Flynn@teamaol.com>
+Date:   Thu Feb 23 15:41:55 2012 -0500
+
+    refactor parse_client_input out of handle
+
+commit 246f429787a6c81e84610976ce7c4968a29df95f
+Author: Ryan Flynn <Ryan.Flynn@teamaol.com>
+Date:   Thu Feb 23 15:32:45 2012 -0500
+
+    long lines to ~80 chars
+
+commit 5f8415255e8aeb2645176347b535b3976e811b07
+Author: Ryan Flynn <Ryan.Flynn@teamaol.com>
+Date:   Thu Feb 23 15:12:05 2012 -0500
+
+    core_push: implement input validation for client data; passes unit tests 001-008
+
+commit 7866da05d15d0e753c626c9fb9a9a3eee34f620e
+Author: Ryan Flynn <Ryan.Flynn@teamaol.com>
+Date:   Thu Feb 23 15:10:45 2012 -0500
+
+    reorder tests by simplicity
+
+commit 789f871f1f59f358811249ba08353432575a0376
+Author: Ryan Flynn <Ryan.Flynn@teamaol.com>
+Date:   Thu Feb 23 15:08:30 2012 -0500
+
+    fix clientid to really be missing for test
+
+commit 5c527bff6360148e23a4d399667349b4fb9e8f01
+Author: Ryan Flynn <Ryan.Flynn@teamaol.com>
+Date:   Thu Feb 23 13:26:12 2012 -0500
+
+    prefix unused vars with _ to quiet build
+

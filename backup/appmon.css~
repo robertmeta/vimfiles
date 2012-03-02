@@ -1,0 +1,61 @@
+#eoappmon-graph {
+    position: relative;
+    width: 95%;
+    height: 85%;
+    margin: auto;
+    margin-top: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+#appmon .app-name,
+#appmon .app-version,
+#appmon .registered-name,
+#appmon .pid-ic,
+#appmon .pid-cf,
+#appmon .pid {
+    display: block;
+}
+
+#appmon-graph-label div.node {
+    height: 50px;
+    width: 97px;
+    cursor: pointer;
+    color: #000;
+    font-size: 0.8em;
+    text-align: center;
+    padding: 5px 0px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+#appmon .inbox {
+    font-family: arial unicode ms, sans-serif;
+    font-size: 14px;
+    padding-left: 2px;
+}
+
+#appmon .messages {
+    display: block;
+    position: absolute;
+    bottom: 1px;
+    right: 6px;
+    height: 18px;
+}
+
+#appmon .process {
+    border: 1px solid #0ff;
+}
+
+#appmon .port {
+    border: 1px dotted #ff0;
+}
+
+#appmon .supervisor {
+    border: 2px solid #f00;
+}
+
+#appmon .named {
+    border: 2px solid #00f;
+}
+

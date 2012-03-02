@@ -1,0 +1,12 @@
+{application, bigwig,
+ [
+  {description, "web-based suite of tools for interrogating an erlang system"},
+  {vsn, git},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { bigwig_app, []}},
+  {env, []}
+ ]}.

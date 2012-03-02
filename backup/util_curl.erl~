@@ -1,0 +1,17 @@
+-module(util_curl).
+-export([http_get/1, http_get/2]).
+
+http_get(Url) ->
+    http_get(Url, []).
+
+http_get(Url, H) ->
+    case ibrowse:send_req(Url, H, get) of
+        {ok, "200", Headers, Body} -> {{headers, Headers}, {content, Body}};
+        {ok, "404", _Headers, _Body} -> {error, not_found};
+        {error, _, _Headers, Body} -> {error, Body}
+    end.
+
+tests() ->
+    {tests, [
+        {http_get, "not tested"}
+    ]}.

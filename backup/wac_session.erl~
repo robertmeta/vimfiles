@@ -1,0 +1,46 @@
+-module(wac_session).
+-export([init/1, to_html/2, to_json/2]).
+-export([content_types_provided/2, allowed_methods/2, is_authorized/2]).
+-include_lib("webmachine/include/webmachine.hrl").
+
+init([]) -> {ok, undefined}.
+
+is_authorized(ReqData, Context) -> 
+    Message = "Wrong or missing uid or pw",
+    case wac_auth:is_valid_uid_pw_pair(wrq:get_qs_value("uid", ReqData), wrq:get_qs_value("pw", ReqData)) of 
+        true -> {true, ReqData, {authorized, yes}};
+        _ -> {Message, ReqData, Context}
+    end.
+
+to_html(ReqData, Context) ->
+    {generate_docs(), ReqData, Context}.
+
+to_json(ReqData, Context) ->
+    {generate_auth_key(Context), ReqData, Context}.
+
+allowed_methods(ReqData, Context) ->
+    {['GET'], ReqData, Context}.
+
+content_types_provided(ReqData, Context) ->
+    {[{"text/html", to_html},{"text/json", to_json}], ReqData, Context}.
+
+generate_auth_key(Context) ->
+    case Context of 
+        {authorized, yes} -> mochijson2:encode({struct, [{<<"auth_key">>, <<"12345">>}]});
+        _ -> mochijson2:encode({struct, [{<<"auth_key">>, <<"0">>}]})
+    end.
+
+generate_docs() -> 
+    Output = "Session supports: <ul>"
+            "<li>HTML Methods: <b>GET</b></li>"
+            "<li>Content-Types: <u>text/html</u>, <i>text/json</i><ul>"
+            "<li><b>GET</b> <u>text/html</u> /session/ - return user manual</li>"
+            "<li><b>GET</b> /session/?uid=<u>userid</u>&pw=<u>password</u> - returns JSON with the auth_key </li>"
+            "</ul>",
+    Output.
+
+%generate_etag(ReqData, Context) ->
+%    {mochihex:to_hex(generate_docs()), ReqData, Context}.
+
+%encodings_provided(ReqData, Context) ->
+%    {[{"gzip", fun(X) -> zlib:gzip(X) end}], ReqData, Context}.

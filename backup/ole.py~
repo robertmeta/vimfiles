@@ -1,0 +1,186 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# ex: set ts=4 et:
+
+"""
+Data flow:
+
+    LocalMedia -> OLEMediaFile -> OLEDB
+                  OLEMediaFile <- OLEDB
+API:
+
+    LocalMedia
+		Represents an on-disk media file
+		Contains only the metadata (and data) that a media file contains
+        Include 'songdata' field representing binary MP3 frames
+        Metadata (and songdata) changable
+        Serializes to/from disk
+
+    OLEMediaFile
+        OLE's view of a LocalMedia file
+		Contains all OLE-specific metadata: filehash, playcount, lastplay, etc.
+		Can be created from an existing LocalMedia or from OLEDB data
+        .play()
+
+    OLEDB
+        interface to sqlite 'ole.db' file; puts fields in the right place
+        Creation: always via OLEScan's LocalMedia
+        Read: generates an OLEMediaFile
+        Update:
+            via OLEScan for file-centric fields
+            from OLEMediaFiles for OLE-centric fields
+        Delete:
+            if OLEScan runs and doesn't find a file?
+    
+    OLEScan
+        scan the on-disk files and compare with OLEDB representation
+
+"""
+
+import sqlite3
+import os
+
+from localmedia import LocalMedia
+
+class OLEDB:
+    def __init__(self, basedir):
+        self.basedir = basedir
+        self.path = os.path.join(self.basedir, 'ole.db')
+        self.dbconn = sqlite3.connect(self.path)
+        self.dbconn.isolation_level = 'DEFERRED' # require explicit commit()
+    
+class OLEMedia:
+    """
+    OLE's view of a LocalMedia file
+    """
+
+    @staticmethod
+    def fromdisk(path):
+        lm = LocalMedia(path)
+        return OLEMedia(lm, path)
+
+    @staticmethod
+    def fromdb(dbconn):
+        # build lm obj from database
+        # construct
+        pass
+
+    def __init__(self, lm, path):
+
+        self.localmedia = lm
+
+        self.data = {
+            # global data
+            'filehash'         : None,
+            'filename'         : os.path.abspath(path),
+            'filesize'         : -1,
+            'mimetype'         : 'application/octet-stream',
+            'type'             : 0,
+
+            # local data
+            'filetime'         : None,
+            'lastupd'          : None,
+            'lastplay'         : -1,
+            'playcount'        : 0,
+
+            'rating'           : '',
+            'tuid2'            : '',
+            'albumartist'      : '',
+            'replaygain_album_gain' : '',
+            'replaygain_track_gain' : '',
+            # extended fields
+            'ispodcast'        : 0,
+            'podcastchannel'   : '',
+            'podcastpubdate'   : '',
+            'GracenoteFileID'  : '',
+            'GracenoteExtData' : '',
+            'lossless'         : 0,
+            'category'         : '',
+            'codec'            : '',
+            'director'         : '',
+            'width'            : -1,
+            'height'           : -1,
+        }
+
+        #self.data['filehash'] = sha1(self.data['songdata'])
+
+    def __repr__(self):
+        return 'OLEMedia %s%s %s %3ub %s time=<%s> play=<x%d %26s> %s' % (
+                self.data['filehash'][:8],
+                '...' if sha1(self.data['songdata']) == self.data['filehash'] else '!!!',
+                os.path.basename(self.data['filename']),
+                self.data['filesize'],
+                self.type(),
+                self.data['filetime'],
+                self.data['playcount'],
+                self.data['lastplay'],
+                self.localmedia)
+
+    def play(self):
+        self.data['lastplay'] = self.now()
+        self.data['playcount'] += 1
+
+    def save(self, clientid)
+        self.data['filetime'] = self.now()
+        self.data['filehash'] = sha1(self.data['songdata'])
+        self.serialize()
+
+    def type(self):
+        if self.data['type'] == 1:
+            return 'video'
+        return 'audio'
+
+    def now(self):
+        return str(datetime.datetime.utcnow())
+
+
+
+class OLE:
+
+    @staticmethod
+    def client_id():
+        clientid = None
+        if not os.path.exists('.winamp-id'):
+            guid = str(datetime.datetime.utcnow()) + '-' + str(random.randint(0, 2**31))
+            clientid = sha1(guid)
+            f = open('.winamp-id', 'w')
+            f.write(clientid)
+            f.close()
+        else:
+            f = open('.winamp-id', 'r')
+            clientid = f.readline().strip()
+            f.close()
+        return clientid
+
+if __name__ == '__main__':
+    import unittest
+
+    # ensure media-mock/ dir exists
+    try:
+        os.mkdir('media-mock')
+    except OSError, e:
+        if e.errno != errno.EEXIST:
+            raise e
+
+    # create a new song and put it through its paces
+
+    ClientId = client_id()
+    print 'ClientId=%s' % (ClientId,)
+    song = LocalMedia.new('media-mock/stayin-alive.mp3')
+    song['artist'] = 'Bee Gees'
+    song['title'] = "Stayin' Alive"
+    song['album'] = 'Saturday Night Fever'
+    print song
+    song.save(ClientId)
+    #####
+    song = LocalMedia('media-mock/stayin-alive.mp3')
+    print song
+    song.play()
+    print song
+    song.play()
+    print song
+    song.edit_songdata()
+    print song
+    song.save(ClientId)
+    print song
+

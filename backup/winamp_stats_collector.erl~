@@ -1,0 +1,41 @@
+-module(winamp_stats_collector).
+-define(MINUTE, 1000*60).
+-export([
+    start/0, push_to_store_fs/0
+]).
+
+start() ->
+    case ets:info(winamp_stats) of 
+        undefined -> 
+            ets:new(
+                winamp_stats,
+                [
+                    set, 
+                    public, 
+                    named_table, 
+                    {write_concurrency,true},
+                    {read_concurrency,true}, 
+                    compressed
+                ]
+            );
+        _ -> 
+            lager:info("ETS table already setup")
+    end,
+    loop(),
+    ok.
+
+loop() ->
+    timer:sleep(?MINUTE*60),
+    push_to_store_fs(),
+    loop().
+
+push_to_store_fs() ->
+    lager:info("Pushing"),
+    ets:foldr(
+        fun({K,V},Acc) ->
+            ets:delete(winamp_stats, K),
+            [Acc]++E
+        end,
+        [],
+        winamp_stats
+    ).

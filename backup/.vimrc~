@@ -136,7 +136,7 @@
     " TagList Settings {
         let Tlist_Auto_Open=0 " let the tag list open automagically
         let Tlist_Compact_Format = 1 " show small menu
-        let Tlist_Ctags_Cmd = 'ctags' " location of ctags
+        let Tlist_Ctags_Cmd = 'etags' " location of ctags
         let Tlist_Enable_Fold_Column = 0 " do show folding tree
         let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself
         let Tlist_File_Fold_Auto_Close = 0 " fold closed other trees

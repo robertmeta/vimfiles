@@ -1,0 +1,33 @@
+{sys, [
+    {lib_dirs, ["../apps", "../deps"]},
+    {rel, "olenode", "1", [
+        kernel,
+        stdlib,
+        sasl,
+        ole_store,
+        ole_rest
+    ]},
+    {rel, "start_clean", "", [
+        kernel,
+        stdlib
+    ]},
+    {boot_rel, "olenode"},
+    {profile, embedded},
+    {excl_archive_filters, [".*"]},
+    {excl_sys_filters, ["^bin/.*",
+        "^erts.*/bin/(dialyzer|typer)"]},
+        {app, sasl, [{incl_cond, include}]},
+        {app, ole_rest, [{incl_cond, include}]},
+        {app, ole_store, [{incl_cond, include}]}
+    ]}.
+
+{target_dir, "olenode"}.
+
+{overlay, [
+    {mkdir, "log/sasl"},
+        {copy, "files/erl", "{{erts_vsn}}/bin/erl"},
+        {copy, "files/nodetool", "{{erts_vsn}}/bin/nodetool"},
+        {copy, "files/olenode", "bin/olenode"},
+        {copy, "files/app.config", "etc/app.config"},
+        {copy, "files/vm.args", "etc/vm.args"}
+    ]}.

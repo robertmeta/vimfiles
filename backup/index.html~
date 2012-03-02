@@ -1,0 +1,193 @@
+<html>
+  <head>
+    <title>So Peter... what's happening?</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/body.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/etop_table.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/appmon.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/unittests.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.css" />
+  </head>
+  <body>
+    <div id="header">
+      <h1>Winamp Cloud Monitor (So Peter... what's happening?)</h1>
+    </div>
+    <div id="side">
+      <ul id="tools">
+        <li><a class="tool" href="dashboard">Dashboard</a></li>
+        <li><a class="tool" href="unittests" onclick="UnitTests();">Unit Tests</a></li>
+        <li><a class="tool" href="reports">Reports</a></li>
+        <li><a class="tool" href="etop">Processes</a></li>
+        <li><a class="tool" href="appmon">Applications</a></li>
+      </ul>
+
+      <div id="nodestats">
+        <strong>Node Stats</strong>
+        <dl id="stats">
+          <dt>Processes</dt>
+          <dd class="process_count"></dd>
+          <dt>Reductions</dt>
+          <dd class="reductions"></dd>
+          <dt>Bytes In</dt>
+          <dd class="bytes_in"></dd>
+          <dt>Bytes Out</dt>
+          <dd class="bytes_out"></dd>
+          <dt>Run Queue</dt>
+          <dd class="run_queue"></dd>
+          <dt>Uptime</dt>
+          <dd class="uptime"></dd>
+        </dl>
+        <span id="sl_reds"></span>
+      </div>
+
+      <div id="topstats">
+        <!-- etop stats -->
+        <strong>Node Info</strong>
+        <dl id="node_info">
+          <dt>Node</dt>
+          <dd id="glob_node"></dd>
+          <dt>Clock</dt>
+          <dd id="glob_clock"></dd>
+          <dt>CPU</dt>
+          <dd id="glob_cpu"></dd>
+          <dt>Total mem</dt>
+          <dd id="glob_tot"></dd>
+          <dt>Binary</dt>
+          <dd id="glob_bin"></dd>
+          <dt>NProcesses</dt>
+          <dd id="glob_nprocs"></dd>
+          <dt>Processes</dt>
+          <dd id="glob_procs"></dd>
+          <dt>Code</dt>
+          <dd id="glob_code"></dd>
+          <dt>Run Queue</dt>
+          <dd id="glob_runqueue"></dd>
+          <dt>Atoms</dt>
+          <dd id="glob_atom"></dd>
+          <dt>ETS</dt>
+          <dd id="glob_ets"></dd>
+        </table>
+      </div>
+
+      <div id="system_info">
+        <strong>System Info</strong>
+        <dl>
+          <dt>Process Limit</dt>
+          <dd class="process_limit"></dd>
+          <dt>Kernel Poll</dt>
+          <dd class="kernel_poll"></dd>
+          <dt>Logical Processors</dt>
+          <dd class="logical_processors"></dd>
+          <dt>OTP Release</dt>
+          <dd class="otp_release"></dd>
+          <dt>Architecture</dt>
+          <dd class="system_architecture"></dd>
+        </dl>
+      </div>
+    </div>
+    <div id="main">
+
+      <div id="dashboard" class="tool">
+          <div id="applications">
+            <ul id="running">
+              <li class="running app _tpl"><a href="javascript:BigWig.activate('appmon');">
+                <span class="name"></span>
+                <span class="version"></span>
+                <p class="description"></p>
+              </a></li>
+            </ul>
+            <ul id="loaded">
+              <li class="loaded app _tpl"><a href="javascript:BigWig.activate('appmon');">
+                <span class="name"></span>
+                <span class="version"></span>
+                <p class="description"></p>
+              </a></li>
+            </ul>
+          </div>
+      </div>
+
+      <div id="appmon" class="tool">
+        <button id="appmon-live-toggle">Disable live updates</button>
+        <textbox id="appmod-search-textbox"></textbox>
+        <div id="appmon-graph"></div>
+      </div>
+
+      <div id="unittests" class="tool">
+      </div>
+
+      <div id="etop" class="tool">
+        <div>
+          <form method="POST">
+            <input type="checkbox" name="accumulate" id="accumulate">Accumulate</input>
+            <input type="checkbox" name="pause" id="pause">Pause</input>
+          </form>
+        </div>
+        <table class="display" id="etop_table">
+          <thead>
+            <tr>
+              <th>pid</th>
+              <th>name</th>
+              <th>time</th>
+              <th>reds</th>
+              <th>mem</th>
+              <th>mq</th>
+              <th>mfa</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="reports" class="tool">
+        <ul class="menu">
+          <li><a class="filter current" href="/rb">all</a></li>
+          <li><a class="filter" href="/rb?level=error">error</a></li>
+          <li><a class="filter" href="/rb?level=info">info</a></li>
+        </ul>
+        <ul id="report" class="section all" data-sort="desc" data-filter="all" data-limit="5000" data-count="0">
+          <li class="report _tpl">
+            <a href="#" class="report_level"></a>
+            <span class="group_leader"></span>
+            <span class="pid"></span>
+            <span class="report_type"></span>
+            <span class="date"></span>
+
+            <div class="application_start">
+              <span class="label">Application start:</span>
+              <span class="application"></span>
+              <span class="started_at"></span>
+            </div>
+
+            <div class="started">
+              <span class="label">Started:</span>
+              <span class="started_pid"></span>
+              <span class="started_name"></span>
+            </div>
+
+            <div class="info">
+              <pre class="data"></pre>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.dataTables.extra.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.timers-1.2.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/js/jit-2.0.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/date.js"></script>
+    <script type="text/javascript" src="/static/js/tpl.js"></script>
+    <script type="text/javascript" src="/static/js/renderer.js"></script>
+    <script type="text/javascript" src="/static/js/rb.js"></script>
+    <script type="text/javascript" src="/static/js/et.js"></script>
+    <script type="text/javascript" src="/static/js/stats.js"></script>
+    <script type="text/javascript" src="/static/js/appmon.js"></script>
+    <script type="text/javascript" src="/static/js/unittests.js"></script>
+    <script type="text/javascript" src="/static/js/bigwig.js"></script>
+
+  </body>
+</html>

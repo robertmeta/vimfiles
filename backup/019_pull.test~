@@ -1,0 +1,7 @@
+NOTE='pull transaction log up til now'
+ACTION='pull'
+ID="testclient"
+REV=0 # from the beginning...
+XLOG='[["PULL", {"rev":0}]]'
+EXP_CODE=200
+EXP_REV='[...]'

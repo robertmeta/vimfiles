@@ -1,0 +1,15 @@
+-module(ole_store).
+-behaviour(application).
+
+-export([start/0, start/2, stop/1]).
+
+start() -> 
+    application:start(inets),
+    application:start(ole_store).
+
+start(_StartType, _StartArgs) ->
+    error_logger:info_msg("Starting ole_store application...~n"),
+    ole_store_sup:start_link().
+
+stop(_State) ->
+    ok.

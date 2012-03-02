@@ -1,0 +1,15 @@
+{application, 
+    utils, [
+        {description, "Winamp Statistics Gathering"},
+        {vsn, git},
+        {modules, [
+        ]},
+        {registered, []},
+        {mod, {[], []}},
+        {env, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]}
+    ]
+}.

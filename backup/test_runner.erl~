@@ -1,0 +1,108 @@
+-module(test_runner).
+-export([start/0]).
+
+start() -> 
+    process_flag(priority, low)
+    go().
+
+go() ->
+    go([{times_run, 1}]).
+
+go(State) ->
+    TimesRun = proplists:get_value(times_run, State),
+    Html = lists:flatten([
+        "Times Run: ",
+        integer_to_list(TimesRun),
+        "</br>Last Run: ",
+        nice_date(),
+        "</hr><table class='unittestoutside'>",
+        unit_tests(),
+        "</table>"
+    ]),
+    write_html(Html),
+    timer:sleep(60*1000),
+    go([{times_run, TimesRun+1}]).
+
+nice_date() ->
+    {{Ye,Mo,Da},{Ho,Mi,Se}} = erlang:localtime(),
+    io_lib:format("~4..0B-~2..0B-~2..0B @~2..0B:~2..0B.~2..0B", [Ye,Mo,Da,Ho,Mi,Se]).
+
+unit_tests() ->
+    [
+        [run_tests(Module) || {Module, _Filename} <- code:all_loaded()],
+        [run_test(Module) || {Module, _Filename} <- code:all_loaded()],
+        [run_missing(Module) || {Module, _Filename} <- code:all_loaded()]
+    ].
+
+run_tests(Module) ->
+    case erlang:function_exported(Module, tests, 0) of
+        true ->
+            run_test(Module, tests);
+        _ -> ""
+    end.
+
+run_test(Module) ->
+    case erlang:function_exported(Module, test, 0) of
+        true -> 
+            run_test(Module, test);
+        _ -> ""
+    end.
+
+run_missing(Module) ->
+    case erlang:function_exported(Module, tests, 0) of
+        false -> 
+            case erlang:function_exported(Module, test, 0) of
+                false -> 
+                    write_row(Module, "missingrow", "untested");
+                _ -> ""
+            end;
+        _ -> ""
+    end.
+
+run_test(Module, Function) ->
+    case erlang:function_exported(Module, Function, 0) of
+        true ->
+            case Module:Function() of
+                {tests, R} ->
+                    multiple_results(Module, R);
+                ok ->
+                    write_row(Module, "passedrow", "passed");
+                Reason ->
+                    write_row(Module, "failedrow", "failed", Reason)
+            end;
+        false -> ""
+    end.
+
+multiple_results(M, R) ->
+    AllPass = lists:all(fun({_Atom,Res}) -> Res == ok end, R),
+    PassClass =
+        if
+            AllPass -> "innerpassedrow";
+            true -> "innerfailedrow"
+        end,
+    [
+        "<tr class='subtestrow'><td class='subtestheader " ++ PassClass ++ "'>",
+        atom_to_list(M),
+        "</td><td><table class='unittestinside'>", 
+        [handle_multiple_row(Atom,Result) || {Atom, Result} <- R], 
+        "</table></td></tr>"
+    ].
+
+handle_multiple_row(Atom,Result) -> 
+    case Result of 
+        ok ->
+            write_row(Atom, "innerpassedrow", "passed");
+        Reason ->
+            write_row(Atom, "innerfailedrow", "failed", Reason)
+    end.
+
+write_row(M, Class, Type, More) ->
+    io_lib:format("<tr class='~s'>
+            <td>~s</td><td>~s :: ~s</td></tr>", [Class, M, Type, More]).
+write_row(M, Class, Type) ->
+    io_lib:format("<tr class='~s'>
+            <td>~s</td><td>~s</td></tr>", [Class, M, Type]).
+
+write_html(Html) ->
+    % TODO: Remove hardcored path
+    ok = file:write_file("/tmp/results.html", Html).

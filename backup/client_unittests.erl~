@@ -1,0 +1,39 @@
+%%
+%% run client unit tests and expose for erlang via tests()
+%% 
+
+-module(client_unittests).
+-export([tests/0]).
+
+% parse unit tests output into [{Name,Result},...]
+parse_python_unittests("", Tests) ->
+    Tests;
+parse_python_unittests(Txt, Tests) ->
+    case re:run(Txt, "test_\\d+_(\\S\+).*(ok|FAIL|expected fail)") of
+        nomatch -> Tests;
+        {match, [{Pos,Len},{NamePos,NameLen},{ResultPos,ResultLen}]} ->
+            Name = string:substr(Txt, NamePos+1, NameLen),
+            Result = string:substr(Txt, ResultPos+1, ResultLen),
+            NextTxt = string:substr(Txt, Pos+Len+1),
+            parse_python_unittests(NextTxt, [[Name,Result]|Tests])
+    end.
+
+tests_dummy(Result) ->
+    case Result == "ok" of
+        true -> ok;
+        false -> Result
+    end.
+
+tests() ->
+    % HACK: parses python unittest output into Results for the same function; results already 
+    % in the parameters...
+    {ok, Cwd} = file:get_cwd(),
+    % NOTE: doesn't handle quotes in the path
+    % FIXME: assumes get_cwd returns src path; assumes both projects are checked 
+    % out into same dir
+    TestCmd = io_lib:format("make -C \"~s/../ole-reference-python/src\" test", [Cwd]),
+    Txt = os:cmd(TestCmd),
+    Args = parse_python_unittests(Txt, []),
+    % TODO: Leaks atoms, but for Friday it is ok
+    Results = [{list_to_atom(Atom), tests_dummy(Msg)} || [Atom, Msg] <- lists:reverse(Args)],
+    {tests, Results}.

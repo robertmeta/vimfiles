@@ -1,0 +1,18 @@
+-module(http_handler).
+-behaviour(application).
+
+-export([start/0, start/2, stop/1]).
+
+start() -> 
+    application:start(http_handler).
+
+start(_Type, _StartArgs) ->
+    % start main application supervisor
+    Options = [
+        {port, 8080},
+        {loop, fun(Req) -> http_handler_server:handle_http(Req) end}
+    ],
+    http_handler_sup:start_link(Options).
+
+stop(_State) ->
+    ok.

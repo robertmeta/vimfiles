@@ -1,0 +1,76 @@
+-module(core_pull).
+-behaviour(cowboy_http_handler).
+-export([tests/0, init/3, handle/2, terminate/2]).
+
+init({_Any, http}, Req, []) ->
+    {ok, Req, undefined}.
+
+% TODO: defer parsing ClientXAction json until we verify ClientRev is legit
+handle(Req, State) ->
+    {ok, {ClientUsername}} = core_support:client_state(State),
+    {ok, DBHandle} = core_sqlite:create_or_open_db(ClientUsername),
+    {RespCode, RespBody} = case parse_client_input(Req) of
+        {error, Msg} -> {error, Msg};
+        {ok, _ClientId, ClientRev} ->
+            Resp = case core_support:client_rev_check(ClientRev, DBHandle) of
+                {error, too_old, Rev} ->
+                    % XXX: This is what we want!
+                    {ok, generate_update_from_rev(ClientRev, DBHandle)};
+                {error, too_high, Rev} ->
+                    Msg = lists:flatten(io_lib:format(
+                            "rev too high (~B > ~B)", [ClientRev, Rev])),
+                    {error, [util_babel:to_binary(Msg)]};
+                {ok, _Rev} ->
+                    {error, "Already up to date"}
+            end,
+            Resp
+    end,
+
+    % generate output...
+    HttpCode = core_support:http_code_from_resp_code(RespCode),
+    {ok, Reply} = cowboy_http_req:reply(HttpCode, 
+        [{<<"Content-Type">>, <<"application/json">>}], RespBody, Req),
+    core_sqlite:close_db(DBHandle),
+    {ok, Reply, State}.
+
+% given a request, parse/validate all client input fields
+parse_client_input(Req) ->
+    {'POST', _Req} = cowboy_http_req:method(Req),
+    PostData = case cowboy_http_req:body_qs(Req) of
+        {undefined, _} -> <<>>;
+        {X, _} -> X
+    end,
+    lager:debug("POST: ~p", [PostData]),
+    % {{{ issue with request
+    % XXX: does cowboy force "X-Winamp-ID" -> "X-Winamp-Id"?
+    % XXX: I'm setting "ID" in the request...
+    % }}}
+    {winamp_id, RawClientId} = core_support:get_winamp_id(Req),
+    RawClientRev = proplists:get_value(<<"rev">>, PostData),
+    case core_support:parse_client_id(RawClientId) of
+        {error, Msg} -> {error, Msg};
+        {ok, ClientId} ->
+            case core_support:parse_client_rev(RawClientRev) of
+                {error, Msg} -> {error, Msg};
+                {ok, ClientRev} -> {ok, ClientId, ClientRev}
+            end
+    end.
+
+generate_update_from_rev(Rev, DBHandle) ->
+    Sql = ("SELECT * FROM transaction_log 
+             WHERE rowid > "++util_babel:to_list(Rev)++"
+          ORDER BY rowid"),
+    lager:debug("SQL: ~p", [Sql]),
+    {ok,[{columns,["rev","json"]},{rows,Results}]} = core_sqlite:sql_exec(DBHandle, Sql),
+    X = lists:flatten([jiffy:decode(R) || {Num, R} <- Results]),
+    EncodeMe = {[{fullupdate, X}]},
+    lager:debug("EncodeMe: ~p", [EncodeMe]),
+    jiffy:encode(EncodeMe).
+
+terminate(_Req, _State) ->
+    ok.
+
+tests() ->
+    {tests, [
+        {tested_externally, ok}
+    ]}.

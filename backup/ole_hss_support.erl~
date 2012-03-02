@@ -1,0 +1,231 @@
+-module(ole_hss_support).
+-define(INITIALREAD, 8).
+
+-export([
+    delete_item/1, delete_item/2, set_item/3, set_item/4,
+    update_item/3, update_item/4, get_item/1, get_item/2,
+    copy_item/1, copy_item/2, stream_item/2, filter_stream/2
+]).
+
+delete_item(From, Id) ->
+    gen_server:reply(From, delete_item(Id)).
+delete_item(Id) ->
+    case http_exists(url_for_get(Id)) of 
+        {exists, true} -> 
+            case http_delete(url_for_get(Id)) of
+                {deleted, _Url} -> {deleted, Id};
+                Fail -> Fail
+            end;
+        _ -> 
+            {not_found}
+    end.
+
+set_item(From, Data, ContentType, Id) ->
+    gen_server:reply(From, set_item(Data, ContentType, Id)).
+set_item(Data, ContentType, Id) ->
+    set_item_with_header(Data, ContentType, Id, "").
+set_item_with_header(Data, ContentType, Id, Header) ->
+    case http_exists(url_for_get(Id)) of 
+        {exists, false} -> 
+            FullData = add_attribute(Header, Data),
+            case http_post(url_for_set(Id), ContentType, FullData) of 
+                {posted, Body} -> {stored_location, remove_hss_leader(Body)}
+            end;
+        _ -> 
+            {already_exists}
+    end.
+
+% SLOW -- due to locking needs
+update_item(From, Data, ContentType, Id) ->
+    gen_server:reply(From, update_item(Data, ContentType, Id)).
+update_item(Data, ContentType, Id) ->
+    case http_exists(url_for_get(Id)) of
+        {exists, true} -> 
+            {locked} = ole_cache_server:lock(Id),
+            {copy_location, CL} = copy_item(Id),
+            {deleted, Id} = delete_item(Id),
+            {stored_location, NL} = set_item_with_header(
+                Data, 
+                ContentType, 
+                Id, 
+                "\nChild-Of: "++CL++"\n"
+            ),
+            {unlocked} = ole_cache_server:unlock(Id),
+            {{stored_location, NL}, {backup_location, CL}};
+        _ -> 
+            {not_found}
+    end.
+
+get_item(From, Id) ->
+    gen_server:reply(From, get_item(Id)).
+get_item(Id) ->
+    case http_exists(url_for_get(Id)) of 
+        {exists, true} -> 
+            case http_get(url_for_get(Id), binary) of 
+                {{_,_}, {content, Body}} -> 
+                    {{_, _},{data,D}} = split_attributes(Body),
+                    {content, D}
+            end;
+        _ -> {not_found}
+    end.
+
+stream_item(Id, ToPid) ->
+    case http_exists(url_for_get(Id)) of 
+        {exists, true} -> 
+            httpc:request(
+                get,
+                {url_for_get(Id), [] }, 
+                [{autoredirect, true}], 
+                [{body_format, binary},{sync, false},{stream, self}]
+            ),
+            filter_stream(ToPid, []);
+        _ -> 
+            ToPid ! {error, not_found}
+    end.
+filter_stream(ToPid, Progress) ->
+    receive
+        {http, {_RequestId, stream_start, Attributes}} ->
+            NewProgress = filter_stream_handle_start(Attributes),
+            filter_stream(ToPid, NewProgress);
+        {http, {_RequestId, stream, BinBodyPart}} ->
+            NewProgress = filter_stream_handle_stream(ToPid, Progress, BinBodyPart),
+            filter_stream(ToPid, NewProgress);
+        {http, {_RequestId, stream_end, _Attributes}} ->
+            ToPid ! {stream_end},
+            ok;
+        Fail ->
+            ToPid ! {error, Fail},
+            ok
+    end.
+filter_stream_handle_start(Attributes) -> 
+    ContentLength = proplists:get_value("content-length", Attributes),
+    {stream_started, ContentLength}.
+filter_stream_handle_stream(ToPid, Progress, StreamBody) ->
+    case Progress of
+        {stream_started, CL} -> 
+            ContentLength = list_to_integer(CL),
+            <<AttributeLen:?INITIALREAD/binary,Rest/binary>> = StreamBody,
+            AttributeLength = list_to_integer(binary_to_list(AttributeLen)),
+            <<_:AttributeLength/binary,RealRest/binary>> = Rest,
+            RestSize = byte_size(RealRest),
+            RealContentLength = ContentLength-AttributeLength-?INITIALREAD,
+            ToPid ! {content_length, RealContentLength},
+            RemainingAttributeLength = AttributeLength-RestSize,
+            case RemainingAttributeLength > 0 of
+                true ->
+                    % Discard header, next
+                    filter_stream(ToPid, {more_header, RemainingAttributeLength});
+                false -> 
+                    ToPid ! {stream_body, RealRest},
+                    filter_stream(ToPid, {header_handled})
+            end;
+        {more_header, AttributeLeft} -> 
+            StreamLength = byte_size(StreamBody),
+            case (AttributeLeft >= StreamLength) of 
+                true ->
+                    RemainingAttributeLength = AttributeLeft-StreamLength,
+                    filter_stream(ToPid, {more_header, RemainingAttributeLength});
+                false ->
+                    <<_:AttributeLeft/binary,Rest/binary>> = StreamBody,
+                    ToPid ! {stream_body, Rest},
+                    filter_stream(ToPid, {header_handled})
+            end;
+        {header_handled} -> 
+            ToPid ! {stream_body, StreamBody},
+            filter_stream(ToPid, {header_handled});
+        Fail ->
+            ToPid ! {error, Fail}
+    end.
+
+copy_item(Id) ->
+    copy_item(Id, uuid:to_short_safe_string()).
+copy_item(Id, ToId) ->
+    % {exists, true} = http_exists(url_for_get(Id)), % Internal, pre-checked
+    {{headers, Headers}, {content, Body1}} = http_get(url_for_get(Id), binary),
+    ContentType = proplists:get_value("content-type", Headers),
+    {posted, Body2} = http_post(url_for_set(ToId), ContentType, Body1),
+    {copy_location, remove_hss_leader(Body2)}.
+
+get_root_url() ->
+    {ok, HssUrl} = application:get_env(ole_store, hss_url),
+    HssUrl.
+
+get_leader() ->
+    {ok, HssLeader} = application:get_env(ole_store, hss_leader),
+    HssLeader.
+
+remove_hss_leader(Str) ->
+    S = string:strip(Str),
+    L = string:len(S),
+    string:right(S,L-string:len(get_leader())).
+
+add_attribute(Attribute, Data) ->
+    AttributeLen = string:len(Attribute),
+    AttributeInt = string:right(integer_to_list(AttributeLen), ?INITIALREAD, $0),
+    BAttributeInt = list_to_binary(AttributeInt),
+    BAttribute = case is_binary(Attribute) of
+        false -> list_to_binary(Attribute);
+        true -> Attribute
+    end,
+    case is_binary(Data) of
+        true -> 
+            <<BAttributeInt/binary, BAttribute/binary, Data/binary>>;
+        false ->
+            BData = list_to_binary(Data),
+            <<BAttributeInt/binary, BAttribute/binary, BData/binary>>
+    end.
+
+http_exists(Url) ->
+    case httpc:request( 
+        head, 
+        { Url, [] }, 
+        [{autoredirect, true}], 
+        [{body_format, string}]
+    ) of 
+        {ok, {{_Version, 404, _ReasonPhrase}, _Headers, _Body}} -> {exists, false};
+        {ok, {{_Version, 200, _ReasonPhrase}, _Headers, _Body}} -> {exists, true};
+        {error, {{_Version, _FailCode, _ReasonPhrase}, _Headers, Body}} -> {error,  Body}
+    end.
+
+http_delete(Url) ->
+    case httpc:request( 
+        delete, 
+        { Url, [] }, 
+        [{autoredirect, true}], 
+        [{body_format, string}]
+    ) of 
+        {ok, {{_Version, 200, _ReasonPhrase}, _Headers, _Body}} -> {deleted, Url};
+        {error, {{_Version, _FailCode, _ReasonPhrase}, _Headers, Body}} -> {error,  Body}
+    end.
+
+http_post(Url, ContentType, Data) ->
+    case httpc:request( 
+        post, 
+        { Url, [], ContentType, Data }, 
+        [{autoredirect, true}], 
+        [{body_format, string}]
+    ) of 
+        {ok, {{_Version, 200, _ReasonPhrase}, _Headers, Body}} -> {posted, Body};
+        {error, {{_Version, _FailCode, _ReasonPhrase}, _Headers, Body}} -> {error, Body}
+    end.
+
+http_get(Url, BodyFormat) -> 
+    case httpc:request( 
+        get, 
+        { Url, [] }, 
+        [{autoredirect, true}], 
+        [{body_format, BodyFormat}]
+    ) of 
+        {ok, {{_Version, 200, _ReasonPhrase}, Headers, Body}} -> 
+            {{headers, Headers}, {content, Body}};
+        {ok, {{_Version, 404, _ReasonPhrase}, _Headers, _Body}} -> {not_found};
+        {error, {{_Version, _FailCode, _ReasonPhrase}, _Headers, Body}} -> {error,  Body}
+    end.
+
+url_for_get(Id) -> get_root_url()++get_leader()++Id.
+url_for_set(Id) -> get_root_url()++"?fileId="++get_leader()++Id.
+
+split_attributes(<<AttributesLen:?INITIALREAD/binary,Rest/binary>>) ->
+    HL = list_to_integer(binary_to_list(AttributesLen)),
+    <<AttributesData:HL/binary,RealRest/binary>> = Rest,
+    {{attribute_data, AttributesData}, {data, RealRest}}.

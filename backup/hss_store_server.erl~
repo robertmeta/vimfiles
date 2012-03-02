@@ -1,0 +1,68 @@
+-module(hss_store_server).
+-behaviour(gen_server).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% API
+-export([
+    delete_data/1,
+    update_data/2, update_data/3,
+    get_data/1,
+    set_data/1, set_data/2, set_data/3
+]).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% gen_server callbacks
+-export([start_link/0, init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3]).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% API Implementation
+start_link() ->
+    gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
+
+set_data(Data) ->
+    set_data(Data, "application/json").
+set_data(Data, ContentType) ->
+    set_data(Data, ContentType, hss_uuid:to_short_safe_string()).
+set_data(Data, ContentType, Id) ->
+    gen_server:call(?MODULE, {set_data, Data, ContentType, Id}, infinity).
+
+update_data(Data, Id) ->
+    update_data(Data, "application/json", Id).
+update_data(Data, ContentType, Id) ->
+    gen_server:call(?MODULE, {update_data, Data, ContentType, Id}, infinity).
+
+delete_data(Id) ->
+    gen_server:call(?MODULE, {delete_data, Id}).
+
+get_data(Id) ->
+    gen_server:call(?MODULE, {get_data, Id}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% gen_server callbacks
+init([]) ->
+    {ok, []}.
+
+handle_call({set_data, Data, ContentType, Id}, From, State) ->
+    spawn(hss_store_core, set_item, [From, Data, ContentType, Id]),
+    {noreply, State};
+handle_call({update_data, Data, ContentType, Id}, From, State) ->
+    spawn(hss_store_core, update_item, [From, Data, ContentType, Id]),
+    {noreply, State};
+handle_call({delete_data, Id}, From, State) ->
+    spawn(hss_store_core, delete_item, [From, Id]),
+    {noreply, State};
+handle_call({get_data, Id}, From, State) ->
+    spawn(hss_store_core, get_item, [From, Id]),
+    {noreply, State}.
+
+handle_cast(_Msg, State) ->
+    {noreply, State}.
+
+handle_info(_Info, State) ->
+    {noreply, State}.
+
+terminate(_Reason, _State) ->
+    ok.
+
+code_change(_OldVsn, State, _Extra) ->
+    {ok, State}.

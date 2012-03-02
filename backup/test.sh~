@@ -1,0 +1,88 @@
+#!/bin/sh
+
+# run client transaction unit tests via curl
+
+# XXX: FUGLY: reset sqlite database to known state (i.e empty)
+# this works because prototype server writes db to /tmp/ and test supplies user info
+rm -f /tmp/test{user,client{,2}}
+
+# Example:
+# ./test.sh # run all tests
+#
+# we can also run ranges of tests:
+# ./test.sh lasttest           # run [..last]
+# ./test.sh firsttest lasttest # run [first..last]
+
+# NOTE: runs in bash and dash
+# https://wiki.ubuntu.com/DashAsBinSh
+
+HOST=127.0.0.1
+PORT=8080
+PUSH_URL=http://$HOST:$PORT/push
+PULL_URL=http://$HOST:$PORT/pull
+
+# default test range
+FIRST=$(ls *.test | xargs | cut -d' ' -f1)
+LAST=$(ls -r *.test | xargs | cut -d' ' -f1)
+
+# parameter-based range
+case $# in
+    1 )
+        LAST=$1
+        ;;
+    2 )
+        FIRST=$1
+        LAST=$2
+        ;;
+esac
+
+echo "testing [$FIRST..$LAST]"
+
+SKIP=1 # if we haven't seen FIRST yet then skip tests
+
+for testfile in *.test
+do
+    [ $SKIP -eq 1 ] && [ "$testfile" = "$FIRST" ] && SKIP=0 # stop skipping
+    [ $SKIP -eq 1 ] && continue # skip this test, haven't reached FIRST yet
+    ACTION="push" # default action, can be overriden
+    . ./$testfile
+    testname=${testfile%%.test}
+    echo "test_$testname " | tr -d '\n'
+    # set up client input
+    # "missing" removes key/val completely
+    REQ_ID="X-Winamp-ID: $ID"
+    REQ_REV="rev=$REV&"
+    REQ_XLOG="translog=$XLOG"
+    [ "$ID" = "missing" ] && REQ_ID=""
+    [ "$REV" = "missing" ] && REQ_REV=""
+    [ "$XLOG" = "missing" ] && REQ_XLOG=""
+    case $ACTION in
+        "push") URL=$PUSH_URL;;
+        "pull") URL=$PULL_URL;;
+        *)
+            echo "invalid ACTION ($ACTION)"
+            exit 1;;
+    esac
+    resp=$(curl --verbose \
+        -H "$REQ_ID" \
+        --data "${REQ_REV}${REQ_XLOG}" \
+        $PUSH_URL 2>&1)
+    # parse results
+    RESP_CODE=$(echo "$resp" | grep "< HTTP" | grep -Eo "[0-9]{3}")
+    RESP_REV=$(echo "$resp" | tail -n 1 | grep -v "Closing connection #" | tr -d '\n')
+    # check results
+    if [ "$RESP_CODE" = "$EXP_CODE" ] && \
+       [ "$RESP_REV" = "$EXP_REV" ]
+    then
+        echo "ok"
+    else
+        echo "FAIL"
+        echo " !! HTTP CODE expected:$EXP_CODE got:$RESP_CODE"
+        echo " !! REVISION  expected:$EXP_REV got:$RESP_REV"
+        echo " !! REQ_ID:$REQ_ID"
+        echo " !! REQ_REV:$REQ_REV"
+        echo " !! REQ_XLOG:$REQ_XLOG"
+    fi
+    [ "$testfile" = "$LAST" ] && break # reached last, stop
+done
+

@@ -1,0 +1,52 @@
+Setup
+===============================================================================
+SQLITE: http://www.sqlite.org/sqlite-autoconf-3071000.tar.gz
+ERLANG: http://www.erlang.org/download/otp_src_R15B.tar.gz
+
+Build and install them.
+
+*On OS-X:* You must -> "./configure CFLAGS="-arch i386" to make it work due to 
+a bug in sqlite on OS-X.... that applies to both building Erlang and Sqlite.
+
+Warnings
+===============================================================================
+Currently, there are some warnings that need to be cleared out, but none of 
+them are currently critical.
+
+Notes
+===============================================================================
+Having "+P 134217727" in the start.sh makes it take up a lot of memory on 
+launch to support that many processes... I reduced it to 100k processes for
+the time being.
+
+TODO
+===============================================================================
+- Dialyzer
+- EDoc
+
+ROLLOUT
+===============================================================================
+- Dev (local / spread out)
+- Stage (d01 / vm machine)
+- Test (cluster)
+- Prod (cluster)
+
+Console Friendly Quicktests
+===============================================================================
+Hit the hello world page
+    curl http://localhost:8080
+
+Hit the echo page
+    curl http://localhost:8080/echo?echo=foobar
+
+Send some invalid json
+    curl --data 'echo_json=fofdojaafdadsf' http://localhost:8080/echo_json
+
+Send some valid json
+    curl --data 'echo_json={ "testA": "foo" }' http://localhost:8080/echo_json
+
+Send some valid json
+    curl -H "X-Winamp-ID: bark" http://localhost:8080/test_headers
+
+Test push
+    curl -H "X-Winamp-ID: clientid" --data 'rev=0&translog=[["ADD",{"key":"val"}]]' http://127.0.0.1:8080/push

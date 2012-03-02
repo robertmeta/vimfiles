@@ -1,0 +1,85 @@
+-module(winamp_stats_collector_server).
+-behaviour(gen_server).
+
+-export([
+    start_link/1, init/1, handle_call/3, handle_cast/2,
+    handle_info/2, terminate/2, code_change/3, push_to_store/0, push_user/1
+]).
+
+start_link(Minutes) ->
+    SecondsPerMinute = 60,
+    MillisecondsPerSecond = 1000,
+    gen_server:start_link(
+        {local, ?MODULE}, 
+        ?MODULE, 
+        [Minutes*SecondsPerMinute*MillisecondsPerSecond], []
+    ).
+
+init([Milliseconds]) ->
+    HoursPerDay = 24,
+    MinutesPerHour = 60,
+    SecondsPerMinute = 60,
+    MillisecondsPerSecond = 1000,
+    MillisecondsPerDay = HoursPerDay*MinutesPerHour*SecondsPerMinute*Milliseconds,
+    {ok, _Ref} = timer:send_interval(Milliseconds, self(), push),
+    dets:open_file(winamp_stats, 
+        [
+            {type, bag},
+            {min_no_slots,1000000},
+            {file, "/tmp/winamp_stats"}
+        ]
+    ),
+    {ok, []}.
+
+handle_call(_Msg, _From, State) ->
+    {noreply, State}.
+
+handle_cast(_Msg, State) ->
+    {noreply, State}.
+
+handle_info(Info, State) ->
+    case Info of 
+        push -> push_to_store()
+    end,
+    {noreply, State}.
+
+terminate(_Reason, _State) ->
+    ok.
+
+code_change(_OldVsn, State, _Extra) ->
+    {ok, State}.
+
+push_to_store() ->
+    lager:info("Pushing"),
+    CleanupList = dets:foldr(
+        fun(E, Acc) ->
+            {K,_V} = E,
+            Acc++[K]
+        end,
+        [],
+        winamp_stats
+    ),
+    UniqueCleanList = lists:usort(CleanupList),
+    [spawn(?MODULE, push_user, [X]) || X <- UniqueCleanList],
+    lager:info("moved ~w records to store", [UniqueCleanList]).
+
+push_user(UserOrHourId) ->
+    Records = dets:lookup(winamp_stats, UserOrHourId),
+    DataFromRecords = [Y || {_,Y} <- Records],
+
+    lager:info("Pushing User: ~w ~w", [UserOrHourId, DataFromRecords]),
+    case ole_store_server:get_data(UserOrHourId) of 
+        {error, not_found} -> ole_store_server:set_data(
+            [term_to_binary(DataFromRecords)],
+            "wac/loguser",
+            UserOrHourId
+        );
+        {content, F} -> ole_store_server:update_data(
+            term_to_binary(
+                [binary_to_term(F)|[DataFromRecords]]
+            ),
+            "wac/loguser",
+            UserOrHourId
+        )
+    end,
+    dets:delete(winamp_stats, UserOrHourId).

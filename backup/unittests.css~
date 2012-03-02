@@ -1,0 +1,57 @@
+table {
+    margin:0;
+    padding:0;
+    border:none;
+}
+
+td {
+    margin:0;
+    padding:0;
+    border:none;
+}
+
+.passedrow {
+    background-color: #339900;
+}
+
+.missingrow {
+    background-color: #cccccc;
+}
+
+.failedrow {
+    background-color: #cc0000;
+}
+
+.innerpassedrow {
+    background-color: #66cc66;
+}
+
+.innerfailedrow {
+    background-color: #ff9999;
+}
+
+.innerresult {
+    width: 40%;
+}
+
+.unittestoutside {
+    width: 100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    border:none;
+}
+
+.subtestheader {
+    font-size: 30px;
+    vertical-align:top;
+    width:15%;
+}
+
+.unittestinside {
+    width: 100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    border:none;
+}

@@ -1,0 +1,17 @@
+%%
+%% run client unit tests and expose for erlang via tests()
+%% 
+
+-module(reference_tests).
+-export([tests/0]).
+
+tests() ->
+    % HACK: parses python unittest output into Results for the same function; results already 
+    % in the parameters...
+    TestCmd = io_lib:format("make -B -C \"~s/ole-reference-python/src\" test", [code:priv_dir(external_tests)]),
+    io:format("Reference Test: ~s~n", [TestCmd]),
+    Txt = os:cmd(TestCmd),
+    Args = common_tests:parse_external_unittests(Txt, []),
+    % TODO: Leaks atoms, but for Friday it is ok
+    Results = [{list_to_atom(Atom), common_tests:is_ok(Msg)} || [Atom, Msg] <- lists:reverse(Args)],
+    {tests, Results}.

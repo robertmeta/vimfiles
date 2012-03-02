@@ -134,8 +134,3 @@ hi CursorLine guibg=grey5
 hi CursorColumn guibg=grey5
 hi Pmenu guibg=grey20 guifg=white
 hi PmenuSel guibg=green guifg=black
-
-" -----------------------------------------------------------------------------
-" For Plugins
-" ----------------------------------------------------------------------------
-hi MyTagListFileName guibg=black guifg=yellow

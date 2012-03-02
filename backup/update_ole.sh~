@@ -1,0 +1,6 @@
+for dir in ole*; do
+    if [ -d $dir ]; then
+        cd $dir
+        git pull
+    fi
+done

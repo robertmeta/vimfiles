@@ -1,0 +1,14 @@
+{application,
+    library, [
+        {descripti n, "For interacting with a library"},
+        {vsn, git},
+        {modules, []},
+        {registered, []},
+        {mod, {[], []}},
+        {env, []},
+        {applications, [
+            kernel,
+            stdlib
+        ]}
+    ]
+}.

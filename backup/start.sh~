@@ -1,0 +1,10 @@
+erl +A 8 +P 1000000  +K true -smp enable \
+-env ERL_FULLSWEEP_AFTER 10 -env ERL_MAX_PORTS 50000 \
+-env ERL_MAX_ETS_TABLES 50000 \
+-config sys.config \
+-pa deps/*/ebin -pa apps/*/ebin \
+-name dev@`./print-ip-address.sh` \
+-setcookie 'foo' -mnesia '"/tmp/mnesia"' \
+-boot start_sasl -s util_reloader -s mnesia \
+-s core -s bigwig \
+-s util_load_apps -s util_test_runner

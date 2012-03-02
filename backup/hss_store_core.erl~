@@ -1,0 +1,88 @@
+-module(hss_store_core).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% API
+-export([
+    delete_item/1, delete_item/2,
+    set_item/3, set_item/4,
+    update_item/3, update_item/4,
+    get_item/1, get_item/2,
+    copy_item/1, copy_item/2
+]).
+
+delete_item(From, Id) ->
+    gen_server:reply(From, delete_item(Id)).
+delete_item(Id) ->
+    FullUrl = get_root_url()++get_leader()++Id,
+    case httpc:request( delete, { FullUrl, [] }, [], [{body_format, string}]) of 
+        {ok, {{_Version, 200, _ReasonPhrase}, _Headers, _Body}} -> {deleted, Id};
+        {ok, {{_Version, _ErrorCode, _ReasonPhrase}, _Headers, Body}} -> {error,  Body}
+    end.
+
+set_item(From, Data, ContentType, Id) ->
+    gen_server:reply(From, set_item(Data, ContentType, Id)).
+set_item(Data, ContentType, Id) ->
+    set_item_with_header(Data, ContentType, Id, "").
+set_item_with_header(Data, ContentType, Id, Header) ->
+    FullUrl = get_root_url()++"?fileId="++get_leader()++Id,
+    FullData = add_header(Header, Data),
+    case httpc:request( post, { FullUrl, [], ContentType, FullData }, [], [{body_format, string}]) of 
+        {ok, {{_Version, 200, _ReasonPhrase}, _Headers, Body}} -> {stored_location, remove_leader(Body)};
+        {ok, {{_Version, _ErrorCode, _ReasonPhrase}, _Headers, Body}} -> {error, Body}
+    end.
+
+update_item(From, Data, ContentType, Id) ->
+    gen_server:reply(From, update_item(Data, ContentType, Id)).
+update_item(Data, ContentType, Id) ->
+    {copy_location, CL} = copy_item(Id),
+    {deleted, Id} = delete_item(Id),
+    {stored_location, NL} = set_item_with_header(Data, ContentType, Id, "|ChildOf:"++CL++"|"),
+    {{stored_location, NL}, {backup_location, CL}}.
+
+get_item(From, Id) ->
+    gen_server:reply(From, get_item(Id)).
+get_item(Id) ->
+    FullUrl = get_root_url()++get_leader()++Id,
+    case httpc:request( get, { FullUrl, [] }, [], [{body_format, binary}]) of 
+        {ok, {{_Version, 200, _ReasonPhrase}, _Headers, Body}} -> 
+            {{header_data, _Hd},{data,D}} = remove_header(Body),
+            {content, D};
+        {ok, {{_Version, 404, _ReasonPhrase}, _Headers, _Body}} -> {not_found};
+        {ok, {{_Version, _ErrorCode, _ReasonPhrase}, _Headers, Body}} -> {error,  Body}
+    end.
+
+copy_item(Id) ->
+    copy_item(Id, hss_uuid:to_short_safe_string()).
+copy_item(Id, ToId) -> % Used to make a copy of an item, does nothing else
+    OldUrl = get_root_url()++get_leader()++Id,
+    NewUrl = get_root_url()++"?fileId="++get_leader()++ToId,
+    {ok, {{_Version, 200, _ReasonPhrase}, Headers, Body1}} = httpc:request( get, { OldUrl, [] }, [], [{body_format, string}]),
+    ContentType = lists:flatten([V || {K,V} <- Headers, K =:= "content-type"]),
+    {ok, {{_Version, 200, _ReasonPhrase}, _Headers, Body2}} = httpc:request( post, { NewUrl, [], ContentType, Body1 }, [], [{body_format, string}]),
+    {copy_location, remove_leader(Body2)}.
+
+get_root_url() ->
+    {ok, HssUrl} = application:get_env(hss_store, hss_url),
+    HssUrl.
+
+get_leader() ->
+    {ok, HssLeader} = application:get_env(hss_store, hss_leader),
+    HssLeader.
+
+remove_leader(Str) ->
+    S = string:strip(Str),
+    L = string:len(S),
+    string:right(S,L-string:len(get_leader())).
+
+add_header(Header, Data) ->
+    HeaderLen = string:len(Header),
+    HeaderInt = string:right(integer_to_list(HeaderLen), 4, $0),
+    case is_binary(Data) of
+            true -> HeaderInt++Header++binary_to_list(Data); % SLOW!
+            false -> HeaderInt++Header++Data
+    end.
+
+remove_header(<<HeaderLen:8/binary,Rest/binary>>) ->
+    HL = list_to_integer(binary_to_list(HeaderLen)),
+    <<HeaderData:HL/binary,RealRest/binary>> = Rest,
+    {{header_data, HeaderData}, {data, RealRest}}.

@@ -1,0 +1,46 @@
+-module(core_server).
+-behaviour(application).
+-export([start/0, start/2, stop/1, test/0, ip/0, port/0, base_url/0]).
+-define(PORT, 8080).
+
+start() ->
+    application:start(crypto),
+    application:start(public_key),
+    application:start(ssl),
+    application:start(inets),
+    application:start(ibrowse),
+    application:start(cowboy),
+    application:start(core_server).
+
+start(_Type, _Args) ->
+    Dispatch = [
+        {'_', [
+                {[<<"push">>, '...'], core_push, []},
+                {[<<"test_headers">>, '...'], core_test_headers, []},
+                {[<<"echo_json">>, '...'], core_echo_json, []},
+                {[<<"echo">>, '...'], core_echo, []},
+                {'_', core_hello_world, []}
+            ]}
+    ],
+    cowboy:start_listener(core_http_listener, 100,
+        cowboy_tcp_transport, [{port, ?PORT}],
+        cowboy_http_protocol, [{dispatch, Dispatch}]
+    ),
+    io:format("~nCore Server listening on "++base_url()),
+    core_server_sup:start_link().
+
+ip() ->
+    "127.0.0.1".
+
+port() ->
+    integer_to_list(?PORT).
+
+base_url() ->
+    "http://"++ip()++":"++port().
+
+stop(_State) ->
+    ok.
+
+test() ->
+    ok.
+
