@@ -1,7 +1,0 @@
-UnitTests = (function() {
-    $.get('/unittests', function(data) {
-          $('#unittests').html(data);
-    });
-});
-
-$(UnitTests);

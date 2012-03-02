@@ -1,5 +1,0 @@
-erl 
--pa deps/*/ebin -pa apps/*/ebin \
--name connector@`ifconfig eth0 | grep 'inet addr:' | \
-cut -d: -f2 | awk '{ print $1}'` -setcookie 'foo' \
--boot start_sasl -s lager

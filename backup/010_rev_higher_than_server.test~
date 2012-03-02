@@ -1,5 +1,0 @@
-ID="testclient"
-REV=1 # invalid; server should have 0 and client <= server
-XLOG='[["ADD", "3c01bdbb26f358bab27f267924aa2c9a03fcfdb8", {"rating": "", "tuid2": "", "ispodcast": 0, "height": -1, "albumartist": "", "id": 1, "category": "", "replaygain_album_gain": "", "podcastpubdate": "", "lastplay": "2012-02-22 20:47:03", "filename": "/Users/rflynn93/proj/nullsoft/ole-reference-python/src/test/media/lust-for-life.mp3", "width": -1, "codec": "", "filesize": 276, "type": 0, "lastupd": null, "filetime": 1329943623, "director": "", "GracenoteFileID": "", "lossless": 0, "mimetype": "audio/mpeg", "podcastchannel": "", "GracenoteExtData": "", "replaygain_track_gain": "", "mediahash": "3c01bdbb26f358bab27f267924aa2c9a03fcfdb8", "playcount": 1}], ["PLAYED", "3c01bdbb26f358bab27f267924aa2c9a03fcfdb8", {"playcount": 1, "lastplay": "2012-02-22 20:47:03"}]]'
-EXP_CODE=400 # Bad Request
-EXP_REV='rev too high (1 > 0)'

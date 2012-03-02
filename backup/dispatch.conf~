@@ -1,5 +1,0 @@
-%%-*- mode: erlang -*-
-{["session", '*'], rest_iface_session, []}.
-{["songs", '*'], rest_iface_songs, []}.
-{["static", '*'], rest_iface_static, ["/home/rmelton/projects/ole/apps/rest_iface/priv/www"]}.
-{['*'], rest_iface_manual, []}.
