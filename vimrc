@@ -39,8 +39,8 @@
     "set autochdir " always switch to the current file directory 
     set backspace=indent,eol,start " make backspace a more flexible
     set backup " make backup files
-    set backupdir=~/.vim/backup " where to put backup files
     set clipboard+=unnamed " share windows clipboard
+    set backupdir=~/.vim/backup " where to put backup files
     set directory=~/.vim/temp " directory to place swap files in
     set fileformats=unix,dos,mac " support all three, in this order
     set hidden " you can change buffers without saving
