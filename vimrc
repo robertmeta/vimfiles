@@ -190,8 +190,11 @@
 " }
 
 " Autocommands {
+    au BufNewFile,BufRead *.md set filetype=markdown
+
     " Ruby {
         " ruby standard 2 spaces, always
+
         au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2 
         au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 
     " }
@@ -210,8 +213,8 @@
         au BufRead,BufNewFile *.notes set nocursorline
         au BufRead,BufNewFile *.notes set spell
     " 
-    au BufNewFile,BufRead *.ahk setf ahk 
-    au BufNewFile,BufRead *.ps1 setf ps1
+    au BufNewFile,BufRead *.ahk set filetype=ahk 
+    au BufNewFile,BufRead *.ps1 set filetype=ps1
 " }
 
 " GUI Settings {
@@ -219,7 +222,7 @@ if has("gui_running")
     " Basics {
         colorscheme torte " 
         set columns=210 " perfect size for me
-        set guifont=Consolas:h10b " My favorite font
+        set guifont=Consolas:h11 " My favorite font
         set guioptions=ce
         "              ||
         "              |+-- use simple dialogs rather than pop-ups
@@ -255,5 +258,5 @@ endif
 let NERDTreeIgnore = ['\.beam', '\.pyc']
 let NERDChristmasTree = 1
 
-hi Folded ctermbg=black
+hi Folded ctermbg=black guibg=black
 match ErrorMsg '\%>80v.\+'
