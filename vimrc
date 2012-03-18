@@ -255,7 +255,7 @@ if &term =~ "xterm"
     endif
 endif
 
-let NERDTreeIgnore = ['\.beam', '\.pyc']
+let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin']
 let NERDChristmasTree = 1
 
 hi Folded ctermbg=black guibg=black
