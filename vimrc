@@ -265,6 +265,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
+let g:inkpot_black_background = 1
 hi Folded ctermbg=black guibg=black
 match ErrorMsg '\%>80v.\+'
