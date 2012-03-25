@@ -13,6 +13,7 @@
     set nocompatible " explicitly get out of vi-compatible mode
     set noexrc " don't use local version of .(g)vimrc, .exrc
     set background=dark " we plan to use a dark background
+    set fenc=utf-8 " UTF-8
     set cpoptions=aABceFsmq
     "             |||||||||
     "             ||||||||+-- When joining lines, leave the cursor between joined lines
@@ -220,7 +221,7 @@
 " GUI Settings {
 if has("gui_running")
     " Basics {
-        colorscheme torte " 
+        colorscheme inkpot " 
         set columns=210 " perfect size for me
         set guifont=Consolas:h11 " My favorite font
         set guioptions=ce
@@ -243,8 +244,8 @@ endif
 
 if &term =~ "xterm"
     "256 color --
-    colorscheme torte 
     let &t_Co=256
+    colorscheme inkpot 
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf="\ESC[3%p1%dm"
@@ -257,6 +258,8 @@ endif
 
 let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin']
 let NERDChristmasTree = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 0
 
 hi Folded ctermbg=black guibg=black
 match ErrorMsg '\%>80v.\+'
