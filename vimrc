@@ -260,6 +260,7 @@ let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin']
 let NERDChristmasTree = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
+let g:yankring_manual_clipboard_check = 0
 
 hi Folded ctermbg=black guibg=black
 match ErrorMsg '\%>80v.\+'
