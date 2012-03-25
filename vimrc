@@ -222,8 +222,8 @@
 if has("gui_running")
     " Basics {
         colorscheme inkpot " 
-        set columns=210 " perfect size for me
-        set guifont=Consolas:h11 " My favorite font
+        set columns=85 " perfect size for me
+        set guifont=Consolas:h10 " My favorite font
         set guioptions=ce
         "              ||
         "              |+-- use simple dialogs rather than pop-ups
