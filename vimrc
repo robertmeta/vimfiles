@@ -191,7 +191,6 @@
 " }
 
 " Autocommands {
-    au BufNewFile,BufRead *.md set filetype=markdown
 
     " Ruby {
         " ruby standard 2 spaces, always
@@ -200,7 +199,8 @@
         au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 
     " }
     " Notes {
-        " I consider .notes files special, and handle them differently, I should probably put this in another file
+        " I consider .notes files special, and handle them differently, I 
+        " should probably put this in another file
         au BufRead,BufNewFile *.notes set foldlevel=1
         au BufRead,BufNewFile *.notes set foldmethod=indent
         au BufRead,BufNewFile *.notes set foldtext=foldtext()
@@ -216,6 +216,8 @@
     " 
     au BufNewFile,BufRead *.ahk set filetype=ahk 
     au BufNewFile,BufRead *.ps1 set filetype=ps1
+    au BufNewFile,BufRead *.md set filetype=markdown
+    au BufNewFile,BufRead *.dtl set filetype=htmldjango
 " }
 
 " GUI Settings {
@@ -260,6 +262,5 @@ let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin']
 let NERDChristmasTree = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
-
 hi Folded ctermbg=black guibg=black
 match ErrorMsg '\%>80v.\+'
