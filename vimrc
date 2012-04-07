@@ -202,13 +202,11 @@ let s:running_windows = has("win16") || has("win32") || has("win64")
 if has("gui_running")
     " Basics
     colorscheme inkpot " 
-    set columns=85 " perfect size for me
     set guifont=Consolas:h10 " My favorite font
     set guioptions=ce
     "              ||
     "              |+-- use simple dialogs rather than pop-ups
     "              +-- use GUI tabs, not console style tabs
-    set lines=55 " perfect size for me
     set mousehide " hide the mouse cursor when typing
 
     map <F8> <ESC>:set guifont=Consolas:h8<CR>
