@@ -6,6 +6,9 @@
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
 " }}}
+" Startup {{{
+let s:running_windows = has("win16") || has("win32") || has("win64")
+" }}}
 " Basics {{{
     set nocompatible " explicitly get out of vi-compatible mode
     set noexrc " don't use local version of .(g)vimrc, .exrc
@@ -36,8 +39,13 @@
     set backspace=indent,eol,start " make backspace a more flexible
     set backup " make backup files
     set clipboard+=unnamed " share windows clipboard
-    set backupdir=~/.vim/backup " where to put backup files
-    set directory=~/.vim/temp " directory to place swap files in
+    if s:running_windows
+        set backupdir=~/vimfiles/backup " where to put backup files
+        set directory=~/vimfiles/temp " directory to place swap files in
+    else
+        set backupdir=~/.vim/backup " where to put backup files
+        set directory=~/.vim/temp " directory to place swap files in
+    endif
     set fileformats=unix,dos,mac " support all three, in this order
     set hidden " you can change buffers without saving
     " (XXX: #VIM/tpope warns the line below could break things)
@@ -177,20 +185,6 @@
     " ruby standard 2 spaces, always
     au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2 
     au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 
-
-    " Notes
-    au BufRead,BufNewFile *.notes set foldlevel=1
-    au BufRead,BufNewFile *.notes set foldmethod=indent
-    au BufRead,BufNewFile *.notes set foldtext=foldtext()
-    au BufRead,BufNewFile *.notes set listchars=tab:\ \ 
-    au BufRead,BufNewFile *.notes set noexpandtab
-    au BufRead,BufNewFile *.notes set shiftwidth=1
-    au BufRead,BufNewFile *.notes set softtabstop=1
-    au BufRead,BufNewFile *.notes set tabstop=1
-    au BufRead,BufNewFile *.notes set syntax=notes
-    au BufRead,BufNewFile *.notes set nocursorcolumn
-    au BufRead,BufNewFile *.notes set nocursorline
-    au BufRead,BufNewFile *.notes set spell
 
     " Override types 
     au BufNewFile,BufRead *.ahk set filetype=ahk 
