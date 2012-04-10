@@ -8,6 +8,7 @@
 " }}}
 " Startup {{{
 let s:running_windows = has("win16") || has("win32") || has("win64")
+let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 " }}}
 " Basics {{{
     set nocompatible " explicitly get out of vi-compatible mode
@@ -217,7 +218,7 @@ if has("gui_running")
 endif
 " }}}
 " Term Settings {{{
-if &term =~ "xterm"
+if s:colorful_term
     "256 color --
     let &t_Co=256
     colorscheme inkpot 
