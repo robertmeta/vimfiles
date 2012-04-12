@@ -1,126 +1,463 @@
-" Vim syntax file
-" Language:     Erlang
-" Author:       Oscar Hellström <oscar@oscarh.net> (http://oscar.hellstrom.st)
-" Contributors: Ricardo Catalinas Jiménez <jimenezrick@gmail.com>
-" License:      Vim license
-" Version:      2012/01/18
+"
+" Erlang syntax highlighting
+"
 
-if exists("b:current_syntax")
-	finish
-else
-	let b:current_syntax = "erlang"
+if exists('b:current_syntax')
+  finish
 endif
 
-if !exists("g:erlang_highlight_bif")
-	let g:erlang_highlight_bif = 1
-endif
+let b:current_syntax = 'erlang'
+setlocal iskeyword=a-z,A-Z,48-57,_,@
 
-" Erlang is case sensitive
-syn case match
+syn sync fromstart
 
-" Match groups
-syn match erlangStringModifier               /\\./ contained
-syn match erlangStringModifier               /\~\%(-\?[0-9*]\+\)\?\%(\.[0-9*]\+\..\?\)\?\%(c\|f\|e\|g\|s\|w\|p\|W\|P\|B\|X\|#\|b\|+\|n\|i\)/ contained
-syn match erlangModifier                     /\$\\\?./
+hi def link erlDelim Delimiter
+hi def link erlRes Keyword
 
-syn match erlangInteger                      /\<\%([0-9]\+#[0-9a-fA-F]\+\|[0-9]\+\)\>/
-syn match erlangFloat                        /\<[0-9]\+\.[0-9]\+\%(e-\?[0-9]\+\)\?\>/
+syn match erlOutside '\S'
+" maybe a bit excessive?
+hi def link erlOutside SpellBad
 
-syn keyword erlangTodo                       TODO FIXME XXX contained
-syn match   erlangComment                    /%.*$/ contains=@Spell,erlangTodo,erlangAnnotation
-syn match   erlangAnnotation                 /\%(%\s\)\@<=@\%(author\|clear\|copyright\|deprecated\|doc\|docfile\|end\|equiv\|headerfile\|hidden\|private\|reference\|see\|since\|spec\|throws\|title\|todo\|TODO\|type\|version\)/ contained
-syn match   erlangAnnotation                 /`[^']\+'/ contained
+" Comments {{{1
+syn match erlComment '%.*$' contains=erlTodo containedin=ALL
+hi def link erlComment Comment
 
-syn keyword erlangKeyword                    band bor bnot bsl bsr bxor div rem xor
-syn keyword erlangKeyword                    try catch begin receive after cond fun let query
+syn keyword erlTodo TODO XXX FIXME contained
+hi def link erlTodo Todo
 
-syn keyword erlangConditional                case if of end
-syn keyword erlangConditional                not and or andalso orelse
-syn keyword erlangConditional                when
+" Module attributes {{{1
+syn match erlModAttr /-\%(\<\l\k*\>\|'\%(\\[\\']\|.\)\+'\)/
+      \ nextgroup=erlModAttrArgs skipwhite skipempty
+syn cluster erlTopLevel add=erlModAttr
+hi def link erlModAttr PreProc
 
-syn keyword erlangBoolean                    true false
+syn region erlModAttrArgs matchgroup=erlDelim start='(' end=')'
+      \ contains=@erlAttrExpr contained
+      \ nextgroup=erlFullStop skipwhite skipempty
 
-syn keyword erlangGuard                      is_list is_alive is_atom is_binary is_bitstring is_boolean is_tuple is_number is_integer is_float is_function is_constant is_pid is_port is_reference is_record is_process_alive
+syn cluster erlAttrExpr contains=@erlLit,@erlIdent,@erlOp
+syn cluster erlAttrExpr add=erlFunName,erlAttrList,erlAttrTuple,erlAttrParens
 
-syn match   erlangOperator                   /\/\|*\|+\|-\|++\|--/
-syn match   erlangOperator                   /->\|<-\|||\||\|!\|=/
-syn match   erlangOperator                   /=:=\|==\|\/=\|=\/=\|<\|>\|=<\|>=/
-syn keyword erlangOperator                   div rem
+syn region erlAttrList matchgroup=erlDelim start='\[' end=']'
+      \ contains=@erlAttrExpr,erlComma contained
+syn region erlAttrTuple matchgroup=erlDelim start='{' end='}'
+      \ contains=@erlAttrExpr,erlComma contained
+syn region erlAttrParens matchgroup=erlDelim start='(' end=')'
+      \ contains=@erlAttrExpr,erlComma contained
 
-syn region erlangString                      start=/"/ end=/"/ skip=/\\/ contains=@Spell,erlangStringModifier
+" Module declaration {{{1
+syn match erlModDec '-module\>' nextgroup=erlModDecArgs skipwhite skipempty
+syn cluster erlTopLevel add=erlModDec
+hi def link erlModDec erlModAttr
 
-syn match erlangVariable                     /\<[A-Z_]\w*\>/
-syn match erlangAtom                         /\%(\%(^-\)\|#\)\@<!\<[a-z][A-Za-z0-9_]*\>\%(\s*[(:]\)\@!/
-syn match erlangAtom                         /\\\@<!'[^']*\\\@<!'/
+syn region erlModDecArgs matchgroup=erlDelim start='(' end=')'
+      \ contains=erlModDecName contained
+      \ nextgroup=erlFullStop skipwhite skipempty
 
-syn match erlangRecord                       /#\w\+/
+syn match erlModDecName '\l\k*\%(\.\l\k*\)*' contained
+hi def link erlModDecName erlModule
 
-syn match erlangTuple                        /{\|}/
-syn match erlangList                         /\[\|\]/
+" Type declarations and specifications {{{1
 
-syn match erlangAttribute                    /^-\%(vsn\|author\|copyright\|compile\|deprecated\|module\|export\|import\|behaviour\|behavior\|export_type\|ignore_xref\|on_load\|mode\)\s*(\@=/
-syn match erlangInclude                      /^-include\%(_lib\)\?\s*(\@=/
-syn match erlangRecordDef                    /^-record\s*(\@=/
-syn match erlangDefine                       /^-\%(define\|undef\)\s*(\@=/
-syn match erlangPreCondit                    /^-\%(ifdef\|ifndef\|else\|endif\)\%(\s*(\@=\)\?/
+" Types {{{2
+syn cluster erlType contains=@erlLit,@erlIdent,erlPipe
 
-syn match erlangType                         /^-\%(spec\|type\|opaque\|callback\)[( ]\@=/
+syn region erlListType matchgroup=erlDelim start='\[' end=']'
+      \ contains=@erlType,erlComma,erlEllipsis contained
+syn cluster erlType add=erlListType
 
-syn match erlangMacro                        /\%(-define(\)\@<=\w\+/
-syn match erlangMacro                        /?\??\w\+/
+syn region erlTypeParens matchgroup=erlDelim start='(' end=')'
+      \ contains=@erlType contained
+syn cluster erlType add=erlTypeParens
 
-syn match erlangBitType                      /\%(\/\|-\)\@<=\%(bits\|bitstring\|binary\|integer\|float\|unit\)\>/
-syn match erlangBitSize                      /:\@<=[0-9]\+/
+syn match erlEllipsis '\.\.\.' contained
+hi def link erlEllipsis Special
 
-syn match erlangBinary                       /<<\|>>/
+syn match erlRange '\.\.\.\@!' contained
+syn cluster erlType add=erlRange
+hi def link erlRange Special
 
-" BIFs
-syn match erlangBIF                          /\%([^:0-9A-Za-z_]\|\<erlang:\|^\)\@<=\%(abs\|apply\|atom_to_binary\|atom_to_list\|binary_part\|binary_to_atom\|binary_to_existing_atom\|binary_to_list\|binary_to_term\|bit_size\|bitstring_to_list\|byte_size\|check_process_code\|date\|delete_module\|demonitor\|disconnect_node\|element\|erase\|error\|exit\|float\|float_to_list\|garbage_collect\|get\|get_keys\|group_leader\|halt\|hd\|integer_to_list\|iolist_size\|iolist_to_binary\|is_alive\|is_atom\|is_binary\|is_bitstring\|is_boolean\|is_float\|is_function\|is_integer\|is_list\|is_number\|is_pid\|is_port\|is_process_alive\|is_record\|is_reference\|is_tuple\|length\|link\|list_to_atom\|list_to_binary\|list_to_bitstring\|list_to_existing_atom\|list_to_float\|list_to_integer\|list_to_pid\|list_to_tuple\|load_module\|make_ref\|max\|min\|module_loaded\|monitor\|monitor_node\|node\|nodes\|now\|open_port\|pid_to_list\|port_close\|port_command\|port_connect\|port_control\|pre_loaded\|processes\|process_flag\|process_info\|purge_module\|put\|register\|registered\|round\|self\|setelement\|size\|spawn\|spawn_link\|spawn_monitor\|spawn_opt\|split_binary\|statistics\|term_to_binary\|throw\|time\|tl\|trunc\|tuple_size\|tuple_to_list\|unlink\|unregister\|whereis\)\%((\|\/[0-9]\)\@=/
-syn match erlangBIF                          /\%(\<erlang:\)\@<=\%(append_element\|bump_reductions\|cancel_timer\|decode_packet\|display\|function_exported\|fun_info\|fun_to_list\|get_cookie\|get_stacktrace\|hash\|is_builtin\|loaded\|load_nif\|localtime\|localtime_to_universaltime\|make_tuple\|memory\|monitor_node\|phash\|port_call\|port_info\|ports\|port_to_list\|process_display\|read_timer\|ref_to_list\|resume_process\|send\|send_after\|send_nosuspend\|set_cookie\|start_timer\|suspend_process\|system_flag\|system_info\|system_monitor\|system_profile\|trace\|trace_delivered\|trace_info\|trace_pattern\|universaltime\|universaltime_to_localtime\|yield\)(\@=/
-syn match erlangGBIF                         /\<erlang\%(:\w\)\@=/
+" Type declarations {{{2
+syn match erlTypeDec '-\%(type\|opaque\)\>' nextgroup=erlTypeDecName
+      \ skipwhite skipempty
+syn cluster erlTopLevel add=erlTypeDec
+hi def link erlTypeDec erlModAttr
 
-" Link Erlang stuff to Vim groups
-hi link erlangTodo           Todo
-hi link erlangString         String
-hi link erlangNoSpellString  String
-hi link erlangModifier       SpecialChar
-hi link erlangStringModifier SpecialChar
-hi link erlangComment        Comment
-hi link erlangAnnotation     Special
-hi link erlangVariable       Identifier
-hi link erlangInclude        Include
-hi link erlangRecordDef      Keyword
-hi link erlangAttribute      Keyword
-hi link erlangKeyword        Keyword
-hi link erlangMacro          Macro
-hi link erlangDefine         Define
-hi link erlangPreCondit      PreCondit
-hi link erlangPreProc        PreProc
-hi link erlangDelimiter      Delimiter
-hi link erlangBitDelimiter   Normal
-hi link erlangOperator       Operator
-hi link erlangConditional    Conditional
-hi link erlangGuard          Conditional
-hi link erlangBoolean        Boolean
-hi link erlangAtom           Constant
-hi link erlangRecord         Structure
-hi link erlangInteger        Number
-hi link erlangFloat          Number
-hi link erlangFloat          Number
-hi link erlangFloat          Number
-hi link erlangFloat          Number
-hi link erlangHex            Number
-hi link erlangFun            Keyword
-hi link erlangList           Delimiter
-hi link erlangTuple          Delimiter
-hi link erlangBinary         Keyword
-hi link erlangBitVariable    Identifier
-hi link erlangBitType        Type
-hi link erlangType           Type
-hi link erlangBitSize        Number
+syn match erlTypeDecName /\%(\<\l\k*\>\|'\%(\\[\\']\|.\)\+'\)/
+      \ nextgroup=erlTypeDecArgs skipwhite skipempty contained
+hi def link erlTypeDecName Type
 
-" Optional highlighting
-if g:erlang_highlight_bif
-	hi link erlangBIF    Keyword
-	hi link erlangGBIF   Keyword
-endif
+syn region erlTypeDecArgs matchgroup=erlDelim start='(' end=')' skip='(.\{-})'
+      \ contains=@erlIdent contained nextgroup=erlTypeBody skipwhite skipempty
+
+syn region erlTypeBody matchgroup=erlDelim start='::' end='\.\@<!\.\.\@!'
+      \ contains=@erlType contained
+
+" Type specifications {{{2
+syn match erlTypeSpec '-spec\>' nextgroup=erlTypeSpecName,erlTypeSpecMod
+      \ skipwhite skipempty
+hi def link erlTypeSpec erlModAttr
+
+syn match erlTypeSpecMod /\<\l\k*\%(\.\l\k*\)*\>\|'\%(\\[\\']\|.\)\+'\s*:/
+      \ contains=erlColon contained nextgroup=erlTypeSpecName
+      \ skipwhite skipempty
+hi def link erlTypeSpecMod erlModule
+
+syn match erlTypeSpecName /\%(\<\l\k*\>\|'\%(\\[\\']\|.\)\+'\)/
+      \ contained nextgroup=erlTypeSpecArgs skipwhite skipempty
+hi def link erlTypeSpecName Function
+
+syn region erlTypeSpecArgs matchgroup=erlDelim start='(' end=')'
+      \ contains=@erlType,erlDblColon contained nextgroup=erlTypeSpecRet
+      \ skipwhite skipempty
+
+syn match erlDblColon '::' contained
+hi def link erlDblColon erlDelim
+
+syn region erlTypeSpecRet matchgroup=erlDelim start='->' end='\.\@<!\.\.\@!'
+      \ contains=@erlType,erlTypeSpecAlt,erlTypeSpecWhen contained
+
+syn match erlTypeSpecAlt ';' nextgroup=erlTypeSpecArgs skipwhite skipempty
+      \ contained
+hi def link erlTypeSpecAlt erlDelim
+
+syn region erlTypeSpecWhen matchgroup=erlRes start='\<when\>' end='\.\@='
+      \ contains=@erlType,erlDblColon contained
+
+" Record declarations {{{2
+syn match erlRecDec '-record\>' nextgroup=erlRecDecArgs skipwhite skipempty
+hi def link erlRecDec erlModAttr
+
+syn region erlRecDecArgs matchgroup=erlDelim start='(' end=')'
+      \ contains=erlRecDecName,erlRecDecBody,erlComma contained
+      \ nextgroup=erlFullStop skipwhite skipempty
+
+syn match erlRecDecName '\l\k*' contained
+hi def link erlRecDecName Type
+
+syn region erlRecDecBody matchgroup=erlDelim start='{' end='}'
+      \ contains=erlRecDecField,erlRecDecType,erlDblColon,erlComma,@erlExpr,
+      \          @erlResErr
+      \ contained
+
+syn match erlRecDecField '\l\k*\%(\_s*::\)\@=' contained
+syn match erlRecDecField '\%(::\_s*\)\@<!\l\k*' contained
+hi def link erlRecDecField Identifier
+
+syn match erlRecDecType '\%(::\_s*\)\@<=\l\k*(\@=' contained
+hi def link erlRecDecType Type
+
+" Function declarations {{{1
+syn match erlFunDec /\%(\%(\<\l\k*\>\|'\%(\\[\\']\|.\)\+'\)\)\%(\_s*(\)\@=/
+      \ nextgroup=erlFunDecArgs skipwhite skipempty
+syn cluster erlTopLevel add=erlFunDec
+hi def link erlFunDec erlFunName
+
+syn region erlFunDecArgs matchgroup=erlDelim start='(' end=')'
+      \ contains=@erlExpr,erlComma,@erlResErr contained
+      \ nextgroup=erlFunGuard,erlFunBody skipwhite skipempty
+
+syn region erlFunGuard matchgroup=erlRes start='\<when\>' end='\%(->\)\@='
+      \ contains=@erlGuard contained
+      \ nextgroup=erlFunBody skipwhite skipempty
+
+syn cluster erlGuard contains=@erlTerm,@erlOp,@erlResErr,erlComma,erlSemi
+
+syn region erlFunBody matchgroup=erlDelim start='->' end='[;.]'
+      \ contains=@erlExpr,erlComma,@erlResErr contained
+
+" Expressions {{{1
+
+" Atoms and other identifiers {{{2
+syn cluster erlExpr add=@erlIdent
+
+" Atoms {{{3
+syn region erlQAtom matchgroup=erlDelim start=+'+ end=+'+ skip=+\\'+ contained
+syn cluster erlIdent add=erlQAtom
+hi def link erlQAtom Constant
+
+" Some common atoms like bools get special highlighting.
+syn keyword erlSpecialAtom true false ok undefined infinity contained
+syn cluster erlIdent add=erlSpecialAtom
+hi def link erlSpecialAtom Constant
+
+" Variables {{{3
+syn match erlVar '\<\%(\u\|_\)\k*\>' contains=erlVarWild contained
+syn cluster erlIdent add=erlVar
+hi def link erlVar Identifier
+
+syn match erlVarWild '\<_' contained
+hi def link erlVarWild Special
+
+" Macros {{{3
+syn match erlMacro '?\k\+\>' contains=erlMacroQ contained
+syn cluster erlIdent add=erlMacro
+hi def link erlMacro Macro
+
+syn match erlMacroQ '?' contained
+hi def link erlMacroQ erlDelim
+
+" Module names {{{3
+syn match erlModule '\<\l\k*\%(\.\l\k*\)*\>' contained
+hi def link erlModule Structure
+
+syn match erlModuleQual '\<\l\k*\%(\.\l\k*\)*:'
+      \ contains=erlModule,erlColon contained
+syn cluster erlIdent add=erlModuleQual
+
+" Dotted module names {{{3
+syn match erlDotModule '\<\l\k*\%(\.\l\k*\)\+\>' contained
+syn cluster erlIdent add=erlDotModule
+hi def link erlDotModule Structure
+
+" Function names, e.g. foo/1 {{{3
+syn match erlFunName '\<\l\k*/\d\+' contained
+hi def link erlFunName Function
+
+" Literals {{{2
+
+syn cluster erlExpr add=@erlLit
+
+" Escape sequences used in chars and strings {{{3
+syn match erlEscape +\\[bdefnrstv'"\\]+ contained   " \s
+syn match erlEscape '\\\o\{1,3}'        contained   " \040
+syn match erlEscape '\\x\x\{2}'         contained   " \x20
+syn match erlEscape '\\x{\x\+}'         contained   " \x{20}
+syn match erlEscape '\\^\a'             contained   " \^c
+hi def link erlEscape SpecialChar
+
+" Characters {{{3
+syn match erlChar '\$' nextgroup=erlEscape,erlCharInner contained
+syn cluster erlLit add=erlChar
+hi def link erlChar erlDelim
+
+syn match erlCharInner '[^\\]' contained
+hi def link erlCharInner Character
+
+" Strings {{{3
+syn region erlString matchgroup=erlDelim start='"' end='"'
+      \ contains=erlEscape contained
+syn cluster erlLit add=erlString
+hi def link erlString String
+
+" Bitstrings {{{3
+syn region erlBitString matchgroup=erlDelim start='<<' end='>>'
+      \ contains=@erlBS contained
+syn cluster erlLit add=erlBitString
+
+syn cluster erlBS contains=@erlLit,erlComma,erlBSPunc,erlBSSpecs,@erlCompr
+
+syn match erlBSPunc '[/-]' contained
+hi def link erlBSPunc erlDelim
+
+syn keyword erlBSSpecs contained utf8 utf16 utf32 integer float binary bytes
+      \ bitstring bits signed unsigned big little native unit
+hi def link erlBSSpecs Type
+
+" Integers {{{3
+syn match erlInt '\<-\?\d\+\>' contained
+syn match erlInt '\<-\?\d\+#\%(\d\|\a\)\+\>' contains=erlIntHash contained
+syn cluster erlLit add=erlInt
+hi def link erlInt Number
+
+syn match erlIntHash '#' contained
+hi def link erlIntHash Special
+
+" Floats {{{3
+syn match erlFloat '\<-\?\d\+\.\d\+\%(e-\?\d\+\)\?\>' contains=erlFloatE
+      \ contained
+syn cluster erlLit add=erlFloat
+hi def link erlFloat Float
+
+syn match erlFloatE 'e' contained
+hi def link erlFloatE Special
+
+" Compound types {{{2
+
+syn cluster erlExpr add=@erlTerm
+syn cluster erlTerm contains=@erlLit,@erlIdent
+
+" Tuples {{{3
+syn region erlTuple matchgroup=erlDelim start='{' end='}'
+      \ contains=@erlExpr,erlComma,@erlResErr contained
+syn cluster erlTerm add=erlTuple
+
+" Lists {{{3
+syn region erlList matchgroup=erlDelim start='\[' end=']'
+      \ contains=@erlExpr,@erlCompr,erlComma,erlPipe,@erlResErr contained
+syn cluster erlTerm add=erlList
+
+" Comprehensions (also in bitstrings) {{{4
+syn cluster erlCompr contains=erlDblPipe,erlGenerator
+
+syn match erlDblPipe '||' contained
+hi def link erlDblPipe erlDelim
+
+syn match erlGenerator '<-\|<=' contained
+hi def link erlGenerator erlDelim
+
+" Records {{{3
+syn match erlRecordName /#\%(\<\l\k*\>\|'\%(\\[\\']\|.\)\+'\)/
+      \ nextgroup=erlRecordBody skipwhite skipempty
+      \ contains=erlRecordNameHash contained
+syn cluster erlExpr add=erlRecordName
+hi def link erlRecordName Type
+
+syn match erlRecordNameHash '#' contained
+hi def link erlRecordNameHash erlDelim
+
+syn region erlRecordBody matchgroup=erlDelim start='{' end='}'
+      \ contains=@erlExpr,erlComma,erlRecLabel,erlRecEquals,@erlResErr
+      \ contained
+
+syn match erlRecLabel '\<\l\k*\ze\s*=' contained
+hi def link erlRecLabel Identifier
+
+syn match erlRecEquals '=' contained
+hi def link erlRecEquals erlDelim
+
+syn match erlRecordField
+  \ /#\%(\<\l\k*\>\|'\%(\\[\\']\|.\)\+'\)\.\%(\<\l\k*\>\|'\%(\\[\\']\|.\)\+'\)/
+  \ contained contains=erlRecordName,erlFullStop
+syn cluster erlExpr add=erlRecordField
+
+
+" Operators {{{2
+syn cluster erlExpr add=@erlOp
+
+" Alphabetic-named operators {{{3
+syn keyword erlAlphOp contained and andalso band bnot bor bsl bsr div not or
+      \ orelse rem xor
+syn cluster erlOp add=erlAlphOp
+hi def link erlAlphOp Operator
+
+" Symbolic operators {{{3
+syn match erlSymOp '==\|/=\|=<\|>=\|=:=\|=/=' contained
+syn match erlSymOp '++\|--\|+\|-\|\*\|/\|!' contained
+syn match erlSymOp '<\@<!<<\@!' contained
+syn match erlSymOp '>\@>!>>\@!' contained
+syn cluster erlOp add=erlSymOp
+hi def link erlSymOp Operator
+
+" Block expressions {{{2
+syn cluster erlExpr add=@erlBlockExpr
+
+" If {{{3
+syn region erlIf matchgroup=erlRes start='\<if\>' end='\<end\>'
+      \ contains=erlIfGuard contained
+syn cluster erlBlockExpr add=erlIf
+
+syn match erlIfGuard '\%(\%(\<if\>\|;\)\_s*\)\@<=\_.\{-}\%(->\)\@='
+      \ contains=@erlGuard contained
+      \ nextgroup=erlIfExpr skipwhite skipempty
+
+syn region erlIfExpr matchgroup=erlDelim start='->' end=';\|\%(end\)\@='
+      \ contains=@erlExpr,erlComma,@erlResErr contained
+      \ nextgroup=erlIfGuard skipwhite skipempty
+
+" Case {{{3
+syn region erlCase matchgroup=erlRes start='\<case\>' end='\<end\>'
+      \ contains=@erlTerm,erlCaseOf,erlWhenErr,erlEndErr,erlAfterErr contained
+syn cluster erlBlockExpr add=erlCase
+
+syn region erlCaseOf matchgroup=erlRes
+      \ start='\<of\>' end='\%(\<\%(end\|catch\)\>\)\@='
+      \ contains=@erlTerm,erlCaseGuard,erlCaseBranch,erlOfErr,
+      \          erlAfterErr contained
+
+syn region erlCaseGuard matchgroup=erlRes start='\<when\>' end='\%(->\)\@='
+      \ contains=@erlGuard contained
+      \ nextgroup=erlCaseBranch skipwhite skipempty
+
+syn region erlCaseBranch matchgroup=erlDelim
+      \ start='->' end=';\|\%(\<\%(end\|after\)\>\)\@='
+      \ contains=@erlExpr,erlComma,@erlResErr contained
+
+" Receive {{{3
+syn region erlReceive matchgroup=erlRes start='\<receive\>' end='\<end\>'
+      \ contains=@erlTerm,erlCaseGuard,erlCaseBranch,erlReceiveAfter,
+      \          erlAfterErr,erlOfErr contained
+syn cluster erlBlockExpr add=erlReceive
+
+syn region erlReceiveAfter matchgroup=erlRes
+      \ start='\<after\>' end='\%(\<end\>\)\@='
+      \ contains=@erlExpr,@erlResErr
+
+" Fun {{{3
+syn region erlFun matchgroup=erlRes start='\<fun\>\%(\_s*(\)\@=' end='\<end\>'
+      \ contains=erlFunArgs contained
+syn cluster erlBlockExpr add=erlFun
+
+syn region erlFunArgs matchgroup=erlDelim start='(' end=')'
+      \ contains=@erlTerm,erlComma,@erlResErr contained
+      \ nextgroup=erlCaseGuard,erlCaseBranch skipwhite skipempty
+
+syn match erlFunRef '\<fun\_s\+\%(\%(\k\|\.\)\+:\)\?\l\k*/\d\+'
+      \ contains=erlModuleQual,erlFunKW contained
+syn cluster erlExpr add=erlFunRef
+hi def link erlFunRef Function
+
+syn keyword erlFunKW fun contained
+hi def link erlFunKW erlRes
+
+" Try {{{3
+syn region erlTry matchgroup=erlRes start='\<try\>' end='\<end\>'
+      \ contains=@erlExpr,erlComma,erlCaseOf,erlTryCatch,erlTryAfter
+      \ contained
+syn cluster erlBlockExpr add=erlTry
+
+syn region erlTryCatch matchgroup=erlRes
+      \ start='\<catch\>' end='\<\%(end\|after\)\>'
+      \ contains=@erlTerm,erlCaseGuard,erlCaseBranch,erlOfErr contained
+
+syn region erlTryAfter matchgroup=erlRes
+      \ start='\<after\>' end='\%(\<end\>\)\@='
+      \ contains=@erlExpr,erlComma,@erlResErr
+
+" Begin/end {{{3
+syn region erlBegin matchgroup=erlRes start='\<begin\>' end='\<end\>'
+      \ contains=@erlExpr,erlComma,erlAfterErr,erlOfErr,erlWhenErr
+      \ contained
+syn cluster erlBlockExpr add=erlBegin
+
+" Expression errors {{{2
+fun! s:keyword_err(word, group)
+  exe 'syn keyword' a:group a:word 'contained'
+  exe 'syn cluster erlResErr add=' a:group
+  exe 'hi def link' a:group 'erlOutside'
+endf
+
+call s:keyword_err('when',  'erlWhenErr')
+call s:keyword_err('end',   'erlEndErr')
+call s:keyword_err('of',    'erlOfErr')
+call s:keyword_err('after', 'erlAfterErr')
+
+" Misc punctuation {{{1
+
+" Full stop {{{2
+syn match erlFullStop '\.' contained
+hi def link erlFullStop erlDelim
+
+" Parens {{{2
+syn region erlExprParens matchgroup=erlDelim start='(' end=')'
+      \ contains=@erlExpr,@erlResErr contained
+syn cluster erlExpr add=erlExprParens
+
+" Comma {{{2
+syn match erlComma ',' contained
+hi def link erlComma erlDelim
+
+" Semicolon {{{2
+syn match erlSemi ';' contained
+hi def link erlSemi erlDelim
+
+" Pipe {{{2
+syn match erlPipe '|' contained
+hi def link erlPipe erlDelim
+
+" Colon {{{2
+syn match erlColon ':' contained
+hi def link erlColon erlDelim
+
+" }}}1
+" vim: set fdm=marker
