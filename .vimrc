@@ -235,4 +235,5 @@ endif
 " Odds n Ends {{{
 hi Folded ctermbg=black guibg=black
 match ErrorMsg '\%>80v.\+'
+set ttymouse=xterm2 " makes it work in 
 " }}}
