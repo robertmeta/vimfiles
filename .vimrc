@@ -9,6 +9,8 @@
 " Startup {{{
 let s:running_windows = has("win16") || has("win32") || has("win64")
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
+let g:erlangHighlightBif = 1
+let g:erlangHighLightOperators = 1
 " }}}
 " Basics {{{
     set nocompatible " explicitly get out of vi-compatible mode
