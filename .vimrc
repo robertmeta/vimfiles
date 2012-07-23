@@ -181,8 +181,8 @@
     map <M-up> <ESC>:NERDTreeToggle<RETURN>
     map <M-down> <ESC>:Tlist<RETURN>
 
-    map <left> <ESC>:bp<RETURN>
-    map <right> <ESC>:bn<RETURN>
+    map <left> <ESC>:NERDTree<RETURN>
+    map <right> <ESC>:TagbarToggle<RETURN>
     map <up> <ESC>:bp<RETURN>
     map <down> <ESC>:bn<RETURN>
 " }}}
