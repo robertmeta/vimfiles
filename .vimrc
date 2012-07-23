@@ -7,10 +7,10 @@
 "   http://robertmelton.com (many forms of communication)
 " }}}
 " Startup {{{
-let s:running_windows = has("win16") || has("win32") || has("win64")
-let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
-let g:erlangHighlightBif = 1
-let g:erlangHighLightOperators = 1
+    let s:running_windows = has("win16") || has("win32") || has("win64")
+    let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
+    let g:erlangHighlightBif = 1
+    let g:erlangHighLightOperators = 1
 " }}}
 " Basics {{{
     set nocompatible " explicitly get out of vi-compatible mode
@@ -31,6 +31,8 @@ let g:erlangHighLightOperators = 1
     let g:skip_loading_mswin=1 " Just in case :)
 " }}}
 " Newish {{{
+    set history=9999 " big old history
+    set timeoutlen=200 " super low delay
     set formatoptions+=n                " Recognize numbered lists
     set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
     set viminfo+=!                      " Store upper-case registers in viminfo
@@ -235,7 +237,7 @@ if s:colorful_term
 endif
 " }}}
 " Odds n Ends {{{
-hi Folded ctermbg=black guibg=black
-match ErrorMsg '\%>80v.\+'
-set ttymouse=xterm2 " makes it work in 
+    hi Folded ctermbg=black guibg=black
+    set ttymouse=xterm2 " makes it work in everything
+    " match ErrorMsg '\%>150v.\+'
 " }}}
