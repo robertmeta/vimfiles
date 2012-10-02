@@ -654,6 +654,10 @@ NERD tree. These options should be set in your vimrc.
 |'NERDTreeDirArrows'|           Tells the NERD tree to use arrows instead of
                                 + ~ chars when displaying directories.
 
+|'NERDTreeCasadeOpenSingleChildDir'|
+                                Casade open while selected directory has only
+                                one child that also is a directory.
+
 ------------------------------------------------------------------------------
 3.2. Customisation details                             *NERDTreeOptionDetails*
 
@@ -779,6 +783,14 @@ For example if you put the following line in your vimrc: >
     let NERDTreeIgnore=['\.vim$', '\~$']
 <
 then all files ending in .vim or ~ will be ignored.
+
+There are 2 magic flags that can be appended to the end of each regular
+expression to specify that the regex should match only files or only dirs.
+These flags are "[[dir]]" and "[[file]]". Example: >
+    let NERDTreeIgnore=['.d$[[dir]]', '.o$[[file]]']
+<
+This will cause all dirs ending in ".d" to be ignored and all files ending in
+".o" to be ignored.
 
 Note: to tell the NERD tree not to ignore any files you must use the following
 line: >
@@ -957,6 +969,19 @@ option: >
     let NERDTreeDirArrows=1
 <
 
+------------------------------------------------------------------------------
+                                          *'NERDTreeCasadeOpenSingleChildDir'*
+Values: 0 or 1
+Default: 1.
+
+When opening dir nodes, this option tells NERDTree to recursively open dirs
+that have only one child which is also a dir. NERDTree will stop when it finds
+a dir that contains anything but another single dir. This option may be useful
+for Java projects.  Use one of the follow lines to set this option: >
+    let NERDTreeCasadeOpenSingleChildDir=0
+    let NERDTreeCasadeOpenSingleChildDir=1
+<
+
 ==============================================================================
 4. The NERD tree API                                             *NERDTreeAPI*
 
@@ -991,22 +1016,32 @@ NERDTreeAddKeyMap({options})                             *NERDTreeAddKeyMap()*
     "quickhelpText" - the text that will appear in the quickhelp (see
     |NERDTree-?|)
 
+    Additionally, a "scope" argument may be supplied. This constrains the
+    mapping so that it is only activated if the cursor is on a certain object.
+    That object is then passed into the handling method. Possible values are:
+        "FileNode" - a file node
+        "DirNode" - a directory node
+        "Node" - a file or directory node
+        "Bookmark" - A bookmark
+        "all" - the keymap is not constrained to any scope (default). When
+        thei is used, the handling function is not passed any arguments.
+
+
     Example: >
         call NERDTreeAddKeyMap({
-               \ 'key': 'b',
-               \ 'callback': 'NERDTreeEchoCurrentNode',
+               \ 'key': 'foo',
+               \ 'callback': 'NERDTreeCDHandler',
                \ 'quickhelpText': 'echo full path of current node' })
+               \ 'scope': 'DirNode'
 
-        function! NERDTreeEchoCurrentNode()
-            let n = g:NERDTreeFileNode.GetSelected()
-            if n != {}
-                echomsg 'Current node: ' . n.path.str()
-            endif
+        function! NERDTreeCDHandler(dirnode)
+            call a:dirnode.changeToDir()
         endfunction
 <
     This code should sit in a file like ~/.vim/nerdtree_plugin/mymapping.vim.
-    It adds a (rather useless) mapping on 'b' which echos the full path to the
-    current node.
+    It adds a (redundant) mapping on 'foo' which changes vim's CWD to that of
+    the current dir node. Note this mapping will only fire when the cursor is
+    on a directory node.
 
 ------------------------------------------------------------------------------
 4.2. Menu API                                                *NERDTreeMenuAPI*
@@ -1115,6 +1150,11 @@ The latest dev versions are on github
 
 ==============================================================================
 6. Changelog                                               *NERDTreeChangelog*
+
+Next
+    - add 'scope' argument to the key map API
+    - add NERDTreeCustomIgnoreFilter hook - needs doc
+    - add magic [[dir]] and [[file]] flags to NERDTreeIgnore
 
 4.2.0
     - Add NERDTreeDirArrows option to make the UI use pretty arrow chars
