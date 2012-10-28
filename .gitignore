@@ -1,4 +1,4 @@
 /doc/tags
-temp/*
-backup/*
+/temp/*
+/backup/*
 .netrwhist

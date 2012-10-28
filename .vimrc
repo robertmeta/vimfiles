@@ -206,7 +206,7 @@
 " GUI Settings {{{
 if has("gui_running")
     " Basics
-    colorscheme inkpot " 
+    colorscheme molokai " 
     set guifont=Consolas:h10 " My favorite font
     set guioptions=ce
     "              ||
@@ -225,7 +225,7 @@ endif
 if s:colorful_term
     "256 color --
     let &t_Co=256
-    colorscheme inkpot 
+    colorscheme molokai 
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf="\ESC[3%p1%dm"
