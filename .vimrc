@@ -166,10 +166,12 @@
     " space / shift-space scroll in normal mode
     noremap <S-space> <C-b>
     noremap <space> <C-f>
-    nmap <C-tab> :FufFile<CR>
-    nmap <tab> :FufBuffer<CR>
+    nmap <leader>ff :FufFileWithCurrentBufferDir<CR>
     nmap <leader>f :FufFile<CR>
     nmap <leader>b :FufBuffer<CR>
+    nmap <leader>tt :FufBufferTag<CR>
+    nmap <leader>t :FufBufferTagAll<CR>
+    nmap <tab> :FufBufferTagAll<CR>
 
     map <C-left> <ESC><C-W>h<RETURN>
     map <C-right> <ESC><C-W>l<RETURN>
