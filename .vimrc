@@ -126,7 +126,7 @@
 " Folding {{{
     set foldenable " Turn on folding
     set foldmethod=marker " Fold on the marker
-    set foldlevel=0 " Don't autofold anything (but I can still fold manually)
+    set foldlevel=100 " Don't autofold anything (but I can still fold manually)
     set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds 
     function SimpleFoldText() " {
         return getline(v:foldstart).' '
@@ -166,12 +166,12 @@
     " space / shift-space scroll in normal mode
     noremap <S-space> <C-b>
     noremap <space> <C-f>
-    nmap <leader>ff :FufFileWithCurrentBufferDir<CR>
-    nmap <leader>f :FufFile<CR>
+    nmap <leader>f :FufFileWithCurrentBufferDir<CR>
+    nmap <leader>ff :FufFile<CR>
     nmap <leader>b :FufBuffer<CR>
-    nmap <leader>tt :FufBufferTag<CR>
-    nmap <leader>t :FufBufferTagAll<CR>
-    nmap <tab> :FufBufferTagAll<CR>
+    nmap <leader>t :FufBufferTag<CR>
+    nmap <leader>tt :FufBufferTagAll<CR>
+    nmap <tab> :FufBufferTag<CR>
 
     map <C-left> <ESC><C-W>h<RETURN>
     map <C-right> <ESC><C-W>l<RETURN>
