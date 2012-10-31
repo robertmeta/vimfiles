@@ -125,7 +125,7 @@
 " }}}
 " Folding {{{
     set foldenable " Turn on folding
-    set foldmethod=marker " Fold on the marker
+    set foldmethod=indent " Fold on the indent (damn you python)
     set foldlevel=100 " Don't autofold anything (but I can still fold manually)
     set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds 
     function SimpleFoldText() " {
@@ -157,7 +157,6 @@
     let NERDChristmasTree = 1
     let NERDTreeMinimalUI = 1
     let NERDTreeDirArrows = 0
-
 " }}}
 " Mappings {{{
     " hit f11 to paste
@@ -241,5 +240,5 @@ endif
 " Odds n Ends {{{
     hi Folded ctermbg=black guibg=black
     set ttymouse=xterm2 " makes it work in everything
-    " match ErrorMsg '\%>150v.\+'
+    match ErrorMsg '\%>120v.\+'
 " }}}
