@@ -32,7 +32,7 @@
 " }}}
 " Newish {{{
     set history=9999 " big old history
-    set timeoutlen=1000 " super low delay
+    set timeoutlen=400 " super low delay (works for me)
     set formatoptions+=n " Recognize numbered lists
     set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
     set viminfo+=! " Store upper-case registers in viminfo
