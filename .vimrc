@@ -32,11 +32,11 @@
 " }}}
 " Newish {{{
     set history=9999 " big old history
-    set timeoutlen=200 " super low delay
-    set formatoptions+=n                " Recognize numbered lists
+    set timeoutlen=1000 " super low delay
+    set formatoptions+=n " Recognize numbered lists
     set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
-    set viminfo+=!                      " Store upper-case registers in viminfo
-    set nomore
+    set viminfo+=! " Store upper-case registers in viminfo
+    set nomore " Short nomore
 " }}}
 " General {{{
     filetype plugin indent on " load filetype plugins/indent settings
