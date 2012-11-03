@@ -32,7 +32,7 @@
 " }}}
 " Newish {{{
     set history=9999 " big old history
-    set timeoutlen=400 " super low delay (works for me)
+    set timeoutlen=300 " super low delay (works for me)
     set formatoptions+=n " Recognize numbered lists
     set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
     set viminfo+=! " Store upper-case registers in viminfo
@@ -111,7 +111,7 @@
     "              +-- full path to file in the buffer
 " }}}
 " Text Formatting/Layout {{{
-    set completeopt= " don't use a pop up menu for completions
+    set completeopt=menuone " don't use a pop up menu for completions
     set expandtab " no real tabs please!
     set formatoptions=rq " Automatically insert comment leader on return, and let gq format comments
     set ignorecase " case insensitive by default
@@ -157,6 +157,8 @@
     let NERDChristmasTree = 1
     let NERDTreeMinimalUI = 1
     let NERDTreeDirArrows = 0
+
+    let g:jedi#use_tabs_not_buffers = 1
 " }}}
 " Mappings {{{
     " hit f11 to paste
@@ -240,5 +242,4 @@ endif
 " Odds n Ends {{{
     hi Folded ctermbg=black guibg=black
     set ttymouse=xterm2 " makes it work in everything
-    match ErrorMsg '\%>120v.\+'
 " }}}
