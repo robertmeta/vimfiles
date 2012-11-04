@@ -74,7 +74,7 @@
     let html_number_lines = 0
     let html_use_css = 0
     let use_xhtml = 0
-    let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFile':{}, 'MruCmd':{}, 'Bookmark':{}, 'Tag':{}, 'TaggedFile':{}}   
+    let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFile':{}, 'MruCmd':{}, 'Bookmark':{}, 'Tag':{}, 'TaggedFile':{}}
 " }}}
 " Vim UI {{{
     set incsearch " BUT do highlight as you type you search phrase
@@ -137,17 +137,6 @@
     let b:match_ignorecase = 1 " case is stupid
     let perl_extended_vars=1 " highlight advanced perl vars inside strings
 
-    " TagList Settings
-    let Tlist_Auto_Open=0 " let the tag list open automagically
-    let Tlist_Compact_Format = 1 " show small menu
-    let Tlist_Ctags_Cmd = 'ctags' " location of ctags
-    let Tlist_Enable_Fold_Column = 0 " do show folding tree
-    let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself
-    let Tlist_File_Fold_Auto_Close = 1 " fold closed other trees
-    let Tlist_Sort_Type = "name" " order by 
-    let Tlist_Use_Right_Window = 1 " split to the right side of the screen
-    let Tlist_WinWidth = 40 " 40 cols wide, so i can (almost always) read my functions
-
     let tlist_aspjscript_settings = 'asp;f:function;c:class' 
     let tlist_aspvbs_settings = 'asp;f:function;s:sub' 
     let tlist_php_settings = 'php;c:class;d:constant;f:function' 
@@ -157,8 +146,6 @@
     let NERDChristmasTree = 1
     let NERDTreeMinimalUI = 1
     let NERDTreeDirArrows = 0
-
-    let g:jedi#use_tabs_not_buffers = 1
 " }}}
 " Mappings {{{
     " hit f11 to paste
@@ -167,6 +154,8 @@
     " space / shift-space scroll in normal mode
     noremap <S-space> <C-b>
     noremap <space> <C-f>
+
+    " fuzzymaps
     nmap <leader>f :FufFileWithCurrentBufferDir<CR>
     nmap <leader>ff :FufFile<CR>
     nmap <leader>b :FufBuffer<CR>
@@ -174,16 +163,7 @@
     nmap <leader>tt :FufBufferTagAll<CR>
     nmap <tab> :FufBufferTag<CR>
 
-    map <C-left> <ESC><C-W>h<RETURN>
-    map <C-right> <ESC><C-W>l<RETURN>
-    map <C-up> <ESC><C-W>k<RETURN>
-    map <C-down> <ESC><C-W>j<RETURN>
-
-    map <M-left> <ESC>:NERDTreeToggle<RETURN>
-    map <M-right> <ESC>:Tlist<RETURN>
-    map <M-up> <ESC>:NERDTreeToggle<RETURN>
-    map <M-down> <ESC>:Tlist<RETURN>
-
+    " make arrow keys useful
     map <left> <ESC>:NERDTree<RETURN>
     map <right> <ESC>:TagbarToggle<RETURN>
     map <up> <ESC>:bp<RETURN>
@@ -209,7 +189,7 @@
 " GUI Settings {{{
 if has("gui_running")
     " Basics
-    colorscheme molokai " 
+    colorscheme inkpot " 
     set guifont=Consolas:h10 " My favorite font
     set guioptions=ce
     "              ||
@@ -228,7 +208,7 @@ endif
 if s:colorful_term
     "256 color --
     let &t_Co=256
-    colorscheme molokai 
+    colorscheme inkpot 
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf="\ESC[3%p1%dm"

@@ -223,11 +223,12 @@ strange things will happen. This is unfortunately unavoidable.
 
 Displaying the prototype of a tag~
 Tagbar can display the prototype of a tag. More precisely it can display the
-line in which the tag is defined. This can be done by either pressing <Space>
-when on a tag or hovering over a tag with the mouse. In the former case the
-prototype will be displayed in the command line |Command-line|, in the latter
-case it will be displayed in a pop-up window. The prototype will also be
-displayed when the cursor stays on a tag for 'updatetime' milliseconds.
+line(s) in which the tag is defined. This can be done by either pressing
+<Space> when on a tag or hovering over a tag with the mouse. In the former
+case the prototype will be displayed in the |Command-line|, in the latter case
+it will be displayed in a pop-up window. The prototype will also be displayed
+if the cursor stays on a tag for 'updatetime' milliseconds. In that case the
+prototype may be abbreviated in order to avoid |hit-enter| prompts.
 
 ------------------------------------------------------------------------------
 COMMANDS                                                     *tagbar-commands*
@@ -241,7 +242,8 @@ COMMANDS                                                     *tagbar-commands*
           were set to 1)
     'j'   Jump to Tagbar window if already open
     'c'   Close Tagbar on tag selection (just as if |g:tagbar_autoclose| were
-          set to 1, but doesn't imply 'f')
+          set to 1, but doesn't imply 'f'), but only if the Tagbar window was
+          opened using this command.
 
     For example, the following command would always jump to the Tagbar window,
     opening it first if necessary, but keep it open after selecting a tag
@@ -256,7 +258,7 @@ COMMANDS                                                     *tagbar-commands*
 
 :TagbarOpenAutoClose                                    *:TagbarOpenAutoClose*
     Open the Tagbar window, jump to it and close it on tag selection. This is
-    an alias for ":TagbarOpen fc".
+    an alias for ":TagbarOpen fjc".
 
 :TagbarSetFoldlevel[!] {number}                          *:TagbarSetFoldlevel*
     Set the foldlevel of the tags of the current file to {number}. The
@@ -268,6 +270,10 @@ COMMANDS                                                     *tagbar-commands*
 :TagbarShowTag                                                *:TagbarShowTag*
     Open the parent folds of the current tag in the file window as much as
     needed for the tag to be visible in the Tagbar window.
+
+:TagbarCurrentTag [{flags}]                                *:TagbarCurrentTag*
+    Echo the current tag in the command line. For {flags} see
+    |tagbar-statusline|.
 
 :TagbarGetTypeConfig {filetype}                         *:TagbarGetTypeConfig*
     Paste the Tagbar configuration of the vim filetype {filetype} at the
@@ -400,6 +406,18 @@ save screen real estate.
 Example:
 >
         let g:tagbar_compact = 1
+<
+
+                                                             *g:tagbar_indent*
+g:tagbar_indent~
+Default: 2
+
+The number of spaces by which each level is indented. This allows making the
+display more compact or more spacious.
+
+Example:
+>
+        let g:tagbar_indent = 1
 <
 
                                                              *g:tagbar_expand*
@@ -609,10 +627,13 @@ tagbar#currenttag({format}, {default} [, {flags}])
     's'   If the tag is a function, the complete signature will be shown,
           otherwise just "()" will be appended to distinguish functions from
           other tags.
+    'p'   Display the raw prototype instead of the parsed tag. This can be
+          useful in cases where ctags doesn't report some information, like
+          the signature. Note that this can get quite long.
 
     For example, if you put the following into your statusline: >
-        %{tagbar#currenttag('[%s] ', '')}
-<   then the function "myfunc" will be show as "[myfunc()] ".
+        %{tagbar#currenttag('[%s] ','')}
+<   then the function "myfunc" will be shown as "[myfunc()] ".
 
 ==============================================================================
 6. Extending Tagbar                                            *tagbar-extend*
