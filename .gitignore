@@ -1,5 +1,6 @@
 /doc/tags
 /temp/*
 /backup/*
+view/*
 .netrwhist
 *.cache
