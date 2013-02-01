@@ -180,8 +180,8 @@
     au Syntax * RainbowParenthesesLoadSquare
     au Syntax * RainbowParenthesesLoadBraces
     " Remember everything (position, folds, etc)
-    au BufWinLeave * mkview
-    au BufWinEnter * silent loadview
+    " au BufWinLeave * mkview
+    " au BufWinEnter * silent loadview
 
 " GUI Settings
 if has("gui_running")
