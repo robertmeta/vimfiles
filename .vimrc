@@ -70,7 +70,7 @@
     "             | +-- <Space> Normal and Visual
     "             +-- <BS> Normal and Visual
     set wildmenu " turn on command line completion wild style
-    set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
+    set wildignore=/home/rmelton/projects/inky-core/python/arcode/*,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
     set wildmode=list:longest " turn on wild mode huge list
     let html_number_lines = 0
     let html_use_css = 0
@@ -153,12 +153,12 @@
     noremap <S-space> <C-b>
     noremap <space> <C-f>
     " fuzzymaps
-    nmap <leader>f :FufFileWithCurrentBufferDir<CR>
-    nmap <leader>ff :FufFile<CR>
-    nmap <leader>b :FufBuffer<CR>
-    nmap <leader>t :FufBufferTag<CR>
-    nmap <leader>tt :FufBufferTagAll<CR>
-    nmap <tab> :FufBufferTag<CR>
+    nmap <leader>f :CtrlPCurWD<CR>
+    nmap <leader>ff :CtrlP<CR>
+    nmap <leader>b :CtrlPBuffer<CR>
+    nmap <leader>t :CtrlPBufTag<CR>
+    nmap <leader>tt :CtrlPBufTagAll<CR>
+    nmap <tab> :CtrlPMixed<CR>
     " make arrow keys useful
     map <left> <ESC>:NERDTree<RETURN>
     map <right> <ESC>:TagbarToggle<RETURN>
