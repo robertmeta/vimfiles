@@ -70,7 +70,7 @@
     "             | +-- <Space> Normal and Visual
     "             +-- <BS> Normal and Visual
     set wildmenu " turn on command line completion wild style
-    set wildignore=/home/rmelton/projects/inky-core/python/arcode/*,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
+    set wildignore=/home/rmelton/projects/inky-core/src/mail/python/*,/home/rmelton/projects/inky-core/python/arcode/*,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
     set wildmode=list:longest " turn on wild mode huge list
     let html_number_lines = 0
     let html_use_css = 0
