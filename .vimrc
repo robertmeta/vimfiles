@@ -189,7 +189,7 @@
 if has("gui_running")
     " Basics
     colorscheme molokai
-    set guifont=Consolas:h10 " My favorite font
+    set guifont=Source_Code_Pro_Semibold:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||
     "              |+-- use simple dialogs rather than pop-ups
