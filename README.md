@@ -16,5 +16,4 @@ ln -s ~/.vim/.vimrc ~/.vimrc
 
 #### Windows (as an administrative user) ####
 
-mklink %HOME%\.vimrc %HOME%\vimfiles\.vimrc
-
+mklink %HOME%\\.vimrc %HOME%\vimfiles\\.vimrc
