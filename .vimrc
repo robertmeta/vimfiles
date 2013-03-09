@@ -70,8 +70,7 @@
     "             | +-- <Space> Normal and Visual
     "             +-- <BS> Normal and Visual
     set wildmenu " turn on command line completion wild style
-    set wildignore=*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
-    set wildignore+=~/projects/inky-core/python/arcode/*,~/Projects/inky-core/python/arcode/*
+    set wildignore=*/python/arcode/*,*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
     set wildmode=list:longest " turn on wild mode huge list
     let html_number_lines = 0
     let html_use_css = 0
@@ -156,14 +155,14 @@
     "noremap <space> <C-f>
 
     " fuzzymaps
-    nmap <leader>f :CtrlPCurWD<CR>
-    nmap <leader>ff :CtrlPMixed<CR>
+    nmap <leader>f :CtrlP<CR>
+    nmap <leader>ff :CtrlPCurWD<CR>
     nmap <leader>b :CtrlPBuffer<CR>
-    nmap <leader>t :CtrlPBufTag<CR>
-    nmap <leader>tt :CtrlPBufTagAll<CR>
+    nmap <leader>t :CtrlPBufTagAll<CR>
+    nmap <leader>l :CtrlPLine<CR>
     nmap <tab> :CtrlPBufTag<CR>
 
-    nmap <leader>nt <ESC>:NERDTree<RETURN>
+    nmap <leader>nt <ESC>:NERDTreeToggle<RETURN>
     nmap <leader>tb <ESC>:TagbarToggle<RETURN>
     nmap <leader>a <ESC>:A<RETURN>
     nmap <leader>as <ESC>:AV<RETURN>
@@ -182,8 +181,7 @@
     let g:ctrlp_max_height = 30
     let g:ctrlp_max_files = 100000
     let g:ctrlp_max_depth = 100
-    let g:ctrlp_follow_symlinks = 1
-    let g:ctrlp_lazy_update = 50 "ms
+    let g:ctrlp_follow_symlinks = 0
 
     if s:running_windows
         let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
@@ -191,12 +189,11 @@
         let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
     endif
 
-
 " Autocommands
     " Things that use two spaces rather than 4
     au BufRead,BufNewFile *.rb,*.rhtml,*.mm,*.cpp,*.h,*.hpp set shiftwidth=2
     au BufRead,BufNewFile *.rb,*.rhtml,*.mm,*.cpp,*.h,*.hpp set softtabstop=2
-    " Override types
+    " Override typens
     au BufNewFile,BufRead *.ahk set filetype=ahk
     au BufNewFile,BufRead *.ps1 set filetype=ps1
     au BufNewFile,BufRead *.md set filetype=markdown
