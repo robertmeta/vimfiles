@@ -204,7 +204,7 @@
     au Syntax * RainbowParenthesesLoadSquare
     au Syntax * RainbowParenthesesLoadBraces
     " General stuff
-    au VimEnter * set cc=151
+    au VimEnter * set cc=126
     " Remember everything (position, folds, etc)
     " au BufWinLeave * mkview
     " au BufWinEnter * silent loadview
