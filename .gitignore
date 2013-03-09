@@ -1,6 +1,7 @@
-/doc/tags
-/temp/*
-/backup/*
+doc/tags
+temp/*
+backup/*
+ctrlp_cache/*
 view/*
 .netrwhist
 *.cache
