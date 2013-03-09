@@ -70,7 +70,8 @@
     "             | +-- <Space> Normal and Visual
     "             +-- <BS> Normal and Visual
     set wildmenu " turn on command line completion wild style
-    set wildignore=/home/rmelton/projects/inky-core/src/mail/python/*,/home/rmelton/projects/inky-core/python/arcode/*,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
+    set wildignore=*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
+    set wildignore+=/home/rmelton/projects/inky-core/python/arcode/*,/home/rmelton/Projects/inky-core/python/arcode/*
     set wildmode=list:longest " turn on wild mode huge list
     let html_number_lines = 0
     let html_use_css = 0
@@ -149,26 +150,36 @@
 " Mappings
     " hit f11 to paste
     set pastetoggle=<f11>
+
     " space / shift-space scroll in normal mode
-    noremap <S-space> <C-b>
-    noremap <space> <C-f>
+    " *** I never, ever use these, too used to <C-b> <C-f>
+    "noremap <S-space> <C-b>
+    "noremap <space> <C-f>
+
     " fuzzymaps
     nmap <leader>f :CtrlPCurWD<CR>
-    nmap <leader>ff :CtrlP<CR>
+    nmap <leader>ff :CtrlPMixed<CR>
     nmap <leader>b :CtrlPBuffer<CR>
     nmap <leader>t :CtrlPBufTag<CR>
     nmap <leader>tt :CtrlPBufTagAll<CR>
-    nmap <tab> :CtrlPMixed<CR>
+    nmap <tab> :CtrlPBufTag<CR>
+
+    nmap <leader>nt <ESC>:NERDTree<RETURN>
+    nmap <leader>tb <ESC>:TagbarToggle<RETURN>
+    nmap <leader>a <ESC>:A<RETURN>
+    nmap <leader>as <ESC>:AV<RETURN>
+
     " make arrow keys useful
-    map <left> <ESC>:NERDTree<RETURN>
-    map <right> <ESC>:TagbarToggle<RETURN>
-    map <up> <ESC>:bp<RETURN>
-    map <down> <ESC>:bn<RETURN>
+    " *** Disabled because co-workers keep breaking my vim! ***
+    " map <left> <ESC>:NERDTree<RETURN>
+    " map <right> <ESC>:TagbarToggle<RETURN>
+    " map <up> <ESC>:bp<RETURN>
+    " map <down> <ESC>:bn<RETURN>
 
 " Autocommands
-    " ruby standard 2 spaces, always
-    au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2
-    au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2
+    " Things that use two spaces rather than 4
+    au BufRead,BufNewFile *.rb,*.rhtml,*.mm,*.cpp,*.h,*.hpp set shiftwidth=2
+    au BufRead,BufNewFile *.rb,*.rhtml,*.mm,*.cpp,*.h,*.hpp set softtabstop=2
     " Override types
     au BufNewFile,BufRead *.ahk set filetype=ahk
     au BufNewFile,BufRead *.ps1 set filetype=ps1
@@ -189,7 +200,7 @@
 if has("gui_running")
     " Basics
     colorscheme molokai
-    set guifont=Source_Code_Pro_Semibold:h9:cANSI " My favorite font
+    set guifont=Consolas:h10 " My favorite font
     set guioptions=ce
     "              ||
     "              |+-- use simple dialogs rather than pop-ups
