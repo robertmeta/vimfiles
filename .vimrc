@@ -71,12 +71,11 @@
     "             +-- <BS> Normal and Visual
     set wildmenu " turn on command line completion wild style
     set wildignore=*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
-    set wildignore+=/home/rmelton/projects/inky-core/python/arcode/*,/home/rmelton/Projects/inky-core/python/arcode/*
+    set wildignore+=~/projects/inky-core/python/arcode/*,~/Projects/inky-core/python/arcode/*
     set wildmode=list:longest " turn on wild mode huge list
     let html_number_lines = 0
     let html_use_css = 0
     let use_xhtml = 0
-    let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFile':{}, 'MruCmd':{}, 'Bookmark':{}, 'Tag':{}, 'TaggedFile':{}}
 
 " Vim UI
     set incsearch " BUT do highlight as you type you search phrase
@@ -175,6 +174,20 @@
     " map <right> <ESC>:TagbarToggle<RETURN>
     " map <up> <ESC>:bp<RETURN>
     " map <down> <ESC>:bn<RETURN>
+
+" CtrlP
+    let g:ctrlp_working_path_mode = 'ra'
+    let g:ctrlp_match_window_bottom = 0
+    let g:ctrlp_match_window_reversed = 0
+    let g:ctrlp_max_height = 30
+    if s:running_windows
+        let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
+    else
+        let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
+        set backupdir=~/.vim/backup " where to put backup files
+        set directory=~/.vim/temp " directory to place swap files in
+    endif
+
 
 " Autocommands
     " Things that use two spaces rather than 4
