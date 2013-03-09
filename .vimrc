@@ -180,12 +180,15 @@
     let g:ctrlp_match_window_bottom = 0
     let g:ctrlp_match_window_reversed = 0
     let g:ctrlp_max_height = 30
+    let g:ctrlp_max_files = 100000
+    let g:ctrlp_max_depth = 100
+    let g:ctrlp_follow_symlinks = 1
+    let g:ctrlp_lazy_update = 50 "ms
+
     if s:running_windows
         let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
     else
         let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
-        set backupdir=~/.vim/backup " where to put backup files
-        set directory=~/.vim/temp " directory to place swap files in
     endif
 
 
