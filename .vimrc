@@ -10,8 +10,6 @@
 " Startup
     let s:running_windows = has("win16") || has("win32") || has("win64")
     let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
-    let g:erlangHighlightBif = 1
-    let g:erlangHighLightOperators = 1
 
 " Basics
     set nocompatible " explicitly get out of vi-compatible mode
@@ -125,13 +123,9 @@
 
 " Folding
     set foldenable " Turn on folding
-    set foldmethod=indent " Fold on the indent (damn you python)
+    set foldmethod=marker " Fold on the indent (damn you python)
     set foldlevel=100 " Don't autofold anything (but I can still fold manually)
     set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
-    function SimpleFoldText() " {
-        return getline(v:foldstart).' '
-    endfunction " }
-    set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
 
 " Plugin Settings
     let b:match_ignorecase = 1 " case is stupid
