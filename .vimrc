@@ -203,6 +203,33 @@
     au Syntax * RainbowParenthesesLoadRound
     au Syntax * RainbowParenthesesLoadSquare
     au Syntax * RainbowParenthesesLoadBraces
+    let g:rbpt_colorpairs = [
+        \ ['red',       'RoyalBlue3'],
+        \ ['green',    'SeaGreen3'],
+        \ ['blue',   'firebrick3'],
+        \ ['yellow',    'DarkOrchid3'],
+        \ ['magenta',    'RoyalBlue3'],
+        \ ['cyan',     'SeaGreen3'],
+        \ ['red',       'RoyalBlue3'],
+        \ ['green',    'SeaGreen3'],
+        \ ['blue',   'firebrick3'],
+        \ ['yellow',    'DarkOrchid3'],
+        \ ['magenta',    'RoyalBlue3'],
+        \ ['cyan',     'SeaGreen3'],
+        \ ['red',       'RoyalBlue3'],
+        \ ['green',    'SeaGreen3'],
+        \ ['blue',   'firebrick3'],
+        \ ['yellow',    'DarkOrchid3'],
+        \ ['magenta',    'RoyalBlue3'],
+        \ ['cyan',     'SeaGreen3'],
+        \ ['red',       'RoyalBlue3'],
+        \ ['green',    'SeaGreen3'],
+        \ ['blue',   'firebrick3'],
+        \ ['yellow',    'DarkOrchid3'],
+        \ ['magenta',    'RoyalBlue3'],
+        \ ['cyan',     'SeaGreen3'],
+        \ ]
+    let g:rbpt_max = 24
     " General stuff
     au VimEnter * set cc=126
     " Remember everything (position, folds, etc)
