@@ -12,6 +12,10 @@ let s:running_windows = has("win16") || has("win32") || has("win64")
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 " }}}
 
+" Before we do anything, lets get pathogen up {{{
+execute pathogen#infect()
+" }}}
+
 " Basics {{{
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
@@ -29,8 +33,8 @@ set cpoptions=aABceFsmq
 "             +-- :read updates alternative file name
 syntax on " syntax highlighting on
 let g:skip_loading_mswin=1 " Just in case :)
-set history=9999 " big old history
-set timeoutlen=300 " super low delay (works for me)
+set history=99999 " big old history
+set timeoutlen=500 " super low delay (works for me)
 set formatoptions+=n " Recognize numbered lists
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
@@ -51,8 +55,6 @@ else
 endif
 set fileformats=unix,dos,mac " support all three, in this order
 set hidden " you can change buffers without saving
-" (XXX: #VIM/tpope warns the line below could break things)
-set iskeyword+=_,$,@,%,# " none of these are word dividers
 set mouse=a " use mouse everywhere
 set noerrorbells " don't make noise
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
@@ -69,9 +71,6 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 set wildmenu " turn on command line completion wild style
 set wildignore=*/python/arcode/*,*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
 set wildmode=list:longest " turn on wild mode huge list
-let html_number_lines = 0
-let html_use_css = 0
-let use_xhtml = 0
 " }}}
 
 " Vim UI {{{
@@ -81,7 +80,7 @@ set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
 set list " we do what to show tabs, to ensure we get them out of my files
 set listchars=tab:>-,trail:- " show tabs and trailing
-set matchtime=5 " how many tenths of a second to blink matching brackets for
+set matchtime=1 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
 set novisualbell " don't blink
@@ -131,6 +130,9 @@ set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 " }}}
 
 " Plugin Settings {{{
+let html_number_lines = 0
+let html_use_css = 0
+let use_xhtml = 0
 let b:match_ignorecase = 1 " case is stupid
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
 let tlist_aspjscript_settings = 'asp;f:function;c:class'
