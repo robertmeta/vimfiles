@@ -1,11 +1,11 @@
-" Modeline and Notes
+" Modeline and Notes {{{
 "   This is my personal .vimrc, I don't recommend you copy it, just
 "   use the "   pieces you want(and understand!).  When you copy a
 "   .vimrc in its entirety, weird and unexpected things can happen.
 "
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
-
+" }}}
 
 " Startup {{{
 let s:running_windows = has("win16") || has("win32") || has("win64")
@@ -69,7 +69,7 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | +-- <Space> Normal and Visual
 "             +-- <BS> Normal and Visual
 set wildmenu " turn on command line completion wild style
-set wildignore=*/python/arcode/*,*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these list file extensions
+set wildignore=*/python/arcode/*,*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these 
 set wildmode=list:longest " turn on wild mode huge list
 " }}}
 
@@ -226,17 +226,16 @@ au VimEnter * set cc=126
 if has("gui_running") " {{{
     " Basics
     colorscheme molokai
-    set guifont=Consolas:h10 " My favorite font
+    set guifont=Source_Code_Pro_Semibold:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||
     "              |+-- use simple dialogs rather than pop-ups
     "              +-- use GUI tabs, not console style tabs
     set mousehide " hide the mouse cursor when typing
-    map <F8> <ESC>:set guifont=Consolas:h8<CR>
-    map <F9> <ESC>:set guifont=Consolas:h10<CR>
-    map <F10> <ESC>:set guifont=Consolas:h12<CR>
-    map <F11> <ESC>:set guifont=Consolas:h16<CR>
-    map <F12> <ESC>:set guifont=Consolas:h20<CR>
+    map <F9> <ESC>:set guifont=Source_Code_Pro_Semibold:h9:cANSI<CR>
+    map <F10> <ESC>:set guifont=Source_Code_Pro_Semibold:h12:cANSI<CR>
+    map <F11> <ESC>:set guifont=Source_Code_Pro_Semibold:h16:cANSI<CR>
+    map <F12> <ESC>:set guifont=Source_Code_Pro_Semibold:h20:cANSI<CR>
 endif " }}}
 
 if s:colorful_term " {{{
@@ -253,5 +252,6 @@ if s:colorful_term " {{{
     endif
 endif " }}}
 
-" Odds n Ends
+" Odds n Ends {{{
 set ttymouse=xterm2 " makes it work in everything
+" }}}
