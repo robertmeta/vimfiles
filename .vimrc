@@ -189,24 +189,19 @@ endif
 nmap <leader>f :CtrlP<CR>
 nmap <leader>ff :CtrlPCurWD<CR>
 nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>t :CtrlPBufTagAll<CR>
+nmap <leader>t :CtrlPBufTagA<CR>
+nmap <leader>ta :CtrlPBufTagAll<CR>
 nmap <leader>l :CtrlPLine<CR>
-nmap <tab> :CtrlPBufTag<CR>
+nmap <tab> :CtrlPBuffer<CR>
 
 nmap <leader>nt <ESC>:NERDTreeToggle<RETURN>
 nmap <leader>tb <ESC>:TagbarToggle<RETURN>
 nmap <leader>a <ESC>:A<RETURN>
 nmap <leader>as <ESC>:AV<RETURN>
-
-" *** Disabled because co-workers keep breaking my vim! ***
-" map <left> <ESC>:NERDTree<RETURN>
-" map <right> <ESC>:TagbarToggle<RETURN>
-" map <up> <ESC>:bp<RETURN>
-" map <down> <ESC>:bn<RETURN>
 " }}}
 
 " Autocommands {{{
-" Things that use two spaces rather than 4
+" Things that use two spaces rather than four
 au BufRead,BufNewFile *.rb,*.rhtml,*.mm,*.cpp,*.h,*.hpp set shiftwidth=2
 au BufRead,BufNewFile *.rb,*.rhtml,*.mm,*.cpp,*.h,*.hpp set softtabstop=2
 " Override typens
@@ -225,7 +220,7 @@ au VimEnter * set cc=126
 
 if has("gui_running") " {{{
     " Basics
-    colorscheme molokai
+    colorscheme inkypot
     set guifont=Source_Code_Pro_Semibold:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||
@@ -241,7 +236,7 @@ endif " }}}
 if s:colorful_term " {{{
     "256 color --
     let &t_Co=256
-    colorscheme molokai
+    colorscheme inkpot
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf="\ESC[3%p1%dm"
