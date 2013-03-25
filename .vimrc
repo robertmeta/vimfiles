@@ -143,6 +143,7 @@ let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin']
 let NERDChristmasTree = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
+" {{{ rainbow paren pairs
 let g:rbpt_colorpairs = [
     \ ['red',       'RoyalBlue3'],
     \ ['green',    'SeaGreen3'],
@@ -168,7 +169,7 @@ let g:rbpt_colorpairs = [
     \ ['yellow',    'DarkOrchid3'],
     \ ['magenta',    'RoyalBlue3'],
     \ ['cyan',     'SeaGreen3'],
-    \ ]
+\ ] " }}}
 let g:rbpt_max = 24
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_match_window_bottom = 0
