@@ -48,9 +48,11 @@ set backup " make backup files
 set clipboard+=unnamed " share windows clipboard
 if s:running_windows
     set backupdir=~/vimfiles/backup " where to put backup files
+    set undodir=~/vimfiles/undo " where to put undo files
     set directory=~/vimfiles/temp " directory to place swap files in
 else
     set backupdir=~/.vim/backup " where to put backup files
+    set undodir=~/.vim/undo " where to put undo files
     set directory=~/.vim/temp " directory to place swap files in
 endif
 set fileformats=unix,dos,mac " support all three, in this order
@@ -221,7 +223,7 @@ au VimEnter * set cc=126
 
 if has("gui_running") " {{{
     " Basics
-    colorscheme inkypot
+    colorscheme molokai
     set guifont=Source_Code_Pro_Semibold:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||
@@ -237,7 +239,7 @@ endif " }}}
 if s:colorful_term " {{{
     "256 color --
     let &t_Co=256
-    colorscheme inkpot
+    colorscheme molokai
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf="\ESC[3%p1%dm"
