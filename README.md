@@ -15,3 +15,7 @@ ln -s ~/.vim/.vimrc ~/.vimrc
 #### Windows (as an administrative user) ####
 
 mklink %HOME%\\.vimrc %HOME%\vimfiles\\.vimrc
+
+#### Won't really work until you run ####
+
+git submodule foreach git pull
