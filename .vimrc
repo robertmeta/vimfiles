@@ -205,8 +205,9 @@ nmap <leader>as <ESC>:AV<RETURN>
 
 " Autocommands {{{
 " Things that use two spaces rather than four
-au BufRead,BufNewFile *.rb,*.rhtml,*.mm,*.cpp,*.h,*.hpp set shiftwidth=2
-au BufRead,BufNewFile *.rb,*.rhtml,*.mm,*.cpp,*.h,*.hpp set softtabstop=2
+au BufRead,BufNewFile *.rb,*.rhtml,*.mm,*.cpp,*.h,*.hpp set sw=2 sts=2
+au BufRead,BufNewFile *.go set noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " show tabs and trailing
+au BufRead,BufNewFile MakeFile,Makefile,makefile set noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " show tabs and trailing
 " Override typens
 au BufNewFile,BufRead *.ahk set filetype=ahk
 au BufNewFile,BufRead *.ps1 set filetype=ps1
