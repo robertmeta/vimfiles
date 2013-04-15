@@ -3,3 +3,4 @@ backup/*
 undo/*
 ctrlp_cache/*
 view/*
+.netrwhist
