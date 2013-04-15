@@ -18,4 +18,5 @@ mklink %HOME%\\.vimrc %HOME%\vimfiles\\.vimrc
 
 #### Won't really work until you run ####
 
-git submodule foreach git pull
+to init: git submodule update --init
+or to update: git submodule foreach git pull
