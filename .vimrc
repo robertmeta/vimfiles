@@ -225,16 +225,12 @@ au VimEnter * set cc=126
 if has("gui_running") " {{{
     " Basics
     colorscheme molokai
-    set guifont=Source_Code_Pro_Semibold:h9:cANSI " My favorite font
+    set guifont=Consolas:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||
     "              |+-- use simple dialogs rather than pop-ups
     "              +-- use GUI tabs, not console style tabs
     set mousehide " hide the mouse cursor when typing
-    map <F9> <ESC>:set guifont=Source_Code_Pro_Semibold:h9:cANSI<CR>
-    map <F10> <ESC>:set guifont=Source_Code_Pro_Semibold:h12:cANSI<CR>
-    map <F11> <ESC>:set guifont=Source_Code_Pro_Semibold:h16:cANSI<CR>
-    map <F12> <ESC>:set guifont=Source_Code_Pro_Semibold:h20:cANSI<CR>
 endif " }}}
 
 if s:colorful_term " {{{
