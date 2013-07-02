@@ -126,7 +126,8 @@ set tabstop=8 " real tabs should be 8, and they will show with set list on
 
 " Folding {{{
 set foldenable " Turn on folding
-set foldmethod=marker " Fold on the indent (damn you python)
+set foldmethod=marker " Fold on the marker
+set foldmarker={,} " use simple markers
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 " }}}
