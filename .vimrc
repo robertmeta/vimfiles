@@ -220,12 +220,12 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 " General stuff
-au VimEnter * set cc=126
+" au VimEnter * set cc=126 " looks really bad with herald
 "}}}
 
 if has("gui_running") " {{{
     " Basics
-    colorscheme molokai
+    colorscheme herald
     set guifont=Consolas:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||
@@ -237,7 +237,7 @@ endif " }}}
 if s:colorful_term " {{{
     "256 color --
     let &t_Co=256
-    colorscheme molokai
+    colorscheme herald
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf="\ESC[3%p1%dm"
