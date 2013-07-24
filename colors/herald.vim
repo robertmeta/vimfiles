@@ -21,7 +21,7 @@ if has("gui_running")
 
   " -> Text; Miscellaneous
   hi Normal         guibg=#1F1F1F guifg=#D0D0D0 gui=none
-  hi SpecialKey     guibg=#1F1F1F guifg=#E783E9 gui=none
+  hi SpecialKey     guibg=#1F1F1F guifg=black gui=none
   hi VertSplit      guibg=#1F1F1F guifg=#FFEE68 gui=none
   hi SignColumn     guibg=#1F1F1F guifg=#BF81FA gui=none
   hi NonText        guibg=#1F1F1F guifg=#FC6984 gui=none
@@ -116,7 +116,7 @@ elseif &t_Co == 256
 
   " -> Text; Miscellaneous
   hi Normal         ctermbg=234  ctermfg=252   cterm=none
-  hi SpecialKey     ctermbg=234  ctermfg=176   cterm=none
+  hi SpecialKey     ctermbg=234  ctermfg=black   cterm=none
   hi VertSplit      ctermbg=234  ctermfg=227   cterm=none
   hi SignColumn     ctermbg=234  ctermfg=141   cterm=none
   hi NonText        ctermbg=234  ctermfg=204   cterm=none
