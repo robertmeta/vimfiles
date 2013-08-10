@@ -80,7 +80,7 @@ set incsearch " BUT do highlight as you type you search phrase
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
-set list " we do what to show tabs, to ensure we get them out of my files
+set list " we do want to show tabs and tailing to ensure we get them out of my files
 set listchars=tab:>-,trail:- " show tabs and trailing
 set matchtime=1 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
@@ -206,16 +206,16 @@ nmap <leader>as <ESC>:AV<RETURN>
 
 " Autocommands {{{
 " Things that use two spaces rather than four
-au BufRead,BufNewFile *.rb,*.rhtml,*.mm,*.cpp,*.h,*.hpp set sw=2 sts=2
-au BufRead,BufNewFile *.go set noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " show tabs and trailing
-au BufRead,BufNewFile MakeFile,Makefile,makefile set noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " show tabs and trailing
+au BufRead,BufNewFile *.rb,*.rhtml set sw=2 sts=2 " ruby likes two 
+au BufRead,BufNewFile *.go set noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
+au BufRead,BufNewFile MakeFile,Makefile,makefile set noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
 " Override typens
-au BufNewFile,BufRead *.ahk set filetype=ahk
-au BufNewFile,BufRead *.ps1 set filetype=ps1
-au BufNewFile,BufRead *.md set filetype=markdown
-au BufNewFile,BufRead *.dtl set filetype=htmldjango
+au BufNewFile,BufRead *.ahk set filetype=ahk " Autohotkey
+au BufNewFile,BufRead *.ps1 set filetype=ps1 " Powershell
+au BufNewFile,BufRead *.md set filetype=markdown " Markdown
+au BufNewFile,BufRead *.dtl set filetype=htmldjango " Django Templates
 " Rainbow Parens
-au VimEnter * RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesToggle " You actually have to turn it on
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
@@ -225,7 +225,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 if has("gui_running") " {{{
     " Basics
-    colorscheme herald
+    colorscheme herald " my new favorite!
     set guifont=Consolas:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||

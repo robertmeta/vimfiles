@@ -31,3 +31,6 @@
 [submodule "bundle/vividchalk"]
 	path = bundle/vividchalk
 	url = git://github.com/tpope/vim-vividchalk.git
+[submodule "bundle/textobjectify"]
+	path = bundle/textobjectify
+	url = git://github.com/paradigm/TextObjectify.git
