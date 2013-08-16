@@ -1,22 +1,19 @@
-" Modeline and Notes {{{
+" Modeline and Notes 
 "   This is my personal .vimrc, I don't recommend you copy it, just
-"   use the "   pieces you want(and understand!).  When you copy a
+"   use the pieces you want (and understand!).  When you copy a
 "   .vimrc in its entirety, weird and unexpected things can happen.
 "
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
-" }}}
 
-" Startup {{{
+" Startup 
 let s:running_windows = has("win16") || has("win32") || has("win64")
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
-" }}}
 
-" Before we do anything, lets get pathogen up {{{
+" Before we do anything, lets get pathogen up 
 execute pathogen#infect()
-" }}}
 
-" Basics {{{
+" Basics
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set background=dark " we plan to use a dark background
@@ -39,9 +36,8 @@ set formatoptions+=n " Recognize numbered lists
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
-" }}}
 
-" General {{{
+" General 
 filetype plugin indent on " load filetype plugins/indent settings
 set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
@@ -73,9 +69,8 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 set wildmenu " turn on command line completion wild style
 set wildignore=*/python/arcode/*,*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these 
 set wildmode=list:longest " turn on wild mode huge list
-" }}}
 
-" Vim UI {{{
+" Vim UI 
 set incsearch " BUT do highlight as you type you search phrase
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
@@ -108,9 +103,8 @@ set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              | | +-- readonly flag in square brackets
 "              | +-- rodified flag in square brackets
 "              +-- full path to file in the buffer
-" }}}
 
-" Text Formatting/Layout {{{
+" Text Formatting/Layout 
 set completeopt=menuone " don't use a pop up menu for completions
 set expandtab " no real tabs please!
 set formatoptions=rq " Automatically insert comment leader on return, and let gq format comments
@@ -122,17 +116,16 @@ set smartcase " if there are caps, go case-sensitive
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set tabstop=8 " real tabs should be 8, and they will show with set list on
-" }}}
 
-" Folding {{{
+" Folding 
 set foldenable " Turn on folding
 set foldmethod=marker " Fold on the marker
 set foldmarker={,} " use simple markers
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
-" }}}
 
-" Plugin Settings {{{
+" Plugin Settings 
 let html_number_lines = 0
 let html_use_css = 0
 let use_xhtml = 0
@@ -146,7 +139,6 @@ let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin']
 let NERDChristmasTree = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
-" {{{ rainbow paren pairs
 let g:rbpt_colorpairs = [
     \ ['red',       'RoyalBlue3'],
     \ ['green',    'SeaGreen3'],
@@ -172,7 +164,7 @@ let g:rbpt_colorpairs = [
     \ ['yellow',    'DarkOrchid3'],
     \ ['magenta',    'RoyalBlue3'],
     \ ['cyan',     'SeaGreen3'],
-\ ] " }}}
+\ ]
 let g:rbpt_max = 24
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_match_window_bottom = 0
@@ -187,9 +179,8 @@ if s:running_windows
 else
     let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
 endif
-"}}}
 
-" Mappings {{{
+" Mappings 
 nmap <leader>f :CtrlP<CR>
 nmap <leader>ff :CtrlPCurWD<CR>
 nmap <leader>b :CtrlPBuffer<CR>
@@ -202,9 +193,8 @@ nmap <leader>nt <ESC>:NERDTreeToggle<RETURN>
 nmap <leader>tb <ESC>:TagbarToggle<RETURN>
 nmap <leader>a <ESC>:A<RETURN>
 nmap <leader>as <ESC>:AV<RETURN>
-" }}}
 
-" Autocommands {{{
+" Autocommands 
 " Things that use two spaces rather than four
 au BufRead,BufNewFile *.rb,*.rhtml set sw=2 sts=2 " ruby likes two 
 au BufRead,BufNewFile *.go set noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
@@ -219,11 +209,8 @@ au VimEnter * RainbowParenthesesToggle " You actually have to turn it on
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-" General stuff
-" au VimEnter * set cc=126 " looks really bad with herald
-"}}}
 
-if has("gui_running") " {{{
+if has("gui_running")
     " Basics
     colorscheme herald " my new favorite!
     set guifont=Consolas:h9:cANSI " My favorite font
@@ -232,9 +219,9 @@ if has("gui_running") " {{{
     "              |+-- use simple dialogs rather than pop-ups
     "              +-- use GUI tabs, not console style tabs
     set mousehide " hide the mouse cursor when typing
-endif " }}}
+endif
 
-if s:colorful_term " {{{
+if s:colorful_term
     "256 color --
     let &t_Co=256
     colorscheme herald
@@ -246,8 +233,19 @@ if s:colorful_term " {{{
         let &t_Sf="\ESC[3%dm"
         let &t_Sb="\ESC[4%dm"
     endif
-endif " }}}
+endif
 
-" Odds n Ends {{{
-set ttymouse=xterm2 " makes it work in everything
-" }}}
+" Odds n Ends 
+if has("mouse")
+    set ttymouse=xterm2 " makes it work in everything
+endif 
+
+" Copy (Ctrl + C)
+noremap <C-C> "+y
+inoremap <C-C> <Esc>"+ya
+" Cut (Ctrl + X)
+noremap <C-X> "+x
+inoremap <C-X> <Esc>"+xa
+" Paste (Ctrl + V)
+noremap <C-V> "+gP
+inoremap <C-V> <Esc>"+gPa

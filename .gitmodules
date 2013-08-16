@@ -34,3 +34,9 @@
 [submodule "bundle/textobjectify"]
 	path = bundle/textobjectify
 	url = https://github.com/paradigm/TextObjectify.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/gocode"]
+	path = bundle/gocode
+	url = https://github.com/Blackrush/vim-gocode.git
