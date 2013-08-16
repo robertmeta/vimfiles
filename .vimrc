@@ -37,6 +37,16 @@ set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
 
+" use modelines
+if $USER != "root"
+    set modeline
+endif
+
+" turn off beep
+set noerrorbells
+set novisualbell
+set t_vb=
+
 " General 
 filetype plugin indent on " load filetype plugins/indent settings
 set backspace=indent,eol,start " make backspace a more flexible
@@ -53,8 +63,6 @@ else
 endif
 set fileformats=unix,dos,mac " support all three, in this order
 set hidden " you can change buffers without saving
-set mouse=a " use mouse everywhere
-set noerrorbells " don't make noise
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | | | | | | | | |
 "             | | | | | | | | +-- "]" Insert and Replace
@@ -194,21 +202,26 @@ nmap <leader>tb <ESC>:TagbarToggle<RETURN>
 nmap <leader>a <ESC>:A<RETURN>
 nmap <leader>as <ESC>:AV<RETURN>
 
-" Autocommands 
-" Things that use two spaces rather than four
-au BufRead,BufNewFile *.rb,*.rhtml set sw=2 sts=2 " ruby likes two 
-au BufRead,BufNewFile *.go set noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
-au BufRead,BufNewFile MakeFile,Makefile,makefile set noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
-" Override typens
-au BufNewFile,BufRead *.ahk set filetype=ahk " Autohotkey
-au BufNewFile,BufRead *.ps1 set filetype=ps1 " Powershell
-au BufNewFile,BufRead *.md set filetype=markdown " Markdown
-au BufNewFile,BufRead *.dtl set filetype=htmldjango " Django Templates
-" Rainbow Parens
-au VimEnter * RainbowParenthesesToggle " You actually have to turn it on
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+if has("autocmd")
+    augroup vimrcAu
+        " Clear!
+        au!
+        " Things that use two spaces rather than four
+        au BufRead,BufNewFile *.rb,*.rhtml set sw=2 sts=2 " ruby likes two 
+        au BufRead,BufNewFile *.go set noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
+        au BufRead,BufNewFile MakeFile,Makefile,makefile set noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
+        " Override typens
+        au BufNewFile,BufRead *.ahk set filetype=ahk " Autohotkey
+        au BufNewFile,BufRead *.ps1 set filetype=ps1 " Powershell
+        au BufNewFile,BufRead *.md set filetype=markdown " Markdown
+        au BufNewFile,BufRead *.dtl set filetype=htmldjango " Django Templates
+        " Rainbow Parens
+        au VimEnter * RainbowParenthesesToggle " You actually have to turn it on
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
+    augroup END
+endif
 
 if has("gui_running")
     " Basics
@@ -237,15 +250,7 @@ endif
 
 " Odds n Ends 
 if has("mouse")
+    set mouse=a " use mouse everywhere
     set ttymouse=xterm2 " makes it work in everything
 endif 
 
-" Copy (Ctrl + C)
-noremap <C-C> "+y
-inoremap <C-C> <Esc>"+ya
-" Cut (Ctrl + X)
-noremap <C-X> "+x
-inoremap <C-X> <Esc>"+xa
-" Paste (Ctrl + V)
-noremap <C-V> "+gP
-inoremap <C-V> <Esc>"+gPa
