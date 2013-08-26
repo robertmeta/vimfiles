@@ -200,8 +200,8 @@ nmap <leader>a <ESC>:A<RETURN>
 nmap <leader>as <ESC>:AV<RETURN>
 nmap <Up> :NERDTreeToggle<RETURN>
 nmap <Down> :TagbarToggle<RETURN>
-nmap <Left> :MBEbp
-nmap <Right> :MBEbn
+nmap <Left> :MBEbp<RETURN>
+nmap <Right> :MBEbn<RETURN>
 
 if has("autocmd")
     augroup vimrcAu
