@@ -40,3 +40,9 @@
 [submodule "bundle/gocode"]
 	path = bundle/gocode
 	url = https://github.com/Blackrush/vim-gocode.git
+[submodule "bundle/minibufexpl"]
+	path = bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git

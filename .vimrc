@@ -143,7 +143,7 @@ let tlist_aspjscript_settings = 'asp;f:function;c:class'
 let tlist_aspvbs_settings = 'asp;f:function;s:sub'
 let tlist_php_settings = 'php;c:class;d:constant;f:function'
 let tlist_vb_settings = 'asp;f:function;c:class'
-let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin']
+let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin', 'bin', 'pkg', '\.so', '\.dll']
 let NERDChristmasTree = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
@@ -188,19 +188,20 @@ else
     let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
 endif
 
-" Mappings 
+" Mappings for Control-P
+nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>f :CtrlP<CR>
 nmap <leader>ff :CtrlPCurWD<CR>
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>t :CtrlPBufTagA<CR>
-nmap <leader>ta :CtrlPBufTagAll<CR>
 nmap <leader>l :CtrlPLine<CR>
-nmap <tab> :CtrlPBuffer<CR>
-
-nmap <leader>nt <ESC>:NERDTreeToggle<RETURN>
-nmap <leader>tb <ESC>:TagbarToggle<RETURN>
+nmap <leader>ta :CtrlPBufTagAll<CR>
+nmap <leader>t :CtrlPBufTagA<CR>
+" Random useful mappings
 nmap <leader>a <ESC>:A<RETURN>
 nmap <leader>as <ESC>:AV<RETURN>
+nmap <Up> :NERDTreeToggle<RETURN>
+nmap <Down> :TagbarToggle<RETURN>
+nmap <Left> :MBEbp
+nmap <Right> :MBEbn
 
 if has("autocmd")
     augroup vimrcAu
