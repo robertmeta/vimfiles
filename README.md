@@ -8,13 +8,16 @@ https://github.com/tpope/vim-sensible it is designed to be exactly that!
 If you do use it, remember to make a link in your home directory to 
 the ```.vimrc``` file, as follows:
 
+
 #### Linux ####
 
 ln -s ~/.vim/.vimrc ~/.vimrc
 
+
 #### Windows (as an administrative user) ####
 
 mklink %HOME%\\.vimrc %HOME%\vimfiles\\.vimrc
+
 
 #### Won't really work until you run ####
 
