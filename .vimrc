@@ -75,7 +75,7 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | +-- <Space> Normal and Visual
 "             +-- <BS> Normal and Visual
 set wildmenu " turn on command line completion wild style
-set wildignore=*/python/arcode/*,*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these 
+set wildignore=*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these 
 if s:running_windows
     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*
 else
@@ -94,7 +94,7 @@ set matchtime=1 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
 set novisualbell " don't blink
-set number " turn on line numbers
+set relativenumber " turn on relative line number (customized later in au)
 set numberwidth=5 " We are good up to 99999 lines
 set report=0 " tell us when anything is changed via :...
 set ruler " Always show current positions along the bottom
@@ -103,7 +103,8 @@ set shortmess=aOstT " shortens messages to avoid 'press a key' prompt
 set showcmd " show the command being typed
 set showmatch " show matching brackets
 set sidescrolloff=10 " Keep 5 lines at the size
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+" Replaced by airline, but left for reference
+" set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              | | | | |  |   |      |  |     |    |
 "              | | | | |  |   |      |  |     |    + current column
 "              | | | | |  |   |      |  |     +-- current line
@@ -148,6 +149,10 @@ let tlist_aspjscript_settings = 'asp;f:function;c:class'
 let tlist_aspvbs_settings = 'asp;f:function;s:sub'
 let tlist_php_settings = 'php;c:class;d:constant;f:function'
 let tlist_vb_settings = 'asp;f:function;c:class'
+let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin', 'bin', 'pkg', '\.so', '\.dll']
+let NERDChristmasTree = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 let g:rbpt_colorpairs = [
     \ ['red', 'RoyalBlue3'],
     \ ['green', 'SeaGreen3'],
@@ -182,6 +187,7 @@ let g:ctrlp_max_height = 30
 let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 100
 let g:ctrlp_follow_symlinks = 0
+let g:tagbar_ctags_bin = '/usr/bin/ctags-exuberant'
 
 if s:running_windows
     let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
@@ -198,10 +204,12 @@ nmap <leader>l :CtrlPLine<CR>
 nmap <leader>t :CtrlPBufTagA<CR>
 nmap <leader>ta :CtrlPBufTagAll<CR>
 " Random useful mappings
-nmap <leader>a <ESC>:A<CR>
-nmap <leader>as <ESC>:AV<CR>
-nmap <left> <ESC>:bp<CR>
-nmap <right> <ESC>:bn<CR>
+nmap <leader>a :A<CR>
+nmap <leader>as :AV<CR>
+nmap <left> :bp<CR>
+nmap <right> :bn<CR>
+nmap <Up> :NERDTreeToggle<CR>
+nmap <Down> :TagbarToggle<CR>
 
 if has("autocmd")
     augroup vimrcAu
@@ -221,6 +229,8 @@ if has("autocmd")
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
+        au InsertEnter * :set number
+        au InsertLeave * :set relativenumber
     augroup END
 endif
 

@@ -9,7 +9,7 @@
 	url = git://github.com/tomasr/molokai.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/rainbow_parentheses"]
 	path = bundle/rainbow_parentheses
 	url = git://github.com/kien/rainbow_parentheses.vim.git
@@ -18,7 +18,7 @@
 	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/sensible"]
 	path = bundle/sensible
 	url = git://github.com/tpope/vim-sensible.git
@@ -55,3 +55,6 @@
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "bundle/airline"]
+	path = bundle/airline
+	url = https://github.com/bling/vim-airline.git
