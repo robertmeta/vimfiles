@@ -76,6 +76,11 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             +-- <BS> Normal and Visual
 set wildmenu " turn on command line completion wild style
 set wildignore=*/python/arcode/*,*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these 
+if s:running_windows
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*
+else
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+endif
 set wildmode=list:longest " turn on wild mode huge list
 
 " Vim UI 
@@ -143,40 +148,36 @@ let tlist_aspjscript_settings = 'asp;f:function;c:class'
 let tlist_aspvbs_settings = 'asp;f:function;s:sub'
 let tlist_php_settings = 'php;c:class;d:constant;f:function'
 let tlist_vb_settings = 'asp;f:function;c:class'
-let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin', 'bin', 'pkg', '\.so', '\.dll']
-let NERDChristmasTree = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 0
 let g:rbpt_colorpairs = [
-    \ ['red',       'RoyalBlue3'],
-    \ ['green',    'SeaGreen3'],
-    \ ['blue',   'firebrick3'],
-    \ ['yellow',    'DarkOrchid3'],
-    \ ['magenta',    'RoyalBlue3'],
-    \ ['cyan',     'SeaGreen3'],
-    \ ['red',       'RoyalBlue3'],
-    \ ['green',    'SeaGreen3'],
-    \ ['blue',   'firebrick3'],
-    \ ['yellow',    'DarkOrchid3'],
-    \ ['magenta',    'RoyalBlue3'],
-    \ ['cyan',     'SeaGreen3'],
-    \ ['red',       'RoyalBlue3'],
-    \ ['green',    'SeaGreen3'],
-    \ ['blue',   'firebrick3'],
-    \ ['yellow',    'DarkOrchid3'],
-    \ ['magenta',    'RoyalBlue3'],
-    \ ['cyan',     'SeaGreen3'],
-    \ ['red',       'RoyalBlue3'],
-    \ ['green',    'SeaGreen3'],
-    \ ['blue',   'firebrick3'],
-    \ ['yellow',    'DarkOrchid3'],
-    \ ['magenta',    'RoyalBlue3'],
-    \ ['cyan',     'SeaGreen3'],
+    \ ['red', 'RoyalBlue3'],
+    \ ['green', 'SeaGreen3'],
+    \ ['blue', 'firebrick3'],
+    \ ['yellow', 'DarkOrchid3'],
+    \ ['magenta', 'RoyalBlue3'],
+    \ ['cyan', 'SeaGreen3'],
+    \ ['red', 'RoyalBlue3'],
+    \ ['green', 'SeaGreen3'],
+    \ ['blue', 'firebrick3'],
+    \ ['yellow', 'DarkOrchid3'],
+    \ ['magenta', 'RoyalBlue3'],
+    \ ['cyan', 'SeaGreen3'],
+    \ ['red', 'RoyalBlue3'],
+    \ ['green', 'SeaGreen3'],
+    \ ['blue', 'firebrick3'],
+    \ ['yellow', 'DarkOrchid3'],
+    \ ['magenta', 'RoyalBlue3'],
+    \ ['cyan', 'SeaGreen3'],
+    \ ['red', 'RoyalBlue3'],
+    \ ['green', 'SeaGreen3'],
+    \ ['blue', 'firebrick3'],
+    \ ['yellow', 'DarkOrchid3'],
+    \ ['magenta', 'RoyalBlue3'],
+    \ ['cyan', 'SeaGreen3'],
 \ ]
 let g:rbpt_max = 24
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_match_window_bottom = 1
+let g:ctrlp_match_window_reversed = 1
 let g:ctrlp_max_height = 30
 let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 100
@@ -190,18 +191,17 @@ endif
 
 " Mappings for Control-P
 nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>f :CtrlP<CR>
+nmap <leader>f :CtrlPMixed<CR>
 nmap <leader>ff :CtrlPCurWD<CR>
+nmap <leader>m :CtrlPMRUFiles<CR>
 nmap <leader>l :CtrlPLine<CR>
-nmap <leader>ta :CtrlPBufTagAll<CR>
 nmap <leader>t :CtrlPBufTagA<CR>
+nmap <leader>ta :CtrlPBufTagAll<CR>
 " Random useful mappings
-nmap <leader>a <ESC>:A<RETURN>
-nmap <leader>as <ESC>:AV<RETURN>
-nmap <Up> :NERDTreeToggle<RETURN>
-nmap <Down> :TagbarToggle<RETURN>
-nmap <Left> :MBEbp<RETURN>
-nmap <Right> :MBEbn<RETURN>
+nmap <leader>a <ESC>:A<CR>
+nmap <leader>as <ESC>:AV<CR>
+nmap <left> <ESC>:bp<CR>
+nmap <right> <ESC>:bn<CR>
 
 if has("autocmd")
     augroup vimrcAu
@@ -254,4 +254,3 @@ if has("mouse")
     set mouse=a " use mouse everywhere
     set ttymouse=xterm2 " makes it work in everything
 endif 
-
