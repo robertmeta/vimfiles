@@ -187,7 +187,10 @@ let g:ctrlp_max_height = 30
 let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 100
 let g:ctrlp_follow_symlinks = 0
+let g:tagbar_left = 1
 let g:tagbar_ctags_bin = '/usr/bin/ctags-exuberant'
+" requires gotags in path
+" go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -215,7 +218,6 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-
 if s:running_windows
     let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
 else
@@ -233,10 +235,9 @@ nmap <leader>ta :CtrlPBufTagAll<CR>
 " Random useful mappings
 nmap <leader>a :A<CR>
 nmap <leader>as :AV<CR>
-nmap <left> :bp<CR>
-nmap <right> :bn<CR>
-nmap <Up> :NERDTreeToggle<CR>
-nmap <Down> :TagbarToggle<CR>
+nmap <up> :bp<CR>
+nmap <down> :bn<CR>
+nmap <left> :NERDTreeToggle<CR>:TagbarToggle<CR>
 
 if has("autocmd")
     augroup vimrcAu
@@ -258,6 +259,7 @@ if has("autocmd")
         au Syntax * RainbowParenthesesLoadBraces
         au InsertEnter * :set number
         au InsertLeave * :set relativenumber
+        au VimEnter * NERDTree
     augroup END
 endif
 
