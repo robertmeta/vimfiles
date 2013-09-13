@@ -188,7 +188,7 @@ let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 100
 let g:ctrlp_follow_symlinks = 0
 let g:tagbar_left = 1
-let g:tagbar_ctags_bin = '/usr/bin/ctags-exuberant'
+let g:tagbar_ctags_bin = 'ctags-exuberant'
 " requires gotags in path
 " go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {
