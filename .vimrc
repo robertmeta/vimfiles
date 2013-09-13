@@ -237,7 +237,8 @@ nmap <leader>a :A<CR>
 nmap <leader>as :AV<CR>
 nmap <up> :bp<CR>
 nmap <down> :bn<CR>
-nmap <left> :NERDTreeToggle<CR>:TagbarToggle<CR>
+nmap <left> :TagbarClose<CR>:NERDTree<CR>
+nmap <right> :NERDTreeClose<CR>:TagbarOpen<CR>
 
 if has("autocmd")
     augroup vimrcAu
@@ -259,7 +260,6 @@ if has("autocmd")
         au Syntax * RainbowParenthesesLoadBraces
         au InsertEnter * :set number
         au InsertLeave * :set relativenumber
-        au VimEnter * NERDTree
     augroup END
 endif
 
@@ -288,7 +288,7 @@ if s:colorful_term
     endif
 endif
 
-" Odds n Ends 
+" Odds n Ends
 if has("mouse")
     set mouse=a " use mouse everywhere
     set ttymouse=xterm2 " makes it work in everything
