@@ -247,6 +247,7 @@ if has("autocmd")
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml set sw=2 sts=2 " ruby likes two 
         au BufRead,BufNewFile *.go set noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
+        au BufWritePre *.go Fmt
         au BufRead,BufNewFile MakeFile,Makefile,makefile set noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
         " Override typens
         au BufNewFile,BufRead *.ahk set filetype=ahk " Autohotkey
