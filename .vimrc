@@ -188,6 +188,9 @@ let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 100
 let g:ctrlp_follow_symlinks = 0
 let g:tagbar_left = 1
+let g:lucius_style = 'light'
+let g:lucius_contrast = 'normal'
+let g:lucius_contrast_bg = 'normal'
 let g:tagbar_ctags_bin = 'ctags-exuberant'
 " requires gotags in path
 " go get -u github.com/jstemmer/gotags
