@@ -61,3 +61,9 @@
 [submodule "bundle/lucius"]
 	path = bundle/lucius
 	url = https://github.com/jonathanfilip/vim-lucius.git
+[submodule "bundle/hemisu"]
+	path = bundle/hemisu
+	url = https://github.com/noahfrederick/vim-hemisu.git
+[submodule "bundle/solarized"]
+	path = bundle/solarized
+	url = git://github.com/altercation/vim-colors-solarized.git

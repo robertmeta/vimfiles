@@ -1,4 +1,3 @@
-" Modeline and Notes 
 "   This is my personal .vimrc, I don't recommend you copy it, just
 "   use the pieces you want (and understand!).  When you copy a
 "   .vimrc in its entirety, weird and unexpected things can happen.
@@ -103,8 +102,7 @@ set shortmess=aOstT " shortens messages to avoid 'press a key' prompt
 set showcmd " show the command being typed
 set showmatch " show matching brackets
 set sidescrolloff=10 " Keep 5 lines at the size
-" Replaced by airline, but left for reference
-" set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              | | | | |  |   |      |  |     |    |
 "              | | | | |  |   |      |  |     |    + current column
 "              | | | | |  |   |      |  |     +-- current line
@@ -140,6 +138,7 @@ set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
 " Plugin Settings 
+let g:SuperTabDefaultCompletionType = "context"
 let html_number_lines = 0
 let html_use_css = 0
 let use_xhtml = 0
@@ -188,9 +187,6 @@ let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 100
 let g:ctrlp_follow_symlinks = 0
 let g:tagbar_left = 1
-let g:lucius_style = 'light'
-let g:lucius_contrast = 'normal'
-let g:lucius_contrast_bg = 'normal'
 let g:tagbar_ctags_bin = 'ctags-exuberant'
 " requires gotags in path
 " go get -u github.com/jstemmer/gotags
@@ -242,6 +238,9 @@ nmap <up> :bp<CR>
 nmap <down> :bn<CR>
 nmap <left> :TagbarClose<CR>:NERDTree<CR>
 nmap <right> :NERDTreeClose<CR>:TagbarOpen<CR>
+" Switch to light theme
+nmap <leader>cl :set background=light<CR>:colo mayansmoke<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>cd :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
 
 if has("autocmd")
     augroup vimrcAu
