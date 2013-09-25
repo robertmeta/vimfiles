@@ -35,6 +35,8 @@ set formatoptions+=n " Recognize numbered lists
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
+set cursorcolumn " Show the column the cursor is on
+set cursorline " Show the line the cursor is on
 
 " use modelines
 if $USER != "root"
@@ -93,15 +95,15 @@ set matchtime=1 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
 set novisualbell " don't blink
-set relativenumber " turn on relative line number (customized later in au)
+set number " turns out I hate relative numbering
 set numberwidth=5 " We are good up to 99999 lines
 set report=0 " tell us when anything is changed via :...
 set ruler " Always show current positions along the bottom
-set scrolloff=10 " Keep 10 lines (top/bottom) for scope
+set scrolloff=5 " Keep 5 lines (top/bottom) for scope
 set shortmess=aOstT " shortens messages to avoid 'press a key' prompt
 set showcmd " show the command being typed
 set showmatch " show matching brackets
-set sidescrolloff=10 " Keep 5 lines at the size
+set sidescrolloff=5 " Keep 5 lines at the size
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              | | | | |  |   |      |  |     |    |
 "              | | | | |  |   |      |  |     |    + current column
@@ -239,7 +241,7 @@ nmap <down> :bn<CR>
 nmap <left> :TagbarClose<CR>:NERDTree<CR>
 nmap <right> :NERDTreeClose<CR>:TagbarOpen<CR>
 " Switch to light theme
-nmap <leader>cl :set background=light<CR>:colo mayansmoke<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>cl :colo mayansmoke<CR>:set background=light<CR>:RainbowParenthesesActivate<CR>
 nmap <leader>cd :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
 
 if has("autocmd")
@@ -257,12 +259,10 @@ if has("autocmd")
         au BufNewFile,BufRead *.md set filetype=markdown " Markdown
         au BufNewFile,BufRead *.dtl set filetype=htmldjango " Django Templates
         " Rainbow Parens
-        au VimEnter * RainbowParenthesesToggle " You actually have to turn it on
+        au VimEnter * RainbowParenthesesActivate " You actually have to turn it on
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
-        au InsertEnter * :set number
-        au InsertLeave * :set relativenumber
     augroup END
 endif
 
