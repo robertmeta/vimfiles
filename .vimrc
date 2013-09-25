@@ -35,8 +35,6 @@ set formatoptions+=n " Recognize numbered lists
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
-set cursorcolumn " Show the column the cursor is on
-set cursorline " Show the line the cursor is on
 
 " use modelines
 if $USER != "root"
@@ -76,7 +74,7 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | +-- <Space> Normal and Visual
 "             +-- <BS> Normal and Visual
 set wildmenu " turn on command line completion wild style
-set wildignore=*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these 
+set wildignore=*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignore these
 if s:running_windows
     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*
 else
@@ -241,7 +239,7 @@ nmap <down> :bn<CR>
 nmap <left> :TagbarClose<CR>:NERDTree<CR>
 nmap <right> :NERDTreeClose<CR>:TagbarOpen<CR>
 " Switch to light theme
-nmap <leader>cl :colo mayansmoke<CR>:set background=light<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>cl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
 nmap <leader>cd :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
 
 if has("autocmd")
@@ -263,6 +261,7 @@ if has("autocmd")
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
+        au Syntax * RainbowParenthesesLoadChevrons
     augroup END
 endif
 
