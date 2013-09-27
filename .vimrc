@@ -153,30 +153,30 @@ let NERDChristmasTree = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:rbpt_colorpairs = [
-    \ ['red', 'RoyalBlue3'],
-    \ ['green', 'SeaGreen3'],
-    \ ['blue', 'firebrick3'],
-    \ ['yellow', 'DarkOrchid3'],
-    \ ['magenta', 'RoyalBlue3'],
-    \ ['cyan', 'SeaGreen3'],
-    \ ['red', 'RoyalBlue3'],
-    \ ['green', 'SeaGreen3'],
-    \ ['blue', 'firebrick3'],
-    \ ['yellow', 'DarkOrchid3'],
-    \ ['magenta', 'RoyalBlue3'],
-    \ ['cyan', 'SeaGreen3'],
-    \ ['red', 'RoyalBlue3'],
-    \ ['green', 'SeaGreen3'],
-    \ ['blue', 'firebrick3'],
-    \ ['yellow', 'DarkOrchid3'],
-    \ ['magenta', 'RoyalBlue3'],
-    \ ['cyan', 'SeaGreen3'],
-    \ ['red', 'RoyalBlue3'],
-    \ ['green', 'SeaGreen3'],
-    \ ['blue', 'firebrick3'],
-    \ ['yellow', 'DarkOrchid3'],
-    \ ['magenta', 'RoyalBlue3'],
-    \ ['cyan', 'SeaGreen3'],
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seadarkgreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seadarkgreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seadarkgreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seadarkgreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seadarkgreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seadarkgreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seadarkgreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seadarkgreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
 \ ]
 let g:rbpt_max = 24
 let g:ctrlp_working_path_mode = 'ra'
@@ -254,7 +254,7 @@ if has("autocmd")
         " Override typens
         au BufNewFile,BufRead *.ahk set filetype=ahk " Autohotkey
         au BufNewFile,BufRead *.ps1 set filetype=ps1 " Powershell
-        au BufNewFile,BufRead *.md set filetype=markdown " Markdown
+        au BufNewFile,BufRead *.md set filetype=markdown spell " Markdown and spelling on
         au BufNewFile,BufRead *.dtl set filetype=htmldjango " Django Templates
         " Rainbow Parens
         au VimEnter * RainbowParenthesesActivate " You actually have to turn it on
