@@ -161,14 +161,6 @@ syn match       goImaginary         "\<\d\+[Ee][-+]\d\+i\>"
 
 hi def link     goImaginary         Number
 
-" Function Identifiers
-syn match       goFunctionExportedIdentifier    "[A-Z]\w*("he=e-1 contained
-syn match       goFunctionNotExportedIdentifier "[a-z_]\w*("he=e-1 contained
-syn region      goFunctionDefinition            start="^func\s\+" end="\s\+{" contains=goDeclaration, goFunctionExportedIdentifier, goFunctionNotExportedIdentifier
-
-hi def link     goFunctionExportedIdentifier    Function
-hi def link     goFunctionNotExportedIdentifier Function
-
 " Spaces after "[]"
 if go_highlight_array_whitespace_error != 0
   syn match goSpaceError display "\(\[\]\)\@<=\s\+"

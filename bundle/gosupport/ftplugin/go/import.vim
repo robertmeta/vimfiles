@@ -32,13 +32,21 @@
 " The backslash is the default maplocalleader, so it is possible that
 " your vim is set to use a different character (:help maplocalleader).
 "
-if exists("b:did_ftplugin")
+if exists("b:did_ftplugin_go_import")
     finish
 endif
 
 command! -buffer -nargs=? -complete=customlist,go#complete#Package Drop call s:SwitchImport(0, '', <f-args>)
 command! -buffer -nargs=1 -complete=customlist,go#complete#Package Import call s:SwitchImport(1, '', <f-args>)
 command! -buffer -nargs=* -complete=customlist,go#complete#Package ImportAs call s:SwitchImport(1, <f-args>)
+
+command! -buffer -nargs=? -complete=customlist,GocodeCompletePkg GoDrop call s:RelSwitchImport(0, getcwd(), '', <f-args>)
+command! -buffer -nargs=1 -complete=customlist,GocodeCompletePkg GoImport call s:RelSwitchImport(1, getcwd(), '', <f-args>)
+command! -buffer -nargs=* -complete=customlist,GocodeCompletePkg GoImportAs call s:RelSwitchImport(1, getcwd(), <f-args>)
+
+function! s:RelSwitchImport(enabled, basefile, localname, path)
+    call s:SwitchImport(a:enabled, a:localname, GoRelPkg(a:basefile, a:path))
+endfunction
 
 function! s:SwitchImport(enabled, localname, path)
     let view = winsaveview()
@@ -94,7 +102,7 @@ function! s:SwitchImport(enabled, localname, path)
                 let linestr = getline(line)
                 let m = matchlist(getline(line), '^\()\|\(\s\+\)\(\S*\s*\)"\(.\+\)"\)')
                 if empty(m)
-                    if siteprefix == ""
+                    if siteprefix == "" && a:enabled
                         " must be in the first group
                         break
                     endif
@@ -225,5 +233,7 @@ endfunction
 function! s:Error(s)
     echohl Error | echo a:s | echohl None
 endfunction
+
+let b:did_ftplugin_go_import = 1
 
 " vim:ts=4:sw=4:et
