@@ -248,14 +248,19 @@ if has("autocmd")
         au!
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml set sw=2 sts=2 " ruby likes two 
+
+        " Go setup assumptions: golint, gocode, gotags all in path
         au BufRead,BufNewFile *.go set noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
         au BufWritePre *.go Fmt
+        au BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
         au BufRead,BufNewFile MakeFile,Makefile,makefile set noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
-        " Override typens
+
+        " Override types
         au BufNewFile,BufRead *.ahk set filetype=ahk " Autohotkey
         au BufNewFile,BufRead *.ps1 set filetype=ps1 " Powershell
         au BufNewFile,BufRead *.md set filetype=markdown spell " Markdown and spelling on
         au BufNewFile,BufRead *.dtl set filetype=htmldjango " Django Templates
+
         " Rainbow Parens
         au VimEnter * RainbowParenthesesActivate " You actually have to turn it on
         au Syntax * RainbowParenthesesLoadRound
