@@ -28,42 +28,21 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "bundle/vividchalk"]
-	path = bundle/vividchalk
-	url = git://github.com/tpope/vim-vividchalk.git
 [submodule "bundle/textobjectify"]
 	path = bundle/textobjectify
 	url = https://github.com/paradigm/TextObjectify.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "bundle/gocode"]
-	path = bundle/gocode
-	url = https://github.com/Blackrush/vim-gocode.git
-[submodule "bundle/minibufexpl"]
-	path = bundle/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
-[submodule "bundle/unite"]
-	path = bundle/unite
-	url = https://github.com/Shougo/unite.vim
-[submodule "bundle/yankstack"]
-	path = bundle/yankstack
-	url = https://github.com/maxbrunsfeld/vim-yankstack.git
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "bundle/airline"]
-	path = bundle/airline
-	url = https://github.com/bling/vim-airline.git
 [submodule "bundle/lucius"]
 	path = bundle/lucius
 	url = https://github.com/jonathanfilip/vim-lucius.git
-[submodule "bundle/hemisu"]
-	path = bundle/hemisu
-	url = https://github.com/noahfrederick/vim-hemisu.git
-[submodule "bundle/solarized"]
-	path = bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
