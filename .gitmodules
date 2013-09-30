@@ -46,3 +46,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/godef"]
+	path = bundle/godef
+	url = https://github.com/dgryski/vim-godef

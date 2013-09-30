@@ -138,20 +138,20 @@ set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
 " Plugin Settings 
-let g:SuperTabDefaultCompletionType = "context"
-let html_number_lines = 0
-let html_use_css = 0
-let use_xhtml = 0
 let b:match_ignorecase = 1 " case is stupid
-let perl_extended_vars=1 " highlight advanced perl vars inside strings
-let tlist_aspjscript_settings = 'asp;f:function;c:class'
-let tlist_aspvbs_settings = 'asp;f:function;s:sub'
-let tlist_php_settings = 'php;c:class;d:constant;f:function'
-let tlist_vb_settings = 'asp;f:function;c:class'
-let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin', 'bin', 'pkg', '\.so', '\.dll']
-let NERDChristmasTree = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+if s:running_windows
+    let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
+else
+    let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
+endif
+let g:ctrlp_follow_symlinks = 0
+let g:ctrlp_match_window_bottom = 1
+let g:ctrlp_match_window_reversed = 1
+let g:ctrlp_max_depth = 100
+let g:ctrlp_max_files = 100000
+let g:ctrlp_max_height = 30
+let g:ctrlp_working_path_mode = 'ra'
+let g:godef_split = 0
 let g:rbpt_colorpairs = [
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
@@ -179,15 +179,9 @@ let g:rbpt_colorpairs = [
     \ ['darkmagenta', 'RoyalBlue3'],
 \ ]
 let g:rbpt_max = 24
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_match_window_bottom = 1
-let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_max_height = 30
-let g:ctrlp_max_files = 100000
-let g:ctrlp_max_depth = 100
-let g:ctrlp_follow_symlinks = 0
-let g:tagbar_left = 1
+let g:SuperTabDefaultCompletionType = "context"
 let g:tagbar_ctags_bin = 'ctags-exuberant'
+let g:tagbar_left = 1
 " requires gotags in path
 " go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {
@@ -217,11 +211,18 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-if s:running_windows
-    let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
-else
-    let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
-endif
+let html_number_lines = 0
+let html_use_css = 0
+let NERDChristmasTree = 1
+let NERDTreeDirArrows = 1
+let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin', 'bin', 'pkg', '\.so', '\.dll']
+let NERDTreeMinimalUI = 1
+let perl_extended_vars=1 " highlight advanced perl vars inside strings
+let tlist_aspjscript_settings = 'asp;f:function;c:class'
+let tlist_aspvbs_settings = 'asp;f:function;s:sub'
+let tlist_php_settings = 'php;c:class;d:constant;f:function'
+let tlist_vb_settings = 'asp;f:function;c:class'
+let use_xhtml = 0
 
 " Mappings for Control-P
 nmap <leader>b :CtrlPBuffer<CR>
