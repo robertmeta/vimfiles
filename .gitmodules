@@ -49,3 +49,6 @@
 [submodule "bundle/godef"]
 	path = bundle/godef
 	url = https://github.com/dgryski/vim-godef
+[submodule "bundle/unimpaired"]
+	path = bundle/unimpaired
+	url = https://github.com/tpope/vim-unimpaired

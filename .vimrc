@@ -155,27 +155,27 @@ let g:godef_split = 0
 let g:rbpt_colorpairs = [
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seadarkgreen3'],
+    \ ['darkgreen', 'Seagreen3'],
     \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seadarkgreen3'],
+    \ ['darkcyan', 'Seagreen3'],
     \ ['darkmagenta', 'RoyalBlue3'],
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seadarkgreen3'],
+    \ ['darkgreen', 'Seagreen3'],
     \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seadarkgreen3'],
+    \ ['darkcyan', 'Seagreen3'],
     \ ['darkmagenta', 'RoyalBlue3'],
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seadarkgreen3'],
+    \ ['darkgreen', 'Seagreen3'],
     \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seadarkgreen3'],
+    \ ['darkcyan', 'Seagreen3'],
     \ ['darkmagenta', 'RoyalBlue3'],
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seadarkgreen3'],
+    \ ['darkgreen', 'Seagreen3'],
     \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seadarkgreen3'],
+    \ ['darkcyan', 'Seagreen3'],
     \ ['darkmagenta', 'RoyalBlue3'],
 \ ]
 let g:rbpt_max = 24
@@ -235,10 +235,16 @@ nmap <leader>ta :CtrlPBufTagAll<CR>
 " Random useful mappings
 nmap <leader>a :A<CR>
 nmap <leader>as :AV<CR>
-nmap <up> :bp<CR>
-nmap <down> :bn<CR>
+nmap <up> :cprevious<CR>
+nmap <down> :cnext<CR>
 nmap <left> :TagbarClose<CR>:NERDTree<CR>
 nmap <right> :NERDTreeClose<CR>:TagbarOpen<CR>
+" Fugitive
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>ga :Gwrite<CR>
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>grm :Gremove<CR>
+nmap <leader>gm :Gmove<CR>
 " Switch to light theme
 nmap <leader>cl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
 nmap <leader>cd :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
@@ -248,19 +254,19 @@ if has("autocmd")
         " Clear!
         au!
         " Things that use two spaces rather than four
-        au BufRead,BufNewFile *.rb,*.rhtml set sw=2 sts=2 " ruby likes two 
+        au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two 
 
-        " Go setup assumptions: golint, gocode, gotags all in path
-        au BufRead,BufNewFile *.go set noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
+        " Go setlocalup assumptions: golint, gocode, gotags all in path
+        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
         au BufWritePre *.go Fmt
         au BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
-        au BufRead,BufNewFile MakeFile,Makefile,makefile set noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
+        au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
 
         " Override types
-        au BufNewFile,BufRead *.ahk set filetype=ahk " Autohotkey
-        au BufNewFile,BufRead *.ps1 set filetype=ps1 " Powershell
-        au BufNewFile,BufRead *.md set filetype=markdown spell " Markdown and spelling on
-        au BufNewFile,BufRead *.dtl set filetype=htmldjango " Django Templates
+        au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
+        au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
+        au BufNewFile,BufRead *.md setlocal filetype=markdown spell " Markdown and spelling on
+        au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
 
         " Rainbow Parens
         au VimEnter * RainbowParenthesesActivate " You actually have to turn it on
