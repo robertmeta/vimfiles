@@ -10,3 +10,6 @@ https://github.com/tpope/vim-sensible it is designed to be exactly that!
 
 If you ignore my warnings and try to copy it wholesale, realize you will have
 to update the submodules
+- git submodule init
+- git submodule foreach git checkout master
+- git submodule foreach git pull
