@@ -243,8 +243,8 @@ nmap <leader>a :A<CR>
 nmap <leader>as :AV<CR>
 nmap <up> :bp<CR>
 nmap <down> :bn<CR>
-nmap <left> :TagbarToggle<CR>
-nmap <right> :NERDTreeToggle<CR>
+nmap <right> :TagbarToggle<CR>
+nmap <left> :NERDTreeToggle<CR>
 " Fugitive
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>ga :Gwrite<CR>
