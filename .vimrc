@@ -224,6 +224,12 @@ let tlist_php_settings = 'php;c:class;d:constant;f:function'
 let tlist_vb_settings = 'asp;f:function;c:class'
 let use_xhtml = 0
 
+" Abbreviations 
+cnoreabbrev W w
+cnoreabbrev Wq wq
+cnoreabbrev Q q
+iab <expr> dts strftime("%c")
+
 " Mappings for Control-P
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>f :CtrlPMixed<CR>
@@ -235,10 +241,10 @@ nmap <leader>ta :CtrlPBufTagAll<CR>
 " Random useful mappings
 nmap <leader>a :A<CR>
 nmap <leader>as :AV<CR>
-nmap <up> :cprevious<CR>
-nmap <down> :cnext<CR>
-nmap <left> :TagbarClose<CR>:NERDTree<CR>
-nmap <right> :NERDTreeClose<CR>:TagbarOpen<CR>
+nmap <up> :bp<CR>
+nmap <down> :bn<CR>
+nmap <left> :TagbarToggle<CR>
+nmap <right> :NERDTreeToggle<CR>
 " Fugitive
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>ga :Gwrite<CR>
