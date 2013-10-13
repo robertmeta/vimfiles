@@ -180,7 +180,6 @@ let g:rbpt_colorpairs = [
 \ ]
 let g:rbpt_max = 24
 let g:SuperTabDefaultCompletionType = "context"
-let g:tagbar_ctags_bin = 'ctags-exuberant'
 let g:tagbar_left = 1
 " requires gotags in path
 " go get -u github.com/jstemmer/gotags
