@@ -152,6 +152,7 @@ let g:ctrlp_max_files = 100000
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 'ra'
 let g:godef_split = 0
+"let g:tagbar_ctags_bin = 'etags'
 let g:rbpt_colorpairs = [
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
@@ -261,10 +262,8 @@ if has("autocmd")
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two 
 
-        " Go setlocalup assumptions: golint, gocode, gotags all in path
+        " Go setlocalup assumptions: gocode, godef, gotags all in path
         au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
-        au BufWritePre *.go Fmt
-        au BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
 
         " Override types
