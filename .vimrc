@@ -138,6 +138,8 @@ set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
 " Plugin Settings 
+let g:EasyMotion_mapping_f = '<Space>'
+let g:EasyMotion_grouping = 1
 let b:match_ignorecase = 1 " case is stupid
 if s:running_windows
     let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
