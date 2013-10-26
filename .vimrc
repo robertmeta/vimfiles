@@ -236,7 +236,7 @@ iab <expr> dts strftime("%c")
 nmap gb :CtrlPBuffer<CR>
 nmap gt :CtrlPBufTag<CR>
 nmap gf :CtrlPMixed<CR>
-
+nmap gF :CtrlPCurWD<CR>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>f :CtrlPMixed<CR>
 nmap <leader>ff :CtrlPCurWD<CR>
