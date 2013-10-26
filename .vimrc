@@ -233,12 +233,16 @@ cnoreabbrev Q q
 iab <expr> dts strftime("%c")
 
 " Mappings for Control-P
+nmap gb :CtrlPBuffer<CR>
+nmap gt :CtrlPBufTag<CR>
+nmap gf :CtrlPMixed<CR>
+
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>f :CtrlPMixed<CR>
 nmap <leader>ff :CtrlPCurWD<CR>
 nmap <leader>m :CtrlPMRUFiles<CR>
 nmap <leader>l :CtrlPLine<CR>
-nmap <leader>t :CtrlPBufTagA<CR>
+nmap <leader>t :CtrlPBufTag<CR>
 nmap <leader>ta :CtrlPBufTagAll<CR>
 " Random useful mappings
 nmap <leader>a :A<CR>
