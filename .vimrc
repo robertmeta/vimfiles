@@ -7,6 +7,8 @@
 
 " Startup 
 let s:running_windows = has("win16") || has("win32") || has("win64")
+let s:running_cygwin = has('win32unix')
+let s:running_macvim = has('gui_macvim')
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 
 " Before we do anything, lets get pathogen up 
@@ -35,6 +37,7 @@ set formatoptions+=n " Recognize numbered lists
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
+set ttyfast " Assume a fast terminal
 
 " use modelines
 if $USER != "root"
@@ -50,7 +53,11 @@ set t_vb=
 filetype plugin indent on " load filetype plugins/indent settings
 set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
-set clipboard+=unnamed " share windows clipboard
+if exists('$TMUX')
+    set clipboard=
+else
+    set clipboard=unnamed "sync with OS clipboard
+endif
 if s:running_windows
     set backupdir=~/vimfiles/backup " where to put backup files
     set undodir=~/vimfiles/undo " where to put undo files
@@ -81,6 +88,9 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 endif
 set wildmode=list:longest " turn on wild mode huge list
+set viewoptions=folds,options,cursor,unix,slash " Windows/Linux compatibility
+set splitbelow " new splits are down
+set splitright " new vsplits are to the right
 
 " Vim UI 
 set incsearch " BUT do highlight as you type you search phrase

@@ -61,3 +61,27 @@
 [submodule "bundle/dispatch"]
 	path = bundle/dispatch
 	url = git://github.com/tpope/vim-dispatch.git
+[submodule "bundle/kolor"]
+	path = bundle/kolor
+	url = https://github.com/zeis/vim-kolor
+[submodule "bundle/tomorrow-theme"]
+	path = bundle/tomorrow-theme
+	url = https://github.com/chriskempson/vim-tomorrow-theme.git
+[submodule "bundle/ps1"]
+	path = bundle/ps1
+	url = https://github.com/PProvost/vim-ps1.git
+[submodule "bundle/undotree"]
+	path = bundle/undotree
+	url = https://github.com/mbbill/undotree.git
+[submodule "bundle/expandregion"]
+	path = bundle/expandregion
+	url = https://github.com/terryma/vim-expand-region.git
+[submodule "bundle/visualstar"]
+	path = bundle/visualstar
+	url = https://github.com/thinca/vim-visualstar.git
+[submodule "bundle/speeddating"]
+	path = bundle/speeddating
+	url = https://github.com/tpope/vim-speeddating.git
+[submodule "bundle/json"]
+	path = bundle/json
+	url = https://github.com/leshill/vim-json.git
