@@ -329,7 +329,7 @@ if s:colorful_term
 endif
 
 " Odds n Ends
-if has("mouse")
-   set mouse=a " use mouse everywhere
-   set ttymouse=xterm2 " makes it work in everything
-endif 
+"if has("mouse")
+"   set mouse=a " use mouse everywhere
+"   set ttymouse=xterm2 " makes it work in everything
+"endif 
