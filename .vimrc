@@ -156,6 +156,12 @@ if s:running_windows
 else
     let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
 endif
+"let g:ctrlp_buftag_types = {
+"\ 'go' : 
+"    \ 'bin': 'gotags',
+"    \ 'args': '-sort -silent',
+"    \ },
+"\ }
 let g:ctrlp_follow_symlinks = 0
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 1
@@ -164,7 +170,7 @@ let g:ctrlp_max_files = 100000
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 'ra'
 let g:godef_split = 0
-"let g:tagbar_ctags_bin = 'etags'
+let g:tagbar_ctags_bin = 'gotags'
 let g:rbpt_colorpairs = [
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
@@ -187,7 +193,7 @@ let g:rbpt_colorpairs = [
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
     \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
+    \ ['brown', 'DarkOrhid3'],
     \ ['darkcyan', 'Seagreen3'],
     \ ['darkmagenta', 'RoyalBlue3'],
 \ ]
@@ -245,8 +251,8 @@ iab <expr> dts strftime("%c")
 " Mappings for Control-P
 nmap gb :CtrlPBuffer<CR>
 nmap gt :CtrlPBufTag<CR>
-nmap gf :CtrlPMixed<CR>
-nmap gF :CtrlPCurWD<CR>
+nmap gf :CtrlPCurWD<CR>
+nmap gm :CtrlPMixed<CR>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>f :CtrlPMixed<CR>
 nmap <leader>ff :CtrlPCurWD<CR>
@@ -323,7 +329,7 @@ if s:colorful_term
 endif
 
 " Odds n Ends
-" if has("mouse")
-"    set mouse=a " use mouse everywhere
-"    set ttymouse=xterm2 " makes it work in everything
-" endif 
+if has("mouse")
+   set mouse=a " use mouse everywhere
+   set ttymouse=xterm2 " makes it work in everything
+endif 
