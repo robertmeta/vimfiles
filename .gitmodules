@@ -85,3 +85,6 @@
 [submodule "bundle/json"]
 	path = bundle/json
 	url = https://github.com/leshill/vim-json.git
+[submodule "bundle/abolish"]
+	path = bundle/abolish
+	url = git://github.com/tpope/vim-abolish.git

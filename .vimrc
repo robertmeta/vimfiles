@@ -294,11 +294,15 @@ if has("autocmd")
         au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
 
         " Rainbow Parens
-        au VimEnter * RainbowParenthesesActivate " You actually have to turn it on
+        au VimEnter * RainbowParenthesesActivate
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
         au Syntax * RainbowParenthesesLoadChevrons
+
+        au FileType gitcommit setlocal spell
+        au FileType svn       setlocal spell
+        au FileType asciidoc  setlocal spell
     augroup END
 endif
 
