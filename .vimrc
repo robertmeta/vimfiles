@@ -38,6 +38,7 @@ set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
 set ttyfast " Assume a fast terminal
+set tags=./tags;/
 
 " use modelines
 if $USER != "root"
@@ -170,7 +171,6 @@ let g:ctrlp_max_files = 100000
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 'ra'
 let g:godef_split = 0
-let g:tagbar_ctags_bin = 'gotags'
 let g:rbpt_colorpairs = [
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
@@ -199,7 +199,7 @@ let g:rbpt_colorpairs = [
 \ ]
 let g:rbpt_max = 24
 let g:SuperTabDefaultCompletionType = "context"
-let g:tagbar_left = 1
+let g:tagbar_left = 0
 " requires gotags in path
 " go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {
