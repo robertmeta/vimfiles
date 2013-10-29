@@ -38,8 +38,7 @@ set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
 set ttyfast " Assume a fast terminal
-set tags=./tags;/
-
+let g:ctrlp_buftag_ctags_bin = 'gotags -sort -silent'
 " use modelines
 if $USER != "root"
     set modeline
