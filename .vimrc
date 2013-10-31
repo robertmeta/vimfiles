@@ -38,7 +38,6 @@ set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
 set ttyfast " Assume a fast terminal
-let g:ctrlp_buftag_ctags_bin = 'gotags -sort -silent'
 " use modelines
 if $USER != "root"
     set modeline
@@ -48,6 +47,9 @@ endif
 set noerrorbells
 set novisualbell
 set t_vb=
+
+" turn off background redraw
+set t_ut=
 
 " General 
 filetype plugin indent on " load filetype plugins/indent settings
