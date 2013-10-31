@@ -148,8 +148,15 @@ set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
 " Plugin Settings 
-let g:EasyMotion_mapping_f = '<Space>'
 let g:EasyMotion_grouping = 1
+function! g:QuickMotion()
+    let s=&scrolloff
+    setlocal scrolloff=0
+    keepjumps normal! H
+    call EasyMotion#F(0, 0)
+    let &l:scrolloff = s
+endfunction
+nnoremap <silent> <Space> :call g:QuickMotion()<cr>
 let b:match_ignorecase = 1 " case is stupid
 if s:running_windows
     let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
@@ -252,14 +259,6 @@ nmap gb :CtrlPBuffer<CR>
 nmap gt :CtrlPBufTag<CR>
 nmap gf :CtrlPCurWD<CR>
 nmap gm :CtrlPMixed<CR>
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>f :CtrlPMixed<CR>
-nmap <leader>ff :CtrlPCurWD<CR>
-nmap <leader>m :CtrlPMRUFiles<CR>
-nmap <leader>l :CtrlPLine<CR>
-nmap <leader>t :CtrlPBufTag<CR>
-nmap <leader>ta :CtrlPBufTagAll<CR>
-" Random useful mappings
 nmap <leader>a :A<CR>
 nmap <leader>as :AV<CR>
 nmap <up> :bp<CR>
