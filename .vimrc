@@ -249,6 +249,8 @@ let tlist_aspvbs_settings = 'asp;f:function;s:sub'
 let tlist_php_settings = 'php;c:class;d:constant;f:function'
 let tlist_vb_settings = 'asp;f:function;c:class'
 let use_xhtml = 0
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "30"
 
 " Abbreviations 
 cnoreabbrev W w
@@ -263,10 +265,10 @@ nmap gf :CtrlPCurWD<CR>
 nmap gm :CtrlPMixed<CR>
 nmap <leader>a :A<CR>
 nmap <leader>as :AV<CR>
-nmap <up> :bp<CR>
-nmap <down> :bn<CR>
-nmap <right> :TagbarToggle<CR>
-nmap <left> :NERDTreeToggle<CR>
+"nmap <up> :bp<CR>
+"nmap <down> :bn<CR>
+"nmap <right> :TagbarToggle<CR>
+"nmap <left> :NERDTreeToggle<CR>
 " Fugitive
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>ga :Gwrite<CR>
@@ -276,6 +278,11 @@ nmap <leader>gm :Gmove<CR>
 " Switch to light theme
 nmap <leader>cl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
 nmap <leader>cd :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
+nmap <Leader>vp :VimuxPromptCommand<CR>
+nmap <Leader>vl :VimuxRunLastCommand<CR>
+nmap <Leader>vq :VimuxCloseRunner<CR>
+map <F5> :VimuxRunLastCommand<CR>
+map <F9> :Dispatch<CR>
 
 if has("autocmd")
     augroup vimrcAu
