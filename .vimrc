@@ -83,11 +83,11 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | +-- <Space> Normal and Visual
 "             +-- <BS> Normal and Visual
 set wildmenu " turn on command line completion wild style
-set wildignore=*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.a " ignore these
+set wildignore=*.pdf,*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.a " ignore these
 if s:running_windows
-    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*,
 endif
 set wildmode=list:longest " turn on wild mode huge list
 set viewoptions=folds,options,cursor,unix,slash " Windows/Linux compatibility
@@ -165,12 +165,9 @@ if s:running_windows
 else
     let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
 endif
-"let g:ctrlp_buftag_types = {
-"\ 'go' : 
-"    \ 'bin': 'gotags',
-"    \ 'args': '-sort -silent',
-"    \ },
-"\ }
+let g:ctrlp_buftag_types = {
+    \ 'go'          : '--language-force=go --golang-types=ftv'
+\ }
 let g:ctrlp_follow_symlinks = 0
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 1
@@ -207,7 +204,7 @@ let g:rbpt_colorpairs = [
 \ ]
 let g:rbpt_max = 24
 let g:SuperTabDefaultCompletionType = "context"
-let g:tagbar_left = 0
+let g:tagbar_left = 1
 " requires gotags in path
 " go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {
@@ -251,6 +248,7 @@ let tlist_vb_settings = 'asp;f:function;c:class'
 let use_xhtml = 0
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "30"
+let g:syntastic_check_on_open = 1
 
 " Abbreviations 
 cnoreabbrev W w
@@ -267,8 +265,8 @@ nmap <leader>a :A<CR>
 nmap <leader>as :AV<CR>
 "nmap <up> :bp<CR>
 "nmap <down> :bn<CR>
-"nmap <right> :TagbarToggle<CR>
-"nmap <left> :NERDTreeToggle<CR>
+nmap <leader>tb :TagbarToggle<CR>
+nmap <leader>nt :NERDTreeToggle<CR>
 " Fugitive
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>ga :Gwrite<CR>
