@@ -307,7 +307,7 @@ if has("autocmd")
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
-        au Syntax * RainbowParenthesesLoadChevrons
+        "au Syntax * RainbowParenthesesLoadChevrons
 
         au FileType gitcommit setlocal spell
         au FileType svn       setlocal spell
