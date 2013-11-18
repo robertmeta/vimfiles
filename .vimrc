@@ -11,8 +11,12 @@ let s:running_cygwin = has('win32unix')
 let s:running_macvim = has('gui_macvim')
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 
+filetype off
+filetype plugin indent off
 " Before we do anything, lets get pathogen up 
 execute pathogen#infect()
+filetype plugin indent on " load filetype plugins/indent settings
+filetype on
 
 " Basics
 set nocompatible " explicitly get out of vi-compatible mode
@@ -52,7 +56,6 @@ set t_vb=
 set t_ut=
 
 " General 
-filetype plugin indent on " load filetype plugins/indent settings
 set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
 if exists('$TMUX')
@@ -290,6 +293,7 @@ if has("autocmd")
 
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
+        au FileType go autocmd BufWritePre <buffer> :keepjumps Fmt " assumes Fmt is defined
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
 
         " Override types

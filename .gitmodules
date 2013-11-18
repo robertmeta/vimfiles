@@ -73,9 +73,6 @@
 [submodule "bundle/undotree"]
 	path = bundle/undotree
 	url = https://github.com/mbbill/undotree.git
-[submodule "bundle/expandregion"]
-	path = bundle/expandregion
-	url = https://github.com/terryma/vim-expand-region.git
 [submodule "bundle/visualstar"]
 	path = bundle/visualstar
 	url = https://github.com/thinca/vim-visualstar.git
