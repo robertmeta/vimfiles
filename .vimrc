@@ -11,12 +11,8 @@ let s:running_cygwin = has('win32unix')
 let s:running_macvim = has('gui_macvim')
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 
-filetype off
-filetype plugin indent off
 " Before we do anything, lets get pathogen up 
 execute pathogen#infect()
-filetype plugin indent on " load filetype plugins/indent settings
-filetype on
 
 " Basics
 set nocompatible " explicitly get out of vi-compatible mode
@@ -56,6 +52,8 @@ set t_vb=
 set t_ut=
 
 " General 
+filetype plugin indent on
+filetype on
 set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
 if exists('$TMUX')
