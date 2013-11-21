@@ -276,12 +276,12 @@ nmap <leader>gw :Gwrite<CR>
 nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 " Switch to light theme
-nmap <leader>cl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>cd :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>tl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>td :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vl :VimuxRunLastCommand<CR>
+nmap <Leader>r :VimuxRunLastCommand<CR>
 nmap <Leader>vq :VimuxCloseRunner<CR>
-map <F5> :VimuxRunLastCommand<CR>
 map <F9> :Dispatch<CR>
 
 if has("autocmd")
