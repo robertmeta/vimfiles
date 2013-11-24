@@ -4,6 +4,7 @@
 "
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
+scriptencoding utf-8 " yey! utf-8
 
 " Startup 
 let s:running_windows = has("win16") || has("win32") || has("win64")
@@ -53,7 +54,6 @@ set t_ut=
 
 " General 
 filetype plugin indent on
-filetype on
 set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
 if exists('$TMUX')
@@ -92,6 +92,7 @@ else
 endif
 set wildmode=list:longest " turn on wild mode huge list
 set viewoptions=folds,options,cursor,unix,slash " Windows/Linux compatibility
+set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 
@@ -105,13 +106,13 @@ set listchars=tab:>-,trail:- " show tabs and trailing
 set matchtime=1 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
-set novisualbell " don't blink
 set number " turns out I hate relative numbering
 set numberwidth=5 " We are good up to 99999 lines
 set report=0 " tell us when anything is changed via :...
 set ruler " Always show current positions along the bottom
 set scrolloff=5 " Keep 5 lines (top/bottom) for scope
-set shortmess=aOstT " shortens messages to avoid 'press a key' prompt
+set virtualedit=onemore " Allow for cursor beyond last character
+set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 set showcmd " show the command being typed
 set showmatch " show matching brackets
 set sidescrolloff=5 " Keep 5 lines at the size
@@ -253,6 +254,8 @@ let g:VimuxHeight = "30"
 " Abbreviations 
 cnoreabbrev W w
 cnoreabbrev Wq wq
+cnoreabbrev Wqa wqa
+cnoreabbrev WQa wqa
 cnoreabbrev Q q
 iab <expr> dts strftime("%c")
 
@@ -280,7 +283,13 @@ nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vl :VimuxRunLastCommand<CR>
 nmap <Leader>r :VimuxRunLastCommand<CR>
 nmap <Leader>vq :VimuxCloseRunner<CR>
+map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 map <F9> :Dispatch<CR>
+nmap <leader>ut :UndotreeToggle<CR>
+" Change Working Directory to that of the current file
+cmap cwd lcd %:p:h
+cmap cd. lcd %:p:h
+cmap w!! w !sudo tee % >/dev/null
 
 if has("autocmd")
     augroup vimrcAu
@@ -288,6 +297,7 @@ if has("autocmd")
         au!
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two 
+        au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two 
 
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
