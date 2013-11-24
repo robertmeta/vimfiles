@@ -88,3 +88,6 @@
 [submodule "bundle/expandregion"]
 	path = bundle/expandregion
 	url = https://github.com/terryma/vim-expand-region.git
+[submodule "bundle/flatcolor"]
+	path = bundle/flatcolor
+	url = https://github.com/MaxSt/FlatColor.git
