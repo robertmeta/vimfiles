@@ -91,3 +91,9 @@
 [submodule "bundle/flatcolor"]
 	path = bundle/flatcolor
 	url = https://github.com/MaxSt/FlatColor.git
+[submodule "bundle/seoul256"]
+	path = bundle/seoul256
+	url = https://github.com/junegunn/seoul256.vim
+[submodule "bundle/litedfm"]
+	path = bundle/litedfm
+	url = https://github.com/bilalq/lite-dfm

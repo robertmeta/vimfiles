@@ -16,6 +16,7 @@ let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 execute pathogen#infect()
 
 " Basics
+set cryptmethod=blowfish " use the good stuff!
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set background=dark " we plan to use a dark background
@@ -279,6 +280,7 @@ nmap <leader>gm :Gmove<CR>
 " Switch to light theme
 nmap <leader>tl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
 nmap <leader>td :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
+nmap <Leader>tq :LiteDFMToggle<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vl :VimuxRunLastCommand<CR>
 nmap <Leader>r :VimuxRunLastCommand<CR>
@@ -295,6 +297,9 @@ if has("autocmd")
     augroup vimrcAu
         " Clear!
         au!
+        " For secure reading/writing
+        autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif 
+
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two 
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two 
@@ -353,3 +358,4 @@ if has("mouse")
    set mouse=a " use mouse everywhere
    set ttymouse=xterm2 " makes it work in everything
 endif 
+
