@@ -40,9 +40,6 @@
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "bundle/lucius"]
-	path = bundle/lucius
-	url = https://github.com/jonathanfilip/vim-lucius.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -61,12 +58,6 @@
 [submodule "bundle/dispatch"]
 	path = bundle/dispatch
 	url = git://github.com/tpope/vim-dispatch.git
-[submodule "bundle/kolor"]
-	path = bundle/kolor
-	url = https://github.com/zeis/vim-kolor
-[submodule "bundle/tomorrow-theme"]
-	path = bundle/tomorrow-theme
-	url = https://github.com/chriskempson/vim-tomorrow-theme.git
 [submodule "bundle/ps1"]
 	path = bundle/ps1
 	url = https://github.com/PProvost/vim-ps1.git
@@ -88,12 +79,6 @@
 [submodule "bundle/expandregion"]
 	path = bundle/expandregion
 	url = https://github.com/terryma/vim-expand-region.git
-[submodule "bundle/flatcolor"]
-	path = bundle/flatcolor
-	url = https://github.com/MaxSt/FlatColor.git
 [submodule "bundle/seoul256"]
 	path = bundle/seoul256
 	url = https://github.com/junegunn/seoul256.vim
-[submodule "bundle/litedfm"]
-	path = bundle/litedfm
-	url = https://github.com/bilalq/lite-dfm
