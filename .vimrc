@@ -260,6 +260,14 @@ cnoreabbrev WQa wqa
 cnoreabbrev Q q
 iab <expr> dts strftime("%c")
 
+" Emacs / mac style so I can used to them
+inoremap <C-a> <Esc>I
+inoremap <C-e> <Esc>A
+inoremap <C-d> <Delete>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-d> <Delete>
+
 " Mappings for Control-P
 nmap gb :CtrlPBuffer<CR>
 nmap gt :CtrlPBufTag<CR>
