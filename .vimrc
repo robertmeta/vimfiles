@@ -14,6 +14,7 @@ let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 
 " Before we do anything, lets get pathogen up 
 execute pathogen#infect()
+helpt " Help for plugins
 
 " Basics
 set cryptmethod=blowfish " use the good stuff!
@@ -290,11 +291,9 @@ nmap <leader>tl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenth
 nmap <leader>td :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>tq :LiteDFMToggle<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
-nmap <Leader>vl :VimuxRunLastCommand<CR>
 nmap <Leader>r :VimuxRunLastCommand<CR>
+nmap <Leader>c :VimuxInterruptRunner<CR>    
 nmap <Leader>vq :VimuxCloseRunner<CR>
-map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
-map <F9> :Dispatch<CR>
 nmap <leader>ut :UndotreeToggle<CR>
 " Change Working Directory to that of the current file
 cmap cwd lcd %:p:h
