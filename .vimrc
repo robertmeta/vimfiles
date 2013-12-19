@@ -14,7 +14,7 @@ let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 
 " Before we do anything, lets get pathogen up 
 execute pathogen#infect()
-helpt " Help for plugins
+Helptag " Help for plugins
 
 " Basics
 set cryptmethod=blowfish " use the good stuff!
