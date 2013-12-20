@@ -98,6 +98,9 @@ set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 
+set cursorcolumn
+set cursorline
+
 " Vim UI 
 set incsearch " BUT do highlight as you type you search phrase
 set laststatus=2 " always show the status line
@@ -288,7 +291,7 @@ nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 " Switch to light theme
 nmap <leader>tl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>td :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>td :set background=dark<CR>:colo seoul256<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>tq :LiteDFMToggle<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>r :VimuxRunLastCommand<CR>
@@ -337,7 +340,7 @@ endif
 
 if has("gui_running")
     " Basics
-    colorscheme herald " my new favorite!
+    colorscheme seoul256 " my new favorite!
     set guifont=Consolas:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||
@@ -349,7 +352,7 @@ endif
 if s:colorful_term
     "256 color --
     let &t_Co=256
-    colorscheme herald
+    colorscheme seoul256
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf="\ESC[3%p1%dm"
