@@ -116,7 +116,7 @@ set ruler " Always show current positions along the bottom
 set scrolloff=5 " Keep 5 lines (top/bottom) for scope
 set virtualedit=onemore " Allow for cursor beyond last character
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
-set noshowcmd " don't show command as we type, for slow terminals
+set showcmd " do show commands
 set showmatch " show matching brackets
 set sidescrolloff=5 " Keep 5 lines at the size
 set sidescroll=5 " If you hit edge, jump 5
@@ -251,19 +251,12 @@ let g:VimuxHeight = "30"
 
 " Abbreviations 
 cnoreabbrev W w
+cnoreabbrev Wa wa
 cnoreabbrev Wq wq
 cnoreabbrev Wqa wqa
 cnoreabbrev WQa wqa
 cnoreabbrev Q q
 iab <expr> dts strftime("%c")
-
-" Emacs / mac style so I can used to them
-inoremap <C-a> <Esc>I
-inoremap <C-e> <Esc>A
-inoremap <C-d> <Delete>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <C-d> <Delete>
 
 " Mappings for Control-P
 nmap gb :CtrlPBuffer<CR>
@@ -278,8 +271,21 @@ function! g:QuickMotion()
     let &l:scrolloff = s
 endfunction
 nnoremap <silent> <Space> :call g:QuickMotion()<cr>
-nmap sd <C-f>
+nmap <Up> <C-b>
 nmap su <C-b>
+nmap <Down> <C-f>
+nmap sd <C-b>
+nmap <Left> :bp<CR>
+nmap <Right> :bn<CR>
+nmap <ESC>k :wincmd k<CR>
+nmap <ESC>j :wincmd j<CR>
+nmap <ESC>h :wincmd h<CR>
+nmap <ESC>l :wincmd l<CR>
+nmap <C-j> :wincmd +<CR>
+nmap <C-k> :wincmd -<CR>
+nmap <C-h> :wincmd <<CR>
+nmap <C-l> :wincmd ><CR>
+
 nmap <leader>tb :TagbarToggle<CR>
 nmap <leader>tb :TagbarToggle<CR>
 nmap <leader>nt :NERDTreeToggle<CR>
