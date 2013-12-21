@@ -280,7 +280,7 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nmap <leader>f <leader><leader>f
 nmap <leader>F <leader><leader>F
 nmap <leader>w <C-w>w
-nmap <leader>W <C-w>w
+nmap <leader>W <C-w>W
 nmap <leader>tb :TagbarToggle<CR>
 nmap <leader>nt :NERDTreeToggle<CR>
 " Fugitive
