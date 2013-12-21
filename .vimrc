@@ -42,7 +42,7 @@ set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
 set ttyfast " Assume a fast terminal
 set ttyscroll=5 " See if this helps scroll speed
-" use modelines
+" use modelines (if not root)
 if $USER != "root"
     set modeline
 endif
@@ -135,6 +135,7 @@ set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              | +-- rodified flag in square brackets
 "              +-- full path to file in the buffer
 
+
 " Text Formatting/Layout 
 set completeopt=menuone " don't use a pop up menu for completions
 set expandtab " no real tabs please!
@@ -158,7 +159,6 @@ set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
 " Plugin Settings 
 let g:EasyMotion_grouping = 1
-nnoremap <silent> <Space> :call g:QuickMotion()<cr>
 let b:match_ignorecase = 1 " case is stupid
 if s:running_windows
     let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
@@ -270,10 +270,17 @@ nmap gb :CtrlPBuffer<CR>
 nmap gt :CtrlPBufTag<CR>
 nmap gf :CtrlPCurWD<CR>
 nmap gm :CtrlPMixed<CR>
-nmap <leader>a :A<CR>
-nmap <leader>as :AV<CR>
-"nmap <up> :bp<CR>
-"nmap <down> :bn<CR>
+function! g:QuickMotion()
+    let s=&scrolloff
+    setlocal scrolloff=0
+    keepjumps normal! H
+    call EasyMotion#F(0, 0)
+    let &l:scrolloff = s
+endfunction
+nnoremap <silent> <Space> :call g:QuickMotion()<cr>
+nmap sd <C-f>
+nmap su <C-b>
+nmap <leader>tb :TagbarToggle<CR>
 nmap <leader>tb :TagbarToggle<CR>
 nmap <leader>nt :NERDTreeToggle<CR>
 " Fugitive
@@ -285,10 +292,8 @@ nmap <leader>gm :Gmove<CR>
 " Switch to light theme
 nmap <leader>tl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
 nmap <leader>td :set background=dark<CR>:colo seoul256<CR>:RainbowParenthesesActivate<CR>
-nmap <Leader>tq :LiteDFMToggle<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
-nmap <Leader>r :VimuxRunLastCommand<CR>
-nmap <Leader>c :VimuxInterruptRunner<CR>    
+nmap <Leader>vr :VimuxRunLastCommand<CR>
 nmap <Leader>vq :VimuxCloseRunner<CR>
 nmap <leader>ut :UndotreeToggle<CR>
 " Change Working Directory to that of the current file
@@ -355,11 +360,5 @@ if s:colorful_term
         let &t_Sb="\ESC[4%dm"
     endif
 endif
-
-" Odds n Ends
-if has("mouse")
-   set mouse=a " use mouse everywhere
-   set ttymouse=xterm2 " makes it work in everything
-endif 
 
 hi NonText cterm=NONE ctermfg=NONE " will improve preformance
