@@ -271,20 +271,8 @@ function! g:QuickMotion()
     let &l:scrolloff = s
 endfunction
 nnoremap <silent> <Space> :call g:QuickMotion()<cr>
-nmap <Up> <C-b>
 nmap su <C-b>
-nmap <Down> <C-f>
 nmap sd <C-b>
-nmap <Left> :bp<CR>
-nmap <Right> :bn<CR>
-nmap <ESC>k :wincmd k<CR>
-nmap <ESC>j :wincmd j<CR>
-nmap <ESC>h :wincmd h<CR>
-nmap <ESC>l :wincmd l<CR>
-nmap <C-j> :wincmd +<CR>
-nmap <C-k> :wincmd -<CR>
-nmap <C-h> :wincmd <<CR>
-nmap <C-l> :wincmd ><CR>
 
 nmap <leader>tb :TagbarToggle<CR>
 nmap <leader>tb :TagbarToggle<CR>
