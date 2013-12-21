@@ -41,6 +41,7 @@ set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
 set ttyfast " Assume a fast terminal
+set ttyscroll=5 " See if this helps scroll speed
 " use modelines
 if $USER != "root"
     set modeline
@@ -98,9 +99,6 @@ set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 
-set cursorcolumn
-set cursorline
-
 " Vim UI 
 set incsearch " BUT do highlight as you type you search phrase
 set laststatus=2 " always show the status line
@@ -118,9 +116,11 @@ set ruler " Always show current positions along the bottom
 set scrolloff=5 " Keep 5 lines (top/bottom) for scope
 set virtualedit=onemore " Allow for cursor beyond last character
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
-set showcmd " show the command being typed
+set noshowcmd " don't show command as we type, for slow terminals
 set showmatch " show matching brackets
 set sidescrolloff=5 " Keep 5 lines at the size
+set sidescroll=5 " If you hit edge, jump 5
+set scrolljump=5 " If you hit bottom or top, jump 5
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              | | | | |  |   |      |  |     |    |
 "              | | | | |  |   |      |  |     |    + current column
@@ -158,13 +158,6 @@ set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
 " Plugin Settings 
 let g:EasyMotion_grouping = 1
-function! g:QuickMotion()
-    let s=&scrolloff
-    setlocal scrolloff=0
-    keepjumps normal! H
-    call EasyMotion#F(0, 0)
-    let &l:scrolloff = s
-endfunction
 nnoremap <silent> <Space> :call g:QuickMotion()<cr>
 let b:match_ignorecase = 1 " case is stupid
 if s:running_windows
@@ -369,3 +362,4 @@ if has("mouse")
    set ttymouse=xterm2 " makes it work in everything
 endif 
 
+hi NonText cterm=NONE ctermfg=NONE " will improve preformance
