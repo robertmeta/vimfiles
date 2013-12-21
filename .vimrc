@@ -272,7 +272,7 @@ function! g:QuickMotion()
 endfunction
 nnoremap <silent> <Space> :call g:QuickMotion()<cr>
 nmap su <C-b>
-nmap sd <C-b>
+nmap sd <C-f>
 
 nmap <leader>tb :TagbarToggle<CR>
 nmap <leader>tb :TagbarToggle<CR>
