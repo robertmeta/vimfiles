@@ -17,7 +17,8 @@ execute pathogen#infect()
 Helptag " Help for plugins
 
 " Basics
-"let mapleader = "," " scary cnange, but I am trying it
+nnoremap <SPACE> <Nop>
+let mapleader = "\<Space>" " Yep, space as my leader. 
 set cryptmethod=blowfish " use the good stuff!
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
@@ -271,12 +272,13 @@ function! g:QuickMotion()
     call EasyMotion#F(0, 0)
     let &l:scrolloff = s
 endfunction
-nnoremap <silent> <Space> :call g:QuickMotion()<cr>
-nmap su <C-b>
-nmap sd <C-f>
+nmap sb <C-b>
+nmap sf <C-f>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
+nmap <leader>f <leader><leader>f
+nmap <leader>F <leader><leader>F
 nmap <leader>w <C-w>w
 nmap <leader>W <C-w>w
 nmap <leader>tb :TagbarToggle<CR>
