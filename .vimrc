@@ -19,6 +19,7 @@ Helptag " Help for plugins
 " Basics
 nnoremap <SPACE> <Nop>
 let mapleader = "\<Space>" " Yep, space as my leader. 
+nmap \ <leader>
 set cryptmethod=blowfish " use the good stuff!
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
