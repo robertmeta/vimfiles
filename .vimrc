@@ -161,7 +161,7 @@ set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
 " Plugin Settings 
 let g:EasyMotion_grouping = 1
-let b:match_ignorecase = 1 " case is stupid
+
 if s:running_windows
     let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
 else
@@ -170,14 +170,19 @@ endif
 let g:ctrlp_buftag_types = {
     \ 'go'          : '--language-force=go --golang-types=ftv'
 \ }
-let g:ctrlp_follow_symlinks = 0
+let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 1
 let g:ctrlp_max_depth = 100
 let g:ctrlp_max_files = 100000
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_use_caching = 1
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_open_multiple_files = 'ij'
+
 let g:godef_split = 0
+
 let g:rbpt_colorpairs = [
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
@@ -205,8 +210,10 @@ let g:rbpt_colorpairs = [
     \ ['darkmagenta', 'RoyalBlue3'],
 \ ]
 let g:rbpt_max = 24
+
 let g:SuperTabDefaultCompletionType = "context"
-let g:tagbar_left = 1
+
+let g:tagbar_left = 0
 " requires gotags in path
 " go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {
@@ -236,66 +243,73 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
 let html_number_lines = 0
 let html_use_css = 0
+
 let NERDChristmasTree = 1
 let NERDTreeDirArrows = 1
 let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin', 'bin', 'pkg', '\.so', '\.dll']
 let NERDTreeMinimalUI = 1
+
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
+
 let tlist_aspjscript_settings = 'asp;f:function;c:class'
 let tlist_aspvbs_settings = 'asp;f:function;s:sub'
 let tlist_php_settings = 'php;c:class;d:constant;f:function'
 let tlist_vb_settings = 'asp;f:function;c:class'
+
 let use_xhtml = 0
+
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "30"
 
 " Abbreviations 
 cnoreabbrev W w
+cnoreabbrev Bp bp
+cnoreabbrev Bn bn
 cnoreabbrev Wa wa
 cnoreabbrev Wq wq
 cnoreabbrev Wqa wqa
 cnoreabbrev WQa wqa
 cnoreabbrev Q q
+
 iab <expr> dts strftime("%c")
 
 " Mappings for Control-P
 nmap gb :CtrlPBuffer<CR>
 nmap gt :CtrlPBufTag<CR>
 nmap gf :CtrlPCurWD<CR>
-nmap gm :CtrlPMixed<CR>
-function! g:QuickMotion()
-    let s=&scrolloff
-    setlocal scrolloff=0
-    keepjumps normal! H
-    call EasyMotion#F(0, 0)
-    let &l:scrolloff = s
-endfunction
-nmap sb <C-b>
-nmap sf <C-f>
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
+nmap <Up> <C-b>
+nmap <Down> <C-f>
+nmap <Right> :TagbarToggle<CR>
+nmap <Left> :NERDTreeToggle<CR>
+
+nmap <leader>< <C-w>15<
+nmap <leader>> <C-w>15>
+nmap <leader>+ <C-w>15+
+nmap <leader>- <C-w>15-
+nmap <leader>_ <C-w>15-
 nmap <leader>f <leader><leader>f
 nmap <leader>F <leader><leader>F
 nmap <leader>w <C-w>w
 nmap <leader>W <C-w>W
-nmap <leader>tb :TagbarToggle<CR>
-nmap <leader>nt :NERDTreeToggle<CR>
 " Fugitive
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>ga :Gwrite<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
+
 " Switch to light theme
 nmap <leader>tl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>td :set background=dark<CR>:colo seoul256<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>td :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vr :VimuxRunLastCommand<CR>
 nmap <Leader>vq :VimuxCloseRunner<CR>
 nmap <leader>ut :UndotreeToggle<CR>
+
 " Change Working Directory to that of the current file
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
@@ -316,7 +330,8 @@ if has("autocmd")
         au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
         au FileType go autocmd BufWritePre <buffer> :keepjumps Fmt " assumes Fmt is defined
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
-
+ 
+        " B 
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
         au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
@@ -338,7 +353,7 @@ endif
 
 if has("gui_running")
     " Basics
-    colorscheme seoul256 " my new favorite!
+    colorscheme herald " my new favorite!
     set guifont=Consolas:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||
@@ -350,7 +365,7 @@ endif
 if s:colorful_term
     "256 color --
     let &t_Co=256
-    colorscheme seoul256
+    colorscheme herald
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf="\ESC[3%p1%dm"
