@@ -284,9 +284,10 @@ nmap gf :CtrlPCurWD<CR>
 
 nmap <Up> <C-b>
 nmap <Down> <C-f>
-nmap <Right> :TagbarToggle<CR>
-nmap <Left> :NERDTreeToggle<CR>
+nmap <Right> :bn<CR>
+nmap <Left> :bp<CR>
 
+nmap <leader>q :q<CR>
 nmap <leader>< <C-w>15<
 nmap <leader>> <C-w>15>
 nmap <leader>+ <C-w>15+
@@ -377,4 +378,5 @@ if s:colorful_term
     endif
 endif
 
-hi NonText cterm=NONE ctermfg=NONE " will improve preformance
+" can improve term performance
+hi NonText cterm=NONE ctermfg=NONE
