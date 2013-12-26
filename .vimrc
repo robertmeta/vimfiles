@@ -305,7 +305,7 @@ nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
 " Switch to light theme
-nmap <leader>tl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>tl :set background=light<CR>:colo seoul256-light<CR>:RainbowParenthesesActivate<CR>
 nmap <leader>td :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vr :VimuxRunLastCommand<CR>
