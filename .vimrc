@@ -263,7 +263,7 @@ let tlist_vb_settings = 'asp;f:function;c:class'
 let use_xhtml = 0
 
 let g:VimuxOrientation = "h"
-let g:VimuxHeight = "30"
+let g:VimuxHeight = "33"
 
 " Abbreviations 
 cnoreabbrev W w
@@ -274,6 +274,7 @@ cnoreabbrev Wq wq
 cnoreabbrev Wqa wqa
 cnoreabbrev WQa wqa
 cnoreabbrev Q q
+cnoreabbrev Qw qw
 
 iab <expr> dts strftime("%c")
 
