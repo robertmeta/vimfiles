@@ -263,7 +263,7 @@ let tlist_vb_settings = 'asp;f:function;c:class'
 let use_xhtml = 0
 
 let g:VimuxOrientation = "h"
-let g:VimuxHeight = "33"
+let g:VimuxHeight = "34"
 
 " Abbreviations 
 cnoreabbrev W w
