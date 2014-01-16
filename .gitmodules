@@ -73,3 +73,6 @@
 [submodule "bundle/eunuch"]
 	path = bundle/eunuch
 	url = git://github.com/tpope/vim-eunuch.git
+[submodule "bundle/easymotion"]
+	path = bundle/easymotion
+	url = https://github.com/haya14busa/vim-easymotion.git
