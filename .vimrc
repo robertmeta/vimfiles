@@ -307,7 +307,7 @@ nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
 " Switch to light theme
-nmap <leader>tl :let g:seoul256_background=254<CR>:set background=light<CR>:colo seoul256-light<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>tl :let g:seoul256_background=252<CR>:set background=light<CR>:colo seoul256-light<CR>:RainbowParenthesesActivate<CR>
 nmap <leader>td :let g:seoul256_background=236<CR>:set background=dark<CR>:colo seoul256<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vr :VimuxRunLastCommand<CR>
@@ -335,7 +335,7 @@ if has("autocmd")
         au FileType go autocmd BufWritePre <buffer> :keepjumps Fmt " assumes Fmt is defined
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
  
-        " B 
+        " B
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
         au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
