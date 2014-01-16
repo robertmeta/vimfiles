@@ -265,6 +265,7 @@ let use_xhtml = 0
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "34"
 
+
 " Abbreviations 
 cnoreabbrev W w
 cnoreabbrev Bp bp
@@ -306,8 +307,8 @@ nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
 " Switch to light theme
-nmap <leader>tl :set background=light<CR>:colo seoul256-light<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>td :set background=dark<CR>:colo herald<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>tl :let g:seoul256_background=254<CR>:set background=light<CR>:colo seoul256-light<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>td :let g:seoul256_background=236<CR>:set background=dark<CR>:colo seoul256<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vr :VimuxRunLastCommand<CR>
 nmap <Leader>vq :VimuxCloseRunner<CR>
@@ -354,9 +355,11 @@ if has("autocmd")
     augroup END
 endif
 
+let g:seoul256_background = 236
+colorscheme seoul256 " my new favorite!
+
 if has("gui_running")
     " Basics
-    colorscheme herald " my new favorite!
     set guifont=Consolas:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||
@@ -368,7 +371,7 @@ endif
 if s:colorful_term
     "256 color --
     let &t_Co=256
-    colorscheme herald
+
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf="\ESC[3%p1%dm"
