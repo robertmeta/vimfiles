@@ -17,9 +17,7 @@ execute pathogen#infect()
 Helptag " Help for plugins
 
 " Basics
-nnoremap <SPACE> <Nop>
-let mapleader = "\<Space>" " Yep, space as my leader. 
-nmap \ <leader>
+nmap <space> <leader>
 set cryptmethod=blowfish " use the good stuff!
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
@@ -90,11 +88,11 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | +-- <Space> Normal and Visual
 "             +-- <BS> Normal and Visual
 set wildmenu " turn on command line completion wild style
-set wildignore=*.pdf,*.pyo,*.pyc,*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.a " ignore these
+set wildignore=*.pdf,*.pyo,*.pyc,*.zip,*.so,*.swp,*.dll,*.o,*.DS_Store,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.a " ignore these
 if s:running_windows
     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*,
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
 endif
 set wildmode=list:longest " turn on wild mode huge list
 set viewoptions=folds,options,cursor,unix,slash " Windows/Linux compatibility
@@ -102,7 +100,7 @@ set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 
-" Vim UI 
+" Vim UI
 set incsearch " BUT do highlight as you type you search phrase
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
@@ -117,7 +115,6 @@ set numberwidth=5 " We are good up to 99999 lines
 set report=0 " tell us when anything is changed via :...
 set ruler " Always show current positions along the bottom
 set scrolloff=5 " Keep 5 lines (top/bottom) for scope
-set virtualedit=onemore " Allow for cursor beyond last character
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 set showcmd " do show commands
 set showmatch " show matching brackets
@@ -265,6 +262,12 @@ let use_xhtml = 0
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "34"
 
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+endif
+
+let g:ctrlp_show_hidden = 1
 
 " Abbreviations 
 cnoreabbrev W w
@@ -295,8 +298,6 @@ nmap <leader>> <C-w>15>
 nmap <leader>+ <C-w>15+
 nmap <leader>- <C-w>15-
 nmap <leader>_ <C-w>15-
-nmap <leader>f <leader><leader>f
-nmap <leader>F <leader><leader>F
 nmap <leader>w <C-w>w
 nmap <leader>W <C-w>W
 " Fugitive
