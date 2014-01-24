@@ -157,8 +157,17 @@ set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
-" Plugin Settings 
+" Plugin Settings
 let g:sneak#streak = 1
+
+let NERDChristmasTree = 1
+let NERDTreeDirArrows = 1
+let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin', 'bin', 'pkg', '\.so', '\.dll']
+let NERDTreeMinimalUI = 1
+let NERDTreeHijackNetrw = 1
+let NERDMouseMode = 2
+let NERDTreeShowHidden = 1
+let NERDTreeAutoDeleteBuffer = 1
 
 if s:running_windows
     let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
@@ -247,7 +256,7 @@ let html_use_css = 0
 
 let NERDChristmasTree = 1
 let NERDTreeDirArrows = 1
-let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin', 'bin', 'pkg', '\.so', '\.dll']
+let NERDTreeIgnore = ['\.beam', 'ebin', 'bin', 'pkg', '\.so', '\.dll', '\.a', '\.bak', '\.dll', '\.DS_Store', '\.exe', '\.gif', '\.git', '\.hg', '\.jpg', '\.o', '\.obj', '\.pdf', '\.png', '\.pyc', '\.pyo', '\.so', '\.svn', '\.swp', '\.zip']
 let NERDTreeMinimalUI = 1
 
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
@@ -286,6 +295,7 @@ iab <expr> dts strftime("%c")
 nmap gb :CtrlPBuffer<CR>
 nmap gt :CtrlPBufTag<CR>
 nmap gf :CtrlPCurWD<CR>
+nmap - :NERDTreeFind<CR>
 
 nmap <Up> <C-b>
 nmap <Down> <C-f>
@@ -324,8 +334,13 @@ if has("autocmd")
     augroup vimrcAu
         " Clear!
         au!
+
+        " Highlight current line on insert mode
+        au InsertEnter * setlocal cul
+        au InsertLeave * setlocal nocul
+
         " For secure reading/writing
-        autocmd BufReadPost * if &key != "" | set noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif 
+        au BufReadPost * if &key != "" | setlocal noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif 
 
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two 
@@ -336,7 +351,6 @@ if has("autocmd")
         au FileType go autocmd BufWritePre <buffer> :keepjumps Fmt " assumes Fmt is defined
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
  
-        " B
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
         au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
@@ -348,8 +362,8 @@ if has("autocmd")
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
-        "au Syntax * RainbowParenthesesLoadChevrons
 
+        " Things I like spellcheck in
         au FileType gitcommit setlocal spell
         au FileType svn       setlocal spell
         au FileType asciidoc  setlocal spell
@@ -381,6 +395,13 @@ if s:colorful_term
         let &t_Sf="\ESC[3%dm"
         let &t_Sb="\ESC[4%dm"
     endif
+endif
+
+" Mousing
+if has("mouse")
+    set mouse=a " use mouse everywhere
+    set ttymouse=xterm2 " makes it work in everything
+    set mousehide
 endif
 
 " can improve term performance
