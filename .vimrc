@@ -220,60 +220,23 @@ let g:rbpt_max = 24
 
 let g:SuperTabDefaultCompletionType = "context"
 
-let g:tagbar_left = 0
-" requires gotags in path
-" go get -u github.com/jstemmer/gotags
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-
 let html_number_lines = 0
 let html_use_css = 0
+let use_xhtml = 0
 
 let NERDChristmasTree = 1
 let NERDTreeDirArrows = 1
 let NERDTreeIgnore = ['\.beam', 'ebin', 'bin', 'pkg', '\.so', '\.dll', '\.a', '\.bak', '\.dll', '\.DS_Store', '\.exe', '\.gif', '\.git', '\.hg', '\.jpg', '\.o', '\.obj', '\.pdf', '\.png', '\.pyc', '\.pyo', '\.so', '\.svn', '\.swp', '\.zip']
 let NERDTreeMinimalUI = 1
 
-let perl_extended_vars=1 " highlight advanced perl vars inside strings
-
-let tlist_aspjscript_settings = 'asp;f:function;c:class'
-let tlist_aspvbs_settings = 'asp;f:function;s:sub'
-let tlist_php_settings = 'php;c:class;d:constant;f:function'
-let tlist_vb_settings = 'asp;f:function;c:class'
-
-let use_xhtml = 0
+let perl_extended_vars = 1 " highlight advanced perl vars inside strings
 
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "34"
 
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 let g:ctrlp_show_hidden = 1
