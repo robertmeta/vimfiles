@@ -281,8 +281,8 @@ nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
 " Switch to light theme
-nmap <leader>tl :let g:seoul256_background=252<CR>:set background=light<CR>:colo seoul256-light<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>td :let g:seoul256_background=236<CR>:set background=dark<CR>:colo seoul256<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>tl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>td :set background=dark<CR>:colo molokai<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vr :VimuxRunLastCommand<CR>
 nmap <Leader>vq :VimuxCloseRunner<CR>
@@ -333,8 +333,8 @@ if has("autocmd")
     augroup END
 endif
 
-let g:seoul256_background = 236
-colorscheme seoul256 " my new favorite!
+let g:molokai_background = 236
+colorscheme molokai " my new favorite!
 
 if has("gui_running")
     " Basics
