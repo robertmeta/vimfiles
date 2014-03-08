@@ -1,18 +1,18 @@
 "   This is my personal .vimrc, I don't recommend you copy it, just
 "   use the pieces you want (and understand!).  When you copy a
-"   .vimrc in its entirety, weird and unexpected things can happen.
+"   .vimrc in its entirety, weird and unexpected things can happen
 "
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
 scriptencoding utf-8 " yey! utf-8
 
-" Startup 
+" Startup
 let s:running_windows = has("win16") || has("win32") || has("win64")
 let s:running_cygwin = has('win32unix')
 let s:running_macvim = has('gui_macvim')
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 
-" Before we do anything, lets get pathogen up 
+" Before we do anything, lets get pathogen up
 execute pathogen#infect()
 Helptag " Help for plugins
 
@@ -56,7 +56,7 @@ set t_vb=
 " turn off background redraw
 set t_ut=
 
-" General 
+" General
 filetype plugin indent on
 set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
@@ -112,7 +112,7 @@ set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
 set number " turns out I hate relative numbering
 set numberwidth=5 " We are good up to 99999 lines
-set report=0 " tell us when anything is changed via :...
+set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolloff=5 " Keep 5 lines (top/bottom) for scope
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
@@ -136,7 +136,7 @@ set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              +-- full path to file in the buffer
 
 
-" Text Formatting/Layout 
+" Text Formatting/Layout
 set completeopt=menuone " don't use a pop up menu for completions
 set expandtab " no real tabs please!
 set formatoptions=rq " Automatically insert comment leader on return, and let gq format comments
@@ -149,7 +149,7 @@ set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like 
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 
-" Folding 
+" Folding
 set foldenable " Turn on folding
 set foldmethod=marker " Fold on the marker
 set foldmarker={,} " use simple markers
@@ -241,7 +241,7 @@ endif
 
 let g:ctrlp_show_hidden = 1
 
-" Abbreviations 
+" Abbreviations
 cnoreabbrev W w
 cnoreabbrev Bp bp
 cnoreabbrev Bn bn
@@ -281,8 +281,8 @@ nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
 " Switch to light theme
-nmap <leader>tl :set background=light<CR>:colo summerfruit256<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>td :set background=dark<CR>:colo molokai<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>tl :call SeoulLightColors()<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>td :call MoloDarkColors()<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vr :VimuxRunLastCommand<CR>
 nmap <Leader>vq :VimuxCloseRunner<CR>
@@ -303,17 +303,17 @@ if has("autocmd")
         au InsertLeave * setlocal nocul
 
         " For secure reading/writing
-        au BufReadPost * if &key != "" | setlocal noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif 
+        au BufReadPost * if &key != "" | setlocal noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif
 
         " Things that use two spaces rather than four
-        au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two 
-        au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two 
+        au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
+        au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
 
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- " Go uses tabs
         au FileType go autocmd BufWritePre <buffer> :keepjumps Fmt " assumes Fmt is defined
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
- 
+
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
         au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
@@ -367,5 +367,29 @@ if has("mouse")
     set mousehide
 endif
 
-" can improve term performance
-hi NonText cterm=NONE ctermfg=NONE
+function SeoulDarkColors()
+    let g:seoul256_background=236
+    set background=dark
+    colo seoul256
+endfunction
+
+function SeoulLightColors()
+    "let g:seoul256_background=252
+    set background=light
+    colo seoul256-light
+endfunction
+
+function FruitLightColors()
+    set background=light
+    colo summerfruit256
+    hi SpecialKey cterm=NONE ctermfg=grey
+endfunction
+
+function MoloDarkColors()
+    let g:molokai_background = 236
+    set background=dark
+    colo molokai
+    hi SpecialKey cterm=NONE ctermfg=black
+endfunction
+
+call MoloDarkColors()
