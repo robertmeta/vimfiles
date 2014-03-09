@@ -282,7 +282,7 @@ nmap <leader>gm :Gmove<CR>
 
 " Switch to light theme
 nmap <leader>tl :call SeoulLightColors()<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>td :call MoloDarkColors()<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>td :call SeoulDarkColors()<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vr :VimuxRunLastCommand<CR>
 nmap <Leader>vq :VimuxCloseRunner<CR>
@@ -374,7 +374,7 @@ function SeoulDarkColors()
 endfunction
 
 function SeoulLightColors()
-    "let g:seoul256_background=252
+    let g:seoul256_background=252
     set background=light
     colo seoul256-light
 endfunction
@@ -392,4 +392,4 @@ function MoloDarkColors()
     hi SpecialKey cterm=NONE ctermfg=black
 endfunction
 
-call MoloDarkColors()
+call SeoulDarkColors()
