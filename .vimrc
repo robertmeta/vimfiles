@@ -371,12 +371,14 @@ function SeoulDarkColors()
     let g:seoul256_background=236
     set background=dark
     colo seoul256
+    set cursorline
 endfunction
 
 function SeoulLightColors()
     let g:seoul256_background=252
     set background=light
     colo seoul256-light
+    set cursorline
 endfunction
 
 function FruitLightColors()
@@ -390,7 +392,7 @@ function MoloDarkColors()
     let g:molokai_background = 236
     set background=dark
     colo molokai
-    hi SpecialKey cterm=NONE ctermfg=black
+    set cursorline
 endfunction
 
 call SeoulDarkColors()
