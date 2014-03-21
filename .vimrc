@@ -281,7 +281,7 @@ nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
 " Switch to light theme
-nmap <leader>tl :call SeoulLightColors()<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>tl :call FruitLightColors()<CR>:RainbowParenthesesActivate<CR>
 nmap <leader>td :call SeoulDarkColors()<CR>:RainbowParenthesesActivate<CR>
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vr :VimuxRunLastCommand<CR>
