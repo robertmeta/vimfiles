@@ -298,10 +298,6 @@ if has("autocmd")
         " Clear!
         au!
 
-        " Highlight current line on insert mode
-        au InsertEnter * setlocal cul
-        au InsertLeave * setlocal nocul
-
         " For secure reading/writing
         au BufReadPost * if &key != "" | setlocal noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif
 
