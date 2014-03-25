@@ -258,7 +258,6 @@ iab <expr> dts strftime("%c")
 nmap gb :CtrlPBuffer<CR>
 nmap gt :CtrlPBufTag<CR>
 nmap gf :CtrlPCurWD<CR>
-nmap - :NERDTreeFind<CR>
 
 nmap <Up> :bp<CR>
 nmap <Down> :bn<CR>
