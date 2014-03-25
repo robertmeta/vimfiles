@@ -260,10 +260,10 @@ nmap gt :CtrlPBufTag<CR>
 nmap gf :CtrlPCurWD<CR>
 nmap - :NERDTreeFind<CR>
 
-nmap <Up> <C-b>
-nmap <Down> <C-f>
-nmap <Right> :bn<CR>
-nmap <Left> :bp<CR>
+nmap <Up> :bp<CR>
+nmap <Down> :bn<CR>
+nmap <Left> :NERDTreeToggle<CR>
+nmap <Right> :NERDTreeFind<CR>
 
 nmap <leader>q :q<CR>
 nmap <leader>< <C-w>15<
