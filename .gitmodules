@@ -76,9 +76,6 @@
 [submodule "bundle/sneak"]
 	path = bundle/sneak
 	url = https://github.com/justinmk/vim-sneak.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/vinegar"]
 	path = bundle/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
