@@ -276,7 +276,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Ideas stolen from zed
 set nohidden
-set autosave 1
+let g:auto_save = 1  " enable AutoSave on Vim startup (with plugin)
 set autowriteall
 set undofile " persistent undo
 set undolevels=10000 " persistent undo

@@ -82,3 +82,6 @@
 [submodule "bundle/dispatch"]
 	path = bundle/dispatch
 	url = git://github.com/tpope/vim-dispatch.git
+[submodule "bundle/autosave"]
+	path = bundle/autosave
+	url = https://github.com/vim-scripts/vim-auto-save.git
