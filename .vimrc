@@ -18,6 +18,7 @@ Helptag " Help for plugins
 
 " Basics
 nmap <space> <leader>
+set nocursorline
 set cryptmethod=blowfish " use the good stuff!
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
@@ -355,28 +356,24 @@ function SeoulDarkColors()
     let g:seoul256_background=236
     set background=dark
     colo seoul256
-    set cursorline
 endfunction
 
 function SeoulLightColors()
     let g:seoul256_background=252
     set background=light
     colo seoul256-light
-    set cursorline
 endfunction
 
 function FruitLightColors()
     set background=light
     colo summerfruit256
     hi SpecialKey cterm=NONE ctermfg=grey
-    set nocursorline
 endfunction
 
 function MoloDarkColors()
     let g:molokai_background = 236
     set background=dark
     colo molokai
-    set cursorline
 endfunction
 
 call SeoulDarkColors()
