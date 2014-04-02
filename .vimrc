@@ -18,7 +18,6 @@ Helptag " Help for plugins
 
 " Basics
 nmap <space> <leader>
-set nocursorline
 set cryptmethod=blowfish " use the good stuff!
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
@@ -42,8 +41,8 @@ set formatoptions+=n " Recognize numbered lists
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
-set ttyfast " Assume a fast terminal
-set ttyscroll=5 " See if this helps scroll speed
+"set ttyfast " Assume a fast terminal
+"set ttyscroll=5 " See if this helps scroll speed
 " use modelines (if not root)
 if $USER != "root"
     set modeline
@@ -116,7 +115,7 @@ set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolloff=5 " Keep 5 lines (top/bottom) for scope
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
-set showcmd " do show commands
+set noshowcmd " I know what I am doing.
 set showmatch " show matching brackets
 set sidescrolloff=5 " Keep 5 lines at the size
 set sidescroll=5 " If you hit edge, jump 5
@@ -283,6 +282,9 @@ set hidden
 "set undofile " persistent undo
 "set undolevels=1000 " persistent undo
 "set undoreload=10000 " to undo forced reload with :e!
+set nocursorcolumn
+set nocursorline
+syntax sync minlines=256
 
 if has("autocmd")
     augroup vimrcAu
@@ -320,9 +322,6 @@ if has("autocmd")
     augroup END
 endif
 
-let g:molokai_background = 236
-colorscheme molokai " my new favorite!
-
 if has("gui_running")
     " Basics
     set guifont=Consolas:h9:cANSI " My favorite font
@@ -358,24 +357,28 @@ function SeoulDarkColors()
     let g:seoul256_background=236
     set background=dark
     colo seoul256
+    hi NonText cterm=NONE ctermfg=NONE
 endfunction
 
 function SeoulLightColors()
     let g:seoul256_background=252
     set background=light
     colo seoul256-light
+    hi NonText cterm=NONE ctermfg=NONE
 endfunction
 
 function FruitLightColors()
     set background=light
     colo summerfruit256
     hi SpecialKey cterm=NONE ctermfg=grey
+    hi NonText cterm=NONE ctermfg=NONE
 endfunction
 
 function MoloDarkColors()
     let g:molokai_background = 236
     set background=dark
     colo molokai
+    hi NonText cterm=NONE ctermfg=NONE
 endfunction
 
 call SeoulDarkColors()
