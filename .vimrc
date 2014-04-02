@@ -291,6 +291,9 @@ cmap w!! w !sudo tee % >/dev/null
 " Ideas stolen from zed
 set nohidden
 set autowriteall
+set undofile " persistent undo
+set undolevels=1000 " persistent undo
+set undoreload=10000 " persistent undo
 
 if has("autocmd")
     augroup vimrcAu
