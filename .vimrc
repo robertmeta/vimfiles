@@ -275,12 +275,12 @@ cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 cmap w!! w !sudo tee % >/dev/null
 
-" Ideas stolen from Zed (Buffers don't matter)
-set nohidden
-set autowriteall
-set undofile " persistent undo
-set undolevels=1000 " persistent undo
-set undoreload=10000 " to undo forced reload with :e!
+" Ideas stolen from Zed (undone, cause I hated it)
+set hidden
+"set autowriteall
+"set undofile " persistent undo
+"set undolevels=1000 " persistent undo
+"set undoreload=10000 " to undo forced reload with :e!
 
 if has("autocmd")
     augroup vimrcAu
