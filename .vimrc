@@ -277,7 +277,7 @@ cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 cmap w!! w !sudo tee % >/dev/null
 
-" Ideas stolen from zed
+" Ideas stolen from Zed (Buffers don't matter)
 set nohidden
 let g:auto_save=1  " enable AutoSave on Vim startup (with plugin)
 set autowriteall
