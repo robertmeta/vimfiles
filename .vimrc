@@ -260,7 +260,6 @@ nmap <leader>gw :Gwrite<CR>
 nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
-nmap <leader>ut :GundoToggle<CR>
 nmap <Leader>d :Dispatch<CR>
 nmap <Leader>j <C-d><CR>
 nmap <Leader>k <C-u><CR>
