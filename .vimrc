@@ -230,9 +230,6 @@ let NERDTreeMinimalUI = 1
 
 let perl_extended_vars = 1 " highlight advanced perl vars inside strings
 
-let g:VimuxOrientation = "h"
-let g:VimuxHeight = "34"
-
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -253,15 +250,15 @@ cnoreabbrev Qw qw
 
 iab <expr> dts strftime("%c")
 
-" Mappings for Control-P
-nmap gb :CtrlPBuffer<CR>
-nmap gt :CtrlPBufTag<CR>
-nmap gf :CtrlPCurWD<CR>
-
 nmap <Up> :bp<CR>
 nmap <Down> :bn<CR>
 nmap <Left> :NERDTreeToggle<CR>
 nmap <Right> :NERDTreeFind<CR>
+
+" Mappings for Control-P
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>t :CtrlPBufTag<CR>
+nmap <leader>f :CtrlPCurWD<CR>
 
 nmap <leader>q :q<CR>
 nmap <leader>< <C-w>15<
@@ -271,6 +268,7 @@ nmap <leader>- <C-w>15-
 nmap <leader>_ <C-w>15-
 nmap <leader>w <C-w>w
 nmap <leader>W <C-w>W
+
 " Fugitive
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>ga :Gwrite<CR>
@@ -278,13 +276,12 @@ nmap <leader>gw :Gwrite<CR>
 nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
+nmap <leader>ut :UndotreeToggle<CR>
+nmap <Leader>d :Dispatch<CR>
+
 " Switch to light theme
 nmap <leader>tl :call FruitLightColors()<CR>:RainbowParenthesesActivate<CR>
 nmap <leader>td :call SeoulDarkColors()<CR>:RainbowParenthesesActivate<CR>
-nmap <Leader>vp :VimuxPromptCommand<CR>
-nmap <Leader>vr :VimuxRunLastCommand<CR>
-nmap <Leader>vq :VimuxCloseRunner<CR>
-nmap <leader>ut :UndotreeToggle<CR>
 
 " Change Working Directory to that of the current file
 cmap cwd lcd %:p:h
