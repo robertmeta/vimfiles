@@ -159,15 +159,6 @@ set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 " Plugin Settings
 let g:sneak#streak = 1
 
-let NERDChristmasTree = 1
-let NERDTreeDirArrows = 1
-let NERDTreeIgnore = ['\.beam', '\.pyc', 'ebin', 'bin', 'pkg', '\.so', '\.dll']
-let NERDTreeMinimalUI = 1
-let NERDTreeHijackNetrw = 1
-let NERDMouseMode = 2
-let NERDTreeShowHidden = 1
-let NERDTreeAutoDeleteBuffer = 1
-
 if s:running_windows
     let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
 else
@@ -223,11 +214,6 @@ let html_number_lines = 0
 let html_use_css = 0
 let use_xhtml = 0
 
-let NERDChristmasTree = 1
-let NERDTreeDirArrows = 1
-let NERDTreeIgnore = ['\.beam', 'ebin', 'bin', 'pkg', '\.so', '\.dll', '\.a', '\.bak', '\.dll', '\.DS_Store', '\.exe', '\.gif', '\.git', '\.hg', '\.jpg', '\.o', '\.obj', '\.pdf', '\.png', '\.pyc', '\.pyo', '\.so', '\.svn', '\.swp', '\.zip']
-let NERDTreeMinimalUI = 1
-
 let perl_extended_vars = 1 " highlight advanced perl vars inside strings
 
 if executable("ag")
@@ -252,8 +238,8 @@ iab <expr> dts strftime("%c")
 
 nmap <Up> :bp<CR>
 nmap <Down> :bn<CR>
-nmap <Left> :NERDTreeToggle<CR>
-nmap <Right> :NERDTreeFind<CR>
+nmap <Left> :bp<CR>
+nmap <Right> :bn<CR>
 
 " Mappings for Control-P
 nmap <leader>b :CtrlPBuffer<CR>
@@ -290,10 +276,12 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Ideas stolen from zed
 set nohidden
+set autosave 1
 set autowriteall
 set undofile " persistent undo
-set undolevels=1000 " persistent undo
-set undoreload=10000 " persistent undo
+set undolevels=10000 " persistent undo
+set undoreload=100000 " to undo forced reload with :e!
+
 
 if has("autocmd")
     augroup vimrcAu
