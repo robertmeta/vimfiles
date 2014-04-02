@@ -261,7 +261,7 @@ nmap <leader>gw :Gwrite<CR>
 nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
-nmap <leader>ut :UndotreeToggle<CR>
+nmap <leader>ut :GundoToggle<CR>
 nmap <Leader>d :Dispatch<CR>
 
 " Switch to light theme
