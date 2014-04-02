@@ -75,7 +75,6 @@ else
     set directory=~/.vim/temp " directory to place swap files in
 endif
 set fileformats=unix,dos,mac " support all three, in this order
-set hidden " you can change buffers without saving
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | | | | | | | | |
 "             | | | | | | | | +-- "]" Insert and Replace
@@ -291,6 +290,10 @@ nmap <leader>ut :UndotreeToggle<CR>
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 cmap w!! w !sudo tee % >/dev/null
+
+" Ideas stolen from zed
+set nohidden
+set autowriteall
 
 if has("autocmd")
     augroup vimrcAu

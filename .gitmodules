@@ -58,9 +58,6 @@
 [submodule "bundle/abolish"]
 	path = bundle/abolish
 	url = git://github.com/tpope/vim-abolish.git
-[submodule "bundle/vimux"]
-	path = bundle/vimux
-	url = https://github.com/benmills/vimux.git
 [submodule "bundle/seoul256"]
 	path = bundle/seoul256
 	url = https://github.com/junegunn/seoul256.vim
@@ -82,3 +79,6 @@
 [submodule "bundle/startify"]
 	path = bundle/startify
 	url = https://github.com/mhinz/vim-startify.git
+[submodule "bundle/dispatch"]
+	path = bundle/dispatch
+	url = git://github.com/tpope/vim-dispatch.git
