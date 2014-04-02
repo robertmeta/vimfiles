@@ -245,6 +245,7 @@ nmap <Right> :bn<CR>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>t :CtrlPBufTag<CR>
 nmap <leader>f :CtrlPCurWD<CR>
+nmap <leader>m :CtrlPMRU<CR>
 
 nmap <leader>q :q<CR>
 nmap <leader>< <C-w>15<
@@ -266,8 +267,10 @@ nmap <leader>ut :UndotreeToggle<CR>
 nmap <Leader>d :Dispatch<CR>
 
 " Switch to light theme
-nmap <leader>tl :call FruitLightColors()<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>td :call SeoulDarkColors()<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>vl :call FruitLightColors()<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>nl :call SeoulLightColors()<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>nd :call SeoulDarkColors()<CR>:RainbowParenthesesActivate<CR>
+nmap <leader>vd :call MoloDarkColors()<CR>:RainbowParenthesesActivate<CR>
 
 " Change Working Directory to that of the current file
 cmap cwd lcd %:p:h
@@ -276,7 +279,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Ideas stolen from zed
 set nohidden
-let g:auto_save = 1  " enable AutoSave on Vim startup (with plugin)
+let g:auto_save=1  " enable AutoSave on Vim startup (with plugin)
 set autowriteall
 set undofile " persistent undo
 set undolevels=10000 " persistent undo
