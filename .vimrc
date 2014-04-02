@@ -263,6 +263,8 @@ nmap <leader>gm :Gmove<CR>
 
 nmap <leader>ut :GundoToggle<CR>
 nmap <Leader>d :Dispatch<CR>
+nmap <Leader>j <C-d><CR>
+nmap <Leader>k <C-u><CR>
 
 " Switch to light theme
 nmap <leader>vl :call FruitLightColors()<CR>:RainbowParenthesesActivate<CR>
