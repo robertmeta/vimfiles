@@ -156,9 +156,6 @@ set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
-" Plugin Settings
-let g:sneak#streak = 1
-
 if s:running_windows
     let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
 else
@@ -279,12 +276,10 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Ideas stolen from Zed (Buffers don't matter)
 set nohidden
-let g:auto_save=1  " enable AutoSave on Vim startup (with plugin)
 set autowriteall
 set undofile " persistent undo
-set undolevels=10000 " persistent undo
-set undoreload=100000 " to undo forced reload with :e!
-
+set undolevels=1000 " persistent undo
+set undoreload=10000 " to undo forced reload with :e!
 
 if has("autocmd")
     augroup vimrcAu

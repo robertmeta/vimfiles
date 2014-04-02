@@ -67,12 +67,6 @@
 [submodule "bundle/eunuch"]
 	path = bundle/eunuch
 	url = git://github.com/tpope/vim-eunuch.git
-[submodule "bundle/neocomplcache"]
-	path = bundle/neocomplcache
-	url = https://github.com/Shougo/neocomplcache.vim.git
-[submodule "bundle/sneak"]
-	path = bundle/sneak
-	url = https://github.com/justinmk/vim-sneak.git
 [submodule "bundle/vinegar"]
 	path = bundle/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
@@ -82,6 +76,3 @@
 [submodule "bundle/dispatch"]
 	path = bundle/dispatch
 	url = git://github.com/tpope/vim-dispatch.git
-[submodule "bundle/autosave"]
-	path = bundle/autosave
-	url = https://github.com/vim-scripts/vim-auto-save.git
