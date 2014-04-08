@@ -4,6 +4,10 @@
 "
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
+
+set exrc " set we can use local .vimrc
+set secure " but lets not go crazy
+
 scriptencoding utf-8 " yey! utf-8
 
 " Startup
@@ -41,8 +45,8 @@ set formatoptions+=n " Recognize numbered lists
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
-"set ttyfast " Assume a fast terminal
-"set ttyscroll=5 " See if this helps scroll speed
+set ttyfast " Assume a fast terminal
+set ttyscroll=5 " See if this helps scroll speed
 " use modelines (if not root)
 if $USER != "root"
     set modeline
@@ -275,15 +279,12 @@ cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 cmap w!! w !sudo tee % >/dev/null
 
-" Ideas stolen from Zed (undone, cause I hated it)
 set hidden
-set autowriteall
 set undofile " persistent undo
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
-set nocursorcolumn
-set nocursorline
 syntax sync minlines=300
+set colorcolumn=80 " code smell, not hard rule
 
 if has("autocmd")
     augroup vimrcAu
@@ -357,6 +358,8 @@ function SeoulDarkColors()
     set background=dark
     colo seoul256
     hi NonText cterm=NONE ctermfg=NONE
+    set nocursorcolumn
+    set cursorline
 endfunction
 
 function SeoulLightColors()
@@ -364,6 +367,8 @@ function SeoulLightColors()
     set background=light
     colo seoul256-light
     hi NonText cterm=NONE ctermfg=NONE
+    set nocursorcolumn
+    set cursorline
 endfunction
 
 function FruitLightColors()
@@ -371,6 +376,8 @@ function FruitLightColors()
     colo summerfruit256
     hi SpecialKey cterm=NONE ctermfg=grey
     hi NonText cterm=NONE ctermfg=NONE
+    set nocursorcolumn
+    set nocursorline
 endfunction
 
 function MoloDarkColors()
@@ -378,6 +385,8 @@ function MoloDarkColors()
     set background=dark
     colo molokai
     hi NonText cterm=NONE ctermfg=NONE
+    set nocursorcolumn
+    set cursorline
 endfunction
 
 call SeoulDarkColors()
