@@ -15,7 +15,6 @@ let s:running_windows = has("win16") || has("win32") || has("win64")
 let s:running_cygwin = has('win32unix')
 let s:running_macvim = has('gui_macvim')
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
-let s:widthwarn = 80
 
 " Before we do anything, lets get pathogen up
 execute pathogen#infect()
@@ -284,6 +283,7 @@ set hidden
 set undofile " persistent undo
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
+set colorcolumn=80 " mental warning
 syntax sync minlines=300
 
 if has("autocmd")
