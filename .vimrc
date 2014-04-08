@@ -375,6 +375,7 @@ function MoloDarkColors()
     let g:molokai_background = 236
     set background=dark
     colo molokai
+    hi ColorColumn cterm=NONE ctermbg=black
 endfunction
 
 call SeoulDarkColors()
