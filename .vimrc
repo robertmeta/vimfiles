@@ -15,6 +15,7 @@ let s:running_windows = has("win16") || has("win32") || has("win64")
 let s:running_cygwin = has('win32unix')
 let s:running_macvim = has('gui_macvim')
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
+let s:widthwarn = 80
 
 " Before we do anything, lets get pathogen up
 execute pathogen#infect()
@@ -284,7 +285,6 @@ set undofile " persistent undo
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
 syntax sync minlines=300
-set colorcolumn=80 " code smell, not hard rule
 
 if has("autocmd")
     augroup vimrcAu
@@ -357,36 +357,24 @@ function SeoulDarkColors()
     let g:seoul256_background=236
     set background=dark
     colo seoul256
-    hi NonText cterm=NONE ctermfg=NONE
-    set nocursorcolumn
-    set cursorline
 endfunction
 
 function SeoulLightColors()
     let g:seoul256_background=252
     set background=light
     colo seoul256-light
-    hi NonText cterm=NONE ctermfg=NONE
-    set nocursorcolumn
-    set cursorline
 endfunction
 
 function FruitLightColors()
     set background=light
     colo summerfruit256
     hi SpecialKey cterm=NONE ctermfg=grey
-    hi NonText cterm=NONE ctermfg=NONE
-    set nocursorcolumn
-    set nocursorline
 endfunction
 
 function MoloDarkColors()
     let g:molokai_background = 236
     set background=dark
     colo molokai
-    hi NonText cterm=NONE ctermfg=NONE
-    set nocursorcolumn
-    set cursorline
 endfunction
 
 call SeoulDarkColors()
