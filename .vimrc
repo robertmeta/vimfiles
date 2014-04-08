@@ -283,7 +283,6 @@ set hidden
 set undofile " persistent undo
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
-set colorcolumn=80 " mental warning
 syntax sync minlines=300
 
 if has("autocmd")
