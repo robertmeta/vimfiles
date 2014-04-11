@@ -368,6 +368,8 @@ function FruitLightColors()
     set background=light
     colo summerfruit256
     hi SpecialKey cterm=NONE ctermfg=grey
+    hi StatusLine ctermbg=152 ctermfg=32
+    hi Comment ctermfg=darkgreen
 endfunction
 
 function MoloDarkColors()
