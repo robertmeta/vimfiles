@@ -4,10 +4,6 @@
 "
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
-
-set exrc " set we can use local .vimrc
-set secure " but lets not go crazy
-
 scriptencoding utf-8 " yey! utf-8
 
 " Startup
@@ -57,6 +53,11 @@ set noerrorbells
 set novisualbell
 set t_vb=
 
+" security stuff
+set nomodeline
+set noexrc " set we can use local .vimrc
+set secure " but lets not go crazy
+
 " turn off background redraw
 set t_ut=
 
@@ -102,6 +103,7 @@ set viewoptions=folds,options,cursor,unix,slash " Windows/Linux compatibility
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
+set switchbuf=useopen " jump to first open window with buffer
 
 " Vim UI
 set incsearch " BUT do highlight as you type you search phrase
@@ -141,13 +143,15 @@ set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
 " Text Formatting/Layout
 set completeopt=menuone " don't use a pop up menu for completions
+set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set formatoptions=rq " Automatically insert comment leader on return, and let gq format comments
 set ignorecase " case insensitive by default
 set infercase " case inferred by default
-set nowrap " do not wrap line
-set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set smartcase " if there are caps, go case-sensitive
+set nowrap " do not wrap line
+set textwidth=0 " No autowrapping
+set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set tabstop=8 " real tabs should be 8, and they will show with set list on
@@ -267,12 +271,6 @@ nmap <leader>gm :Gmove<CR>
 nmap <Leader>d :Dispatch<CR>
 nmap <Leader>j <C-d><CR>
 nmap <Leader>k <C-u><CR>
-
-" Switch to light theme
-nmap <leader>vl :call FruitLightColors()<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>nl :call SeoulLightColors()<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>nd :call SeoulDarkColors()<CR>:RainbowParenthesesActivate<CR>
-nmap <leader>vd :call MoloDarkColors()<CR>:RainbowParenthesesActivate<CR>
 
 " Change Working Directory to that of the current file
 cmap cwd lcd %:p:h
