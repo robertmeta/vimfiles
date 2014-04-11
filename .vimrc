@@ -369,7 +369,7 @@ function FruitLightColors()
     colo summerfruit256
     hi SpecialKey cterm=NONE ctermfg=grey
     hi StatusLine ctermbg=152 ctermfg=32
-    hi Comment ctermfg=darkgreen
+    hi Comment ctermfg=22
 endfunction
 
 function MoloDarkColors()
