@@ -40,9 +40,6 @@
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired
-[submodule "bundle/airline"]
-	path = bundle/airline
-	url = https://github.com/bling/vim-airline.git
 [submodule "bundle/ps1"]
 	path = bundle/ps1
 	url = https://github.com/PProvost/vim-ps1.git
