@@ -127,12 +127,12 @@ set sidescrolloff=5 " Keep 5 lines at the size
 set sidescroll=5 " If you hit edge, jump 5
 set scrolljump=5 " If you hit bottom or top, jump 5
 set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
-"              | | | | |  |  |                         |      |  |     |    |
-"              | | | | |  |  |                         |      |  |     |    + current column
-"              | | | | |  |  |                         |      |  |     +-- current line
-"              | | | | |  |  |                         |      |  +-- current % into file
-"              | | | | |  |  |                         |      +-- current syntax in square brackets
-"              | | | | |  |  |                         +-- current fileformat
+"              | | | | |  |  |                        |      |  |     |    |
+"              | | | | |  |  |                        |      |  |     |    +-- current column
+"              | | | | |  |  |                        |      |  |     +-- current line
+"              | | | | |  |  |                        |      |  +-- current % into file
+"              | | | | |  |  |                        |      +-- current syntax in square brackets
+"              | | | | |  |  |                        +-- current fileformat
 "              | | | | |  |  +-- add fugitive info
 "              | | | | |  +-- number of lines
 "              | | | | +-- preview flag in square brackets
