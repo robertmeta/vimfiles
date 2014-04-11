@@ -242,6 +242,8 @@ cnoreabbrev Qw qw
 
 iab <expr> dts strftime("%c")
 
+map Y y$
+
 nmap <Up> :bp<CR>
 nmap <Down> :bn<CR>
 nmap <Left> :bp<CR>
