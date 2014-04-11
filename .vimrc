@@ -276,13 +276,12 @@ nmap <Leader>k <C-u><CR>
 " Change Working Directory to that of the current file
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
-cmap w!! w !sudo tee % >/dev/null
 
-set hidden
+set hidden " load files in background
 set undofile " persistent undo
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
-syntax sync minlines=300
+syntax sync minlines=300 " 300 lines wrapping for syntax
 
 if has("autocmd")
     augroup vimrcAu
