@@ -280,9 +280,8 @@ nmap <Leader>d :Dispatch<CR>
 nmap <Leader>j <C-d><CR>
 nmap <Leader>k <C-u><CR>
 
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
-
+nmap s <Plug>(easymotion-bd-s)
+nmap S <Plug>(easymotion-s2)
 
 " Change Working Directory to that of the current file
 cmap cwd lcd %:p:h
