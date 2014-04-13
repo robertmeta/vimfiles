@@ -233,6 +233,10 @@ if executable("ag")
 endif
 
 let g:ctrlp_show_hidden = 1
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 0
+let g:startify_relative_path = 1
+
 
 " Abbreviations
 cnoreabbrev W w
