@@ -232,6 +232,12 @@ if executable("ag")
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+if s:running_windows
+    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+else
+    let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
+endif
+
 let g:ctrlp_show_hidden = 1
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
