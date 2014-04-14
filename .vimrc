@@ -224,25 +224,24 @@ let perl_extended_vars = 1 " highlight advanced perl vars inside strings
 
 if executable("pt")
     set grepprg=pt\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'pt %s -l --nocolor ""'
+    "let g:ctrlp_user_command = 'pt %s -l --nocolor ""'
 endif
 
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 if s:running_windows
     let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
 else
-    let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
+    let g:ctrlp_user_command = 'find %s -type f -not -wholename "*.git"'       " MacOSX/Linux
 endif
 
 let g:ctrlp_show_hidden = 1
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 let g:startify_relative_path = 1
-
 
 " Abbreviations
 cnoreabbrev W w
