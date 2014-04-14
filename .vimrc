@@ -115,7 +115,7 @@ set listchars=tab:>-,trail:- " show tabs and trailing
 set matchtime=1 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
-set number " turns out I hate relative numbering
+set relativenumber " trying relative number
 set numberwidth=5 " We are good up to 99999 lines
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
