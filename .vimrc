@@ -115,7 +115,7 @@ set listchars=tab:>-,trail:- " show tabs and trailing
 set matchtime=1 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
-set relativenumber " trying relative number
+set number " simple line numbers
 set numberwidth=5 " We are good up to 99999 lines
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
@@ -243,6 +243,9 @@ let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 let g:startify_relative_path = 1
 
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "34"
+
 " Abbreviations
 cnoreabbrev W w
 cnoreabbrev Bp bp
@@ -285,9 +288,10 @@ nmap <leader>gw :Gwrite<CR>
 nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
-nmap <Leader>d :Dispatch<CR>
 nmap <Leader>j <C-d><CR>
 nmap <Leader>k <C-u><CR>
+nmap <Leader>v :VimuxPromptCommand<CR>
+nmap <Leader>r :VimuxRunLastCommand<CR>
 
 nmap f <Plug>(easymotion-bd-w)
 nmap F <Plug>(easymotion-bd-W)

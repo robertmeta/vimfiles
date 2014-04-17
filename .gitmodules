@@ -67,9 +67,9 @@
 [submodule "bundle/startify"]
 	path = bundle/startify
 	url = https://github.com/mhinz/vim-startify.git
-[submodule "bundle/dispatch"]
-	path = bundle/dispatch
-	url = git://github.com/tpope/vim-dispatch.git
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule "bundle/vimux"]
+	path = bundle/vimux
+	url = https://github.com/benmills/vimux.git
