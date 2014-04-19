@@ -268,6 +268,10 @@ nmap <Left> :bp<CR>
 nmap <Right> :bn<CR>
 
 " Mappings for Control-P
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>t :CtrlPBufTag<CR>
+nmap <leader>f :CtrlPCurWD<CR>
+nmap <leader>m :CtrlPMRU<CR>
 
 nmap <leader>q :q<CR>
 nmap <leader>< <C-w>15<
