@@ -283,6 +283,9 @@ nmap <leader>_ <C-w>15-
 nmap <leader>w <C-w>w
 nmap <leader>W <C-w>W
 
+" Godef
+nmap <leader>gd :call GodefUnderCursor<CR>
+
 " Fugitive
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>ga :Gwrite<CR>
