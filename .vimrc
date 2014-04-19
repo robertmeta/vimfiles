@@ -239,9 +239,9 @@ nmap <Left> :bp<CR>
 nmap <Right> :bn<CR>
 
 " Mappings for Control-P
-nmap <leader>b :Unite file<CR>
+nmap <leader>b :Unite buffer<CR>
 nmap <leader>t :Unite buffer<CR>
-nmap <leader>f :Unite file<CR>
+nmap <leader>f :Unite file_rec<CR>
 nmap <leader>m :CtrlPMRU<CR>
 
 nmap <leader>q :q<CR>
