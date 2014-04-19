@@ -164,97 +164,11 @@ set foldmarker={,} " use simple markers
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
-
-" CtrlP
-if s:running_windows
-        let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
-    else
-        let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
-endif
-let g:ctrlp_buftag_types = {'go': '--language-force=go --golang-types=ftv'}
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_match_window_bottom = 1
-let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_max_depth = 100
-let g:ctrlp_max_files = 100000
-let g:ctrlp_max_height = 30
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_open_multiple_files = 'ij'
-let g:ctrlp_buftag_ctags_bin = 'ctags'
-if s:running_windows
-    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
-else
-    let g:ctrlp_user_command = 'find %s -type f | grep -v ".git/"'       " MacOSX/Linux
-endif
-
-let g:ctrlp_show_hidden = 1
-
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>t :CtrlPBufTag<CR>
-nmap <leader>f :CtrlPCurWD<CR>
-nmap <leader>m :CtrlPMRU<CR>
-
-" Godef 
-let g:godef_split = 1
-let g:godef_same_file_in_same_window=1
-nmap <leader>gd :call GodefUnderCursor<CR>
-
-let g:rbpt_colorpairs = [
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-\ ]
-let g:rbpt_max = 24
-
-let g:SuperTabDefaultCompletionType = "context"
-
-let html_number_lines = 0
-let html_use_css = 0
-let use_xhtml = 0
-
-let perl_extended_vars = 1 " highlight advanced perl vars inside strings
-
-if executable("pt")
-    set grepprg=pt\ --nogroup\ --nocolor
-endif
-
-if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor
-endif
-
-let g:startify_change_to_dir = 0
-let g:startify_change_to_vcs_root = 1
-let g:startify_relative_path = 1
-
-let g:VimuxOrientation = "h"
-let g:VimuxHeight = "34"
-
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
+set hidden " load files in background
+set undofile " persistent undo
+set undolevels=1000 " persistent undo
+set undoreload=10000 " to undo forced reload with :e!
+syntax sync minlines=300 " 300 lines wrapping for syntax
 
 " Abbreviations
 cnoreabbrev W w
@@ -266,17 +180,14 @@ cnoreabbrev Wqa wqa
 cnoreabbrev WQa wqa
 cnoreabbrev Q q
 cnoreabbrev Qw qw
-
 iab <expr> dts strftime("%c")
 
+" Mappings
 map Y y$
-
 nmap <Up> <C-u>
 nmap <Down> <C-d>
 nmap <Left> :bp<CR>
 nmap <Right> :bn<CR>
-
-
 nmap <leader>q :q<CR>
 nmap <leader>< <C-w>15<
 nmap <leader>> <C-w>15>
@@ -285,36 +196,11 @@ nmap <leader>- <C-w>15-
 nmap <leader>_ <C-w>15-
 nmap <leader>w <C-w>w
 nmap <leader>W <C-w>W
-
-" Godef
-
-" Fugitive
-nmap <leader>gc :Gcommit<CR>
-nmap <leader>ga :Gwrite<CR>
-nmap <leader>gw :Gwrite<CR>
-nmap <leader>grm :Gremove<CR>
-nmap <leader>gm :Gmove<CR>
-
-nmap <Leader>j <C-d><CR>
-nmap <Leader>k <C-u><CR>
-nmap <Leader>v :VimuxPromptCommand<CR>
-nmap <Leader>r :VimuxRunLastCommand<CR>
-
-nmap f <Plug>(easymotion-bd-w)
-nmap F <Plug>(easymotion-bd-W)
-nmap s <Plug>(easymotion-s)
-nmap S <Plug>(easymotion-s2)
-
-" Change Working Directory to that of the current file
+nmap <leader>o <C-w>o
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
-set hidden " load files in background
-set undofile " persistent undo
-set undolevels=1000 " persistent undo
-set undoreload=10000 " to undo forced reload with :e!
-syntax sync minlines=300 " 300 lines wrapping for syntax
-
+" Autocommands
 if has("autocmd")
     augroup vimrcAu
         " Clear!
@@ -351,8 +237,8 @@ if has("autocmd")
     augroup END
 endif
 
+" GUI
 if has("gui_running")
-    " Basics
     set guifont=Consolas:h9:cANSI " My favorite font
     set guioptions=ce
     "              ||
@@ -361,6 +247,7 @@ if has("gui_running")
     set mousehide " hide the mouse cursor when typing
 endif
 
+" 256 color term
 if s:colorful_term
     "256 color --
     let &t_Co=256
@@ -382,6 +269,112 @@ if has("mouse")
     set mousehide
 endif
 
+" CtrlP
+if s:running_windows
+        let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
+    else
+        let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
+endif
+let g:ctrlp_buftag_types = {'go': '--language-force=go --golang-types=ftv'}
+let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_match_window_bottom = 1
+let g:ctrlp_match_window_reversed = 1
+let g:ctrlp_max_depth = 100
+let g:ctrlp_max_files = 100000
+let g:ctrlp_max_height = 30
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_use_caching = 1
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_open_multiple_files = 'ij'
+let g:ctrlp_buftag_ctags_bin = 'ctags'
+if s:running_windows
+    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+else
+    let g:ctrlp_user_command = 'find %s -type f | grep -v ".git/"'       " MacOSX/Linux
+endif
+let g:ctrlp_show_hidden = 1
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>t :CtrlPBufTag<CR>
+nmap <leader>f :CtrlPCurWD<CR>
+nmap <leader>m :CtrlPMRU<CR>
+
+" Godef 
+let g:godef_split = 1
+let g:godef_same_file_in_same_window=1
+nmap <leader>gd :call GodefUnderCursor<CR>
+
+" RainbowParentheses
+let g:rbpt_colorpairs = [
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seagreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seagreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seagreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seagreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+\ ]
+let g:rbpt_max = 24
+
+" HTML Settings
+let html_number_lines = 0
+let html_use_css = 0
+let use_xhtml = 0
+
+" Perl Settings
+let perl_extended_vars = 1 " highlight advanced perl vars inside strings
+
+" Ag grep 
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+" Startify
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 1
+let g:startify_relative_path = 1
+
+" Vimux
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "34"
+nmap <Leader>v :VimuxPromptCommand<CR>
+nmap <Leader>r :VimuxRunLastCommand<CR>
+
+" Neocomplete
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+
+" Fugitive
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>ga :Gwrite<CR>
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>grm :Gremove<CR>
+nmap <leader>gm :Gmove<CR>
+
+" Easy Motion
+nmap f <Plug>(easymotion-bd-w)
+nmap F <Plug>(easymotion-bd-W)
+nmap s <Plug>(easymotion-s)
+nmap S <Plug>(easymotion-s2)
+
+" Custom Theme Setups
 function SeoulDarkColors()
     let g:seoul256_background=236
     set background=dark
@@ -407,6 +400,11 @@ function MoloDarkColors()
     set background=dark
     colo molokai
     hi ColorColumn cterm=NONE ctermbg=black
+endfunction
+
+function InkpotDarkColors()
+    set background=dark
+    colo inkpot
 endfunction
 
 call SeoulDarkColors()
