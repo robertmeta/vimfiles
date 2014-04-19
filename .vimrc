@@ -184,6 +184,7 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_open_multiple_files = 'ij'
 
 let g:godef_split = 1
+let g:godef_same_file_in_same_window=1
 
 let g:rbpt_colorpairs = [
     \ ['blue', 'RoyalBlue3'],
