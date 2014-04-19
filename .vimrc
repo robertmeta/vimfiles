@@ -165,26 +165,7 @@ set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 
-if s:running_windows
-    let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
-else
-    let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
-endif
-let g:ctrlp_buftag_types = {
-    \ 'go'          : '--language-force=go --golang-types=ftv'
-\ }
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_match_window_bottom = 1
-let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_max_depth = 100
-let g:ctrlp_max_files = 100000
-let g:ctrlp_max_height = 30
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_open_multiple_files = 'ij'
-
-let g:godef_split = 0
+let g:godef_split = 1
 
 let g:rbpt_colorpairs = [
     \ ['blue', 'RoyalBlue3'],
@@ -224,21 +205,12 @@ let perl_extended_vars = 1 " highlight advanced perl vars inside strings
 
 if executable("pt")
     set grepprg=pt\ --nogroup\ --nocolor
-    "let g:ctrlp_user_command = 'pt %s -l --nocolor ""'
 endif
 
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
-    "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-if s:running_windows
-    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
-else
-    let g:ctrlp_user_command = 'find %s -type f | grep -v ".git/"'       " MacOSX/Linux
-endif
-
-let g:ctrlp_show_hidden = 1
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 let g:startify_relative_path = 1
@@ -267,9 +239,9 @@ nmap <Left> :bp<CR>
 nmap <Right> :bn<CR>
 
 " Mappings for Control-P
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>t :CtrlPBufTag<CR>
-nmap <leader>f :CtrlPCurWD<CR>
+nmap <leader>b :Unite file<CR>
+nmap <leader>t :Unite buffer<CR>
+nmap <leader>f :Unite file<CR>
 nmap <leader>m :CtrlPMRU<CR>
 
 nmap <leader>q :q<CR>
