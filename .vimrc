@@ -356,7 +356,7 @@ let g:startify_relative_path = 1
 " Vimux
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "34"
-nmap <Leader>v :VimuxPromptCommand<CR>
+nmap <Leader>p :VimuxPromptCommand<CR>
 nmap <Leader>r :VimuxRunLastCommand<CR>
 
 " Neocomplete
