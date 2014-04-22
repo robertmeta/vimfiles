@@ -3,7 +3,8 @@ mkdir -p bundle
 git clone https://github.com/benmills/vimux.git bundle/vimux && rm -rf bundle/vimux/.git
 git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/inkpot/.git
 git clone https://github.com/dgryski/vim-godef bundle/godef && rm -rf bundle/godef/.git
-git clone https://github.com/ervandew/supertab.git bundle/supertab && rm -rf bundle/supertab/.git
+#git clone https://github.com/ervandew/supertab.git bundle/supertab && rm -rf bundle/supertab/.git
+get clone https://github.com/ajh17/VimCompletesMe.git bundle/completesme && rm -rf bundle/completesme/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
 git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp && rm -rf bundle/ctrlp/.git
 git clone https://github.com/kien/rainbow_parentheses.vim.git bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
