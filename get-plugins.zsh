@@ -1,5 +1,6 @@
 rm -rf bundle
 mkdir -p bundle
+git clone https://github.com/mhinz/vim-signify.git bundle/signify && rm -rf bundle/signify/.git
 git clone https://github.com/benmills/vimux.git bundle/vimux && rm -rf bundle/vimux/.git
 git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/inkpot/.git
 git clone https://github.com/dgryski/vim-godef bundle/godef && rm -rf bundle/godef/.git
