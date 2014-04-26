@@ -1,0 +1,17 @@
+./bundle/abolish/.gitignore
+./bundle/supertab/.gitignore
+./bundle/syntastic/.gitignore
+./bundle/ag/.gitignore
+./bundle/unimpaired/.gitignore
+./bundle/ctrlp/.gitignore
+./bundle/startify/.gitignore
+./bundle/fugitive/.gitignore
+./bundle/commentary/.gitignore
+./bundle/speeddating/.gitignore
+./bundle/easymotion/.gitignore
+./bundle/textobjectify/.gitignore
+./bundle/eunuch/.gitignore
+./bundle/ps1/.gitignore
+./bundle/vimux/.gitignore
+./bundle/surround/.gitignore
+./.gitignore
