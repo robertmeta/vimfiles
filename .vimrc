@@ -9,6 +9,7 @@ scriptencoding utf-8 " yey! utf-8
 " Startup
 let s:running_windows = has("win16") || has("win32") || has("win64")
 let s:running_cygwin = has('win32unix')
+
 let s:running_macvim = has('gui_macvim')
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 
