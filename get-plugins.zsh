@@ -1,5 +1,6 @@
 rm -rf bundle
 mkdir -p bundle
+git clone https://github.com/airblade/vim-gitgutter.git && rm -rf bundle/gitgutter/.git
 git clone https://github.com/benmills/vimux.git bundle/vimux && rm -rf bundle/vimux/.git
 git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/inkpot/.git
 git clone https://github.com/dgryski/vim-godef bundle/godef && rm -rf bundle/godef/.git
@@ -9,8 +10,6 @@ git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp && rm -rf bundle/ct
 git clone https://github.com/kien/rainbow_parentheses.vim.git bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 git clone https://github.com/leshill/vim-json.git bundle/json && rm -rf bundle/json/.git
 git clone https://github.com/Lokaltog/vim-easymotion.git bundle/easymotion && rm -rf bundle/easymotion/.git
-git clone https://github.com/mhinz/vim-signify.git bundle/signify && rm -rf bundle/signify/.git*
-git clone https://github.com/mhinz/vim-startify.git bundle/startify && rm -rf bundle/startify/.git
 git clone https://github.com/paradigm/TextObjectify.git bundle/textobjectify && rm -rf bundle/textobjectify/.git
 git clone https://github.com/PProvost/vim-ps1.git bundle/ps1 && rm -rf bundle/ps1/.git
 git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git

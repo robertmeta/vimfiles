@@ -354,14 +354,8 @@ if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-" Signify
-let g:signify_vcs_list = [ 'git' ]
-let g:signify_sign_overwrite = 1
-
-" Startify
-let g:startify_change_to_dir = 0
-let g:startify_change_to_vcs_root = 1
-let g:startify_relative_path = 1
+" Git gutter
+let g:gitgutter_sign_column_always = 1
 
 " Vimux
 let g:VimuxOrientation = "h"
