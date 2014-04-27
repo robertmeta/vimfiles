@@ -166,10 +166,10 @@ set foldmarker={,} " use simple markers
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
-set autowrite " write on all changes
-set autowriteall " Write on all changes
-set nohidden " load files in background
-set undofile " persistent undo
+set noautowrite " don't write on all changes
+set noautowriteall " don't Write on all changes
+set hidden " load files in background
+set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
 syntax sync minlines=300 " 300 lines wrapping for syntax
