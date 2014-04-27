@@ -37,7 +37,7 @@ set cpoptions=aABceFsmq
 syntax on " syntax highlighting on
 let g:skip_loading_mswin=1 " Just in case :)
 set history=99999 " big old history
-set timeoutlen=500 " super low delay (works for me)
+set timeoutlen=500 " half a second for combos
 set formatoptions+=n " Recognize numbered lists
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
@@ -127,6 +127,7 @@ set showmatch " show matching brackets
 set sidescrolloff=5 " Keep 5 lines at the size
 set sidescroll=5 " If you hit edge, jump 5
 set scrolljump=5 " If you hit bottom or top, jump 5
+
 set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
 "              | | | | |  |  |                        |      |  |     |    |
 "              | | | | |  |  |                        |      |  |     |    +-- current column
@@ -165,7 +166,9 @@ set foldmarker={,} " use simple markers
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
-set hidden " load files in background
+set autowrite " write on all changes
+set autowriteall " Write on all changes
+set nohidden " load files in background
 set undofile " persistent undo
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
@@ -195,8 +198,10 @@ nmap <leader>> <C-w>15>
 nmap <leader>+ <C-w>15+
 nmap <leader>- <C-w>15-
 nmap <leader>_ <C-w>15-
-nmap <leader>w <C-w>w
-nmap <leader>W <C-w>W
+nmap <leader>j <C-w>j
+nmap <leader>k <C-w>k
+nmap <leader>h <C-w>h
+nmap <leader>l <C-w>l
 nmap <leader>o <C-w>o
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
@@ -364,14 +369,7 @@ let g:VimuxHeight = "34"
 nmap <Leader>p :VimuxPromptCommand<CR>
 nmap <Leader>r :VimuxRunLastCommand<CR>
 
-" Neocomplete
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-
 " Fugitive
-nmap <leader>c :Gcommit<CR>
-nmap <leader>w :Gwrite<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>grm :Gremove<CR>
@@ -382,6 +380,10 @@ nmap f <Plug>(easymotion-bd-w)
 nmap F <Plug>(easymotion-bd-W)
 nmap s <Plug>(easymotion-s)
 nmap S <Plug>(easymotion-s2)
+
+" Make collaborators more happy
+inoremap kj <Esc>
+nmap <Leader>s :w<CR>
 
 " Custom Theme Setups
 function SeoulDarkColors()
