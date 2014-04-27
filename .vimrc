@@ -191,13 +191,12 @@ nmap <Up> <C-u>
 nmap <Down> <C-d>
 nmap <Left> :bp<CR>
 nmap <Right> :bn<CR>
-nmap <Leader>w :w<CR>
-nmap <leader>q :q<CR>
 nmap <leader>< <C-w>15<
 nmap <leader>> <C-w>15>
 nmap <leader>+ <C-w>15+
 nmap <leader>- <C-w>15-
 nmap <leader>_ <C-w>15-
+nmap <Leader>w <C-W>w<CR>
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
