@@ -350,6 +350,10 @@ if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
 endif
 
+" Signify
+let g:signify_vcs_list = [ 'git' ]
+let g:signify_sign_overwrite = 1
+
 " Startify
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
@@ -367,8 +371,9 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
 " Fugitive
+nmap <leader>c :Gcommit<CR>
+nmap <leader>w :Gwrite<CR>
 nmap <leader>gc :Gcommit<CR>
-nmap <leader>ga :Gwrite<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
