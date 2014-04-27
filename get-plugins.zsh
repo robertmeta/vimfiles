@@ -1,5 +1,7 @@
 rm -rf bundle
 mkdir -p bundle
+
+git clone https://github.com/christoomey/vim-tmux-navigator.git bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 git clone https://github.com/airblade/vim-gitgutter.git bundle/gitgutter && rm -rf bundle/gitgutter/.git
 git clone https://github.com/benmills/vimux.git bundle/vimux && rm -rf bundle/vimux/.git
 git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/inkpot/.git

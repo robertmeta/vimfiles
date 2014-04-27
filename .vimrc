@@ -191,17 +191,13 @@ nmap <Up> <C-u>
 nmap <Down> <C-d>
 nmap <Left> :bp<CR>
 nmap <Right> :bn<CR>
+nmap <Leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>< <C-w>15<
 nmap <leader>> <C-w>15>
 nmap <leader>+ <C-w>15+
 nmap <leader>- <C-w>15-
 nmap <leader>_ <C-w>15-
-nmap <leader>j <C-w>j
-nmap <leader>k <C-w>k
-nmap <leader>h <C-w>h
-nmap <leader>l <C-w>l
-nmap <leader>o <C-w>o
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
@@ -376,7 +372,6 @@ nmap S <Plug>(easymotion-s2)
 
 " Make collaborators more happy
 inoremap kj <Esc>
-nmap <Leader>s :w<CR>
 
 " Custom Theme Setups
 function SeoulDarkColors()
