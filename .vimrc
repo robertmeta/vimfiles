@@ -352,11 +352,8 @@ endif
 " Git gutter
 let g:gitgutter_sign_column_always = 1
 
-" Vimux
-let g:VimuxOrientation = "h"
-let g:VimuxHeight = "34"
-nmap <Leader>p :VimuxPromptCommand<CR>
-nmap <Leader>r :VimuxRunLastCommand<CR>
+" Dispatch
+nmap <Leader>d :Dispatch<CR>
 
 " Fugitive
 nmap <leader>gc :Gcommit<CR>
