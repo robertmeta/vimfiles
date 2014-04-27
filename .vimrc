@@ -2,6 +2,7 @@
 "   use the pieces you want (and understand!).  When you copy a
 "   .vimrc in its entirety, weird and unexpected things can happen
 "
+"
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
 scriptencoding utf-8 " yey! utf-8
