@@ -290,7 +290,7 @@ let g:ctrlp_buftag_ctags_bin = 'ctags'
 if s:running_windows
     let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
 else
-    let g:ctrlp_user_command = 'find %s -type f | grep -v ".git/"'       " MacOSX/Linux
+    let g:ctrlp_user_command = 'find %s -type f \( -name ".*" ! -name "*.a"'       " MacOSX/Linux
 endif
 let g:ctrlp_show_hidden = 1
 nmap <leader>b :CtrlPBuffer<CR>
