@@ -183,7 +183,9 @@ cnoreabbrev Wqa wqa
 cnoreabbrev WQa wqa
 cnoreabbrev Q q
 cnoreabbrev Qw qw
-iab <expr> dts strftime("%c")
+
+iab <expr> dts_ strftime("%c")
+iab <expr> uuid_ <ESC>:r!uuidgen<CR>i
 
 " Mappings
 map Y y$
