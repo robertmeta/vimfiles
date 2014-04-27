@@ -185,7 +185,6 @@ cnoreabbrev Q q
 cnoreabbrev Qw qw
 
 iab <expr> dts_ strftime("%c")
-iab <expr> uuid_ <ESC>:r!uuidgen<CR>i
 
 " Mappings
 map Y y$
