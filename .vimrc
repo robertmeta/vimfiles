@@ -355,6 +355,7 @@ let g:gitgutter_sign_column_always = 1
 nmap <Leader>d :Dispatch<CR>
 
 " Fugitive
+nmap <leader>ga :Gcommit -a<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>grm :Gremove<CR>
