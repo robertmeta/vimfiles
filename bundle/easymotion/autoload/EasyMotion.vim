@@ -353,9 +353,9 @@ function! s:SaveValue() "{{{
     call EasyMotion#helper#VarReset('&readonly', 0)
     call EasyMotion#helper#VarReset('&spell', 0)
     call EasyMotion#helper#VarReset('&virtualedit', '')
-    if &foldmethod !=# 'expr'
+    " if &foldmethod !=# 'expr'
         call EasyMotion#helper#VarReset('&foldmethod', 'manual')
-    endif
+    " endif
 endfunction "}}}
 function! s:RestoreValue() "{{{
     call EasyMotion#helper#VarReset('&scrolloff')
@@ -364,9 +364,9 @@ function! s:RestoreValue() "{{{
     call EasyMotion#helper#VarReset('&readonly')
     call EasyMotion#helper#VarReset('&spell')
     call EasyMotion#helper#VarReset('&virtualedit')
-    if &foldmethod !=# 'expr'
+    " if &foldmethod !=# 'expr'
         call EasyMotion#helper#VarReset('&foldmethod')
-    endif
+    " endif
 endfunction "}}}
 function! s:turn_off_hl_error() "{{{
     let s:error_hl = EasyMotion#highlight#capture('Error')
@@ -506,10 +506,7 @@ function! s:get_escaped_group_char(dict, char) "{{{
     return escape(get(a:dict, a:char, ''), '^')
 endfunction "}}}
 function! s:escape_regexp_char(char) "{{{
-    " Get escaped char from given dictionary
-    " return '' if char is not find
-    " Used inside `[]`
-    return escape(a:char, '.$^~\[]')
+    return escape(a:char, '.$^~\[]*')
 endfunction "}}}
 function! s:convertSmartcase(re, char) "{{{
     let re = a:re
@@ -1175,7 +1172,8 @@ function! s:EasyMotion(regexp, direction, visualmode, is_inclusive) " {{{
             " Skip folded lines {{{
             if EasyMotion#helper#is_folded(pos[0])
                 if search_direction ==# 'b'
-                    keepjumps call cursor(foldclosed(pos[0]-1), 0)
+                    " FIXME: Hmm... I should use filter()
+                    " keepjumps call cursor(foldclosed(pos[0]), 0)
                 else
                     keepjumps call cursor(foldclosedend(pos[0]+1), 0)
                 endif
@@ -1256,27 +1254,18 @@ function! s:EasyMotion(regexp, direction, visualmode, is_inclusive) " {{{
 
         " -- Shade inactive source --------------- {{{
         if g:EasyMotion_do_shade && targets_len != 1 && s:flag.dot_repeat != 1
-            if a:direction == 1
-                " Backward
-                if s:flag.within_line
-                    let shade_hl_re = '^.*\%#'
-                else
-                    let shade_hl_re = '\%'. win_first_line .'l\_.*\%#'
-                endif
-            elseif a:direction == 0
-                " Forward
-                if s:flag.within_line
-                    let shade_hl_re = '\%#.*$'
-                else
-                    let shade_hl_re = '\%#\_.*\%'. win_last_line .'l'
-                endif
-            else
-                " Both directions"
-                if s:flag.within_line
-                    let shade_hl_re = '^.*\%#.*$'
-                else
-                    let shade_hl_re = '\_.*'
-                endif
+            if a:direction == 1 " Backward
+                let shade_hl_re = s:flag.within_line
+                                \ ? '^.*\%#'
+                                \ : '\%'. win_first_line .'l\_.*\%#'
+            elseif a:direction == 0 " Forward
+                let shade_hl_re = s:flag.within_line
+                                \ ? '\%#.*$'
+                                \ : '\%#\_.*\%'. win_last_line .'l'
+            else " Both directions
+                let shade_hl_re = s:flag.within_line
+                                \ ? '^.*\%#.*$'
+                                \ : '\_.*'
             endif
 
             call EasyMotion#highlight#add_highlight(

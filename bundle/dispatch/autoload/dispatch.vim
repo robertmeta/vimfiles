@@ -194,7 +194,8 @@ function! dispatch#start_command(bang, command) abort
   return ''
 endfunction
 
-if !exists('g:DISPATCH_STARTS')
+if type(get(g:, 'DISPATCH_STARTS')) != type({})
+  unlet! g:DISPATCH_STARTS
   let g:DISPATCH_STARTS = {}
 endif
 
@@ -383,13 +384,13 @@ function! dispatch#compile_command(bang, args, count) abort
   let request.title = get(request, 'compiler', 'make')
 
   if &autowrite || &autowriteall
-    wall
+    silent! wall
   endif
   cclose
   let &errorfile = request.file
 
   try
-    silent doautocmd QuickFixCmdPre dispatch
+    silent doautocmd QuickFixCmdPre dispatch-make
     let request.directory = getcwd()
     let request.expanded = dispatch#expand(request.command)
     call extend(s:makes, [request])
@@ -401,7 +402,7 @@ function! dispatch#compile_command(bang, args, count) abort
       call feedkeys(":redraw!|call dispatch#complete(".request.id.")\r", 'n')
     endif
   finally
-    silent doautocmd QuickFixCmdPost dispatch
+    silent doautocmd QuickFixCmdPost dispatch-make
   endtry
   return ''
 endfunction

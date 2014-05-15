@@ -6,6 +6,7 @@ git clone https://github.com/christoomey/vim-tmux-navigator.git bundle/vim-tmux-
 git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/inkpot/.git
 git clone https://github.com/dgryski/vim-godef bundle/godef && rm -rf bundle/godef/.git
 git clone https://github.com/ervandew/supertab.git bundle/supertab && rm -rf bundle/supertab/.git
+git clone https://github.com/fatih/vim-go.git bundle/vimgo && rm -rf bundle/vimgo/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
 git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp && rm -rf bundle/ctrlp/.git
 git clone https://github.com/kien/rainbow_parentheses.vim.git bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
