@@ -26,6 +26,14 @@ if !exists("g:ag_mapping_message")
 endif
 
 function! ag#Ag(cmd, args)
+  let l:ag_executable = get(split(g:agprg, " "), 0)
+
+  " Ensure that `ag` is installed
+  if !executable(l:ag_executable)
+    echoe "Ag command '" . l:ag_executable . "' was not found. Is the silver searcher installed and on your $PATH?"
+    return
+  endif
+
   " If no pattern is provided, search for the word under the cursor
   if empty(a:args)
     let l:grepargs = expand("<cword>")
