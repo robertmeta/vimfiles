@@ -297,7 +297,7 @@ else
 endif
 let g:ctrlp_show_hidden = 1
 nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>t :CtrlPBufTag<CR>
+nmap <leader>t :CtrlPBufTagAll<CR>
 nmap <leader>f :CtrlPCurWD<CR>
 nmap <leader>m :CtrlPMRU<CR>
 
