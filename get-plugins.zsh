@@ -1,7 +1,6 @@
 rm -rf bundle
 mkdir -p bundle
 
-git clone git@github.com:vim-scripts/vim-auto-save.git bundle/autosave && rm -rf bundle/autosave/.git
 git clone https://github.com/airblade/vim-gitgutter.git bundle/gitgutter && rm -rf bundle/gitgutter/.git
 git clone https://github.com/christoomey/vim-tmux-navigator.git bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/inkpot/.git

@@ -634,18 +634,18 @@ function! s:ExecuteInTree(cmd) abort
   endtry
 endfunction
 
-function! s:Git(bang,cmd) abort
+function! s:Git(bang, args) abort
   if a:bang
-    return s:Edit('edit',1,a:cmd)
+    return s:Edit('edit', 1, a:args)
   endif
-  let git = s:repo().git_command()
+  let git = g:fugitive_git_executable
   if has('gui_running') && !has('win32')
     let git .= ' --no-pager'
   endif
-  let cmd = matchstr(a:cmd,'\v\C.{-}%($|\\@<!%(\\\\)*\|)@=')
-  call s:ExecuteInTree('!'.git.' '.cmd)
+  let args = matchstr(a:args,'\v\C.{-}%($|\\@<!%(\\\\)*\|)@=')
+  call s:ExecuteInTree('!'.git.' '.args)
   call fugitive#reload_status()
-  return matchstr(a:cmd,'\v\C\\@<!%(\\\\)*\|\zs.*')
+  return matchstr(a:args, '\v\C\\@<!%(\\\\)*\|\zs.*')
 endfunction
 
 function! s:GitComplete(A,L,P) abort
@@ -1775,7 +1775,7 @@ function! s:BlameCommit(cmd) abort
             let offset -= 1
           endif
         endwhile
-        return 'if foldlevel(".")|foldopen!|endif'
+        return 'normal! zv'
       endif
     endwhile
     execute head
@@ -2115,6 +2115,7 @@ function! s:BufReadIndex() abort
         let cmd = s:repo().git_command(
               \ '-c', 'status.displayCommentPrefix=true',
               \ '-c', 'color.status=false',
+              \ '-c', 'status.short=false',
               \ 'status')
       endif
       try
@@ -2486,7 +2487,7 @@ function! s:GF(mode) abort
         endwhile
         let offset += matchstr(getline(lnum), type.'\zs\d\+')
         let ref = getline(search('^'.type.'\{3\} [ab]/','bnW'))[4:-1]
-        let dcmd = '+'.offset.'|if foldlevel(".")|foldopen!|endif'
+        let dcmd = '+'.offset.'|normal! zv'
         let dref = ''
 
       elseif getline('.') =~# '^rename from '
