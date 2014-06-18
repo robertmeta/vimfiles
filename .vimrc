@@ -188,10 +188,10 @@ iab <expr> dts_ strftime("%c")
 
 " Mappings
 map Y y$
-nmap <Up> <C-u>
-nmap <Down> <C-d>
-nmap <Left> :bp<CR>
-nmap <Right> :bn<CR>
+nmap <Up> :bp<CR>
+nmap <Down> :bn<CR>
+nmap <Left> :tabprevious<CR>
+nmap <Right> :tabnext<CR>
 nmap <leader>< <C-w>15<
 nmap <leader>> <C-w>15>
 nmap <leader>+ <C-w>15+
