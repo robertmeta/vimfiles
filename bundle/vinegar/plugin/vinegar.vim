@@ -29,6 +29,7 @@ if empty(maparg('-', 'n'))
   nmap - <Plug>VinegarUp
 endif
 
+nnoremap <silent> <Plug>VinegarTabUp :call <SID>opendir('tabedit')<CR>
 nnoremap <silent> <Plug>VinegarSplitUp :call <SID>opendir('split')<CR>
 nnoremap <silent> <Plug>VinegarVerticalSplitUp :call <SID>opendir('vsplit')<CR>
 
@@ -45,7 +46,7 @@ function! s:opendir(cmd)
     if empty(expand('%'))
       execute a:cmd '.'
     else
-      execute a:cmd '%:h'
+      execute a:cmd '%:h/'
       call s:seek(expand('#:t'))
     endif
   endif
