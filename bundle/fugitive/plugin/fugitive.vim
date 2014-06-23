@@ -1,6 +1,6 @@
 " fugitive.vim - A Git wrapper so awesome, it should be illegal
 " Maintainer:   Tim Pope <http://tpo.pe/>
-" Version:      2.0
+" Version:      1.2
 " GetLatestVimScripts: 2975 1 :AutoInstall: fugitive.vim
 
 if exists('g:loaded_fugitive') || &cp
@@ -12,7 +12,7 @@ if !exists('g:fugitive_git_executable')
   let g:fugitive_git_executable = 'git'
 endif
 
-" Utility {{{1
+" Section: Utility
 
 function! s:function(name) abort
   return function(substitute(a:name,'^s:',matchstr(expand('<sfile>'), '<SNR>\d\+_'),''))
@@ -26,10 +26,14 @@ function! s:gsub(str,pat,rep) abort
   return substitute(a:str,'\v\C'.a:pat,a:rep,'g')
 endfunction
 
+function! s:winshell() abort
+  return &shell =~? 'cmd' || exists('+shellslash') && !&shellslash
+endfunction
+
 function! s:shellesc(arg) abort
   if a:arg =~ '^[A-Za-z0-9_/.-]\+$'
     return a:arg
-  elseif &shell =~# 'cmd' || &shell =~# 'power'
+  elseif s:winshell()
     return '"'.s:gsub(s:gsub(a:arg, '"', '""'), '\%', '"%"').'"'
   else
     return shellescape(a:arg)
@@ -57,7 +61,7 @@ function! s:warn(str) abort
 endfunction
 
 function! s:shellslash(path) abort
-  if exists('+shellslash') && !&shellslash
+  if s:winshell()
     return s:gsub(a:path,'\\','/')
   else
     return a:path
@@ -115,8 +119,7 @@ augroup END
 
 let s:abstract_prototype = {}
 
-" }}}1
-" Initialization {{{1
+" Section: Initialization
 
 function! fugitive#is_git_dir(path) abort
   let path = s:sub(a:path, '[\/]$', '') . '/'
@@ -202,8 +205,7 @@ augroup fugitive
   autocmd BufWinLeave * execute getwinvar(+bufwinnr(+expand('<abuf>')), 'fugitive_leave')
 augroup END
 
-" }}}1
-" Repository {{{1
+" Section: Repository
 
 let s:repo_prototype = {}
 let s:repos = {}
@@ -442,8 +444,7 @@ endfunction
 
 call s:add_methods('repo',['keywordprg'])
 
-" }}}1
-" Buffer {{{1
+" Section: Buffer
 
 let s:buffer_prototype = {}
 
@@ -618,8 +619,7 @@ endfunction
 
 call s:add_methods('buffer',['getvar','setvar','getline','repo','type','spec','name','commit','path','rev','sha1','expand','containing_commit','up'])
 
-" }}}1
-" Git {{{1
+" Section: Git
 
 call s:command("-bang -nargs=? -complete=customlist,s:GitComplete Git :execute s:Git(<bang>0,<q-args>)")
 
@@ -655,15 +655,12 @@ function! s:GitComplete(A,L,P) abort
   let cmds = map(split(glob(s:exec_path.'/git-*'),"\n"),'s:sub(v:val[strlen(s:exec_path)+5 : -1],"\\.exe$","")')
   if a:L =~ ' [[:alnum:]-]\+ '
     return s:repo().superglob(a:A)
-  elseif a:A == ''
-    return sort(cmds+keys(s:repo().aliases()))
   else
-    return filter(sort(cmds+keys(s:repo().aliases())),'v:val[0:strlen(a:A)-1] ==# a:A')
+    return filter(sort(cmds+keys(s:repo().aliases())), 'strpart(v:val, 0, strlen(a:A)) ==# a:A')
   endif
 endfunction
 
-" }}}1
-" Gcd, Glcd {{{1
+" Section: Gcd, Glcd
 
 function! s:DirComplete(A,L,P) abort
   let matches = s:repo().dirglob(a:A)
@@ -673,8 +670,7 @@ endfunction
 call s:command("-bar -bang -nargs=? -complete=customlist,s:DirComplete Gcd  :cd<bang>  `=s:repo().bare() ? s:repo().dir(<q-args>) : s:repo().tree(<q-args>)`")
 call s:command("-bar -bang -nargs=? -complete=customlist,s:DirComplete Glcd :lcd<bang> `=s:repo().bare() ? s:repo().dir(<q-args>) : s:repo().tree(<q-args>)`")
 
-" }}}1
-" Gstatus {{{1
+" Section: Gstatus
 
 call s:command("-bar Gstatus :execute s:Status()")
 augroup fugitive_status
@@ -744,7 +740,7 @@ function! s:stage_info(lnum) abort
     return ['', '']
   elseif (getline(lnum+1) =~# '^# .*\<git \%(reset\|rm --cached\) ' && getline(lnum+2) ==# '#') || getline(lnum) ==# '# Changes to be committed:'
     return [matchstr(filename, colon.' *\zs.*'), 'staged']
-  elseif (getline(lnum+1) =~# '^# .*\<git add ' && getline(lnum+2) ==# '#') || getline(lnum) ==# '# Untracked files:'
+  elseif (getline(lnum+1) =~# '^# .*\<git add ' && getline(lnum+2) ==# '#' && getline(lnum+3) !~# colon.'  ') || getline(lnum) ==# '# Untracked files:'
     return [filename, 'untracked']
   elseif getline(lnum+2) =~# '^# .*\<git checkout ' || getline(lnum) ==# '# Changes not staged for commit:'
     return [matchstr(filename, colon.' *\zs.*'), 'unstaged']
@@ -783,6 +779,28 @@ function! s:StageReloadSeek(target,lnum1,lnum2) abort
   1
   redraw
   call search('^#\t\%([[:alpha:] ]\+: *\|.*\%uff1a *\)\=\V'.jump.'\%( ([^()[:digit:]]\+)\)\=\$','W')
+endfunction
+
+function! s:StageUndo() abort
+  let [filename, section] = s:stage_info(line('.'))
+  if empty(filename)
+    return ''
+  endif
+  let repo = s:repo()
+  let hash = repo.git_chomp('hash-object', '-w', filename)
+  if !empty(hash)
+    if section ==# 'untracked'
+      call delete(s:repo().tree(filename))
+    elseif section ==# 'unstaged'
+      call repo.git_chomp('checkout', '--', filename)
+    else
+      call repo.git_chomp('checkout', 'HEAD', '--', filename)
+    endif
+    call s:StageReloadSeek(filename, line('.'), line('.'))
+    let @" = hash
+    return 'checktime|redraw|echomsg ' .
+          \ string('To restore, :Git cat-file blob '.hash[0:6].' > '.filename)
+  endif
 endfunction
 
 function! s:StageDiff(diff) abort
@@ -864,9 +882,6 @@ function! s:StageToggle(lnum1,lnum2) abort
       if filename ==# ''
         continue
       endif
-      if !exists('first_filename')
-        let first_filename = filename
-      endif
       execute lnum
       if filename =~ ' -> '
         let cmd = ['mv','--'] + reverse(split(filename,' -> '))
@@ -879,6 +894,9 @@ function! s:StageToggle(lnum1,lnum2) abort
         let cmd = ['add','--',filename]
       else
         let cmd = ['add','-A','--',filename]
+      endif
+      if !exists('first_filename')
+        let first_filename = filename
       endif
       let output .= call(repo.git_chomp_in_tree,cmd,s:repo())."\n"
     endfor
@@ -938,8 +956,7 @@ function! s:StagePatch(lnum1,lnum2) abort
   return 'checktime'
 endfunction
 
-" }}}1
-" Gcommit {{{1
+" Section: Gcommit
 
 call s:command("-nargs=? -complete=customlist,s:CommitComplete Gcommit :execute s:Commit(<q-args>)")
 
@@ -952,7 +969,7 @@ function! s:Commit(args) abort
   try
     try
       execute cd.s:fnameescape(s:repo().tree())
-      if &shell =~# 'cmd' || &shell =~# 'power'
+      if s:winshell()
         let command = ''
         let old_editor = $GIT_EDITOR
         let $GIT_EDITOR = 'false'
@@ -986,7 +1003,7 @@ function! s:Commit(args) abort
       if error =~# 'false''\=\.$'
         let args = a:args
         let args = s:gsub(args,'%(%(^| )-- )@<!%(^| )@<=%(-[esp]|--edit|--interactive|patch|--signoff)%($| )','')
-        let args = s:gsub(args,'%(%(^| )-- )@<!%(^| )@<=%(-F|--file|-m|--message)%(\s+|\=)%(''[^'']*''|"%(\\.|[^"])*"|\\.|\S)*','')
+        let args = s:gsub(args,'%(%(^| )-- )@<!%(^| )@<=%(-c|--reedit-message|--reuse-message|-F|--file|-m|--message)%(\s+|\=)%(''[^'']*''|"%(\\.|[^"])*"|\\.|\S)*','')
         let args = s:gsub(args,'%(^| )@<=[%#]%(:\w)*','\=expand(submatch(0))')
         let args = '-F '.s:shellesc(msgfile).' '.args
         if args !~# '\%(^\| \)--cleanup\>'
@@ -1040,13 +1057,7 @@ function! s:FinishCommit() abort
   return ''
 endfunction
 
-augroup fugitive_commit
-  autocmd!
-  autocmd VimLeavePre,BufDelete COMMIT_EDITMSG execute s:sub(s:FinishCommit(), '^echoerr (.*)', 'echohl ErrorMsg|echo \1|echohl NONE')
-augroup END
-
-" }}}1
-" Ggrep, Glog {{{1
+" Section: Ggrep, Glog
 
 if !exists('g:fugitive_summary_format')
   let g:fugitive_summary_format = '%s'
@@ -1054,8 +1065,8 @@ endif
 
 call s:command("-bang -nargs=? -complete=customlist,s:EditComplete Ggrep :execute s:Grep('grep',<bang>0,<q-args>)")
 call s:command("-bang -nargs=? -complete=customlist,s:EditComplete Glgrep :execute s:Grep('lgrep',<bang>0,<q-args>)")
-call s:command("-bar -bang -nargs=* -complete=customlist,s:EditComplete Glog :execute s:Log('grep<bang>',<f-args>)")
-call s:command("-bar -bang -nargs=* -complete=customlist,s:EditComplete Gllog :execute s:Log('lgrep<bang>',<f-args>)")
+call s:command("-bar -bang -nargs=* -range=0 -complete=customlist,s:EditComplete Glog :call s:Log('grep<bang>',<count>,<f-args>)")
+call s:command("-bar -bang -nargs=* -complete=customlist,s:EditComplete Gllog :call s:Log('lgrep<bang>',<count>,<f-args>)")
 
 function! s:Grep(cmd,bang,arg) abort
   let grepprg = &grepprg
@@ -1072,14 +1083,16 @@ function! s:Grep(cmd,bang,arg) abort
       if bufname(entry.bufnr) =~ ':'
         let entry.filename = s:repo().translate(bufname(entry.bufnr))
         unlet! entry.bufnr
+        let changed = 1
       elseif a:arg =~# '\%(^\| \)--cached\>'
         let entry.filename = s:repo().translate(':0:'.bufname(entry.bufnr))
         unlet! entry.bufnr
+        let changed = 1
       endif
     endfor
-    if a:cmd =~# '^l'
+    if a:cmd =~# '^l' && exists('changed')
       call setloclist(0, list, 'r')
-    else
+    elseif exists('changed')
       call setqflist(list, 'r')
     endif
     if !a:bang && !empty(list)
@@ -1094,13 +1107,13 @@ function! s:Grep(cmd,bang,arg) abort
   endtry
 endfunction
 
-function! s:Log(cmd,...) abort
+function! s:Log(cmd, count, ...) abort
   let path = s:buffer().path('/')
   if path =~# '^/\.git\%(/\|$\)' || index(a:000,'--') != -1
     let path = ''
   endif
   let cmd = ['--no-pager', 'log', '--no-color']
-  let cmd += ['--pretty=format:fugitive://'.s:repo().dir().'//%H'.path.'::'.g:fugitive_summary_format]
+  let cmd += ['--pretty=format:fugitive://'.s:repo().dir().'//%H'.path.':'.(a:count ? a:count : '').'::'.g:fugitive_summary_format]
   if empty(filter(a:000[0 : index(a:000,'--')],'v:val !~# "^-"'))
     if s:buffer().commit() =~# '\x\{40\}'
       let cmd += [s:buffer().commit()]
@@ -1119,7 +1132,7 @@ function! s:Log(cmd,...) abort
   try
     execute cd.'`=s:repo().tree()`'
     let &grepprg = escape(call(s:repo().git_command,cmd,s:repo()),'%#')
-    let &grepformat = '%f::%m'
+    let &grepformat = '%f:%l::%m,%f:::%m'
     exe a:cmd
   finally
     let &grepformat = grepformat
@@ -1128,8 +1141,7 @@ function! s:Log(cmd,...) abort
   endtry
 endfunction
 
-" }}}1
-" Gedit, Gpedit, Gsplit, Gvsplit, Gtabedit, Gread {{{1
+" Section: Gedit, Gpedit, Gsplit, Gvsplit, Gtabedit, Gread
 
 function! s:Edit(cmd,bang,...) abort
   let buffer = s:buffer()
@@ -1142,7 +1154,9 @@ function! s:Edit(cmd,bang,...) abort
           if winnr != mywinnr && getwinvar(winnr,'&diff')
             execute winnr.'wincmd w'
             close
-            wincmd p
+            if winnr('$') > 1
+              wincmd p
+            endif
           endif
         endfor
       endif
@@ -1226,8 +1240,7 @@ call s:command("-bar -bang -nargs=* -complete=customlist,s:EditRunComplete Gvspl
 call s:command("-bar -bang -nargs=* -complete=customlist,s:EditRunComplete Gtabedit :execute s:Edit('tabedit',<bang>0,<f-args>)")
 call s:command("-bar -bang -nargs=* -count -complete=customlist,s:EditRunComplete Gread :execute s:Edit((!<count> && <line1> ? '' : <count>).'read',<bang>0,<f-args>)")
 
-" }}}1
-" Gwrite, Gwq {{{1
+" Section: Gwrite, Gwq
 
 call s:command("-bar -bang -nargs=* -complete=customlist,s:EditComplete Gwrite :execute s:Write(<bang>0,<f-args>)")
 call s:command("-bar -bang -nargs=* -complete=customlist,s:EditComplete Gw :execute s:Write(<bang>0,<f-args>)")
@@ -1314,9 +1327,9 @@ function! s:Write(force,...) abort
   endif
 
   if a:force
-    let error = s:repo().git_chomp_in_tree('add', '--force', file)
+    let error = s:repo().git_chomp_in_tree('add', '--force', '--', path)
   else
-    let error = s:repo().git_chomp_in_tree('add', file)
+    let error = s:repo().git_chomp_in_tree('add', '--', path)
   endif
   if v:shell_error
     let v:errmsg = 'fugitive: '.error
@@ -1383,28 +1396,51 @@ function! s:Wq(force,...) abort
   endif
 endfunction
 
-" }}}1
-" Gdiff {{{1
+augroup fugitive_commit
+  autocmd!
+  autocmd VimLeavePre,BufDelete COMMIT_EDITMSG execute s:sub(s:FinishCommit(), '^echoerr (.*)', 'echohl ErrorMsg|echo \1|echohl NONE')
+augroup END
 
-call s:command("-bang -bar -nargs=* -complete=customlist,s:EditComplete Gdiff :execute s:Diff(<bang>0,<f-args>)")
-call s:command("-bar -nargs=* -complete=customlist,s:EditComplete Gvdiff :execute s:Diff(0,<f-args>)")
-call s:command("-bar -nargs=* -complete=customlist,s:EditComplete Gsdiff :execute s:Diff(1,<f-args>)")
+" Section: Gdiff
+
+call s:command("-bang -bar -nargs=* -complete=customlist,s:EditComplete Gdiff :execute s:Diff('keepalt ',<f-args>)")
+call s:command("-bar -nargs=* -complete=customlist,s:EditComplete Gvdiff :execute s:Diff('keepalt vert ',<f-args>)")
+call s:command("-bar -nargs=* -complete=customlist,s:EditComplete Gsdiff :execute s:Diff('',<f-args>)")
 
 augroup fugitive_diff
   autocmd!
   autocmd BufWinLeave *
-        \ if getwinvar(bufwinnr(+expand('<abuf>')), '&diff') &&
-        \     s:diff_window_count() == 2 &&
-        \     !empty(getbufvar(+expand('<abuf>'), 'git_dir')) |
+        \ if s:can_diffoff(+expand('<abuf>')) && s:diff_window_count() == 2 |
         \   call s:diffoff_all(getbufvar(+expand('<abuf>'), 'git_dir')) |
         \ endif
   autocmd BufWinEnter *
-        \ if getwinvar(bufwinnr(+expand('<abuf>')), '&diff') &&
-        \     s:diff_window_count() == 1 &&
-        \     !empty(getbufvar(+expand('<abuf>'), 'git_dir')) |
+        \ if s:can_diffoff(+expand('<abuf>')) && s:diff_window_count() == 1 |
         \   call s:diffoff() |
         \ endif
 augroup END
+
+function! s:can_diffoff(buf) abort
+  return getwinvar(bufwinnr(a:buf), '&diff') &&
+        \ !empty(getbufvar(a:buf, 'git_dir')) &&
+        \ !empty(getwinvar(bufwinnr(a:buf), 'fugitive_diff_restore'))
+endfunction
+
+function! fugitive#can_diffoff(buf) abort
+  return s:can_diffoff(a:buf)
+endfunction
+
+function! s:diff_horizontal(count) abort
+  let fdc = matchstr(&diffopt, 'foldcolumn:\zs\d\+')
+  if &diffopt =~# 'horizontal' && &diffopt !~# 'vertical'
+    return 'keepalt vert '
+  elseif &diffopt =~# 'vertical'
+    return 'keepalt '
+  elseif winwidth(0) <= a:count * ((&tw ? &tw : 80) + (empty(fdc) ? 2 : fdc))
+    return 'keepalt '
+  else
+    return 'keepalt vert '
+  endif
+endfunction
 
 function! s:diff_window_count() abort
   let c = 0
@@ -1422,6 +1458,7 @@ function! s:diff_restore() abort
         \ . ' foldmethod=' . &l:foldmethod
         \ . ' foldcolumn=' . &l:foldcolumn
         \ . ' foldlevel=' . &l:foldlevel
+        \ . (&l:foldenable ? ' foldenable' : ' nofoldenable')
   if has('cursorbind')
     let restore .= (&l:cursorbind ? ' ' : ' no') . 'cursorbind'
   endif
@@ -1480,11 +1517,12 @@ endfunction
 
 call s:add_methods('buffer',['compare_age'])
 
-function! s:Diff(bang,...) abort
-  let vert = a:bang ? '' : 'vertical '
+function! s:Diff(vert,...) abort
+  let vert = empty(a:vert) ? s:diff_horizontal(2) : a:vert
   if exists(':DiffGitCached')
     return 'DiffGitCached'
   elseif (!a:0 || a:1 == ':') && s:buffer().commit() =~# '^[0-1]\=$' && s:repo().git_chomp_in_tree('ls-files', '--unmerged', '--', s:buffer().path()) !=# ''
+    let vert = empty(a:vert) ? s:diff_horizontal(3) : a:vert
     let nr = bufnr('')
     execute 'leftabove '.vert.'split `=fugitive#buffer().repo().translate(s:buffer().expand('':2''))`'
     execute 'nnoremap <buffer> <silent> dp :diffput '.nr.'<Bar>diffupdate<CR>'
@@ -1544,8 +1582,7 @@ function! s:Diff(bang,...) abort
   endtry
 endfunction
 
-" }}}1
-" Gmove, Gremove {{{1
+" Section: Gmove, Gremove
 
 function! s:Move(force,destination) abort
   if a:destination =~# '^/'
@@ -1621,8 +1658,7 @@ augroup fugitive_remove
         \ endif
 augroup END
 
-" }}}1
-" Gblame {{{1
+" Section: Gblame
 
 augroup fugitive_blame
   autocmd!
@@ -1846,8 +1882,7 @@ function! s:BlameSyntax() abort
   hi def link FugitiveblameNotCommittedYet    Comment
 endfunction
 
-" }}}1
-" Gbrowse {{{1
+" Section: Gbrowse
 
 call s:command("-bar -bang -range -nargs=* -complete=customlist,s:EditComplete Gbrowse :execute s:Browse(<bang>0,<line1>,<count>,<f-args>)")
 
@@ -1942,7 +1977,7 @@ function! s:Browse(bang,line1,count,...) abort
       let @* = url
       return 'echomsg '.string(url)
     else
-      return 'echomsg '.string(url).'|call fugitive#buffer().repo().git_chomp("web--browse",'.string(url).')'
+      return 'echomsg '.string(url).'|call netrw#NetrwBrowseX('.string(url).', 0)'
     endif
   catch /^fugitive:/
     return 'echoerr v:errmsg'
@@ -2049,8 +2084,7 @@ function! s:instaweb_url(repo,rev,commit,path,type,...) abort
   return url
 endfunction
 
-" }}}1
-" File access {{{1
+" Section: File access
 
 function! s:ReplaceCmd(cmd,...) abort
   let fn = expand('%:p')
@@ -2058,14 +2092,14 @@ function! s:ReplaceCmd(cmd,...) abort
   let prefix = ''
   try
     if a:0 && a:1 != ''
-      if &shell =~# 'cmd' || &shell =~# 'power'
+      if s:winshell()
         let old_index = $GIT_INDEX_FILE
         let $GIT_INDEX_FILE = a:1
       else
         let prefix = 'env GIT_INDEX_FILE='.s:shellesc(a:1).' '
       endif
     endif
-    if &shell =~# 'cmd' || &shell =~# 'power'
+    if s:winshell()
       let cmd_escape_char = &shellxquote == '(' ?  '^' : '^^^'
       call system('cmd /c "'.prefix.s:gsub(a:cmd,'[<>]', cmd_escape_char.'&').' > '.tmp.'"')
     else
@@ -2080,7 +2114,10 @@ function! s:ReplaceCmd(cmd,...) abort
   try
     silent edit!
   finally
-    silent exe 'keepalt file '.s:fnameescape(fn)
+    try
+      silent exe 'keepalt file '.s:fnameescape(fn)
+    catch /^Vim\%((\a\+)\)\=:E302/
+    endtry
     call delete(tmp)
     if fnamemodify(bufname('$'), ':p') ==# tmp
       silent execute 'bwipeout '.bufnr('$')
@@ -2146,8 +2183,8 @@ function! s:BufReadIndex() abort
     nnoremap <buffer> <silent> cc :<C-U>Gcommit<CR>
     nnoremap <buffer> <silent> cva :<C-U>Gcommit --amend --verbose<CR>
     nnoremap <buffer> <silent> cvc :<C-U>Gcommit --verbose<CR>
-    nnoremap <buffer> <silent> D :<C-U>execute <SID>StageDiff('Gvdiff')<CR>
-    nnoremap <buffer> <silent> dd :<C-U>execute <SID>StageDiff('Gvdiff')<CR>
+    nnoremap <buffer> <silent> D :<C-U>execute <SID>StageDiff('Gdiff')<CR>
+    nnoremap <buffer> <silent> dd :<C-U>execute <SID>StageDiff('Gdiff')<CR>
     nnoremap <buffer> <silent> dh :<C-U>execute <SID>StageDiff('Gsdiff')<CR>
     nnoremap <buffer> <silent> ds :<C-U>execute <SID>StageDiff('Gsdiff')<CR>
     nnoremap <buffer> <silent> dp :<C-U>execute <SID>StageDiffEdit()<CR>
@@ -2155,7 +2192,9 @@ function! s:BufReadIndex() abort
     nnoremap <buffer> <silent> p :<C-U>execute <SID>StagePatch(line('.'),line('.')+v:count1-1)<CR>
     xnoremap <buffer> <silent> p :<C-U>execute <SID>StagePatch(line("'<"),line("'>"))<CR>
     nnoremap <buffer> <silent> q :<C-U>if bufnr('$') == 1<Bar>quit<Bar>else<Bar>bdelete<Bar>endif<CR>
+    nnoremap <buffer> <silent> r :<C-U>edit<CR>
     nnoremap <buffer> <silent> R :<C-U>edit<CR>
+    nnoremap <buffer> <silent> U :<C-U>execute <SID>StageUndo()<CR>
     nnoremap <buffer> <silent> g?   :help fugitive-:Gstatus<CR>
     nnoremap <buffer> <silent> <F1> :help fugitive-:Gstatus<CR>
   catch /^fugitive:/
@@ -2214,7 +2253,7 @@ function! s:BufWriteIndexFile() abort
     endif
     let info = old_mode.' '.sha1.' '.stage."\t".path
     call writefile([info],tmp)
-    if &shell =~# 'cmd' || &shell =~# 'power'
+    if s:winshell()
       let error = system('type '.s:gsub(tmp,'/','\\').'|'.s:repo().git_command('update-index','--index-info'))
     else
       let error = system(s:repo().git_command('update-index','--index-info').' < '.tmp)
@@ -2300,7 +2339,7 @@ function! s:BufReadObject() abort
         setlocal bufhidden=delete
       endif
       if b:fugitive_type !=# 'blob'
-        set filetype=git
+        setlocal filetype=git foldmethod=syntax
         nnoremap <buffer> <silent> a :<C-U>let b:fugitive_display_format += v:count1<Bar>exe <SID>BufReadObject()<CR>
         nnoremap <buffer> <silent> i :<C-U>let b:fugitive_display_format -= v:count1<Bar>exe <SID>BufReadObject()<CR>
       else
@@ -2334,8 +2373,7 @@ augroup fugitive_files
         \ endif
 augroup END
 
-" }}}1
-" Temp files {{{1
+" Section: Temp files
 
 if !exists('s:temp_files')
   let s:temp_files = {}
@@ -2354,8 +2392,7 @@ augroup fugitive_temp
         \ endif
 augroup END
 
-" }}}1
-" Go to file {{{1
+" Section: Go to file
 
 function! s:JumpInit() abort
   nnoremap <buffer> <silent> <CR>    :<C-U>exe <SID>GF("edit")<CR>
@@ -2508,6 +2545,10 @@ function! s:GF(mode) abort
 
       elseif line('$') == 1 && getline('.') =~ '^\x\{40\}$'
         let ref = getline('.')
+
+      elseif expand('<cword>') =~# '^\x\{7,40\}\>'
+        return s:Edit(a:mode,0,expand('<cword>'))
+
       else
         let ref = ''
       endif
@@ -2544,8 +2585,7 @@ function! s:GF(mode) abort
   endtry
 endfunction
 
-" }}}1
-" Statusline {{{1
+" Section: Statusline
 
 function! s:repo_head_ref() dict abort
   if !filereadable(self.dir('HEAD'))
@@ -2580,8 +2620,7 @@ function! fugitive#head(...) abort
   return s:repo().head(a:0 ? a:1 : 0)
 endfunction
 
-" }}}1
-" Folding {{{1
+" Section: Folding
 
 function! fugitive#foldtext() abort
   if &foldmethod !=# 'syntax'
@@ -2629,7 +2668,3 @@ augroup fugitive_foldtext
         \    set foldtext=fugitive#foldtext() |
         \ endif
 augroup END
-
-" }}}1
-
-" vim:set et sw=2:

@@ -30,6 +30,8 @@ function! dispatch#shellescape(...) abort
   for arg in a:000
     if arg =~ '^[A-Za-z0-9_/.-]\+$'
       let args += [arg]
+    elseif &shell =~# 'c\@<!sh'
+      let args += [substitute(shellescape(arg), '\\\n', '\n', 'g')]
     else
       let args += [shellescape(arg)]
     endif
@@ -134,9 +136,9 @@ function! dispatch#isolate(keep, ...) abort
     let var = matchstr(line, '^\w\+\ze=')
     if !empty(var) && var !=# '_' && index(a:keep, var) < 0
       if &shell =~# 'csh'
-        let command += ['setenv '.var.' '.shellescape(eval('$'.var))]
+        let command += split('setenv '.var.' '.shellescape(eval('$'.var)), "\n")
       else
-        let command += ['export '.var.'='.shellescape(eval('$'.var))]
+        let command += split('export '.var.'='.dispatch#shellescape(eval('$'.var)), "\n")
       endif
     endif
   endfor
@@ -344,11 +346,11 @@ function! s:compiler_complete(compiler, A, L, P) abort
     return results
   elseif type(results) != type('')
     unlet! results
-    let results = map(split(glob(a:A.'*'), "\n"),
-          \           'isdirectory(v:val) ? v:val . dispatch#slash() : v:val')
+    let results = join(map(split(glob(a:A.'*'), "\n"),
+          \ 'isdirectory(v:val) ? v:val . dispatch#slash() : v:val'), "\n")
   endif
 
-  return s:completion_filter(split(results, "\n"))
+  return s:completion_filter(split(results, "\n"), a:A)
 endfunction
 
 function! dispatch#command_complete(A, L, P) abort
@@ -642,11 +644,7 @@ endfunction
 
 function! s:open_quickfix(request, copen) abort
   let was_qf = &buftype ==# 'quickfix'
-  if a:copen || !empty(filter(getqflist(), 'v:val.valid'))
-    copen
-  else
-    cclose
-  endif
+  execute 'botright' (a:copen ? 'copen' : 'cwindow')
   if &buftype ==# 'quickfix' && !was_qf && !a:copen
     wincmd p
   endif

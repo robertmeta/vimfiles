@@ -301,12 +301,9 @@ nmap <leader>t :CtrlPBufTagAll<CR>
 nmap <leader>f :CtrlPCurWD<CR>
 nmap <leader>m :CtrlPMRU<CR>
 
-" enable AutoSave on Vim startup
-let g:auto_save = 1
-
 " Godef 
-let g:godef_split = 1
-let g:godef_same_file_in_same_window=1
+let g:godef_split = 0
+let g:godef_same_file_in_same_window = 1
 nmap <leader>gd :call GodefUnderCursor<CR>
 
 " Supertab
