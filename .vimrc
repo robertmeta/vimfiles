@@ -218,7 +218,7 @@ if has("autocmd")
 
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go listchars=tab:\|\ ,trail:- ft=go " Go uses tabs
-        au FileType go autocmd BufWritePre <buffer> :keepjumps Fmt " assumes Fmt is defined
+        " au FileType go autocmd BufWritePre <buffer> :keepjumps Fmt " assumes Fmt is defined
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
 
         " Override types
