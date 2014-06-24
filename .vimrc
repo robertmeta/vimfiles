@@ -304,7 +304,6 @@ nmap <leader>m :CtrlPMRU<CR>
 " Godef 
 let g:godef_split = 0
 let g:godef_same_file_in_same_window = 1
-nmap <leader>gd :call GodefUnderCursor<CR>
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
