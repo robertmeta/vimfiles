@@ -4,7 +4,7 @@ mkdir -p bundle
 git clone https://github.com/airblade/vim-gitgutter.git bundle/gitgutter && rm -rf bundle/gitgutter/.git
 git clone https://github.com/christoomey/vim-tmux-navigator.git bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/inkpot/.git
-git clone https://github.com/dgryski/vim-godef bundle/godef && rm -rf bundle/godef/.git
+#git clone https://github.com/dgryski/vim-godef bundle/godef && rm -rf bundle/godef/.git
 git clone https://github.com/ervandew/supertab.git bundle/supertab && rm -rf bundle/supertab/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
 git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp && rm -rf bundle/ctrlp/.git
@@ -27,3 +27,4 @@ git clone https://github.com/tpope/vim-speeddating.git bundle/speeddating && rm 
 git clone https://github.com/tpope/vim-surround.git bundle/surround && rm -rf bundle/surround/.git
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/tpope/vim-vinegar.git bundle/vinegar && rm -rf bundle/vinegar/.git
+git clone https://github.com/fatih/vim-go.git bundle/vim-go && rm -rf bundle/vim-go/.git
