@@ -366,10 +366,10 @@ nmap <leader>grm :Gremove<CR>
 nmap <leader>gm :Gmove<CR>
 
 " Easy Motion
-nmap f <Plug>(easymotion-bd-w)
-nmap F <Plug>(easymotion-bd-W)
-nmap s <Plug>(easymotion-s)
-nmap S <Plug>(easymotion-s2)
+nmap <leader>f <Plug>(easymotion-bd-w)
+nmap <leader>F <Plug>(easymotion-bd-W)
+nmap <leader>s <Plug>(easymotion-s)
+nmap <leader>S <Plug>(easymotion-s2)
 
 " Make collaborators more happy
 inoremap kj <Esc>
