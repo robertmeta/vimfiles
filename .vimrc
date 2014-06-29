@@ -197,8 +197,8 @@ nmap <leader>> <C-w>15>
 nmap <leader>+ <C-w>15+
 nmap <leader>- <C-w>15-
 nmap <leader>_ <C-w>15-
-nmap <leader>w <C-W>w<CR>
 nmap <leader>o <C-W>o<CR>
+nmap <leader>w <ESC>:w<CR>
 nmap <leader>q <ESC>:q<CR>
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
