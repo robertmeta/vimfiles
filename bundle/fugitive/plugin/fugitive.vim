@@ -964,15 +964,16 @@ endfunction
 
 call s:command("-nargs=? -complete=customlist,s:CommitComplete Gcommit :execute s:Commit(<q-args>)")
 
-function! s:Commit(args) abort
+function! s:Commit(args, ...) abort
+  let repo = a:0 ? a:1 : s:repo()
   let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd ' : 'cd '
   let dir = getcwd()
-  let msgfile = s:repo().dir('COMMIT_EDITMSG')
+  let msgfile = repo.dir('COMMIT_EDITMSG')
   let outfile = tempname()
   let errorfile = tempname()
   try
     try
-      execute cd.s:fnameescape(s:repo().tree())
+      execute cd.s:fnameescape(repo.tree())
       if s:winshell()
         let command = ''
         let old_editor = $GIT_EDITOR
@@ -980,7 +981,7 @@ function! s:Commit(args) abort
       else
         let command = 'env GIT_EDITOR=false '
       endif
-      let command .= s:repo().git_command('commit').' '.a:args
+      let command .= repo.git_command('commit').' '.a:args
       if &shell =~# 'csh'
         noautocmd silent execute '!('.command.' > '.outfile.') >& '.errorfile
       elseif a:args =~# '\%(^\| \)-\%(-interactive\|p\|-patch\)\>'
@@ -1058,7 +1059,7 @@ function! s:FinishCommit() abort
   let args = getbufvar(+expand('<abuf>'),'fugitive_commit_arguments')
   if !empty(args)
     call setbufvar(+expand('<abuf>'),'fugitive_commit_arguments','')
-    return s:Commit(args)
+    return s:Commit(args, s:repo(getbufvar(+expand('<abuf>'),'git_dir')))
   endif
   return ''
 endfunction
@@ -1529,6 +1530,35 @@ augroup fugitive_commit
   autocmd!
   autocmd VimLeavePre,BufDelete COMMIT_EDITMSG execute s:sub(s:FinishCommit(), '^echoerr (.*)', 'echohl ErrorMsg|echo \1|echohl NONE')
 augroup END
+
+" Section: Gpush, Gfetch
+
+call s:command("-nargs=? -bang -complete=custom,s:RemoteComplete Gpush  execute s:Dispatch('<bang>', 'push '.<q-args>)")
+call s:command("-nargs=? -bang -complete=custom,s:RemoteComplete Gfetch execute s:Dispatch('<bang>', 'fetch '.<q-args>)")
+
+function! s:Dispatch(bang, args)
+  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd' : 'cd'
+  let cwd = getcwd()
+  let [mp, efm, cc] = [&l:mp, &l:efm, get(b:, 'current_compiler', '')]
+  try
+    let b:current_compiler = 'git'
+    let &l:errorformat = s:common_efm
+    let &l:makeprg = g:fugitive_git_executable . ' ' . a:args
+    execute cd fnameescape(s:repo().tree())
+    if exists(':Make') == 2
+      noautocmd Make
+    else
+      silent noautocmd make!
+      redraw!
+      return 'call fugitive#cwindow()'
+    endif
+    return ''
+  finally
+    let [&l:mp, &l:efm, b:current_compiler] = [mp, efm, cc]
+    if empty(cc) | unlet! b:current_compiler | endif
+    execute cd fnameescape(cwd)
+  endtry
+endfunction
 
 " Section: Gdiff
 
