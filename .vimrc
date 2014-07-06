@@ -34,7 +34,6 @@ set cpoptions=aABceFsmq
 "             |+-- :write updates alternative file name
 "             +-- :read updates alternative file name
 syntax on " syntax highlighting on
-let g:skip_loading_mswin=1 " Just in case :)
 set history=99999 " big old history
 set timeoutlen=500 " half a second for combos
 set formatoptions+=n " Recognize numbered lists
@@ -151,7 +150,7 @@ set formatoptions=rq " Automatically insert comment leader on return, and let gq
 set ignorecase " case insensitive by default
 set infercase " case inferred by default
 set smartcase " if there are caps, go case-sensitive
-set wrap " do wrap lines... change is scary
+set nowrap " don't wrap lines
 set textwidth=0 " No autowrapping
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
@@ -278,6 +277,7 @@ if s:running_windows
     else
         let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'
 endif
+let g:skip_loading_mswin=1 " Just in case :)
 let g:ctrlp_buftag_types = {'go': '--language-force=go --golang-types=ftv'}
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window_bottom = 1
@@ -306,7 +306,8 @@ nmap <leader>m :CtrlPMRU<CR>
 let g:godef_split = 0
 let g:godef_same_file_in_same_window = 1
 
-let g:go_auto_type_info = 1
+" Vim-go
+let g:go_auto_type_info = 0
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
