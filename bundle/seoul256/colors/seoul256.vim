@@ -226,9 +226,9 @@ call s:hi('CursorColumn', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
 
 call s:hi('Directory', [187, 95], ['', ''])
 
-call s:hi('DiffAdd',    ['NONE', 'NONE'], [24, 189])
+call s:hi('DiffAdd',    ['NONE', 'NONE'], [22, 151])
 call s:hi('DiffDelete', ['NONE', 'NONE'], [95, 181])
-call s:hi('DiffChange', ['NONE', 'NONE'], [s:dark_bg + 3, 151])
+call s:hi('DiffChange', ['NONE', 'NONE'], [24, 189])
 call s:hi('DiffText',   ['NONE', 'NONE'], [52, 224])
 
 call s:hi('VertSplit', [s:dark_bg_2, s:light_bg - 3], [s:dark_bg_2, s:light_bg - 3])
@@ -289,6 +289,14 @@ call s:hi('Question', [179, 88], ['', ''])
 " Search hit bottom
 call s:hi('WarningMsg', [179, 88], ['', ''])
 
+" Sign column
+call s:hi('SignColumn', [173, 173], [s:dark_bg, s:light_bg])
+
+" Diff
+call s:hi('diffAdded',   [108, 65], ['', ''])
+call s:hi('diffRemoved', [174, 131], ['', ''])
+hi link diffLine Constant
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -306,21 +314,10 @@ let g:indent_guides_auto_colors = 0
 call s:hi('IndentGuidesOdd', ['', ''], [s:dark_bg - 1, s:light_bg + 1])
 call s:hi('IndentGuidesEven', ['', ''], [s:dark_bg + 1, s:light_bg - 1])
 
-" vim-scroll-position
-" -------------------
-call s:hi('SignColumn',                  [173, 173], [s:dark_bg, s:light_bg])
-call s:hi('ScrollPositionMarker',        [173, 173], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('ScrollPositionVisualBegin',   [168, 88],  [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('ScrollPositionVisualMiddle',  [168, 88],  [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('ScrollPositionVisualEnd',     [168, 88],  [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('ScrollPositionVisualOverlap', [168, 88],  [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('ScrollPositionChange',        [173, 173], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('ScrollPositionJump',          [173, 173], [s:dark_bg + 1, s:light_bg - 2])
-
 " vim-gitgutter
 " -------------
-call s:hi('GitGutterAdd', [38, 38], ['', ''])
-call s:hi('GitGutterChange', [65, 65], ['', ''])
+call s:hi('GitGutterAdd', [108, 65], ['', ''])
+call s:hi('GitGutterChange', [68, 68], ['', ''])
 call s:hi('GitGutterDelete', [161, 161], ['', ''])
 call s:hi('GitGutterChangeDelete', [168, 168], ['', ''])
 

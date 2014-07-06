@@ -1,7 +1,7 @@
 rm -rf bundle
 mkdir -p bundle
 
-git clone https://github.com/airblade/vim-gitgutter.git bundle/gitgutter && rm -rf bundle/gitgutter/.git
+#git clone https://github.com/airblade/vim-gitgutter.git bundle/gitgutter && rm -rf bundle/gitgutter/.git
 git clone https://github.com/christoomey/vim-tmux-navigator.git bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/inkpot/.git
 #git clone https://github.com/dgryski/vim-godef bundle/godef && rm -rf bundle/godef/.git
@@ -22,7 +22,7 @@ git clone https://github.com/tpope/vim-abolish.git bundle/abolish && rm -rf bund
 git clone https://github.com/tpope/vim-commentary.git bundle/commentary && rm -rf bundle/commentary/.git
 git clone https://github.com/tpope/vim-dispatch.git bundle/dispatch && rm -rf bundle/dispatch/.git
 git clone https://github.com/tpope/vim-eunuch.git bundle/eunuch && rm -rf bundle/eunuch/.git
-git clone https://github.com/tpope/vim-fugitive.git bundle/fugitive && rm -rf bundle/fugitive/.git
+#git clone https://github.com/tpope/vim-fugitive.git bundle/fugitive && rm -rf bundle/fugitive/.git
 git clone https://github.com/tpope/vim-repeat.git bundle/repeat && rm -rf bundle/repeat/.git
 git clone https://github.com/tpope/vim-sensible.git bundle/sensible && rm -rf bundle/sensible/.git
 git clone https://github.com/tpope/vim-speeddating.git bundle/speeddating && rm -rf bundle/speeddating/.git
