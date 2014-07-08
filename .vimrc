@@ -17,6 +17,7 @@ execute pathogen#infect()
 Helptag " Help for plugins
 
 " Basics
+" space has the charisma to be a leader
 nmap <space> <leader>
 set cryptmethod=blowfish " use the good stuff!
 set nocompatible " explicitly get out of vi-compatible mode
@@ -42,10 +43,6 @@ set viminfo+=! " Store upper-case registers in viminfo
 set nomore " Short nomore
 set ttyfast " Assume a fast terminal
 set ttyscroll=5 " See if this helps scroll speed
-" use modelines (if not root)
-if $USER != "root"
-    set modeline
-endif
 
 " turn off beep
 set noerrorbells
@@ -53,7 +50,7 @@ set novisualbell
 set t_vb=
 
 " security stuff
-set nomodeline
+set nomodeline " no need to ever use a modeline, I am in control of settings
 set noexrc " set we can use local .vimrc
 set secure " but lets not go crazy
 
