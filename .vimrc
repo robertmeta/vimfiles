@@ -264,9 +264,9 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_open_multiple_files = 'ij'
 let g:ctrlp_buftag_ctags_bin = 'ctags'
 if s:running_windows
-    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d | findstr /v \.git | findstr /v \.hg' " Windows
 else
-    let g:ctrlp_user_command = 'find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.git*" ! -iwholename "*.createme*" \)'       " MacOSX/Linux
+    let g:ctrlp_user_command = 'find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename ".hg"  ! -iwholename ".git" \)'       " MacOSX/Linux
 endif
 let g:ctrlp_show_hidden = 1
 nmap <leader>b :CtrlPBuffer<CR>
