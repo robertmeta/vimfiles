@@ -6,10 +6,8 @@
 "   http://robertmelton.com (many forms of communication)
 scriptencoding utf-8 " yey! utf-8
 
-" Startup
+" Lazyiness helpers
 let s:running_windows = has("win16") || has("win32") || has("win64")
-let s:running_cygwin = has('win32unix')
-let s:running_macvim = has('gui_macvim')
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 
 " Before we do anything, lets get pathogen up
@@ -54,19 +52,12 @@ set nomodeline " no need to ever use a modeline, I am in control of settings
 set noexrc " set we can use local .vimrc
 set secure " but lets not go crazy
 
-" turn off background redraw
-set t_ut=
-
 " General
 filetype plugin indent on
 set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
-if exists('$TMUX')
-    set clipboard=
-else
-    set clipboard=unnamed "sync with OS clipboard
-endif
 if s:running_windows
+    set clipboard=unnamed "sync with OS clipboard
     set backupdir=~/vimfiles/backup " where to put backup files
     set undodir=~/vimfiles/undo " where to put undo files
     set directory=~/vimfiles/temp " directory to place swap files in
@@ -167,20 +158,7 @@ set hidden " load files in background
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
-"syntax sync minlines=300 " remove for performance
-
-" Abbreviations
-cnoreabbrev W w
-cnoreabbrev Bp bp
-cnoreabbrev Bn bn
-cnoreabbrev Wa wa
-cnoreabbrev Wq wq
-cnoreabbrev Wqa wqa
-cnoreabbrev WQa wqa
-cnoreabbrev Q q
-cnoreabbrev Qw qw
-
-iab <expr> dts_ strftime("%c")
+syntax sync minlines=300 " helps to avoid syntax highlighting bugs
 
 " Mappings
 map Y y$
@@ -196,8 +174,6 @@ nmap <leader>_ <C-w>15-
 nmap <leader>o <C-W>o<CR>
 nmap <leader>w <ESC>:w<CR>
 nmap <leader>q <ESC>:q<CR>
-cmap cwd lcd %:p:h
-cmap cd. lcd %:p:h
 
 " Autocommands
 if has("autocmd")
@@ -265,7 +241,7 @@ endif
 if has("mouse")
     set mouse=a " use mouse everywhere
     set ttymouse=xterm2 " makes it work in everything
-    set mousehide
+    set mousehide " hide the mouse when typing
 endif
 
 " CtrlP
@@ -346,7 +322,7 @@ let use_xhtml = 0
 " Perl Settings
 let perl_extended_vars = 1 " highlight advanced perl vars inside strings
 
-" Ag grep 
+" Ag grep
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
 endif
