@@ -185,9 +185,11 @@ function! fugitive#detect(path) abort
     if expand('%:p') =~# '//'
       call buffer.setvar('&path', s:sub(buffer.getvar('&path'), '^\.%(,|$)', ''))
     endif
-    if stridx(buffer.getvar('&tags'), escape(b:git_dir.'/tags', ', ')) == -1
-      call buffer.setvar('&tags', escape(b:git_dir.'/tags', ', ').','.buffer.getvar('&tags'))
-      if &filetype !=# ''
+    if stridx(buffer.getvar('&tags'), escape(b:git_dir, ', ')) == -1
+      if filereadable(b:git_dir.'/tags')
+        call buffer.setvar('&tags', escape(b:git_dir.'/tags', ', ').','.buffer.getvar('&tags'))
+      endif
+      if &filetype !=# '' && filereadable(b:git_dir.'/'.&filetype.'.tags')
         call buffer.setvar('&tags', escape(b:git_dir.'/'.&filetype.'.tags', ', ').','.buffer.getvar('&tags'))
       endif
     endif
@@ -1163,7 +1165,7 @@ function! s:Merge(cmd, bang, args) abort
   if empty(filter(getqflist(),'v:val.valid'))
     if !had_merge_msg && filereadable(s:repo().dir('MERGE_MSG'))
       cclose
-      return 'Gcommit --no-status -t '.s:shellesc(s:repo().dir('MERGE_MSG'))
+      return 'Gcommit --no-status -n -t '.s:shellesc(s:repo().dir('MERGE_MSG'))
     endif
   endif
   let qflist = getqflist()

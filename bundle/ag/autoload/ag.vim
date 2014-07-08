@@ -43,7 +43,10 @@ function! ag#Ag(cmd, args)
 
   " Format, used to manage column jump
   if a:cmd =~# '-g$'
+    let s:agformat_backup=g:agformat
     let g:agformat="%f"
+  elseif exists("s:agformat_backup")
+    let g:agformat=s:agformat_backup
   elseif !exists("g:agformat")
     let g:agformat="%f:%l:%c:%m"
   endif
