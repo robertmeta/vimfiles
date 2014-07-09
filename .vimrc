@@ -52,6 +52,9 @@ set nomodeline " no need to ever use a modeline, I am in control of settings
 set noexrc " set we can use local .vimrc
 set secure " but lets not go crazy
 
+" t_ut is needed for many themes to look right
+set t_ut=
+
 " General
 filetype plugin indent on
 set backspace=indent,eol,start " make backspace a more flexible
