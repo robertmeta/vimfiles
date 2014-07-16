@@ -384,11 +384,14 @@ function! dispatch#command_complete(A, L, P) abort
 endfunction
 
 function! dispatch#make_complete(A, L, P) abort
+  let modelines = &modelines
   try
+    let &modelines = 0
     silent doautocmd QuickFixCmdPre dispatch-make-complete
     return s:compiler_complete(s:current_compiler(), a:A, a:L, a:P)
   finally
     silent doautocmd QuickFixCmdPost dispatch-make-complete
+    let &modelines = modelines
   endtry
 endfunction
 
@@ -444,9 +447,9 @@ function! dispatch#compile_command(bang, args, count) abort
   endif
   let request.format = substitute(request.format, ',%-G%\.%#\%($\|,\@=\)', '', '')
   if a:count
-    let request.command = substitute(request.command, '<lnum>'.s:flags, '\=fnamemodify(a:count, submatch(0)[6:-1])', 'g')
+    let request.command = substitute(request.command, '<\%(lnum\|line1\|line2\)>'.s:flags, '\=fnamemodify(a:count, submatch(0)[6:-1])', 'g')
   else
-    let request.command = substitute(request.command, '<lnum>'.s:flags, '', 'g')
+    let request.command = substitute(request.command, '<\%(lnum\|line1\|line2\)>'.s:flags, '', 'g')
   endif
 
   if empty(request.compiler)
@@ -460,7 +463,10 @@ function! dispatch#compile_command(bang, args, count) abort
   cclose
   let &errorfile = request.file
 
+  let modelines = &modelines
+  let after = ''
   try
+    let &modelines = 0
     silent doautocmd QuickFixCmdPre dispatch-make
     let request.directory = getcwd()
     let request.expanded = dispatch#expand(request.command)
@@ -469,12 +475,16 @@ function! dispatch#compile_command(bang, args, count) abort
     let s:files[request.file] = request
 
     if !s:dispatch(request)
+      let after = 'call dispatch#complete('.request.id.')'
+      redraw!
       execute 'silent !'.request.command dispatch#shellpipe(request.file)
-      call feedkeys(":redraw!|call dispatch#complete(".request.id.")\r", 'n')
+      redraw!
     endif
   finally
     silent doautocmd QuickFixCmdPost dispatch-make
+    let &modelines = modelines
   endtry
+  execute after
   return ''
 endfunction
 
@@ -636,7 +646,9 @@ function! s:cgetfile(request, all, copen) abort
   let compiler = get(b:, 'current_compiler', '')
   let cd = haslocaldir() ? 'lcd' : 'cd'
   let dir = getcwd()
+  let modelines = &modelines
   try
+    let &modelines = 0
     call s:set_current_compiler(get(request, 'compiler', ''))
     exe cd fnameescape(request.directory)
     if a:all
@@ -651,6 +663,7 @@ function! s:cgetfile(request, all, copen) abort
   catch '^E40:'
     return v:exception
   finally
+    let &modelines = modelines
     exe cd fnameescape(dir)
     let &l:efm = efm
     let &l:makeprg = makeprg
