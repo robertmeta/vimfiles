@@ -389,4 +389,4 @@ function InkpotDarkColors()
     colo inkpot
 endfunction
 
-call SeoulDarkColors()
+colo solarized
