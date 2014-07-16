@@ -104,7 +104,7 @@ set nolist " too much broken, I don't want to see it
 set matchtime=1 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
-set number " simple line numbers
+set nonumber " turn off line numbers
 set numberwidth=5 " We are good up to 99999 lines
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
