@@ -100,7 +100,7 @@ set incsearch " BUT do highlight as you type you search phrase
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
-set list " we do want to show tabs and tailing to ensure we get them out of my files
+set nolist " too much broken, I don't want to see it
 set matchtime=1 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
