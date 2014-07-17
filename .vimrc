@@ -193,6 +193,7 @@ if has("autocmd")
 
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au FileType go nmap gd <Plug>(go-def)
+        au FileType go nmap <Leader>i <Plug>(go-info)
         au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go " Go uses tabs
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
 
