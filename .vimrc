@@ -160,7 +160,7 @@ set hidden " load files in background
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
-syntax sync minlines=300 " helps to avoid syntax highlighting bugs
+"syntax sync minlines=300 " helps to avoid syntax highlighting bugs
 
 " Mappings
 map Y y$
@@ -173,9 +173,10 @@ nmap <leader>> <C-w>15>
 nmap <leader>+ <C-w>15+
 nmap <leader>- <C-w>15-
 nmap <leader>_ <C-w>15-
-nmap <leader>o <C-W>o<CR>
-nmap <leader>w <ESC>:w<CR>
-nmap <leader>q <ESC>:q<CR>
+nmap <leader>o <C-W>o
+nmap <leader>w <C-W>w
+nmap <leader>W <ESC>:w<CR>
+nmap <leader>Q <ESC>:q<CR>
 
 " Autocommands
 if has("autocmd")
