@@ -2175,13 +2175,15 @@ function! s:Browse(bang,line1,count,...) abort
       let raw = remote
     endif
 
-    let url = s:github_url(s:repo(),raw,rev,commit,path,type,a:line1,a:count)
-    if url == ''
-      let url = s:instaweb_url(s:repo(),rev,commit,path,type,a:count > 0 ? a:line1 : 0)
-    endif
+    for Handler in g:fugitive_experimental_browse_handlers
+      let url = call(Handler, [s:repo(),raw,rev,commit,path,type,a:line1,a:count])
+      if !empty(url)
+        break
+      endif
+    endfor
 
-    if url == ''
-      call s:throw("Instaweb failed to start and '".remote."' is not a GitHub remote")
+    if empty(url)
+      call s:throw("Instaweb failed to start and '".remote."' is not a supported remote")
     endif
 
     if a:bang
@@ -2296,6 +2298,13 @@ function! s:instaweb_url(repo,rev,commit,path,type,...) abort
   endif
   return url
 endfunction
+
+if !exists('g:fugitive_experimental_browse_handlers')
+  let g:fugitive_experimental_browse_handlers = []
+endif
+
+call extend(g:fugitive_experimental_browse_handlers,
+      \ [s:function('s:github_url'), s:function('s:instaweb_url')])
 
 " Section: File access
 
