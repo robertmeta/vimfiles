@@ -390,4 +390,6 @@ function InkpotDarkColors()
     colo inkpot
 endfunction
 
-colo solarized
+let g:seoul256_background=236
+set background=dark
+colo seoul256
