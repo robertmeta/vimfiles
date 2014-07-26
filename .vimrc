@@ -141,6 +141,7 @@ set ignorecase " case insensitive by default
 set infercase " case inferred by default
 set smartcase " if there are caps, go case-sensitive
 set wrap " wrap lines
+let &showbreak = '+++ '
 set textwidth=0 " No autowrapping
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
