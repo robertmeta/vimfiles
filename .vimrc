@@ -176,6 +176,7 @@ nmap <leader>- <C-w>15-
 nmap <leader>_ <C-w>15-
 nmap <leader>o <C-W>o
 nmap <leader>w <C-W>w
+nmap <leader>c <C-W>c
 nmap <leader>W <ESC>:w<CR>
 nmap <leader>Q <ESC>:q<CR>
 
@@ -339,11 +340,11 @@ let g:gitgutter_sign_column_always = 1
 nmap <leader>d :Dispatch<CR>
 
 " Fugitive
-nmap <leader>ga :Gcommit -a<CR>
-nmap <leader>gc :Gcommit<CR>
-nmap <leader>gw :Gwrite<CR>
-nmap <leader>grm :Gremove<CR>
-nmap <leader>gm :Gmove<CR>
+" nmap <leader>ga :Gcommit -a<CR>
+" nmap <leader>gc :Gcommit<CR>
+" nmap <leader>gw :Gwrite<CR>
+" nmap <leader>grm :Gremove<CR>
+" nmap <leader>gm :Gmove<CR>
 
 " Easy Motion
 nmap <leader>f <Plug>(easymotion-bd-w)
