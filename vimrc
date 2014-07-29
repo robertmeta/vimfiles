@@ -33,7 +33,7 @@ set cpoptions=aABceFsmq
 "             |+-- :write updates alternative file name
 "             +-- :read updates alternative file name
 syntax on " syntax highlighting on
-set history=99999 " big old history
+set history=9999 " big old history
 set timeoutlen=500 " half a second for combos
 set formatoptions+=n " Recognize numbered lists
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
