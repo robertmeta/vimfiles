@@ -82,12 +82,23 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | +-- <Space> Normal and Visual
 "             +-- <BS> Normal and Visual
 set wildmenu " turn on command line completion wild style
-set wildignore=*.pdf,*.pyo,*.pyc,*.zip,*.so,*.swp,*.dll,*.o,*.DS_Store,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.a " ignore these
+set wildignore=*.swp,*.bak " ignore these
 if s:running_windows
     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
 endif
+set wildignore+=*.pdf,*.zip,*.so " binaries
+set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " binary images
+set wildignore+=*.a,*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl " compiled spelling word lists
+set wildignore+=*.sw? " Vim swap files
+set wildignore+=*.DS_Store " OSX bullshit
+set wildignore+=*.luac " Lua byte code
+set wildignore+=migrations " Django migrations
+set wildignore+=*.pyc,*.pyo " Python byte code
+set wildignore+=*.orig " Merge resolution file
 set wildmode=list:longest " turn on wild mode huge list
 set viewoptions=folds,options,cursor,unix,slash " Windows/Linux compatibility
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
@@ -95,13 +106,23 @@ set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 set switchbuf=useopen " jump to first open window with buffer
 
+" Time out on key codes but not mappings.
+" " Basically this makes terminal Vim work sanely.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
+" Better Completion
+set complete=.,w,b,u,t
+set completeopt=longest,menuone,preview
+
 " Vim UI
 set incsearch " BUT do highlight as you type you search phrase
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
+set title " mess witht he title
 set linespace=0 " don't insert any extra pixel lines betweens rows
 set nolist " too much broken, I don't want to see it
-set matchtime=1 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
 set number " turn on line numbers
@@ -110,8 +131,11 @@ set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolloff=5 " Keep 5 lines (top/bottom) for scope
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
-set noshowcmd " I know what I am doing.
-set showmatch " show matching brackets
+set showcmd " Show the commands
+set showmode " default but just in case
+set noshowmatch " don't show matching things (RainbowParentheses is better)
+" set matchtime=0 " how many tenths of a second to blink matching brackets for
+" let loaded_matchparen = 1
 set sidescrolloff=5 " Keep 5 lines at the size
 set sidescroll=5 " If you hit edge, jump 5
 set scrolljump=5 " If you hit bottom or top, jump 5
@@ -136,7 +160,7 @@ set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
 set completeopt=menuone " don't use a pop up menu for completions
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
-set formatoptions=rq " Automatically insert comment leader on return, and let gq format comments
+set formatoptions=qrn1j " used to be just rq
 set ignorecase " case insensitive by default
 set infercase " case inferred by default
 set smartcase " if there are caps, go case-sensitive
@@ -161,14 +185,17 @@ set hidden " load files in background
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
-"syntax sync minlines=300 " helps to avoid syntax highlighting bugs
+
+" Syntax control
+set synmaxcol=800 " Don't try to highlight lines longer than 800 characters.
+syntax sync minlines=300 " helps to avoid syntax highlighting bugs
 
 " Mappings
 map Y y$
-nmap <Up> <C-U>
-nmap <Down> <C-D>
-nmap <Left> :bp<CR>
-nmap <Right> :bn<CR>
+nnoremap <left> :cprev<cr>zvzz
+nnoremap <right> :cnext<cr>zvzz
+nnoremap <up> :lprev<cr>zvzz
+nnoremap <down> :lnext<cr>zvzz
 nmap <leader>< <C-w>15<
 nmap <leader>> <C-w>15>
 nmap <leader>+ <C-w>15+
@@ -185,6 +212,8 @@ if has("autocmd")
     augroup vimrcAu
         " Clear!
         au!
+        " Resize windows automagically
+        au VimResized * :wincmd =
 
         " For secure reading/writing
         au BufReadPost * if &key != "" | setlocal noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif
@@ -225,7 +254,10 @@ if has("gui_running")
     "              ||
     "              |+-- use simple dialogs rather than pop-ups
     "              +-- use GUI tabs, not console style tabs
-    set mousehide " hide the mouse cursor when typing
+    " Different cursors for different modes.
+    set guicursor=n-c:block-Cursor-blinkon0
+    set guicursor+=v:block-vCursor-blinkon0
+    set guicursor+=i-ci:ver20-iCursor
 endif
 
 " 256 color term
@@ -290,6 +322,8 @@ let g:go_auto_type_info = 0
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabLongestHighlight = 1
+let g:SuperTabCrMapping = 1
 
 " RainbowParentheses
 let g:rbpt_colorpairs = [
@@ -372,12 +406,18 @@ function SeoulDarkColors()
     let g:seoul256_background=236
     set background=dark
     colo seoul256
+    " Highlight VCS conflict markers
+    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+    RainbowParenthesesActivate
 endfunction
 
 function SeoulLightColors()
     let g:seoul256_background=252
     set background=light
     colo seoul256-light
+    " Highlight VCS conflict markers
+    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+    RainbowParenthesesActivate
 endfunction
 
 function FruitLightColors()
@@ -386,6 +426,9 @@ function FruitLightColors()
     hi SpecialKey cterm=NONE ctermfg=grey
     hi StatusLine ctermbg=152 ctermfg=32
     hi Comment ctermfg=22
+    " Highlight VCS conflict markers
+    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+    RainbowParenthesesActivate
 endfunction
 
 function MoloDarkColors()
@@ -393,13 +436,20 @@ function MoloDarkColors()
     set background=dark
     colo molokai
     hi ColorColumn cterm=NONE ctermbg=black
+    " Highlight VCS conflict markers
+    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+    RainbowParenthesesActivate
 endfunction
 
 function InkpotDarkColors()
     set background=dark
     colo inkpot
+    " Highlight VCS conflict markers
+    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+    RainbowParenthesesActivate
 endfunction
 
 let g:seoul256_background=236
 set background=dark
 colo seoul256
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
