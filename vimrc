@@ -6,61 +6,107 @@
 "   http://robertmelton.com (many forms of communication)
 scriptencoding utf-8 " yey! utf-8
 
-" Before we do anything, lets get pathogen up
+" Before we do anything, lets get pathogen up {{{
 execute pathogen#infect()
 Helptag " Help for plugins
+" }}}
 
-" Lazyiness helpers
+" Lazyiness helpers {{{
 let s:running_windows = has("win16") || has("win32") || has("win64")
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
+" }}}
 
-" space has the charisma to be a leader
+" space has the charisma to be a leader {{{
 nmap <space> <leader>
+" }}}
 
-" Basics
-set cryptmethod=blowfish " use the good stuff!
-set nocompatible " explicitly get out of vi-compatible mode
-set noexrc " don't use local version of .(g)vimrc, .exrc
+" Basics {{{
 set background=dark " we plan to use a dark background
+set completeopt=longest,menuone,preview " complete menu
+set completeopt=menuone " don't use a pop up menu for completions
+set complete=.,w,b,u,t " complete options
+set cryptmethod=blowfish " use the good stuff!
+set diffopt=filler,iwhite " filler and whitespace
+set expandtab " no real tabs please!
 set fenc=utf-8 " UTF-8
-set cpoptions=aABceFsmq
-"             |||||||||
-"             ||||||||+-- When joining lines, leave the cursor between joined lines
-"             |||||||+-- When a new match is created (showmatch) pause for .5
-"             ||||||+-- Set buffer options when entering the buffer
-"             |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
-"             |||+-- Searching continues at the end of the match at the cursor position
-"             ||+-- A backslash has no special meaning in mappings
-"             |+-- :write updates alternative file name
-"             +-- :read updates alternative file name
-syntax on " syntax highlighting on
+set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
+set formatoptions=qrn1j " used to be just rq
 set history=9999 " big old history
-set formatoptions+=n " Recognize numbered lists
-set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
-set viminfo+=! " Store upper-case registers in viminfo
+set ignorecase " case insensitive by default
+set incsearch " BUT do highlight as you type you search phrase
+set infercase " case inferred by default
+set laststatus=2 " always show the status line
+set lazyredraw " do not redraw while running macros
+set linespace=0 " don't insert any extra pixel lines betweens rows
+set nocompatible " explicitly get out of vi-compatible mode
+set noerrorbells " don't be noisy
+set hlsearch " DO highlight searched for phrases
+set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
+set nolist " too much broken, I don't want to see it
 set nomore " Short nomore
+set noshowmatch " don't show matching things (RainbowParentheses is better)
+set notimeout " better timeout handling 
+set novisualbell " don't be noisy
+set number " turn on line numbers
+set numberwidth=5 " We are good up to 99999 lines
+set report=0 " tell us when anything is changed via :
+set ruler " Always show current positions along the bottom
+set scrolljump=5 " If you hit bottom or top, jump 5
+set scrolloff=5 " Keep 5 lines (top/bottom) for scope
+set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
+set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
+set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
+set showcmd " Show the commands
+set showmode " default but just in case
+set sidescroll=5 " If you hit edge, jump 5
+set sidescrolloff=5 " Keep 5 lines at the size
+set smartcase " if there are caps, go case-sensitive
+set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
+set splitbelow " new splits are down
+set splitright " new vsplits are to the right
+set switchbuf=useopen " jump to first open window with buffer
+set tabstop=8 " real tabs should be 8, and they will show with set list on
+set textwidth=0 " No autowrapping
+set title " mess witht he title
+set ttimeoutlen=10 " 10ms timeout 
+set ttimeout " time out on key codes
 set ttyfast " Assume a fast terminal
 set ttyscroll=5 " See if this helps scroll speed
+set t_vb= " seriously, shhhh, don't be noisy
+set viminfo+=! " Store upper-case registers in viminfo
+set whichwrap= " nothing wraps
+set wrap " wrap lines
+" }}}
 
-" turn off beep
-set noerrorbells
-set novisualbell
-set t_vb=
+" Folding {{{
+set foldenable " Turn on folding
+set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+set foldmarker={{{,}}} " use simple markers
+set foldmethod=marker " Fold on the marker
+set foldnestmax=1 " I only like to fold outer functions
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+nmap <leader>z :%foldc<CR>
+nmap <leader>Z :%foldo<CR>
+" }}}
 
-" security stuff
-set nomodeline " no need to ever use a modeline, I am in control of settings
-set noexrc " set we can use local .vimrc
-set secure " but lets not go crazy
-
-" t_ut is needed for many themes to look right
-set t_ut=
-
-" General
+" {{{ Loading / Backups
 filetype plugin indent on
-
-" {{{ File Formats / Backups
 set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
+set fileformats=unix,dos,mac " support all three, in this order
+set hidden " load files in background
+set noautowriteall " do Write on all changes (too buggy to use)
+set noautowrite " don't write on all changes (too buggy to use)
+set noexrc " don't use local version of .(g)vimrc, .exrc
+set nomodeline " no need to ever use a modeline, I am in control of settings
+set nostartofline " leave my cursor where it was
+set secure " but lets not go crazy
+set synmaxcol=800 " Don't try to highlight lines longer than 800 characters.
+set undofile " persistent undo (between saves)
+set undolevels=1000 " persistent undo
+set undoreload=10000 " to undo forced reload with :e!
+syntax on " syntax highlighting on
+syntax sync minlines=300 " helps to avoid syntax highlighting bugs
 if s:running_windows
     set clipboard=unnamed "sync with OS clipboard
     set backupdir=~/vimfiles/backup// " where to put backup files
@@ -71,20 +117,9 @@ else
     set undodir=~/.vim/undo// " where to put undo files
     set directory=~/.vim/temp// " directory to place swap files in
 endif
-set fileformats=unix,dos,mac " support all three, in this order
 " }}}
 
-" set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
-"             | | | | | | | | |
-"             | | | | | | | | +-- "]" Insert and Replace
-"             | | | | | | | +-- "[" Insert and Replace
-"             | | | | | | +-- "~" Normal
-"             | | | | | +-- <Right> Normal and Visual
-"             | | | | +-- <Left> Normal and Visual
-"             | | | +-- "l" Normal and Visual (not recommended)
-"             | | +-- "h" Normal and Visual (not recommended)
-"             | +-- <Space> Normal and Visual
-"             +-- <BS> Normal and Visual
+" Wildmenu {{{
 set wildmenu " turn on command line completion wild style
 set wildignore=*.swp,*.bak " ignore these
 if s:running_windows
@@ -104,44 +139,9 @@ set wildignore+=migrations " Django migrations
 set wildignore+=*.pyc,*.pyo " Python byte code
 set wildignore+=*.orig " Merge resolution file
 set wildmode=list:longest " turn on wild mode huge list
-set viewoptions=folds,options,cursor,unix,slash " Windows/Linux compatibility
-set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
-set splitbelow " new splits are down
-set splitright " new vsplits are to the right
-set switchbuf=useopen " jump to first open window with buffer
+" }}}
 
-" Time outs
-set notimeout
-set ttimeout
-set ttimeoutlen=10
-
-" Better Completion
-set complete=.,w,b,u,t
-set completeopt=longest,menuone,preview
-
-" Vim UI
-set incsearch " BUT do highlight as you type you search phrase
-set laststatus=2 " always show the status line
-set lazyredraw " do not redraw while running macros
-set title " mess witht he title
-set linespace=0 " don't insert any extra pixel lines betweens rows
-set nolist " too much broken, I don't want to see it
-set nohlsearch " do not highlight searched for phrases
-set nostartofline " leave my cursor where it was
-set number " turn on line numbers
-set numberwidth=5 " We are good up to 99999 lines
-set report=0 " tell us when anything is changed via :
-set ruler " Always show current positions along the bottom
-set scrolloff=5 " Keep 5 lines (top/bottom) for scope
-set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
-set showcmd " Show the commands
-set showmode " default but just in case
-set noshowmatch " don't show matching things (RainbowParentheses is better)
-" set matchtime=0 " how many tenths of a second to blink matching brackets for
-" let loaded_matchparen = 1
-set sidescrolloff=5 " Keep 5 lines at the size
-set sidescroll=5 " If you hit edge, jump 5
-set scrolljump=5 " If you hit bottom or top, jump 5
+" Status Line {{{
 set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
 "              | | | | |  |  |                        |      |  |     |    |
 "              | | | | |  |  |                        |      |  |     |    +-- current column
@@ -156,68 +156,44 @@ set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
 "              | | +-- readonly flag in square brackets
 "              | +-- rodified flag in square brackets
 "              +-- full path to file in the buffer
-
-
-" Text Formatting/Layout
-set completeopt=menuone " don't use a pop up menu for completions
-set diffopt=filler,iwhite " filler and whitespace
-set expandtab " no real tabs please!
-set formatoptions=qrn1j " used to be just rq
-set ignorecase " case insensitive by default
-set infercase " case inferred by default
-set smartcase " if there are caps, go case-sensitive
-set wrap " wrap lines
-let &showbreak = '..'
-set textwidth=0 " No autowrapping
-set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
-set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
-set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
-set tabstop=8 " real tabs should be 8, and they will show with set list on
-
-" Folding {{{
-set foldenable " Turn on folding
-set foldmethod=marker " Fold on the marker
-set foldmarker={,} " use simple markers
-set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-set foldnestmax=1 " I only like to fold outer functions
-set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
-nmap <leader>z :%foldc<CR>
-nmap <leader>Z :%foldo<CR>
 " }}}
 
-set noautowrite " don't write on all changes (too buggy to use)
-set noautowriteall " do Write on all changes (too buggy to use)
-set hidden " load files in background
-set undofile " persistent undo (between saves)
-set undolevels=1000 " persistent undo
-set undoreload=10000 " to undo forced reload with :e!
+" cpoptions {{{
+set cpoptions=aABceFsmq
+"             |||||||||
+"             ||||||||+-- When joining lines, leave the cursor between joined lines
+"             |||||||+-- When a new match is created (showmatch) pause for .5
+"             ||||||+-- Set buffer options when entering the buffer
+"             |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
+"             |||+-- Searching continues at the end of the match at the cursor position
+"             ||+-- A backslash has no special meaning in mappings
+"             |+-- :write updates alternative file name
+"             +-- :read updates alternative file name
+" }}}
 
-" Syntax control
-set synmaxcol=800 " Don't try to highlight lines longer than 800 characters.
-syntax sync minlines=300 " helps to avoid syntax highlighting bugs
-
-" Keep search results in middle
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
-" Mappings
+" Custom Maps {{{
 map Y y$
-nnoremap <left> :cprev<cr>zvzz
-nnoremap <right> :cnext<cr>zvzz
-nnoremap <up> :lprev<cr>zvzz
-nnoremap <down> :lnext<cr>zvzz
+nmap <down> :lnext<cr>zvzz
+nmap <leader>c <C-W>c
 nmap <leader>< <C-w>15<
 nmap <leader>> <C-w>15>
-nmap <leader>+ <C-w>15+
-nmap <leader>- <C-w>15-
 nmap <leader>_ <C-w>15-
+nmap <leader>- <C-w>15-
+nmap <leader>+ <C-w>15+
+nmap <leader>h :split<CR>
 nmap <leader>o <C-W>o
-nmap <leader>w <C-W>w
-nmap <leader>c <C-W>c
-nmap <leader>W <ESC>:w<CR>
 nmap <leader>Q <ESC>:q<CR>
+nmap <leader>v :vsplit<CR>
+nmap <leader>w <C-W>w
+nmap <leader>W <ESC>:w<CR>
+nmap <left> :cprev<cr>zvzz
+nmap <right> :cnext<cr>zvzz
+nmap <up> :lprev<cr>zvzz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" }}}
 
-" Autocommands
+" Autocommands {{{
 if has("autocmd")
     augroup vimrcAu
         " Clear!
@@ -255,9 +231,9 @@ if has("autocmd")
         au FileType svn       setlocal spell
         au FileType asciidoc  setlocal spell
     augroup END
-endif
+endif " }}}
 
-" GUI
+" GUI {{{
 if has("gui_running")
     set guifont=Consolas:h9:cANSI " My favorite font
     set guioptions=ce
@@ -268,9 +244,9 @@ if has("gui_running")
     set guicursor=n-c:block-Cursor-blinkon0
     set guicursor+=v:block-vCursor-blinkon0
     set guicursor+=i-ci:ver20-iCursor
-endif
+endif " }}}
 
-" 256 color term
+" 256 color term tweaks {{{
 if s:colorful_term
     "256 color --
     let &t_Co=256
@@ -283,16 +259,17 @@ if s:colorful_term
         let &t_Sf="\ESC[3%dm"
         let &t_Sb="\ESC[4%dm"
     endif
-endif
+    set t_ut=
+endif " }}}
 
-" Mousing
+" Mousing {{{
 if has("mouse")
     set mouse=a " use mouse everywhere
     set ttymouse=xterm2 " makes it work in everything
     set mousehide " hide the mouse when typing
-endif
+endif " }}}
 
-" CtrlP
+" CtrlP {{{
 if s:running_windows
         let g:ctrlp_cache_dir = $HOME.'/vimfiles/ctrlp_cache'
     else
@@ -322,20 +299,24 @@ nmap <leader>t :CtrlPBufTag<CR>
 nmap <leader>T :CtrlPBufTagAll<CR>
 nmap <leader>p :CtrlPCurWD<CR>
 nmap <leader>m :CtrlPMRU<CR>
+" }}}
 
-" Godef 
+" Godef {{{
 let g:godef_split = 0
 let g:godef_same_file_in_same_window = 1
+" }}}
 
-" Vim-go
+" Vim-go {{{
 let g:go_auto_type_info = 0
+" }}}
 
-" Supertab
+" Supertab {{{
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabLongestHighlight = 1
 let g:SuperTabCrMapping = 1
+" }}}
 
-" RainbowParentheses
+" RainbowParentheses {{{
 let g:rbpt_colorpairs = [
     \ ['blue', 'RoyalBlue3'],
     \ ['darkred', 'firebrick3'],
@@ -363,19 +344,23 @@ let g:rbpt_colorpairs = [
     \ ['darkmagenta', 'RoyalBlue3'],
 \ ]
 let g:rbpt_max = 24
+" }}}
 
-" HTML Settings
+" HTML Settings {{{
 let html_number_lines = 0
 let html_use_css = 0
 let use_xhtml = 0
+" }}}
 
-" Perl Settings
+" Perl Settings {{{
 let perl_extended_vars = 1 " highlight advanced perl vars inside strings
+" }}}
 
-" Ag grep
+" Ag grep {{{
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
 endif
+" }}}
 
 " Dispatch {{{
 nmap <leader>d :Dispatch<CR>
@@ -405,15 +390,57 @@ nmap <leader>s <Plug>(easymotion-s)
 nmap <leader>S <Plug>(easymotion-s2)
 " }}}
 
-nmap <leader>v :vsplit<CR>
-nmap <leader>h :split<CR>
+" Highlight Word {{{
+"
+" This mini-plugin provides a few mappings for highlighting words temporarily.
+"
+" Sometimes you're looking at a hairy piece of code and would like a certain
+" word or two to stand out temporarily.  You can search for it, but that only
+" gives you one color of highlighting.  Now you can use <leader>N where N is
+" a number from 1-6 to highlight the current word in a specific color.
+function! HiInterestingWord(n)
+    " Save our location.
+    normal! mz
 
-" Custom Theme Setups
+    " Yank the current word into the z register.
+    normal! "zyiw
+
+    " Calculate an arbitrary match ID.  Hopefully nothing else is using it.
+    let mid = 86750 + a:n
+
+    " Clear existing matches, but don't worry if they don't exist.
+    silent! call matchdelete(mid)
+
+    " Construct a literal pattern that has to match at boundaries.
+    let pat = '\V\<' . escape(@z, '\') . '\>'
+
+    " Actually match the words.
+    call matchadd("InterestingWord" . a:n, pat, 1, mid)
+
+    " Move back to our original location.
+    normal! `z
+endfunction
+
+nmap <leader>1 :call HiInterestingWord(1)<cr>
+nmap <leader>2 :call HiInterestingWord(2)<cr>
+nmap <leader>3 :call HiInterestingWord(3)<cr>
+nmap <leader>4 :call HiInterestingWord(4)<cr>
+nmap <leader>5 :call HiInterestingWord(5)<cr>
+nmap <leader>6 :call HiInterestingWord(6)<cr>
+
+hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
+hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
+hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
+hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
+hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
+hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
+" }}}
+
+" Custom Functions {{{
 function SeoulDarkColors()
     let g:seoul256_background=236
     set background=dark
     colo seoul256
-    " Highlight VCS conflict markers
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
     RainbowParenthesesActivate
 endfunction
@@ -422,7 +449,6 @@ function SeoulLightColors()
     let g:seoul256_background=252
     set background=light
     colo seoul256-light
-    " Highlight VCS conflict markers
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
     RainbowParenthesesActivate
 endfunction
@@ -433,7 +459,6 @@ function FruitLightColors()
     hi SpecialKey cterm=NONE ctermfg=grey
     hi StatusLine ctermbg=152 ctermfg=32
     hi Comment ctermfg=22
-    " Highlight VCS conflict markers
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
     RainbowParenthesesActivate
 endfunction
@@ -443,7 +468,6 @@ function MoloDarkColors()
     set background=dark
     colo molokai
     hi ColorColumn cterm=NONE ctermbg=black
-    " Highlight VCS conflict markers
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
     RainbowParenthesesActivate
 endfunction
@@ -451,12 +475,14 @@ endfunction
 function InkpotDarkColors()
     set background=dark
     colo inkpot
-    " Highlight VCS conflict markers
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
     RainbowParenthesesActivate
 endfunction
+" }}}
 
+" Basline Theme {{{
 let g:seoul256_background=236
 set background=dark
 colo seoul256
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+" }}}
