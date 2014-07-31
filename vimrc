@@ -61,13 +61,13 @@ set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
 if s:running_windows
     set clipboard=unnamed "sync with OS clipboard
-    set backupdir=~/vimfiles/backup " where to put backup files
-    set undodir=~/vimfiles/undo " where to put undo files
-    set directory=~/vimfiles/temp " directory to place swap files in
+    set backupdir=~/vimfiles/backup// " where to put backup files
+    set undodir=~/vimfiles/undo// " where to put undo files
+    set directory=~/vimfiles/temp// " directory to place swap files in
 else
-    set backupdir=~/.vim/backup " where to put backup files
-    set undodir=~/.vim/undo " where to put undo files
-    set directory=~/.vim/temp " directory to place swap files in
+    set backupdir=~/.vim/backup// " where to put backup files
+    set undodir=~/.vim/undo// " where to put undo files
+    set directory=~/.vim/temp// " directory to place swap files in
 endif
 set fileformats=unix,dos,mac " support all three, in this order
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
@@ -115,6 +115,38 @@ set ttimeoutlen=10
 " Better Completion
 set complete=.,w,b,u,t
 set completeopt=longest,menuone,preview
+
+" Highlight word
+function! HiInterestingWord(n) " {{{
+    " Save our location.
+    normal! mz
+
+    " Yank the current word into the z register.
+    normal! "zyiw
+
+    " Calculate an arbitrary match ID.  Hopefully nothing else is using it.
+    let mid = 86750 + a:n
+
+    " Clear existing matches, but don't worry if they don't exist.
+    silent! call matchdelete(mid)
+
+    " Construct a literal pattern that has to match at boundaries.
+    let pat = '\V\<' . escape(@z, '\') . '\>'
+
+    " Actually match the words.
+    call matchadd("InterestingWord" . a:n, pat, 1, mid)
+
+    " Move back to our original location.
+    normal! `z
+endfunction " }}}
+
+" Mappings {{{
+nnoremap <silent> <leader>1 :call HiInterestingWord(1)<cr>
+nnoremap <silent> <leader>2 :call HiInterestingWord(2)<cr>
+nnoremap <silent> <leader>3 :call HiInterestingWord(3)<cr>
+nnoremap <silent> <leader>4 :call HiInterestingWord(4)<cr>
+nnoremap <silent> <leader>5 :call HiInterestingWord(5)<cr>
+nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
 
 " Vim UI
 set incsearch " BUT do highlight as you type you search phrase
