@@ -6,17 +6,18 @@
 "   http://robertmelton.com (many forms of communication)
 scriptencoding utf-8 " yey! utf-8
 
-" Lazyiness helpers
-let s:running_windows = has("win16") || has("win32") || has("win64")
-let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
-
 " Before we do anything, lets get pathogen up
 execute pathogen#infect()
 Helptag " Help for plugins
 
-" Basics
+" Lazyiness helpers
+let s:running_windows = has("win16") || has("win32") || has("win64")
+let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
+
 " space has the charisma to be a leader
 nmap <space> <leader>
+
+" Basics
 set cryptmethod=blowfish " use the good stuff!
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
@@ -34,7 +35,6 @@ set cpoptions=aABceFsmq
 "             +-- :read updates alternative file name
 syntax on " syntax highlighting on
 set history=9999 " big old history
-set timeoutlen=500 " half a second for combos
 set formatoptions+=n " Recognize numbered lists
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* "and bullets, too
 set viminfo+=! " Store upper-case registers in viminfo
@@ -57,6 +57,8 @@ set t_ut=
 
 " General
 filetype plugin indent on
+
+" {{{ File Formats / Backups
 set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
 if s:running_windows
@@ -70,7 +72,9 @@ else
     set directory=~/.vim/temp// " directory to place swap files in
 endif
 set fileformats=unix,dos,mac " support all three, in this order
-set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
+" }}}
+
+" set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | | | | | | | | |
 "             | | | | | | | | +-- "]" Insert and Replace
 "             | | | | | | | +-- "[" Insert and Replace
@@ -106,8 +110,7 @@ set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 set switchbuf=useopen " jump to first open window with buffer
 
-" Time out on key codes but not mappings.
-" " Basically this makes terminal Vim work sanely.
+" Time outs
 set notimeout
 set ttimeout
 set ttimeoutlen=10
@@ -115,44 +118,6 @@ set ttimeoutlen=10
 " Better Completion
 set complete=.,w,b,u,t
 set completeopt=longest,menuone,preview
-
-" Highlight word
-function! HiInterestingWord(n) " {{{
-    " Save our location.
-    normal! mz
-
-    " Yank the current word into the z register.
-    normal! "zyiw
-
-    " Calculate an arbitrary match ID.  Hopefully nothing else is using it.
-    let mid = 86750 + a:n
-
-    " Clear existing matches, but don't worry if they don't exist.
-    silent! call matchdelete(mid)
-
-    " Construct a literal pattern that has to match at boundaries.
-    let pat = '\V\<' . escape(@z, '\') . '\>'
-
-    " Actually match the words.
-    call matchadd("InterestingWord" . a:n, pat, 1, mid)
-
-    " Move back to our original location.
-    normal! `z
-endfunction
-
-nnoremap <silent> <leader>1 :call HiInterestingWord(1)<cr>
-nnoremap <silent> <leader>2 :call HiInterestingWord(2)<cr>
-nnoremap <silent> <leader>3 :call HiInterestingWord(3)<cr>
-nnoremap <silent> <leader>4 :call HiInterestingWord(4)<cr>
-nnoremap <silent> <leader>5 :call HiInterestingWord(5)<cr>
-nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
-
-hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
-hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
-hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
-hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
-hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
-hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
 
 " Vim UI
 set incsearch " BUT do highlight as you type you search phrase
@@ -177,7 +142,6 @@ set noshowmatch " don't show matching things (RainbowParentheses is better)
 set sidescrolloff=5 " Keep 5 lines at the size
 set sidescroll=5 " If you hit edge, jump 5
 set scrolljump=5 " If you hit bottom or top, jump 5
-
 set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
 "              | | | | |  |  |                        |      |  |     |    |
 "              | | | | |  |  |                        |      |  |     |    +-- current column
@@ -210,13 +174,17 @@ set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like 
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 
-" Folding
+" Folding {{{
 set foldenable " Turn on folding
 set foldmethod=marker " Fold on the marker
 set foldmarker={,} " use simple markers
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+nmap <leader>z :%foldc<CR>
+nmap <leader>Z :%foldo<CR>
+" }}}
+
 set noautowrite " don't write on all changes (too buggy to use)
 set noautowriteall " do Write on all changes (too buggy to use)
 set hidden " load files in background
@@ -227,6 +195,10 @@ set undoreload=10000 " to undo forced reload with :e!
 " Syntax control
 set synmaxcol=800 " Don't try to highlight lines longer than 800 characters.
 syntax sync minlines=300 " helps to avoid syntax highlighting bugs
+
+" Keep search results in middle
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " Mappings
 map Y y$
@@ -405,36 +377,33 @@ if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-" Git gutter
-let g:gitgutter_sign_column_always = 1
-
-" Dispatch
+" Dispatch {{{
 nmap <leader>d :Dispatch<CR>
+" }}}
 
-" Fugitive
-" nmap <leader>ga :Gcommit -a<CR>
-" nmap <leader>gc :Gcommit<CR>
-" nmap <leader>gw :Gwrite<CR>
-" nmap <leader>grm :Gremove<CR>
-" nmap <leader>gm :Gmove<CR>
+" Fugitive {{{
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gw :Gwrite<cr>
+nmap <leader>ga :Gadd<cr>
+nmap <leader>gb :Gblame<cr>
+nmap <leader>gco :Gcheckout<cr>
+nmap <leader>gci :Gcommit<cr>
+nmap <leader>gm :Gmove<cr>
+nmap <leader>gr :Gremove<cr>
+" }}}
 
-" Easy Motion
-nmap <leader>f <Plug>(easymotion-bd-w)
-nmap <leader>F <Plug>(easymotion-bd-W)
-nmap <leader>s <Plug>(easymotion-s)
-nmap <leader>S <Plug>(easymotion-s2)
+" Easy Motion {{{
 let g:EasyMotion_do_shade = 1
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 let g:EasyMotion_inc_highlight = 1
-
-" Folding
-nmap <leader>z :%foldc<CR>
-nmap <leader>Z :%foldo<CR>
-
-" Make collaborators more happy
-inoremap kj <Esc>
+nmap <leader>f <Plug>(easymotion-bd-w)
+nmap <leader>F <Plug>(easymotion-bd-W)
+nmap <leader>s <Plug>(easymotion-s)
+nmap <leader>S <Plug>(easymotion-s2)
+" }}}
 
 nmap <leader>v :vsplit<CR>
 nmap <leader>h :split<CR>
