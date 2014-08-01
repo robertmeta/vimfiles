@@ -31,3 +31,4 @@ git clone https://github.com/tpope/vim-surround.git bundle/surround && rm -rf bu
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/tpope/vim-vinegar.git bundle/vinegar && rm -rf bundle/vinegar/.git
 git clone https://github.com/wellle/targets.vim.git bundle/targets && rm -rf bundle/targets/.git
+git clone git://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
