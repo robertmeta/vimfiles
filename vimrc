@@ -363,6 +363,10 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
 " }}}
 
+" Tagbar {{{
+let g:tagbar_left = 1 " Stack on left with NERDTree for terminal mouse limits
+" }}}
+
 " Ag grep {{{
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
