@@ -186,7 +186,7 @@ nmap <leader>v :vsplit<CR>
 nmap <leader>w <C-W>w
 nmap <leader>W <ESC>:w<CR>
 nmap <left> :NERDTreeToggle<cr>
-nmap <right> :TagBarToggle<cr>
+nmap <right> :TagbarToggle<cr>
 nmap <up> :cprev<cr>zvzz
 nmap <down> :cnext<cr>zvzz
 nnoremap n nzzzv
