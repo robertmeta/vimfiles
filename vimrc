@@ -173,7 +173,6 @@ set cpoptions=aABceFsmq
 
 " Custom Maps {{{
 map Y y$
-nmap <down> :lnext<cr>zvzz
 nmap <leader>c <C-W>c
 nmap <leader>< <C-w>15<
 nmap <leader>> <C-w>15>
@@ -186,9 +185,10 @@ nmap <leader>Q <ESC>:q<CR>
 nmap <leader>v :vsplit<CR>
 nmap <leader>w <C-W>w
 nmap <leader>W <ESC>:w<CR>
-nmap <left> :cprev<cr>zvzz
-nmap <right> :cnext<cr>zvzz
-nmap <up> :lprev<cr>zvzz
+nmap <left> :NERDTreeToggle<cr>
+nmap <right> :TagBarToggle<cr>
+nmap <up> :cprev<cr>zvzz
+nmap <down> :cnext<cr>zvzz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 " }}}
