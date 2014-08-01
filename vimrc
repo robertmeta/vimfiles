@@ -1,17 +1,18 @@
+" {{{ Informational header
 "   This is my personal .vimrc, I don't recommend you copy it, just
 "   use the pieces you want (and understand!).  When you copy a
 "   .vimrc in its entirety, weird and unexpected things can happen
 "
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
-scriptencoding utf-8 " yey! utf-8
-
-" Before we do anything, lets get pathogen up {{{
-execute pathogen#infect()
-Helptag " Help for plugins
 " }}}
 
-" Lazyiness helpers {{{
+" Baseline Setup  {{{
+scriptencoding utf-8 " yey! utf-8
+" Before we do anything, lets get pathogen up
+execute pathogen#infect() 
+Helptag " Help for plugins
+" Lazyiness helpers 
 let s:running_windows = has("win16") || has("win32") || has("win64")
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 " }}}
@@ -64,7 +65,7 @@ set smartcase " if there are caps, go case-sensitive
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
-set switchbuf=useopen " jump to first open window with buffer
+set switchbuf=split " when working with quickfix use new splits
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 set textwidth=0 " No autowrapping
 set title " mess witht he title
@@ -78,19 +79,8 @@ set whichwrap= " nothing wraps
 set wrap " wrap lines
 " }}}
 
-" Folding {{{
-set foldenable " Turn on folding
-set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-set foldmarker={{{,}}} " use simple markers
-set foldmethod=marker " Fold on the marker
-set foldnestmax=1 " I only like to fold outer functions
-set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
-nmap <leader>z :%foldc<CR>
-nmap <leader>Z :%foldo<CR>
-" }}}
-
-" {{{ Loading / Backups
-filetype plugin indent on
+" {{{ File / Loading / Backups / Swap
+filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 set backspace=indent,eol,start " make backspace a more flexible
 set backup " make backup files
 set fileformats=unix,dos,mac " support all three, in this order
@@ -117,6 +107,18 @@ else
     set undodir=~/.vim/undo// " where to put undo files
     set directory=~/.vim/temp// " directory to place swap files in
 endif
+" }}}
+
+" Folding {{{
+set foldenable " Turn on folding
+set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+set foldmarker={{{,}}} " use simple markers
+set foldmethod=marker " Fold on the marker
+set foldnestmax=1 " I only like to fold outer functions
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+" Dirty little hacks that do outer level opening and closing
+nmap <leader>z :%foldc<CR> 
+nmap <leader>Z :%foldo<CR>
 " }}}
 
 " Wildmenu {{{
@@ -171,9 +173,26 @@ set cpoptions=aABceFsmq
 "             +-- :read updates alternative file name
 " }}}
 
+" whichwrap {{{
+set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
+" | | | | | | | | |
+" | | | | | | | | +-- "]" Insert and Replace
+" | | | | | | | +-- "[" Insert and Replace
+" | | | | | | +-- "~" Normal
+" | | | | | +-- <Right> Normal and Visual
+" | | | | +-- <Left> Normal and Visual
+" | | | +-- "l" Normal and Visual (not recommended)
+" | | +-- "h" Normal and Visual (not recommended)
+" | +-- <Space> Normal and Visual
+" +-- <BS> Normal and Visual
+" }}}
+
 " Custom Maps {{{
 map Y y$
-nmap <leader>c <C-W>c
+" quickfix next/prev with centering
+nmap <down> :cnext<cr>zvzz
+nmap <up> :cprev<cr>zvzz
+nmap <leader>c <C-W>c 
 nmap <leader>< <C-w>15<
 nmap <leader>> <C-w>15>
 nmap <leader>_ <C-w>15-
@@ -187,8 +206,7 @@ nmap <leader>w <C-W>w
 nmap <leader>W <ESC>:w<CR>
 nmap <left> :NERDTreeToggle<cr>
 nmap <right> :TagbarToggle<cr>
-nmap <up> :cprev<cr>zvzz
-nmap <down> :cnext<cr>zvzz
+" keep centered when jumping serach results
 nnoremap n nzzzv
 nnoremap N Nzzzv
 " }}}
@@ -231,7 +249,8 @@ if has("autocmd")
         au FileType svn       setlocal spell
         au FileType asciidoc  setlocal spell
     augroup END
-endif " }}}
+endif
+" }}}
 
 " GUI {{{
 if has("gui_running")
@@ -240,6 +259,7 @@ if has("gui_running")
     "              ||
     "              |+-- use simple dialogs rather than pop-ups
     "              +-- use GUI tabs, not console style tabs
+
     " Different cursors for different modes.
     set guicursor=n-c:block-Cursor-blinkon0
     set guicursor+=v:block-vCursor-blinkon0
@@ -259,15 +279,19 @@ if s:colorful_term
         let &t_Sf="\ESC[3%dm"
         let &t_Sb="\ESC[4%dm"
     endif
+
+    " don't clear background color
     set t_ut=
-endif " }}}
+endif 
+" }}}
 
 " Mousing {{{
 if has("mouse")
     set mouse=a " use mouse everywhere
     set ttymouse=xterm2 " makes it work in everything
     set mousehide " hide the mouse when typing
-endif " }}}
+endif 
+" }}}
 
 " CtrlP {{{
 if s:running_windows
@@ -301,12 +325,9 @@ nmap <leader>p :CtrlPCurWD<CR>
 nmap <leader>m :CtrlPMRU<CR>
 " }}}
 
-" Godef {{{
+" vim-go {{{
 let g:godef_split = 0
 let g:godef_same_file_in_same_window = 1
-" }}}
-
-" Vim-go {{{
 let g:go_auto_type_info = 0
 " }}}
 
@@ -445,7 +466,7 @@ function InkpotDarkColors()
 endfunction
 " }}}
 
-" Basline Theme {{{
+" Basline Themes {{{
 let g:seoul256_background=236
 set background=dark
 colo seoul256
