@@ -356,6 +356,13 @@ let use_xhtml = 0
 let perl_extended_vars = 1 " highlight advanced perl vars inside strings
 " }}}
 
+" NERDTree {{{
+let NERDTreeHijackNetrw = 0 " I use vim-vinegar most of the time, don't mess with -
+let NERDChristmasTree = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 0
+" }}}
+
 " Ag grep {{{
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
