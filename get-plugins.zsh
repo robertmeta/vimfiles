@@ -16,6 +16,7 @@ git clone https://github.com/Lokaltog/vim-easymotion.git bundle/easymotion && rm
 #git clone https://github.com/paradigm/TextObjectify.git bundle/textobjectify && rm -rf bundle/textobjectify/.git
 git clone https://github.com/PProvost/vim-ps1.git bundle/ps1 && rm -rf bundle/ps1/.git
 git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
+git clone https://github.com/scrooloose/nerdtree.git bundle/nerdtree && rm -rf bundle/nerdtree/.git
 git clone https://github.com/scrooloose/syntastic.git bundle/syntastic && rm -rf bundle/syntastic/.git
 git clone https://github.com/tomasr/molokai.git bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-abolish.git bundle/abolish && rm -rf bundle/abolish/.git
