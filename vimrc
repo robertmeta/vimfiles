@@ -22,6 +22,7 @@ nmap <space> <leader>
 " }}}
 
 " Basics {{{
+let loaded_matchparen = 1 " we don't want to use matching paren plugin, we got RainbowParen
 set background=dark " we plan to use a dark background
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
