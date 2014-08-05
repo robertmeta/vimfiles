@@ -23,7 +23,6 @@ nmap <space> <leader>
 
 " Basics {{{
 let loaded_matchparen = 1 " we don't want to use matching paren plugin, we got RainbowParen
-set background=dark " we plan to use a dark background
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
@@ -76,7 +75,6 @@ set ttyfast " Assume a fast terminal
 set ttyscroll=5 " See if this helps scroll speed
 set t_vb= " seriously, shhhh, don't be noisy
 set viminfo+=! " Store upper-case registers in viminfo
-set whichwrap= " nothing wraps
 set wrap " wrap lines
 " }}}
 
@@ -425,8 +423,8 @@ nmap <leader>S <Plug>(easymotion-s2)
 
 " Custom Functions {{{
 function SeoulDarkColors()
-    let g:seoul256_background=236
     set background=dark
+    let g:seoul256_background=236
     colo seoul256
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
     RainbowParenthesesActivate
@@ -451,8 +449,8 @@ function FruitLightColors()
 endfunction
 
 function MoloDarkColors()
-    let g:molokai_background = 236
     set background=dark
+    let g:molokai_background = 236
     colo molokai
     hi ColorColumn cterm=NONE ctermbg=black
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -467,7 +465,7 @@ function InkpotDarkColors()
 endfunction
 " }}}
 
-" Basline Themes {{{
+" Basline Theme (diff from function, because RainbowParenActivate not called) {{{
 let g:seoul256_background=236
 set background=dark
 colo seoul256
