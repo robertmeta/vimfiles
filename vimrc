@@ -9,7 +9,7 @@
 " Baseline {{{
 scriptencoding utf-8 " yey! utf-8
 execute pathogen#infect() 
-helptags " Help for plugins
+Helptag " Help for plugins
 " }}}
 
 " DRY helpers {{{
