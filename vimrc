@@ -18,40 +18,40 @@ let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 " }}}
 
 " General mappings {{{
-nnoremap <space> <leader>
+nmap <space> <leader>
 map Y y$
 
 " quickfix next/prev with centering
-nnoremap <down> :cnext<cr>zvzz
-nnoremap <up> :cprev<cr>zvzz
+nmap <down> :cnext<cr>zvzz
+nmap <up> :cprev<cr>zvzz
 
 " folding / unfolding outer layer
-nnoremap <leader>z :%foldc<CR> 
-nnoremap <leader>Z :%foldo<CR>
+nmap <leader>z :%foldc<CR> 
+nmap <leader>Z :%foldo<CR>
 
 " Window control
-nnoremap <leader>c <C-W>c 
-nnoremap <leader>< <C-w>15<
-nnoremap <leader>> <C-w>15>
-nnoremap <leader>_ <C-w>15-
-nnoremap <leader>- <C-w>15-
-nnoremap <leader>+ <C-w>15+
-nnoremap <leader>h :split<CR>
-nnoremap <leader>o <C-W>o
-nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>w <C-W>w
+nmap <leader>c <C-W>c 
+nmap <leader>< <C-w>15<
+nmap <leader>> <C-w>15>
+nmap <leader>_ <C-w>15-
+nmap <leader>- <C-w>15-
+nmap <leader>+ <C-w>15+
+nmap <leader>h :split<CR>
+nmap <leader>o <C-W>o
+nmap <leader>v :vsplit<CR>
+nmap <leader>w <C-W>w
 
 " Buffer control
-nnoremap <leader>Q <ESC>:q<CR>
-nnoremap <leader>W <ESC>:w<CR>
+nmap <leader>Q <ESC>:q<CR>
+nmap <leader>W <ESC>:w<CR>
 
 " Addon control
-nnoremap <left> :NERDTreeToggle<cr>
-nnoremap <right> :TagbarToggle<cr>
+nmap <left> :NERDTreeToggle<cr>
+nmap <right> :TagbarToggle<cr>
 
 " keep centered when jumping serach results
-nnoremap n nzzzv
-nnoremap N Nzzzv
+nmap n nzzzv
+nmap N Nzzzv
 " }}}
 
 " Loading Settings {{{
@@ -327,11 +327,11 @@ else
     let g:ctrlp_user_command = 'find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'       " MacOSX/Linux
 endif
 let g:ctrlp_show_hidden = 1
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>t :CtrlPBufTag<CR>
-nnoremap <leader>T :CtrlPBufTagAll<CR>
-nnoremap <leader>p :CtrlPCurWD<CR>
-nnoremap <leader>m :CtrlPMRU<CR>
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>t :CtrlPBufTag<CR>
+nmap <leader>T :CtrlPBufTagAll<CR>
+nmap <leader>p :CtrlPCurWD<CR>
+nmap <leader>m :CtrlPMRU<CR>
 " }}}
 
 " vim-go {{{
@@ -344,8 +344,8 @@ if has("autocmd")
         au!
 
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au FileType go nnoremap gd <Plug>(go-def)
-        au FileType go nnoremap <Leader>i <Plug>(go-info)
+        au FileType go nmap gd <Plug>(go-def)
+        au FileType go nmap <Leader>i <Plug>(go-info)
     augroup END
 endif
 " }}}
@@ -414,19 +414,19 @@ endif
 " }}}
 
 " Dispatch {{{
-nnoremap <leader>d :Dispatch<CR>
+nmap <leader>d :Dispatch<CR>
 " }}}
 
 " Fugitive {{{
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>ga :Gadd<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gco :Gcheckout<cr>
-nnoremap <leader>gci :Gcommit<cr>
-nnoremap <leader>gm :Gmove<cr>
-nnoremap <leader>gr :Gremove<cr>
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gw :Gwrite<cr>
+nmap <leader>ga :Gadd<cr>
+nmap <leader>gb :Gblame<cr>
+nmap <leader>gco :Gcheckout<cr>
+nmap <leader>gci :Gcommit<cr>
+nmap <leader>gm :Gmove<cr>
+nmap <leader>gr :Gremove<cr>
 " }}}
 
 " Easy Motion {{{
@@ -435,10 +435,10 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 let g:EasyMotion_inc_highlight = 1
-nnoremap <leader>f <Plug>(easymotion-bd-w)
-nnoremap <leader>F <Plug>(easymotion-bd-W)
-nnoremap <leader>s <Plug>(easymotion-s)
-nnoremap <leader>S <Plug>(easymotion-s2)
+nmap <leader>f <Plug>(easymotion-bd-w)
+nmap <leader>F <Plug>(easymotion-bd-W)
+nmap <leader>s <Plug>(easymotion-s)
+nmap <leader>S <Plug>(easymotion-s2)
 " }}}
 
 " Theme setup {{{
