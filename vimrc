@@ -264,7 +264,8 @@ if has("gui_running")
     set guicursor=n-c:block-Cursor-blinkon0
     set guicursor+=v:block-vCursor-blinkon0
     set guicursor+=i-ci:ver20-iCursor
-endif " }}}
+endif 
+" }}}
 
 " 256 color term tweaks {{{
 if s:colorful_term
@@ -285,11 +286,19 @@ if s:colorful_term
 endif 
 " }}}
 
+" ConEMU Settings (awesome!) {{{
+if s:running_windows && has("gui_running") == 0
+    set term=xterm
+    set t_Co=256
+    let &t_AB="\e[48;5;%dm"
+    let &t_AF="\e[38;5;%dm"
+endif
+" }}}
+
 " Mousing {{{
 if has("mouse")
     set mouse=a " use mouse everywhere
     set ttymouse=xterm2 " makes it work in everything
-    set mousehide " hide the mouse when typing
 endif 
 " }}}
 
