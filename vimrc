@@ -1,28 +1,67 @@
-" {{{ Informational header
 "   This is my personal .vimrc, I don't recommend you copy it, just
 "   use the pieces you want (and understand!).  When you copy a
 "   .vimrc in its entirety, weird and unexpected things can happen
 "
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
+
+
+" Baseline {{{
+scriptencoding utf-8 " yey! utf-8
+execute pathogen#infect() 
+helptags " Help for plugins
 " }}}
 
-" Baseline Setup  {{{
-scriptencoding utf-8 " yey! utf-8
-" Before we do anything, lets get pathogen up
-execute pathogen#infect() 
-Helptag " Help for plugins
-" Lazyiness helpers 
+" DRY helpers {{{
 let s:running_windows = has("win16") || has("win32") || has("win64")
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 " }}}
 
-" space has the charisma to be a leader {{{
-nmap <space> <leader>
+" General mappings {{{
+nnoremap <space> <leader>
+map Y y$
+
+" quickfix next/prev with centering
+nnoremap <down> :cnext<cr>zvzz
+nnoremap <up> :cprev<cr>zvzz
+
+" folding / unfolding outer layer
+nnoremap <leader>z :%foldc<CR> 
+nnoremap <leader>Z :%foldo<CR>
+
+" Window control
+nnoremap <leader>c <C-W>c 
+nnoremap <leader>< <C-w>15<
+nnoremap <leader>> <C-w>15>
+nnoremap <leader>_ <C-w>15-
+nnoremap <leader>- <C-w>15-
+nnoremap <leader>+ <C-w>15+
+nnoremap <leader>h :split<CR>
+nnoremap <leader>o <C-W>o
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>w <C-W>w
+
+" Buffer control
+nnoremap <leader>Q <ESC>:q<CR>
+nnoremap <leader>W <ESC>:w<CR>
+
+" Addon control
+nnoremap <left> :NERDTreeToggle<cr>
+nnoremap <right> :TagbarToggle<cr>
+
+" keep centered when jumping serach results
+nnoremap n nzzzv
+nnoremap N Nzzzv
 " }}}
 
-" Basics {{{
+" Loading Settings {{{
+filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 let loaded_matchparen = 1 " we don't want to use matching paren plugin, we got RainbowParen
+" }}}
+
+" Basics Settings {{{
+set backspace=indent,eol,start " make backspace a more flexible
+set backup " make backup files
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
@@ -30,8 +69,16 @@ set cryptmethod=blowfish " use the good stuff!
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set fenc=utf-8 " UTF-8
+set fileformats=unix,dos,mac " support all three, in this order
+set foldenable " Turn on folding
+set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+set foldmarker={{{,}}} " use simple markers
+set foldmethod=marker " Fold on the marker
+set foldnestmax=1 " I only like to fold outer functions
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
 set formatoptions=qrn1j " used to be just rq
+set hidden " load files in background
 set history=9999 " big old history
 set ignorecase " case insensitive by default
 set incsearch " BUT do highlight as you type you search phrase
@@ -39,13 +86,18 @@ set infercase " case inferred by default
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
+set noautowriteall " do Write on all changes (too buggy to use)
+set noautowrite " don't write on all changes (too buggy to use)
 set nocompatible " explicitly get out of vi-compatible mode
 set noerrorbells " don't be noisy
+set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " too much broken, I don't want to see it
+set nomodeline " no need to ever use a modeline, I am in control of settings
 set nomore " Short nomore
 set noshowmatch " don't show matching things (RainbowParentheses is better)
+set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling 
 set novisualbell " don't be noisy
 set number " turn on line numbers
@@ -54,6 +106,7 @@ set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
 set scrolloff=5 " Keep 5 lines (top/bottom) for scope
+set secure " but lets not go crazy
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
@@ -66,6 +119,7 @@ set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab 
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 set switchbuf=split " when working with quickfix use new splits
+set synmaxcol=800 " Don't try to highlight lines longer than 800 characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 set textwidth=0 " No autowrapping
 set title " mess witht he title
@@ -74,28 +128,11 @@ set ttimeout " time out on key codes
 set ttyfast " Assume a fast terminal
 set ttyscroll=5 " See if this helps scroll speed
 set t_vb= " seriously, shhhh, don't be noisy
-set viminfo+=! " Store upper-case registers in viminfo
-set wrap " wrap lines
-" }}}
-
-" {{{ File / Loading / Backups / Swap
-filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
-set backspace=indent,eol,start " make backspace a more flexible
-set backup " make backup files
-set fileformats=unix,dos,mac " support all three, in this order
-set hidden " load files in background
-set noautowriteall " do Write on all changes (too buggy to use)
-set noautowrite " don't write on all changes (too buggy to use)
-set noexrc " don't use local version of .(g)vimrc, .exrc
-set nomodeline " no need to ever use a modeline, I am in control of settings
-set nostartofline " leave my cursor where it was
-set secure " but lets not go crazy
-set synmaxcol=800 " Don't try to highlight lines longer than 800 characters.
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
-syntax on " syntax highlighting on
-syntax sync minlines=300 " helps to avoid syntax highlighting bugs
+set viminfo+=! " Store upper-case registers in viminfo
+set wrap " wrap lines
 if s:running_windows
     set clipboard=unnamed "sync with OS clipboard
     set backupdir=~/vimfiles/backup// " where to put backup files
@@ -106,18 +143,8 @@ else
     set undodir=~/.vim/undo// " where to put undo files
     set directory=~/.vim/temp// " directory to place swap files in
 endif
-" }}}
-
-" Folding {{{
-set foldenable " Turn on folding
-set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-set foldmarker={{{,}}} " use simple markers
-set foldmethod=marker " Fold on the marker
-set foldnestmax=1 " I only like to fold outer functions
-set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
-" Dirty little hacks that do outer level opening and closing
-nmap <leader>z :%foldc<CR> 
-nmap <leader>Z :%foldo<CR>
+syntax on " syntax highlighting on
+syntax sync minlines=300 " helps to avoid syntax highlighting bugs
 " }}}
 
 " Wildmenu {{{
@@ -186,33 +213,9 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 " +-- <BS> Normal and Visual
 " }}}
 
-" Custom Maps {{{
-map Y y$
-" quickfix next/prev with centering
-nmap <down> :cnext<cr>zvzz
-nmap <up> :cprev<cr>zvzz
-nmap <leader>c <C-W>c 
-nmap <leader>< <C-w>15<
-nmap <leader>> <C-w>15>
-nmap <leader>_ <C-w>15-
-nmap <leader>- <C-w>15-
-nmap <leader>+ <C-w>15+
-nmap <leader>h :split<CR>
-nmap <leader>o <C-W>o
-nmap <leader>Q <ESC>:q<CR>
-nmap <leader>v :vsplit<CR>
-nmap <leader>w <C-W>w
-nmap <leader>W <ESC>:w<CR>
-nmap <left> :NERDTreeToggle<cr>
-nmap <right> :TagbarToggle<cr>
-" keep centered when jumping serach results
-nnoremap n nzzzv
-nnoremap N Nzzzv
-" }}}
-
-" Autocommands {{{
+" General Autocommands {{{
 if has("autocmd")
-    augroup vimrcAu
+    augroup general
         " Clear!
         au!
         " Resize windows automagically
@@ -226,8 +229,6 @@ if has("autocmd")
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
 
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au FileType go nmap gd <Plug>(go-def)
-        au FileType go nmap <Leader>i <Plug>(go-info)
         au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go " Go uses tabs
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
 
@@ -317,17 +318,27 @@ else
     let g:ctrlp_user_command = 'find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'       " MacOSX/Linux
 endif
 let g:ctrlp_show_hidden = 1
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>t :CtrlPBufTag<CR>
-nmap <leader>T :CtrlPBufTagAll<CR>
-nmap <leader>p :CtrlPCurWD<CR>
-nmap <leader>m :CtrlPMRU<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>t :CtrlPBufTag<CR>
+nnoremap <leader>T :CtrlPBufTagAll<CR>
+nnoremap <leader>p :CtrlPCurWD<CR>
+nnoremap <leader>m :CtrlPMRU<CR>
 " }}}
 
 " vim-go {{{
 let g:godef_split = 0
 let g:godef_same_file_in_same_window = 1
 let g:go_auto_type_info = 0
+if has("autocmd")
+    augroup vimgo
+        " Clear!
+        au!
+
+        " Go setlocalup assumptions: gocode, godef, gotags all in path
+        au FileType go nnoremap gd <Plug>(go-def)
+        au FileType go nnoremap <Leader>i <Plug>(go-info)
+    augroup END
+endif
 " }}}
 
 " Supertab {{{
@@ -394,19 +405,19 @@ endif
 " }}}
 
 " Dispatch {{{
-nmap <leader>d :Dispatch<CR>
+nnoremap <leader>d :Dispatch<CR>
 " }}}
 
 " Fugitive {{{
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gw :Gwrite<cr>
-nmap <leader>ga :Gadd<cr>
-nmap <leader>gb :Gblame<cr>
-nmap <leader>gco :Gcheckout<cr>
-nmap <leader>gci :Gcommit<cr>
-nmap <leader>gm :Gmove<cr>
-nmap <leader>gr :Gremove<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>ga :Gadd<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gco :Gcheckout<cr>
+nnoremap <leader>gci :Gcommit<cr>
+nnoremap <leader>gm :Gmove<cr>
+nnoremap <leader>gr :Gremove<cr>
 " }}}
 
 " Easy Motion {{{
@@ -415,25 +426,17 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 let g:EasyMotion_inc_highlight = 1
-nmap <leader>f <Plug>(easymotion-bd-w)
-nmap <leader>F <Plug>(easymotion-bd-W)
-nmap <leader>s <Plug>(easymotion-s)
-nmap <leader>S <Plug>(easymotion-s2)
+nnoremap <leader>f <Plug>(easymotion-bd-w)
+nnoremap <leader>F <Plug>(easymotion-bd-W)
+nnoremap <leader>s <Plug>(easymotion-s)
+nnoremap <leader>S <Plug>(easymotion-s2)
 " }}}
 
-" Custom Functions {{{
+" Theme setup {{{
 function SeoulDarkColors()
     set background=dark
     let g:seoul256_background=236
     colo seoul256
-    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-    RainbowParenthesesActivate
-endfunction
-
-function SeoulLightColors()
-    let g:seoul256_background=252
-    set background=light
-    colo seoul256-light
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
     RainbowParenthesesActivate
 endfunction
@@ -448,24 +451,7 @@ function FruitLightColors()
     RainbowParenthesesActivate
 endfunction
 
-function MoloDarkColors()
-    set background=dark
-    let g:molokai_background = 236
-    colo molokai
-    hi ColorColumn cterm=NONE ctermbg=black
-    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-    RainbowParenthesesActivate
-endfunction
-
-function InkpotDarkColors()
-    set background=dark
-    colo inkpot
-    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-    RainbowParenthesesActivate
-endfunction
-" }}}
-
-" Basline Theme (diff from function, because RainbowParenActivate not called) {{{
+" Basline Theme (diff from function, because RainbowParenActivate not called)
 let g:seoul256_background=236
 set background=dark
 colo seoul256
