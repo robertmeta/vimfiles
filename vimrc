@@ -442,8 +442,8 @@ nmap <leader>f <Plug>(easymotion-bd-w)
 nmap <leader>F <Plug>(easymotion-bd-W)
 nmap <leader>s <Plug>(easymotion-s)
 nmap <leader>S <Plug>(easymotion-s2)
-hi EasyMotionTarget2First link Statement
-hi EasyMotionTarget2Second link Number
+hi link EasyMotionTarget2First Statement
+hi link EasyMotionTarget2Second Number
 " }}}
 
 " Theme setup {{{
