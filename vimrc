@@ -229,7 +229,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
 
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go " Go uses tabs
+        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go foldmarker={,} " use simple markers
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
 
         " Override types
