@@ -33,3 +33,5 @@ git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/v
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
 git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
+git clone https://github.com/altercation/vim-colors-solarized bundle/solarized && rm -rf bundle/solarized/.git
+
