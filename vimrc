@@ -89,6 +89,8 @@ set linespace=0 " don't insert any extra pixel lines betweens rows
 set noautowriteall " do Write on all changes (too buggy to use)
 set noautowrite " don't write on all changes (too buggy to use)
 set nocompatible " explicitly get out of vi-compatible mode
+set nocursorcolumn " we don't want a global cursor column
+set nocursorline " we don't want global cursor line highlighting
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
