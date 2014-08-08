@@ -441,8 +441,8 @@ nmap <leader>f <Plug>(easymotion-bd-w)
 nmap <leader>F <Plug>(easymotion-bd-W)
 nmap <leader>s <Plug>(easymotion-s)
 nmap <leader>S <Plug>(easymotion-s2)
-hi EasyMotionTarget ctermbg=none ctermfg=green                                                                                                                                                                                                                                                                                          │
-hi EasyMotionShade  ctermbg=none ctermfg=blue          
+hi EasyMotionTarget ctermbg=none ctermfg=green
+hi EasyMotionShade ctermbg=none ctermfg=blue
 " }}}
 
 " Theme setup {{{
