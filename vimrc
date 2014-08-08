@@ -435,14 +435,12 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 let g:EasyMotion_inc_highlight = 1
-let g:EasyMotion_landing_highlight = 1
+let g:EasyMotion_landing_highlight = 0
 let g:EasyMotion_off_screen_search = 0
 nmap <leader>f <Plug>(easymotion-bd-w)
 nmap <leader>F <Plug>(easymotion-bd-W)
 nmap <leader>s <Plug>(easymotion-s)
 nmap <leader>S <Plug>(easymotion-s2)
-hi EasyMotionTarget ctermbg=none ctermfg=green
-hi EasyMotionShade ctermbg=none ctermfg=blue
 " }}}
 
 " Theme setup {{{
