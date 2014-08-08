@@ -301,6 +301,7 @@ endif
 if has("mouse")
     set mouse=a " use mouse everywhere
     set ttymouse=xterm2 " makes it work in everything
+    set nomousehide " don't hide the mouse
 endif 
 " }}}
 
