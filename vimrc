@@ -460,7 +460,6 @@ function FruitLightColors()
     hi SpecialKey cterm=NONE ctermfg=grey
     hi StatusLine ctermbg=152 ctermfg=32
     hi Comment ctermfg=22
-    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
     RainbowParenthesesActivate
 endfunction
 
