@@ -446,7 +446,6 @@ function SeoulDarkColors()
     set background=dark
     let g:seoul256_background=236
     colo seoul256
-    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
     RainbowParenthesesActivate
 endfunction
 
@@ -461,8 +460,5 @@ function FruitLightColors()
 endfunction
 
 " Basline Theme (diff from function, because RainbowParenActivate not called)
-let g:seoul256_background=236
-set background=dark
-colo seoul256
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+colo slate
 " }}}
