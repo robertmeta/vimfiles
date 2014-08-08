@@ -443,7 +443,7 @@ nmap <leader>F <Plug>(easymotion-bd-W)
 nmap <leader>s <Plug>(easymotion-s)
 nmap <leader>S <Plug>(easymotion-s2)
 hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionShade ErrorMsg
+hi link EasyMotionShade Comment
 " }}}
 
 " Theme setup {{{
