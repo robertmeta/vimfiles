@@ -461,5 +461,5 @@ endfunction
 
 " Basline Theme (diff from function, because RainbowParenActivate not called)
 set background=dark
-colo slate
+colo solarized
 " }}}
