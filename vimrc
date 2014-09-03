@@ -86,6 +86,8 @@ set infercase " case inferred by default
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
+set modeline " I have started using modelines (risky business!)
+set modelines=5 " Search for 5 lines for modelines
 set noautowriteall " do Write on all changes (too buggy to use)
 set noautowrite " don't write on all changes (too buggy to use)
 set nocompatible " explicitly get out of vi-compatible mode
@@ -96,7 +98,6 @@ set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " too much broken, I don't want to see it
-set nomodeline " no need to ever use a modeline, I am in control of settings
 set nomore " Short nomore
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nostartofline " leave my cursor where it was
@@ -416,10 +417,6 @@ if executable("ag")
 endif
 " }}}
 
-" Dispatch {{{
-nmap <leader>d :Dispatch<CR>
-" }}}
-
 " Fugitive {{{
 nmap <leader>gd :Gdiff<cr>
 nmap <leader>gs :Gstatus<cr>
@@ -432,21 +429,30 @@ nmap <leader>gm :Gmove<cr>
 nmap <leader>gr :Gremove<cr>
 " }}}
 
+" Vimux (and Vimux-golang) {{{
+map <Leader>vr :VimuxRunCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vs :VimuxInterruptRunner<CR>
+map <Leader>vt :wa<CR> :GolangTestCurrentPackage<CR>
+map <Leader>vtf :wa<CR> :GolangTestFocused<CR>
+" }}}
+
 " Easy Motion {{{
-let g:EasyMotion_do_shade = 1
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
-let g:EasyMotion_inc_highlight = 1
-let g:EasyMotion_landing_highlight = 0
-let g:EasyMotion_off_screen_search = 0
-let g:EasyMotion_use_smartsign_us = 1
-nmap <leader>f <Plug>(easymotion-bd-w)
-nmap <leader>F <Plug>(easymotion-bd-W)
-nmap <leader>s <Plug>(easymotion-s)
-nmap <leader>S <Plug>(easymotion-s2)
-hi link EasyMotionTarget2First Identifier
-hi link EasyMotionTarget2Second Number
+" let g:EasyMotion_do_shade = 1
+" let g:EasyMotion_do_mapping = 0
+" let g:EasyMotion_use_upper = 1
+" let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
+" let g:EasyMotion_inc_highlight = 1
+" let g:EasyMotion_landing_highlight = 0
+" let g:EasyMotion_off_screen_search = 0
+" let g:EasyMotion_use_smartsign_us = 1
+" nmap <leader>f <Plug>(easymotion-bd-w)
+" nmap <leader>F <Plug>(easymotion-bd-W)
+" nmap <leader>s <Plug>(easymotion-s)
+" nmap <leader>S <Plug>(easymotion-s2)
+" hi link EasyMotionTarget2First Identifier
+" hi link EasyMotionTarget2Second Number
 " }}}
 
 " Theme setup {{{
