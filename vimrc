@@ -390,6 +390,10 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 24
 " }}}
 
+" Dispatch {{{
+nmap <leader>d :Dispatch<cr>
+" }}}
+
 " HTML Settings {{{
 let html_number_lines = 0
 let html_use_css = 0
@@ -429,30 +433,21 @@ nmap <leader>gm :Gmove<cr>
 nmap <leader>gr :Gremove<cr>
 " }}}
 
-" Vimux (and Vimux-golang) {{{
-map <Leader>vr :VimuxRunCommand<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vq :VimuxCloseRunner<CR>
-map <Leader>vs :VimuxInterruptRunner<CR>
-map <Leader>vt :wa<CR> :GolangTestCurrentPackage<CR>
-map <Leader>vtf :wa<CR> :GolangTestFocused<CR>
-" }}}
-
 " Easy Motion {{{
-" let g:EasyMotion_do_shade = 1
-" let g:EasyMotion_do_mapping = 0
-" let g:EasyMotion_use_upper = 1
-" let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
-" let g:EasyMotion_inc_highlight = 1
-" let g:EasyMotion_landing_highlight = 0
-" let g:EasyMotion_off_screen_search = 0
-" let g:EasyMotion_use_smartsign_us = 1
-" nmap <leader>f <Plug>(easymotion-bd-w)
-" nmap <leader>F <Plug>(easymotion-bd-W)
-" nmap <leader>s <Plug>(easymotion-s)
-" nmap <leader>S <Plug>(easymotion-s2)
-" hi link EasyMotionTarget2First Identifier
-" hi link EasyMotionTarget2Second Number
+let g:EasyMotion_do_shade = 1
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
+let g:EasyMotion_inc_highlight = 1
+let g:EasyMotion_landing_highlight = 0
+let g:EasyMotion_off_screen_search = 0
+let g:EasyMotion_use_smartsign_us = 1
+nmap <leader>f <Plug>(easymotion-bd-w)
+nmap <leader>F <Plug>(easymotion-bd-W)
+nmap <leader>s <Plug>(easymotion-s)
+nmap <leader>S <Plug>(easymotion-s2)
+hi link EasyMotionTarget2First Identifier
+hi link EasyMotionTarget2Second Number
 " }}}
 
 " Theme setup {{{
