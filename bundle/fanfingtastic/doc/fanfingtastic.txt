@@ -1,0 +1,174 @@
+*fanfingtastic.txt*	Plugin that enhances the FfTt,; keys
+
+
+			VIM REFERENCE MANUAL	by Barry Arthur
+
+
+Help on using Fanf,ingTastic;                                    *fanfingtastic*
+
+1. Introduction				|fanfingtastic-intro|
+2. Custom mappings			|fanfingtastic-mappings|
+3. Configuration			|fanfingtastic-configuration|
+4. Authors				|fanfingtastic-authors|
+
+==============================================================================
+ 1. INTRODUCTION                                           *fanfingtastic-intro*
+
+Fanf,ingTastic; is a Vim plugin that enhances the builtin |F| |f| |,| |T| |t|
+and |;| keys by allowing them to wrap over lines with the full gamut of
+normal, visual and operator pending mode support. This is all the default
+configuration of Fanf,ingTastic; provides, however the following enhanced
+functionality can be enabled through configuration options:
+
+Ignore Case~
+
+Fanf,ingTastic; is case sensitive by default. The |fanfingtastic-ignorecase|
+option allows you to find both 'x' and 'X' with either fx or fX.
+
+Aliases~
+
+Fanf,ingTastic; allows you to create aliases which specify a set of characters
+that will be scanned for when FfTt;, is used on that alias. For example:
+>
+  :FanfingTasticAlias b ()
+  :FanfingTasticAlias B {}
+<
+would allow fb to search forward to the next '(' or ')' character (spanning
+lines as necessary). Likewise, TB would scan backwards (spanning lines) to
+place the cursor just to the right hand side of the '{' or '}' character prior
+to the cursor's current position. Of course, with both of these aliases
+enabled, the user will not be able to find plain 'b' or 'B' characters with
+the fFtT;, commands. See |fanfingtastic-aliases| for more details.
+
+==============================================================================
+ 2. CUSTOM MAPPINGS                                     *fanfingtastic-mappings*
+
+Fanf,ingTastic; provides the following mappings in order to allow
+customization:
+>
+  <Plug>fanfingtastic_f
+  <Plug>fanfingtastic_F
+  <Plug>fanfingtastic_t
+  <Plug>fanfingtastic_T
+  <Plug>fanfingtastic_;
+  <Plug>fanfingtastic_,
+<
+In case you have remapped, let's say, ';' to ':' and you want to use '-' for
+Fanf,ingTastic; instead, just put the following mappings in your vimrc:
+>
+  nmap - <Plug>fanfingtastic_;
+  xmap - <Plug>fanfingtastic_;
+  omap - <Plug>fanfingtastic_;
+<
+==============================================================================
+ 3. CONFIGURATION                                  *fanfingtastic-configuration*
+                                                         *fanfingtastic-aliases*
+
+:FanfingTasticAlias[!] {name} {target}
+				Define an alias {name} for the corresponding
+				{target}.  {name} can be a character like B or
+				<C-D>. The {target} can be a list of
+				characters or a /regex/.
+
+Examples: >
+
+  :FanfingTasticAlias x []{}()
+  :FanfingTasticAlias <C-D> /\d/
+
+The default vim-flatfoot commands can be used for the start/end of a CamelCase
+or snake_case word: >
+
+  :FanfingTasticAlias <C-W> /\C[[:alnum:]]\@<![[:alnum:]]\\|[^[:upper:]]\@<=[[:upper:]]\\|[[:upper:]][[:lower:]]\@=/
+  :FanfingTasticAlias <C-E> /\C[[:alnum:]][[:alnum:]]\@!\\|[[:lower:][:digit:]][[:upper:]]\@=\\|[[:upper:]]\%([[:upper:]][[:lower:]]\)\@=/
+
+------------------------------------------------------------------------------
+
+The following options alter the behaviour of Fanf,ingTastic;
+
+|'fanfingtastic_all_inclusive'|	Makes backward movements to be |inclusive|.
+|'fanfingtastic_map_over_leader'|	Maps over [,;] even if they are the
+				current |mapleader|.
+|'fanfingtastic_fix_t'|		Fixes the behavior of tT,; and a count.
+|'fanfingtastic_ignorecase'|	Provides case insensitive FfTt,; finding.
+|'fanfingtastic_use_jumplist'|	Adds the movements with fFtT;, to the |jumplist|.
+
+------------------------------------------------------------------------------
+                                                 *'fanfingtastic_all_inclusive'*
+                                               *'g:fanfingtastic_all_inclusive'*
+Values: boolean
+Default: 0                                                                   ~
+
+Backward movements (namely F, T and ; or , depending on the last movement) are
+|exclusive| by default, 'fanfingtastic_all_inclusive' changes that so they
+behave like |inclusive| movements. To enable this, add the following line to
+your $MYVIMRC:
+>
+  let g:fanfingtastic_all_inclusive = 1
+<
+
+------------------------------------------------------------------------------
+                                               *'fanfingtastic_map_over_leader'*
+                                             *'g:fanfingtastic_map_over_leader'*
+Values: boolean
+Default: 0                                                                   ~
+
+Fanf,ingTastic; maps over the [fFtT,;] keys in its aim to fully emulate and
+augment the equivalent builtin functionality. Some people however prefer to
+use either the comma or semicolon key as their |mapleader|. By default,
+Fanf,ingTastic; will not map over your mapleader. To allow this, add the
+following line to your $MYVIMRC:
+>
+  let g:fanfingtastic_map_over_leader = 1
+<
+
+------------------------------------------------------------------------------
+                                                         *'fanfingtastic_fix_t'*
+                                                       *'g:fanfingtastic_fix_t'*
+Values: boolean
+Default: 0                                                                   ~
+
+The commands |t| and |T| when used with the cursor right in front of the
+searched character will decrease the given |count| by 1. Enabling
+'fanfingtastic_fix_t' changes that so that Vim uses the given count as
+expected. To enable this, add the following line to your $MYVIMRC:
+>
+  let g:fanfingtastic_fix_t = 1
+<
+
+------------------------------------------------------------------------------
+                                                    *'fanfingtastic_ignorecase'*
+                                                  *'g:fanfingtastic_ignorecase'*
+Values: boolean
+Default: 0                                                                   ~
+
+Enabling 'fanfingtastic-ignorecase' allows the FfTt,; commands to find case
+insensitive matches of the specified character. For example, fx will find the
+next 'x' or 'X' character. To enable this, add the following line to your
+$MYVIMRC:
+>
+  let g:fanfingtastic_ignorecase = 1
+<
+
+------------------------------------------------------------------------------
+                                                  *'fanfingtastic_use_jumplist'*
+                                                *'g:fanfingtastic_use_jumplist'*
+Values: boolean
+Default: 0                                                                   ~
+
+When this option is enabled movements made with fFtT;, will be added to the
+|jumplist|. To enable this, add the following line to your $MYVIMRC:
+>
+  let g:fanfingtastic_use_jumplist = 1
+<
+
+==============================================================================
+ 4. AUTHORS                                              *fanfingtastic-authors*
+
+Fanf,ingTastic; is maintained by:
+
+Israel Chauca F. <israelchauca@gmail.com> , and
+Barry Arthur <barry.arthur@gmail.com>
+
+Feedback about enhancements or bugs welcome.
+
+ vim:tw=78:ts=8:ft=help:norl:
