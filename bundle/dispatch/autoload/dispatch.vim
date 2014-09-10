@@ -131,10 +131,11 @@ function! dispatch#set_title(request) abort
 endfunction
 
 function! dispatch#isolate(keep, ...) abort
+  let keep = ['SHELL'] + a:keep
   let command = ['cd ' . shellescape(getcwd())]
   for line in split(system('env'), "\n")
     let var = matchstr(line, '^\w\+\ze=')
-    if !empty(var) && var !=# '_' && index(a:keep, var) < 0
+    if !empty(var) && var !=# '_' && index(keep, var) < 0
       if &shell =~# 'csh'
         let command += split('setenv '.var.' '.shellescape(eval('$'.var)), "\n")
       else
@@ -145,7 +146,7 @@ function! dispatch#isolate(keep, ...) abort
   let command += a:000
   let temp = tempname()
   call writefile(command, temp)
-  return 'env -i ' . join(map(copy(a:keep), 'v:val."=\"$". v:val ."\" "'), '') . &shell . ' ' . temp
+  return 'env -i ' . join(map(copy(keep), 'v:val."=\"$". v:val ."\" "'), '') . &shell . ' ' . temp
 endfunction
 
 function! s:current_compiler() abort
@@ -644,7 +645,7 @@ function! s:cgetfile(request, all, copen) abort
   let efm = &l:efm
   let makeprg = &l:makeprg
   let compiler = get(b:, 'current_compiler', '')
-  let cd = haslocaldir() ? 'lcd' : 'cd'
+  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd' : 'cd'
   let dir = getcwd()
   let modelines = &modelines
   try

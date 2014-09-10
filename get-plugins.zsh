@@ -2,7 +2,7 @@ rm -rf bundle
 mkdir -p bundle
 
 git clone https://github.com/altercation/vim-colors-solarized bundle/solarized && rm -rf bundle/solarized/.git
-git clone https://github.com/christoomey/vim-tmux-navigator bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
+# git clone https://github.com/christoomey/vim-tmux-navigator bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/inkpot/.git
 git clone https://github.com/dahu/vim-fanfingtastic.git bundle/fanfingtastic && rm -rf bundle/fanfingtastic/.git
 git clone https://github.com/ervandew/supertab.git bundle/supertab && rm -rf bundle/supertab/.git
