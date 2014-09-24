@@ -204,16 +204,16 @@ set cpoptions=aABceFsmq
 
 " whichwrap {{{
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
-" | | | | | | | | |
-" | | | | | | | | +-- "]" Insert and Replace
-" | | | | | | | +-- "[" Insert and Replace
-" | | | | | | +-- "~" Normal
-" | | | | | +-- <Right> Normal and Visual
-" | | | | +-- <Left> Normal and Visual
-" | | | +-- "l" Normal and Visual (not recommended)
-" | | +-- "h" Normal and Visual (not recommended)
-" | +-- <Space> Normal and Visual
-" +-- <BS> Normal and Visual
+"             | | | | | | | | |
+"             | | | | | | | | +-- "]" Insert and Replace
+"             | | | | | | | +-- "[" Insert and Replace
+"             | | | | | | +-- "~" Normal
+"             | | | | | +-- <Right> Normal and Visual
+"             | | | | +-- <Left> Normal and Visual
+"             | | | +-- "l" Normal and Visual (not recommended)
+"             | | +-- "h" Normal and Visual (not recommended)
+"             | +-- <Space> Normal and Visual
+"             +-- <BS> Normal and Visual
 " }}}
 
 " General Autocommands {{{
