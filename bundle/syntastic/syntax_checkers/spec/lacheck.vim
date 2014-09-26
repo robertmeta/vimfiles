@@ -1,7 +1,7 @@
 "============================================================================
-"File:        puppet.vim
+"File:        rpmlint.vim
 "Description: Syntax checking plugin for syntastic.vim
-"Maintainer:  Eivind Uggedal <eivind at uggedal dot com>
+"Maintainer:  LCD 47 <lcd047 at gmail dot com>
 "License:     This program is free software. It comes without any warranty,
 "             to the extent permitted by applicable law. You can redistribute
 "             it and/or modify it under the terms of the Do What The Fuck You
@@ -10,30 +10,23 @@
 "
 "============================================================================
 
-if exists("g:loaded_syntastic_puppet_puppet_checker")
+if exists('g:loaded_syntastic_spec_rpmlint_checker')
     finish
 endif
-let g:loaded_syntastic_puppet_puppet_checker = 1
+let g:loaded_syntastic_spec_rpmlint_checker = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! SyntaxCheckers_puppet_puppet_GetLocList() dict
-    let ver = syntastic#util#getVersion(self.getExecEscaped() . ' --version 2>' . syntastic#util#DevNull())
-
-    if syntastic#util#versionIsAtLeast(ver, [2,7,0])
-        let args = 'parser validate --color=false'
-    else
-        let args = '--color=false --parseonly'
-    endif
-
-    let makeprg = self.makeprgBuild({ 'args_before': args })
+function! SyntaxCheckers_spec_rpmlint_GetLocList() dict
+    let makeprg = self.makeprgBuild({})
 
     let errorformat =
-        \ '%-Gerr: Try ''puppet help parser validate'' for usage,' .
-        \ '%-GError: Try ''puppet help parser validate'' for usage,' .
-        \ '%A%t%*[a-zA-Z]: %m at %f:%l:%c,' .
-        \ '%A%t%*[a-zA-Z]: %m at %f:%l'
+        \ '%E%f:%l: E: %m,' .
+        \ '%E%f: E: %m,' .
+        \ '%W%f:%l: W: %m,' .
+        \ '%W%f: W: %m,' .
+        \ '%-G%.%#'
 
     return SyntasticMake({
         \ 'makeprg': makeprg,
@@ -41,8 +34,8 @@ function! SyntaxCheckers_puppet_puppet_GetLocList() dict
 endfunction
 
 call g:SyntasticRegistry.CreateAndRegisterChecker({
-    \ 'filetype': 'puppet',
-    \ 'name': 'puppet'})
+    \ 'filetype': 'spec',
+    \ 'name': 'rpmlint'})
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
