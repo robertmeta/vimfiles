@@ -233,13 +233,13 @@ if has("autocmd")
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
 
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go foldmarker={,} spell " use simple markers
+        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go foldmarker={,} " use simple markers
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
 
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
         au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
-        au BufNewFile,BufRead *.md setlocal filetype=markdown spell " Markdown and spelling on
+        au BufNewFile,BufRead *.md setlocal filetype=markdown " Markdown (common markdown?)
         au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
 
         " Rainbow Parens
@@ -247,11 +247,6 @@ if has("autocmd")
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
-
-        " Things I like spellcheck in
-        au FileType gitcommit setlocal spell
-        au FileType svn       setlocal spell
-        au FileType asciidoc  setlocal spell
     augroup END
 endif
 " }}}
