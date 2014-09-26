@@ -119,6 +119,7 @@ set sidescroll=5 " If you hit edge, jump 5
 set sidescrolloff=5 " Keep 5 lines at the size
 set smartcase " if there are caps, go case-sensitive
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
+set spell " spellchecking on (most good syntax files will define relavant spellcheck sections)
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 set switchbuf=split " when working with quickfix use new splits
@@ -232,7 +233,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
 
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go foldmarker={,} " use simple markers
+        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go foldmarker={,} spell " use simple markers
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
 
         " Override types
