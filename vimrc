@@ -482,5 +482,5 @@ endfunction
 
 " Basline Theme (diff from function, because RainbowParenActivate not called)
 set background=dark
-colo solarized
-" }}}
+let g:seoul256_background=236
+colo seoul256
