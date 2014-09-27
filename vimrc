@@ -155,66 +155,66 @@ syntax sync minlines = 300 " helps to avoid syntax highlighting bugs
 set wildmenu " turn on command line completion wild style
 set wildignore = *.swp,*.bak " ignore these
 if s:running_windows
-    set wildignore+= *\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*
+    set wildignore += *\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*
 else
-    set wildignore+= */.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
+    set wildignore += */.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
 endif
-set wildignore+= *.pdf,*.zip,*.so " binaries
-set wildignore+= *.aux,*.out,*.toc " LaTeX intermediate files
-set wildignore+= *.jpg,*.bmp,*.gif,*.png,*.jpeg " binary images
-set wildignore+= *.a,*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+= *.spl " compiled spelling word lists
-set wildignore+= *.sw? " Vim swap files
-set wildignore+= *.DS_Store " OSX bullshit
-set wildignore+= *.luac " Lua byte code
-set wildignore+= migrations " Django migrations
-set wildignore+= *.pyc,*.pyo " Python byte code
-set wildignore+= *.orig " Merge resolution file
+set wildignore += *.pdf,*.zip,*.so " binaries
+set wildignore += *.aux,*.out,*.toc " LaTeX intermediate files
+set wildignore += *.jpg,*.bmp,*.gif,*.png,*.jpeg " binary images
+set wildignore += *.a,*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore += *.spl " compiled spelling word lists
+set wildignore += *.sw? " Vim swap files
+set wildignore += *.DS_Store " OSX bullshit
+set wildignore += *.luac " Lua byte code
+set wildignore += migrations " Django migrations
+set wildignore += *.pyc,*.pyo " Python byte code
+set wildignore += *.orig " Merge resolution file
 set wildmode = list:longest " turn on wild mode huge list
 " }}}
 
 " Status Line {{{
 set statusline = %F%m%r%h%w[%L]%{fugitive#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
-"              | | | | |  |  |                        |      |  |     |    |
-"              | | | | |  |  |                        |      |  |     |    +-- current column
-"              | | | | |  |  |                        |      |  |     +-- current line
-"              | | | | |  |  |                        |      |  +-- current % into file
-"              | | | | |  |  |                        |      +-- current syntax in square brackets
-"              | | | | |  |  |                        +-- current fileformat
-"              | | | | |  |  +-- add fugitive info
-"              | | | | |  +-- number of lines
-"              | | | | +-- preview flag in square brackets
-"              | | | +-- help flag in square brackets
-"              | | +-- readonly flag in square brackets
-"              | +-- rodified flag in square brackets
-"              +-- full path to file in the buffer
+"                | | | | |  |  |                        |      |  |     |    |
+"                | | | | |  |  |                        |      |  |     |    +-- current column
+"                | | | | |  |  |                        |      |  |     +-- current line
+"                | | | | |  |  |                        |      |  +-- current % into file
+"                | | | | |  |  |                        |      +-- current syntax in square brackets
+"                | | | | |  |  |                        +-- current fileformat
+"                | | | | |  |  +-- add fugitive info
+"                | | | | |  +-- number of lines
+"                | | | | +-- preview flag in square brackets
+"                | | | +-- help flag in square brackets
+"                | | +-- readonly flag in square brackets
+"                | +-- rodified flag in square brackets
+"                +-- full path to file in the buffer
 " }}}
 
 " cpoptions {{{
 set cpoptions = aABceFsmq
-"             |||||||||
-"             ||||||||+-- When joining lines, leave the cursor between joined lines
-"             |||||||+-- When a new match is created (showmatch) pause for .5
-"             ||||||+-- Set buffer options when entering the buffer
-"             |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
-"             |||+-- Searching continues at the end of the match at the cursor position
-"             ||+-- A backslash has no special meaning in mappings
-"             |+-- :write updates alternative file name
-"             +-- :read updates alternative file name
+"               |||||||||
+"               ||||||||+-- When joining lines, leave the cursor between joined lines
+"               |||||||+-- When a new match is created (showmatch) pause for .5
+"               ||||||+-- Set buffer options when entering the buffer
+"               |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
+"               |||+-- Searching continues at the end of the match at the cursor position
+"               ||+-- A backslash has no special meaning in mappings
+"               |+-- :write updates alternative file name
+"               +-- :read updates alternative file name
 " }}}
 
 " whichwrap {{{
 set whichwrap = b,s,h,l,<,>,~,[,] " everything wraps
-"             | | | | | | | | |
-"             | | | | | | | | +-- "]" Insert and Replace
-"             | | | | | | | +-- "[" Insert and Replace
-"             | | | | | | +-- "~" Normal
-"             | | | | | +-- <Right> Normal and Visual
-"             | | | | +-- <Left> Normal and Visual
-"             | | | +-- "l" Normal and Visual (not recommended)
-"             | | +-- "h" Normal and Visual (not recommended)
-"             | +-- <Space> Normal and Visual
-"             +-- <BS> Normal and Visual
+"               | | | | | | | | |
+"               | | | | | | | | +-- "]" Insert and Replace
+"               | | | | | | | +-- "[" Insert and Replace
+"               | | | | | | +-- "~" Normal
+"               | | | | | +-- <Right> Normal and Visual
+"               | | | | +-- <Left> Normal and Visual
+"               | | | +-- "l" Normal and Visual (not recommended)
+"               | | +-- "h" Normal and Visual (not recommended)
+"               | +-- <Space> Normal and Visual
+"               +-- <BS> Normal and Visual
 " }}}
 
 " General Autocommands {{{
@@ -222,33 +222,26 @@ if has("autocmd")
     augroup general
         " Clear!
         au!
-
         " Resize windows automagically
         au VimResized * :wincmd  = 
-
         " For secure reading/writing
         au BufReadPost * if &key ! =  "" | setlocal noswapfile nowritebackup viminfo =  nobackup noshelltemp history = 0 secure | endif
-
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw = 2 sts = 2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw = 2 sts = 2 " ruby likes two
-
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au BufRead,BufNewFile *.go setlocal noexpandtab sw = 8 sts = 8 syntax = go ft = go foldmarker = {,} " use simple markers
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw = 8 sts = 8 syntax = make listchars = tab:\|\ ,trail:- " so does make
-
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype = ahk " Autohotkey
         au BufNewFile,BufRead *.ps1 setlocal filetype = ps1 " Powershell
         au BufNewFile,BufRead *.md setlocal filetype = markdown " Markdown (common markdown?)
         au BufNewFile,BufRead *.dtl setlocal filetype = htmldjango " Django Templates
-
         " Rainbow Parens
         au VimEnter * RainbowParenthesesActivate
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
-
          " Things I like spellcheck in
          au FileType gitcommit setlocal spell
          au FileType svn setlocal spell
@@ -265,11 +258,6 @@ if has("gui_running")
     "              ||
     "              |+-- use simple dialogs rather than pop-ups
     "              +-- use GUI tabs, not console style tabs
-
-    " Different cursors for different modes.
-    set guicursor = n-c:block-Cursor-blinkon0
-    set guicursor+= v:block-vCursor-blinkon0
-    set guicursor+= i-ci:ver20-iCursor
 endif 
 " }}}
 
@@ -277,7 +265,6 @@ endif
 if s:colorful_term
     "256 color --
     let &t_Co = 256
-
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf = "\ESC[3%p1%dm"
@@ -286,7 +273,6 @@ if s:colorful_term
         let &t_Sf = "\ESC[3%dm"
         let &t_Sb = "\ESC[4%dm"
     endif
-
     " don't clear background color
     set t_ut = 
 endif 
@@ -360,7 +346,6 @@ if has("autocmd")
     augroup vimgo
         " Clear!
         au!
-
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au FileType go nmap gd <Plug>(go-def)
         au FileType go nmap <Leader>i <Plug>(go-info)
