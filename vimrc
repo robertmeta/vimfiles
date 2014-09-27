@@ -14,7 +14,7 @@ Helptag " Help for plugins
 
 " DRY helpers {{{
 let s:running_windows = has("win16") || has("win32") || has("win64")
-let s:colorful_term = (&term  = ~ "xterm") || (&term  = ~ "screen")
+let s:colorful_term = (&term  =~ "xterm") || (&term  =~ "screen")
 " }}}
 
 " General mappings {{{
