@@ -135,7 +135,7 @@ set t_vb =  " seriously, shhhh, don't be noisy
 set undofile " persistent undo (between saves)
 set undolevels = 1000 " persistent undo
 set undoreload = 10000 " to undo forced reload with :e!
-set viminfo+ = ! " Store upper-case registers in viminfo
+set viminfo+= ! " Store upper-case registers in viminfo
 set wrap " wrap lines
 if s:running_windows
     set clipboard = unnamed "sync with OS clipboard
@@ -155,21 +155,21 @@ syntax sync minlines = 300 " helps to avoid syntax highlighting bugs
 set wildmenu " turn on command line completion wild style
 set wildignore = *.swp,*.bak " ignore these
 if s:running_windows
-    set wildignore+ = *\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*
+    set wildignore+= *\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*
 else
-    set wildignore+ = */.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
+    set wildignore+= */.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
 endif
-set wildignore+ = *.pdf,*.zip,*.so " binaries
-set wildignore+ = *.aux,*.out,*.toc " LaTeX intermediate files
-set wildignore+ = *.jpg,*.bmp,*.gif,*.png,*.jpeg " binary images
-set wildignore+ = *.a,*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+ = *.spl " compiled spelling word lists
-set wildignore+ = *.sw? " Vim swap files
-set wildignore+ = *.DS_Store " OSX bullshit
-set wildignore+ = *.luac " Lua byte code
-set wildignore+ = migrations " Django migrations
-set wildignore+ = *.pyc,*.pyo " Python byte code
-set wildignore+ = *.orig " Merge resolution file
+set wildignore+= *.pdf,*.zip,*.so " binaries
+set wildignore+= *.aux,*.out,*.toc " LaTeX intermediate files
+set wildignore+= *.jpg,*.bmp,*.gif,*.png,*.jpeg " binary images
+set wildignore+= *.a,*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+= *.spl " compiled spelling word lists
+set wildignore+= *.sw? " Vim swap files
+set wildignore+= *.DS_Store " OSX bullshit
+set wildignore+= *.luac " Lua byte code
+set wildignore+= migrations " Django migrations
+set wildignore+= *.pyc,*.pyo " Python byte code
+set wildignore+= *.orig " Merge resolution file
 set wildmode = list:longest " turn on wild mode huge list
 " }}}
 
@@ -268,8 +268,8 @@ if has("gui_running")
 
     " Different cursors for different modes.
     set guicursor = n-c:block-Cursor-blinkon0
-    set guicursor+ = v:block-vCursor-blinkon0
-    set guicursor+ = i-ci:ver20-iCursor
+    set guicursor+= v:block-vCursor-blinkon0
+    set guicursor+= i-ci:ver20-iCursor
 endif 
 " }}}
 
