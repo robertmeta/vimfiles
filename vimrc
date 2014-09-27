@@ -119,7 +119,7 @@ set sidescroll=5 " If you hit edge, jump 5
 set sidescrolloff=5 " Keep 5 lines at the size
 set smartcase " if there are caps, go case-sensitive
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
-set spell " spellchecking on (most good syntax files will define relavant spellcheck sections)
+set nospell " too many broken syntax files to have spellcheck on everywhere
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 set switchbuf=split " when working with quickfix use new splits
@@ -247,6 +247,12 @@ if has("autocmd")
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au Syntax * RainbowParenthesesLoadBraces
+
+         " Things I like spellcheck in
+         au FileType gitcommit setlocal spell
+         au FileType svn setlocal spell
+         au FileType asciidoc setlocal spell
+         au FileType markdown setlocal spell
     augroup END
 endif
 " }}}
