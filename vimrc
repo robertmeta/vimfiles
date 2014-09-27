@@ -450,7 +450,7 @@ hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
 " }}}
 
-" Seoul256 setup {{{
+" Theme setups {{{
 let g:seoul256_background=235 " 233-239 (237) Dark -> Light
 let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
 
@@ -461,11 +461,10 @@ function SeoulDarkColors()
 endfunction
 
 function SeoulLightColors()
-    set background=dark
+    set background=light
     colo seoul256-light
     RainbowParenthesesActivate
 endfunction
-" }}}
 
 function FruitLightColors()
     set background=light
@@ -476,6 +475,7 @@ function FruitLightColors()
     RainbowParenthesesActivate
 endfunction
 
-" Basline Theme (diff from function, because RainbowParenActivate not called)
+" Basline Theme
 set background=dark
 colo seoul256
+" }}}
