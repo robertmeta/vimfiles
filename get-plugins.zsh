@@ -28,6 +28,7 @@ git clone https://github.com/tpope/vim-dispatch bundle/dispatch && rm -rf bundle
 git clone https://github.com/tpope/vim-eunuch bundle/eunuch && rm -rf bundle/eunuch/.git
 git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle/fugitive/.git
 git clone https://github.com/tpope/vim-repeat bundle/repeat && rm -rf bundle/repeat/.git
+git clone https://github.com/tpope/vim-scriptease bundle/scriptease && rm -rf bundle/scriptease/.git
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
 git clone https://github.com/tpope/vim-speeddating bundle/speeddating && rm -rf bundle/speeddating/.git
 git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git

@@ -98,7 +98,7 @@ set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " too much broken, I don't want to see it
-set nomore " Short nomore
+set nomore " Scroll away, no pausing
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling 
