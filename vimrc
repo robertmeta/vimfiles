@@ -450,9 +450,9 @@ hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
 " }}}
 
-" Theme setup {{{
-let g:seoul256_background=233
-let g:seoul256_light_background=256
+" Seoul256 setup {{{
+let g:seoul256_background=235 " 233-239 (237) Dark -> Light
+let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
 
 function SeoulDarkColors()
     set background=dark
