@@ -492,6 +492,5 @@ function FruitLightColors()
 endfunction
 
 " Basline Theme (diff from function, because RainbowParenActivate not called)
-set background = dark
-colo solarized
-" }}}
+set background=dark
+colo seoul256
