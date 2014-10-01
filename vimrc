@@ -4,7 +4,8 @@
 "
 "   If you find an obvious mistake hit me up at:
 "   http://robertmelton.com (many forms of communication)
-
+"
+"   source: https://github.com/robertmeta/vimfiles
 
 " Baseline {{{
 scriptencoding utf-8 " yey! utf-8
@@ -18,17 +19,14 @@ let s:colorful_term=(&term  =~ "xterm") || (&term  =~ "screen")
 " }}}
 
 " General mappings {{{
-nmap <space> <leader>
 map Y y$
-
+nmap <space> <leader>
 " quickfix next/prev with centering
 nmap <down> :cnext<cr>zvzz
 nmap <up> :cprev<cr>zvzz
-
 " folding / unfolding outer layer
 nmap <leader>z :%foldc<CR> 
 nmap <leader>Z :%foldo<CR>
-
 " Window control
 nmap <leader>c <C-W>c 
 nmap <leader>< <C-w>15<
@@ -40,28 +38,27 @@ nmap <leader>h :split<CR>
 nmap <leader>o <C-W>o
 nmap <leader>v :vsplit<CR>
 nmap <leader>w <C-W>w
-
 " Buffer control
 nmap <leader>Q <ESC>:q<CR>
 nmap <leader>W <ESC>:w<CR>
-
 " Addon control
 nmap <left> :NERDTreeToggle<cr>
 nmap <right> :TagbarToggle<cr>
-
 " keep centered when jumping serach results
 nmap n nzzzv
 nmap N Nzzzv
 " }}}
 
 " Loading Settings {{{
+let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 let loaded_matchparen=1 " we don't want to use matching paren plugin, we got RainbowParen
+syntax on " syntax highlighting on
+syntax sync minlines=200 " helps to avoid syntax highlighting bugs
 " }}}
 
 " Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
-set backup " make backup files
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
@@ -100,6 +97,7 @@ set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
 set noshowmatch " don't show matching things (RainbowParentheses is better)
+set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling 
 set novisualbell " don't be noisy
@@ -119,7 +117,6 @@ set sidescroll=5 " If you hit edge, jump 5
 set sidescrolloff=5 " Keep 5 lines at the size
 set smartcase " if there are caps, go case-sensitive
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
-set nospell " too many broken syntax files to have spellcheck on everywhere
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 set switchbuf=split " when working with quickfix use new splits
@@ -132,89 +129,91 @@ set ttimeout " time out on key codes
 set ttyfast " Assume a fast terminal
 set ttyscroll=5 " See if this helps scroll speed
 set t_vb= " seriously, shhhh, don't be noisy
+set viminfo+=! " Store upper-case registers in viminfo
+set wrap " wrap lines
+" }}}
+
+" Clipboard, Backup and Undo {{{
+set backup " make backup files
+if s:running_windows
+    set backupdir=~/vimfiles/backup// " where to put backup files
+    set clipboard=unnamed "sync with OS clipboard
+    set directory=~/vimfiles/temp// " directory to place swap files in
+    set undodir=~/vimfiles/undo// " where to put undo files
+else
+    set backupdir=~/.vim/backup// " where to put backup files
+    set directory=~/.vim/temp// " directory to place swap files in
+    set undodir=~/.vim/undo// " where to put undo files
+endif
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
-set viminfo+=! " Store upper-case registers in viminfo
-set wrap " wrap lines
-if s:running_windows
-    set clipboard=unnamed "sync with OS clipboard
-    set backupdir=~/vimfiles/backup// " where to put backup files
-    set undodir=~/vimfiles/undo// " where to put undo files
-    set directory=~/vimfiles/temp// " directory to place swap files in
-else
-    set backupdir=~/.vim/backup// " where to put backup files
-    set undodir=~/.vim/undo// " where to put undo files
-    set directory=~/.vim/temp// " directory to place swap files in
-endif
-syntax on " syntax highlighting on
-syntax sync minlines=300 " helps to avoid syntax highlighting bugs
 " }}}
 
 " Wildmenu {{{
 set wildmenu " turn on command line completion wild style
-set wildignore=*.swp,*.bak " ignore these
+set wildignore=*.a,*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
+set wildignore+=*.DS_Store " OSX bullshit
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " binary images
+set wildignore+=*.luac " Lua byte code
+set wildignore+=migrations " Django migrations
+set wildignore+=*.orig " Merge resolution file
+set wildignore+=*.pdf,*.zip,*.so " binaries
+set wildignore+=*.pyc,*.pyo " Python byte code
+set wildignore+=*.spl " compiled spelling word lists
+set wildignore+=*.swp,*.bak " ignore these
+set wildignore+=*.sw? " Vim swap files
 if s:running_windows
     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
 endif
-set wildignore+=*.pdf,*.zip,*.so " binaries
-set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg " binary images
-set wildignore+=*.a,*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+=*.spl " compiled spelling word lists
-set wildignore+=*.sw? " Vim swap files
-set wildignore+=*.DS_Store " OSX bullshit
-set wildignore+=*.luac " Lua byte code
-set wildignore+=migrations " Django migrations
-set wildignore+=*.pyc,*.pyo " Python byte code
-set wildignore+=*.orig " Merge resolution file
 set wildmode=list:longest " turn on wild mode huge list
 " }}}
 
 " Status Line {{{
 set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
-"                | | | | |  |  |                        |      |  |     |    |
-"                | | | | |  |  |                        |      |  |     |    +-- current column
-"                | | | | |  |  |                        |      |  |     +-- current line
-"                | | | | |  |  |                        |      |  +-- current % into file
-"                | | | | |  |  |                        |      +-- current syntax in square brackets
-"                | | | | |  |  |                        +-- current fileformat
-"                | | | | |  |  +-- add fugitive info
-"                | | | | |  +-- number of lines
-"                | | | | +-- preview flag in square brackets
-"                | | | +-- help flag in square brackets
-"                | | +-- readonly flag in square brackets
-"                | +-- rodified flag in square brackets
-"                +-- full path to file in the buffer
+"              | | | | |  |  |                        |      |  |     |    |
+"              | | | | |  |  |                        |      |  |     |    +-- current column
+"              | | | | |  |  |                        |      |  |     +-- current line
+"              | | | | |  |  |                        |      |  +-- current % into file
+"              | | | | |  |  |                        |      +-- current syntax in square brackets
+"              | | | | |  |  |                        +-- current fileformat
+"              | | | | |  |  +-- add fugitive info
+"              | | | | |  +-- number of lines
+"              | | | | +-- preview flag in square brackets
+"              | | | +-- help flag in square brackets
+"              | | +-- readonly flag in square brackets
+"              | +-- rodified flag in square brackets
+"              +-- full path to file in the buffer
 " }}}
 
 " cpoptions {{{
 set cpoptions=aABceFsmq
-"               |||||||||
-"               ||||||||+-- When joining lines, leave the cursor between joined lines
-"               |||||||+-- When a new match is created (showmatch) pause for .5
-"               ||||||+-- Set buffer options when entering the buffer
-"               |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
-"               |||+-- Searching continues at the end of the match at the cursor position
-"               ||+-- A backslash has no special meaning in mappings
-"               |+-- :write updates alternative file name
-"               +-- :read updates alternative file name
+"             |||||||||
+"             ||||||||+-- When joining lines, leave the cursor between joined lines
+"             |||||||+-- When a new match is created (showmatch) pause for .5
+"             ||||||+-- Set buffer options when entering the buffer
+"             |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
+"             |||+-- Searching continues at the end of the match at the cursor position
+"             ||+-- A backslash has no special meaning in mappings
+"             |+-- :write updates alternative file name
+"             +-- :read updates alternative file name
 " }}}
 
 " whichwrap {{{
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
-"               | | | | | | | | |
-"               | | | | | | | | +-- "]" Insert and Replace
-"               | | | | | | | +-- "[" Insert and Replace
-"               | | | | | | +-- "~" Normal
-"               | | | | | +-- <Right> Normal and Visual
-"               | | | | +-- <Left> Normal and Visual
-"               | | | +-- "l" Normal and Visual (not recommended)
-"               | | +-- "h" Normal and Visual (not recommended)
-"               | +-- <Space> Normal and Visual
-"               +-- <BS> Normal and Visual
+"             | | | | | | | | |
+"             | | | | | | | | +-- "]" Insert and Replace
+"             | | | | | | | +-- "[" Insert and Replace
+"             | | | | | | +-- "~" Normal
+"             | | | | | +-- <Right> Normal and Visual
+"             | | | | +-- <Left> Normal and Visual
+"             | | | +-- "l" Normal and Visual (not recommended)
+"             | | +-- "h" Normal and Visual (not recommended)
+"             | +-- <Space> Normal and Visual
+"             +-- <BS> Normal and Visual
 " }}}
 
 " General Autocommands {{{
@@ -234,19 +233,19 @@ if has("autocmd")
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
-        au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
-        au BufNewFile,BufRead *.md setlocal filetype=markdown " Markdown (common markdown?)
         au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
+        au BufNewFile,BufRead *.md setlocal filetype=markdown " Markdown (common markdown?)
+        au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
         " Rainbow Parens
-        au VimEnter * RainbowParenthesesActivate
+        au Syntax * RainbowParenthesesLoadBraces
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
-        au Syntax * RainbowParenthesesLoadBraces
+        au VimEnter * RainbowParenthesesActivate
          " Things I like spellcheck in
-         au FileType gitcommit setlocal spell
-         au FileType svn setlocal spell
-         au FileType asciidoc setlocal spell
-         au FileType markdown setlocal spell
+        au FileType asciidoc setlocal spell
+        au FileType gitcommit setlocal spell
+        au FileType markdown setlocal spell
+        au FileType svn setlocal spell
     augroup END
 endif
 " }}}
@@ -265,43 +264,39 @@ endif
 if s:colorful_term
     "256 color --
     let &t_Co=256
-    " restore screen after quitting
-    if has("terminfo")
-        let &t_Sf="\ESC[3%p1%dm"
-        let &t_Sb="\ESC[4%p1%dm"
-    else
-        let &t_Sf="\ESC[3%dm"
-        let &t_Sb="\ESC[4%dm"
-    endif
     " don't clear background color
     set t_ut=
+    " restore screen after quitting
+    if has("terminfo")
+        let &t_Sb="\ESC[4%p1%dm"
+        let &t_Sf="\ESC[3%p1%dm"
+    else
+        let &t_Sb="\ESC[4%dm"
+        let &t_Sf="\ESC[3%dm"
+    endif
 endif 
 " }}}
 
 " ConEMU Settings (awesome!) {{{
 if s:running_windows && has("gui_running") == 0
-    set term=xterm
-    set t_Co=256
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
+    set t_Co=256
+    set term=xterm
 endif
 " }}}
 
 " Mousing {{{
 if has("mouse")
     set mouse=a " use mouse everywhere
-    set ttymouse=xterm2 " makes it work in everything
     set nomousehide " don't hide the mouse
+    set ttymouse=xterm2 " makes it work in everything
 endif 
 " }}}
 
 " CtrlP {{{
-if s:running_windows
-        let g:ctrlp_cache_dir=$HOME.'/vimfiles/ctrlp_cache'
-    else
-        let g:ctrlp_cache_dir=$HOME.'/.vim/ctrlp_cache'
-endif
-let g:skip_loading_mswin=1 " Just in case :)
+" Settings
+let g:ctrlp_buftag_ctags_bin='ctags'
 let g:ctrlp_buftag_types={'go': '--language-force=go --golang-types=ftv'}
 let g:ctrlp_follow_symlinks=1
 let g:ctrlp_match_window_bottom=1
@@ -309,25 +304,28 @@ let g:ctrlp_match_window_reversed=1
 let g:ctrlp_max_depth=100
 let g:ctrlp_max_files=100000
 let g:ctrlp_max_height=30
-let g:ctrlp_working_path_mode='ra'
-let g:ctrlp_use_caching=1
-let g:ctrlp_show_hidden=1
 let g:ctrlp_open_multiple_files='ij'
-let g:ctrlp_buftag_ctags_bin='ctags'
+let g:ctrlp_show_hidden=1
+let g:ctrlp_show_hidden=1
+let g:ctrlp_use_caching=1
+let g:ctrlp_working_path_mode='ra'
 if s:running_windows
+    let g:ctrlp_cache_dir=$HOME.'/vimfiles/ctrlp_cache'
     let g:ctrlp_user_command='dir %s /-n /b /s /a-d | findstr /v \.git | findstr /v \.hg' " Windows
 else
+    let g:ctrlp_cache_dir=$HOME.'/.vim/ctrlp_cache'
     let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'       " MacOSX/Linux
 endif
-let g:ctrlp_show_hidden=1
+" Mappings
 nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>t :CtrlPBufTag<CR>
-nmap <leader>T :CtrlPBufTagAll<CR>
-nmap <leader>p :CtrlPCurWD<CR>
 nmap <leader>m :CtrlPMRU<CR>
+nmap <leader>p :CtrlPCurWD<CR>
+nmap <leader>T :CtrlPBufTagAll<CR>
+nmap <leader>t :CtrlPBufTag<CR>
 " }}}
 
 " vim-go {{{
+" Settings
 let g:go_auto_type_info=0
 let g:godef_same_file_in_same_window=1
 let g:godef_split=0
@@ -342,6 +340,7 @@ let g:go_highlight_operators=1
 let g:go_highlight_space_tab_error=1
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
+" Autoccommands
 if has("autocmd")
     augroup vimgo
         " Clear!
@@ -354,9 +353,9 @@ endif
 " }}}
 
 " Supertab {{{
+let g:SuperTabCrMapping=1
 let g:SuperTabDefaultCompletionType="context"
 let g:SuperTabLongestHighlight=1
-let g:SuperTabCrMapping=1
 " }}}
 
 " RainbowParentheses {{{
@@ -404,10 +403,10 @@ let perl_extended_vars=1 " highlight advanced perl vars inside strings
 " }}}
 
 " NERDTree {{{
-let NERDTreeHijackNetrw=0 " I use vim-vinegar most of the time, don't mess with -
 let NERDChristmasTree=1
-let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=0
+let NERDTreeHijackNetrw=0 " I use vim-vinegar most of the time, don't mess with -
+let NERDTreeMinimalUI=1
 " }}}
 
 " Tagbar {{{
@@ -421,39 +420,47 @@ endif
 " }}}
 
 " Fugitive {{{
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gw :Gwrite<cr>
 nmap <leader>ga :Gadd<cr>
 nmap <leader>gb :Gblame<cr>
-nmap <leader>gco :Gcheckout<cr>
 nmap <leader>gci :Gcommit<cr>
+nmap <leader>gco :Gcheckout<cr>
+nmap <leader>gd :Gdiff<cr>
 nmap <leader>gm :Gmove<cr>
 nmap <leader>gr :Gremove<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gw :Gwrite<cr>
 " }}}
 
 " Easy Motion {{{
-let g:EasyMotion_do_shade=1
+" Settings
 let g:EasyMotion_do_mapping=0
-let g:EasyMotion_use_upper=1
-let g:EasyMotion_keys='ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
+let g:EasyMotion_do_shade=1
 let g:EasyMotion_inc_highlight=1
+let g:EasyMotion_keys='ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 let g:EasyMotion_landing_highlight=0
 let g:EasyMotion_off_screen_search=0
 let g:EasyMotion_use_smartsign_us=1
-nmap <leader><space> <Plug>(easymotion-bd-w)
+let g:EasyMotion_use_upper=1
+" Mappings
 nmap <leader>f <Plug>(easymotion-bd-w)
 nmap <leader>F <Plug>(easymotion-bd-W)
+nmap <leader><space> <Plug>(easymotion-bd-w)
 nmap <leader>s <Plug>(easymotion-s)
 nmap <leader>S <Plug>(easymotion-s2)
+" Highlight Overrides
 hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
 " }}}
 
-" Theme setups {{{
+" Theme setup {{{
 let g:seoul256_background=235 " 233-239 (237) Dark -> Light
 let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
+" Basline Theme
+set background=dark
+colo seoul256
+" }}}
 
+// Functions {{{
 function SeoulDarkColors()
     set background=dark
     colo seoul256
@@ -474,8 +481,4 @@ function FruitLightColors()
     hi Comment ctermfg=22
     RainbowParenthesesActivate
 endfunction
-
-" Basline Theme
-set background=dark
-colo seoul256
-" }}}
+// }}}
