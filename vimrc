@@ -280,10 +280,10 @@ endif
 
 " ConEMU Settings (awesome!) {{{
 if s:running_windows && has("gui_running") == 0
+    set term=xterm
+    set t_Co=256
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
-    set t_Co=256
-    set term=xterm
 endif
 " }}}
 
