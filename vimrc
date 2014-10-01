@@ -460,7 +460,7 @@ set background=dark
 colo seoul256
 " }}}
 
-// Functions {{{
+" Functions {{{
 function SeoulDarkColors()
     set background=dark
     colo seoul256
@@ -481,4 +481,4 @@ function FruitLightColors()
     hi Comment ctermfg=22
     RainbowParenthesesActivate
 endfunction
-// }}}
+" }}}
