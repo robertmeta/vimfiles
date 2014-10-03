@@ -55,7 +55,7 @@ let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 let loaded_matchparen=1 " we don't want to use matching paren plugin, we got RainbowParen
 syntax on " syntax highlighting on
-syntax sync minlines=500 " helps to avoid syntax highlighting bugs
+syntax sync minlines=200 " helps to avoid syntax highlighting bugs
 " }}}
 
 " Basics Settings {{{
@@ -121,7 +121,7 @@ set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab 
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 set switchbuf=split " when working with quickfix use new splits
-set synmaxcol=200 " Don't try to highlight lines longer than 200 characters.
+set synmaxcol=500 " Don't try to highlight lines longer than 500 characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 set textwidth=0 " No autowrapping
 set title " mess witht he title
@@ -131,7 +131,7 @@ set ttyfast " Assume a fast terminal
 set ttyscroll=5 " See if this helps scroll speed
 set t_vb= " seriously, shhhh, don't be noisy
 set viminfo+=! " Store upper-case registers in viminfo
-set nowrap " I tried to love wrapping, I really did, I hate it so much
+set wrap " Going to try to love it, again
 " }}}
 
 " Clipboard, Backup and Undo {{{
