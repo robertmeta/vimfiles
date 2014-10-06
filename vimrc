@@ -458,10 +458,22 @@ let g:seoul256_background=235 " 233-239 (237) Dark -> Light
 let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
 " Basline Theme
 set background=dark
-colo seoul256
+colo solarized
 " }}}
 
 " Functions {{{
+function SolDark()
+    set background=dark
+    colo solarized
+    RainbowParenthesesActivate
+endfunction
+
+function SolLight()
+    set background=light
+    colo solarized
+    RainbowParenthesesActivate
+endfunction
+
 function SeoulDarkColors()
     set background=dark
     colo seoul256
