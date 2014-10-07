@@ -319,8 +319,7 @@ else
 endif
 " Mappings
 nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>m :CtrlPMRU<CR>
-nmap <leader>p :CtrlPCurWD<CR>
+nmap <leader>p :CtrlPMixed<CR>
 nmap <leader>T :CtrlPBufTagAll<CR>
 nmap <leader>t :CtrlPBufTag<CR>
 " }}}
