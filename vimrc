@@ -460,6 +460,23 @@ set background=dark
 colo solarized
 " }}}
 
+" Tmux Cursor Colors {{{
+" Cursor to yellow on insert mode
+" Blue on command/other mode
+" Note the use of hex codes (ie 3971ED)
+if exists('$TMUX')
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\033]PlFBA922\033\\"
+    silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
+    autocmd VimLeave * silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
+else
+    let &t_EI = "\033]Pl3971ED\033\\"
+    let &t_SI = "\033]PlFBA922\033\\"
+    silent !echo -ne "\033]Pl3971ED\033\\"
+    autocmd VimLeave * silent !echo -ne "\033]Pl3971ED\033\\"
+endif
+" }}}
+
 " Functions {{{
 function SolDark()
     set background=dark
