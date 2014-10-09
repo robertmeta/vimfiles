@@ -89,7 +89,7 @@ set modelines=5 " Search for 5 lines for modelines
 set noautowriteall " do Write on all changes (too buggy to use)
 set noautowrite " don't write on all changes (too buggy to use)
 set nocompatible " explicitly get out of vi-compatible mode
-set cursorcolumn " global cursor coloumn
+set nocursorcolumn " No global cursor coloumn
 set cursorline " global cursor line
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
