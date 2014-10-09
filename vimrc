@@ -1,12 +1,12 @@
 " Informational {{{
-" This is my personal .vimrc, I don't recommend you copy it, just
-" use the pieces you want (and understand!).  When you copy a
-" .vimrc in its entirety, weird and unexpected things can happen
+"   This is my personal .vimrc, I don't recommend you copy it, just
+"   use the pieces you want (and understand!).  When you copy a
+"   .vimrc in its entirety, weird and unexpected things can happen
 "
-" If you find an obvious mistake hit me up at:
-" http://robertmelton.com (many forms of communication)
+"   If you find an obvious mistake hit me up at:
+"   http://robertmelton.com (many forms of communication)
 "
-" source: https://github.com/robertmeta/vimfiles
+"   source: https://github.com/robertmeta/vimfiles
 " }}}
 
 " Baseline {{{
@@ -19,7 +19,6 @@ Helptag " Help for plugins
 " DRY helpers {{{
 let s:running_windows=has("win16") || has("win32") || has("win64")
 let s:colorful_term=(&term  =~ "xterm") || (&term  =~ "screen")
-let s:tmux=exists('$TMUX')
 " }}}
 
 " General mappings {{{
@@ -158,7 +157,7 @@ set undoreload=10000 " to undo forced reload with :e!
 set nocursorcolumn " disable global cursor column 
 set nocursorline " disable global cursor line 
 set nostartofline " leave my cursor where it was
-if s:tmux
+if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 endif
