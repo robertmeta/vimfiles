@@ -89,8 +89,8 @@ set modelines=5 " Search for 5 lines for modelines
 set noautowriteall " do Write on all changes (too buggy to use)
 set noautowrite " don't write on all changes (too buggy to use)
 set nocompatible " explicitly get out of vi-compatible mode
-set nocursorcolumn " No global cursor coloumn
-set cursorline " global cursor line
+set cursorcolumn " global cursor column 
+set cursorline " global cursor line 
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
@@ -458,23 +458,6 @@ let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
 " Basline Theme
 set background=dark
 colo solarized
-" }}}
-
-" Tmux Cursor Colors {{{
-" Cursor to yellow on insert mode
-" Blue on command/other mode
-" Note the use of hex codes (ie CAE1FF)
-if exists('$TMUX')
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\033]PlCAE1FF\033\\"
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\033]PlFBA922\033\\"
-    silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]PlCAE1FF\033\\"
-    autocmd VimLeave * silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]PlCAE1FF\033\\"
-else
-    let &t_EI = "\033]PlCAE1FF\033\\"
-    let &t_SI = "\033]PlFBA922\033\\"
-    silent !echo -ne "\033]PlCAE1FF\033\\"
-    autocmd VimLeave * silent !echo -ne "\033]PlCAE1FF\033\\"
-endif
 " }}}
 
 " Functions {{{
