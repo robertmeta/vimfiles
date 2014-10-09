@@ -41,6 +41,9 @@ nmap <leader>h :split<CR>
 nmap <leader>o <C-W>o
 nmap <leader>v :vsplit<CR>
 nmap <leader>w <C-W>w
+" Scrolling
+nmap <leader>j <C-f>
+nmap <leader>k <C-b>
 " Buffer control
 nmap <leader>" :split<CR>
 nmap <leader>% :vsplit<CR>
