@@ -479,33 +479,33 @@ hi Folded cterm=bold
 " }}}
 
 " Functions {{{
-function SolDark()
+fun! SolDark()
     set background=dark
     colo solarized
     hi Folded cterm=bold
     RainbowParenthesesActivate
-endfunction
+endfun
 
-function SolLight()
+fun! SolLight()
     set background=light
     colo solarized
     hi Folded cterm=bold
     RainbowParenthesesActivate
-endfunction
+endfun
 
-function SeoulDarkColors()
+fun! SeoulDarkColors()
     set background=dark
     colo seoul256
     RainbowParenthesesActivate
-endfunction
+endfun
 
-function SeoulLightColors()
+fun! SeoulLightColors()
     set background=light
     colo seoul256-light
     RainbowParenthesesActivate
-endfunction
+endfun
 
-function FruitLightColors()
+fun! FruitLightColors()
     set background=light
     colo summerfruit256
     hi SpecialKey cterm=NONE ctermfg=grey
@@ -513,7 +513,7 @@ function FruitLightColors()
     hi CursorLine cterm=NONE ctermbg=7      
     hi Comment ctermfg=22
     RainbowParenthesesActivate
-endfunction
+endfun
 " }}}
 
 " Modeline {{{
