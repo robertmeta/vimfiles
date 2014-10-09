@@ -89,8 +89,8 @@ set modelines=5 " Search for 5 lines for modelines
 set noautowriteall " do Write on all changes (too buggy to use)
 set noautowrite " don't write on all changes (too buggy to use)
 set nocompatible " explicitly get out of vi-compatible mode
-set nocursorcolumn " we don't want a global cursor column
-set nocursorline " we don't want global cursor line highlighting
+set cursorcolumn " global cursor coloumn
+set cursorline " global cursor line
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
@@ -490,6 +490,7 @@ function FruitLightColors()
     colo summerfruit256
     hi SpecialKey cterm=NONE ctermfg=grey
     hi StatusLine ctermbg=152 ctermfg=32
+    hi CursorLine cterm=NONE ctermbg=7      
     hi Comment ctermfg=22
     RainbowParenthesesActivate
 endfunction
