@@ -17,6 +17,7 @@ Helptag " Help for plugins
 " DRY helpers {{{
 let s:running_windows=has("win16") || has("win32") || has("win64")
 let s:colorful_term=(&term  =~ "xterm") || (&term  =~ "screen")
+let s:tmux=exists('$TMUX')
 " }}}
 
 " General mappings {{{
@@ -89,8 +90,6 @@ set modelines=5 " Search for 5 lines for modelines
 set noautowriteall " do Write on all changes (too buggy to use)
 set noautowrite " don't write on all changes (too buggy to use)
 set nocompatible " explicitly get out of vi-compatible mode
-set nocursorcolumn " disable global cursor column 
-set nocursorline " disable global cursor line 
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
@@ -99,7 +98,6 @@ set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nospell " too many broken syntax files to have spellcheck on everywhere
-set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling 
 set novisualbell " don't be noisy
 set number " turn on line numbers
@@ -151,7 +149,14 @@ set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
 " }}}
 
-" Per window cursorline and cursorcolumn {{{
+" Cursor settings {{{
+set nocursorcolumn " disable global cursor column 
+set nocursorline " disable global cursor line 
+set nostartofline " leave my cursor where it was
+if s:tmux
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+endif
 augroup CursorTracking
     au!
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
