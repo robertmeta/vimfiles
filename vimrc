@@ -154,10 +154,11 @@ set nocursorcolumn " disable global cursor column
 set nocursorline " disable global cursor line 
 set nostartofline " leave my cursor where it was
 if s:tmux
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    " this works with a hack to the ~/.tmux.conf file
+    let &t_SI = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[0 q"
 endif
-augroup CursorTracking
+augroup CursorTrackActive
     au!
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
     au WinLeave * setlocal nocursorline nocursorcolumn
