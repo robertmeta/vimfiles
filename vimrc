@@ -463,17 +463,17 @@ colo solarized
 " Tmux Cursor Colors {{{
 " Cursor to yellow on insert mode
 " Blue on command/other mode
-" Note the use of hex codes (ie 3971ED)
+" Note the use of hex codes (ie CAE1FF)
 if exists('$TMUX')
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\033]PlCAE1FF\033\\"
     let &t_SI = "\<Esc>Ptmux;\<Esc>\033]PlFBA922\033\\"
-    silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
-    autocmd VimLeave * silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
+    silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]PlCAE1FF\033\\"
+    autocmd VimLeave * silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]PlCAE1FF\033\\"
 else
-    let &t_EI = "\033]Pl3971ED\033\\"
+    let &t_EI = "\033]PlCAE1FF\033\\"
     let &t_SI = "\033]PlFBA922\033\\"
-    silent !echo -ne "\033]Pl3971ED\033\\"
-    autocmd VimLeave * silent !echo -ne "\033]Pl3971ED\033\\"
+    silent !echo -ne "\033]PlCAE1FF\033\\"
+    autocmd VimLeave * silent !echo -ne "\033]PlCAE1FF\033\\"
 endif
 " }}}
 
