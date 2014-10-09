@@ -1,3 +1,4 @@
+" 
 "   This is my personal .vimrc, I don't recommend you copy it, just
 "   use the pieces you want (and understand!).  When you copy a
 "   .vimrc in its entirety, weird and unexpected things can happen
@@ -89,8 +90,8 @@ set modelines=5 " Search for 5 lines for modelines
 set noautowriteall " do Write on all changes (too buggy to use)
 set noautowrite " don't write on all changes (too buggy to use)
 set nocompatible " explicitly get out of vi-compatible mode
-set cursorcolumn " global cursor column 
-set cursorline " global cursor line 
+set nocursorcolumn " disable global cursor column 
+set nocursorline " disable global cursor line 
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
@@ -149,6 +150,14 @@ endif
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
+" }}}
+
+" Per window cursorline and cursorcolumn {{{
+augroup CursorTracking
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
+    au WinLeave * setlocal nocursorline nocursorcolumn
+augroup END
 " }}}
 
 " Wildmenu {{{
@@ -458,18 +467,21 @@ let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
 " Basline Theme
 set background=dark
 colo solarized
+hi Folded cterm=bold
 " }}}
 
 " Functions {{{
 function SolDark()
     set background=dark
     colo solarized
+    hi Folded cterm=bold
     RainbowParenthesesActivate
 endfunction
 
 function SolLight()
     set background=light
     colo solarized
+    hi Folded cterm=bold
     RainbowParenthesesActivate
 endfunction
 
