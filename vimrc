@@ -1,3 +1,4 @@
+" Informational {{{
 " This is my personal .vimrc, I don't recommend you copy it, just
 " use the pieces you want (and understand!).  When you copy a
 " .vimrc in its entirety, weird and unexpected things can happen
@@ -5,7 +6,8 @@
 " If you find an obvious mistake hit me up at:
 " http://robertmelton.com (many forms of communication)
 "
-" source: https://github.com/robertmeta/vimfiles/vimrc
+" source: https://github.com/robertmeta/vimfiles
+" }}}
 
 " Baseline {{{
 scriptencoding utf-8 " yey! utf-8
@@ -157,9 +159,8 @@ set nocursorcolumn " disable global cursor column
 set nocursorline " disable global cursor line 
 set nostartofline " leave my cursor where it was
 if s:tmux
-    " this works with a hack to the ~/.tmux.conf file
-    let &t_SI = "\<Esc>[3 q"
-    let &t_EI = "\<Esc>[0 q"
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 endif
 augroup CursorTrackActive
     au!
