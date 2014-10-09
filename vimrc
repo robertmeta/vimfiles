@@ -1,4 +1,3 @@
-" 
 "   This is my personal .vimrc, I don't recommend you copy it, just
 "   use the pieces you want (and understand!).  When you copy a
 "   .vimrc in its entirety, weird and unexpected things can happen
@@ -506,4 +505,8 @@ function FruitLightColors()
     hi Comment ctermfg=22
     RainbowParenthesesActivate
 endfunction
+" }}}
+
+" Modeline {{{
+" vim: set foldlevel=0: 
 " }}}
