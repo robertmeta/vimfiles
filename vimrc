@@ -41,6 +41,9 @@ nmap <leader>o <C-W>o
 nmap <leader>v :vsplit<CR>
 nmap <leader>w <C-W>w
 " Buffer control
+nmap <leader>" :split<CR>
+nmap <leader>% :vsplit<CR>
+" Buffer control
 nmap <leader>Q <ESC>:q<CR>
 nmap <leader>W <ESC>:w<CR>
 " Addon control
