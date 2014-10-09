@@ -1,11 +1,11 @@
-"   This is my personal .vimrc, I don't recommend you copy it, just
-"   use the pieces you want (and understand!).  When you copy a
-"   .vimrc in its entirety, weird and unexpected things can happen
+" This is my personal .vimrc, I don't recommend you copy it, just
+" use the pieces you want (and understand!).  When you copy a
+" .vimrc in its entirety, weird and unexpected things can happen
 "
-"   If you find an obvious mistake hit me up at:
-"   http://robertmelton.com (many forms of communication)
+" If you find an obvious mistake hit me up at:
+" http://robertmelton.com (many forms of communication)
 "
-"   source: https://github.com/robertmeta/vimfiles
+" source: https://github.com/robertmeta/vimfiles/vimrc
 
 " Baseline {{{
 scriptencoding utf-8 " yey! utf-8
