@@ -160,17 +160,6 @@ set undoreload=10000 " to undo forced reload with :e!
 set nocursorcolumn " disable global cursor column 
 set nocursorline " disable global cursor line 
 set nostartofline " leave my cursor where it was
-if exists('$TMUX')
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\033]PlFBA922\033\\"
-    silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
-    autocmd VimLeave * silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
-else
-    let &t_EI = "\033]Pl3971ED\033\\"
-    let &t_SI = "\033]PlFBA922\033\\"
-    silent !echo -ne "\033]Pl3971ED\033\\"
-    autocmd VimLeave * silent !echo -ne "\033]Pl3971ED\033\\"
-endif
 augroup CursorTrackActive
     au!
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
