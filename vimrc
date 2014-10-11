@@ -356,13 +356,18 @@ let g:go_highlight_operators=1
 let g:go_highlight_space_tab_error=1
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
-" Autoccommands
+" Not sure why this doesn't work by default on windows
+if s:running_windows
+    let g:go_bin_path = $HOME+"\go\bin"
+endif
+" Autocommands
 if has("autocmd")
     augroup vimgo
         " Clear!
         au!
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au FileType go nmap gd <Plug>(go-def)
+        au FileType go nmap gr :GoRename<CR>
         au FileType go nmap <Leader>i <Plug>(go-info)
     augroup END
 endif
