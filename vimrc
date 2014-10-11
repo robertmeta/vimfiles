@@ -357,9 +357,7 @@ let g:go_highlight_space_tab_error=1
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
 " Not sure why this doesn't work by default on windows
-if s:running_windows
-    let g:go_bin_path = $HOME+"\go\bin"
-endif
+let g:go_bin_path = $HOME."/go/bin"
 " Autocommands
 if has("autocmd")
     augroup vimgo
@@ -476,10 +474,17 @@ hi link EasyMotionTarget2Second Number
 " Theme setup {{{
 let g:seoul256_background=235 " 233-239 (237) Dark -> Light
 let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
-" Basline Theme
-set background=dark
-colo solarized
-hi Folded cterm=bold
+if s:running_windows && has("gui_running") == 0
+    " Basline Theme
+    set background=dark
+    colo molokai
+    hi Folded cterm=bold
+else
+    " Basline Theme
+    set background=dark
+    colo solarized
+    hi Folded cterm=bold
+endif
 " }}}
 
 " Functions {{{
