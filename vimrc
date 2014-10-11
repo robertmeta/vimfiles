@@ -365,8 +365,8 @@ if has("autocmd")
         au!
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au FileType go nmap gd <Plug>(go-def)
-        au FileType go nmap gr :GoRename<CR>
-        au FileType go nmap <Leader>i <Plug>(go-info)
+        au FileType go nmap gr <Plug>(go-rename)
+        au FileType go nmap gi <Plug>(go-info)
     augroup END
 endif
 " }}}
