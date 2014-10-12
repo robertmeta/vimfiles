@@ -439,6 +439,11 @@ nmap <leader>gs :Gstatus<cr>
 nmap <leader>gw :Gwrite<cr>
 " }}}
 
+" Pair programming helper {{{
+inoremap jk <ESC>
+inoremap kj <ESC>
+" }}}
+
 " Easy Motion {{{
 " Settings
 let g:EasyMotion_do_mapping=0
