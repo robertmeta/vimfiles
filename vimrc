@@ -30,23 +30,17 @@ nmap <up> :cprev<cr>zvzz
 " folding / unfolding outer layer
 nmap <leader>z :%foldc<CR> 
 nmap <leader>Z :%foldo<CR>
-" Window control
-nmap <leader>c <C-W>c 
-nmap <leader>< <C-w>15<
-nmap <leader>> <C-w>15>
-nmap <leader>_ <C-w>15-
-nmap <leader>- <C-w>15-
-nmap <leader>+ <C-w>15+
-nmap <leader>h :split<CR>
-nmap <leader>o <C-W>o
-nmap <leader>v :vsplit<CR>
-nmap <leader>w <C-W>w
 " Scrolling
 nmap <leader>j <C-f>
 nmap <leader>k <C-b>
-" Buffer control
+" Window control
+nmap <leader>c <C-W>c 
+nmap <leader>h :split<CR>
+nmap <leader>o <C-W>o
 nmap <leader>" :split<CR>
 nmap <leader>% :vsplit<CR>
+nmap <leader>v :vsplit<CR>
+nmap <leader>w <C-W>w
 " Buffer control
 nmap <leader>Q <ESC>:q<CR>
 nmap <leader>W <ESC>:w<CR>
@@ -160,11 +154,6 @@ set undoreload=10000 " to undo forced reload with :e!
 set nocursorcolumn " disable global cursor column 
 set nocursorline " disable global cursor line 
 set nostartofline " leave my cursor where it was
-augroup CursorTrackActive
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
-    au WinLeave * setlocal nocursorline nocursorcolumn
-augroup END
 " }}}
 
 " Wildmenu {{{
