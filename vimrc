@@ -366,6 +366,12 @@ let g:SuperTabDefaultCompletionType="context"
 let g:SuperTabLongestHighlight=1
 " }}}
 
+" UltiSnips {{{
+let g:UltiSnipsExpandTrigger="<S-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" }}}
+
 " RainbowParentheses {{{
 let g:rbpt_colorpairs=[
     \ ['blue', 'RoyalBlue3'],
