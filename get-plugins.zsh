@@ -19,6 +19,7 @@ git clone https://github.com/paradigm/TextObjectify.git bundle/textobjectify && 
 git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.git
 git clone https://github.com/ricardovaleriano/vim-github-theme bundle/githubtheme && rm -rf bundle/githubtheme/.git
 git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
+git clone https://github.com/romainl/flattened.vim bundle/flattened && rm -rf bundle/flattened/.git
 git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
 git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bundle/syntastic/.git
 git clone https://github.com/tomasr/molokai.git bundle/molokai && rm -rf bundle/molokai/.git
