@@ -22,7 +22,6 @@ git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
 git clone https://github.com/romainl/flattened.git bundle/flattened && rm -rf bundle/flattened/.git
 git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
 git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bundle/syntastic/.git
-git clone https://github.com/SirVer/ultisnips.git bundle/ultisnips && rm -rf bundle/ultisnips/.git
 git clone https://github.com/tomasr/molokai.git bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-abolish bundle/abolish && rm -rf bundle/abolish/.git
 git clone https://github.com/tpope/vim-commentary bundle/commentary && rm -rf bundle/commentary/.git
