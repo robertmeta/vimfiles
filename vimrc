@@ -406,6 +406,15 @@ let html_use_css=0
 let use_xhtml=0
 " }}}
 
+" Tmux Navigator {{{
+let g:tmux_navigator_no_mappings = 1
+"nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
+"nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+"nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+"nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+nnoremap <silent> <leader>s :TmuxNavigatePrevious<cr>
+" }}}
+
 " Perl Settings {{{
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
 " }}}
@@ -455,11 +464,7 @@ let g:EasyMotion_off_screen_search=0
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
-nmap <leader>f <Plug>(easymotion-bd-w)
-nmap <leader>F <Plug>(easymotion-bd-W)
 nmap <leader><space> <Plug>(easymotion-bd-w)
-nmap <leader>s <Plug>(easymotion-s)
-nmap <leader>S <Plug>(easymotion-s2)
 " Highlight Overrides
 hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number

@@ -1,3 +1,4 @@
+" Copyright 2011 The Go Authors. All rights reserved.
 " Use of this source code is governed by a BSD-style
 " license that can be found in the LICENSE file.
 "
@@ -104,12 +105,18 @@ function! go#doc#Open(mode, ...)
     call s:GodocView(a:mode, content)
 
     " jump to the specified name
-    if search('^\%(const\|var\|type\|\s\+\) ' . pkg . '\s\+=\s')
+
+    if search('^func ' . exported_name . '(')
         silent! normal zt
         return -1
     endif
 
-    if search('^func ' . exported_name . '(')
+    if search('^type ' . exported_name)
+        silent! normal zt
+        return -1
+    endif
+
+    if search('^\%(const\|var\|type\|\s\+\) ' . pkg . '\s\+=\s')
         silent! normal zt
         return -1
     endif
