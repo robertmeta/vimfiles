@@ -406,8 +406,14 @@ let html_use_css=0
 let use_xhtml=0
 " }}}
 
-" Tmux Navigator {{{
-nnoremap <silent> <leader>s :TmuxNavigatePrevious<cr>
+" Tmux Specific {{{
+if exists('$TMUX')
+    " Cursor to yellow on insert mode | Blue on command/other mode
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\033]PlFBA922\033\\"
+    silent !echo -ne "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
+    nnoremap <silent> <leader>s :TmuxNavigatePrevious<cr>
+endif
 " }}}
 
 " Perl Settings {{{
