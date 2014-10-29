@@ -83,6 +83,11 @@ let s:last_highlight_tline = 0
 let s:debug = 0
 let s:debug_file = ''
 
+let s:warnings = {
+    \ 'type': [],
+    \ 'encoding': 0
+\ }
+
 " s:Init() {{{2
 function! s:Init(silent) abort
     if s:checked_ctags == 2 && a:silent
@@ -408,10 +413,7 @@ function! s:InitTypes() abort
     \ }
     let s:known_types.java = type_java
     " JavaScript {{{3
-    " JavaScript is weird -- it does have scopes, but ctags doesn't seem to
-    " properly generate the information for them, instead it simply uses the
-    " complete name. So ctags has to be fixed before I can do anything here.
-    " Alternatively jsctags/doctorjs will be used if available.
+    " jsctags/doctorjs will be used if available.
     let type_javascript = s:TypeInfo.New()
     let type_javascript.ctagstype = 'javascript'
     let jsctags = s:CheckFTCtags('jsctags', 'javascript')
@@ -432,12 +434,23 @@ function! s:InitTypes() abort
         let type_javascript.ctagsargs  = '-f -'
     else
         let type_javascript.kinds = [
-            \ {'short' : 'v', 'long' : 'global variables', 'fold' : 0, 'stl' : 0},
-            \ {'short' : 'c', 'long' : 'classes',          'fold' : 0, 'stl' : 1},
-            \ {'short' : 'p', 'long' : 'properties',       'fold' : 0, 'stl' : 0},
-            \ {'short' : 'm', 'long' : 'methods',          'fold' : 0, 'stl' : 1},
-            \ {'short' : 'f', 'long' : 'functions',        'fold' : 0, 'stl' : 1}
+            \ {'short': 'v', 'long': 'global variables', 'fold': 0, 'stl': 0},
+            \ {'short': 'c', 'long': 'classes',          'fold': 0, 'stl': 1},
+            \ {'short': 'p', 'long': 'properties',       'fold': 0, 'stl': 0},
+            \ {'short': 'm', 'long': 'methods',          'fold': 0, 'stl': 1},
+            \ {'short': 'f', 'long': 'functions',        'fold': 0, 'stl': 1},
         \ ]
+        let type_javascript.sro        = '.'
+        let type_javascript.kind2scope = {
+            \ 'c' : 'class',
+            \ 'f' : 'function',
+            \ 'm' : 'method',
+            \ 'p' : 'property',
+        \ }
+        let type_javascript.scope2kind = {
+            \ 'class'    : 'c',
+            \ 'function' : 'f',
+        \ }
     endif
     let s:known_types.javascript = type_javascript
     " Lisp {{{3
@@ -801,6 +814,10 @@ function! s:InitTypes() abort
     let s:known_types.yacc = type_yacc
     " }}}3
 
+    for [type, typeinfo] in items(s:known_types)
+        let typeinfo.ftype = type
+    endfor
+
     call s:LoadUserTypeDefs()
 
     for typeinfo in values(s:known_types)
@@ -828,6 +845,7 @@ function! s:LoadUserTypeDefs(...) abort
     let transformed = {}
     for [type, def] in items(defdict)
         let transformed[type] = s:TransformUserTypeDef(def)
+        let transformed[type].ftype = type
     endfor
 
     for [key, value] in items(transformed)
@@ -1093,7 +1111,7 @@ function! s:CtagsErrMsg(errmsg, infomsg, silent, ...) abort
     endif
 
     if !a:silent
-        echoerr a:errmsg
+        call s:warning(a:errmsg)
         echomsg a:infomsg
 
         if ctags_cmd == ''
@@ -2146,15 +2164,18 @@ function! s:ExecuteCtagsOnFile(fname, realfname, typeinfo) abort
             let ctags_args += ['--options=' . expand(a:typeinfo.deffile)]
         endif
 
-        let ctags_type = a:typeinfo.ctagstype
+        " Third-party programs may not necessarily make use of this
+        if has_key(a:typeinfo, 'ctagstype')
+            let ctags_type = a:typeinfo.ctagstype
 
-        let ctags_kinds = ''
-        for kind in a:typeinfo.kinds
-            let ctags_kinds .= kind.short
-        endfor
+            let ctags_kinds = ''
+            for kind in a:typeinfo.kinds
+                let ctags_kinds .= kind.short
+            endfor
 
-        let ctags_args += ['--language-force=' . ctags_type]
-        let ctags_args += ['--' . ctags_type . '-kinds=' . ctags_kinds]
+            let ctags_args += ['--language-force=' . ctags_type]
+            let ctags_args += ['--' . ctags_type . '-kinds=' . ctags_kinds]
+        endif
     endif
 
     if has_key(a:typeinfo, 'ctagsbin')
@@ -2180,7 +2201,7 @@ function! s:ExecuteCtagsOnFile(fname, realfname, typeinfo) abort
         if bufwinnr("__Tagbar__") != -1 &&
          \ (!s:known_files.has(a:realfname) ||
          \ !empty(s:known_files.get(a:realfname)))
-            echoerr 'Tagbar: Could not execute ctags for ' . a:fname . '!'
+            call s:warning('Tagbar: Could not execute ctags for ' . a:realfname . '!')
             echomsg 'Executed command: "' . ctags_cmd . '"'
             if !empty(ctags_output)
                 call s:debug('Command output:')
@@ -2273,10 +2294,14 @@ function! s:ParseTagline(part1, part2, typeinfo, fileinfo) abort
         call taginfo.initFoldState()
     catch /^Vim(\a\+):E716:/ " 'Key not present in Dictionary'
         " The tag has a 'kind' that doesn't exist in the type definition
-        call s:debug('ERROR Unknown tag kind: ' . taginfo.fields.kind)
-        echoerr 'Unknown tag kind encountered: ' . taginfo.fields.kind
-              \ 'Your ctags and Tagbar configurations are out of sync!'
-              \ 'Please read '':help tagbar-extend''.'
+        call s:debug('Warning: Unknown tag kind: ' . taginfo.fields.kind)
+        if index(s:warnings.type, a:typeinfo.ftype) == -1
+            call s:warning('Unknown tag kind encountered: ' .
+                \ '"' . taginfo.fields.kind . '".' .
+                \ ' Your ctags and Tagbar configurations are out of sync!' .
+                \ ' Please read '':help tagbar-extend''.')
+            call add(s:warnings.type, a:typeinfo.ftype)
+        endif
     endtry
 
     return taginfo
@@ -3195,7 +3220,7 @@ endfunction
 " s:SetFoldLevel() {{{2
 function! s:SetFoldLevel(level, force) abort
     if a:level < 0
-        echoerr 'Foldlevel can''t be negative'
+        call s:warning('Foldlevel can''t be negative')
         return
     endif
 
@@ -3494,9 +3519,11 @@ function! s:EscapeCtagsCmd(ctags_bin, args, ...) abort
     call s:debug('Escaped ctags command: ' . ctags_cmd)
 
     if ctags_cmd == ''
-        echoerr 'Tagbar: Encoding conversion failed!'
-              \ 'Please make sure your system is set up correctly'
-              \ 'and that Vim is compiled with the "+iconv" feature.'
+        if !s:warnings.encoding
+            call s:warning('Tagbar: Ctags command encoding conversion failed!' .
+                \ ' Please read ":h g:tagbar_systemenc".')
+            let s:warnings.encoding = 1
+        endif
     endif
 
     return ctags_cmd
@@ -3879,6 +3906,13 @@ function! s:goto_markedwin(...) abort
     endfor
 endfunction
 
+" s:warning() {{{2
+function! s:warning(msg) abort
+    echohl WarningMsg
+    echomsg a:msg
+    echohl None
+endfunction
+
 " TagbarBalloonExpr() {{{2
 function! TagbarBalloonExpr() abort
     let taginfo = s:GetTagInfo(v:beval_lnum, 1)
@@ -4086,7 +4120,7 @@ function! tagbar#gettypeconfig(type) abort
     let typeinfo = get(s:known_types, a:type, {})
 
     if empty(typeinfo)
-        echoerr 'Unknown type ' . a:type . '!'
+        call s:warning('Unknown type ' . a:type . '!')
         return
     endif
 
@@ -4112,6 +4146,11 @@ function! tagbar#gettypeconfig(type) abort
     let output .= "\\ }"
 
     silent put =output
+endfunction
+
+" tagbar#inspect() {{{2
+function! tagbar#inspect(var) abort
+    return get(s:, a:var)
 endfunction
 
 " Modeline {{{1

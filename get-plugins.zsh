@@ -7,6 +7,7 @@ git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/i
 git clone https://github.com/dahu/vim-fanfingtastic.git bundle/fanfingtastic && rm -rf bundle/fanfingtastic/.git
 git clone https://github.com/ervandew/supertab.git bundle/supertab && rm -rf bundle/supertab/.git
 git clone https://github.com/fatih/vim-go.git bundle/vim-go && rm -rf bundle/vim-go/.git
+git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
 git clone https://github.com/itchyny/landscape.vim.git bundle/landscape && rm -rf bundle/landscape/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
 git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp && rm -rf bundle/ctrlp/.git
