@@ -154,11 +154,12 @@ set undoreload=10000 " to undo forced reload with :e!
 set nocursorcolumn " disable global cursor column 
 set nocursorline " disable global cursor line 
 set nostartofline " leave my cursor where it was
-augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-augroup END
+" Too slow always on large terminals :(
+" augroup CursorLine
+"     au!
+"     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+"     au WinLeave * setlocal nocursorline
+" augroup END
 " }}}
 
 " Wildmenu {{{
