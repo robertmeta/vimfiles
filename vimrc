@@ -120,7 +120,7 @@ set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab 
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 set switchbuf=split " when working with quickfix use new splits
-set synmaxcol=500 " Don't try to highlight lines longer than 500 characters.
+set synmaxcol=5000 " Don't try to highlight lines longer than X characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 set textwidth=0 " No autowrapping
 set title " mess witht he title
@@ -313,7 +313,7 @@ let g:ctrlp_buftag_types={'go': '--language-force=go --golang-types=ftv'}
 let g:ctrlp_follow_symlinks=1
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_match_window_reversed=1
-let g:ctrlp_max_depth=100
+let g:ctrlp_max_depth=1000
 let g:ctrlp_max_files=100000
 let g:ctrlp_max_height=30
 let g:ctrlp_open_multiple_files='ij'
