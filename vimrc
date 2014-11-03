@@ -61,9 +61,6 @@ syntax sync minlines=200 " helps to avoid syntax highlighting bugs
 " }}}
 
 " Basics Settings {{{
-set autoread " do read on all changes
-set autowriteall " do Write on all changes
-set autowrite " do write on all changes
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set completeopt=longest,menuone,preview " complete menu
@@ -92,6 +89,9 @@ set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
+set noautoread " do NOT read on all changes
+set noautowriteall " do NOT write on all changes
+set noautowrite " do NOT write on all changes
 set nocompatible " explicitly get out of vi-compatible mode
 set nocursorcolumn " disable global cursor column 
 set nocursorline " disable global cursor line 
@@ -116,7 +116,7 @@ set secure " but lets not go crazy
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
-set showbreak=+++\ " this is how we show breaks
+set showbreak=+++\ " this is how we show breaks (this comment is broken in vim, dafaq)
 set showcmd " Show the commands
 set showmode " default but just in case
 set sidescroll=5 " If you hit edge, jump 5
@@ -396,8 +396,12 @@ let g:rbpt_colorpairs=[
 let g:rbpt_max=24
 " }}}
 
-" Dispatch {{{
-nmap <leader>d :Dispatch<cr>
+" Vimux {{{
+map <Leader>tp :wa<CR> :GolangTestCurrentPackage<CR>
+map <Leader>tf :wa<CR> :GolangTestFocused<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
 " }}}
 
 " HTML Settings {{{
