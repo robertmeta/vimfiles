@@ -61,7 +61,11 @@ syntax sync minlines=200 " helps to avoid syntax highlighting bugs
 " }}}
 
 " Basics Settings {{{
+set autoread " do read on all changes
+set autowriteall " do Write on all changes
+set autowrite " do write on all changes
 set backspace=indent,eol,start " make backspace a more flexible
+set breakindent " this is just awesome (best patch in a long time)
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
@@ -88,9 +92,9 @@ set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
-set noautowriteall " do Write on all changes (too buggy to use)
-set noautowrite " don't write on all changes (too buggy to use)
 set nocompatible " explicitly get out of vi-compatible mode
+set nocursorcolumn " disable global cursor column 
+set nocursorline " disable global cursor line 
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
@@ -99,6 +103,7 @@ set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nospell " too many broken syntax files to have spellcheck on everywhere
+set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling 
 set novisualbell " don't be noisy
 set number " turn on line numbers
@@ -111,6 +116,7 @@ set secure " but lets not go crazy
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
+set showbreak=+++\ " this is how we show breaks
 set showcmd " Show the commands
 set showmode " default but just in case
 set sidescroll=5 " If you hit edge, jump 5
@@ -148,18 +154,6 @@ endif
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
-" }}}
-
-" Cursor settings {{{
-set nocursorcolumn " disable global cursor column 
-set nocursorline " disable global cursor line 
-set nostartofline " leave my cursor where it was
-" Too slow always on large terminals :(
-" augroup CursorLine
-"     au!
-"     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-"     au WinLeave * setlocal nocursorline
-" augroup END
 " }}}
 
 " Wildmenu {{{
