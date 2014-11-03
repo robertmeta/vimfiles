@@ -397,11 +397,15 @@ let g:rbpt_max=24
 " }}}
 
 " Vimux {{{
-map <Leader>tp :wa<CR> :GolangTestCurrentPackage<CR>
+let g:VimuxPromptString = "WAT? "
 map <Leader>tf :wa<CR> :GolangTestFocused<CR>
+map <Leader>tp :wa<CR> :GolangTestCurrentPackage<CR>
+map <Leader>vc :VimuxCloseRunner<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vx :VimuxInterruptRunner<CR>
 " }}}
 
 " HTML Settings {{{
