@@ -398,8 +398,8 @@ let g:rbpt_max=24
 
 " Vimux {{{
 let g:VimuxPromptString = "WAT? "
-map <Leader>tf :wa<CR> :GolangTestFocused<CR>
-map <Leader>tp :wa<CR> :GolangTestCurrentPackage<CR>
+"map <Leader>tf :wa<CR> :GolangTestFocused<CR>
+"map <Leader>tp :wa<CR> :GolangTestCurrentPackage<CR>
 map <Leader>vc :VimuxCloseRunner<CR>
 map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
