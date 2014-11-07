@@ -489,6 +489,7 @@ if s:running_windows && has("gui_running") == 0
 else
     " Basline Theme
     set background=dark
+    let g:solarized_contrast="high"
     colo solarized
     hi Folded cterm=bold
 endif
@@ -497,6 +498,7 @@ endif
 " Functions {{{
 fun! SolDark()
     set background=dark
+    let g:solarized_contrast="high"
     colo solarized
     hi Folded cterm=bold
     RainbowParenthesesActivate
@@ -504,6 +506,7 @@ endfun
 
 fun! SolLight()
     set background=light
+    let g:solarized_contrast="low"
     colo solarized
     hi Folded cterm=bold
     RainbowParenthesesActivate
