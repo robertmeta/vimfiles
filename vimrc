@@ -35,11 +35,9 @@ nmap <leader>j <C-f>
 nmap <leader>k <C-b>
 " Window control
 nmap <leader>c <C-W>c 
-nmap <leader>h :split<CR>
 nmap <leader>o <C-W>o
 nmap <leader>" :split<CR>
 nmap <leader>% :vsplit<CR>
-nmap <leader>v :vsplit<CR>
 nmap <leader>w <C-W>w
 " Buffer control
 nmap <leader>Q <ESC>:q<CR>
