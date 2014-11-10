@@ -35,7 +35,6 @@ git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle
 git clone https://github.com/tpope/vim-repeat bundle/repeat && rm -rf bundle/repeat/.git
 git clone https://github.com/tpope/vim-scriptease bundle/scriptease && rm -rf bundle/scriptease/.git
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
-git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
@@ -56,3 +55,4 @@ git clone https://github.com/pangloss/vim-javascript.git bundle/javascript && rm
 #git clone https://github.com/paradigm/TextObjectify.git bundle/textobjectify && rm -rf bundle/textobjectify/.git
 #git clone https://github.com/tpope/vim-dispatch bundle/dispatch && rm -rf bundle/dispatch/.git
 #git clone https://github.com/tpope/vim-speeddating bundle/speeddating && rm -rf bundle/speeddating/.git
+#git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
