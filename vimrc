@@ -125,7 +125,7 @@ set smartcase " if there are caps, go case-sensitive
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
-set switchbuf=split " when working with quickfix use new splits
+set switchbuf=useopen " when working with quickfix use new splits
 set synmaxcol=5000 " Don't try to highlight lines longer than X characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 set textwidth=0 " No autowrapping
