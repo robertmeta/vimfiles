@@ -43,13 +43,13 @@ git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/
 git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.git
 
 # Angular support
-#git clone https://github.com/burnettk/vim-angular.git bundle/angular && rm -rf bundle/angular/.git
-#git clone https://github.com/claco/jasmine.vim.git bundle/jasmine && rm -rf bundle/jasmine/.git
-#git clone https://github.com/othree/javascript-libraries-syntax.vim.git bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
-#git clone https://github.com/pangloss/vim-javascript.git bundle/javascript && rm -rf bundle/javascript/.git
+git clone https://github.com/burnettk/vim-angular.git bundle/angular && rm -rf bundle/angular/.git
+git clone https://github.com/claco/jasmine.vim.git bundle/jasmine && rm -rf bundle/jasmine/.git
+git clone https://github.com/othree/javascript-libraries-syntax.vim.git bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
+git clone https://github.com/pangloss/vim-javascript.git bundle/javascript && rm -rf bundle/javascript/.git
 
 # Html5
-#git clone https://github.com/othree/html5.vim.git bundle/html5 && rm -rf bundle/html5/.git
+git clone https://github.com/othree/html5.vim.git bundle/html5 && rm -rf bundle/html5/.git
 
 # Disabled plugins
 #git clone https://github.com/benmills/vimux.git bundle/vimux && rm -rf bundle/vimux/.git
