@@ -4,19 +4,18 @@ mkdir -p bundle
 # Themes
 git clone https://github.com/altercation/vim-colors-solarized bundle/solarized && rm -rf bundle/solarized/.git
 git clone https://github.com/ciaranm/inkpot.git bundle/inkpot && rm -rf bundle/inkpot/.git
+git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
 git clone https://github.com/itchyny/landscape.vim.git bundle/landscape && rm -rf bundle/landscape/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
 git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
+git clone https://github.com/ricardovaleriano/vim-github-theme bundle/githubtheme && rm -rf bundle/githubtheme/.git
 git clone https://github.com/tomasr/molokai.git bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
-git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
-git clone https://github.com/ricardovaleriano/vim-github-theme bundle/githubtheme && rm -rf bundle/githubtheme/.git
 
 # Go 
 git clone https://github.com/fatih/vim-go.git bundle/vim-go && rm -rf bundle/vim-go/.git
 
 # Tmux
-git clone https://github.com/benmills/vimux.git bundle/vimux && rm -rf bundle/vimux/.git
 git clone https://github.com/christoomey/vim-tmux-navigator bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 
 # General
@@ -36,6 +35,7 @@ git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle
 git clone https://github.com/tpope/vim-repeat bundle/repeat && rm -rf bundle/repeat/.git
 git clone https://github.com/tpope/vim-scriptease bundle/scriptease && rm -rf bundle/scriptease/.git
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
+git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
@@ -44,15 +44,15 @@ git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/
 git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.git
 
 # Angular support
-git clone https://github.com/pangloss/vim-javascript.git bundle/javascript && rm -rf bundle/javascript/.git
-git clone https://github.com/othree/javascript-libraries-syntax.vim.git bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
-git clone https://github.com/claco/jasmine.vim.git bundle/jasmine && rm -rf bundle/jasmine/.git
 git clone https://github.com/burnettk/vim-angular.git bundle/angular && rm -rf bundle/angular/.git
+git clone https://github.com/claco/jasmine.vim.git bundle/jasmine && rm -rf bundle/jasmine/.git
+git clone https://github.com/othree/javascript-libraries-syntax.vim.git bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
+git clone https://github.com/pangloss/vim-javascript.git bundle/javascript && rm -rf bundle/javascript/.git
 
 # Disabled plugins
+#git clone https://github.com/benmills/vimux.git bundle/vimux && rm -rf bundle/vimux/.git
+#git clone https://github.com/benmills/vimux-golang.git bundle/vimux-golang && rm -rf bundle/vimux-golang/.git
+#git clone https://github.com/dahu/vim-fanfingtastic.git bundle/fanfingtastic && rm -rf bundle/fanfingtastic/.git
+#git clone https://github.com/paradigm/TextObjectify.git bundle/textobjectify && rm -rf bundle/textobjectify/.git
 #git clone https://github.com/tpope/vim-dispatch bundle/dispatch && rm -rf bundle/dispatch/.git
 #git clone https://github.com/tpope/vim-speeddating bundle/speeddating && rm -rf bundle/speeddating/.git
-#git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
-#git clone https://github.com/benmills/vimux-golang.git bundle/vimux-golang && rm -rf bundle/vimux-golang/.git
-#git clone https://github.com/paradigm/TextObjectify.git bundle/textobjectify && rm -rf bundle/textobjectify/.git
-#git clone https://github.com/dahu/vim-fanfingtastic.git bundle/fanfingtastic && rm -rf bundle/fanfingtastic/.git
