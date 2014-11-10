@@ -25,8 +25,8 @@ let s:colorful_term=(&term  =~ "xterm") || (&term  =~ "screen")
 map Y y$
 nmap <space> <leader>
 " quickfix next/prev with centering
-nmap <down> :cnext<cr>zvzz
-nmap <up> :cprev<cr>zvzz
+nmap <S-down> :cnext<cr>zvzz
+nmap <S-up> :cprev<cr>zvzz
 " folding / unfolding outer layer
 nmap <leader>z :%foldc<CR> 
 nmap <leader>Z :%foldo<CR>
@@ -45,6 +45,8 @@ nmap <leader>W <ESC>:w<CR>
 " Addon control
 nmap <left> :NERDTreeToggle<cr>
 nmap <right> :TagbarToggle<cr>
+nmap <down> :bn<cr>
+nmap <up> :vp<cr>
 " keep centered when jumping serach results
 nmap n nzzzv
 nmap N Nzzzv
@@ -534,5 +536,5 @@ endfun
 " }}}
 
 " Modeline {{{
-" vim: set foldlevel=0: 
+" vim: set foldlevel=1: 
 " }}}
