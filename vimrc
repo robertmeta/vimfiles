@@ -485,36 +485,8 @@ let g:angular_filename_convention = 'camelcased'
 " Theme setup {{{
 let g:seoul256_background=235 " 233-239 (237) Dark -> Light
 let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
-if s:running_windows && has("gui_running") == 0
-    " Basline Theme
-    set background=dark
-    colo molokai
-    hi Folded cterm=bold
-else
-    " Basline Theme
-    set background=dark
-    let g:solarized_contrast="high"
-    colo solarized
-    hi Folded cterm=bold
-endif
-" }}}
-
-" Functions {{{
-fun! SolDark()
-    set background=dark
-    let g:solarized_contrast="high"
-    colo solarized
-    hi Folded cterm=bold
-    RainbowParenthesesActivate
-endfun
-
-fun! SolLight()
-    set background=light
-    let g:solarized_contrast="low"
-    colo solarized
-    hi Folded cterm=bold
-    RainbowParenthesesActivate
-endfun
+set background=dark
+colo seoul256
 
 fun! SeoulDarkColors()
     set background=dark
