@@ -20,6 +20,14 @@ Helptag " Help for plugins
 let s:running_windows=has("win16") || has("win32") || has("win64")
 let s:colorful_term=(&term  =~ "xterm") || (&term  =~ "screen")
 " }}}
+"
+" Loading Settings {{{
+let g:skip_loading_mswin=1 " Just in case :)
+filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
+let loaded_matchparen=1 " we don't want to use matching paren plugin, we got RainbowParen
+syntax on " syntax highlighting on
+syntax sync minlines=200 " helps to avoid syntax highlighting bugs
+" }}}
 
 " General mappings {{{
 map Y y$
@@ -50,14 +58,6 @@ nmap <up> :vp<cr>
 " keep centered when jumping serach results
 nmap n nzzzv
 nmap N Nzzzv
-" }}}
-
-" Loading Settings {{{
-let g:skip_loading_mswin=1 " Just in case :)
-filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
-let loaded_matchparen=1 " we don't want to use matching paren plugin, we got RainbowParen
-syntax on " syntax highlighting on
-syntax sync minlines=200 " helps to avoid syntax highlighting bugs
 " }}}
 
 " Basics Settings {{{
