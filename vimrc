@@ -478,6 +478,10 @@ hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
 " }}}
 
+" Angular {{{
+let g:angular_filename_convention = 'camelcased'
+" }}}
+
 " Theme setup {{{
 let g:seoul256_background=235 " 233-239 (237) Dark -> Light
 let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
