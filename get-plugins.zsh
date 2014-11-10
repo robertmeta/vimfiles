@@ -18,6 +18,9 @@ git clone https://github.com/fatih/vim-go.git bundle/vim-go && rm -rf bundle/vim
 # Tmux
 git clone https://github.com/christoomey/vim-tmux-navigator bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 
+# Html5
+git clone https://github.com/othree/html5.vim.git bundle/html5 && rm -rf bundle/html5/.git
+
 # General
 git clone https://github.com/ervandew/supertab.git bundle/supertab && rm -rf bundle/supertab/.git
 git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp && rm -rf bundle/ctrlp/.git
