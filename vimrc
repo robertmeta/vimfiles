@@ -430,7 +430,7 @@ let perl_extended_vars=1 " highlight advanced perl vars inside strings
 " NERDTree {{{
 let NERDChristmasTree=1
 let NERDTreeDirArrows=1
-let NERDTreeHijackNetrw=1 " I use vim-vinegar most of the time, don't mess with -
+let NERDTreeHijackNetrw=0 " I use vim-vinegar most of the time, don't mess with -
 let NERDTreeMinimalUI=1
 " }}}
 
