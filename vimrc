@@ -235,7 +235,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go foldmarker={,} " use simple markers
+        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go foldmethod=indent foldmarker={,}
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
@@ -336,6 +336,7 @@ let g:godef_same_file_in_same_window=1
 let g:godef_split=0
 let g:go_fmt_autosave=1
 let g:go_fmt_command="goimports"
+let g:go_fmt_fail_silently=1 " don't duplicate syntastic
 let g:go_highlight_array_whitespace_error=1
 let g:go_highlight_chan_whitespace_error=1
 let g:go_highlight_extra_types=1
@@ -442,6 +443,10 @@ let g:tagbar_left=1 " Stack on left with NERDTree for terminal mouse limits
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor
 endif
+" }}}
+
+" {{{ Syntastic 
+let g:syntastic_always_populate_loc_list = 1
 " }}}
 
 " Fugitive {{{
