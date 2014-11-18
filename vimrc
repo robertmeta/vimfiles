@@ -303,7 +303,7 @@ endif
 " CtrlP {{{
 " Settings
 let g:ctrlp_buftag_ctags_bin='ctags'
-let g:ctrlp_buftag_types={'go': '--language-force=go --golang-types=ftv', 'javascript' : { 'bin': 'jsctags', 'args': '-f -', }}
+let g:ctrlp_buftag_types={'go': '--language-force=go --golang-types=ftv', 'javascript': '--langauge-force=js'}}
 let g:ctrlp_follow_symlinks=1
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_match_window_reversed=1
