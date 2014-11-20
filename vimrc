@@ -487,6 +487,11 @@ hi link EasyMotionTarget2Second Number
 let g:angular_filename_convention = 'camelcased'
 " }}}
 
+" JsFMT {{{
+let g:js_fmt_autosave = 1
+let g:js_fmt_command = "jsfmt"
+" }}}
+
 " Theme setup {{{
 let g:seoul256_background=235 " 233-239 (237) Dark -> Light
 let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light

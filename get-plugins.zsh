@@ -50,6 +50,7 @@ git clone https://github.com/othree/html5.vim.git bundle/html5 && rm -rf bundle/
 
 # JS
 git clone https://github.com/marijnh/tern_for_vim.git bundle/ternforvim && rm -rf bundle/ternforvim/.git
+git clone https://github.com/mephux/vim-jsfmt.git bundle/jsfmt && rm -rf bundle/jsfmt/.git
 
 # Disabled plugins
 #git clone https://github.com/benmills/vimux.git bundle/vimux && rm -rf bundle/vimux/.git
