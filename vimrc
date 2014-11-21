@@ -495,9 +495,9 @@ if has("autocmd")
         " Clear!
         au!
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au FileType go nmap gd :TernDef<CR>
-        au FileType go nmap gr :TernRename<CR>
-        au FileType go nmap gi :TernRef<CR>
+        au FileType javascript nmap gd :TernDef<CR>
+        au FileType javascript nmap gr :TernRename<CR>
+        au FileType javascript nmap gi :TernRef<CR>
     augroup END
 endif
 " }}}
