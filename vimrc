@@ -53,8 +53,10 @@ nmap <leader>W <ESC>:w<CR>
 " Addon control
 nmap <left> :NERDTreeToggle<cr>
 nmap <right> :TagbarToggle<cr>
-nmap <down> :bn<cr>
-nmap <up> :vp<cr>
+nmap <down> :lnext<cr>
+nmap <up> :lprev<cr>
+nmap <S-down> :cnext<cr>
+nmap <S-up> :cprev<cr>
 " keep centered when jumping serach results
 nmap n nzzzv
 nmap N Nzzzv
@@ -483,13 +485,22 @@ hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
 " }}}
 
-" Angular {{{
+" Javascript {{{
 let g:angular_filename_convention = 'camelcased'
-" }}}
-
-" JsFMT {{{
 let g:js_fmt_autosave = 1
 let g:js_fmt_command = "jsfmt"
+" Autocommands
+if has("autocmd")
+    augroup javascript
+        " Clear!
+        au!
+        " Go setlocalup assumptions: gocode, godef, gotags all in path
+        au FileType go nmap gd :TernDef<CR>
+        au FileType go nmap gr :TernRename<CR>
+        au FileType go nmap gi :TernRef<CR>
+    augroup END
+endif
+" }}}
 " }}}
 
 " Theme setup {{{
