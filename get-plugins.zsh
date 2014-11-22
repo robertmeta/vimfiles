@@ -12,7 +12,7 @@ git clone https://github.com/fatih/vim-go.git bundle/vim-go && rm -rf bundle/vim
 git clone https://github.com/christoomey/vim-tmux-navigator bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 
 # Rainbow Parens
-get clone https://github.com/amdt/vim-niji.git bundle/niji && rm -rf bundle/niji/.git
+git clone https://github.com/amdt/vim-niji.git bundle/niji && rm -rf bundle/niji/.git
 #git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # General
