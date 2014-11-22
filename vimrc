@@ -244,11 +244,6 @@ if has("autocmd")
         au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
         au BufNewFile,BufRead *.md setlocal filetype=markdown " Markdown (common markdown?)
         au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
-        " Rainbow Parens
-        au Syntax * RainbowParenthesesLoadBraces
-        au Syntax * RainbowParenthesesLoadRound
-        au Syntax * RainbowParenthesesLoadSquare
-        au VimEnter * RainbowParenthesesActivate
          " Things I like spellcheck in
         au FileType asciidoc setlocal spell
         au FileType gitcommit setlocal spell
@@ -369,34 +364,36 @@ let g:SuperTabDefaultCompletionType="context"
 let g:SuperTabLongestHighlight=1
 " }}}
 
-" RainbowParentheses {{{
-let g:rbpt_colorpairs=[
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-\ ]
-let g:rbpt_max=24
+" Niji (Rainbow Parentheses) {{{
+let g:niji_matching_filetypes = ['lisp', 'ruby', 'python', 'javascript', 'go']
+" To use the below scheme
+" let g:niji_use_legacy_colours = 1
+" let g:rbpt_colorpairs=[
+"     \ ['blue', 'RoyalBlue3'],
+"     \ ['darkred', 'firebrick3'],
+"     \ ['darkgreen', 'Seagreen3'],
+"     \ ['brown', 'DarkOrchid3'],
+"     \ ['darkcyan', 'Seagreen3'],
+"     \ ['darkmagenta', 'RoyalBlue3'],
+"     \ ['blue', 'RoyalBlue3'],
+"     \ ['darkred', 'firebrick3'],
+"     \ ['darkgreen', 'Seagreen3'],
+"     \ ['brown', 'DarkOrchid3'],
+"     \ ['darkcyan', 'Seagreen3'],
+"     \ ['darkmagenta', 'RoyalBlue3'],
+"     \ ['blue', 'RoyalBlue3'],
+"     \ ['darkred', 'firebrick3'],
+"     \ ['darkgreen', 'Seagreen3'],
+"     \ ['brown', 'DarkOrchid3'],
+"     \ ['darkcyan', 'Seagreen3'],
+"     \ ['darkmagenta', 'RoyalBlue3'],
+"     \ ['blue', 'RoyalBlue3'],
+"     \ ['darkred', 'firebrick3'],
+"     \ ['darkgreen', 'Seagreen3'],
+"     \ ['brown', 'DarkOrchid3'],
+"     \ ['darkcyan', 'Seagreen3'],
+"     \ ['darkmagenta', 'RoyalBlue3'],
+" \ ]
 " }}}
 
 " Vimux {{{
