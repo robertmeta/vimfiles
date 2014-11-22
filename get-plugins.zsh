@@ -11,6 +11,10 @@ git clone https://github.com/fatih/vim-go.git bundle/vim-go && rm -rf bundle/vim
 # Tmux
 git clone https://github.com/christoomey/vim-tmux-navigator bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 
+# Rainbow Parens
+get clone https://github.com/amdt/vim-niji.git bundle/niji && rm -rf bundle/niji/.git
+#git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
+
 # General
 git clone https://github.com/ervandew/supertab.git bundle/supertab && rm -rf bundle/supertab/.git
 git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
@@ -30,7 +34,6 @@ git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/ta
 git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
 git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bundle/syntastic/.git
 git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
-git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp && rm -rf bundle/ctrlp/.git
 
 # PowerShell
