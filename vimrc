@@ -93,8 +93,6 @@ set noautoread " do NOT read on all changes
 set noautowriteall " do NOT write on all changes
 set noautowrite " do NOT write on all changes
 set nocompatible " explicitly get out of vi-compatible mode
-set nocursorcolumn " disable global cursor column 
-set nocursorline " disable global cursor line 
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
@@ -415,9 +413,16 @@ let html_use_css=0
 let use_xhtml=0
 " }}}
 
-" Tmux Specific {{{
+" Cursor {{{
+set nocursorcolumn " disable global cursor column 
+set nocursorline " disable global cursor line 
+augroup CursorLineOnlyInActiveWindow
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd BufLeave,WinLeave,VimLeave * setlocal nocursorline
+augroup END 
 if exists('$TMUX')
-    " Cursor to yellow on insert mode | Blue on command/other mode
+    " Cursor to orange on insert mode | blue on command/other mode
     let &t_EI = "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
     let &t_SI = "\<Esc>Ptmux;\<Esc>\033]PlFBA922\033\\"
 endif
