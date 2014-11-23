@@ -483,8 +483,8 @@ let g:EasyMotion_use_upper=1
 " Mappings
 nmap <leader><space> <Plug>(easymotion-s)
 " Highlight Overrides
-hi link EasyMotionTarget2First Identifier
-hi link EasyMotionTarget2Second Number
+"hi link EasyMotionTarget2First Identifier
+"hi link EasyMotionTarget2Second Number
 " }}}
 
 " Javascript {{{
