@@ -422,8 +422,6 @@ if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\033]PlFBA922\033\\"
 endif
 " }}}
-"
-:noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 " Perl Settings {{{
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
@@ -479,7 +477,7 @@ let g:EasyMotion_off_screen_search=0
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
-nmap <leader><spac> <Plug>(easymotion-s)
+nmap <leader><space> <Plug>(easymotion-s)
 " Highlight Overrides
 hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
