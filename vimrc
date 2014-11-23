@@ -454,16 +454,15 @@ let g:syntastic_always_populate_loc_list = 1
 " }}}
 
 " Fugitive {{{
-" Just don't use these very often
-" nmap <leader>ga :Gadd<cr>
-" nmap <leader>gb :Gblame<cr>
-" nmap <leader>gci :Gcommit<cr>
-" nmap <leader>gco :Gcheckout<cr>
-" nmap <leader>gd :Gdiff<cr>
-" nmap <leader>gm :Gmove<cr>
-" nmap <leader>gr :Gremove<cr>
-" nmap <leader>gs :Gstatus<cr>
-" nmap <leader>gw :Gwrite<cr>
+ nmap <leader>ga :Gadd<cr>
+ nmap <leader>gb :Gblame<cr>
+ nmap <leader>gci :Gcommit<cr>
+ nmap <leader>gco :Gcheckout<cr>
+ nmap <leader>gd :Gdiff<cr>
+ nmap <leader>gm :Gmove<cr>
+ nmap <leader>gr :Gremove<cr>
+ nmap <leader>gs :Gstatus<cr>
+ nmap <leader>gw :Gwrite<cr>
 " }}}
 
 " Pair programming helper {{{
