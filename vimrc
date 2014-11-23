@@ -420,7 +420,6 @@ if exists('$TMUX')
     " Cursor to yellow on insert mode | Blue on command/other mode
     let &t_EI = "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
     let &t_SI = "\<Esc>Ptmux;\<Esc>\033]PlFBA922\033\\"
-    nnoremap <silent> <leader>s :TmuxNavigatePrevious<cr>
 endif
 " }}}
 "
@@ -480,7 +479,7 @@ let g:EasyMotion_off_screen_search=0
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
-nmap <leader><space> <Plug>(easymotion-bd-w)
+nmap <leader><spac> <Plug>(easymotion-s)
 " Highlight Overrides
 hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
