@@ -473,7 +473,7 @@ let g:EasyMotion_do_shade=1
 let g:EasyMotion_inc_highlight=1
 let g:EasyMotion_keys='ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 let g:EasyMotion_landing_highlight=0
-let g:EasyMotion_off_screen_search=0
+let g:EasyMotion_off_screen_search=1
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
