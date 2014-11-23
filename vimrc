@@ -30,36 +30,34 @@ syntax sync minlines=200 " helps to avoid syntax highlighting bugs
 " }}}
 
 " General mappings {{{
-map Y y$
 nmap <space> <leader>
-" quickfix next/prev with centering
-nmap <S-down> :cnext<cr>zvzz
-nmap <S-up> :cprev<cr>zvzz
+" quickfix/list next/prev with centering
+nnoremap <S-down> :cnext<cr>zvzz
+nnoremap <S-up> :cprev<cr>zvzz
+nnoremap <down> :lnext<cr>zvzz
+nnoremap <up> :lprev<cr>zvzz
 " folding / unfolding outer layer
-nmap <leader>z :%foldc<CR> 
-nmap <leader>Z :%foldo<CR>
+nnoremap <leader>z :%foldc<CR> 
+nnoremap <leader>Z :%foldo<CR>
 " Scrolling
-nmap <leader>j <C-f>
-nmap <leader>k <C-b>
+nnoremap <leader>j <C-f>
+nnoremap <leader>k <C-b>
 " Window control
-nmap <leader>c <C-W>c 
-nmap <leader>o <C-W>o
-nmap <leader>" :split<CR>
-nmap <leader>% :vsplit<CR>
-nmap <leader>w <C-W>w
+nnoremap <leader>c <C-W>c 
+nnoremap <leader>o <C-W>o
+nnoremap <leader>" :split<CR>
+nnoremap <leader>% :vsplit<CR>
+nnoremap <leader>w <C-W>w
 " Buffer control
-nmap <leader>Q <ESC>:q<CR>
-nmap <leader>W <ESC>:w<CR>
+nnoremap <leader>Q <ESC>:q<CR>
+nnoremap <leader>W <ESC>:w<CR>
 " Addon control
-nmap <left> :NERDTreeToggle<cr>
-nmap <right> :TagbarToggle<cr>
-nmap <down> :lnext<cr>
-nmap <up> :lprev<cr>
-nmap <S-down> :cnext<cr>
-nmap <S-up> :cprev<cr>
+nnoremap <left> :NERDTreeToggle<cr>
+nnoremap <right> :TagbarToggle<cr>
 " keep centered when jumping serach results
-nmap n nzzzv
-nmap N Nzzzv
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 " }}}
 
 " Basics Settings {{{
@@ -425,6 +423,8 @@ if exists('$TMUX')
     nnoremap <silent> <leader>s :TmuxNavigatePrevious<cr>
 endif
 " }}}
+"
+:noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 " Perl Settings {{{
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
@@ -452,15 +452,16 @@ let g:syntastic_always_populate_loc_list = 1
 " }}}
 
 " Fugitive {{{
-nmap <leader>ga :Gadd<cr>
-nmap <leader>gb :Gblame<cr>
-nmap <leader>gci :Gcommit<cr>
-nmap <leader>gco :Gcheckout<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gm :Gmove<cr>
-nmap <leader>gr :Gremove<cr>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gw :Gwrite<cr>
+" Just don't use these very often
+" nmap <leader>ga :Gadd<cr>
+" nmap <leader>gb :Gblame<cr>
+" nmap <leader>gci :Gcommit<cr>
+" nmap <leader>gco :Gcheckout<cr>
+" nmap <leader>gd :Gdiff<cr>
+" nmap <leader>gm :Gmove<cr>
+" nmap <leader>gr :Gremove<cr>
+" nmap <leader>gs :Gstatus<cr>
+" nmap <leader>gw :Gwrite<cr>
 " }}}
 
 " Pair programming helper {{{
@@ -500,7 +501,6 @@ if has("autocmd")
         au FileType javascript nmap gi :TernRef<CR>
     augroup END
 endif
-" }}}
 " }}}
 
 " Theme setup {{{
