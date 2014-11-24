@@ -47,10 +47,6 @@ nnoremap <leader>c <C-W>c
 nnoremap <leader>o <C-W>o
 nnoremap <leader>" :split<CR>
 nnoremap <leader>% :vsplit<CR>
-nnoremap <leader>w <C-W>w
-" Buffer control
-nnoremap <leader>Q <ESC>:q<CR>
-nnoremap <leader>W <ESC>:w<CR>
 " Addon control
 nnoremap <left> :NERDTreeToggle<cr>
 nnoremap <right> :TagbarToggle<cr>
