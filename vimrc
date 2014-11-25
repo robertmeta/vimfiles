@@ -44,16 +44,16 @@ nnoremap <leader>j <C-f>
 nnoremap <leader>k <C-b>
 " Tab control
 nnoremap <leader>c :tabnew<CR>
-nnoremap <leader>1 :tabmove 0<CR>
-nnoremap <leader>2 :tabmove 1<CR>
-nnoremap <leader>3 :tabmove 2<CR>
-nnoremap <leader>4 :tabmove 3<CR>
-nnoremap <leader>5 :tabmove 4<CR>
-nnoremap <leader>6 :tabmove 5<CR>
-nnoremap <leader>7 :tabmove 6<CR>
-nnoremap <leader>8 :tabmove 7<CR>
-nnoremap <leader>9 :tabmove 8<CR>
-nnoremap <leader>0 :tabmove 9<CR>
+nnoremap <leader>1 1gt<CR>
+nnoremap <leader>2 2gt<CR>
+nnoremap <leader>3 3gt<CR>
+nnoremap <leader>4 4gt<CR>
+nnoremap <leader>5 5gt<CR>
+nnoremap <leader>6 6gt<CR>
+nnoremap <leader>7 7gt<CR>
+nnoremap <leader>8 8gt<CR>
+nnoremap <leader>9 9gt<CR>
+nnoremap <leader>0 10gt<CR>
 " Window control
 nnoremap <leader>w <C-W>w 
 nnoremap <leader>o <C-W>o
