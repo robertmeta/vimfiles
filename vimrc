@@ -44,6 +44,7 @@ nnoremap <leader>j <C-f>
 nnoremap <leader>k <C-b>
 " Window control
 nnoremap <leader>c <C-W>c 
+nnoremap <leader>w <C-W>w 
 nnoremap <leader>o <C-W>o
 nnoremap <leader>" :split<CR>
 nnoremap <leader>% :vsplit<CR>
@@ -53,6 +54,7 @@ nnoremap <right> :TagbarToggle<cr>
 " keep centered when jumping serach results
 nnoremap n nzzzv
 nnoremap N Nzzzv
+" page facing view: side-by-side view of same buffer scrollbound
 nnoremap <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 " }}}
 
@@ -412,10 +414,11 @@ let use_xhtml=0
 " Cursor {{{
 set nocursorcolumn " disable global cursor column 
 set nocursorline " disable global cursor line 
+" But turn them on in the active window
 augroup CursorLineOnlyInActiveWindow
     autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    autocmd BufLeave,WinLeave,VimLeave * setlocal nocursorline
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
+    autocmd BufLeave,WinLeave,VimLeave * setlocal nocursorline nocursorcolumn
 augroup END 
 if exists('$TMUX')
     " Cursor to orange on insert mode | blue on command/other mode
