@@ -12,6 +12,7 @@ git clone https://github.com/fatih/vim-go.git bundle/vim-go && rm -rf bundle/vim
 git clone https://github.com/christoomey/vim-tmux-navigator bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 #git clone https://github.com/benmills/vimux.git bundle/vimux && rm -rf bundle/vimux/.git
 #git clone https://github.com/benmills/vimux-golang.git bundle/vimux-golang && rm -rf bundle/vimux-golang/.git
+#git clone https://github.com/tpope/vim-dispatch bundle/dispatch && rm -rf bundle/dispatch/.git
 
 # Rainbow Parens
 git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
@@ -28,7 +29,6 @@ git clone https://github.com/tpope/vim-scriptease bundle/scriptease && rm -rf bu
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
-git clone https://github.com/tpope/vim-dispatch bundle/dispatch && rm -rf bundle/dispatch/.git
 git clone https://github.com/tpope/vim-speeddating bundle/speeddating && rm -rf bundle/speeddating/.git
 git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 
