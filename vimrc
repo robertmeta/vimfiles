@@ -42,8 +42,19 @@ nnoremap <leader>Z :%foldo<CR>
 " Scrolling
 nnoremap <leader>j <C-f>
 nnoremap <leader>k <C-b>
+" Tab control
+nnoremap <leader>c :tabnew<CR>
+nnoremap <leader>1 :tabmove 0<CR>
+nnoremap <leader>2 :tabmove 1<CR>
+nnoremap <leader>3 :tabmove 2<CR>
+nnoremap <leader>4 :tabmove 3<CR>
+nnoremap <leader>5 :tabmove 4<CR>
+nnoremap <leader>6 :tabmove 5<CR>
+nnoremap <leader>7 :tabmove 6<CR>
+nnoremap <leader>8 :tabmove 7<CR>
+nnoremap <leader>9 :tabmove 8<CR>
+nnoremap <leader>0 :tabmove 9<CR>
 " Window control
-nnoremap <leader>c <C-W>c 
 nnoremap <leader>w <C-W>w 
 nnoremap <leader>o <C-W>o
 nnoremap <leader>" :split<CR>
