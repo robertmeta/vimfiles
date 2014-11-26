@@ -42,18 +42,6 @@ nnoremap <leader>Z :%foldo<CR>
 " Scrolling
 nnoremap <leader>j <C-f>
 nnoremap <leader>k <C-b>
-" Tab control
-nnoremap <leader>c :tabnew<CR>
-nnoremap <leader>1 1gt<CR>
-nnoremap <leader>2 2gt<CR>
-nnoremap <leader>3 3gt<CR>
-nnoremap <leader>4 4gt<CR>
-nnoremap <leader>5 5gt<CR>
-nnoremap <leader>6 6gt<CR>
-nnoremap <leader>7 7gt<CR>
-nnoremap <leader>8 8gt<CR>
-nnoremap <leader>9 9gt<CR>
-nnoremap <leader>0 10gt<CR>
 " Window control
 nnoremap <leader>w <C-W>w 
 nnoremap <leader>o <C-W>o
@@ -90,7 +78,7 @@ set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
 set formatoptions=qrn1j " used to be just rq
 set hidden " load files in background
 set history=9999 " big old history
-set ignorecase " case insensitive by default
+set noignorecase " case sensitive by default
 set incsearch " BUT do highlight as you type you search phrase
 set infercase " case inferred by default
 set laststatus=2 " always show the status line
@@ -110,7 +98,6 @@ set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nospell " too many broken syntax files to have spellcheck on everywhere
-set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling 
 set novisualbell " don't be noisy
 set number " turn on line numbers
@@ -261,6 +248,42 @@ if has("autocmd")
         au FileType svn setlocal spell
     augroup END
 endif
+" }}}
+
+" Tablines {{{
+function! Tabline()
+    let s = ''
+    for i in range(tabpagenr('$'))
+        let tab = i + 1
+        let winnr = tabpagewinnr(tab)
+        let buflist = tabpagebuflist(tab)
+        let bufnr = buflist[winnr - 1]
+        let bufname = bufname(bufnr)
+        let bufmodified = getbufvar(bufnr, "&mod")
+        let s .= '%' . tab . 'T'
+        let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+        let s .= ' ' . tab .':'
+        let s .= (bufname != '' ? ''. fnamemodify(bufname, ':t') . ' ' : '[No Name] ')
+        if bufmodified
+            let s .= '[+] '
+        endif
+    endfor
+    let s .= '%#TabLineFill#'
+    return s
+endfunction
+set tabline=%!Tabline()
+" Tab control
+nnoremap <leader>c :tabnew<CR>
+nnoremap <leader>1 1gt<CR>
+nnoremap <leader>2 2gt<CR>
+nnoremap <leader>3 3gt<CR>
+nnoremap <leader>4 4gt<CR>
+nnoremap <leader>5 5gt<CR>
+nnoremap <leader>6 6gt<CR>
+nnoremap <leader>7 7gt<CR>
+nnoremap <leader>8 8gt<CR>
+nnoremap <leader>9 9gt<CR>
+nnoremap <leader>0 10gt<CR>
 " }}}
 
 " GUI {{{
@@ -423,6 +446,7 @@ let use_xhtml=0
 " }}}
 
 " Cursor {{{
+set nostartofline " leave my cursor where it was
 set nocursorcolumn " disable global cursor column 
 set nocursorline " disable global cursor line 
 " But turn them on in the active window
@@ -431,11 +455,6 @@ augroup CursorLineOnlyInActiveWindow
     autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
     autocmd BufLeave,WinLeave,VimLeave * setlocal nocursorline nocursorcolumn
 augroup END 
-if exists('$TMUX')
-    " Cursor to orange on insert mode | blue on command/other mode
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\033]Pl3971ED\033\\"
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\033]PlFBA922\033\\"
-endif
 " }}}
 
 " Perl Settings {{{
