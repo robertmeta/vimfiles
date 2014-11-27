@@ -63,7 +63,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
-set cryptmethod=blowfish " use the good stuff!
+" set cryptmethod=blowfish " never used, and I doesn't work in nvim
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set fenc=utf-8 " UTF-8
