@@ -32,10 +32,12 @@ syntax sync minlines=200 " helps to avoid syntax highlighting bugs
 " General mappings {{{
 nmap <space> <leader>
 " quickfix/list next/prev with centering
-nnoremap <S-down> :cnext<cr>zvzz
-nnoremap <S-up> :cprev<cr>zvzz
-nnoremap <down> :lnext<cr>zvzz
-nnoremap <up> :lprev<cr>zvzz
+nnoremap <C-down> :cnext<cr>zvzz
+nnoremap <C-up> :cprev<cr>zvzz
+nnoremap <S-down> :lnext<cr>zvzz
+nnoremap <S-up> :lprev<cr>zvzz
+nnoremap <down> <C-f>
+nnoremap <up> <C-b>
 " folding / unfolding outer layer
 nnoremap <leader>z :%foldc<CR> 
 nnoremap <leader>Z :%foldo<CR>
