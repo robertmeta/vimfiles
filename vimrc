@@ -80,7 +80,6 @@ set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
 set formatoptions=qrn1j " used to be just rq
 set hidden " load files in background
 set history=9999 " big old history
-set noignorecase " case sensitive by default
 set incsearch " BUT do highlight as you type you search phrase
 set infercase " case inferred by default
 set laststatus=2 " always show the status line
@@ -92,14 +91,18 @@ set noautoread " do NOT read on all changes
 set noautowriteall " do NOT write on all changes
 set noautowrite " do NOT write on all changes
 set nocompatible " explicitly get out of vi-compatible mode
+set nocursorcolumn " disable global cursor column 
+set nocursorline " disable global cursor line 
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
+set noignorecase " case sensitive by default
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nospell " too many broken syntax files to have spellcheck on everywhere
+set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling 
 set novisualbell " don't be noisy
 set number " turn on line numbers
@@ -447,22 +450,6 @@ let html_use_css=0
 let use_xhtml=0
 " }}}
 
-" Cursor {{{
-set nostartofline " leave my cursor where it was
-set nocursorcolumn " disable global cursor column 
-set nocursorline " disable global cursor line 
-nnoremap <C-K> :call HighlightNearCursor()<CR>
-function HighlightNearCursor()
-    if !exists("s:highlightcursor")
-        match Todo /\k*\%#\k*/
-        let s:highlightcursor=1
-    else
-        match None
-        unlet s:highlightcursor
-    endif
-endfunction
-" }}}
-
 " Perl Settings {{{
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
 " }}}
@@ -490,12 +477,9 @@ let g:syntastic_always_populate_loc_list = 1
 
 " Fugitive {{{
  nmap <leader>ga :Gadd<cr>
- nmap <leader>gb :Gblame<cr>
- nmap <leader>gci :Gcommit<cr>
- nmap <leader>gco :Gcheckout<cr>
+ nmap <leader>gc :Gcommit<cr>
+ nmap <leader>go :Gcheckout<cr>
  nmap <leader>gd :Gdiff<cr>
- nmap <leader>gm :Gmove<cr>
- nmap <leader>gr :Gremove<cr>
  nmap <leader>gs :Gstatus<cr>
  nmap <leader>gw :Gwrite<cr>
 " }}}
