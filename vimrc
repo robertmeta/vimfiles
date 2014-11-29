@@ -451,12 +451,16 @@ let use_xhtml=0
 set nostartofline " leave my cursor where it was
 set nocursorcolumn " disable global cursor column 
 set nocursorline " disable global cursor line 
-" But turn them on in the active window
-augroup CursorLineOnlyInActiveWindow
-    autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
-    autocmd BufLeave,WinLeave,VimLeave * setlocal nocursorline nocursorcolumn
-augroup END 
+nnoremap <C-K> :call HighlightNearCursor()<CR>
+function HighlightNearCursor()
+    if !exists("s:highlightcursor")
+        match Todo /\k*\%#\k*/
+        let s:highlightcursor=1
+    else
+        match None
+        unlet s:highlightcursor
+    endif
+endfunction
 " }}}
 
 " Perl Settings {{{
