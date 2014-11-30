@@ -27,9 +27,9 @@ git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle
 git clone https://github.com/tpope/vim-repeat bundle/repeat && rm -rf bundle/repeat/.git
 git clone https://github.com/tpope/vim-scriptease bundle/scriptease && rm -rf bundle/scriptease/.git
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
-git clone https://github.com/tpope/vim-speeddating bundle/speeddating && rm -rf bundle/speeddating/.git
-git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
-git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
+#git clone https://github.com/tpope/vim-speeddating bundle/speeddating && rm -rf bundle/speeddating/.git
+#git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
+#git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 
 # Improved motions
@@ -61,11 +61,10 @@ git clone https://github.com/othree/javascript-libraries-syntax.vim bundle/javas
 git clone https://github.com/pangloss/vim-javascript bundle/javascript && rm -rf bundle/javascript/.git
 
 # Themes
-git clone https://github.com/altercation/vim-colors-solarized bundle/solarized && rm -rf bundle/solarized/.git
-git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
-git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
-git clone https://github.com/itchyny/landscape.vim bundle/landscape && rm -rf bundle/landscape/.git
-git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
-git clone https://github.com/ricardovaleriano/vim-github-theme bundle/github && rm -rf bundle/github/.git
-git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
-#git clone https://github.com/zenorocha/dracula-theme bundle/dracula && rm -rf bundle/dracula/.git
+#git clone https://github.com/altercation/vim-colors-solarized bundle/solarized && rm -rf bundle/solarized/.git
+#git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
+#git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
+#git clone https://github.com/itchyny/landscape.vim bundle/landscape && rm -rf bundle/landscape/.git
+#git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
+#git clone https://github.com/ricardovaleriano/vim-github-theme bundle/github && rm -rf bundle/github/.git
+#git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
