@@ -115,7 +115,7 @@ set secure " but lets not go crazy
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
-set showbreak=+++\ " this is how we show breaks (this comment is broken in vim, dafaq)
+set showbreak=+++\  " this is how we show breaks (this comment is broken in vim, dafaq)
 set showcmd " Show the commands
 set showmode " default but just in case
 set sidescroll=5 " If you hit edge, jump 5
@@ -135,6 +135,7 @@ set ttyfast " Assume a fast terminal
 set ttyscroll=5 " See if this helps scroll speed
 set t_vb= " seriously, shhhh, don't be noisy
 set viminfo+=! " Store upper-case registers in viminfo
+set virtualedit=block,onemore " one more virtual char at line ends, plus block mode of course
 set wrap " Going to try to love it, again
 " }}}
 
