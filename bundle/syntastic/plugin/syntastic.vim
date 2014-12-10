@@ -260,7 +260,7 @@ function! s:BufEnterHook() " {{{2
         let loclist = filter(copy(getloclist(0)), 'v:val["valid"] == 1')
         let owner = str2nr(getbufvar(bufnr(""), 'syntastic_owner_buffer'))
         let buffers = syntastic#util#unique(map(loclist, 'v:val["bufnr"]') + (owner ? [owner] : []))
-        if !empty(loclist) && empty(filter( buffers, 'syntastic#util#bufIsActive(v:val)' ))
+        if get(w:, 'syntastic_loclist_set', 0) && !empty(loclist) && empty(filter( buffers, 'syntastic#util#bufIsActive(v:val)' ))
             call SyntasticLoclistHide()
         endif
     endif
@@ -270,7 +270,9 @@ function! s:QuitPreHook() " {{{2
     call syntastic#log#debug(g:_SYNTASTIC_DEBUG_AUTOCOMMANDS,
         \ 'autocmd: QuitPre, buffer ' . bufnr("") . ' = ' . string(bufname(str2nr(bufnr("")))))
     let b:syntastic_skip_checks = get(b:, 'syntastic_skip_checks', 0) || !syntastic#util#var('check_on_wq')
-    call SyntasticLoclistHide()
+    if get(w:, 'syntastic_loclist_set', 0)
+        call SyntasticLoclistHide()
+    endif
 endfunction " }}}2
 
 " }}}1
@@ -289,7 +291,7 @@ function! s:UpdateErrors(auto_invoked, checker_names) " {{{2
     endif
 
     call s:modemap.synch()
-    let run_checks = !a:auto_invoked || s:modemap.allowsAutoChecking(&filetype)
+    let run_checks = !a:auto_invoked || s:modemap.doAutoChecking()
     if run_checks
         call s:CacheErrors(a:checker_names)
     endif
