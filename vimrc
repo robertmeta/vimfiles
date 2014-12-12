@@ -483,7 +483,7 @@ let g:syntastic_always_populate_loc_list = 1
  nmap <leader>gd :Gdiff<cr>
  nmap <leader>gs :Gstatus<cr>
  nmap <leader>gw :Gwrite<cr>
- nmap <leader>gC :Gwrite<cr>:Gcommit<cr>
+ nmap <leader>gg :Gwrite<cr>:Gcommit<cr>
 " }}}
 
 " Pair programming helper {{{
