@@ -339,8 +339,9 @@ function! s:unlet_for(files) abort
       let lines = readfile(file)
       if len(lines)
         for i in range(len(lines)-1)
-          let unlet = matchstr(lines[i], '^if exists([''"]\%(\g:\)\=\zs\w\+\ze[''"]')
-          if unlet !=# '' && lines[i+1] =~# '^ *finish\>' && index(guards, unlet) == -1
+          let unlet = matchstr(lines[i], '^if \+\%(( *\)\?exists *( *[''"]\%(\g:\)\=\zs\w\+\ze[''"]')
+          if unlet !=# '' && (lines[i+1] =~# '^ *finish\>' || lines[i] =~# '| *finish\>')
+                \ && index(guards, unlet) == -1
             call extend(guards, [unlet])
           endif
         endfor
@@ -729,6 +730,12 @@ function! s:helptopic()
   endif
 endfunction
 
+function! s:build_path()
+  let old_path = substitute(&path, '\v^\.,/%(usr|emx)/include,,,?', '', '')
+  let new_path = escape(&runtimepath, ' ')
+  return !empty(old_path) ? old_path.','.new_path : new_path
+endfunction
+
 " }}}1
 " Settings {{{1
 
@@ -740,7 +747,7 @@ endfunction
 
 augroup scriptease
   autocmd!
-  autocmd FileType vim,help let &l:path = escape(&runtimepath, ' ')
+  autocmd FileType vim,help let &l:path = s:build_path()
   autocmd FileType help command! -bar -bang -buffer Console PP
   autocmd FileType vim call s:setup()
   " Recent versions of vim.vim set iskeyword to include ":", which breaks among
