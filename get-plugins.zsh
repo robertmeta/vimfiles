@@ -4,6 +4,7 @@ mkdir -p bundle
 # Themes
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
+git clone https://github.com/MaxSt/FlatColor bundle/flatcolor && rm -rf bundle/flatcolor/.git
 
 # Go 
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
