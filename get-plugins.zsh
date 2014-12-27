@@ -2,9 +2,16 @@ rm -rf bundle
 mkdir -p bundle
 
 # Themes
+#git clone https://github.com/altercation/vim-colors-solarized bundle/solarized && rm -rf bundle/solarized/.git
+git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
+git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
+git clone https://github.com/itchyny/landscape.vim bundle/landscape && rm -rf bundle/landscape/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
-git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/MaxSt/FlatColor bundle/flatcolor && rm -rf bundle/flatcolor/.git
+git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
+git clone https://github.com/ricardovaleriano/vim-github-theme bundle/github && rm -rf bundle/github/.git
+git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
+git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
 
 # Go 
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
@@ -45,6 +52,7 @@ git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf
 git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
 git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
 git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bundle/syntastic/.git
+git clone https://github.com/Yggdroot/indentLine.git bundle/indentline && rm -rf bundle/indentline/.git
 
 # PowerShell
 git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.git
@@ -60,12 +68,3 @@ git clone https://github.com/marijnh/tern_for_vim bundle/ternforvim && rm -rf bu
 git clone https://github.com/mephux/vim-jsfmt bundle/jsfmt && rm -rf bundle/jsfmt/.git
 git clone https://github.com/othree/javascript-libraries-syntax.vim bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
 git clone https://github.com/pangloss/vim-javascript bundle/javascript && rm -rf bundle/javascript/.git
-
-# Themes
-#git clone https://github.com/altercation/vim-colors-solarized bundle/solarized && rm -rf bundle/solarized/.git
-#git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
-#git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
-#git clone https://github.com/itchyny/landscape.vim bundle/landscape && rm -rf bundle/landscape/.git
-#git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
-#git clone https://github.com/ricardovaleriano/vim-github-theme bundle/github && rm -rf bundle/github/.git
-#git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git

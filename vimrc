@@ -68,7 +68,7 @@ set complete=.,w,b,u,t " complete options
 " set cryptmethod=blowfish " never used, and I doesn't work in nvim
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
-set fenc=utf-8 " UTF-8
+set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
 set foldenable " Turn on folding
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
@@ -81,10 +81,11 @@ set formatoptions=qrn1j " used to be just rq
 set hidden " load files in background
 set history=9999 " big old history
 set incsearch " BUT do highlight as you type you search phrase
-set infercase " case inferred by default
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
+set listchars=tab:\|\ " use | to show indents
+set list " too much broken, I don't want to see it
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
 set noautoread " do NOT read on all changes
@@ -97,10 +98,11 @@ set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
 set noignorecase " case sensitive by default
+set noinfercase " don't case inferred by default
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
-set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
 set noshowmatch " don't show matching things (RainbowParentheses is better)
+set nosmartcase " Even if there are caps, don't go case-sensitive
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling 
@@ -120,7 +122,6 @@ set showcmd " Show the commands
 set showmode " default but just in case
 set sidescroll=5 " If you hit edge, jump 5
 set sidescrolloff=5 " Keep 5 lines at the size
-set smartcase " if there are caps, go case-sensitive
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
