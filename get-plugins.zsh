@@ -9,9 +9,16 @@ git clone https://github.com/itchyny/landscape.vim bundle/landscape && rm -rf bu
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
 git clone https://github.com/MaxSt/FlatColor bundle/flatcolor && rm -rf bundle/flatcolor/.git
 git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
-git clone https://github.com/ricardovaleriano/vim-github-theme bundle/github && rm -rf bundle/github/.git
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
+#git clone https://github.com/ricardovaleriano/vim-github-theme bundle/github && rm -rf bundle/github/.git
+git clone https://github.com/croaky/vim-colors-github.git bundle/github && rm -rf bundle/github/.git
+git clone https://github.com/nice/sweater.git bundle/sweater && rm -rf bundle/sweater/.git
+git clone https://github.com/romainl/Disciple.git bundle/disciple && rm -rf bundle/disciple/.git
+git clone https://github.com/romainl/Apprentice.git bundle/apprentice && rm -rf bundle/apprentice/.git
+git clone https://github.com/reedes/vim-colors-pencil.git bundle/pencil && rm -rf bundle/pencil/.git
+git clone https://github.com/marlun/vim-starwars.git bundle/starwars && rm -rf bundle/starwars/.git
+git clone https://github.com/DAddYE/soda.vim.git bundle/soda && rm -rf bundle/soda/.git
 
 # Go 
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
