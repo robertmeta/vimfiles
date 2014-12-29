@@ -85,8 +85,6 @@ set incsearch " BUT do highlight as you type you search phrase
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
-set listchars=tab:\|\ " use | to show indents
-set list " too much broken, I don't want to see it
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
 set noautoread " do NOT read on all changes
@@ -101,6 +99,7 @@ set nohlsearch " don't  highlight searched for phrases
 set noignorecase " case sensitive by default
 set noinfercase " don't case inferred by default
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
+set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nosmartcase " Even if there are caps, don't go case-sensitive
@@ -543,6 +542,18 @@ endfun
 fun! SeoulLightColors()
     set background=light
     colo seoul256-light
+    RainbowParenthesesActivate
+endfun
+
+fun! KalisiDarkColors()
+    set background=dark
+    colo kalisi256
+    RainbowParenthesesActivate
+endfun
+
+fun! KalisiLightColors()
+    set background=light
+    colo kalisi256-light
     RainbowParenthesesActivate
 endfun
 
