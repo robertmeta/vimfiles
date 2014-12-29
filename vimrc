@@ -547,13 +547,13 @@ endfun
 
 fun! KalisiDarkColors()
     set background=dark
-    colo kalisi256
+    colo kalisi
     RainbowParenthesesActivate
 endfun
 
 fun! KalisiLightColors()
     set background=light
-    colo kalisi256-light
+    colo kalisi
     RainbowParenthesesActivate
 endfun
 
