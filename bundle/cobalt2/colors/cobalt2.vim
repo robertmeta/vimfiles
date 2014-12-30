@@ -491,6 +491,29 @@ call s:X("htmlTitle",g:purple,"","","","")
 call s:X("htmlH1",g:light_orange,"","","","")
 call s:X("htmlItalic",g:pink,"","","","")
 
+" Haml
+hi! link hamlTag htmlTag
+hi! link hamlIdChar hamlId
+hi! link hamlClassChar hamlClass
+call s:X("hamlAttributes",g:pink,"","","","")
+call s:X("hamlInterpolationDelimiter",g:pink,"","","","")
+
+" call s:X("hamlInterpolation",g:pink,"","","","")
+" call s:X("hamlObject",g:pink,"","","","")
+" call s:X("hamlInterpolatable",g:pink,"","","","")
+" call s:X("hamlRubyFilter",g:pink,"","","","")
+" call s:X("hamlBegin",g:pink,"","","","")
+" call s:X("hamlEscapedFilter",g:pink,"","","","")
+
+" call s:X("hamlPlainFilter",g:pink,"","","","")
+" call s:X("hamlSassFilter",g:pink,"","","","")
+" call s:X("hamlErbFilter",g:pink,"","","","")
+" call s:X("hamlJavascriptFilter",g:pink,"","","","")
+" call s:X("hamlCSSFilter",g:pink,"","","","")
+" call s:X("hamlJavascriptBlock",g:pink,"","","","")
+" call s:X("hamlCssBlock",g:pink,"","","","")
+" call s:X("hamlCoffeescriptFilter",g:pink,"","","","")
+
 " Markdown
 call s:X("markdownH1",g:yellow,"","","","")
 hi! link markdownH2 markdownH1

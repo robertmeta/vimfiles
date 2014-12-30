@@ -1,0 +1,14 @@
+-# TODO comment
+
+#id.container
+  %header
+    %h1 Haml syntax highlights
+
+  .content
+    - if @test == true
+      = @test
+      %p inline interpolation #{ @test }
+      %p test
+
+    .attrs{data: {featurette: "test"}, "test" => "test"}
+    = params[:id]
