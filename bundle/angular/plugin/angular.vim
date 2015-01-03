@@ -7,29 +7,36 @@
 "
 " define your own proprietary attributes before this plugin loads, in your
 " .vimrc, like so:
-" let g:syntastic_html_tidy_ignore_errors = [' proprietary attribute "myhotcompany-']
+" let g:syntastic_html_tidy_ignore_errors   = [' proprietary attribute "myhotcompany-']
+" let g:syntastic_html_tidy_blocklevel_tags = ['myCustomTag']
 "
-" or copy the mechanism used here to ensure you get both your ignores and
-" the plugin's ignores.
+" or copy the mechanism used here to ensure you get both your settings and
+" the ones defined by the plugin.
 if !exists('g:syntastic_html_tidy_ignore_errors')
   let g:syntastic_html_tidy_ignore_errors = []
 endif
 
-let g:syntastic_html_tidy_ignore_errors = g:syntastic_html_tidy_ignore_errors + [
+let g:syntastic_html_tidy_ignore_errors += [
   \   ' proprietary attribute "ng-',
   \   ' proprietary attribute "ui-',
-  \   '<ng-include> is not recognized!',
-  \   'discarding unexpected <ng-include>',
-  \   'discarding unexpected </ng-include>',
-  \   '<div> proprietary attribute "src'
+  \   '<div> proprietary attribute "src',
+  \   'trimming empty <select>'
   \ ]
 
+if !exists('g:syntastic_html_tidy_blocklevel_tags')
+  let g:syntastic_html_tidy_blocklevel_tags = []
+endif
+
+let g:syntastic_html_tidy_blocklevel_tags += [
+  \ 'ng-include',
+  \ 'ng-form'
+  \ ]
 
 if !exists('g:angular_find_ignore')
   let g:angular_find_ignore = []
 endif
 
-let g:angular_find_ignore = g:angular_find_ignore + [
+let g:angular_find_ignore += [
   \ 'coverage/',
   \ 'build/',
   \ 'dist/',
