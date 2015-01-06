@@ -43,13 +43,15 @@ nnoremap <up> <C-b>
 nnoremap <leader>z :%foldc<CR> 
 nnoremap <leader>Z :%foldo<CR>
 " Scrolling
-nnoremap <leader>j <C-f>
-nnoremap <leader>k <C-b>
 " Window control
-nnoremap <leader>w <C-W>w 
+nnoremap <leader>h <C-W>h
+nnoremap <leader>j <C-W>j
+nnoremap <leader>k <C-W>k
+nnoremap <leader>l <C-W>l
 nnoremap <leader>o <C-W>o
 nnoremap <leader>" :split<CR>
 nnoremap <leader>% :vsplit<CR>
+nnoremap <leader>w <C-W>w 
 " Addon control
 nnoremap <left> :NERDTreeToggle<cr>
 nnoremap <right> :TagbarToggle<cr>
