@@ -24,7 +24,7 @@ cd ~/.vim/bundle && git clone https://github.com/rking/ag.vim ag && vim +Helptag
 * Or, if you're using [Vundle](https://github.com/gmarik/vundle):
 
 ```sh
-echo "Bundle 'rking/ag.vim'" >> ~/.vimrc && vim +BundleInstall
+echo "Plugin 'rking/ag.vim'" >> ~/.vimrc && vim +BundleInstall
 ```
 
 ### Configuration

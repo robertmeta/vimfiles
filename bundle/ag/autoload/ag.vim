@@ -1,8 +1,29 @@
 " NOTE: You must, of course, install ag / the_silver_searcher
 
+" FIXME: Delete deprecated options below on or after 15-7 (6 months from when they were changed) {{{
+
+if exists("g:agprg")
+  let g:ag_prg = g:agprg
+endif
+
+if exists("g:aghighlight")
+  let g:ag_highlight = g:aghighlight
+endif
+
+if exists("g:agformat")
+  let g:ag_format = g:agformat
+endif
+
+" }}} FIXME: Delete the deprecated options above on or after 15-7 (6 months from when they were changed)
+
 " Location of the ag utility
 if !exists("g:ag_prg")
-  let g:ag_prg="ag --vimgrep"
+  " --vimgrep (consistent output we can parse) is available from version  0.25.0+
+  if split(system("ag --version"), "[ \n\r\t]")[2] =~ '\d\+.[2-9][5-9]\(.\d\+\)\?'
+    let g:ag_prg="ag --vimgrep"
+  else
+    let g:ag_prg="ag --column"
+  endif
 endif
 
 if !exists("g:ag_apply_qmappings")
