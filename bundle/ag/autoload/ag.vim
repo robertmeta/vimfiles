@@ -93,7 +93,7 @@ function! ag#Ag(cmd, args)
     let &grepformat=g:ag_format
     set t_ti=
     set t_te=
-    silent execute a:cmd . " " . escape(l:grepargs, '|')
+    silent! execute a:cmd . " " . escape(l:grepargs, '|')
   finally
     let &grepprg=l:grepprg_bak
     let &grepformat=l:grepformat_bak

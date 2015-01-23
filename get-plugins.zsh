@@ -51,6 +51,9 @@ git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle
 #git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 #git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
+git clone https://github.com/krisajenkins/vim-pipe bundle/vimpipe && rm -rf bundle/vimpipe/.git
+git clone https://github.com/ldong/vim_loremipsum bundle/loremipsum && rm -rf bundle/loremipsum/.git
+git clone https://github.com/Raimondi/delimitMate bundle/delimitmate && rm -rf bundle/delimitmate/.git
 
 # Improved motions
 git clone https://github.com/dahu/vim-fanfingtastic bundle/fanfingtastic && rm -rf bundle/fanfingtastic/.git
@@ -80,3 +83,4 @@ git clone https://github.com/marijnh/tern_for_vim bundle/ternforvim && rm -rf bu
 git clone https://github.com/mephux/vim-jsfmt bundle/jsfmt && rm -rf bundle/jsfmt/.git
 git clone https://github.com/othree/javascript-libraries-syntax.vim bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
 git clone https://github.com/pangloss/vim-javascript bundle/javascript && rm -rf bundle/javascript/.git
+

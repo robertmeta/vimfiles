@@ -64,8 +64,20 @@ function! s:InitColor()
     endif
 endfunction
 
+"{{{1 function! s:SetConcealOption()
+function! s:SetConcealOption()
+    if ! exists("b:indentLine_ConcealOptionSet")
+        let b:indentLine_ConcealOptionSet = 1
+        if ! exists("g:indentLine_noConcealCursor")
+            setlocal concealcursor=inc
+        endif
+        setlocal conceallevel=2
+    endif
+endfunction
+
 "{{{1 function! s:SetIndentLine()
 function! s:SetIndentLine()
+    call s:SetConcealOption()
     let b:indentLine_enabled = 1
     let space = &l:shiftwidth is 0 ? &l:tabstop : &l:shiftwidth
 
@@ -91,7 +103,7 @@ function! s:ResetWidth(...)
         let &l:shiftwidth = a:1
     endif
 
-    if b:indentLine_enabled
+    if exists("b:indentLine_enabled") && b:indentLine_enabled
         syntax clear IndentLine
     endif
     call s:SetIndentLine()
@@ -104,15 +116,16 @@ endfunction
 
 "{{{1 function! s:IndentLinesDisable()
 function! s:IndentLinesDisable()
-    if b:indentLine_enabled
-        let b:indentLine_enabled = 0
+    let b:indentLine_enabled = 0
+    try
         syntax clear IndentLine
-    endif
+    catch /^Vim\%((\a\+)\)\=:E28/	" catch error E28
+    endtry
 endfunction
 
 "{{{1 function! s:IndentLinesToggle()
 function! s:IndentLinesToggle()
-    if b:indentLine_enabled
+    if exists("b:indentLine_enabled") && b:indentLine_enabled
         call s:IndentLinesDisable()
     else
         call s:IndentLinesEnable()
@@ -143,11 +156,6 @@ function! s:Setup()
         return
     endif
 
-    if ! exists("g:indentLine_noConcealCursor")
-        setlocal concealcursor=inc
-    endif
-    setlocal conceallevel=2
-
     if &filetype is# ""
         call s:InitColor()
     endif
@@ -171,6 +179,7 @@ endfunction
 
 "{{{1 function! s:LeadingSpaceEnable()
 function! s:LeadingSpaceEnable()
+    call s:SetConcealOption()
     if g:indentLine_faster
         echoerr 'LeadingSpace can not be shown when g:indentLine_faster == 1'
         return
@@ -181,15 +190,16 @@ endfunction
 
 "{{{1 function! s:LeadingSpaceDisable()
 function! s:LeadingSpaceDisable()
-    if b:indentLine_leadingSpaceEnabled
-        let b:indentLine_leadingSpaceEnabled = 0
+    let b:indentLine_leadingSpaceEnabled = 0
+    try
         syntax clear IndentLineLeadingSpace
-    endif
+    catch /^Vim\%((\a\+)\)\=:E28/	" catch error E28
+    endtry
 endfunction
 
 "{{{1 function! s:LeadingSpaceToggle()
 function! s:LeadingSpaceToggle()
-    if b:indentLine_leadingSpaceEnabled
+    if exists("b:indentLine_leadingSpaceEnabled") && b:indentLine_leadingSpaceEnabled
         call s:LeadingSpaceDisable()
     else
         call s:LeadingSpaceEnable()

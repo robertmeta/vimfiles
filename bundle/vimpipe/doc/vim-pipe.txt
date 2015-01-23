@@ -1,0 +1,67 @@
+*vim-pipe.txt*    Pass the current buffer through a shell command, see the results.
+
+Author:  Kris Jenkins <http://www.jenkster.com/>
+License: Same terms as Vim itself (see |license|)
+
+INTRODUCTION                                    *vim-pipe*
+
+vim-pipe sends the current buffer to a shell command, and instantly displays
+the output.
+
+EXAMPLE                                         *vim-pipe-example*
+
+Vim-pipe uses an external program to process your file, and then shows you the
+output. It works with any command that accepts the file on STDIN and displays
+the result on STDOUT. So anything like this:
+
+    $ cat myfile | someprogram arg arg | less
+
+PostgreSQL's client works like that, so when editing a database query, you can
+add something like this in your .vimrc file:
+
+    autocmd FileType sql let b:vimpipe_command="psql mydatabase"
+
+Then edit an SQL file, and hit <LocalLeader>r to instant execute the query and
+see the results. Your development cycle is now down to 2 keystokes.
+
+CONFIGURATION                                   *vim-pipe-configuration*
+
+All configuration is done on a per-buffer basis. The easiest way is to set
+these up with an |autocmd| in .vimrc. See the |vim-pipe-example| above.
+
+                                                *vim-pipe-b:vimpipe_command*
+
+b:vimpipe_command       Set this to any shell command that will take the
+			            contents of your buffer on STDIN, and return the
+                        result on STDOUT.
+
+                                                *vim-pipe-b:vimpipe_filetype*
+
+b:vimpipe_filetype      The filetype of the output buffer. Useful for
+                        syntax highlighting of the result, or running
+                        arbitrary autocommands against it.
+
+g:vimpipe_silent        Set to 1 to suppress all additional output (runtime information).
+                        Useful if you want to reuse the output buffer without
+                        having to clean up.
+
+g:vimpipe_invoke_map    The keystroke that invokes vim-pipe. Default: <LocalLeader>r
+
+g:vimpipe_close_map     The keystroke that closes the vim-pipe window. Default: <LocalLeader>p
+
+COMMANDS                                        *vim-pipe-commands*
+
+<LocalLeader>r          Send the contents of the current buffer to the
+                        |vim-pipe-b:pipe_command|and display the results.
+                        The buffer does not need to be saved first.
+
+<LocalLeader>p          Close the result buffer. May be called from your
+                        buffer or the vim-pipe result buffer.
+
+ABOUT                                           *vim-pipe-about*
+
+Grab the latest version or report a bug on GitHub:
+
+http://github.com/krisajenkins/vim-pipe
+
+ vim:tw=78:et:ft=help:norl:

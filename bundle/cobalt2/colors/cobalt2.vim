@@ -323,7 +323,7 @@ call s:X("ColorColumn","",g:black,"","",s:termBlack)
 call s:X("Title","70b950","","bold","Green","")
 
 call s:X("Constant",g:dark_pink,"","","Red","")
-call s:X("Special","80FF82","","","Green","")
+call s:X("Special",g:light_green,"","","Green","")
 call s:X("Delimiter","668799","","","Grey","")
 
 call s:X("String",g:green,"","","Green","")
@@ -539,6 +539,7 @@ call s:X("markdownId",g:yellow,"","","","")
 hi! link markdownIdDeclaration markdownId
 
 " CSS
+call s:X("cssIdentifier",g:yellow,"","","","")
 call s:X("cssIncludeKeyword",g:dark_orange,"","","","")
 call s:X("cssMediaType",g:dirty_pink,"","","","")
 call s:X("cssMediaKeyword",g:dark_orange,"","","","")
@@ -550,9 +551,19 @@ call s:X("cssBraces",g:white,"","","","")
 call s:X("cssTagName",g:light_blue,"","","","")
 call s:X("cssClassName",g:green,"","","","")
 call s:X("cssPseudoClassFn",g:dark_pink,"","","","")
-call s:X("cssValueNumber",g:light_yellow,"","","","")
-call s:X("cssCommonAttr",g:light_yellow,"","","","")
-call s:X("cssPositioningAttr",g:light_yellow,"","","","")
+
+call s:X("cssBoxAttr",g:light_yellow,"","","","")
+hi! link cssValueNumber cssBoxAttr
+hi! link cssCommonAttr cssBoxAttr
+hi! link cssPositioningAttr cssBoxAttr
+hi! link cssFontAttr cssBoxAttr
+hi! link cssBorderAttr cssBoxAttr
+hi! link cssTextAttr cssBoxAttr
+hi! link cssDimensionAttr cssBoxAttr
+hi! link cssBackgroundAttr cssBoxAttr
+hi! link cssPageAttr cssBoxAttr
+hi! link cssColorAttr cssBoxAttr
+hi! link cssTransitionAttr cssBoxAttr
 
 call s:X("cssBoxProp",g:light_green,"","","","")
 hi! link cssTextProp cssBoxProp
@@ -562,6 +573,20 @@ hi! link cssPositioningProp cssBoxProp
 hi! link cssBackgroundProp cssBoxProp
 hi! link cssBorderProp cssBoxProp
 hi! link cssPageProp cssBoxProp
+hi! link cssColorProp cssBoxProp
+hi! link cssTransitionProp cssBoxProp
+
+" SCSS/SASS
+hi! link sassIdChar cssIdentifier
+hi! link sassId cssIdentifier
+hi! link sassClass cssClassName
+hi! link sassCssAttribute cssBoxAttr
+
+" JSON
+call s:X("jsonBraces",g:purple,"","","","")
+call s:X("jsonQuote",g:dark_blue,"","","","")
+call s:X("jsonNoise",g:dark_blue,"","","","")
+call s:X("jsonKeywordMatch",g:dark_blue,"","","","")
 
 " Erlang
 
