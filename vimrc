@@ -238,7 +238,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au BufRead,BufNewFile *.go setlocal noexpandtab ts=2 sw=2 sts=2 syntax=go ft=go foldmethod=indent foldmarker={,}
+        au BufRead,BufNewFile *.go setlocal noexpandtab ts=3 sw=3 sts=3 syntax=go ft=go foldmethod=indent foldmarker={,}
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
