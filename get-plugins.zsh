@@ -8,6 +8,7 @@ git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpo
 git clone https://github.com/croaky/vim-colors-github.git bundle/github && rm -rf bundle/github/.git
 git clone https://github.com/DAddYE/soda.vim bundle/soda && rm -rf bundle/soda/.git
 git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
+git clone https://github.com/GertjanReynaert/cobalt2-vim-theme bundle/cobalt2 && rm -rf bundle/cobalt2/.git
 git clone https://github.com/itchyny/landscape.vim bundle/landscape && rm -rf bundle/landscape/.git
 git clone https://github.com/john2x/flatui.vim bundle/flatui && rm -rf bundle/flatui/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
@@ -23,7 +24,6 @@ git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/d
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
 git clone https://github.com/zeis/vim-kolor bundle/kolor && rm -rf bundle/kolor/.git
-git clone https://github.com/GertjanReynaert/cobalt2-vim-theme bundle/cobalt2 && rm -rf bundle/cobalt2/.git
 
 # Go 
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
@@ -31,7 +31,7 @@ git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/
 # Tmux
 #git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
 #git clone https://github.com/benmills/vimux-golang bundle/vimux-golang && rm -rf bundle/vimux-golang/.git
-git clone https://github.com/christoomey/vim-tmux-navigator bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
+#git clone https://github.com/christoomey/vim-tmux-navigator bundle/vim-tmux-navigator && rm -rf bundle/vim-tmux-navigator/.git
 #git clone https://github.com/tpope/vim-dispatch bundle/dispatch && rm -rf bundle/dispatch/.git
 
 # Rainbow Parens
@@ -39,6 +39,10 @@ git clone https://github.com/christoomey/vim-tmux-navigator bundle/vim-tmux-navi
 git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # General
+git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
+git clone https://github.com/krisajenkins/vim-pipe bundle/vimpipe && rm -rf bundle/vimpipe/.git
+git clone https://github.com/ldong/vim_loremipsum bundle/loremipsum && rm -rf bundle/loremipsum/.git
+git clone https://github.com/Raimondi/delimitMate bundle/delimitmate && rm -rf bundle/delimitmate/.git
 git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
 git clone https://github.com/tpope/vim-abolish bundle/abolish && rm -rf bundle/abolish/.git
 git clone https://github.com/tpope/vim-commentary bundle/commentary && rm -rf bundle/commentary/.git
@@ -51,10 +55,6 @@ git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle
 #git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 #git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
-git clone https://github.com/krisajenkins/vim-pipe bundle/vimpipe && rm -rf bundle/vimpipe/.git
-git clone https://github.com/ldong/vim_loremipsum bundle/loremipsum && rm -rf bundle/loremipsum/.git
-git clone https://github.com/Raimondi/delimitMate bundle/delimitmate && rm -rf bundle/delimitmate/.git
-git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
 
 # Improved motions
 git clone https://github.com/dahu/vim-fanfingtastic bundle/fanfingtastic && rm -rf bundle/fanfingtastic/.git
