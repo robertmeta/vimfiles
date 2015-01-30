@@ -40,12 +40,12 @@ hi ErrorMsg guifg=#FFFFFF guibg=#FF0000 gui=NONE ctermfg=231 ctermbg=160 cterm=N
 hi FoldColumn guifg=#000000 guibg=#d8c8ae gui=NONE ctermfg=16 ctermbg=144 cterm=NONE
 hi Folded guifg=#000000 guibg=#d8c8ae gui=NONE ctermfg=130 ctermbg=229 cterm=NONE
 hi IncSearch guifg=#EEC900 guibg=#262626 gui=NONE ctermfg=220 ctermbg=16 cterm=NONE
-hi Normal guifg=#444444 guibg=#fdf6e3 gui=NONE ctermfg=236 ctermbg=yellow cterm=bold
+hi Normal guifg=#444444 guibg=#fdf6e3 gui=NONE ctermfg=235 ctermbg=yellow cterm=bold
 hi Search guifg=#262626 guibg=#EEC900 gui=NONE ctermfg=16 ctermbg=220 cterm=NONE
 hi StatusLine guifg=#FFFFFF guibg=#268bd2 gui=NONE ctermfg=255 ctermbg=33 cterm=NONE
-hi StatusLineNC guifg=NONE guibg=#eee8d5 gui=NONE ctermfg=236 ctermbg=254 cterm=NONE
-hi TabLine guifg=NONE guibg=#d8c8ae gui=NONE ctermfg=NONE ctermbg=254 cterm=NONE
-hi TabLineFill guifg=NONE guibg=#d8c8ae gui=NONE ctermfg=NONE ctermbg=254 cterm=NONE
+hi StatusLineNC guifg=NONE guibg=#eee8d5 gui=NONE ctermfg=236 ctermbg=252 cterm=NONE
+hi TabLine guifg=NONE guibg=#d8c8ae gui=NONE ctermfg=NONE ctermbg=252 cterm=NONE
+hi TabLineFill guifg=NONE guibg=#d8c8ae gui=NONE ctermfg=NONE ctermbg=252 cterm=NONE
 hi TabLineSel guifg=#000000 guibg=#fdf6e3 gui=bold ctermfg=255 ctermbg=33 cterm=NONE
 hi Visual guifg=NONE guibg=#ded9c7 gui=NONE ctermfg=NONE ctermbg=187 cterm=NONE
 hi WarningMsg guifg=#FFFFFF guibg=#8B0000 gui=NONE ctermfg=16 ctermbg=220 cterm=NONE
@@ -190,6 +190,6 @@ hi VimwikiHeader1 guifg=#6c71c4 guibg=NONE gui=NONE ctermfg=62 ctermbg=NONE cter
 hi link VimwikiHeader2 Type
 hi VimwikiDelText guifg=#FF0000 guibg=NONE gui=NONE ctermfg=160 ctermbg=none cterm=NONE
 hi link VimwikiItalic Special
-hi link VimwikiBold Type
+hi VimwikiBold guifg=#6c71c4 guibg=NONE gui=NONE ctermfg=62 ctermbg=NONE cterm=NONE
 hi link VimwikiLink Keyword
 hi link VimwikiLinkRest Special

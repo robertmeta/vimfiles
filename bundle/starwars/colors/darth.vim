@@ -15,7 +15,7 @@ endif
 let colors_name="darth"
 
 " Default colors
-hi Normal guifg=#999999 guibg=black gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE
+hi Normal guifg=#999999 guibg=black gui=NONE ctermfg=250 ctermbg=NONE cterm=NONE
 
 " Top groups
 hi Comment guifg=#7C7C7C guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=NONE
@@ -28,7 +28,7 @@ hi Special guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=N
 hi Underlined guifg=NONE guibg=NONE gui=underline ctermfg=NONE ctermbg=NONE cterm=underline
 hi Ignore guifg=NONE guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=NONE
 hi Error guifg=#FFFFFF guibg=#FF0000 gui=NONE ctermfg=white ctermbg=darkred cterm=NONE
-hi Todo guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=214 ctermbg=NONE cterm=NONE
+hi Todos guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=214 ctermbg=NONE cterm=NONE
 
 " Sub groups
 hi Boolean guifg=#FCB1FF guibg=NONE gui=NONE ctermfg=magenta ctermbg=NONE cterm=NONE
@@ -178,4 +178,5 @@ hi link VimwikiItalic Special
 hi link VimwikiBold Todo
 hi link VimwikiLink Keyword
 hi link VimwikiLinkRest Special
-hi link VimwikiCode Special
+hi link VimwikiCode WarningMsg
+hi VimwikiCode guifg=#ffff00 guibg=NONE gui=NONE ctermfg=167 ctermbg=none cterm=NONE
