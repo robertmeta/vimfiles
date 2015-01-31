@@ -255,6 +255,9 @@ if has("autocmd")
         au FileType gitcommit setlocal spell
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
+        " Only on current line
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+        au WinLeave * setlocal nocursorline
     augroup END
 endif
 " }}}
@@ -434,18 +437,6 @@ let g:rbpt_colorpairs=[
     \ ['darkmagenta', 'RoyalBlue3'],
 \ ]
 let g:rbpt_max=24
-" }}}
-
-" Vimux {{{
-let g:VimuxPromptString = "WAT? "
-"map <Leader>tf :wa<CR> :GolangTestFocused<CR>
-"map <Leader>tp :wa<CR> :GolangTestCurrentPackage<CR>
-map <Leader>vc :VimuxCloseRunner<CR>
-map <Leader>vi :VimuxInspectRunner<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vq :VimuxCloseRunner<CR>
-map <Leader>vx :VimuxInterruptRunner<CR>
 " }}}
 
 " HTML Settings {{{
