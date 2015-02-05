@@ -24,6 +24,7 @@ git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/d
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
 git clone https://github.com/zeis/vim-kolor bundle/kolor && rm -rf bundle/kolor/.git
+git clone https://github.com/bling/vim-airline bundle/airline && rm -rf bundle/airline/.git
 
 # Go 
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
@@ -52,8 +53,8 @@ git clone https://github.com/tpope/vim-repeat bundle/repeat && rm -rf bundle/rep
 git clone https://github.com/tpope/vim-scriptease bundle/scriptease && rm -rf bundle/scriptease/.git
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
 #git clone https://github.com/tpope/vim-speeddating bundle/speeddating && rm -rf bundle/speeddating/.git
-#git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
-#git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
+git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
+git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 
 # Improved motions
