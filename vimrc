@@ -469,13 +469,13 @@ let g:syntastic_always_populate_loc_list = 1
 " }}}
 
 " Fugitive {{{
- nmap <leader>ga :Gadd<cr>
- nmap <leader>gc :Gcommit<cr>
- nmap <leader>go :Gcheckout<cr>
- nmap <leader>gd :Gdiff<cr>
- nmap <leader>gs :Gstatus<cr>
- nmap <leader>gw :Gwrite<cr>
- nmap <leader>gg :Gwrite<cr>:Gcommit<cr>
+nmap <leader>ga :Gadd<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>go :Gcheckout<cr>
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gw :Gwrite<cr>
+nmap <leader>gg :Gwrite<cr>:Gcommit<cr>
 " }}}
 
 " Pair programming helper {{{
