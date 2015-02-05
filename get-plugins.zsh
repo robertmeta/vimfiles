@@ -4,6 +4,7 @@ mkdir -p bundle
 # Themes
 #git clone https://github.com/altercation/vim-colors-solarized bundle/solarized && rm -rf bundle/solarized/.git
 git clone https://github.com/baskerville/bubblegum bundle/bubblegum && rm -rf bundle/bubblegum/.git
+git clone https://github.com/bling/vim-airline bundle/airline && rm -rf bundle/airline/.git
 git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
 git clone https://github.com/croaky/vim-colors-github.git bundle/github && rm -rf bundle/github/.git
 git clone https://github.com/DAddYE/soda.vim bundle/soda && rm -rf bundle/soda/.git
@@ -24,7 +25,6 @@ git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/d
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
 git clone https://github.com/zeis/vim-kolor bundle/kolor && rm -rf bundle/kolor/.git
-git clone https://github.com/bling/vim-airline bundle/airline && rm -rf bundle/airline/.git
 
 # Go 
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
