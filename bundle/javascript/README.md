@@ -1,4 +1,4 @@
-# vim-javascript v0.9.0
+# vim-javascript v0.10.0
 
 JavaScript bundle for vim, this bundle provides syntax and indent plugins.
 
@@ -74,6 +74,8 @@ variables:
     let g:javascript_conceal_undefined  = "¿"
     let g:javascript_conceal_NaN        = "ℕ"
     let g:javascript_conceal_prototype  = "¶"
+    let g:javascript_conceal_static     = "•"
+    let g:javascript_conceal_super      = "Ω"
 
 ## Contributing
 
