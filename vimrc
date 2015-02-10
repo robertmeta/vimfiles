@@ -63,6 +63,7 @@ nnoremap N Nzzzv
 nnoremap <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 " }}}
 
+" }}}
 " Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
@@ -84,7 +85,9 @@ set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
 set formatoptions=qrn1j " used to be just rq
 set hidden " load files in background
 set history=9999 " big old history
+set ignorecase " case insensitive by default
 set incsearch " BUT do highlight as you type you search phrase
+set infercase " case inferred by default
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
@@ -99,13 +102,10 @@ set nocursorline " disable global cursor line
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
-set noignorecase " case sensitive by default
-set noinfercase " don't case inferred by default
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
 set noshowmatch " don't show matching things (RainbowParentheses is better)
-set nosmartcase " Even if there are caps, don't go case-sensitive
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling 
@@ -125,6 +125,7 @@ set showcmd " Show the commands
 set showmode " default but just in case
 set sidescroll=5 " If you hit edge, jump 5
 set sidescrolloff=5 " Keep 5 lines at the size
+set smartcase " Smart case enabled
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
@@ -141,7 +142,6 @@ set t_vb= " seriously, shhhh, don't be noisy
 set viminfo+=! " Store upper-case registers in viminfo
 set virtualedit=block,onemore " one more virtual char at line ends, plus block mode of course
 set wrap " Going to try to love it, again
-" }}}
 
 " Clipboard, Backup and Undo {{{
 set backup " make backup files
