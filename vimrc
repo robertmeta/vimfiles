@@ -447,11 +447,15 @@ let use_xhtml=0
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
 " }}}
 
+" Netrw {{{
+let g:netrw_altfile = 1
+" }}}
+
 " NERDTree {{{
 let NERDChristmasTree=1
 let NERDTreeDirArrows=1
 let NERDTreeHijackNetrw=0 " I use vim-vinegar most of the time, don't mess with -
-let NERDTreeMinimalUI=1
+let NERDTreeMinimalUI=0
 " }}}
 
 " Tagbar {{{
@@ -522,7 +526,7 @@ let g:seoul256_background=235 " 233-239 (237) Dark -> Light
 let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
 let g:bluedrake_256=1
 set background=dark
-colo seoul256
+colo disciple
 
 fun! SeoulDarkColors()
     set background=dark
@@ -545,6 +549,18 @@ endfun
 fun! KalisiLightColors()
     set background=light
     colo kalisi
+    RainbowParenthesesActivate
+endfun
+
+fun! Disciple()
+    set background=dark
+    colo disciple
+    RainbowParenthesesActivate
+endfun
+
+fun! Apprentice()
+    set background=light
+    colo apprentice
     RainbowParenthesesActivate
 endfun
 
