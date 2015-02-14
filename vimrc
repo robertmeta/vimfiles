@@ -69,7 +69,6 @@ set breakindent " this is just awesome (best patch in a long time)
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
-" set cryptmethod=blowfish " never used, and I doesn't work in nvim
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set fileencoding=utf-8 " UTF-8
@@ -111,6 +110,7 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " turn on line numbers
 set numberwidth=5 " We are good up to 99999 lines
+set relativenumber " Sweet relative numbers
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
