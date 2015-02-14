@@ -257,8 +257,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Way to tell which window we are in
-        au FocusLost * :set number
-        au FocusGained * :set relativenumber
+        au WinLeave * :set number
+        au WinEnter * :set relativenumber
     augroup END
 endif
 " }}}
