@@ -63,7 +63,6 @@ nnoremap N Nzzzv
 nnoremap <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 " }}}
 
-" }}}
 " Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
@@ -142,6 +141,7 @@ set t_vb= " seriously, shhhh, don't be noisy
 set viminfo+=! " Store upper-case registers in viminfo
 set virtualedit=block,onemore " one more virtual char at line ends, plus block mode of course
 set wrap " Going to try to love it, again
+" }}}
 
 " Clipboard, Backup and Undo {{{
 set backup " make backup files
@@ -256,6 +256,9 @@ if has("autocmd")
         au FileType gitcommit setlocal spell
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
+        " Way to tell which window we are in
+        au FocusLost * :set number
+        au FocusGained * :set relativenumber
     augroup END
 endif
 " }}}
