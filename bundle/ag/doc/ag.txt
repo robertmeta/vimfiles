@@ -19,10 +19,11 @@ the results in a split window.
     Search for {pattern} in all open buffers. Behaves just like the |:grep|
     command, but will open the |Quickfix| window for you. If [!] is not given
     the first error is jumped to.
-    Note: this will not find your changes in modified buffers (it really
-    only searches the files that match your open buffers). You can save
-    buffers automatically when searching with the 'autowrite' option. The
-    buffer will be ignored if it is an directory.
+
+    Note: this will not find changes in modified buffers, since ag can only
+    find what is on disk! You can save buffers automatically when searching
+    with the 'autowrite' option. A buffer will be ignored if it is a directory
+    (an explorer, like netrw).
 
 :AgAdd [options] {pattern} [{directory}]                               *:AgAdd*
 
@@ -80,6 +81,15 @@ The location of the Ag program, and any options you want passed to it before
 searching. Default: "ag --vimgrep" (for parsable output). Example: >
   let g:ag_prg="ag --vimgrep --smart-case"
 <
+Note: the `--vimgrep` option was added in Ag 0.25.0. If ag.vim detects that
+you're using a lower version, the following default will be used instead: >
+  let g:ag_prg="ag --column --nogroup --noheading"
+<
+This works around inconsistent behaviors in earlier Ag versions, but it is
+recommended that you upgrade if possible for a better experience. `--vimgrep`
+supports multiple matches on the same line of text, for example.
+
+For background, see: https://github.com/rking/ag.vim/pull/88
 
                                                                *g:ag_highlight*
 If 1, highlight the search terms after searching. Default: 0. Example: >

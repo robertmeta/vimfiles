@@ -22,7 +22,8 @@ if !exists("g:ag_prg")
   if split(system("ag --version"), "[ \n\r\t]")[2] =~ '\d\+.[2-9][5-9]\(.\d\+\)\?'
     let g:ag_prg="ag --vimgrep"
   else
-    let g:ag_prg="ag --column"
+    " --noheading seems odd here, but see https://github.com/ggreer/the_silver_searcher/issues/361
+    let g:ag_prg="ag --column --nogroup --noheading"
   endif
 endif
 
