@@ -69,6 +69,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
+set cursorline " global cursor line 
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set fileencoding=utf-8 " UTF-8
@@ -96,7 +97,6 @@ set noautowriteall " do NOT write on all changes
 set noautowrite " do NOT write on all changes
 set nocompatible " explicitly get out of vi-compatible mode
 set nocursorcolumn " disable global cursor column 
-set nocursorline " disable global cursor line 
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
@@ -257,8 +257,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Way to tell which window we are in
-        au WinLeave * :set norelativenumber
-        au WinEnter * :set relativenumber
+        au WinLeave * setlocal norelativenumber nocursorline
+        au WinEnter * setlocal relativenumber cursorline
     augroup END
 endif
 " }}}
