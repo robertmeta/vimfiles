@@ -76,6 +76,8 @@ syn keyword htmlArg contained label icon open datetime pubdate
 syn keyword htmlArg contained async
 " <content>
 syn keyword htmlArg contained select
+" <iframe>
+syn keyword htmlArg contained seamless srcdoc sandbox
 " <picture>
 syn keyword htmlArg contained srcset sizes
 
