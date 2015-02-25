@@ -78,10 +78,10 @@ git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.g
 git clone https://github.com/othree/html5.vim bundle/html5 && rm -rf bundle/html5/.git
 
 # JS / Json / Angular
-git clone https://github.com/burnettk/vim-angular bundle/angular && rm -rf bundle/angular/.git
-git clone https://github.com/claco/jasmine.vim bundle/jasmine && rm -rf bundle/jasmine/.git
+#git clone https://github.com/burnettk/vim-angular bundle/angular && rm -rf bundle/angular/.git
+#git clone https://github.com/claco/jasmine.vim bundle/jasmine && rm -rf bundle/jasmine/.git
 git clone https://github.com/leshill/vim-json bundle/json && rm -rf bundle/json/.git
-git clone https://github.com/marijnh/tern_for_vim bundle/ternforvim && rm -rf bundle/ternforvim/.git
+#git clone https://github.com/marijnh/tern_for_vim bundle/ternforvim && rm -rf bundle/ternforvim/.git
 git clone https://github.com/mephux/vim-jsfmt bundle/jsfmt && rm -rf bundle/jsfmt/.git
 git clone https://github.com/othree/javascript-libraries-syntax.vim bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
 git clone https://github.com/pangloss/vim-javascript bundle/javascript && rm -rf bundle/javascript/.git

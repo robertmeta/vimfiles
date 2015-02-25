@@ -511,17 +511,6 @@ nmap <leader><space> <Plug>(easymotion-s)
 let g:angular_filename_convention = 'camelcased'
 let g:js_fmt_autosave = 1
 let g:js_fmt_command = "jsfmt"
-" Autocommands
-if has("autocmd")
-    augroup javascript
-        " Clear!
-        au!
-        " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au FileType javascript nmap gd :TernDef<CR>
-        au FileType javascript nmap gr :TernRename<CR>
-        au FileType javascript nmap gi :TernRef<CR>
-    augroup END
-endif
 " }}}
 
 " Theme setup {{{
