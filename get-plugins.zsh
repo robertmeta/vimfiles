@@ -39,7 +39,7 @@ git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/
 git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # General
-git clone https://github.com/bling/vim-airline bundle/airline && rm -rf bundle/airline/.git
+#git clone https://github.com/bling/vim-airline bundle/airline && rm -rf bundle/airline/.git
 git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
 git clone https://github.com/krisajenkins/vim-pipe bundle/vimpipe && rm -rf bundle/vimpipe/.git
 #git clone https://github.com/ldong/vim_loremipsum bundle/loremipsum && rm -rf bundle/loremipsum/.git
