@@ -110,7 +110,7 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " turn on line numbers
 set numberwidth=5 " We are good up to 99999 lines
-set relativenumber " Sweet relative numbers
+set norelativenumber " no relative numbers (I tried to love them)
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
@@ -501,7 +501,8 @@ let g:EasyMotion_off_screen_search=1
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
-nmap <leader><space> <Plug>(easymotion-s)
+nmap <leader><space> <Plug>(easymotion-jumptoanywhere)
+nmap <leader>l <Plug>(easymotion-bd-jk)
 " Highlight Overrides
 "hi link EasyMotionTarget2First Identifier
 "hi link EasyMotionTarget2Second Number
@@ -509,8 +510,6 @@ nmap <leader><space> <Plug>(easymotion-s)
 
 " Javascript {{{
 let g:angular_filename_convention = 'camelcased'
-let g:js_fmt_autosave = 1
-let g:js_fmt_command = "jsfmt"
 " }}}
 
 " Theme setup {{{
