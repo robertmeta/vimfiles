@@ -501,8 +501,8 @@ let g:EasyMotion_use_upper=1
 nmap <leader><space> <Plug>(easymotion-jumptoanywhere)
 nmap <leader>l <Plug>(easymotion-bd-jk)
 " Highlight Overrides
-"hi link EasyMotionTarget2First Identifier
-"hi link EasyMotionTarget2Second Number
+hi link EasyMotionTarget2First Identifier
+hi link EasyMotionTarget2Second Number
 " }}}
 
 " Javascript {{{
