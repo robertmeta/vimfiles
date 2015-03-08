@@ -69,7 +69,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
-set cursorline " global cursor line 
+set nocursorline " no global cursor line 
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set fileencoding=utf-8 " UTF-8
@@ -256,9 +256,6 @@ if has("autocmd")
         au FileType gitcommit setlocal spell
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
-        " Way to tell which window we are in
-        au WinLeave * setlocal norelativenumber nocursorline
-        au WinEnter * setlocal relativenumber cursorline
     augroup END
 endif
 " }}}
