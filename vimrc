@@ -506,15 +506,18 @@ hi link EasyMotionTarget2Second Number
 " }}}
 
 " Javascript {{{
-let g:angular_filename_convention = 'camelcased'
+let g:angular_filename_convention='camelcased'
 " }}}
 
 " Theme setup {{{
 let g:seoul256_background=235 " 233-239 (237) Dark -> Light
 let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
 let g:bluedrake_256=1
+let g:lucius_contrast='normal'
+let g:lucius_contrast_bg='normal'
+let g:lucius_style='dark'
 set background=dark
-colo apprentice
+colo lucius
 
 fun! SeoulDarkColors()
     set background=dark
@@ -531,6 +534,18 @@ endfun
 fun! KalisiDarkColors()
     set background=dark
     colo kalisi
+    RainbowParenthesesActivate
+endfun
+
+fun! LuciousLightColors()
+    set background=light
+    LuciusLightHighContrast
+    RainbowParenthesesActivate
+endfun
+
+fun! LuciousDarkColors()
+    set background=dark
+    LuciusDark
     RainbowParenthesesActivate
 endfun
 
