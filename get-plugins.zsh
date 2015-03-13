@@ -24,6 +24,10 @@ git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/d
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
 #git clone https://github.com/zeis/vim-kolor bundle/kolor && rm -rf bundle/kolor/.git
+git clone https://github.com/vim-scripts/desertEx.git bundle/desertex && rm -rf bundle/desertex/.git
+git clone https://github.com/antlypls/vim-colors-codeschool.git bundle/codeschool && rm -rf bundle/codeschool/.git
+git clone https://github.com/jonathanfilip/vim-lucius.git bundle/lucius && rm -rf bundle/lucius/.git
+git clone https://github.com/jnurmine/Zenburn.git bundle/zenburn && rm -rf bundle/zenburn/.git
 
 # Go 
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
