@@ -24,11 +24,11 @@ git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/d
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
 #git clone https://github.com/zeis/vim-kolor bundle/kolor && rm -rf bundle/kolor/.git
-git clone https://github.com/vim-scripts/desertEx.git bundle/desertex && rm -rf bundle/desertex/.git
-git clone https://github.com/antlypls/vim-colors-codeschool.git bundle/codeschool && rm -rf bundle/codeschool/.git
-git clone https://github.com/jonathanfilip/vim-lucius.git bundle/lucius && rm -rf bundle/lucius/.git
-git clone https://github.com/jnurmine/Zenburn.git bundle/zenburn && rm -rf bundle/zenburn/.git
-git clone https://github.com/ludovicchabant/vim-gutentags bundle/gutentags && rm -rf bundle/gutentags
+git clone https://github.com/vim-scripts/desertEx bundle/desertex && rm -rf bundle/desertex/.git
+git clone https://github.com/antlypls/vim-colors-codeschool bundle/codeschool && rm -rf bundle/codeschool/.git
+git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
+git clone https://github.com/jnurmine/Zenburn bundle/zenburn && rm -rf bundle/zenburn/.git
+git clone https://github.com/ludovicchabant/vim-gutentags bundle/gutentags && rm -rf bundle/gutentags/.git
 
 # Go 
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
@@ -90,5 +90,3 @@ git clone https://github.com/leshill/vim-json bundle/json && rm -rf bundle/json/
 #git clone https://github.com/mephux/vim-jsfmt bundle/jsfmt && rm -rf bundle/jsfmt/.git # on error deletes file ... *sigh*
 git clone https://github.com/othree/javascript-libraries-syntax.vim bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
 git clone https://github.com/pangloss/vim-javascript bundle/javascript && rm -rf bundle/javascript/.git
-
-#
