@@ -353,7 +353,6 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_max_height=30
 let g:ctrlp_open_multiple_files='ij'
 let g:ctrlp_show_hidden=1
-let g:ctrlp_show_hidden=1
 let g:ctrlp_use_caching=1
 let g:ctrlp_working_path_mode='ra'
 if s:running_windows
@@ -512,6 +511,7 @@ let g:angular_filename_convention='camelcased'
 
 " Gutentags {{{
 let g:gutentags_tagfile='.tags'
+set tags+=.tags
 " }}}
 
 " Theme setup {{{
