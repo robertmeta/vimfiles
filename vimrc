@@ -183,13 +183,14 @@ set wildmode=list:longest " turn on wild mode huge list
 " }}}
 
 " Status Line {{{
-set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
-"              | | | | |  |  |                        |      |  |     |    |
-"              | | | | |  |  |                        |      |  |     |    +-- current column
-"              | | | | |  |  |                        |      |  |     +-- current line
-"              | | | | |  |  |                        |      |  +-- current % into file
-"              | | | | |  |  |                        |      +-- current syntax in square brackets
-"              | | | | |  |  |                        +-- current fileformat
+set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}%{gutentags#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
+"              | | | | |  |  |                       |                         |      |  |     |    |
+"              | | | | |  |  |                       |                         |      |  |     |    +-- current column
+"              | | | | |  |  |                       |                         |      |  |     +-- current line
+"              | | | | |  |  |                       |                         |      |  +-- current % into file
+"              | | | | |  |  |                       |                         |      +-- current syntax in square brackets
+"              | | | | |  |  |                       |                         +-- current fileformat
+"              | | | | |  |  |                       +-- Display the gutentags current status
 "              | | | | |  |  +-- add fugitive info
 "              | | | | |  +-- number of lines
 "              | | | | +-- preview flag in square brackets
@@ -507,6 +508,14 @@ hi link EasyMotionTarget2Second Number
 
 " Javascript {{{
 let g:angular_filename_convention='camelcased'
+" }}}
+
+" Gutentags {{{
+if s:running_windows
+    let g:gutentags_cache_dir=~/vimfiles/tagfiles
+else
+    let g:gutentags_cache_dir=~/.vim/tagfiles
+endif
 " }}}
 
 " Theme setup {{{
