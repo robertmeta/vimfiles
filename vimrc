@@ -511,11 +511,7 @@ let g:angular_filename_convention='camelcased'
 " }}}
 
 " Gutentags {{{
-if s:running_windows
-    let g:gutentags_cache_dir=~/vimfiles/tagfiles
-else
-    let g:gutentags_cache_dir=~/.vim/tagfiles
-endif
+let g:gutentags_tagfile='.tags'
 " }}}
 
 " Theme setup {{{
