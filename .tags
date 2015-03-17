@@ -244,6 +244,8 @@ BufWritePostHook	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntast
 BuildPrompt	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:BuildPrompt(upd)$/;"	f
 CONFIG_FILE	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^CONFIG_FILE=config.mk$/;"	m
 CONFIG_FILE	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^CONFIG_FILE=config.mk$/;"	m
+CSCOPE_EXE	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_scopedb.cmd	/^    set CSCOPE_EXE=%~2$/;"	v
+CSCOPE_EXE	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_scopedb.cmd	/^set CSCOPE_EXE=cscope$/;"	v
 CTAGS_ARGS	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^        set CTAGS_ARGS=%CTAGS_ARGS% --append "%UPDATED_SOURCE%"$/;"	v
 CTAGS_ARGS	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^    set CTAGS_ARGS=%CTAGS_ARGS% --exclude=%2$/;"	v
 CTAGS_ARGS	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^    set CTAGS_ARGS=%CTAGS_ARGS% --options=%2$/;"	v
@@ -342,6 +344,8 @@ CtrlPUndo	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -
 CursorPos	/home/rmelton/projects/vimfiles/bundle/easymotion/t/easymotion_spec.vim	/^function! CursorPos()$/;"	f
 CursorPos	/home/rmelton/projects/vimfiles/bundle/easymotion/t/operator_pending_spec.vim	/^function! CursorPos()$/;"	f
 CursorPos	/home/rmelton/projects/vimfiles/bundle/easymotion/t/smartsign_spec.vim	/^function! CursorPos()$/;"	f
+DB_FILE	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_scopedb.cmd	/^    set DB_FILE=%~2$/;"	v
+DB_FILE	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_scopedb.cmd	/^set DB_FILE=scope.out$/;"	v
 DEPEND_DIR	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^DEPEND_DIR=\/tmp\/vim-deps$/;"	m
 DEPEND_DIR	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^DEPEND_DIR=\/tmp\/vim-deps$/;"	m
 DIRS	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^DIRS=`ls -1F | grep \/ | sed -e 's\/\\\/\/\/'`$/;"	m
@@ -352,6 +356,7 @@ Diff	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^funct
 DirComplete	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:DirComplete(A,L,P) abort$/;"	f
 Disarm	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^command! -bang -bar -nargs=* -complete=customlist,s:Complete Disarm$/;"	c
 Dispatch	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:Dispatch(bang, args)$/;"	f
+DoneParseArgs	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_scopedb.cmd	/^:DoneParseArgs$/;"	l
 DoneParseArgs	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^:DoneParseArgs$/;"	l
 DotPromptUser	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion.vim	/^function! s:DotPromptUser(groups) "{{{$/;"	f
 E2T	/home/rmelton/projects/vimfiles/bundle/vividchalk/colors/vividchalk.vim	/^function! E2T(a)$/;"	f
@@ -545,11 +550,11 @@ Grep	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^function!
 Grep	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:Grep(cmd,bang,arg) abort$/;"	f
 GroupingAlgorithmOriginal	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion.vim	/^function! s:GroupingAlgorithmOriginal(targets, keys)$/;"	f
 GroupingAlgorithmSCTree	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion.vim	/^function! s:GroupingAlgorithmSCTree(targets, keys) "{{{$/;"	f
-GutentagsGenerate	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^command! -bang -nargs=1 -complete=file GutentagsGenerate :call s:generate_tags(<bang>0, <f-args>)$/;"	c
+GutentagsGenerate	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^command! -bang -nargs=1 -complete=file GutentagsGenerate :call s:generate_tags(<bang>0, <f-args>)$/;"	c
 GutentagsToggleEnabled	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^command! GutentagsToggleEnabled :let g:gutentags_enabled=!g:gutentags_enabled$/;"	c
 GutentagsToggleFake	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    command! GutentagsToggleFake    :call gutentags#fake()$/;"	c
 GutentagsToggleTrace	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^command! GutentagsToggleTrace   :call gutentags#trace()$/;"	c
-GutentagsUnlock	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^command! GutentagsUnlock        :call delete(b:gutentags_file . '.lock')$/;"	c
+GutentagsUnlock	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^command! GutentagsUnlock        :call s:delete_lock_files()$/;"	c
 Helptags	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^command! -bar Helptags :call pathogen#helptags()$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/bundle/javascript/syntax/javascript.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/bundle/javascript/syntax/javascript.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
@@ -722,6 +727,7 @@ LoadConfigFile	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/
 LoadUserTypeDefs	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:LoadUserTypeDefs(...) abort$/;"	f
 Locate	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^command! -bar -bang -complete=file -nargs=+ Locate exe s:Grep(<q-bang>, <q-args>, 'locate')$/;"	c
 Log	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:Log(cmd, line1, line2, ...) abort$/;"	f
+LoopParseArgs	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_scopedb.cmd	/^:LoopParseArgs$/;"	l
 LoopParseArgs	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^:LoopParseArgs$/;"	l
 LuciusBlack	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^command! LuciusBlack call SetLucius("dark", "normal", "high")$/;"	c
 LuciusBlackHighContrast	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^command! LuciusBlackHighContrast call SetLucius("dark", "high", "high")$/;"	c
@@ -844,8 +850,10 @@ PP	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^com
 PPmsg	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^command! -bang -range=0      -nargs=? -complete=expression PPmsg$/;"	c
 PROJECT_ROOT	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^    set PROJECT_ROOT=%~2$/;"	v
 PROJECT_ROOT	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^set PROJECT_ROOT=$/;"	v
+PROJ_ROOT	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_scopedb.cmd	/^    set PROJ_ROOT=%~2$/;"	v
 PWD	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^PWD=`pwd`$/;"	m
 PWD	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^PWD=`pwd`$/;"	m
+ParseArgs	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_scopedb.cmd	/^:ParseArgs$/;"	l
 ParseArgs	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^:ParseArgs$/;"	l
 ParseTagline	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:ParseTagline(part1, part2, typeinfo, fileinfo) abort$/;"	f
 Path.AbsolutePathFor	/home/rmelton/projects/vimfiles/bundle/nerdtree/lib/nerdtree/path.vim	/^function! s:Path.AbsolutePathFor(str)$/;"	f
@@ -1505,6 +1513,7 @@ Unlink	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^command
 Unlock	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^:Unlock$/;"	l
 Update	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:Update(str)$/;"	f
 UpdateErrors	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^function! s:UpdateErrors(auto_invoked, checker_names) abort " {{{2$/;"	f
+Usage	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_scopedb.cmd	/^:Usage$/;"	l
 Usage	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^:Usage$/;"	l
 UserCmd	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:UserCmd(lscmd)$/;"	f
 VERSION	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^VERSION=0.1$/;"	m
@@ -2032,6 +2041,7 @@ default_role	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/aria.vim	
 define_commands	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:define_commands() abort$/;"	f
 delent	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:delent(rfunc)$/;"	f
 deleteBookmark	/home/rmelton/projects/vimfiles/bundle/nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:deleteBookmark(bm)$/;"	f
+delete_lock_files	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:delete_lock_files() abort$/;"	f
 dep_from_git	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^dep_from_git = \\$/;"	m
 dep_from_git	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^dep_from_git = \\$/;"	m
 dep_from_svn	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^dep_from_svn = \\$/;"	m
@@ -2353,7 +2363,7 @@ g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/synta
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^        let g:_SYNTASTIC_UNAME = split(syntastic#util#system('uname'), "\\n")[0]$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Unknown'$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Windows'$/;"	v
-g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-57'$/;"	v
+g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-59'$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/.vim\/after\/plugin\/abolish.vim")$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/vimfiles\/after\/plugin\/abolish.vim")$/;"	v
 g:ag_apply_lmappings	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^  let g:ag_apply_lmappings=1$/;"	v
@@ -2419,23 +2429,31 @@ g:go_oracle_bin	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/oracle
 g:go_play_open_browser	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/play.vim	/^    let g:go_play_open_browser = 1$/;"	v
 g:go_snippet_engine	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/snippets.vim	/^	let g:go_snippet_engine = "ultisnips"$/;"	v
 g:go_textobj_enabled	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/textobj.vim	/^    let g:go_textobj_enabled = 1$/;"	v
-g:gutentags_auto_set_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_auto_set_tags = 1$/;"	v
+g:gutentags_auto_add_cscope	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/cscope.vim	/^    let g:gutentags_auto_add_cscope = 1$/;"	v
+g:gutentags_auto_set_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/ctags.vim	/^    let g:gutentags_auto_set_tags = 1$/;"	v
 g:gutentags_background_update	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_background_update = 1$/;"	v
 g:gutentags_cache_dir	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_cache_dir = ''$/;"	v
 g:gutentags_cache_dir	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_cache_dir = fnamemodify(g:gutentags_cache_dir, ':s?[\/\\\\]$??')$/;"	v
+g:gutentags_cscope_executable	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/cscope.vim	/^    let g:gutentags_cscope_executable = 'cscope'$/;"	v
+g:gutentags_ctags_options_file	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/ctags.vim	/^    let g:gutentags_ctags_options_file = ''$/;"	v
 g:gutentags_debug	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_debug = 0$/;"	v
 g:gutentags_enabled	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_enabled = 1$/;"	v
 g:gutentags_exclude	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_exclude = []$/;"	v
-g:gutentags_executable	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_executable = 'ctags'$/;"	v
+g:gutentags_executable	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/ctags.vim	/^    let g:gutentags_executable = 'ctags'$/;"	v
 g:gutentags_fake	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_fake = 0$/;"	v
 g:gutentags_generate_on_missing	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_generate_on_missing = 1$/;"	v
 g:gutentags_generate_on_new	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_generate_on_new = 1$/;"	v
 g:gutentags_generate_on_write	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_generate_on_write = 1$/;"	v
-g:gutentags_options_file	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_options_file = ''$/;"	v
+g:gutentags_modules	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_modules = ['ctags']$/;"	v
 g:gutentags_pause_after_update	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_pause_after_update = 0$/;"	v
+g:gutentags_plat_dir	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_plat_dir = expand('<sfile>:h:h:p') . "\\\\plat\\\\win32\\\\"$/;"	v
+g:gutentags_plat_dir	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_plat_dir = expand('<sfile>:h:h:p') . '\/plat\/unix\/'$/;"	v
 g:gutentags_project_root	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_project_root = []$/;"	v
 g:gutentags_project_root	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^let g:gutentags_project_root += ['.git', '.hg', '.svn', '.bzr', '_darcs']$/;"	v
-g:gutentags_tagfile	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_tagfile = 'tags'$/;"	v
+g:gutentags_scopefile	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/cscope.vim	/^    let g:gutentags_scopefile = 'cscope.out'$/;"	v
+g:gutentags_script_ext	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_script_ext = '.cmd'$/;"	v
+g:gutentags_script_ext	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_script_ext = '.sh'$/;"	v
+g:gutentags_tagfile	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/ctags.vim	/^    let g:gutentags_tagfile = 'tags'$/;"	v
 g:gutentags_trace	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let g:gutentags_trace = 0$/;"	v
 g:html5_aria_attributes_complete	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let g:html5_aria_attributes_complete = 1$/;"	v
 g:html5_event_handler_attributes_complete	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let g:html5_event_handler_attributes_complete = 1$/;"	v
@@ -2708,7 +2726,7 @@ g:syntastic_html_tidy_blocklevel_tags	/home/rmelton/projects/vimfiles/bundle/syn
 g:syntastic_html_tidy_empty_tags	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/tidy.vim	/^    let g:syntastic_html_tidy_empty_tags = []$/;"	v
 g:syntastic_html_tidy_ignore_errors	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/tidy.vim	/^    let g:syntastic_html_tidy_ignore_errors = []$/;"	v
 g:syntastic_html_tidy_inline_tags	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/tidy.vim	/^    let g:syntastic_html_tidy_inline_tags = []$/;"	v
-g:syntastic_html_validator_api	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/validator.vim	/^    let g:syntastic_html_validator_api = 'http:\/\/validator.nu\/'$/;"	v
+g:syntastic_html_validator_api	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/validator.vim	/^    let g:syntastic_html_validator_api = 'https:\/\/validator.nu\/'$/;"	v
 g:syntastic_html_validator_nsfilter	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/validator.vim	/^    let g:syntastic_html_validator_nsfilter = ''$/;"	v
 g:syntastic_html_validator_parser	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/validator.vim	/^    let g:syntastic_html_validator_parser = ''$/;"	v
 g:syntastic_html_w3_api	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/w3.vim	/^    let g:syntastic_html_w3_api = 'http:\/\/validator.w3.org\/check'$/;"	v
@@ -2795,7 +2813,7 @@ gc	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^  o
 gcc	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^  nmap gcc <Plug>CommentaryLine$/;"	m
 gcu	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^  nmap gcu <Plug>Commentary<Plug>Commentary$/;"	m
 gd	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go.vim	/^   nnoremap <buffer> <silent> gd :GoDef<cr>$/;"	m
-generate_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:generate_tags(bang, ...) abort$/;"	f
+generate_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! s:generate_tags(bang, ...) abort$/;"	f
 get	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Modules.vim	/^function! s:get(name)$/;"	f
 get	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Palette/Highlight.vim	/^function! s:get(name, ...)$/;"	f
 getDelimiters	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:getDelimiters(trigger)$/;"	f
@@ -2807,17 +2825,13 @@ get_browser_command	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/to
 get_char	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^fu s:get_char()$/;"	f
 get_cmdline_cword	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Modules/InsertRegister.vim	/^function! s:get_cmdline_cword(backward, cword)$/;"	f
 get_escaped_group_char	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion.vim	/^function! s:get_escaped_group_char(dict, char) "{{{$/;"	f
-get_execute_cmd	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:get_execute_cmd() abort$/;"	f
-get_execute_cmd_suffix	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:get_execute_cmd_suffix() abort$/;"	f
 get_hit_enter_max_length	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Vim/Message.vim	/^function! s:get_hit_enter_max_length() abort$/;"	f
 get_map_str	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:get_map_str(map) abort$/;"	f
-get_project_root	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:get_project_root(path) abort$/;"	f
 get_root	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/erlang/erlang_check_file.erl	/^get_root(Dir) ->$/;"	f
 get_root	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/erlang/erlang_check_file.erl	/^get_root(["src" | Tail], _Path) ->$/;"	f
 get_root	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/erlang/erlang_check_file.erl	/^get_root(["test" | Tail], _Path) ->$/;"	f
 get_root	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/erlang/erlang_check_file.erl	/^get_root([], Path) ->$/;"	f
 get_root	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/erlang/erlang_check_file.erl	/^get_root([_ | Tail], Path) ->$/;"	f
-get_tagfile	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:get_tagfile(root_dir) abort$/;"	f
 get_visual_content	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/play.vim	/^function! s:get_visual_content()$/;"	f
 get_visual_selection	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/play.vim	/^function! s:get_visual_selection()$/;"	f
 getbookmarks	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/bookmarkdir.vim	/^fu! s:getbookmarks()$/;"	f
@@ -2916,11 +2930,27 @@ group_list	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_eas
 grow	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:grow()$/;"	f
 gsub	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:gsub(str,pat,rep) abort$/;"	f
 gsub	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^function! s:gsub(str,pat,rep) abort$/;"	f
-gutentags#fake	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! gutentags#fake(...)$/;"	f
-gutentags#inprogress	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! gutentags#inprogress()$/;"	f
-gutentags#rescan	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! gutentags#rescan(...)$/;"	f
-gutentags#statusline	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! gutentags#statusline(...) abort$/;"	f
-gutentags#trace	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! gutentags#trace(...)$/;"	f
+gutentags#add_progress	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#add_progress(module, file) abort$/;"	f
+gutentags#cscope#generate	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/cscope.vim	/^function! gutentags#cscope#generate(proj_dir, tags_file, write_mode) abort$/;"	f
+gutentags#cscope#init	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/cscope.vim	/^function! gutentags#cscope#init(project_root) abort$/;"	f
+gutentags#ctags#generate	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/ctags.vim	/^function! gutentags#ctags#generate(proj_dir, tags_file, write_mode) abort$/;"	f
+gutentags#ctags#init	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/ctags.vim	/^function! gutentags#ctags#init(project_root) abort$/;"	f
+gutentags#fake	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#fake(...)$/;"	f
+gutentags#get_cachefile	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#get_cachefile(root_dir, filename) abort$/;"	f
+gutentags#get_execute_cmd	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#get_execute_cmd() abort$/;"	f
+gutentags#get_execute_cmd_suffix	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#get_execute_cmd_suffix() abort$/;"	f
+gutentags#get_plat_file	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#get_plat_file(filename) abort$/;"	f
+gutentags#get_project_root	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#get_project_root(path) abort$/;"	f
+gutentags#inprogress	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#inprogress()$/;"	f
+gutentags#normalizepath	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#normalizepath(path)$/;"	f
+gutentags#rescan	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#rescan(...)$/;"	f
+gutentags#setup_gutentags	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#setup_gutentags() abort$/;"	f
+gutentags#shellslash	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#shellslash(path)$/;"	f
+gutentags#statusline	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#statusline(...) abort$/;"	f
+gutentags#stripslash	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#stripslash(path)$/;"	f
+gutentags#throw	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#throw(message)$/;"	f
+gutentags#toggletrace	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#toggletrace(...)$/;"	f
+gutentags#trace	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! gutentags#trace(message, ...)$/;"	f
 gutentags_detect	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^augroup gutentags_detect$/;"	a
 h	/home/rmelton/projects/vimfiles/bundle/easymotion/t/easymotion_spec.vim	/^        normal! h$/;"	m
 handleEmpty	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion.vim	/^function! s:handleEmpty(input, visualmode) "{{{$/;"	f
@@ -3053,7 +3083,7 @@ make_emacs	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_eas
 make_plain	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Base.vim	/^function! s:make_plain()$/;"	f
 make_special_chars	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Modules/NoInsert.vim	/^function! s:make_special_chars()$/;"	f
 make_vim_cmdline_mapping	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Modules/KeyMapping.vim	/^function! s:make_vim_cmdline_mapping()$/;"	f
-manual_update_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:manual_update_tags(bang) abort$/;"	f
+manual_update_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! s:manual_update_tags(module, bang) abort$/;"	f
 map	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^      let map = maparg('<cr>', 'i')$/;"	v
 map	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^      let map = s:ExpandMap(map)$/;"	v
 map_accum	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Data/List.vim	/^function! s:map_accum(expr, xs, init) abort$/;"	f
@@ -3170,7 +3200,6 @@ nocache	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/dir.vim	/^fu
 nocache	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/rtscript.vim	/^fu! s:nocache()$/;"	f
 nonamecond	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:nonamecond(str, filpath)$/;"	f
 normalize_options	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:normalize_options(flags)$/;"	f
-normalizepath	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:normalizepath(path)$/;"	f
 nosort	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:nosort()$/;"	f
 nosplit	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:nosplit()$/;"	f
 object.clone	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:object.clone(...)$/;"	f
@@ -3483,6 +3512,7 @@ s:_vital_files_cache	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/
 s:_vital_files_cache_runtimepath	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion.vim	/^let s:_vital_files_cache_runtimepath = ''$/;"	v
 s:_width	/home/rmelton/projects/vimfiles/bundle/syntastic/autoload/syntastic/util.vim	/^let s:_width = function(exists('*strwidth') ? 'strwidth' : 'strlen')$/;"	v
 s:abstract_prototype	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^let s:abstract_prototype = {}$/;"	v
+s:added_dbs	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/cscope.vim	/^let s:added_dbs = []$/;"	v
 s:alternative_bold_items	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^let s:alternative_bold_items = ["Identifier", "PreProc", "Statement",$/;"	v
 s:ars	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/dir.vim	/^let s:ars = ['s:maxdepth', 's:maxfiles', 's:compare_lim', 's:glob', 's:caching']$/;"	v
 s:autocommands_done	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^let s:autocommands_done = 0$/;"	v
@@ -3616,8 +3646,8 @@ s:is_maximized	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim
 s:js_keywords	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^let s:js_keywords = '^\\s*\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|in\\|instanceof\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\)'$/;"	v
 s:js_keywords	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^let s:js_keywords = '^\\s*\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|in\\|instanceof\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\)'$/;"	v
 s:jsindent	/home/rmelton/projects/vimfiles/bundle/html5/indent/html.vim	/^let s:jsindent = &indentexpr$/;"	v
+s:known_files	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^let s:known_files = []$/;"	v
 s:known_files	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^let s:known_files = {$/;"	v
-s:known_tagfiles	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^let s:known_tagfiles = []$/;"	v
 s:kprange	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^let s:kprange = {$/;"	v
 s:last_highlight_tline	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^let s:last_highlight_tline = 0$/;"	v
 s:libs	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/autoload/jslibsyntax.vim	/^let s:libs = [$/;"	v
@@ -3634,7 +3664,8 @@ s:loaded	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easym
 s:loadtgl	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^let s:loadtgl = exists('g:rbpt_loadcmd_toggle') ? g:rbpt_loadcmd_toggle : 0$/;"	v
 s:master	/home/rmelton/projects/vimfiles/bundle/seoul256/colors/seoul256-light.vim	/^let s:master    = get(split(globpath(&rtp, 'colors\/seoul256.vim'), '\\n'), 0, '')$/;"	v
 s:max	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^let s:max = exists('g:rbpt_max') ? g:rbpt_max : max([len(s:pairs), 16])$/;"	v
-s:maybe_in_progress	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^let s:maybe_in_progress = {}$/;"	v
+s:maybe_in_progress	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^    let s:maybe_in_progress[module] = {}$/;"	v
+s:maybe_in_progress	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^let s:maybe_in_progress = {}$/;"	v
 s:modemap	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let s:modemap = g:SyntasticModeMap.Instance()$/;"	v
 s:modes	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^  let s:modes = '\/^E\/^Y\/^L\/^N\/^K\/^T\/^I\/^]\/^F\/^D\/^V\/^P\/^U\/^O\/s'$/;"	v
 s:modes	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^  let s:modes = s:modes . '\/n\/p'$/;"	v
@@ -3719,8 +3750,8 @@ s:root_dir	/home/rmelton/projects/vimfiles/bundle/easymotion/t/easymotion_spec.v
 s:root_dir	/home/rmelton/projects/vimfiles/bundle/easymotion/t/operator_pending_spec.vim	/^let s:root_dir = matchstr(system('git rev-parse --show-cdup'), '[^\\n]\\+')$/;"	v
 s:root_dir	/home/rmelton/projects/vimfiles/bundle/easymotion/t/smartsign_spec.vim	/^let s:root_dir = matchstr(system('git rev-parse --show-cdup'), '[^\\n]\\+')$/;"	v
 s:rst2pseudoxml	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/rst/rst2pseudoxml.vim	/^let s:rst2pseudoxml = executable('rst2pseudoxml.py') ? 'rst2pseudoxml.py' : 'rst2pseudoxml'$/;"	v
-s:runner_exe	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^    let s:runner_exe = expand('<sfile>:h:h') . '\\plat\\win32\\update_tags.cmd'$/;"	v
-s:runner_exe	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^let s:runner_exe = expand('<sfile>:h:h') . '\/plat\/unix\/update_tags.sh'$/;"	v
+s:runner_exe	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/cscope.vim	/^let s:runner_exe = gutentags#get_plat_file('update_scopedb')$/;"	v
+s:runner_exe	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/ctags.vim	/^let s:runner_exe = gutentags#get_plat_file('update_tags')$/;"	v
 s:sass_cache_location	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/sass/sass.vim	/^let s:sass_cache_location = syntastic#util#tmpdir()$/;"	v
 s:save_cpo	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion/cmigemo.vim	/^let s:save_cpo = &cpo$/;"	v
@@ -3976,7 +4007,8 @@ s:types	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^  
 s:types	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^  let s:types =$/;"	v
 s:undercurl_items	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^let s:undercurl_items = [$/;"	v
 s:underline_items	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^let s:underline_items = [$/;"	v
-s:update_queue	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^let s:update_queue = []$/;"	v
+s:update_queue	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^    let s:update_queue[module] = []$/;"	v
+s:update_queue	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^let s:update_queue = {}$/;"	v
 s:use_bold	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^    let s:use_bold = 1$/;"	v
 s:use_bold	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^    let s:use_bold = g:lucius_use_bold$/;"	v
 s:use_underline	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^    let s:use_underline = 1$/;"	v
@@ -4068,7 +4100,6 @@ settype	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:
 setup	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^function! s:setup() abort$/;"	f
 setup	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:setup()$/;"	f
 setup_colors	/home/rmelton/projects/vimfiles/bundle/wildfire/plugin/wildfire.vim	/^fu! s:setup_colors()$/;"	f
-setup_gutentags	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:setup_gutentags() abort$/;"	f
 setup_keymaps	/home/rmelton/projects/vimfiles/bundle/tagbar/plugin/tagbar.vim	/^function! s:setup_keymaps() abort$/;"	f
 setup_options	/home/rmelton/projects/vimfiles/bundle/tagbar/plugin/tagbar.vim	/^function! s:setup_options() abort$/;"	f
 setup_paste	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^function! s:setup_paste() abort$/;"	f
@@ -4081,7 +4112,6 @@ shebang_chmod	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^
 shellesc	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:shellesc(arg) abort$/;"	f
 shellesc	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^function! s:shellesc(arg) abort$/;"	f
 shellslash	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:shellslash(path) abort$/;"	f
-shellslash	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:shellslash(path)$/;"	f
 shellslash	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^function! s:shellslash(path) abort$/;"	f
 shift	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Data/List.vim	/^function! s:shift(list) abort$/;"	f
 shortest	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:shortest(lens)$/;"	f
@@ -4116,7 +4146,6 @@ stage_info	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/
 str_subst	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^fu s:str_subst(str, col, char)$/;"	f
 string_decode	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^function! s:string_decode(str)$/;"	f
 string_encode	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^function! s:string_encode(str)$/;"	f
-stripslash	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:stripslash(path)$/;"	f
 strwidth	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:strwidth(str)$/;"	f
 sub	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:sub(str,pat,rep) abort$/;"	f
 sub	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^function! s:sub(str,pat,rep) abort$/;"	f
@@ -4270,7 +4299,6 @@ thb	/home/rmelton/projects/vimfiles/bundle/easymotion/t/easymotion_spec.vim	/^  
 thc	/home/rmelton/projects/vimfiles/bundle/easymotion/t/easymotion_spec.vim	/^        normal thc$/;"	m
 throw	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:throw(msg)$/;"	f
 throw	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:throw(string) abort$/;"	f
-throw	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:throw(message)$/;"	f
 time	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^function! s:time(cmd, count)$/;"	f
 to_string	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Modules/InsertRegister.vim	/^function! s:to_string(expr)$/;"	f
 toggle	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^function! s:toggle(op)$/;"	f
@@ -4280,7 +4308,6 @@ toggleShowFiles	/home/rmelton/projects/vimfiles/bundle/nerdtree/autoload/nerdtre
 toggleShowHidden	/home/rmelton/projects/vimfiles/bundle/nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:toggleShowHidden()$/;"	f
 toggleZoom	/home/rmelton/projects/vimfiles/bundle/nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:toggleZoom()$/;"	f
 togglebg#map	/home/rmelton/projects/vimfiles/autoload/togglebg.vim	/^function! togglebg#map(mapActivation)$/;"	f
-trace	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:trace(message, ...)$/;"	f
 triggerReselect	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:triggerReselect()$/;"	f
 triggerUndo	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:triggerUndo()$/;"	f
 trim_bracket	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/complete.vim	/^function! s:trim_bracket(val)$/;"	f
@@ -4302,7 +4329,7 @@ unmarksigns	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu
 unshift	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Data/List.vim	/^function! s:unshift(list, val) abort$/;"	f
 upDirCurrentRootClosed	/home/rmelton/projects/vimfiles/bundle/nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:upDirCurrentRootClosed()$/;"	f
 upDirCurrentRootOpen	/home/rmelton/projects/vimfiles/bundle/nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:upDirCurrentRootOpen()$/;"	f
-update_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:update_tags(write_mode, queue_mode, ...) abort$/;"	f
+update_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! s:update_tags(module, write_mode, queue_mode, ...) abort$/;"	f
 uppercase	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:uppercase(word)$/;"	f
 url_decode	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^function! s:url_decode(str)$/;"	f
 url_encode	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^function! s:url_encode(str)$/;"	f
@@ -4342,7 +4369,7 @@ with_index	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_eas
 words	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:words()$/;"	f
 wrap	/home/rmelton/projects/vimfiles/bundle/surround/plugin/surround.vim	/^function! s:wrap(string,char,type,removed,special)$/;"	f
 wrapreg	/home/rmelton/projects/vimfiles/bundle/surround/plugin/surround.vim	/^function! s:wrapreg(reg,char,removed,special)$/;"	f
-write_triggered_update_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^function! s:write_triggered_update_tags() abort$/;"	f
+write_triggered_update_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! s:write_triggered_update_tags() abort$/;"	f
 writecache	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:writecache(cafile)$/;"	f
 writecache	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/bookmarkdir.vim	/^fu! s:writecache(lines)$/;"	f
 xml_attributes	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^let xml_attributes = {'xml:lang': lang_tag, 'xml:space': ['preserve'], 'xml:base': [], 'xmlns': ['http:\/\/www.w3.org\/1999\/xhtml', 'http:\/\/www.w3.org\/1998\/Math\/MathML', 'http:\/\/www.w3.org\/2000\/svg', 'http:\/\/www.w3.org\/1999\/xlink']}$/;"	v

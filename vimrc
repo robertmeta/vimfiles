@@ -69,7 +69,6 @@ set breakindent " this is just awesome (best patch in a long time)
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
-set nocursorline " no global cursor line 
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set fileencoding=utf-8 " UTF-8
@@ -81,7 +80,6 @@ set foldmethod=marker " Fold on the marker
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
-set formatoptions=qrn1j " used to be just rq
 set hidden " load files in background
 set history=9999 " big old history
 set ignorecase " case insensitive by default
@@ -95,14 +93,15 @@ set modelines=5 " Search for 5 lines for modelines
 set noautoread " do NOT read on all changes
 set noautowriteall " do NOT write on all changes
 set noautowrite " do NOT write on all changes
-set nocompatible " explicitly get out of vi-compatible mode
 set nocursorcolumn " disable global cursor column 
+set nocursorline " no global cursor line 
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
+set norelativenumber " no relative numbers (I tried to love them)
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
@@ -110,7 +109,6 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " turn on line numbers
 set numberwidth=5 " We are good up to 99999 lines
-set norelativenumber " no relative numbers (I tried to love them)
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
@@ -118,7 +116,6 @@ set scrolloff=5 " Keep 5 lines (top/bottom) for scope
 set secure " but lets not go crazy
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
-set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 set showbreak=+++\  " this is how we show breaks (this comment is broken in vim, dafaq)
 set showcmd " Show the commands
 set showmode " default but just in case
@@ -180,6 +177,27 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
 endif
 set wildmode=list:longest " turn on wild mode huge list
+" }}}
+
+" {{{
+set formatoptions=qrn1j " used to be just rq
+"                 |||||
+"                 ||||+-- remove comment when joining lines
+"                 |||+-- don't break after one letter word
+"                 ||+-- format numbered lists using "formatlistpat"
+"                 |+-- enter extends comments
+"                 +-- allow gq to work on comment
+" }}}
+
+" {{{
+set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
+"             ||||||
+"             |||||+-- no intro message
+"             ||||+-- truncate messages in the middle
+"             |||+-- truncate file message
+"             ||+-- not "Search hit bottom" crap
+"             |+-- file read message overwrites subsequent
+"             +-- use every short text trick
 " }}}
 
 " Status Line {{{
@@ -263,14 +281,14 @@ endif
 
 " Tablines {{{
 function! Tabline()
-    let s = ''
+    let s=''
     for i in range(tabpagenr('$'))
-        let tab = i + 1
-        let winnr = tabpagewinnr(tab)
-        let buflist = tabpagebuflist(tab)
-        let bufnr = buflist[winnr - 1]
-        let bufname = bufname(bufnr)
-        let bufmodified = getbufvar(bufnr, "&mod")
+        let tab=i + 1
+        let winnr=tabpagewinnr(tab)
+        let buflist=tabpagebuflist(tab)
+        let bufnr=buflist[winnr - 1]
+        let bufname=bufname(bufnr)
+        let bufmodified=getbufvar(bufnr, "&mod")
         let s .= '%' . tab . 'T'
         let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
         let s .= ' ' . tab .':'
@@ -285,6 +303,7 @@ endfunction
 set tabline=%!Tabline()
 " Tab control
 nnoremap <leader>c :tabnew<CR>
+nnoremap <leader>x :tabclose<CR>
 nnoremap <leader>1 1gt<CR>
 nnoremap <leader>2 2gt<CR>
 nnoremap <leader>3 3gt<CR>
@@ -363,10 +382,10 @@ else
     let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'       " MacOSX/Linux
 endif
 " Mappings
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>p :CtrlPMixed<CR>
-nmap <leader>T :CtrlPBufTagAll<CR>
-nmap <leader>t :CtrlPBufTag<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>p :CtrlPMixed<CR>
+nnoremap <leader>T :CtrlPBufTagAll<CR>
+nnoremap <leader>t :CtrlPBufTag<CR>
 " }}}
 
 " vim-go {{{
@@ -387,16 +406,17 @@ let g:go_highlight_space_tab_error=1
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
 " Not sure why this doesn't work by default on windows
-let g:go_bin_path = $HOME."/go/bin"
+let g:go_bin_path=$HOME."/go/bin"
 " Autocommands
 if has("autocmd")
     augroup vimgo
         " Clear!
         au!
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au FileType go nmap gd <Plug>(go-def)
-        au FileType go nmap gr <Plug>(go-rename)
-        au FileType go nmap gi <Plug>(go-info)
+        au FileType go nnoremap gd <Plug>(go-def)
+        au FileType go nnoremap gD <Plug>(go-def-split)
+        au FileType go nnoremap gr <Plug>(go-rename)
+        au FileType go nnoremap gi <Plug>(go-info)
     augroup END
 endif
 " }}}
@@ -448,7 +468,7 @@ let perl_extended_vars=1 " highlight advanced perl vars inside strings
 " }}}
 
 " Netrw {{{
-let g:netrw_altfile = 1
+let g:netrw_altfile=1
 " }}}
 
 " NERDTree {{{
@@ -469,17 +489,17 @@ endif
 " }}}
 
 " {{{ Syntastic 
-let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_always_populate_loc_list=1
 " }}}
 
 " Fugitive {{{
-nmap <leader>ga :Gadd<cr>
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>go :Gcheckout<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gw :Gwrite<cr>
-nmap <leader>gg :Gwrite<cr>:Gcommit<cr>
+nnoremap <leader>ga :Gadd<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>go :Gcheckout<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>gg :Gwrite<cr>:Gcommit<cr>
 " }}}
 
 " Pair programming helper {{{
@@ -498,8 +518,8 @@ let g:EasyMotion_off_screen_search=1
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
-nmap <leader><space> <Plug>(easymotion-jumptoanywhere)
-nmap L <Plug>(easymotion-bd-jk)
+nnoremap <leader><space> <Plug>(easymotion-jumptoanywhere)
+nnoremap L <Plug>(easymotion-bd-jk)
 " Highlight Overrides
 hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
