@@ -518,8 +518,7 @@ let g:EasyMotion_off_screen_search=1
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
-nnoremap <leader><space> <Plug>(easymotion-jumptoanywhere)
-nnoremap L <Plug>(easymotion-bd-jk)
+nnoremap <leader><space> <Plug>(easymotion-bd-jk)
 " Highlight Overrides
 hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
