@@ -279,43 +279,6 @@ if has("autocmd")
 endif
 " }}}
 
-" Tablines {{{
-function! Tabline()
-    let s=''
-    for i in range(tabpagenr('$'))
-        let tab=i + 1
-        let winnr=tabpagewinnr(tab)
-        let buflist=tabpagebuflist(tab)
-        let bufnr=buflist[winnr - 1]
-        let bufname=bufname(bufnr)
-        let bufmodified=getbufvar(bufnr, "&mod")
-        let s .= '%' . tab . 'T'
-        let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
-        let s .= ' ' . tab .':'
-        let s .= (bufname != '' ? ''. fnamemodify(bufname, ':t') . ' ' : '[No Name] ')
-        if bufmodified
-            let s .= '[+] '
-        endif
-    endfor
-    let s .= '%#TabLineFill#'
-    return s
-endfunction
-set tabline=%!Tabline()
-" Tab control
-nnoremap <leader>c :tabnew<CR>
-nnoremap <leader>x :tabclose<CR>
-nnoremap <leader>1 1gt<CR>
-nnoremap <leader>2 2gt<CR>
-nnoremap <leader>3 3gt<CR>
-nnoremap <leader>4 4gt<CR>
-nnoremap <leader>5 5gt<CR>
-nnoremap <leader>6 6gt<CR>
-nnoremap <leader>7 7gt<CR>
-nnoremap <leader>8 8gt<CR>
-nnoremap <leader>9 9gt<CR>
-nnoremap <leader>0 10gt<CR>
-" }}}
-
 " GUI {{{
 if has("gui_running")
     set guifont=Consolas:h9:cANSI " My favorite font
@@ -502,11 +465,6 @@ nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gg :Gwrite<cr>:Gcommit<cr>
 " }}}
 
-" Pair programming helper {{{
-inoremap jk <ESC>
-inoremap kj <ESC>
-" }}}
-
 " Easy Motion {{{
 " Settings
 let g:EasyMotion_do_mapping=0
@@ -518,7 +476,7 @@ let g:EasyMotion_off_screen_search=1
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
-nnoremap <leader><space> <Plug>(easymotion-bd-jk)
+nmap <leader><space> <Plug>(easymotion-jumptoanywhere)
 " Highlight Overrides
 hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
