@@ -143,14 +143,14 @@ set wrap " Going to try to love it, again
 " Clipboard, Backup and Undo {{{
 set backup " make backup files
 if s:running_windows
-    set backupdir=~/vimfiles/backup// " where to put backup files
+    set backupdir=~/vimfiles/backup/ " where to put backup files
     set clipboard=unnamed "sync with OS clipboard
-    set directory=~/vimfiles/temp// " directory to place swap files in
-    set undodir=~/vimfiles/undo// " where to put undo files
+    set directory=~/vimfiles/temp/ " directory to place swap files in
+    set undodir=~/vimfiles/undo/ " where to put undo files
 else
-    set backupdir=~/.vim/backup// " where to put backup files
-    set directory=~/.vim/temp// " directory to place swap files in
-    set undodir=~/.vim/undo// " where to put undo files
+    set backupdir=~/.vim/backup/ " where to put backup files
+    set directory=~/.vim/temp/ " directory to place swap files in
+    set undodir=~/.vim/undo/ " where to put undo files
 endif
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
