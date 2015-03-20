@@ -3121,6 +3121,8 @@ log	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:log(
 lsCmd	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:lsCmd()$/;"	f
 main	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/erlang/erlang_check_file.erl	/^main([File]) ->$/;"	f
 main	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/erlang/erlang_check_file.erl	/^main(_) ->$/;"	f
+main	/home/rmelton/projects/vimfiles/test.go	/^func main() {$/;"	f
+main	/home/rmelton/projects/vimfiles/test.go	/^package main$/;"	p
 main_syntax	/home/rmelton/projects/vimfiles/bundle/javascript/syntax/javascript.vim	/^  let main_syntax = 'javascript'$/;"	v
 main_syntax	/home/rmelton/projects/vimfiles/bundle/json/syntax/json.vim	/^  let main_syntax = 'json'$/;"	v
 main_syntax	/home/rmelton/projects/vimfiles/syntax/javascript.vim	/^  let main_syntax = 'javascript'$/;"	v
