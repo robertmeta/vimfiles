@@ -390,6 +390,10 @@ let g:SuperTabDefaultCompletionType="context"
 let g:SuperTabLongestHighlight=1
 " }}}
 
+" Syntastic {{{
+let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": ["go"] }
+" }}}
+
 " RainbowParentheses {{{
 let g:rbpt_colorpairs=[
     \ ['blue', 'RoyalBlue3'],

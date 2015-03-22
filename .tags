@@ -2430,7 +2430,7 @@ g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/synta
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^        let g:_SYNTASTIC_UNAME = split(syntastic#util#system('uname'), "\\n")[0]$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Unknown'$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Windows'$/;"	v
-g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-62'$/;"	v
+g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-63'$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/.vim\/after\/plugin\/abolish.vim")$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/vimfiles\/after\/plugin\/abolish.vim")$/;"	v
 g:ag_apply_lmappings	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^  let g:ag_apply_lmappings=1$/;"	v
@@ -2443,6 +2443,18 @@ g:ag_prg	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^    let g:a
 g:ag_prg	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^    let g:ag_prg="ag --vimgrep"$/;"	v
 g:ag_prg	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^  let g:ag_prg = g:agprg$/;"	v
 g:ag_qhandler	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^  let g:ag_qhandler="botright copen"$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette = {}$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.accents = {$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.ctrlp = airline#extensions#ctrlp#generate_color_map($/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3)$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.insert = copy(g:airline#themes#apprentice#palette.normal)$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.insert.airline_l = [ '#1c1c1c', '#87af87', 234, 108 ]$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.insert_paste = {$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.normal.airline_warning = [ '#1c1c1c', '#ffffaf', 234, 1 ]$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.replace = copy(g:airline#themes#apprentice#palette.insert)$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.replace.airline_a = [ '#1c1c1c', '#af5f5f', 234, 131 ]$/;"	v
+g:airline#themes#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let g:airline#themes#apprentice#palette.visual = copy(g:airline#themes#apprentice#palette.insert)$/;"	v
 g:aria_attributes_complete	/home/rmelton/projects/vimfiles/bundle/html5/autoload/htmlcomplete.vim	/^  let g:aria_attributes_complete = 1$/;"	v
 g:autoloaded_dispatch	/home/rmelton/projects/vimfiles/bundle/dispatch/autoload/dispatch.vim	/^let g:autoloaded_dispatch = 1$/;"	v
 g:autoloaded_dispatch_headless	/home/rmelton/projects/vimfiles/bundle/dispatch/autoload/dispatch/headless.vim	/^let g:autoloaded_dispatch_headless = 1$/;"	v
@@ -3121,8 +3133,6 @@ log	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:log(
 lsCmd	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:lsCmd()$/;"	f
 main	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/erlang/erlang_check_file.erl	/^main([File]) ->$/;"	f
 main	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/erlang/erlang_check_file.erl	/^main(_) ->$/;"	f
-main	/home/rmelton/projects/vimfiles/test.go	/^func main() {$/;"	f
-main	/home/rmelton/projects/vimfiles/test.go	/^package main$/;"	p
 main_syntax	/home/rmelton/projects/vimfiles/bundle/javascript/syntax/javascript.vim	/^  let main_syntax = 'javascript'$/;"	v
 main_syntax	/home/rmelton/projects/vimfiles/bundle/json/syntax/json.vim	/^  let main_syntax = 'json'$/;"	v
 main_syntax	/home/rmelton/projects/vimfiles/syntax/javascript.vim	/^  let main_syntax = 'javascript'$/;"	v
@@ -3550,12 +3560,19 @@ s:Event	/home/rmelton/projects/vimfiles/bundle/nerdtree/lib/nerdtree/event.vim	/
 s:FileInfo	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^let s:FileInfo = {}$/;"	v
 s:FlagSet	/home/rmelton/projects/vimfiles/bundle/nerdtree/lib/nerdtree/flag_set.vim	/^let s:FlagSet = {}$/;"	v
 s:Highlight	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Base.vim	/^	let s:Highlight = s:V.import("Palette.Highlight")$/;"	v
+s:I1	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let s:I1 = [ '#1c1c1c', '#87af87', 234, 108 ]$/;"	v
+s:IA1	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let s:IA1 = [ '#4e4e4e' , '#1c1c1c' , 239 , 234 , '' ]$/;"	v
+s:IA2	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let s:IA2 = [ '#4e4e4e' , '#262626' , 239 , 235 , '' ]$/;"	v
+s:IA3	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let s:IA3 = [ '#4e4e4e' , '#303030' , 239 , 236 , '' ]$/;"	v
 s:IGNORE_ERRORS	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/tidy.vim	/^let s:IGNORE_ERRORS = [$/;"	v
 s:INLINE_TAGS	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/tidy.vim	/^let s:INLINE_TAGS = [$/;"	v
 s:KeyMap	/home/rmelton/projects/vimfiles/bundle/nerdtree/lib/nerdtree/key_map.vim	/^let s:KeyMap = {}$/;"	v
 s:KindheaderTag	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^let s:KindheaderTag = copy(s:BaseTag)$/;"	v
 s:MenuController	/home/rmelton/projects/vimfiles/bundle/nerdtree/lib/nerdtree/menu_controller.vim	/^let s:MenuController = {}$/;"	v
 s:MenuItem	/home/rmelton/projects/vimfiles/bundle/nerdtree/lib/nerdtree/menu_item.vim	/^let s:MenuItem = {}$/;"	v
+s:N1	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let s:N1   = [ '#bcbcbc', '#5f5f87', 250, 60 ]$/;"	v
+s:N2	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let s:N2   = [ '#1c1c1c', '#ff8700', 234, 65 ]$/;"	v
+s:N3	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let s:N3   = [ '#262626', '#87875f', 235, 101 ]$/;"	v
 s:NERDTree	/home/rmelton/projects/vimfiles/bundle/nerdtree/lib/nerdtree/nerdtree.vim	/^let s:NERDTree = {}$/;"	v
 s:NERDTreeSortStarIndex	/home/rmelton/projects/vimfiles/bundle/nerdtree/lib/nerdtree/path.vim	/^let s:NERDTreeSortStarIndex = index(g:NERDTreeSortOrder, '*')$/;"	v
 s:NormalTag	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^let s:NormalTag = copy(s:BaseTag)$/;"	v
@@ -3571,6 +3588,9 @@ s:TreeFileNode	/home/rmelton/projects/vimfiles/bundle/nerdtree/lib/nerdtree/tree
 s:TypeInfo	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^let s:TypeInfo = {}$/;"	v
 s:UI	/home/rmelton/projects/vimfiles/bundle/nerdtree/lib/nerdtree/ui.vim	/^let s:UI = {}$/;"	v
 s:V	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion/command_line.vim	/^let s:V = vital#of('easymotion')$/;"	v
+s:V1	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let s:V1 = [ '#000000' , '#ffaf00' , 232 , 214 ]$/;"	v
+s:V2	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let s:V2 = [ '#000000' , '#ff5f00' , 232 , 202 ]$/;"	v
+s:V3	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/airline/themes/apprentice.vim	/^let s:V3 = [ '#ffffff' , '#5f0000' , 15  , 52  ]$/;"	v
 s:_DEBUG_DUMP_OPTIONS	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let s:_DEBUG_DUMP_OPTIONS = [$/;"	v
 s:_DEFAULT_CHECKERS	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic/registry.vim	/^let s:_DEFAULT_CHECKERS = {$/;"	v
 s:_DEFAULT_FILETYPE_MAP	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic/registry.vim	/^let s:_DEFAULT_FILETYPE_MAP = {$/;"	v
@@ -3828,7 +3848,7 @@ s:rgb_map	/home/rmelton/projects/vimfiles/bundle/seoul256/colors/seoul256.vim	/^
 s:root_dir	/home/rmelton/projects/vimfiles/bundle/easymotion/t/easymotion_spec.vim	/^let s:root_dir = matchstr(system('git rev-parse --show-cdup'), '[^\\n]\\+')$/;"	v
 s:root_dir	/home/rmelton/projects/vimfiles/bundle/easymotion/t/operator_pending_spec.vim	/^let s:root_dir = matchstr(system('git rev-parse --show-cdup'), '[^\\n]\\+')$/;"	v
 s:root_dir	/home/rmelton/projects/vimfiles/bundle/easymotion/t/smartsign_spec.vim	/^let s:root_dir = matchstr(system('git rev-parse --show-cdup'), '[^\\n]\\+')$/;"	v
-s:rst2pseudoxml	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/rst/rst2pseudoxml.vim	/^let s:rst2pseudoxml = executable('rst2pseudoxml.py') ? 'rst2pseudoxml.py' : 'rst2pseudoxml'$/;"	v
+s:rst2pseudoxml	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/rst/rst2pseudoxml.vim	/^let s:rst2pseudoxml = (executable('rst2pseudoxml.py') && !syntastic#util#isRunningWindows()) ? 'rst2pseudoxml.py' : 'rst2pseudoxml'$/;"	v
 s:runner_exe	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/cscope.vim	/^let s:runner_exe = gutentags#get_plat_file('update_scopedb')$/;"	v
 s:runner_exe	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags/ctags.vim	/^let s:runner_exe = gutentags#get_plat_file('update_tags')$/;"	v
 s:sass_cache_location	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/sass/sass.vim	/^let s:sass_cache_location = syntastic#util#tmpdir()$/;"	v
