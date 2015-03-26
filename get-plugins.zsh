@@ -35,6 +35,7 @@ git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle
 git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
+git clone https://github.com/sjl/gundo.vim bundle/gundo && rm -rf bundle/gundo/.git
 
 # Improved motions
 git clone https://github.com/ervandew/supertab bundle/supertab && rm -rf bundle/supertab/.git
