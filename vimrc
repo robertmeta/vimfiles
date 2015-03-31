@@ -41,8 +41,8 @@ nnoremap <S-up> :lprev<cr>zvzz
 nnoremap <down> <C-f>
 nnoremap <up> <C-b>
 " folding / unfolding outer layer
-nnoremap <leader>z :%foldc<CR> 
-nnoremap <leader>Z :%foldo<CR>
+nnoremap <leader>z :%foldc<cr> 
+nnoremap <leader>Z :%foldo<cr>
 " Scrolling
 " Window control
 nnoremap <leader>h <C-W>h
@@ -50,9 +50,10 @@ nnoremap <leader>j <C-W>j
 nnoremap <leader>k <C-W>k
 nnoremap <leader>l <C-W>l
 nnoremap <leader>o <C-W>o
-nnoremap <leader>" :split<CR>
-nnoremap <leader>% :vsplit<CR>
+nnoremap <leader>" :split<cr>
+nnoremap <leader>% :vsplit<cr>
 nnoremap <leader>w <C-W>w 
+nnoremap <leader>x <esc>:close<cr>
 " Addon control
 nnoremap <left> :NERDTreeToggle<cr>
 nnoremap <right> :TagbarToggle<cr>
@@ -60,7 +61,7 @@ nnoremap <right> :TagbarToggle<cr>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 " page facing view: side-by-side view of same buffer scrollbound
-nnoremap <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " }}}
 
 " Basics Settings {{{
@@ -224,7 +225,7 @@ set cpoptions=aABceFsmq
 "             ||||||||+-- When joining lines, leave the cursor between joined lines
 "             |||||||+-- When a new match is created (showmatch) pause for .5
 "             ||||||+-- Set buffer options when entering the buffer
-"             |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
+"             |||||+-- :write command updates current file name automatically add <cr> to the last line when using :@r
 "             |||+-- Searching continues at the end of the match at the cursor position
 "             ||+-- A backslash has no special meaning in mappings
 "             |+-- :write updates alternative file name
@@ -345,10 +346,10 @@ else
     let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'       " MacOSX/Linux
 endif
 " Mappings
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>p :CtrlPMixed<CR>
-nnoremap <leader>T :CtrlPBufTagAll<CR>
-nnoremap <leader>t :CtrlPBufTag<CR>
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>p :CtrlPMixed<cr>
+nnoremap <leader>T :CtrlPBufTagAll<cr>
+nnoremap <leader>t :CtrlPBufTag<cr>
 " }}}
 
 " vim-go {{{
@@ -377,7 +378,6 @@ if has("autocmd")
         au!
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au FileType go nnoremap gd <Plug>(go-def)
-        au FileType go nnoremap gD <Plug>(go-def-split)
         au FileType go nnoremap gr <Plug>(go-rename)
         au FileType go nnoremap gi <Plug>(go-info)
     augroup END
