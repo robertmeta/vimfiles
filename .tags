@@ -181,6 +181,7 @@ $	/home/rmelton/projects/vimfiles/bundle/easymotion/t/operator_pending_spec.vim	
 <Plug>(go-run)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-run) :<C-u>call go#cmd#Run(expand('%'))<CR>$/;"	m
 <Plug>(go-test)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-test) :<C-u>call go#cmd#Test(0, '')<CR>$/;"	m
 <Plug>(go-test-compile)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-test-compile) :<C-u>call go#cmd#Test(1, '')<CR>$/;"	m
+<Plug>(go-test-func)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-test-func) :<C-u>call go#cmd#TestFunc('')<CR>$/;"	m
 <Plug>(go-vet)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-vet) :<C-u>call go#cmd#Vet()<CR>$/;"	m
 <Plug>(wildfire-water)	/home/rmelton/projects/vimfiles/bundle/wildfire/plugin/wildfire.vim	/^vnoremap <silent> <Plug>(wildfire-water) :<C-U>call wildfire#Water(v:count1)<CR>$/;"	m
 <Plug>CSurround	/home/rmelton/projects/vimfiles/bundle/surround/plugin/surround.vim	/^nnoremap <silent> <Plug>CSurround  :<C-U>call <SID>changesurround(1)<CR>$/;"	m
@@ -704,6 +705,7 @@ GoRename	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	
 GoRun	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -bang GoRun call go#cmd#Run(<bang>0,<f-args>)$/;"	c
 GoTest	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^command! -nargs=* GoTest call go#cmd#Test(0, <f-args>)$/;"	c
 GoTestCompile	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^command! -nargs=* GoTestCompile call go#cmd#Test(1, <f-args>)$/;"	c
+GoTestFunc	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^command! -nargs=* GoTestFunc call go#cmd#TestFunc(<f-args>)$/;"	c
 GoUltiSnips	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/snippets.vim	/^function! s:GoUltiSnips()$/;"	f
 GoUpdateBinaries	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^command! GoUpdateBinaries call s:GoInstallBinaries(1)$/;"	c
 GoVet	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 GoVet call go#cmd#Vet()$/;"	c
@@ -2935,7 +2937,7 @@ g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/synta
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^        let g:_SYNTASTIC_UNAME = split(syntastic#util#system('uname'), "\\n")[0]$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Unknown'$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Windows'$/;"	v
-g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-66'$/;"	v
+g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-67'$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/.vim\/after\/plugin\/abolish.vim")$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/vimfiles\/after\/plugin\/abolish.vim")$/;"	v
 g:ag_apply_lmappings	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^  let g:ag_apply_lmappings=1$/;"	v
@@ -3477,6 +3479,7 @@ go#cmd#Coverage	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/cmd.vi
 go#cmd#Install	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/cmd.vim	/^function! go#cmd#Install(...)$/;"	f
 go#cmd#Run	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/cmd.vim	/^function! go#cmd#Run(bang, ...)$/;"	f
 go#cmd#Test	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/cmd.vim	/^function! go#cmd#Test(compile, ...)$/;"	f
+go#cmd#TestFunc	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/cmd.vim	/^function! go#cmd#TestFunc(...)$/;"	f
 go#cmd#Vet	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/cmd.vim	/^function! go#cmd#Vet()$/;"	f
 go#complete#Complete	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/complete.vim	/^fu! go#complete#Complete(findstart, base)$/;"	f
 go#complete#GetInfo	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/complete.vim	/^function! go#complete#GetInfo()$/;"	f
