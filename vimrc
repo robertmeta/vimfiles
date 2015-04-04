@@ -261,6 +261,9 @@ if has("autocmd")
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au BufRead,BufNewFile *.go setlocal noexpandtab ts=8 sw=8 sts=8 syntax=go ft=go foldmethod=indent foldmarker={,}
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make listchars=tab:\|\ ,trail:- " so does make
+        " Some JS awesome via romainl
+        au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<CR><CR>
+        au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<CR><CR>
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
         au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
