@@ -38,7 +38,8 @@ git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/v
 git clone https://github.com/sjl/gundo.vim bundle/gundo && rm -rf bundle/gundo/.git
 
 # Improved motions
-git clone https://github.com/ervandew/supertab bundle/supertab && rm -rf bundle/supertab/.git
+# git clone https://github.com/ervandew/supertab bundle/supertab && rm -rf bundle/supertab/.git
+git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
 git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
 
