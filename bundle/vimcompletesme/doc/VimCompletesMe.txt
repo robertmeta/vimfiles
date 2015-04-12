@@ -116,6 +116,28 @@ Solution: Just make a mapping like the following, in your |vimrc|:
 >
     inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 <
+
+2. When pressing the Tab key, why is the the last popup item selected?     ~
+
+This is because VimCompletesMe is invoking |i_Ctrl-P| by default for you.
+Pressing the Tab key will then cycle forwards the list, so some users are
+confused that it takes two Tab presses to jump to the first item in the list.
+
+However, this behavior is the default Vim behavior, and VimCompletesMe agrees
+with it. Invoking |i_Ctrl-P| instead of |i_Ctrl-N| is done because it is more
+likely that the keyword you are trying to complete is before the current
+cursor position. When the Tab key is pressed when the popup menu is open,
+VimCompletesMe simply uses Ctrl-N to advance to the next item in the popup
+menu. If you would like VimCompletesMe to invoke |i_Ctrl-N| instead, see the
+|'g:vcm_direction'| option.
+
+It is also useful to check out the "longest" attribute of the |'completeopt'|
+option. Setting the following in your |vimrc| will insert the longest matching
+string and then popup the completion item, so you will always start at the
+head of the popup menu list:
+>
+    set completeopt+=longest
+<
 ------------------------------------------------------------------------------
 
 Template From: https://github.com/dahu/Area-41/

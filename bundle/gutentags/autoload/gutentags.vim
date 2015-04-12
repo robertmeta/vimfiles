@@ -99,6 +99,11 @@ function! gutentags#setup_gutentags() abort
     call gutentags#trace("Scanning buffer '" . bufname('%') . "' for gutentags setup...")
     try
         let b:gutentags_root = gutentags#get_project_root(expand('%:h'))
+        if filereadable(b:gutentags_root . '/.notags')
+            call gutentags#trace("'notags' file found... no gutentags support.")
+            return
+        endif
+
         let b:gutentags_files = {}
         for module in g:gutentags_modules
             call call("gutentags#".module."#init", [b:gutentags_root])
@@ -180,7 +185,7 @@ function! gutentags#get_execute_cmd_suffix() abort
 endfunction
 
 " (Re)Generate the tags file for the current buffer's file.
-function! s:manual_update_tags(module, bang) abort
+function! s:manual_update_tags(bang) abort
     for module in g:gutentags_modules
         call s:update_tags(module, a:bang, 0)
     endfor
@@ -274,6 +279,14 @@ function! gutentags#rescan(...)
     call s:setup_gutentags()
     if a:0 && a:1
         let g:gutentags_trace = l:trace_backup
+    endif
+endfunction
+
+function! gutentags#delete_lock_files() abort
+    if exists('b:gutentags_files')
+        for tagfile in values(b:gutentags_files)
+            silent call delete(tagfile.'.lock')
+        endfor
     endif
 endfunction
 
