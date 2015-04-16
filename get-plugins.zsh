@@ -52,6 +52,9 @@ git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bun
 # PowerShell
 git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.git
 
+# Rust
+git clone https://github.com/rust-lang/rust.vim bundle/rust && rm -rf bundle/rust/.git
+
 # Html5
 git clone https://github.com/othree/html5.vim bundle/html5 && rm -rf bundle/html5/.git
 
