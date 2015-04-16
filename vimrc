@@ -501,8 +501,6 @@ set tags+=.tags
 " Racer {{{
 let g:racer_cmd=$HOME.'/projects/racer/target/release/racer'
 let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
-
-/usr/local/src/rust/src
 " }}}
 
 " Theme setup {{{
