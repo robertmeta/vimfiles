@@ -44,7 +44,7 @@ git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/
 git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
 
 # Visual
-git clone https://github.com/kien/ctrlp.vim bundle/ctrlp && rm -rf bundle/ctrlp/.git
+git clone https://github.com/ctrlpvim/ctrlp.vim bundle/ctrlp && rm -rf bundle/ctrlp/.git
 git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
 git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
 git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bundle/syntastic/.git
@@ -54,7 +54,7 @@ git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.g
 
 # Rust
 git clone https://github.com/rust-lang/rust.vim bundle/rust && rm -rf bundle/rust/.git
-git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer/.git
+# git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer/.git # Unstable and annoying
 
 # Html5
 git clone https://github.com/othree/html5.vim bundle/html5 && rm -rf bundle/html5/.git
