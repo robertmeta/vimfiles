@@ -54,7 +54,7 @@ git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.g
 
 # Rust
 git clone https://github.com/rust-lang/rust.vim bundle/rust && rm -rf bundle/rust/.git
-# git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer/.git # Unstable and annoying
+git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer/.git # Unstable and annoying
 
 # Html5
 git clone https://github.com/othree/html5.vim bundle/html5 && rm -rf bundle/html5/.git

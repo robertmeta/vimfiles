@@ -350,6 +350,7 @@ ClearCtrlPCache	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^
 ClearMenu	/home/rmelton/projects/vimfiles/bundle/gundo/tests/bundled/lh-vim-lib/autoload/lh/menu.vim	/^function! s:ClearMenu(Menu, text)$/;"	f
 ClearMenu	/home/rmelton/projects/vimfiles/bundle/gundo/tests/vim_test/autoload/lh/menu.vim	/^function! s:ClearMenu(Menu, text)$/;"	f
 Close	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:Close()$/;"	f
+CloseCustomFuncs	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:CloseCustomFuncs()$/;"	f
 CloseFold	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:CloseFold() abort$/;"	f
 CloseWindow	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:CloseWindow() abort$/;"	f
 CmpNumbers	/home/rmelton/projects/vimfiles/bundle/gundo/tests/bundled/lh-vim-lib/tests/lh/list.vim	/^function! CmpNumbers(lhs, rhs)$/;"	f
@@ -421,7 +422,7 @@ CtagsErrMsg	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^
 CtrlP	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -n=? -com=dir CtrlP         cal ctrlp#init(0, { 'dir': <q-args> })$/;"	c
 CtrlPAug	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^	aug CtrlPAug$/;"	a
 CtrlPBookmarkDir	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -bar CtrlPBookmarkDir cal ctrlp#init(ctrlp#bookmarkdir#id())$/;"	c
-CtrlPBookmarkDirAdd	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -n=? -com=dir CtrlPBookmarkDirAdd$/;"	c
+CtrlPBookmarkDirAdd	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -n=? -com=dir -bang CtrlPBookmarkDirAdd$/;"	c
 CtrlPBufTag	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -n=? -com=buffer CtrlPBufTag$/;"	c
 CtrlPBufTagAll	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -bar CtrlPBufTagAll cal ctrlp#init(ctrlp#buffertag#cmd(1))$/;"	c
 CtrlPBuffer	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -bar CtrlPBuffer   cal ctrlp#init(1)$/;"	c
@@ -441,6 +442,7 @@ CtrlPRTS	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -b
 CtrlPRoot	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -bar CtrlPRoot    cal ctrlp#init(0, { 'mode': 'r' })$/;"	c
 CtrlPTag	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -bar CtrlPTag      cal ctrlp#init(ctrlp#tag#id())$/;"	c
 CtrlPUndo	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -bar CtrlPUndo      cal ctrlp#init(ctrlp#undo#id())$/;"	c
+CurTypeName	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:CurTypeName()$/;"	f
 CurrentLineContains	/home/rmelton/projects/vimfiles/bundle/gundo/tests/vim_test/plugin/gundo_test_utils.vim	/^function! g:CurrentLineContains(text)"{{{$/;"	f
 CursorPos	/home/rmelton/projects/vimfiles/bundle/easymotion/t/easymotion_spec.vim	/^function! CursorPos()$/;"	f
 CursorPos	/home/rmelton/projects/vimfiles/bundle/easymotion/t/operator_pending_spec.vim	/^function! CursorPos()$/;"	f
@@ -578,6 +580,7 @@ Execute	/home/rmelton/projects/vimfiles/bundle/gundo/tests/vim_test/autoload/lh/
 ExecuteCtags	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:ExecuteCtags(ctags_cmd) abort$/;"	f
 ExecuteCtagsOnFile	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:ExecuteCtagsOnFile(fname, realfname, typeinfo) abort$/;"	f
 ExecuteInTree	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:ExecuteInTree(cmd) abort$/;"	f
+ExitIfSingleCandidate	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:ExitIfSingleCandidate()$/;"	f
 ExitingOneLineScope	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^function s:ExitingOneLineScope(lnum)$/;"	f
 ExitingOneLineScope	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^function s:ExitingOneLineScope(lnum)$/;"	f
 Expand	/home/rmelton/projects/vimfiles/bundle/rust/autoload/rust.vim	/^function! s:Expand(dict, pretty, args)$/;"	f
@@ -934,6 +937,7 @@ InOneLineScope	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^function 
 IndentWithContinuation	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^function s:IndentWithContinuation(lnum, ind, width)$/;"	f
 IndentWithContinuation	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^function s:IndentWithContinuation(lnum, ind, width)$/;"	f
 Init	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:Init(silent) abort$/;"	f
+InitCustomFuncs	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:InitCustomFuncs()$/;"	f
 InitTypes	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:InitTypes() abort$/;"	f
 InitWindow	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:InitWindow(autoclose) abort$/;"	f
 Install	/home/rmelton/projects/vimfiles/bundle/html5/README.md	/^## Install$/;"	i
@@ -2672,7 +2676,7 @@ credits	/home/rmelton/projects/vimfiles/bundle/gundo/site/index.html	/^         
 cs	/home/rmelton/projects/vimfiles/bundle/surround/plugin/surround.vim	/^  nmap cs  <Plug>Csurround$/;"	m
 ctrlp#acceptfile	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#acceptfile(...)$/;"	f
 ctrlp#bookmarkdir#accept	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/bookmarkdir.vim	/^fu! ctrlp#bookmarkdir#accept(mode, str)$/;"	f
-ctrlp#bookmarkdir#add	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/bookmarkdir.vim	/^fu! ctrlp#bookmarkdir#add(dir, ...)$/;"	f
+ctrlp#bookmarkdir#add	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/bookmarkdir.vim	/^fu! ctrlp#bookmarkdir#add(bang, dir, ...)$/;"	f
 ctrlp#bookmarkdir#id	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/bookmarkdir.vim	/^fu! ctrlp#bookmarkdir#id()$/;"	f
 ctrlp#bookmarkdir#init	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/bookmarkdir.vim	/^fu! ctrlp#bookmarkdir#init()$/;"	f
 ctrlp#bookmarkdir#remove	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/bookmarkdir.vim	/^fu! ctrlp#bookmarkdir#remove(entries)$/;"	f
@@ -2687,6 +2691,7 @@ ctrlp#changes#accept	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp
 ctrlp#changes#cmd	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/changes.vim	/^fu! ctrlp#changes#cmd(mode, ...)$/;"	f
 ctrlp#changes#exit	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/changes.vim	/^fu! ctrlp#changes#exit()$/;"	f
 ctrlp#changes#init	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/changes.vim	/^fu! ctrlp#changes#init(original_bufnr, bufnr)$/;"	f
+ctrlp#clearmarkedlist	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#clearmarkedlist()$/;"	f
 ctrlp#clr	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#clr(...)$/;"	f
 ctrlp#clra	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#clra()$/;"	f
 ctrlp#complen	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#complen(...)$/;"	f
@@ -2732,6 +2737,7 @@ ctrlp#rtscript#init	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/
 ctrlp#setdir	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#setdir(path, ...)$/;"	f
 ctrlp#setlcdir	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#setlcdir()$/;"	f
 ctrlp#setlines	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#setlines(...)$/;"	f
+ctrlp#setpathmode	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#setpathmode(pmode, ...)$/;"	f
 ctrlp#statusline	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#statusline()$/;"	f
 ctrlp#switchtype	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#switchtype(id)$/;"	f
 ctrlp#syntax	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! ctrlp#syntax()$/;"	f
@@ -3277,7 +3283,7 @@ g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/synta
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^        let g:_SYNTASTIC_UNAME = split(syntastic#util#system('uname'), "\\n")[0]$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Unknown'$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Windows'$/;"	v
-g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-74'$/;"	v
+g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-75'$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/.vim\/after\/plugin\/abolish.vim")$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/vimfiles\/after\/plugin\/abolish.vim")$/;"	v
 g:ag_apply_lmappings	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^  let g:ag_apply_lmappings=1$/;"	v
@@ -4491,7 +4497,6 @@ mfunc	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:mf
 mg	/home/rmelton/projects/vimfiles/bundle/gundo/site/style.less	/^    img {$/;"	c
 microdata_attributes	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let microdata_attributes = {'itemid': [], 'itemscope': ['itemscope', ''], 'itemtype': [], 'itemprop': [], 'itemref': []}$/;"	v
 microdata_attributes_value	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let microdata_attributes_value = {$/;"	v
-migemo	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:migemo(str)$/;"	f
 min_by	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Data/List.vim	/^function! s:min_by(list, expr) abort$/;"	f
 mixedcase	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:mixedcase(word)$/;"	f
 mixedsort	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:mixedsort(...)$/;"	f
@@ -5112,6 +5117,7 @@ s:contrast	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^   
 s:contrast	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^    let s:contrast = g:lucius_contrast$/;"	v
 s:contrast_bg	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^    let s:contrast_bg = "normal"$/;"	v
 s:contrast_bg	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^    let s:contrast_bg = g:lucius_contrast_bg$/;"	v
+s:coretypes	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^let s:coretypes = [$/;"	v
 s:counts	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^let s:counts = {}$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/bundle/gundo/tests/bundled/lh-vim-lib/autoload/lh/UT.vim	/^let s:cpo_save=&cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/bundle/gundo/tests/bundled/lh-vim-lib/autoload/lh/askvim.vim	/^let s:cpo_save=&cpo$/;"	v
