@@ -138,6 +138,27 @@ head of the popup menu list:
 >
     set completeopt+=longest
 <
+
+3. How do I make VimCompletesMe work with various snippet engines?         ~
+
+A simple solution is to ensure that the Tab and Shift-Tab keys do not conflict
+with any other plugins. Thus, you can either disable VimCompletesMe's
+|vcm_default_maps| option or use a different forward and backward triggers for
+the snippet engines.
+
+For the first case, simply assign a different key to act as the Tab key for
+<Plug>vim_completes_me_forward, or the Shift-Tab key for
+<Plug>vim_completes_me_backward functions.
+
+For the second case, simply assign different keys to act as the snippet
+engines forward and backward triggers. A suggestion would be to map `<C-j>`
+and `<C-k>` in insert mode. Note that while |i_Ctrl-j| does nothing useful in
+insert mode, you might be using |i_Ctrl-k| for digraphs. These keybinds are
+merely suggestions.
+
+@sunaku from Github has a great solution to make VimCompletesMe work with
+Neosnippet. See
+https://github.com/ajh17/VimCompletesMe/issues/12#issuecomment-94115124
 ------------------------------------------------------------------------------
 
 Template From: https://github.com/dahu/Area-41/
