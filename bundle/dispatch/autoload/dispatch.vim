@@ -178,19 +178,30 @@ endfunction
 " }}}1
 " :Start, :Spawn {{{1
 
-function! s:extract_title(command) abort
+function! s:extract_opts(command) abort
   let command = a:command
-  let title = matchstr(command, '-title=\zs\%(\\.\|\S\)*')
-  if !empty(title)
-    let command = command[strlen(title) + 8 : -1]
-  endif
-  let title = substitute(title, '\\\(\s\)', '\1', 'g')
-  return [command, title]
+  let opts = {}
+  while command =~# '^-\%(\w\+\)\%([= ]\|$\)'
+    let opt = matchstr(command, '^-\zs\w\+')
+    if command =~ '^-\w\+='
+      let val = matchstr(command, '^-\w\+=\zs\%(\\.\|\S\)*')
+    else
+      let val = 1
+    endif
+    if opt ==# 'dir' || opt ==# 'directory'
+      let opts.directory = fnamemodify(expand(val), ':p')
+    else
+      let opts[opt] = substitute(val, '\\\(\s\)', '\1', 'g')
+    endif
+    let command = substitute(command, '^-\w\+\%(=\%(\\.\|\S\)*\)\=\s*', '', '')
+  endwhile
+  return [command, opts]
 endfunction
 
 function! dispatch#spawn_command(bang, command) abort
-  let [command, title] = s:extract_title(a:command)
-  call dispatch#spawn(command, {'background': a:bang, 'title': title})
+  let [command, opts] = s:extract_opts(a:command)
+  let opts.background = a:bang
+  call dispatch#spawn(command, opts)
   return ''
 endfunction
 
@@ -199,12 +210,13 @@ function! dispatch#start_command(bang, command) abort
   if empty(command) && type(get(b:, 'start', [])) == type('')
     let command = b:start
   endif
-  let [command, title] = s:extract_title(command)
+  let [command, opts] = s:extract_opts(command)
+  let opts.background = a:bang
   if command =~# '^:.'
     unlet! g:dispatch_last_start
     return substitute(command, '\>', get(a:0 ? a:1 : {}, 'background', 0) ? '!' : '', '')
   endif
-  call dispatch#start(command, {'background': a:bang, 'title': title})
+  call dispatch#start(command, opts)
   return ''
 endfunction
 
@@ -253,16 +265,27 @@ function! dispatch#spawn(command, ...) abort
   endif
   let request.file = tempname()
   let s:files[request.file] = request
-  if s:dispatch(request)
-    if get(request, 'manage')
-      if !has_key(g:DISPATCH_STARTS, key)
-        let g:DISPATCH_STARTS[key] = []
-      endif
-      call add(g:DISPATCH_STARTS[key], request.handler.'@'.dispatch#pid(request))
+  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd' : 'cd'
+  try
+    if request.directory !=# getcwd()
+      let cwd = getcwd()
+      execute cd fnameescape(request.directory)
     endif
-  else
-    execute '!' . request.command
-  endif
+    if s:dispatch(request)
+      if get(request, 'manage')
+        if !has_key(g:DISPATCH_STARTS, key)
+          let g:DISPATCH_STARTS[key] = []
+        endif
+        call add(g:DISPATCH_STARTS[key], request.handler.'@'.dispatch#pid(request))
+      endif
+    else
+      execute '!' . request.command
+    endif
+  finally
+    if exists('cwd')
+      execute cd fnameescape(cwd)
+    endif
+  endtry
   return request
 endfunction
 
@@ -428,14 +451,16 @@ function! dispatch#compile_command(bang, args, count) abort
   elseif args =~# '^:.'
     return (a:count > 0 ? a:count : '').substitute(args[1:-1], '\>', (a:bang ? '!' : ''), '')
   endif
+
+  let [args, request] = s:extract_opts(args)
+
   let executable = matchstr(args, '\S\+')
 
-  let request = {
+  call extend(request, {
         \ 'action': 'make',
         \ 'background': a:bang,
-        \ 'file': tempname(),
         \ 'format': '%+I%.%#'
-        \ }
+        \ }, 'keep')
 
   if executable ==# '_'
     let request.args = matchstr(args, '_\s*\zs.*')
@@ -450,7 +475,7 @@ function! dispatch#compile_command(bang, args, count) abort
     let request.format = &errorformat
     let request.compiler = s:current_compiler()
   else
-    let request.compiler = dispatch#compiler_for_program(args)
+    let request.compiler = get(request, 'compiler', dispatch#compiler_for_program(args))
     if !empty(request.compiler)
       call extend(request,dispatch#compiler_options(request.compiler))
     endif
@@ -466,12 +491,13 @@ function! dispatch#compile_command(bang, args, count) abort
   if empty(request.compiler)
     unlet request.compiler
   endif
-  let request.title = get(request, 'compiler', 'make')
+  let request.title = get(request, 'title', get(request, 'compiler', 'make'))
 
   if &autowrite || &autowriteall
     silent! wall
   endif
   cclose
+  let request.file = tempname()
   let &errorfile = request.file
 
   let efm = &l:efm
@@ -479,14 +505,19 @@ function! dispatch#compile_command(bang, args, count) abort
   let compiler = get(b:, 'current_compiler', '')
   let modelines = &modelines
   let after = ''
+  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd' : 'cd'
   try
     let &modelines = 0
     call s:set_current_compiler(get(request, 'compiler', ''))
     let &l:efm = request.format
     let &l:makeprg = request.command
     silent doautocmd QuickFixCmdPre dispatch-make
-    let request.directory = getcwd()
-    let request.expanded = dispatch#expand(request.command)
+    let request.directory = get(request, 'directory', getcwd())
+    if request.directory !=# getcwd()
+      let cwd = getcwd()
+      execute cd fnameescape(request.directory)
+    endif
+    let request.expanded = get(request, 'expanded', dispatch#expand(request.command))
     call extend(s:makes, [request])
     let request.id = len(s:makes)
     let s:files[request.file] = request
@@ -503,6 +534,9 @@ function! dispatch#compile_command(bang, args, count) abort
     let &l:efm = efm
     let &l:makeprg = makeprg
     call s:set_current_compiler(compiler)
+    if exists('cwd')
+      execute cd fnameescape(cwd)
+    endif
   endtry
   execute after
   return ''
