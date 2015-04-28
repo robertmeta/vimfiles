@@ -137,7 +137,7 @@ set ttyfast " Assume a fast terminal
 set ttyscroll=5 " See if this helps scroll speed
 set t_vb= " seriously, shhhh, don't be noisy
 set viminfo+=! " Store upper-case registers in viminfo
-set virtualedit=block,onemore " one more virtual char at line ends, plus block mode of course
+set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
 " }}}
 
