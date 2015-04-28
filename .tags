@@ -1417,6 +1417,7 @@ ShrinkIfExpanded	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.v
 Similar plugins	/home/rmelton/projects/vimfiles/bundle/wildfire/README.md	/^### Similar plugins$/;"	k
 Smartcase & Smartsign	/home/rmelton/projects/vimfiles/bundle/easymotion/README.md	/^### Smartcase & Smartsign$/;"	k
 SortTags	/home/rmelton/projects/vimfiles/bundle/tagbar/autoload/tagbar.vim	/^function! s:SortTags(tags, comparemethod) abort$/;"	f
+SpannedIdent	/home/rmelton/projects/vimfiles/bundle/racer/src.rs	/^    type SpannedIdent = Spanned<Ident>$/;"	T
 SpannedIdent	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/src.rs	/^    type SpannedIdent = Spanned<Ident>$/;"	T
 SpannedIdent	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    type SpannedIdent = Spanned<Ident>$/;"	T
 Spawn	/home/rmelton/projects/vimfiles/bundle/dispatch/plugin/dispatch.vim	/^command! -bang -nargs=* -complete=customlist,dispatch#command_complete Spawn$/;"	c
@@ -2778,7 +2779,7 @@ dep_from_git	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^dep_from_gi
 dep_from_git	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^dep_from_git = \\$/;"	m
 dep_from_svn	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^dep_from_svn = \\$/;"	m
 dep_from_svn	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^dep_from_svn = \\$/;"	m
-destructure_pattern_to_ty	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^fn destructure_pattern_to_ty(pat: &ast::Pat, $/;"	f
+destructure_pattern_to_ty	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^fn destructure_pattern_to_ty(pat: &ast::Pat,$/;"	f
 destructures_a_tuplestruct	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^fn destructures_a_tuplestruct() {$/;"	f
 destructures_a_tuplestruct_with_generic_arg	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^fn destructures_a_tuplestruct_with_generic_arg() {$/;"	f
 dfpa	/home/rmelton/projects/vimfiles/bundle/easymotion/t/easymotion_spec.vim	/^        normal! dfpa$/;"	m
@@ -3067,7 +3068,7 @@ find_ident_end	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.rs	/^
 find_impl_start	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^pub fn find_impl_start(msrc: &str, point: usize, scopestart: usize) -> Option<usize> {$/;"	f
 find_index	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Data/List.vim	/^function! s:find_index(xs, f, ...) abort$/;"	f
 find_indices	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Data/List.vim	/^function! s:find_indices(xs, f, ...) abort$/;"	f
-find_keyword	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^fn find_keyword(src: &str, pattern: &str, $/;"	f
+find_keyword	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^fn find_keyword(src: &str, pattern: &str,$/;"	f
 find_last_index	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Data/List.vim	/^function! s:find_last_index(xs, f, ...) abort$/;"	f
 find_last_str	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.rs	/^pub fn find_last_str(needle: &str, mut haystack: &str) -> Option<usize> {$/;"	f
 find_possible_crate_root_modules	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn find_possible_crate_root_modules(currentdir: &Path) -> Vec<PathBuf> {$/;"	f
@@ -3159,6 +3160,7 @@ foo	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^struct fo
 foo	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/src2.rs	/^    pub fn foo() {}$/;"	f
 foo	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    mod foo {$/;"	m
 foo	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    pub fn foo() {}$/;"	f
+foo	/home/rmelton/projects/vimfiles/bundle/racer/src2.rs	/^    pub fn foo() {}$/;"	f
 footer	/home/rmelton/projects/vimfiles/bundle/gundo/site/style.less	/^footer {$/;"	t
 format	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/undo.vim	/^fu! s:format(...)$/;"	f
 formatline	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:formatline(str)$/;"	f
@@ -4489,25 +4491,25 @@ match	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/less/less
 match	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/less/less-lint.js	/^    match = arg.match(\/^-I(.+)$\/);$/;"	r
 match	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/less/less-lint.js	/^    var match;$/;"	r
 match	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/python/codec.py	/^        match = re.match(r"#\\s*coding\\s*:\\s*(?P<coding>\\w+)", text[0])$/;"	v
-match_const	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_const(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_enum	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_enum(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_enum_variants	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_enum_variants(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_extern_crate	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_extern_crate(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
+match_const	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_const(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_enum	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_enum(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_enum_variants	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_enum_variants(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_extern_crate	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_extern_crate(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
 match_fn	/home/rmelton/projects/vimfiles/bundle/racer/src/main.rs	/^fn match_fn(m:Match) {$/;"	f
-match_fn	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_fn(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_if_let	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_if_let(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
+match_fn	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_fn(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_if_let	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_if_let(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
 match_key	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Keymapping.vim	/^function! s:match_key(keymapping, key)$/;"	f
-match_let	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_let(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_mod	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_mod(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_pattern_let	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^fn match_pattern_let(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_pattern_start	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^fn match_pattern_start(src: &str, blobstart: usize, blobend: usize, $/;"	f
-match_static	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_static(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_struct	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_struct(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_trait	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_trait(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_type	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_type(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_types	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_types(src: &str, blobstart: usize, blobend: usize, $/;"	f
-match_use	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_use(msrc: &str, blobstart: usize, blobend: usize, $/;"	f
-match_values	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_values(src: &str, blobstart: usize, blobend: usize, $/;"	f
+match_let	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_let(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_mod	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_mod(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_pattern_let	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^fn match_pattern_let(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_pattern_start	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^fn match_pattern_start(src: &str, blobstart: usize, blobend: usize,$/;"	f
+match_static	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_static(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_struct	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_struct(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_trait	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_trait(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_type	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_type(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_types	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_types(src: &str, blobstart: usize, blobend: usize,$/;"	f
+match_use	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_use(msrc: &str, blobstart: usize, blobend: usize,$/;"	f
+match_values	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/matchers.rs	/^pub fn match_values(src: &str, blobstart: usize, blobend: usize,$/;"	f
 match_window_opts	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:match_window_opts()$/;"	f
 match_with_snippet_fn	/home/rmelton/projects/vimfiles/bundle/racer/src/main.rs	/^fn match_with_snippet_fn(m:Match) {$/;"	f
 matchers	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub mod matchers;$/;"	m
@@ -4587,6 +4589,7 @@ myfn	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    fn myf
 myfn	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    fn myfn(myarg: &str) {$/;"	f
 myfn	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    fn myfn(v: &Foo) {$/;"	f
 myfn	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    pub fn myfn() {}$/;"	f
+myfn	/home/rmelton/projects/vimfiles/bundle/racer/src2.rs	/^    pub fn myfn() {}$/;"	f
 mymethod	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^        fn mymethod(&self) -> Bar {}$/;"	f
 mymethod	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^        fn mymethod(&self) {}$/;"	f
 mymod	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    mod mymod;$/;"	m
@@ -4882,9 +4885,9 @@ repos	/home/rmelton/projects/vimfiles/bundle/gundo/site/style.less	/^#repos {$/;
 request	/home/rmelton/projects/vimfiles/bundle/dispatch/autoload/dispatch.vim	/^function! s:request(request) abort$/;"	f
 requirements	/home/rmelton/projects/vimfiles/bundle/gundo/site/index.html	/^                <a name="requirements"><\/a>$/;"	a
 resolve_ast_path	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^fn resolve_ast_path(path: &ast::Path, filepath: &Path, pos: usize) -> Option<Match> {$/;"	f
-resolve_name	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_name(pathseg: &racer::PathSegment, filepath: &Path, pos: usize, $/;"	f
-resolve_path	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_path(path: &racer::Path, filepath: &Path, pos: usize, $/;"	f
-resolve_path_with_str	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_path_with_str(path: &racer::Path, filepath: &Path, pos: usize, $/;"	f
+resolve_name	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_name(pathseg: &racer::PathSegment, filepath: &Path, pos: usize,$/;"	f
+resolve_path	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_path(path: &racer::Path, filepath: &Path, pos: usize,$/;"	f
+resolve_path_with_str	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_path_with_str(path: &racer::Path, filepath: &Path, pos: usize,$/;"	f
 restore_cursor_state	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion.vim	/^function! s:restore_cursor_state(visualmode) "{{{$/;"	f
 rgb	/home/rmelton/projects/vimfiles/colors/summerfruit256.vim	/^    fun <SID>rgb(rgb)$/;"	f
 rgb_color	/home/rmelton/projects/vimfiles/colors/summerfruit256.vim	/^    fun <SID>rgb_color(x, y, z)$/;"	f
@@ -4960,8 +4963,8 @@ role_attributes	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/aria.v
 role_attributes	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/aria.vim	/^let role_attributes['treeitem'] = role_attributes['listitem'] + role_attributes['option']$/;"	v
 round_trip_point_and_coords	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^pub fn round_trip_point_and_coords(src:&str, lineno:usize, charno:usize) {$/;"	f
 ruby_operators	/home/rmelton/projects/vimfiles/bundle/seoul256/colors/seoul256.vim	/^let ruby_operators = 1$/;"	v
-run_matchers_on_blob	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn run_matchers_on_blob(src: &str, start: usize, end: usize, searchstr: &str, $/;"	f
-running	/home/rmelton/projects/vimfiles/bundle/dispatch/autoload/dispatch.vim	/^function! s:running(pid) abort$/;"	f
+run_matchers_on_blob	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn run_matchers_on_blob(src: &str, start: usize, end: usize, searchstr: &str,$/;"	f
+running	/home/rmelton/projects/vimfiles/bundle/dispatch/autoload/dispatch.vim	/^function! s:running(handler, pid) abort$/;"	f
 runtime	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^function! s:runtime(bang, ...) abort$/;"	f
 runtime_globpath	/home/rmelton/projects/vimfiles/bundle/scriptease/plugin/scriptease.vim	/^function! s:runtime_globpath(file)$/;"	f
 rust#AppendCmdLine	/home/rmelton/projects/vimfiles/bundle/rust/autoload/rust.vim	/^function! rust#AppendCmdLine(text)$/;"	f
@@ -5803,17 +5806,17 @@ search.keymapping	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/Eas
 search.on_char	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion/command_line.vim	/^function! s:search.on_char(cmdline) "{{{$/;"	f
 search.on_enter	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion/command_line.vim	/^function! s:search.on_enter(cmdline) "{{{$/;"	f
 search.on_leave	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion/command_line.vim	/^function! s:search.on_leave(cmdline) "{{{$/;"	f
-search_crate_root	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_crate_root(pathseg: &racer::PathSegment, modfpath: &Path, $/;"	f
-search_fn_args	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn search_fn_args(fnstart: usize, open_brace_pos: usize, msrc:&str, searchstr:&str, $/;"	f
+search_crate_root	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_crate_root(pathseg: &racer::PathSegment, modfpath: &Path,$/;"	f
+search_fn_args	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn search_fn_args(fnstart: usize, open_brace_pos: usize, msrc:&str, searchstr:&str,$/;"	f
 search_for_field_or_method	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_for_field_or_method(context: Match, searchstr: &str, search_type: SearchType) -> vec::IntoIter<Match> {$/;"	f
 search_for_impl_methods	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_for_impl_methods(implsearchstr: &str,$/;"	f
 search_for_impls	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_for_impls(pos: usize, searchstr: &str, filepath: &Path, local: bool, include_traits: bool) -> vec::IntoIter<Match> {$/;"	f
-search_local_scopes	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn search_local_scopes(pathseg: &racer::PathSegment, filepath: &Path, $/;"	f
-search_next_scope	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_next_scope(mut startpoint: usize, pathseg: &racer::PathSegment, $/;"	f
-search_prelude_file	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_prelude_file(pathseg: &racer::PathSegment, search_type: SearchType, $/;"	f
-search_scope	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_scope(start: usize, point: usize, src: &str, $/;"	f
-search_scope_for_methods	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn search_scope_for_methods(point: usize, src:&str, searchstr:&str, filepath:&Path, $/;"	f
-search_scope_headers	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn search_scope_headers(point: usize, scopestart: usize, msrc:&str, searchstr:&str, $/;"	f
+search_local_scopes	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn search_local_scopes(pathseg: &racer::PathSegment, filepath: &Path,$/;"	f
+search_next_scope	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_next_scope(mut startpoint: usize, pathseg: &racer::PathSegment,$/;"	f
+search_prelude_file	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_prelude_file(pathseg: &racer::PathSegment, search_type: SearchType,$/;"	f
+search_scope	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn search_scope(start: usize, point: usize, src: &str,$/;"	f
+search_scope_for_methods	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn search_scope_for_methods(point: usize, src:&str, searchstr:&str, filepath:&Path,$/;"	f
+search_scope_headers	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn search_scope_headers(point: usize, scopestart: usize, msrc:&str, searchstr:&str,$/;"	f
 search_struct_fields	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^ fn search_struct_fields(searchstr: &str, structmatch: &Match,$/;"	f
 section	/home/rmelton/projects/vimfiles/bundle/gundo/site/style.less	/^section {$/;"	t
 seek	/home/rmelton/projects/vimfiles/bundle/vinegar/plugin/vinegar.vim	/^function! s:seek(file)$/;"	f
@@ -6092,7 +6095,7 @@ toggleShowFiles	/home/rmelton/projects/vimfiles/bundle/nerdtree/autoload/nerdtre
 toggleShowHidden	/home/rmelton/projects/vimfiles/bundle/nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:toggleShowHidden()$/;"	f
 toggleZoom	/home/rmelton/projects/vimfiles/bundle/nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:toggleZoom()$/;"	f
 togglebg#map	/home/rmelton/projects/vimfiles/autoload/togglebg.vim	/^function! togglebg#map(mapActivation)$/;"	f
-trait_method	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^        fn trait_method(self){} $/;"	f
+trait_method	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^        fn trait_method(self){}$/;"	f
 triggerReselect	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:triggerReselect()$/;"	f
 triggerUndo	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:triggerUndo()$/;"	f
 trim_bracket	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/complete.vim	/^function! s:trim_bracket(val)$/;"	f
@@ -6100,7 +6103,7 @@ turn_off_hl_error	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/Eas
 turn_off_syntax_errs	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^fu s:turn_off_syntax_errs()$/;"	f
 turn_on_hl_error	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion.vim	/^function! s:turn_on_hl_error() "{{{$/;"	f
 turn_on_syntax_errs	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^fu s:turn_on_syntax_errs(colors)$/;"	f
-txt_matches	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.rs	/^pub fn txt_matches(stype: SearchType, needle: &str, haystack: &str) -> bool { $/;"	f
+txt_matches	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.rs	/^pub fn txt_matches(stype: SearchType, needle: &str, haystack: &str) -> bool {$/;"	f
 txt_matches_matches_stuff	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.rs	/^fn txt_matches_matches_stuff() {$/;"	f
 typeinf	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub mod typeinf;$/;"	m
 u	/home/rmelton/projects/vimfiles/bundle/easymotion/t/operator_pending_spec.vim	/^        normal! u$/;"	m
@@ -6155,15 +6158,14 @@ visit::Visitor for StructVisitor	/home/rmelton/projects/vimfiles/bundle/racer/sr
 visit::Visitor for TraitVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^impl<'v> visit::Visitor<'v> for TraitVisitor {$/;"	i
 visit::Visitor for TypeVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^impl<'v> visit::Visitor<'v> for TypeVisitor {$/;"	i
 visit::Visitor for UseVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^impl<'v> visit::Visitor<'v> for UseVisitor {$/;"	i
-visit_expr	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_expr(&mut self, ex: &'v ast::Expr) { $/;"	f
+visit_expr	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_expr(&mut self, ex: &'v ast::Expr) {$/;"	f
 visit_expr	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_expr(&mut self, expr: &ast::Expr) {$/;"	f
-visit_fn	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_fn(&mut self, $/;"	f
+visit_fn	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_fn(&mut self,$/;"	f
 visit_generics	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_generics(&mut self, g: &ast::Generics) {$/;"	f
 visit_ident	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_ident(&mut self, _sp: codemap::Span, _ident: ast::Ident) {$/;"	f
 visit_item	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_item(&mut self, i: &'v ast::Item) {$/;"	f
 visit_item	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_item(&mut self, i: &ast::Item) {$/;"	f
 visit_item	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_item(&mut self, item: &ast::Item) {$/;"	f
-visit_local	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_local(&mut self, local: &'v ast::Local) {  $/;"	f
 visit_local	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_local(&mut self, local: &'v ast::Local) {$/;"	f
 visit_pat	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_pat(&mut self, p: &'v ast::Pat) {$/;"	f
 visit_struct_def	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^    fn visit_struct_def(&mut self, struct_definition: &ast::StructDef, _: ast::Ident, _: &ast::Generics, _: ast::NodeId) {$/;"	f
