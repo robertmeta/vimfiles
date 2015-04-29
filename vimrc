@@ -515,7 +515,7 @@ fun! LuciousLightColors()
     LuciusLightHighContrast
     RainbowParenthesesActivate
     hi CursorLineNr ctermbg=cyan
-    hi StatusLine ctermbg=cyan
+    hi StatusLine ctermbg=cyan ctermfg=black
 endfun
 
 fun! LuciousDarkColors()
@@ -524,7 +524,7 @@ fun! LuciousDarkColors()
     RainbowParenthesesActivate
     hi LineNr ctermfg=lightgrey
     hi CursorLineNr ctermfg=cyan
-    hi StatusLine ctermbg=cyan
+    hi StatusLine ctermbg=cyan ctermfg=black
 endfun
 " }}}
 
