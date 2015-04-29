@@ -528,6 +528,7 @@ set background=dark
 colo lucius
 hi LineNr ctermfg=lightgrey
 hi CursorLineNr ctermfg=cyan
+hi StatusLine ctermfg=cyan
 
 fun! SeoulDarkColors()
     set background=dark
@@ -559,6 +560,7 @@ fun! LuciousDarkColors()
     RainbowParenthesesActivate
     hi LineNr ctermfg=lightgrey
     hi CursorLineNr ctermfg=cyan
+    hi StatusLine ctermfg=cyan
 endfun
 
 fun! KalisiLightColors()
