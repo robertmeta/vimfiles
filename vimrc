@@ -528,7 +528,7 @@ set background=dark
 colo lucius
 hi LineNr ctermfg=lightgrey
 hi CursorLineNr ctermfg=cyan
-hi StatusLine ctermfg=cyan
+hi StatusLine ctermbg=cyan
 
 fun! SeoulDarkColors()
     set background=dark
