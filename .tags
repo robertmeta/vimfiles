@@ -136,7 +136,6 @@ BufReadObject	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vi
 BufReadPostHook	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^function! s:BufReadPostHook() abort " {{{2$/;"	f
 BufWriteIndexFile	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:BufWriteIndexFile() abort$/;"	f
 BufWritePostHook	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^function! s:BufWritePostHook() abort " {{{2$/;"	f
-Bug report	/home/rmelton/projects/vimfiles/CONTRIBUTING.md	/^## Bug report$/;"	i
 Bug report	/home/rmelton/projects/vimfiles/bundle/javascript/CONTRIBUTING.md	/^## Bug report$/;"	i
 Bug report	/home/rmelton/projects/vimfiles/bundle/javascript/README.md	/^## Bug report$/;"	i
 BuildPrompt	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:BuildPrompt(upd)$/;"	f
