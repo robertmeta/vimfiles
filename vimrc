@@ -477,30 +477,13 @@ let g:syntastic_always_populate_loc_list=1
 " }}}
 
 " Fugitive {{{
-nnoremap <leader>ga :Gadd<cr>
-nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>go :Gcheckout<cr>
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gg :Gwrite<cr>:Gcommit<cr>
-" }}}
-
-" Easy Motion {{{
-" Settings
-let g:EasyMotion_do_mapping=0
-let g:EasyMotion_do_shade=1
-let g:EasyMotion_inc_highlight=1
-let g:EasyMotion_keys='ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
-let g:EasyMotion_landing_highlight=0
-let g:EasyMotion_off_screen_search=1
-let g:EasyMotion_use_smartsign_us=1
-let g:EasyMotion_use_upper=1
-" Mappings
-nmap <leader><space> <Plug>(easymotion-jumptoanywhere)
-" Highlight Overrides
-hi link EasyMotionTarget2First Identifier
-hi link EasyMotionTarget2Second Number
+nnoremap <leader>fa :Gadd<cr>
+nnoremap <leader>fc :Gcommit<cr>
+nnoremap <leader>fo :Gcheckout<cr>
+nnoremap <leader>fd :Gdiff<cr>
+nnoremap <leader>fs :Gstatus<cr>
+nnoremap <leader>fw :Gwrite<cr>
+nnoremap <leader>ff :Gwrite<cr>:Gcommit<cr>
 " }}}
 
 " Javascript {{{
@@ -518,9 +501,6 @@ let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " }}}
 
 " Theme setup {{{
-let g:seoul256_background=235 " 233-239 (237) Dark -> Light
-let g:seoul256_light_background=256 " 252-256 (253) Dark -> Light
-let g:bluedrake_256=1
 let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
@@ -530,28 +510,12 @@ hi LineNr ctermfg=lightgrey
 hi CursorLineNr ctermfg=cyan
 hi StatusLine ctermbg=cyan
 
-fun! SeoulDarkColors()
-    set background=dark
-    colo seoul256
-    RainbowParenthesesActivate
-endfun
-
-fun! SeoulLightColors()
-    set background=light
-    colo seoul256-light
-    RainbowParenthesesActivate
-endfun
-
-fun! KalisiDarkColors()
-    set background=dark
-    colo kalisi
-    RainbowParenthesesActivate
-endfun
-
 fun! LuciousLightColors()
     set background=light
     LuciusLightHighContrast
     RainbowParenthesesActivate
+    hi CursorLineNr ctermbg=cyan
+    hi StatusLine ctermbg=cyan
 endfun
 
 fun! LuciousDarkColors()
@@ -560,35 +524,7 @@ fun! LuciousDarkColors()
     RainbowParenthesesActivate
     hi LineNr ctermfg=lightgrey
     hi CursorLineNr ctermfg=cyan
-    hi StatusLine ctermfg=cyan
-endfun
-
-fun! KalisiLightColors()
-    set background=light
-    colo kalisi
-    RainbowParenthesesActivate
-endfun
-
-fun! Disciple()
-    set background=dark
-    colo disciple
-    RainbowParenthesesActivate
-endfun
-
-fun! Apprentice()
-    set background=light
-    colo apprentice
-    RainbowParenthesesActivate
-endfun
-
-fun! FruitLightColors()
-    set background=light
-    colo summerfruit256
-    hi SpecialKey cterm=NONE ctermfg=grey
-    hi StatusLine ctermbg=152 ctermfg=32
-    hi CursorLine cterm=NONE ctermbg=7      
-    hi Comment ctermfg=22
-    RainbowParenthesesActivate
+    hi StatusLine ctermbg=cyan
 endfun
 " }}}
 

@@ -2,13 +2,6 @@ rm -rf bundle
 mkdir -p bundle
 
 # Themes {{{
-git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
-git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
-git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
-git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bundle/apprentice/.git
-git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/disciple/.git
-git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
-git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
 git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
 # }}}
 
