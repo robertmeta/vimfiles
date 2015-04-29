@@ -327,6 +327,14 @@ if has("mouse")
 endif 
 " }}}
 
+" Active Window {{{
+augroup Numbers
+    autocmd!
+    autocmd WinEnter * set number relativenumber
+    autocmd WinLeave * set nonumber norelativenumber
+augroup END
+" }}}
+
 " CtrlP {{{
 " Settings
 let g:ctrlp_buftag_ctags_bin='ctags'
