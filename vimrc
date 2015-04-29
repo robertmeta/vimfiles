@@ -404,6 +404,7 @@ endif
  map <Leader>vi :VimuxInspectRunner<CR>
  map <Leader>vq :VimuxCloseRunner<CR>
  map <Leader>vx :VimuxInterruptRunner<CR>
+ map <Leader>r :VimuxRunLastCommand<CR>
 " }}}
 
 " Syntastic {{{
