@@ -380,17 +380,22 @@ if has("autocmd")
         " Clear!
         au!
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au FileType go nnoremap gd <Plug>(go-def)
-        au FileType go nnoremap gr <Plug>(go-rename)
-        au FileType go nnoremap gi <Plug>(go-info)
+        au FileType go nmap gd <Plug>(go-def)
+        au FileType go nmap gr <Plug>(go-rename)
+        au FileType go nmap gi <Plug>(go-info)
+        au FileType go nmap gD <Plug>(go-doc)
+        au FileType go nmap gt <Plug>(go-test-func)
+        au FileType go nmap gT <Plug>(go-test)
     augroup END
 endif
 " }}}
 
-" Supertab {{{
-let g:SuperTabCrMapping=1
-let g:SuperTabDefaultCompletionType="context"
-let g:SuperTabLongestHighlight=1
+" Vimux {{{
+ map <Leader>vp :VimuxPromptCommand<CR>
+ map <Leader>vl :VimuxRunLastCommand<CR>
+ map <Leader>vi :VimuxInspectRunner<CR>
+ map <Leader>vq :VimuxCloseRunner<CR>
+ map <Leader>vx :VimuxInterruptRunner<CR>
 " }}}
 
 " Syntastic {{{

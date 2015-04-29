@@ -2,7 +2,7 @@ use racer::ast::with_error_checking_parse;
 use racer::{Match, MatchType};
 use racer::typeinf::get_function_declaration;
 
-use syntax::ast::{ImplItem_};
+use syntex_syntax::ast::ImplItem_;
 
 pub fn snippet_for_match(m : &Match) -> String {
     match m.mtype {
@@ -32,7 +32,7 @@ impl MethodInfo {
         with_error_checking_parse(decorated, |p| {
 
             use std::result::Result::{Ok, Err};
-            use syntax::diagnostic::FatalError;
+            use syntex_syntax::diagnostic::FatalError;
             match p.parse_impl_item() {
                 Ok(method) => {
                     match method.node {
@@ -40,7 +40,7 @@ impl MethodInfo {
                             let ref decl = msig.decl;
                             Some(MethodInfo {
                                 // ident.as_str calls Ident.name.as_str
-                                name: String::from_str(method.ident.as_str()),
+                                name: method.ident.as_str().to_string(),
                                 args: decl.inputs.iter().map(|arg| {
                                     let ref codemap = p.sess.span_diagnostic.cm;
                                     match codemap.span_to_snippet(arg.pat.span) {
@@ -79,7 +79,6 @@ impl MethodInfo {
 
 #[test]
 fn method_info_test() {
-
     let info = MethodInfo::from_source_str("pub fn new() -> Vec<T>").unwrap();
     assert_eq!(info.name, "new");
     assert_eq!(info.args.len(), 0);
@@ -89,5 +88,5 @@ fn method_info_test() {
     assert_eq!(info.name, "reserve");
     assert_eq!(info.args.len(), 2);
     assert_eq!(info.args[0], "self");
-    assert_eq!(info.snippet(), "reserve(${1:additional: uint})");
+    assert_eq!(info.snippet(), "reserve(${1:additional})");
 }

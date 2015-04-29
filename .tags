@@ -140,10 +140,14 @@ $RUST_SRC_PATH	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^ 
 <Plug>unimpairedPaste	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedPaste :call <SID>setup_paste()<CR>$/;"	m
 <Plug>unimpairedPutAbove	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedPutAbove :call <SID>putline('[p', 'Above')<CR>$/;"	m
 <Plug>unimpairedPutBelow	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedPutBelow :call <SID>putline(']p', 'Below')<CR>$/;"	m
+<S-Tab>	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^  imap <S-Tab> <plug>vim_completes_me_backward$/;"	m
 <SID>TogBG	/home/rmelton/projects/vimfiles/autoload/togglebg.vim	/^noremap <SID>TogBG  :call <SID>TogBG()<CR>$/;"	m
+<Tab>	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^  imap <Tab>   <plug>vim_completes_me_forward$/;"	m
 <c-x>	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^  inoremap <silent> <c-x> <c-r>=<SID>ManualCompletionEnter()<cr>$/;"	m
 <cr>	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^      inoremap <silent> <cr> <c-r>=<SID>SelectCompletion(1)<cr>$/;"	m
 <p	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <p :call <SID>putline(']p', 'Below')<CR><']$/;"	m
+<plug>vim_completes_me_backward	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^inoremap <expr> <plug>vim_completes_me_backward <sid>vim_completes_me(1)$/;"	m
+<plug>vim_completes_me_forward	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^inoremap <expr> <plug>vim_completes_me_forward  <sid>vim_completes_me(0)$/;"	m
 =P	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> =P :call <SID>putline('[p', 'Above')<CR>=']$/;"	m
 =p	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> =p :call <SID>putline(']p', 'Below')<CR>=']$/;"	m
 >P	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> >P :call <SID>putline('[p', 'Above')<CR>>']$/;"	m
@@ -2065,6 +2069,7 @@ UserCmd	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:
 Using [NeoBundle][nb]	/home/rmelton/projects/vimfiles/bundle/rust/README.md	/^### Using [NeoBundle][nb]$/;"	k
 Using [Pathogen][p]	/home/rmelton/projects/vimfiles/bundle/rust/README.md	/^### Using [Pathogen][p]$/;"	k
 Using [Vundle][v]	/home/rmelton/projects/vimfiles/bundle/rust/README.md	/^### Using [Vundle][v]$/;"	k
+VCM	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^augroup VCM$/;"	a
 VERSION	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^VERSION=0.1$/;"	m
 VERSION	/home/rmelton/projects/vimfiles/bundle/html5/config.mk	/^VERSION=0.26$/;"	m
 VERSION	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^VERSION=0.1$/;"	m
@@ -2128,6 +2133,32 @@ Vim	/home/rmelton/projects/vimfiles/bundle/kalisi/readme.md	/^### Vim$/;"	k
 Vim Pipe - A Productivity-Boosting Plugin	/home/rmelton/projects/vimfiles/bundle/vimpipe/README.md	/^# Vim Pipe - A Productivity-Boosting Plugin$/;"	h
 Vim integration	/home/rmelton/projects/vimfiles/bundle/racer/README.md	/^## Vim integration$/;"	i
 VimPipe	/home/rmelton/projects/vimfiles/bundle/vimpipe/plugin/vim-pipe.vim	/^function! VimPipe() "{{{1$/;"	f
+VimuxClearRunnerHistory	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command VimuxClearRunnerHistory :call VimuxClearRunnerHistory()$/;"	c
+VimuxClearRunnerHistory	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxClearRunnerHistory()$/;"	f
+VimuxCloseRunner	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command VimuxCloseRunner :call VimuxCloseRunner()$/;"	c
+VimuxCloseRunner	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxCloseRunner()$/;"	f
+VimuxInspectRunner	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command VimuxInspectRunner :call VimuxInspectRunner()$/;"	c
+VimuxInspectRunner	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxInspectRunner()$/;"	f
+VimuxInterruptRunner	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command VimuxInterruptRunner :call VimuxInterruptRunner()$/;"	c
+VimuxInterruptRunner	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxInterruptRunner()$/;"	f
+VimuxOpenRunner	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxOpenRunner()$/;"	f
+VimuxPromptCommand	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command -nargs=? VimuxPromptCommand :call VimuxPromptCommand(<args>)$/;"	c
+VimuxPromptCommand	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxPromptCommand(...)$/;"	f
+VimuxRunCommand	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command -nargs=* VimuxRunCommand :call VimuxRunCommand(<args>)$/;"	c
+VimuxRunCommand	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxRunCommand(command, ...)$/;"	f
+VimuxRunCommandInDir	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxRunCommandInDir(command, useFile)$/;"	f
+VimuxRunLastCommand	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command VimuxRunLastCommand :call VimuxRunLastCommand()$/;"	c
+VimuxRunLastCommand	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxRunLastCommand()$/;"	f
+VimuxScrollDownInspect	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command VimuxScrollDownInspect :call VimuxScrollDownInspect()$/;"	c
+VimuxScrollDownInspect	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxScrollDownInspect()$/;"	f
+VimuxScrollUpInspect	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command VimuxScrollUpInspect :call VimuxScrollUpInspect()$/;"	c
+VimuxScrollUpInspect	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxScrollUpInspect()$/;"	f
+VimuxSendKeys	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxSendKeys(keys)$/;"	f
+VimuxSendText	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxSendText(text)$/;"	f
+VimuxTogglePane	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command VimuxTogglePane :call VimuxTogglePane()$/;"	c
+VimuxTogglePane	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxTogglePane()$/;"	f
+VimuxZoomRunner	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^command VimuxZoomRunner :call VimuxZoomRunner()$/;"	c
+VimuxZoomRunner	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^function! VimuxZoomRunner()$/;"	f
 Visited	/home/rmelton/projects/vimfiles/bundle/gundo/tests/bundled/lh-vim-lib/autoload/lh/graph/tsort.vim	/^function! s:Visited(node) dict $/;"	f
 Visited	/home/rmelton/projects/vimfiles/bundle/gundo/tests/vim_test/autoload/lh/graph/tsort.vim	/^function! s:Visited(node) dict $/;"	f
 Vopen	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vopen    :execute s:find(<count>,'edit<bang>',<q-args>,1)$/;"	c
@@ -3444,6 +3475,7 @@ g:kalisi_recolor_quickfixsigns	/home/rmelton/projects/vimfiles/bundle/kalisi/col
 g:lightline#colorscheme#apprentice#palette	/home/rmelton/projects/vimfiles/bundle/apprentice/autoload/lightline/colorscheme/apprentice.vim	/^let g:lightline#colorscheme#apprentice#palette = s:p$/;"	v
 g:loaded_UT	/home/rmelton/projects/vimfiles/bundle/gundo/tests/bundled/ut/plugin/UT.vim	/^let g:loaded_UT = s:k_version$/;"	v
 g:loaded_UT	/home/rmelton/projects/vimfiles/bundle/gundo/tests/vim_test/plugin/UT.vim	/^let g:loaded_UT = s:k_version$/;"	v
+g:loaded_VimCompletesMe	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^let g:loaded_VimCompletesMe = 1$/;"	v
 g:loaded_abolish	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^let g:loaded_abolish = 1$/;"	v
 g:loaded_commentary	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^let g:loaded_commentary = 1$/;"	v
 g:loaded_ctrlp	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^let g:loaded_ctrlp = 1$/;"	v
@@ -3678,6 +3710,7 @@ g:loaded_ui_functions	/home/rmelton/projects/vimfiles/bundle/gundo/tests/bundled
 g:loaded_ui_functions	/home/rmelton/projects/vimfiles/bundle/gundo/tests/vim_test/plugin/ui-functions.vim	/^let g:loaded_ui_functions = 1$/;"	v
 g:loaded_unimpaired	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^let g:loaded_unimpaired = 1$/;"	v
 g:loaded_vimpipe	/home/rmelton/projects/vimfiles/bundle/vimpipe/plugin/vim-pipe.vim	/^let g:loaded_vimpipe = 1$/;"	v
+g:loaded_vimux	/home/rmelton/projects/vimfiles/bundle/vimux/plugin/vimux.vim	/^let g:loaded_vimux = 1$/;"	v
 g:loaded_vinegar	/home/rmelton/projects/vimfiles/bundle/vinegar/plugin/vinegar.vim	/^let g:loaded_vinegar = 1$/;"	v
 g:loaded_wildfire	/home/rmelton/projects/vimfiles/bundle/wildfire/plugin/wildfire.vim	/^let g:loaded_wildfire = 1$/;"	v
 g:netrw_banner	/home/rmelton/projects/vimfiles/bundle/vinegar/plugin/vinegar.vim	/^let g:netrw_banner = 0$/;"	v
@@ -3795,6 +3828,9 @@ g:targets_quotes	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^### 
 g:targets_separators	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^### g:targets_separators$/;"	k
 g:targets_tagTrigger	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^### g:targets_tagTrigger$/;"	k
 g:unimpaired_html_entities	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^let g:unimpaired_html_entities = {$/;"	v
+g:vcm_default_maps	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^  let g:vcm_default_maps = 1$/;"	v
+g:vcm_direction	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^  let g:vcm_direction = 'n'$/;"	v
+g:vcm_s_tab_behavior	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^  let g:vcm_s_tab_behavior = 0$/;"	v
 g:wildfire_fuel_map	/home/rmelton/projects/vimfiles/bundle/wildfire/plugin/wildfire.vim	/^let g:wildfire_fuel_map =$/;"	v
 g:wildfire_marks	/home/rmelton/projects/vimfiles/bundle/wildfire/plugin/wildfire.vim	/^let g:wildfire_marks =$/;"	v
 g:wildfire_objects	/home/rmelton/projects/vimfiles/bundle/wildfire/plugin/wildfire.vim	/^let g:wildfire_objects =$/;"	v
@@ -4089,6 +4125,7 @@ ispathitem	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu!
 ist-style-type	/home/rmelton/projects/vimfiles/bundle/gundo/site/style.less	/^        list-style-type: none;$/;"	c
 iter_stmts	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^pub fn iter_stmts<'a>(src: &'a str) -> StmtIndicesIter<'a> {$/;"	f
 iterates_half_open_subscope_if_is_the_last_thing	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^fn iterates_half_open_subscope_if_is_the_last_thing() {$/;"	f
+iterates_if_else_stmt	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^fn iterates_if_else_stmt() {$/;"	f
 iterates_inner_scope	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^fn iterates_inner_scope() {$/;"	f
 iterates_lambda_arg	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^fn iterates_lambda_arg() {$/;"	f
 iterates_macro	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^fn iterates_macro() {$/;"	f
@@ -6139,6 +6176,7 @@ vim-go	/home/rmelton/projects/vimfiles/bundle/vim-go/README.md	/^# vim-go$/;"	h
 vim-javascript v0.10.0	/home/rmelton/projects/vimfiles/bundle/javascript/README.md	/^# vim-javascript v0.10.0$/;"	h
 vim_cmdline_mapping.keymapping	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Modules/KeyMapping.vim	/^function! s:vim_cmdline_mapping.keymapping(cmdline)$/;"	f
 vim_cmdline_mapping.on_enter	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Modules/KeyMapping.vim	/^function! s:vim_cmdline_mapping.on_enter(cmdline)$/;"	f
+vim_completes_me	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^function! s:vim_completes_me(shift_tab)$/;"	f
 vimlintOutput	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/vim/vimlint.vim	/^function! s:vimlintOutput(filename, pos, ev, eid, mes, obj) " {{{2$/;"	f
 vinegar	/home/rmelton/projects/vimfiles/bundle/vinegar/plugin/vinegar.vim	/^augroup vinegar$/;"	a
 visit::Visitor for EnumVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^impl<'v> visit::Visitor<'v> for EnumVisitor {$/;"	i
