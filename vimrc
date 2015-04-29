@@ -274,7 +274,7 @@ if has("autocmd")
         au Syntax * RainbowParenthesesLoadRound
         au Syntax * RainbowParenthesesLoadSquare
         au VimEnter * RainbowParenthesesActivate
-         " Things I like spellcheck in
+        " Things I like spellcheck in
         au FileType asciidoc setlocal spell
         au FileType gitcommit setlocal spell
         au FileType markdown setlocal spell
@@ -399,12 +399,12 @@ endif
 " }}}
 
 " Vimux {{{
- map <Leader>vp :VimuxPromptCommand<CR>
- map <Leader>vl :VimuxRunLastCommand<CR>
- map <Leader>vi :VimuxInspectRunner<CR>
- map <Leader>vq :VimuxCloseRunner<CR>
- map <Leader>vx :VimuxInterruptRunner<CR>
- map <Leader>r :VimuxRunLastCommand<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vx :VimuxInterruptRunner<CR>
+map <Leader>r :VimuxRunLastCommand<CR>
 " }}}
 
 " Syntastic {{{
@@ -413,31 +413,31 @@ let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_
 
 " RainbowParentheses {{{
 let g:rbpt_colorpairs=[
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-\ ]
+            \ ['blue', 'RoyalBlue3'],
+            \ ['darkred', 'firebrick3'],
+            \ ['darkgreen', 'Seagreen3'],
+            \ ['brown', 'DarkOrchid3'],
+            \ ['darkcyan', 'Seagreen3'],
+            \ ['darkmagenta', 'RoyalBlue3'],
+            \ ['blue', 'RoyalBlue3'],
+            \ ['darkred', 'firebrick3'],
+            \ ['darkgreen', 'Seagreen3'],
+            \ ['brown', 'DarkOrchid3'],
+            \ ['darkcyan', 'Seagreen3'],
+            \ ['darkmagenta', 'RoyalBlue3'],
+            \ ['blue', 'RoyalBlue3'],
+            \ ['darkred', 'firebrick3'],
+            \ ['darkgreen', 'Seagreen3'],
+            \ ['brown', 'DarkOrchid3'],
+            \ ['darkcyan', 'Seagreen3'],
+            \ ['darkmagenta', 'RoyalBlue3'],
+            \ ['blue', 'RoyalBlue3'],
+            \ ['darkred', 'firebrick3'],
+            \ ['darkgreen', 'Seagreen3'],
+            \ ['brown', 'DarkOrchid3'],
+            \ ['darkcyan', 'Seagreen3'],
+            \ ['darkmagenta', 'RoyalBlue3'],
+            \ ]
 let g:rbpt_max=24
 " }}}
 
@@ -526,6 +526,8 @@ let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 set background=dark
 colo lucius
+hi LineNr ctermfg=lightgrey
+hi CursorLineNr ctermfg=cyan
 
 fun! SeoulDarkColors()
     set background=dark
@@ -555,6 +557,8 @@ fun! LuciousDarkColors()
     set background=dark
     LuciusDark
     RainbowParenthesesActivate
+    hi LineNr ctermfg=lightgrey
+    hi CursorLineNr ctermfg=cyan
 endfun
 
 fun! KalisiLightColors()
