@@ -1,5 +1,5 @@
 use racer::{self, scopes, typeinf, ast, Match, PathSegment};
-use racer::util::{symbol_matches, txt_matches, find_ident_end, is_ident_char};
+use racer::util::{symbol_matches, txt_matches, find_ident_end, is_ident_char, char_at};
 use racer::nameres::{get_module_file, get_crate_file, resolve_path};
 use racer::SearchType::{self, StartsWith, ExactMatch};
 use racer::MatchType::{self, Let, Module, Function, Struct, Type, Trait, Enum, EnumVariant, Const, Static, IfLet};
@@ -7,28 +7,18 @@ use racer::Namespace::BothNamespaces;
 use std::cell::Cell;
 use std::path::Path;
 use std::{iter, option, vec};
-
 // Should I return a boxed trait object to make this signature nicer?
 pub fn match_types(src: &str, blobstart: usize, blobend: usize,
                    searchstr: &str, filepath: &Path,
                    search_type: SearchType,
-                   local: bool) -> iter::Chain<iter::Chain<iter::Chain<iter::Chain<iter::Chain<iter::Chain<option::IntoIter<Match>,option::IntoIter<Match>>,option::IntoIter<Match>>,option::IntoIter<Match>>,option::IntoIter<Match>>,option::IntoIter<Match>>,vec::IntoIter<Match>> {
-
+                   local: bool) -> iter::Chain<iter::Chain<iter::Chain<iter::Chain<iter::Chain<iter::Chain<option::IntoIter<Match>, option::IntoIter<Match>>, option::IntoIter<Match>>, option::IntoIter<Match>>, option::IntoIter<Match>>, option::IntoIter<Match>>, vec::IntoIter<Match>> {
     let it = match_extern_crate(src, blobstart, blobend, searchstr, filepath, search_type).into_iter();
-
     let it = it.chain(match_mod(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter());
-
     let it = it.chain(match_struct(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter());
-
     let it = it.chain(match_type(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter());
-
     let it = it.chain(match_trait(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter());
-
     let it = it.chain(match_enum(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter());
-
-    let it = it.chain(match_use(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter());
-
-    return it;
+    it.chain(match_use(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter())
 }
 
 pub fn match_values(src: &str, blobstart: usize, blobend: usize,
@@ -36,13 +26,10 @@ pub fn match_values(src: &str, blobstart: usize, blobend: usize,
                   local: bool) -> iter::Chain<iter::Chain<option::IntoIter<racer::Match>, option::IntoIter<racer::Match>>, option::IntoIter<racer::Match>> {
     let it = match_const(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter();
     let it = it.chain(match_static(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter());
-    let it = it.chain(match_fn(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter());
-    return it;
+    it.chain(match_fn(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter())
 }
 
-fn find_keyword(src: &str, pattern: &str,
-                search: &str, search_type: SearchType,
-                local: bool) -> Option<usize> {
+fn find_keyword(src: &str, pattern: &str, search: &str, search_type: SearchType, local: bool) -> Option<usize> {
     // search for <pub>?<whitespaces>+<pattern>{1}<whitespaces>+<search>{1}
 
     let patterns = if local && !src.starts_with("pub") {
@@ -71,7 +58,7 @@ fn find_keyword(src: &str, pattern: &str,
             StartsWith => Some(start),
             ExactMatch => {
                 if src.len() > start+search.len() &&
-                    !is_ident_char(src.char_at(start + search.len())) {
+                    !is_ident_char(char_at(src, start + search.len())) {
                     Some(start)
                 } else {
                     None
@@ -85,7 +72,7 @@ fn find_keyword(src: &str, pattern: &str,
 
 fn match_pattern_start(src: &str, blobstart: usize, blobend: usize,
                        searchstr: &str, filepath: &Path, search_type: SearchType,
-                       local: bool, pattern: &str, mtype: MatchType)  -> Option<Match> {
+                       local: bool, pattern: &str, mtype: MatchType) -> Option<Match> {
     // ast currently doesn't contain the ident coords, so match them with a hacky
     // string search
 
@@ -110,27 +97,26 @@ fn match_pattern_start(src: &str, blobstart: usize, blobend: usize,
 
 pub fn match_const(msrc: &str, blobstart: usize, blobend: usize,
                    searchstr: &str, filepath: &Path, search_type: SearchType,
-                   local: bool)  -> Option<Match> {
+                   local: bool) -> Option<Match> {
     match_pattern_start(msrc, blobstart, blobend, searchstr, filepath,
                         search_type, local, "const", Const)
 }
 
 pub fn match_static(msrc: &str, blobstart: usize, blobend: usize,
                     searchstr: &str, filepath: &Path, search_type: SearchType,
-                    local: bool)  -> Option<Match> {
-
+                    local: bool) -> Option<Match> {
     match_pattern_start(msrc, blobstart, blobend, searchstr, filepath,
                         search_type, local, "static", Static)
 }
 
 fn match_pattern_let(msrc: &str, blobstart: usize, blobend: usize,
                  searchstr: &str, filepath: &Path, search_type: SearchType,
-                 local: bool, pattern: &str, mtype: MatchType)  -> Vec<Match> {
+                 local: bool, pattern: &str, mtype: MatchType) -> Vec<Match> {
     let mut out = Vec::new();
     let blob = &msrc[blobstart..blobend];
     if blob.starts_with(pattern) && txt_matches(search_type, searchstr, blob) {
         let coords = ast::parse_let(blob.to_string());
-        for &(start,end) in coords.iter() {
+        for &(start, end) in coords.iter() {
             let s = &blob[start..end];
             if symbol_matches(search_type, searchstr, s) {
                 debug!("match_pattern_let point is {}", blobstart + start);
@@ -154,13 +140,14 @@ fn match_pattern_let(msrc: &str, blobstart: usize, blobend: usize,
 
 pub fn match_if_let(msrc: &str, blobstart: usize, blobend: usize,
                  searchstr: &str, filepath: &Path, search_type: SearchType,
-                 local: bool)  -> Vec<Match> {
+                 local: bool) -> Vec<Match> {
     match_pattern_let(msrc, blobstart, blobend, searchstr, filepath,
                       search_type, local, "if let ", IfLet)
 }
+
 pub fn match_let(msrc: &str, blobstart: usize, blobend: usize,
                  searchstr: &str, filepath: &Path, search_type: SearchType,
-                 local: bool)  -> Vec<Match> {
+                 local: bool) -> Vec<Match> {
     match_pattern_let(msrc, blobstart, blobend, searchstr, filepath,
                       search_type, local, "let ", Let)
 }
@@ -174,11 +161,11 @@ pub fn match_extern_crate(msrc: &str, blobstart: usize, blobend: usize,
     let mut res = None;
     let blob = &msrc[blobstart..blobend];
 
-    if txt_matches(search_type, &format!("extern crate {}",searchstr), blob) ||
+    if txt_matches(search_type, &format!("extern crate {}", searchstr), blob) ||
         (blob.starts_with("extern crate") &&
-         txt_matches(search_type, &format!("as {}",searchstr), blob)) {
+         txt_matches(search_type, &format!("as {}", searchstr), blob)) {
 
-        debug!("found an extern crate: |{}|",blob);
+        debug!("found an extern crate: |{}|", blob);
 
         let extern_crate;
         if blob.contains("\"") {
@@ -196,7 +183,7 @@ pub fn match_extern_crate(msrc: &str, blobstart: usize, blobend: usize,
         }
 
         if let Some(ref name) = extern_crate.name {
-            debug!("extern crate {}",name);
+            debug!("extern crate {}", name);
 
             let realname =
                 if let Some(ref realname) = extern_crate.realname {
@@ -204,8 +191,8 @@ pub fn match_extern_crate(msrc: &str, blobstart: usize, blobend: usize,
                 } else {
                     name
                 };
-            get_crate_file(&realname, filepath).map(|cratepath|{
-                res = Some(Match {matchstr: name.clone(),
+            get_crate_file(&realname, filepath).map(|cratepath| {
+                res = Some(Match { matchstr: name.clone(),
                                   filepath: cratepath.to_path_buf(),
                                   point: 0,
                                   local: false,
@@ -217,16 +204,15 @@ pub fn match_extern_crate(msrc: &str, blobstart: usize, blobend: usize,
             });
         }
     }
-    return res;
+    res
 }
 
 pub fn match_mod(msrc: &str, blobstart: usize, blobend: usize,
              searchstr: &str, filepath: &Path, search_type: SearchType,
              local: bool) -> Option<Match> {
-
     let blob = &msrc[blobstart..blobend];
     if let Some(start) = find_keyword(blob, "mod", searchstr, search_type, local) {
-        debug!("found a module: |{}|",blob);
+        debug!("found a module: |{}|", blob);
         let l = match search_type {
             ExactMatch => searchstr, // already checked in find_keyword
             StartsWith => &blob[start..find_ident_end(blob, start+searchstr.len())]
@@ -245,9 +231,7 @@ pub fn match_mod(msrc: &str, blobstart: usize, blobend: usize,
                 generic_args: Vec::new(),
                 generic_types: Vec::new()
             })
-
         } else {
-
             // get internal module nesting
             // e.g. is this in an inline submodule?  mod foo{ mod bar; }
             // because if it is then we need to search further down the
@@ -368,7 +352,6 @@ pub fn match_enum_variants(msrc: &str, blobstart: usize, blobend: usize,
 
             for (name, offset) in parsed_enum.values.into_iter() {
                 if (&name).starts_with(searchstr) {
-
                     let m = Match {
                         matchstr: name.clone(),
                         filepath: filepath.to_path_buf(),
@@ -384,7 +367,7 @@ pub fn match_enum_variants(msrc: &str, blobstart: usize, blobend: usize,
             }
         }
     }
-    return out.into_iter();
+    out.into_iter()
 }
 
 pub fn match_enum(msrc: &str, blobstart: usize, blobend: usize,
@@ -426,9 +409,7 @@ thread_local!(static ALREADY_GLOBBING: Cell<Option<bool>> = Cell::new(None));
 pub fn match_use(msrc: &str, blobstart: usize, blobend: usize,
              searchstr: &str, filepath: &Path, search_type: SearchType,
              local: bool) -> Vec<Match> {
-
     let mut out = Vec::new();
-
     let blob = &msrc[blobstart..blobend];
 
     if find_keyword(blob, "use", "", StartsWith, local).is_none() { return out; }
@@ -439,7 +420,6 @@ pub fn match_use(msrc: &str, blobstart: usize, blobend: usize,
         debug!("found a glob!! {:?}", use_item);
 
         if use_item.is_glob {
-
             let basepath = use_item.paths.into_iter().nth(0).unwrap();
             let mut follow_glob = true;
             {
@@ -496,7 +476,6 @@ pub fn match_use(msrc: &str, blobstart: usize, blobend: usize,
                         }
                     }
                 }
-
             } else if &*ident == "" {
                 // if searching for a symbol and the last bit matches the symbol
                 // then find the fqn
@@ -526,12 +505,12 @@ pub fn match_fn(msrc: &str, blobstart: usize, blobend: usize,
     let blob = &msrc[blobstart..blobend];
     if let Some(start) = find_keyword(blob, "fn", searchstr, search_type, local) {
         if !typeinf::first_param_is_self(blob) {
-            debug!("found a fn starting {}",searchstr);
+            debug!("found a fn starting {}", searchstr);
             let l = match search_type {
                 ExactMatch => searchstr, // already checked in find_keyword
                 StartsWith => &blob[start..find_ident_end(blob, start+searchstr.len())]
             };
-            debug!("found a fn {}",l);
+            debug!("found a fn {}", l);
             Some(Match {
                 matchstr: l.to_string(),
                 filepath: filepath.to_path_buf(),

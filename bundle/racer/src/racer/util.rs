@@ -7,7 +7,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::path::Path;
 
-pub fn getline(filepath : &Path, linenum : usize) -> String {
+pub fn getline(filepath: &Path, linenum: usize) -> String {
     let mut i = 0;
     let file = BufReader::new(File::open(filepath).unwrap());
     for line in file.lines() {
@@ -17,19 +17,18 @@ pub fn getline(filepath : &Path, linenum : usize) -> String {
             return line.unwrap().to_string();
         }
     }
-    return "not found".to_string();
+    "not found".to_string()
 }
 
-pub fn is_pattern_char(c : char) -> bool {
+pub fn is_pattern_char(c: char) -> bool {
     c.is_alphanumeric() || c.is_whitespace() || (c == '_') || (c == ':') || (c == '.')
 }
 
-pub fn is_search_expr_char(c : char) -> bool {
+pub fn is_search_expr_char(c: char) -> bool {
     c.is_alphanumeric() || (c == '_') || (c == ':') || (c == '.')
 }
 
-
-pub fn is_ident_char(c : char) -> bool {
+pub fn is_ident_char(c: char) -> bool {
     c.is_alphanumeric() || (c == '_')
 }
 
@@ -43,11 +42,15 @@ pub fn txt_matches(stype: SearchType, needle: &str, haystack: &str) -> bool {
                 return true;
             }
 
-            for (n,_) in haystack.match_indices(needle) {
-                if (n == 0  || !is_ident_char(haystack.char_at(n-1))) &&
-                    (n+nlen == hlen || !is_ident_char(haystack.char_at(n+nlen))) {
+            // PD: switch to use .match_indices() when that stabilizes
+            let mut n=0;
+            while let Some(n1) = haystack[n..].find(needle) {
+                n += n1;
+                if (n == 0  || !is_ident_char(char_at(haystack, n-1))) &&
+                    (n+nlen == hlen || !is_ident_char(char_at(haystack, n+nlen))) {
                     return true;
                 }
+                n += 1;
             }
             return false;
         },
@@ -56,10 +59,14 @@ pub fn txt_matches(stype: SearchType, needle: &str, haystack: &str) -> bool {
                 return true;
             }
 
-            for (n,_) in haystack.match_indices(needle) {
-                if n == 0  || !is_ident_char(haystack.char_at(n-1)) {
+            // PD: switch to use .match_indices() when that stabilizes
+            let mut n=0;
+            while let Some(n1) = haystack[n..].find(needle) {
+                n += n1;
+                if n == 0  || !is_ident_char(char_at(haystack, n-1)) {
                     return true;
                 }
+                n += 1;
             }
             return false;
         }
@@ -96,7 +103,7 @@ fn txt_matches_matches_stuff() {
 }
 
 
-pub fn expand_ident(s : &str, pos : usize) -> (usize,usize) {
+pub fn expand_ident(s: &str, pos: usize) -> (usize, usize) {
     // TODO: Would this better be an assertion ? Why are out-of-bound values getting here ?
     // They are coming from the command-line, question is, if they should be handled beforehand
     // clamp pos into allowed range
@@ -111,10 +118,10 @@ pub fn expand_ident(s : &str, pos : usize) -> (usize,usize) {
         }
         start = i;
     }
-    return (start, pos);
+    (start, pos)
 }
 
-pub fn find_ident_end(s : &str, pos : usize) -> usize {
+pub fn find_ident_end(s: &str, pos: usize) -> usize {
     // find end of word
     let sa = &s[pos..];
     let mut end = pos;
@@ -124,7 +131,7 @@ pub fn find_ident_end(s : &str, pos : usize) -> usize {
         }
         end = pos + i + 1;
     }
-    return end;
+    end
 }
 
 pub fn to_refs<'a>(v: &'a Vec<String>) -> Vec<&'a str> {
@@ -132,7 +139,7 @@ pub fn to_refs<'a>(v: &'a Vec<String>) -> Vec<&'a str> {
     for item in v.iter() {
         out.push(&item[..]);
     }
-    return out;
+    out
 }
 
 pub fn find_last_str(needle: &str, mut haystack: &str) -> Option<usize> {
@@ -141,5 +148,23 @@ pub fn find_last_str(needle: &str, mut haystack: &str) -> Option<usize> {
         res = Some(n);
         haystack = &haystack[n+1..];
     }
-    return res;
+    res
+}
+
+// PD: short term replacement for .char_at() function. Should be replaced once
+// that stabilizes
+pub fn char_at(src: &str, i: usize) -> char {
+    src[i..].chars().next().unwrap()
+}
+
+// PD: short term replacement for path.exists() (PathExt trait). Replace once
+// that stabilizes
+pub fn path_exists<P: AsRef<Path>>(path: P) -> bool {
+    File::open(path).is_ok()
+}
+
+// PD: short term replacement for path.is_dir() (PathExt trait). Replace once
+// that stabilizes
+pub fn is_dir<P: AsRef<Path>>(path: P) -> bool {
+    ::std::fs::read_dir(path.as_ref()).is_ok()
 }

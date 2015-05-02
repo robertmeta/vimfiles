@@ -98,6 +98,9 @@ git clone https://github.com/leshill/vim-json bundle/json && rm -rf bundle/json/
 git clone https://github.com/othree/javascript-libraries-syntax.vim bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
 git clone https://github.com/pangloss/vim-javascript bundle/javascript && rm -rf bundle/javascript/.git
 
+# Autohotkey
+git clone https://github.com/vim-scripts/autohotkey-ahk.git bundle/ahk && rm -rf bundle/ahk/.git
+
 # Modeline {{{
 # vim: set foldlevel=1: 
 # }}}
