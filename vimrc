@@ -113,7 +113,7 @@ set relativenumber " ok, trying again
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
-set scrolloff=5 " Keep 5 lines (top/bottom) for scope
+set scrolloff=9999 " Keep focus on middle of screen when possible
 set secure " but lets not go crazy
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
