@@ -2,6 +2,7 @@
 
 use racer::SearchType::{self, ExactMatch, StartsWith};
 
+use std;
 use std::cmp;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
@@ -124,14 +125,25 @@ pub fn expand_ident(s: &str, pos: usize) -> (usize, usize) {
 pub fn find_ident_end(s: &str, pos: usize) -> usize {
     // find end of word
     let sa = &s[pos..];
-    let mut end = pos;
     for (i, c) in sa.char_indices() {
         if !is_ident_char(c) {
-            break;
+            return pos + i;
         }
-        end = pos + i + 1;
     }
-    end
+    s.len()
+}
+
+#[test]
+fn find_ident_end_ascii() {
+    assert_eq!(5, find_ident_end("ident", 0));
+    assert_eq!(6, find_ident_end("(ident)", 1));
+    assert_eq!(17, find_ident_end("let an_identifier = 100;", 4));
+}
+
+#[test]
+fn find_ident_end_unicode() {
+    assert_eq!(7, find_ident_end("num_µs", 0));
+    assert_eq!(10, find_ident_end("ends_in_µ", 0));
 }
 
 pub fn to_refs<'a>(v: &'a Vec<String>) -> Vec<&'a str> {
@@ -160,11 +172,14 @@ pub fn char_at(src: &str, i: usize) -> char {
 // PD: short term replacement for path.exists() (PathExt trait). Replace once
 // that stabilizes
 pub fn path_exists<P: AsRef<Path>>(path: P) -> bool {
-    File::open(path).is_ok()
+    is_dir(path.as_ref()) || File::open(path).is_ok()
 }
 
 // PD: short term replacement for path.is_dir() (PathExt trait). Replace once
 // that stabilizes
 pub fn is_dir<P: AsRef<Path>>(path: P) -> bool {
-    ::std::fs::read_dir(path.as_ref()).is_ok()
+    match std::fs::metadata(path) {
+        Ok(file_info) => file_info.is_dir(),
+        _ => false
+    }
 }

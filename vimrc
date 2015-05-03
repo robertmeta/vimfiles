@@ -500,6 +500,12 @@ let g:racer_cmd=$HOME.'/projects/racer/target/release/racer'
 let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " }}}
 
+" Supertab {{{
+let g:SuperTabCrMapping=1
+let g:SuperTabDefaultCompletionType="context"
+let g:SuperTabLongestHighlight=1
+" " }}}
+
 " Theme setup {{{
 let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
