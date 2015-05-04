@@ -134,7 +134,6 @@ set title " mess witht he title
 set ttimeoutlen=10 " 10ms timeout 
 set ttimeout " time out on key codes
 set ttyfast " Assume a fast terminal
-set ttyscroll=5 " See if this helps scroll speed
 set t_vb= " seriously, shhhh, don't be noisy
 set viminfo+=! " Store upper-case registers in viminfo
 set virtualedit=block " block mode, yey (onemore is evil)

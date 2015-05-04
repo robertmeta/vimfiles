@@ -1850,7 +1850,7 @@ g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/synta
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^        let g:_SYNTASTIC_UNAME = split(syntastic#util#system('uname'), "\\n")[0]$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Unknown'$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Windows'$/;"	v
-g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-77'$/;"	v
+g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-80'$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/.vim\/after\/plugin\/abolish.vim")$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/vimfiles\/after\/plugin\/abolish.vim")$/;"	v
 g:ag_apply_lmappings	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^  let g:ag_apply_lmappings=1$/;"	v
@@ -1888,7 +1888,7 @@ g:go_highlight_chan_whitespace_error	/home/rmelton/projects/vimfiles/bundle/vim-
 g:go_highlight_extra_types	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/go.vim	/^  let g:go_highlight_extra_types = 1$/;"	v
 g:go_highlight_functions	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/go.vim	/^	let g:go_highlight_functions = 0$/;"	v
 g:go_highlight_methods	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/go.vim	/^	let g:go_highlight_methods = 0$/;"	v
-g:go_highlight_operators	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/go.vim	/^	let g:go_highlight_operators = 1$/;"	v
+g:go_highlight_operators	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/go.vim	/^	let g:go_highlight_operators = 0$/;"	v
 g:go_highlight_space_tab_error	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/go.vim	/^  let g:go_highlight_space_tab_error = 1$/;"	v
 g:go_highlight_structs	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/go.vim	/^	let g:go_highlight_structs = 0$/;"	v
 g:go_highlight_trailing_whitespace_error	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/go.vim	/^  let g:go_highlight_trailing_whitespace_error = 1$/;"	v
@@ -2468,6 +2468,7 @@ is_search_expr_char	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.
 is_string_comment	/home/rmelton/projects/vimfiles/bundle/rust/indent/rust.vim	/^function! s:is_string_comment(lnum, col)$/;"	f
 iscmdwin	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:iscmdwin()$/;"	f
 ispathitem	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:ispathitem()$/;"	f
+issue_223	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^fn issue_223() {$/;"	f
 iter_stmts	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^pub fn iter_stmts<'a>(src: &'a str) -> StmtIndicesIter<'a> {$/;"	f
 iterates_half_open_subscope_if_is_the_last_thing	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^fn iterates_half_open_subscope_if_is_the_last_thing() {$/;"	f
 iterates_if_else_stmt	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^fn iterates_if_else_stmt() {$/;"	f
