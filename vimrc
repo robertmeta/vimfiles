@@ -329,8 +329,8 @@ endif
 " Active Window {{{
 augroup Numbers
     autocmd!
-    autocmd WinEnter * set number relativenumber
-    autocmd WinLeave * set nonumber norelativenumber
+    autocmd WinEnter * set number relativenumber cursorline
+    autocmd WinLeave * set nonumber norelativenumber nocursorline
 augroup END
 " }}}
 
