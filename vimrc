@@ -28,35 +28,37 @@ let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 let loaded_matchparen=1 " we don't want to use matching paren plugin, we got RainbowParen
 syntax on " syntax highlighting on
-syntax sync minlines=200 " helps to avoid syntax highlighting bugs
+syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 " }}}
 
 " General mappings {{{
 nmap <space> <leader>
-" quickfix/list next/prev with centering
-nnoremap <C-down> :cnext<cr>zvzz
-nnoremap <C-up> :cprev<cr>zvzz
-nnoremap <S-down> :lnext<cr>zvzz
-nnoremap <S-up> :lprev<cr>zvzz
-nnoremap <down> <C-f>
-nnoremap <up> <C-b>
+" Easy scrolling, no coording
+nnoremap <leader>k <C-b>
+nnoremap <leader>j <C-f>
 " folding / unfolding outer layer
 nnoremap <leader>z :%foldc<cr> 
 nnoremap <leader>Z :%foldo<cr>
 " Scrolling
 " Window control
-nnoremap <leader>h <C-W>h
-nnoremap <leader>j <C-W>j
-nnoremap <leader>k <C-W>k
-nnoremap <leader>l <C-W>l
+nnoremap <leader>H <C-W>h
+nnoremap <leader>J <C-W>j
+nnoremap <leader>K <C-W>k
+nnoremap <leader>L <C-W>l
 nnoremap <leader>o <C-W>o
-nnoremap <leader>" :split<cr>
-nnoremap <leader>% :vsplit<cr>
 nnoremap <leader>w <C-W>w 
 nnoremap <leader>x <esc>:close<cr>
-" Addon control
+nnoremap <leader>" :split<cr>
+nnoremap <leader>% :vsplit<cr>
+" Arrow control
 nnoremap <left> :NERDTreeToggle<cr>
 nnoremap <right> :TagbarToggle<cr>
+nnoremap <down> <C-f>
+nnoremap <up> <C-b>
+nnoremap <C-down> :cnext<cr>zvzz
+nnoremap <C-up> :cprev<cr>zvzz
+nnoremap <S-down> :lnext<cr>zvzz
+nnoremap <S-up> :lprev<cr>zvzz
 " keep centered when jumping serach results
 nnoremap n nzzzv
 nnoremap N Nzzzv
