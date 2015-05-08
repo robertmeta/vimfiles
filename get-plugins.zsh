@@ -99,7 +99,10 @@ git clone https://github.com/othree/javascript-libraries-syntax.vim bundle/javas
 git clone https://github.com/pangloss/vim-javascript bundle/javascript && rm -rf bundle/javascript/.git
 
 # Autohotkey
-git clone https://github.com/vim-scripts/autohotkey-ahk.git bundle/ahk && rm -rf bundle/ahk/.git
+git clone https://github.com/vim-scripts/autohotkey-ahk bundle/ahk && rm -rf bundle/ahk/.git
+
+# Waste no more time entering insert mode just to insert enters! (or backspace, or delete)
+git clone https://github.com/dahu/Insertlessly bundle/insertlessly && rm -rf bundle/insertlessly/.git
 
 # Modeline {{{
 # vim: set foldlevel=1: 
