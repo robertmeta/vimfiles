@@ -5,3 +5,4 @@ ctrlp_cache/*
 view/*
 spell/*
 .netrwhist
+.tags

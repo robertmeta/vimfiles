@@ -12,8 +12,11 @@ $RUST_SRC_PATH	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^ 
 2. Submitting a patch	/home/rmelton/projects/vimfiles/bundle/syntastic/CONTRIBUTING.md	/^## 2. Submitting a patch$/;"	i
 3. General style notes	/home/rmelton/projects/vimfiles/bundle/syntastic/CONTRIBUTING.md	/^## 3. General style notes$/;"	i
 4. Syntax checker notes	/home/rmelton/projects/vimfiles/bundle/syntastic/CONTRIBUTING.md	/^## 4. Syntax checker notes$/;"	i
+<BS>	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  nmap <BS> <Plug>BSPastBOL$/;"	m
 <D-R>	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^nnoremap <buffer> <D-R> :RustRun! <C-r>=join(b:rust_last_rustc_args)<CR><C-\\>erust#AppendCmdLine(' -- ' . join(b:rust_last_args))<CR>$/;"	m
 <D-r>	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^nnoremap <silent> <buffer> <D-r> :RustRun<CR>$/;"	m
+<Del>	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  nmap <Del> <Plug>DelAtEOL$/;"	m
+<Enter>	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  nmap <Enter> <Plug>InsertNewline$/;"	m
 <P	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <P :call <SID>putline('[p', 'Above')<CR><']$/;"	m
 <Plug>(go-build)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-build) :<C-u>call go#cmd#Build('')<CR>$/;"	m
 <Plug>(go-callees)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-callees) :<C-u>call go#oracle#Callees(-1)<CR>$/;"	m
@@ -46,12 +49,17 @@ $RUST_SRC_PATH	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^ 
 <Plug>(go-test-func)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-test-func) :<C-u>call go#cmd#TestFunc('')<CR>$/;"	m
 <Plug>(go-vet)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-vet) :<C-u>call go#cmd#Vet()<CR>$/;"	m
 <Plug>(wildfire-water)	/home/rmelton/projects/vimfiles/bundle/wildfire/plugin/wildfire.vim	/^vnoremap <silent> <Plug>(wildfire-water) :<C-U>call wildfire#Water(v:count1)<CR>$/;"	m
+<Plug>BSPastBOL	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^nnoremap <silent> <Plug>BSPastBOL      :<c-u>call <SID>BackspacePastBOL()<CR>$/;"	m
 <Plug>ChangeCommentary	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^nnoremap <silent> <Plug>ChangeCommentary c:<C-U>call <SID>textobject(1)<CR>$/;"	m
 <Plug>Coerce	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^nnoremap <silent> <Plug>Coerce :<C-U>call <SID>coerce(nr2char(getchar()))<CR>$/;"	m
 <Plug>Commentary	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^nnoremap <silent> <Plug>Commentary     :<C-U>set opfunc=<SID>go<CR>g@$/;"	m
 <Plug>Commentary	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^onoremap <silent> <Plug>Commentary        :<C-U>call <SID>textobject(0)<CR>$/;"	m
 <Plug>CommentaryLine	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^nnoremap <silent> <Plug>CommentaryLine :<C-U>set opfunc=<SID>go<Bar>exe 'norm! 'v:count1.'g@_'<CR>$/;"	m
 <Plug>CommentaryUndo	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^nmap <silent> <Plug>CommentaryUndo <Plug>Commentary<Plug>Commentary$/;"	m
+<Plug>DelAtEOL	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^nnoremap <silent> <Plug>DelAtEOL       :<c-u>call <SID>DeleteAtEOL()<CR>$/;"	m
+<Plug>InsertNewline	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^nnoremap <silent> <Plug>InsertNewline  :<c-u>call <SID>InsertNewline()<CR>$/;"	m
+<Plug>InsertSpace	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^nnoremap <silent> <Plug>InsertSpace    :<c-u>call <SID>InsertSpace()<CR>$/;"	m
+<Plug>OpenNewline	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^nnoremap <silent> <Plug>OpenNewline    :<c-u>call <SID>OpenNewline()<CR>$/;"	m
 <Plug>SuperTabBackward	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^  imap <script> <Plug>SuperTabBackward <c-r>=SuperTab('p')<cr>$/;"	m
 <Plug>SuperTabForward	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^  imap <script> <Plug>SuperTabForward <c-r>=SuperTab('n')<cr>$/;"	m
 <Plug>ToggleBackground	/home/rmelton/projects/vimfiles/autoload/togglebg.vim	/^inoremap <unique> <script> <Plug>ToggleBackground <ESC><SID>TogBG<ESC>a$/;"	m
@@ -78,7 +86,9 @@ $RUST_SRC_PATH	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^ 
 <Plug>unimpairedPaste	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedPaste :call <SID>setup_paste()<CR>$/;"	m
 <Plug>unimpairedPutAbove	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedPutAbove :call <SID>putline('[p', 'Above')<CR>$/;"	m
 <Plug>unimpairedPutBelow	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedPutBelow :call <SID>putline(']p', 'Below')<CR>$/;"	m
+<S-Enter>	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  nmap <S-Enter> <Plug>OpenNewline$/;"	m
 <SID>TogBG	/home/rmelton/projects/vimfiles/autoload/togglebg.vim	/^noremap <SID>TogBG  :call <SID>TogBG()<CR>$/;"	m
+<Space>	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  nmap <Space> <Plug>InsertSpace$/;"	m
 <c-x>	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^  inoremap <silent> <c-x> <c-r>=<SID>ManualCompletionEnter()<cr>$/;"	m
 <cr>	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^      inoremap <silent> <cr> <c-r>=<SID>SelectCompletion(1)<cr>$/;"	m
 <p	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <p :call <SID>putline(']p', 'Below')<CR><']$/;"	m
@@ -95,6 +105,7 @@ Acknowledgements	/home/rmelton/projects/vimfiles/bundle/ag/README.md	/^### Ackno
 AddCterm	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^function! s:AddCterm(name)$/;"	f
 AddSpCterm	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^function! s:AddSpCterm(name)$/;"	f
 AddToClasspath	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/java/javac.vim	/^function! s:AddToClasspath(classpath, path) " {{{2$/;"	f
+AdjustCursor	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^function! s:AdjustCursor()$/;"	f
 Advanced usage	/home/rmelton/projects/vimfiles/bundle/wildfire/README.md	/^### Advanced usage$/;"	k
 Ag	/home/rmelton/projects/vimfiles/bundle/ag/plugin/ag.vim	/^command! -bang -nargs=* -complete=file Ag call ag#Ag('grep<bang>',<q-args>)$/;"	c
 AgAdd	/home/rmelton/projects/vimfiles/bundle/ag/plugin/ag.vim	/^command! -bang -nargs=* -complete=file AgAdd call ag#Ag('grepadd<bang>', <q-args>)$/;"	c
@@ -107,6 +118,7 @@ Args	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/tidy.
 Argument Seek	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^### Argument Seek$/;"	k
 Argument Text Objects	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^## Argument Text Objects$/;"	i
 Argument mappings	/home/rmelton/projects/vimfiles/bundle/targets/cheatsheet.md	/^## Argument mappings$/;"	i
+BackspacePastBOL	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^function! s:BackspacePastBOL()$/;"	f
 Bar	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    impl Bar {$/;"	i
 Bar	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    impl<T> Bar<T> {$/;"	i
 Bar	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    struct Bar;$/;"	s
@@ -155,6 +167,8 @@ Change Log	/home/rmelton/projects/vimfiles/bundle/html5/README.md	/^## Change Lo
 CheckBinaries	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^function! s:CheckBinaries()$/;"	f
 Chmod	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^command! -bar -nargs=1 Chmod :$/;"	c
 ClassSep	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/java/javac.vim	/^function! s:ClassSep() " {{{2$/;"	f
+CleanupAllWhitespace	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^function! s:CleanupAllWhitespace()$/;"	f
+CleanupLine	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^function! s:CleanupLine()$/;"	f
 ClearAllCtrlPCaches	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -bar ClearAllCtrlPCaches cal ctrlp#clra()$/;"	c
 ClearCache	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^function! s:ClearCache() abort " {{{2$/;"	f
 ClearCtrlPCache	/home/rmelton/projects/vimfiles/bundle/ctrlp/plugin/ctrlp.vim	/^com! -bar ClearCtrlPCache     cal ctrlp#clr()$/;"	c
@@ -224,6 +238,7 @@ DEPEND_DIR	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/
 DIRS	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^DIRS=`ls -1F | grep \/ | sed -e 's\/\\\/\/\/'`$/;"	m
 DIRS	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^DIRS=`ls -1F | grep \/ | sed -e 's\/\\\/\/\/'`$/;"	m
 DefaultGoPath	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^function! DefaultGoPath()$/;"	f
+DeleteAtEOL	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^function! s:DeleteAtEOL()$/;"	f
 Description	/home/rmelton/projects/vimfiles/bundle/rust/README.md	/^## Description$/;"	i
 Diff	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:Diff(vert,...) abort$/;"	f
 DirComplete	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:DirComplete(A,L,P) abort$/;"	f
@@ -476,6 +491,10 @@ IndentWithContinuation	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^f
 Init	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^function! s:Init() " {{{$/;"	f
 InitBuffer	/home/rmelton/projects/vimfiles/bundle/supertab/plugin/supertab.vim	/^function! s:InitBuffer() " {{{$/;"	f
 InitCustomFuncs	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:InitCustomFuncs()$/;"	f
+InsertNewline	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^function! s:InsertNewline()$/;"	f
+InsertSpace	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^function! s:InsertSpace()$/;"	f
+Insertlessly	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^augroup Insertlessly$/;"	a
+Insertlessly_LeaveInsert	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^function! s:Insertlessly_LeaveInsert()$/;"	f
 Install	/home/rmelton/projects/vimfiles/bundle/html5/README.md	/^## Install$/;"	i
 Install	/home/rmelton/projects/vimfiles/bundle/vim-go/README.md	/^## Install$/;"	i
 Install with [Vundle](https://github.com/gmarik/vundle)	/home/rmelton/projects/vimfiles/bundle/javascript/README.md	/^### Install with [Vundle](https:\/\/github.com\/gmarik\/vundle)$/;"	k
@@ -591,6 +610,7 @@ Next and Last Separator	/home/rmelton/projects/vimfiles/bundle/targets/README.md
 Notes	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^## Notes$/;"	i
 Open	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:Open()$/;"	f
 OpenMulti	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:OpenMulti(...)$/;"	f
+OpenNewline	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^function! s:OpenNewline()$/;"	f
 OpenNoMarks	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:OpenNoMarks(md, line)$/;"	f
 Optional	/home/rmelton/projects/vimfiles/bundle/vim-go/README.md	/^### Optional$/;"	k
 Options:	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/readme.md	/^### Options:$/;"	k
@@ -1850,7 +1870,7 @@ g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/synta
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^        let g:_SYNTASTIC_UNAME = split(syntastic#util#system('uname'), "\\n")[0]$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Unknown'$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Windows'$/;"	v
-g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-80'$/;"	v
+g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-81'$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/.vim\/after\/plugin\/abolish.vim")$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/vimfiles\/after\/plugin\/abolish.vim")$/;"	v
 g:ag_apply_lmappings	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^  let g:ag_apply_lmappings=1$/;"	v
@@ -1930,6 +1950,15 @@ g:html5_aria_attributes_complete	/home/rmelton/projects/vimfiles/bundle/html5/au
 g:html5_event_handler_attributes_complete	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let g:html5_event_handler_attributes_complete = 1$/;"	v
 g:html5_microdata_attributes_complete	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let g:html5_microdata_attributes_complete = 1$/;"	v
 g:html5_rdfa_attributes_complete	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let g:html5_rdfa_attributes_complete = 1$/;"	v
+g:insertlessly_adjust_cursor	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  let g:insertlessly_adjust_cursor = 0$/;"	v
+g:insertlessly_backspace_past_bol	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  let g:insertlessly_backspace_past_bol = 1$/;"	v
+g:insertlessly_cleanup_all_ws	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  let g:insertlessly_cleanup_all_ws = 1$/;"	v
+g:insertlessly_cleanup_trailing_ws	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  let g:insertlessly_cleanup_trailing_ws = 1$/;"	v
+g:insertlessly_delete_at_eol_joins	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  let g:insertlessly_delete_at_eol_joins = 1$/;"	v
+g:insertlessly_insert_newlines	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  let g:insertlessly_insert_newlines = 1$/;"	v
+g:insertlessly_insert_spaces	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  let g:insertlessly_insert_spaces = 1$/;"	v
+g:insertlessly_open_newlines	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^  let g:insertlessly_open_newlines = 1$/;"	v
+g:insertlessly_version	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^let g:insertlessly_version = 0.5$/;"	v
 g:javascript_conceal	/home/rmelton/projects/vimfiles/bundle/javascript/syntax/javascript.vim	/^  let g:javascript_conceal = 0$/;"	v
 g:javascript_conceal	/home/rmelton/projects/vimfiles/syntax/javascript.vim	/^  let g:javascript_conceal = 0$/;"	v
 g:loaded_abolish	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^let g:loaded_abolish = 1$/;"	v
@@ -1945,6 +1974,7 @@ g:loaded_ctrlp_undo	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/
 g:loaded_eunuch	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^let g:loaded_eunuch = 1$/;"	v
 g:loaded_fugitive	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^let g:loaded_fugitive = 1$/;"	v
 g:loaded_gutentags	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^let g:loaded_gutentags = 1$/;"	v
+g:loaded_insertlessly	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^let g:loaded_insertlessly = 1$/;"	v
 g:loaded_pathogen	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^let g:loaded_pathogen = 1$/;"	v
 g:loaded_syntastic_actionscript_mxmlc_checker	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/actionscript/mxmlc.vim	/^let g:loaded_syntastic_actionscript_mxmlc_checker = 1$/;"	v
 g:loaded_syntastic_ada_gcc_checker	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/ada/gcc.vim	/^let g:loaded_syntastic_ada_gcc_checker = 1$/;"	v
@@ -2310,6 +2340,7 @@ get_visual_content	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/pla
 get_visual_selection	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/play.vim	/^function! s:get_visual_selection()$/;"	f
 getbookmarks	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/bookmarkdir.vim	/^fu! s:getbookmarks()$/;"	f
 getchar	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:getchar()$/;"	f
+getcmdwintype	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^function! s:getcmdwintype()$/;"	f
 getenv	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:getenv()$/;"	f
 getextvar	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:getextvar(key)$/;"	f
 gethistdata	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:gethistdata()$/;"	f
@@ -2907,6 +2938,7 @@ s:contrast_bg	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^
 s:coretypes	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^let s:coretypes = [$/;"	v
 s:counts	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^let s:counts = {}$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/bundle/html5/indent/html.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	/home/rmelton/projects/vimfiles/bundle/insertlessly/plugin/insertlessly.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/bundle/rust/compiler/rustc.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^let s:cpo_save = &cpo$/;"	v
