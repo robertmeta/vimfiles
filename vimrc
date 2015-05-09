@@ -129,7 +129,7 @@ set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab 
 set splitbelow " new splits are down
 set splitright " new vsplits are to the right
 set switchbuf=useopen " when working with quickfix use new splits
-set synmaxcol=5000 " Don't try to highlight lines longer than X characters.
+set synmaxcol=500 " Don't try to highlight lines longer than X characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 set textwidth=0 " No autowrapping
 set title " mess witht he title
