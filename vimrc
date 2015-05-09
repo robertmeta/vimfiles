@@ -268,7 +268,7 @@ if has("autocmd")
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
         au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
-        au BufNewFile,BufRead *.md setlocal filetype=markdown " Markdown (common markdown?)
+        au BufNewFile,BufRead *.md,*.markdown setlocal filetype=markdown " Markdown (common markdown?)
         au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
         " Rainbow Parens
         au Syntax * RainbowParenthesesLoadBraces
@@ -500,12 +500,6 @@ set tags+=.tags
 let g:racer_cmd=$HOME.'/projects/racer/target/release/racer'
 let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " }}}
-
-" Supertab {{{
-let g:SuperTabCrMapping=1
-let g:SuperTabDefaultCompletionType="context"
-let g:SuperTabLongestHighlight=1
-" " }}}
 
 " Theme setup {{{
 let g:lucius_contrast='normal'
