@@ -72,6 +72,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
+set cursorline " no global cursor line 
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set fileencoding=utf-8 " UTF-8
@@ -97,7 +98,6 @@ set noautoread " do NOT read on all changes
 set noautowriteall " do NOT write on all changes
 set noautowrite " do NOT write on all changes
 set nocursorcolumn " disable global cursor column 
-set nocursorline " no global cursor line 
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
