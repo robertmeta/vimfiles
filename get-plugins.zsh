@@ -101,6 +101,9 @@ git clone https://github.com/pangloss/vim-javascript bundle/javascript && rm -rf
 # Autohotkey
 git clone https://github.com/vim-scripts/autohotkey-ahk bundle/ahk && rm -rf bundle/ahk/.git
 
+# TOML
+git clone https://github.com/cespare/vim-toml bundle/toml && rm -rf bundle/toml/.git
+
 # Modeline {{{
 # vim: set foldlevel=1: 
 # }}}
