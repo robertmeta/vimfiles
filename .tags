@@ -472,6 +472,7 @@ Installation	/home/rmelton/projects/vimfiles/bundle/javascript/README.md	/^## In
 Installation	/home/rmelton/projects/vimfiles/bundle/racer/README.md	/^## Installation$/;"	i
 Installation	/home/rmelton/projects/vimfiles/bundle/rust/README.md	/^## Installation$/;"	i
 Installation	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^## Installation$/;"	i
+Installation	/home/rmelton/projects/vimfiles/bundle/toml/README.md	/^## Installation$/;"	i
 Installation	/home/rmelton/projects/vimfiles/bundle/wildfire/README.md	/^### Installation$/;"	k
 Installation ##	/home/rmelton/projects/vimfiles/bundle/ag/README.md	/^## Installation ##$/;"	i
 Introduction	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^## Introduction$/;"	i
@@ -597,6 +598,7 @@ Path	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub struct 
 PathSearch	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub struct PathSearch {$/;"	s
 PathSegment	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub struct PathSegment {$/;"	s
 PathSep	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^function! PathSep()$/;"	f
+Pathogen	/home/rmelton/projects/vimfiles/bundle/toml/README.md	/^### Pathogen$/;"	k
 Point	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    struct Point {$/;"	s
 PrevNonBlankNonString	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^function s:PrevNonBlankNonString(lnum)$/;"	f
 PrevNonBlankNonString	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^function s:PrevNonBlankNonString(lnum)$/;"	f
@@ -1152,6 +1154,7 @@ Vpedit	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^command! -bar -ba
 Vread	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vread    :execute s:find(<count>,'read',<q-args>,<bang>1)$/;"	c
 Vsplit	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vsplit   :execute s:find(<count>,'split',<q-args>,<bang>1)$/;"	c
 Vtabedit	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vtabedit :execute s:find(<count>,'tabedit',<q-args>,<bang>1)$/;"	c
+Vundle	/home/rmelton/projects/vimfiles/bundle/toml/README.md	/^### Vundle$/;"	k
 Vvsplit	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vvsplit  :execute s:find(<count>,'vsplit',<q-args>,<bang>1)$/;"	c
 W	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^  command! -bar W Wall$/;"	c
 WGET_OPT	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^WGET_OPT=-c -nv$/;"	m
@@ -1290,6 +1293,7 @@ b:current_syntax	/home/rmelton/projects/vimfiles/bundle/json/syntax/json.vim	/^l
 b:current_syntax	/home/rmelton/projects/vimfiles/bundle/ps1/syntax/ps1.vim	/^let b:current_syntax = "ps1"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/bundle/ps1/syntax/ps1xml.vim	/^let b:current_syntax = "ps1xml"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/bundle/rust/syntax/rust.vim	/^let b:current_syntax = "rust"$/;"	v
+b:current_syntax	/home/rmelton/projects/vimfiles/bundle/toml/syntax/toml.vim	/^let b:current_syntax = "toml"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/go.vim	/^let b:current_syntax = "go"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/godoc.vim	/^let b:current_syntax = "godoc"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/gohtmltmpl.vim	/^let b:current_syntax = "gohtmltmpl"$/;"	v
@@ -1302,6 +1306,7 @@ b:delimitMate_excluded_regions	/home/rmelton/projects/vimfiles/bundle/rust/ftplu
 b:did_ftplugin	/home/rmelton/projects/vimfiles/bundle/ps1/ftplugin/ps1.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/bundle/ps1/ftplugin/ps1xml.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^let b:did_ftplugin = 1$/;"	v
+b:did_ftplugin	/home/rmelton/projects/vimfiles/bundle/toml/ftplugin/toml.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/bundle/html5/indent/html.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^let b:did_indent = 1$/;"	v
@@ -1320,6 +1325,7 @@ b:rust_set_foldmethod	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.
 b:undo_ftplugin	/home/rmelton/projects/vimfiles/bundle/ps1/ftplugin/ps1.vim	/^let b:undo_ftplugin = "setlocal tw< cms< fo<" .$/;"	v
 b:undo_ftplugin	/home/rmelton/projects/vimfiles/bundle/ps1/ftplugin/ps1xml.vim	/^let b:undo_ftplugin = "setlocal tw< cms< fo<" .$/;"	v
 b:undo_ftplugin	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^let b:undo_ftplugin = "$/;"	v
+b:undo_ftplugin	/home/rmelton/projects/vimfiles/bundle/toml/ftplugin/toml.vim	/^let b:undo_ftplugin = ""$/;"	v
 b:undo_ftplugin	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go.vim	/^let b:undo_ftplugin = "setl fo< com< cms<"$/;"	v
 b:undo_indent	/home/rmelton/projects/vimfiles/bundle/ps1/indent/ps1.vim	/^let b:undo_indent = "setl si<"$/;"	v
 badgood	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:badgood(args)$/;"	f
@@ -1768,6 +1774,9 @@ fugitive_temp	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vi
 fugitive_utility	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^augroup fugitive_utility$/;"	a
 function	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:function(name)$/;"	f
 function	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:function(name) abort$/;"	f
+g:NERDCustomDelimiters	/home/rmelton/projects/vimfiles/bundle/toml/ftplugin/toml.vim	/^        let g:NERDCustomDelimiters.toml = s:delims$/;"	v
+g:NERDCustomDelimiters	/home/rmelton/projects/vimfiles/bundle/toml/ftplugin/toml.vim	/^    let g:NERDCustomDelimiters = { 'toml': s:delims }$/;"	v
+g:NERDDelimiterMap	/home/rmelton/projects/vimfiles/bundle/toml/ftplugin/toml.vim	/^        let g:NERDDelimiterMap.toml = s:delims$/;"	v
 g:SyntasticAutoloclistNotifier	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic/autoloclist.vim	/^let g:SyntasticAutoloclistNotifier = {}$/;"	v
 g:SyntasticBalloonsNotifier	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic/balloons.vim	/^let g:SyntasticBalloonsNotifier = {}$/;"	v
 g:SyntasticChecker	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic/checker.vim	/^let g:SyntasticChecker = {}$/;"	v
@@ -2851,6 +2860,7 @@ s:current_fileencodings	/home/rmelton/projects/vimfiles/bundle/vim-go/ftdetect/g
 s:current_fileformats	/home/rmelton/projects/vimfiles/bundle/vim-go/ftdetect/gofiletype.vim	/^let s:current_fileformats = ''$/;"	v
 s:default_includes	/home/rmelton/projects/vimfiles/bundle/syntastic/autoload/syntastic/c.vim	/^let s:default_includes = [$/;"	v
 s:default_libs	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/autoload/jslibsyntax.vim	/^let s:default_libs = [$/;"	v
+s:delims	/home/rmelton/projects/vimfiles/bundle/toml/ftplugin/toml.vim	/^let s:delims = { 'left': '#' }$/;"	v
 s:dir_for_worktree	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^let s:dir_for_worktree = {}$/;"	v
 s:dircounts	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/dir.vim	/^let s:dircounts = {}$/;"	v
 s:done_bundles	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^let s:done_bundles = {}$/;"	v
@@ -3113,6 +3123,7 @@ s:save_cpo	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/yaml
 s:save_cpo	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/z80/z80syntaxchecker.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/zpt/zptlint.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/zsh/zsh.vim	/^let s:save_cpo = &cpo$/;"	v
+s:save_cpo	/home/rmelton/projects/vimfiles/bundle/toml/ftplugin/toml.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	/home/rmelton/projects/vimfiles/bundle/vim-go/compiler/go.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	/home/rmelton/projects/vimfiles/bundle/wildfire/plugin/wildfire.vim	/^let s:save_cpo = &cpo$/;"	v
@@ -3391,6 +3402,7 @@ validfile	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/buffertag.
 vim	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^augroup vim-go$/;"	a
 vim-go	/home/rmelton/projects/vimfiles/bundle/vim-go/README.md	/^# vim-go$/;"	h
 vim-javascript v0.10.0	/home/rmelton/projects/vimfiles/bundle/javascript/README.md	/^# vim-javascript v0.10.0$/;"	h
+vim-toml	/home/rmelton/projects/vimfiles/bundle/toml/README.md	/^# vim-toml$/;"	h
 vim_completes_me	/home/rmelton/projects/vimfiles/bundle/vimcompletesme/plugin/VimCompletesMe.vim	/^function! s:vim_completes_me(shift_tab)$/;"	f
 vimlintOutput	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/vim/vimlint.vim	/^function! s:vimlintOutput(filename, pos, ev, eid, mes, obj) " {{{2$/;"	f
 vinegar	/home/rmelton/projects/vimfiles/bundle/vinegar/plugin/vinegar.vim	/^augroup vinegar$/;"	a
