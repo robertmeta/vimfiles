@@ -371,7 +371,7 @@ let g:godef_same_file_in_same_window=1
 let g:godef_split=0
 let g:go_fmt_autosave=1
 let g:go_fmt_command="goimports"
-let g:go_fmt_fail_silently=0 " don't duplicate syntastic
+let g:go_fmt_fail_silently=0 
 let g:go_highlight_array_whitespace_error=1
 let g:go_highlight_chan_whitespace_error=1
 let g:go_highlight_extra_types=1
@@ -409,7 +409,7 @@ map <Leader>r :VimuxRunLastCommand<CR>
 " }}}
 
 " Syntastic {{{
-let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": ["go"] }
+" let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": ["go"] }
 " }}}
 
 " RainbowParentheses {{{
