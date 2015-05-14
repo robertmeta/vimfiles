@@ -7,14 +7,22 @@
 #	/home/rmelton/projects/vimfiles/bundle/ps1/indent/ps1.vim	/^inoremap # X#$/;"	m
 $RUST_SRC_PATH	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^    let $RUST_SRC_PATH="\/usr\/local\/src\/rust\/src"$/;"	v
 *Racer* - code completion for [Rust](http://www.rust-lang.org/)	/home/rmelton/projects/vimfiles/bundle/racer/README.md	/^# *Racer* - code completion for [Rust](http:\/\/www.rust-lang.org\/)$/;"	h
+,	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^    nmap , <Plug>SneakPrevious$/;"	m
+,	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^    omap , <Plug>SneakPrevious$/;"	m
 -	/home/rmelton/projects/vimfiles/bundle/vinegar/plugin/vinegar.vim	/^  nmap - <Plug>VinegarUp$/;"	m
 1. Bug reports / GitHub issues	/home/rmelton/projects/vimfiles/bundle/syntastic/CONTRIBUTING.md	/^## 1. Bug reports \/ GitHub issues$/;"	i
 2. Submitting a patch	/home/rmelton/projects/vimfiles/bundle/syntastic/CONTRIBUTING.md	/^## 2. Submitting a patch$/;"	i
 3. General style notes	/home/rmelton/projects/vimfiles/bundle/syntastic/CONTRIBUTING.md	/^## 3. General style notes$/;"	i
 4. Syntax checker notes	/home/rmelton/projects/vimfiles/bundle/syntastic/CONTRIBUTING.md	/^## 4. Syntax checker notes$/;"	i
+;	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^  nmap ; <Plug>SneakNext$/;"	m
+;	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^  omap ; <Plug>SneakNext$/;"	m
 <D-R>	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^nnoremap <buffer> <D-R> :RustRun! <C-r>=join(b:rust_last_rustc_args)<CR><C-\\>erust#AppendCmdLine(' -- ' . join(b:rust_last_args))<CR>$/;"	m
 <D-r>	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^nnoremap <silent> <buffer> <D-r> :RustRun<CR>$/;"	m
 <P	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <P :call <SID>putline('[p', 'Above')<CR><']$/;"	m
+<Plug>(SneakStreak)	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>(SneakStreak)         :<c-u>call sneak#wrap('', 2, 0, 2, 2)<cr>$/;"	m
+<Plug>(SneakStreak)	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>(SneakStreak)         :<c-u>call sneak#wrap(v:operator, 2, 0, 2, 2)<cr>$/;"	m
+<Plug>(SneakStreakBackward)	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>(SneakStreakBackward) :<c-u>call sneak#wrap('', 2, 1, 2, 2)<cr>$/;"	m
+<Plug>(SneakStreakBackward)	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>(SneakStreakBackward) :<c-u>call sneak#wrap(v:operator, 2, 1, 2, 2)<cr>$/;"	m
 <Plug>(go-build)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-build) :<C-u>call go#cmd#Build('')<CR>$/;"	m
 <Plug>(go-callees)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-callees) :<C-u>call go#oracle#Callees(-1)<CR>$/;"	m
 <Plug>(go-callers)	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^nnoremap <silent> <Plug>(go-callers) :<C-u>call go#oracle#Callers(-1)<CR>$/;"	m
@@ -52,6 +60,25 @@ $RUST_SRC_PATH	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^ 
 <Plug>Commentary	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^onoremap <silent> <Plug>Commentary        :<C-U>call <SID>textobject(0)<CR>$/;"	m
 <Plug>CommentaryLine	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^nnoremap <silent> <Plug>CommentaryLine :<C-U>set opfunc=<SID>go<Bar>exe 'norm! 'v:count1.'g@_'<CR>$/;"	m
 <Plug>CommentaryUndo	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^nmap <silent> <Plug>CommentaryUndo <Plug>Commentary<Plug>Commentary$/;"	m
+<Plug>SneakBackward	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nmap <Plug>SneakBackward  <Plug>Sneak_S$/;"	m
+<Plug>SneakForward	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nmap <Plug>SneakForward   <Plug>Sneak_s$/;"	m
+<Plug>SneakNext	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>SneakNext     :<c-u>call sneak#rpt('', 0)<cr>$/;"	m
+<Plug>SneakNext	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>SneakNext     :<c-u>call sneak#rpt(v:operator, 0)<cr>$/;"	m
+<Plug>SneakPrevious	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>SneakPrevious :<c-u>call sneak#rpt('', 1)<cr>$/;"	m
+<Plug>SneakPrevious	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>SneakPrevious :<c-u>call sneak#rpt(v:operator, 1)<cr>$/;"	m
+<Plug>SneakRepeat	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>SneakRepeat :<c-u>call sneak#wrap(v:operator, sneak#util#getc(), sneak#util#getc(), sneak#util#getc(), sneak#util#getc())<cr>$/;"	m
+<Plug>Sneak_F	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>Sneak_F :<c-u>call sneak#wrap('', 1, 1, 1, 0)<cr>$/;"	m
+<Plug>Sneak_F	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>Sneak_F :<c-u>call sneak#wrap(v:operator, 1, 1, 1, 0)<cr>$/;"	m
+<Plug>Sneak_S	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>Sneak_S :<c-u>call sneak#wrap('', 2, 1, 2, 1)<cr>$/;"	m
+<Plug>Sneak_S	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>Sneak_S :<c-u>call sneak#wrap(v:operator, 2, 1, 2, 1)<cr>$/;"	m
+<Plug>Sneak_T	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>Sneak_T :<c-u>call sneak#wrap('', 1, 1, 0, 0)<cr>$/;"	m
+<Plug>Sneak_T	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>Sneak_T :<c-u>call sneak#wrap(v:operator, 1, 1, 0, 0)<cr>$/;"	m
+<Plug>Sneak_f	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>Sneak_f :<c-u>call sneak#wrap('', 1, 0, 1, 0)<cr>$/;"	m
+<Plug>Sneak_f	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>Sneak_f :<c-u>call sneak#wrap(v:operator, 1, 0, 1, 0)<cr>$/;"	m
+<Plug>Sneak_s	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>Sneak_s :<c-u>call sneak#wrap('', 2, 0, 2, 1)<cr>$/;"	m
+<Plug>Sneak_s	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>Sneak_s :<c-u>call sneak#wrap(v:operator, 2, 0, 2, 1)<cr>$/;"	m
+<Plug>Sneak_t	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>Sneak_t :<c-u>call sneak#wrap('', 1, 0, 0, 0)<cr>$/;"	m
+<Plug>Sneak_t	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>Sneak_t :<c-u>call sneak#wrap(v:operator, 1, 0, 0, 0)<cr>$/;"	m
 <Plug>ToggleBackground	/home/rmelton/projects/vimfiles/autoload/togglebg.vim	/^inoremap <unique> <script> <Plug>ToggleBackground <ESC><SID>TogBG<ESC>a$/;"	m
 <Plug>ToggleBackground	/home/rmelton/projects/vimfiles/autoload/togglebg.vim	/^nnoremap <unique> <script> <Plug>ToggleBackground <SID>TogBG$/;"	m
 <Plug>ToggleBackground	/home/rmelton/projects/vimfiles/autoload/togglebg.vim	/^vnoremap <unique> <script> <Plug>ToggleBackground <ESC><SID>TogBG<ESC>gv$/;"	m
@@ -134,6 +161,7 @@ BufWriteIndexFile	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitiv
 BufWritePostHook	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^function! s:BufWritePostHook() abort " {{{2$/;"	f
 Bug report	/home/rmelton/projects/vimfiles/bundle/javascript/CONTRIBUTING.md	/^## Bug report$/;"	i
 Bug report	/home/rmelton/projects/vimfiles/bundle/javascript/README.md	/^## Bug report$/;"	i
+Bugs	/home/rmelton/projects/vimfiles/bundle/sneak/README.md	/^### Bugs$/;"	k
 BuildPrompt	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:BuildPrompt(upd)$/;"	f
 CONFIG_FILE	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^CONFIG_FILE=config.mk$/;"	m
 CONFIG_FILE	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^CONFIG_FILE=config.mk$/;"	m
@@ -241,6 +269,7 @@ ExitingOneLineScope	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^func
 Expand	/home/rmelton/projects/vimfiles/bundle/rust/autoload/rust.vim	/^function! s:Expand(dict, pretty, args)$/;"	f
 ExprTypeVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^struct ExprTypeVisitor {$/;"	s
 ExternCrateVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^pub struct ExternCrateVisitor {$/;"	s
+FAQ	/home/rmelton/projects/vimfiles/bundle/sneak/README.md	/^### FAQ$/;"	k
 FILES	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^FILES=`ls -1 | grep '.vim$$'`$/;"	m
 FILES	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^FILES=`ls -1 | grep '.vim$$'`$/;"	m
 Feature	/home/rmelton/projects/vimfiles/bundle/html5/README.md	/^## Feature$/;"	i
@@ -471,6 +500,7 @@ Installation	/home/rmelton/projects/vimfiles/bundle/ctrlp/readme.md	/^## Install
 Installation	/home/rmelton/projects/vimfiles/bundle/javascript/README.md	/^## Installation$/;"	i
 Installation	/home/rmelton/projects/vimfiles/bundle/racer/README.md	/^## Installation$/;"	i
 Installation	/home/rmelton/projects/vimfiles/bundle/rust/README.md	/^## Installation$/;"	i
+Installation	/home/rmelton/projects/vimfiles/bundle/sneak/README.md	/^### Installation$/;"	k
 Installation	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^## Installation$/;"	i
 Installation	/home/rmelton/projects/vimfiles/bundle/toml/README.md	/^## Installation$/;"	i
 Installation	/home/rmelton/projects/vimfiles/bundle/wildfire/README.md	/^### Installation$/;"	k
@@ -507,6 +537,7 @@ LOG_FILE	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags
 LetTypeVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^struct LetTypeVisitor {$/;"	s
 LetVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^pub struct LetVisitor {$/;"	s
 License	/home/rmelton/projects/vimfiles/bundle/html5/README.md	/^## License$/;"	i
+License	/home/rmelton/projects/vimfiles/bundle/sneak/README.md	/^### License$/;"	k
 LineEnding	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^function! LineEnding()$/;"	f
 LineHasOpeningBrackets	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^function s:LineHasOpeningBrackets(lnum)$/;"	f
 LineHasOpeningBrackets	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^function s:LineHasOpeningBrackets(lnum)$/;"	f
@@ -551,6 +582,7 @@ MethodInfo	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/snippets.rs	/^
 Mkdir	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^command! -bar -bang -nargs=? -complete=dir Mkdir$/;"	c
 ModVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^pub struct ModVisitor {$/;"	s
 Modules	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/yaml/yamlxs.vim	/^function s:Modules()$/;"	f
+Motivation	/home/rmelton/projects/vimfiles/bundle/sneak/README.md	/^### Motivation$/;"	k
 Move	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^command! -bar -nargs=1 -bang -complete=file Move :$/;"	c
 Move	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:Move(force,destination) abort$/;"	f
 Move	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^function! s:Move(cmd, count, map) abort$/;"	f
@@ -643,6 +675,7 @@ RainbowParenthesesToggle	/home/rmelton/projects/vimfiles/bundle/rainbow_parenthe
 RainbowParenthesesToggleAll	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/plugin/rainbow_parentheses.vim	/^com! RainbowParenthesesToggleAll    cal rainbow_parentheses#toggleall()$/;"	c
 References	/home/rmelton/projects/vimfiles/bundle/html5/README.md	/^## References$/;"	i
 RehighlightBlame	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:RehighlightBlame() abort$/;"	f
+Related	/home/rmelton/projects/vimfiles/bundle/sneak/README.md	/^### Related$/;"	k
 RemoteComplete	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:RemoteComplete(A, L, P) abort$/;"	f
 Remove	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^command! -bar -bang Remove$/;"	c
 Remove	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:Remove(force) abort$/;"	f
@@ -663,6 +696,7 @@ RustEmitIr	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^comma
 RustExpand	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^command! -nargs=* -complete=customlist,rust#CompleteExpand -bang -buffer RustExpand call rust#Expand(<bang>0, <q-args>)$/;"	c
 RustRun	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^command! -nargs=* -complete=file -bang -buffer RustRun call rust#Run(<bang>0, <q-args>)$/;"	c
 S	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^  command -nargs=1 -bang -bar -range=0 -complete=custom,s:SubComplete S$/;"	c
+S	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^  nmap S <Plug>Sneak_S$/;"	m
 SHELL	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^SHELL=bash$/;"	m
 SHELL	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^SHELL=bash$/;"	m
 SaveClasspath	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/java/javac.vim	/^function! s:SaveClasspath() " {{{2$/;"	f
@@ -686,6 +720,7 @@ Settings	/home/rmelton/projects/vimfiles/bundle/vim-go/README.md	/^## Settings$/
 ShellTokenize	/home/rmelton/projects/vimfiles/bundle/rust/autoload/rust.vim	/^function! s:ShellTokenize(text)$/;"	f
 ShowUsage	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/unix/update_tags.sh	/^ShowUsage() {$/;"	f
 Similar plugins	/home/rmelton/projects/vimfiles/bundle/wildfire/README.md	/^### Similar plugins$/;"	k
+SneakPluginNetrw	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^  augroup SneakPluginNetrw$/;"	a
 SpannedIdent	/home/rmelton/projects/vimfiles/bundle/racer/src.rs	/^    type SpannedIdent = Spanned<Ident>$/;"	T
 SpannedIdent	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/src.rs	/^    type SpannedIdent = Spanned<Ident>$/;"	T
 SpannedIdent	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    type SpannedIdent = Spanned<Ident>$/;"	T
@@ -1097,6 +1132,7 @@ Usage	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cm
 Usage	/home/rmelton/projects/vimfiles/bundle/vim-go/README.md	/^## Usage$/;"	i
 Usage	/home/rmelton/projects/vimfiles/bundle/wildfire/README.md	/^### Usage$/;"	k
 Usage ##	/home/rmelton/projects/vimfiles/bundle/ag/README.md	/^## Usage ##$/;"	i
+Usage (Default)	/home/rmelton/projects/vimfiles/bundle/sneak/README.md	/^### Usage (Default)$/;"	k
 UseVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^pub struct UseVisitor {$/;"	s
 UserCmd	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:UserCmd(lscmd)$/;"	f
 Using [NeoBundle][nb]	/home/rmelton/projects/vimfiles/bundle/rust/README.md	/^### Using [NeoBundle][nb]$/;"	k
@@ -1170,6 +1206,7 @@ Window.Toggle\	/home/rmelton/projects/vimfiles/autoload/togglebg.vim	/^vnoremenu
 WithPath	/home/rmelton/projects/vimfiles/bundle/rust/autoload/rust.vim	/^function! s:WithPath(func, ...)$/;"	f
 Wq	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:Wq(force,...) abort$/;"	f
 Write	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:Write(force,...) abort$/;"	f
+Z	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^  omap Z  <Plug>Sneak_S$/;"	m
 [<Space>	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nmap [<Space> <Plug>unimpairedBlankUp$/;"	m
 [[	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^nnoremap <silent> <buffer> [[ :call rust#Jump('n', 'Back')<CR>$/;"	m
 [[	/home/rmelton/projects/vimfiles/bundle/rust/ftplugin/rust.vim	/^onoremap <silent> <buffer> [[ :call rust#Jump('o', 'Back')<CR>$/;"	m
@@ -1183,6 +1220,8 @@ Write	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^func
 [ov	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap [ov :set virtualedit+=all<CR>$/;"	m
 [ox	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap [ox :set cursorline cursorcolumn<CR>$/;"	m
 [p	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nmap [p <Plug>unimpairedPutAbove$/;"	m
+\	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^    nmap \\ <Plug>SneakPrevious$/;"	m
+\	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^    omap \\ <Plug>SneakPrevious$/;"	m
 \\	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^  nmap \\\\  :echomsg '\\\\ is deprecated. Use gc'<CR><Plug>Commentary$/;"	m
 \\\	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^  nmap \\\\\\ <Plug>CommentaryLine:echomsg '\\\\ is deprecated. Use gc'<CR>$/;"	m
 \\u	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^  nmap \\\\u <Plug>CommentaryUndo:echomsg '\\\\ is deprecated. Use gc'<CR>$/;"	m
@@ -1255,6 +1294,7 @@ addMapping2	/home/rmelton/projects/vimfiles/bundle/targets/plugin/targets.vim	/^
 add_methods	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:add_methods(namespace, method_names) abort$/;"	f
 addtomrufs	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/mrufiles.vim	/^fu! s:addtomrufs(fname)$/;"	f
 af	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go.vim	/^    onoremap <buffer> af :<c-u>call go#textobj#Function('a')<cr>$/;"	m
+after	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! s:after()$/;"	f
 ag#Ag	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^function! ag#Ag(cmd, args)$/;"	f
 ag#AgBuffer	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^function! ag#AgBuffer(cmd, args)$/;"	f
 ag#AgFromSearch	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^function! ag#AgFromSearch(cmd, args)$/;"	f
@@ -1280,6 +1320,7 @@ aria_attributes_value	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/
 ast	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub mod ast;$/;"	m
 ast_sandbox	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^fn ast_sandbox() {$/;"	f
 at	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:at(str)$/;"	f
+attach_autocmds	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! s:attach_autocmds()$/;"	f
 attributes_value	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let attributes_value = extend(attributes_value, event_attributes_value)$/;"	v
 attributes_value	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let attributes_value = extend(attributes_value, microdata_attributes_value)$/;"	v
 attributes_value	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let attributes_value = extend(attributes_value, rdfa_attributes_value)$/;"	v
@@ -1331,6 +1372,7 @@ b:undo_indent	/home/rmelton/projects/vimfiles/bundle/ps1/indent/ps1.vim	/^let b:
 badgood	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:badgood(args)$/;"	f
 bar	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^    mod bar;$/;"	m
 bar	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^        pub mod bar {$/;"	m
+before	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! s:before()$/;"	f
 bench_code_chunks	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/bench.rs	/^    fn bench_code_chunks(b: &mut Bencher) {$/;"	f
 bench_iter_stmts	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/bench.rs	/^    fn bench_iter_stmts(b: &mut Bencher) {$/;"	f
 bench_mask_comments	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/bench.rs	/^    fn bench_mask_comments(b: &mut Bencher) {$/;"	f
@@ -1516,7 +1558,11 @@ current_compiler	/home/rmelton/projects/vimfiles/bundle/rust/compiler/cargo.vim	
 current_compiler	/home/rmelton/projects/vimfiles/bundle/rust/compiler/rustc.vim	/^let current_compiler = "rustc"$/;"	v
 current_compiler	/home/rmelton/projects/vimfiles/bundle/vim-go/compiler/go.vim	/^let current_compiler = "go"$/;"	v
 dashcase	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:dashcase(word)$/;"	f
+dbgfeat	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/debug.vim	/^func! s:dbgfeat(featurename)$/;"	f
+dbgflag	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/debug.vim	/^func! s:dbgflag(settingname)$/;"	f
+dbgfunc	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/debug.vim	/^func! s:dbgfunc(funcname)$/;"	f
 debug	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:debug(message)$/;"	f
+decorate_statusline	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! s:decorate_statusline() "highlight statusline to indicate streak-mode.$/;"	f
 default_role	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/aria.vim	/^let default_role = {$/;"	v
 default_role	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/aria.vim	/^let default_role = {}$/;"	v
 define_commands	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:define_commands() abort$/;"	f
@@ -1590,11 +1636,13 @@ diffoff	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^fu
 diffoff_all	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:diffoff_all(dir) abort$/;"	f
 diffthis	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:diffthis() abort$/;"	f
 dircompl	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:dircompl(be, sd)$/;"	f
+disable_conceal_in_other_windows	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! s:disable_conceal_in_other_windows()$/;"	f
 disable_wildfire	/home/rmelton/projects/vimfiles/bundle/wildfire/plugin/wildfire.vim	/^fu! s:disable_wildfire()$/;"	f
 dismrk	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:dismrk()$/;"	f
 dispatcher	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:dispatcher(bang,line1,line2,count,args)$/;"	f
 do_external_search	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn do_external_search(path: &[&str], filepath: &Path, pos: usize, search_type: SearchType, namespace: Namespace) -> vec::IntoIter<Match> {$/;"	f
 do_file_search	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn do_file_search(searchstr: &str, currentdir: &Path) -> vec::IntoIter<Match> {$/;"	f
+do_streak	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! s:do_streak(s, v, reverse) "{{{$/;"	f
 document_structure	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/aria.vim	/^let document_structure = ['article', 'columnheader', 'definition', 'directory', 'document', 'group', 'heading', 'img', 'list', 'listitem', 'math', 'note', 'presentation', 'region', 'row', 'rowheader', 'separator']$/;"	v
 document_structure	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let document_structure = ['article', 'columnheader', 'definition', 'directory', 'document', 'group', 'heading', 'img', 'list', 'listitem', 'math', 'note', 'presentation', 'region', 'row', 'rowheader', 'separator']$/;"	v
 does_it	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn does_it() {$/;"	f
@@ -1749,6 +1797,7 @@ from_source_str	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/snippets.
 from_svec	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^    pub fn from_svec(global: bool, v: Vec<String>) -> Path {$/;"	f
 from_vec	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^    pub fn from_vec(global: bool, v: Vec<&str>) -> Path {$/;"	f
 fs	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/less/less-lint.js	/^  fs = require('fs');$/;"	r
+ft_hook	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! s:ft_hook() "set up temporary mappings to 'hook' into f\/F\/t\/T$/;"	f
 fugitive	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^augroup fugitive$/;"	a
 fugitive#buffer	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! fugitive#buffer(...) abort$/;"	f
 fugitive#can_diffoff	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! fugitive#can_diffoff(buf) abort$/;"	f
@@ -1896,6 +1945,7 @@ g:loaded_eunuch	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	
 g:loaded_fugitive	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^let g:loaded_fugitive = 1$/;"	v
 g:loaded_gutentags	/home/rmelton/projects/vimfiles/bundle/gutentags/plugin/gutentags.vim	/^let g:loaded_gutentags = 1$/;"	v
 g:loaded_pathogen	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^let g:loaded_pathogen = 1$/;"	v
+g:loaded_sneak_plugin	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^let g:loaded_sneak_plugin = 1$/;"	v
 g:loaded_syntastic_actionscript_mxmlc_checker	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/actionscript/mxmlc.vim	/^let g:loaded_syntastic_actionscript_mxmlc_checker = 1$/;"	v
 g:loaded_syntastic_ada_gcc_checker	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/ada/gcc.vim	/^let g:loaded_syntastic_ada_gcc_checker = 1$/;"	v
 g:loaded_syntastic_apiblueprint_snowcrash_checker	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/apiblueprint/snowcrash.vim	/^let g:loaded_syntastic_apiblueprint_snowcrash_checker = 1$/;"	v
@@ -2104,6 +2154,8 @@ g:netrw_sort_sequence	/home/rmelton/projects/vimfiles/bundle/vinegar/plugin/vine
 g:racer_cmd	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^    let g:racer_cmd = escape(expand('<sfile>:p:h'), '\\') . '\/..\/target\/release\/racer'$/;"	v
 g:racer_experimental_completer	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^    let g:racer_experimental_completer = 0$/;"	v
 g:racer_insert_paren	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^    let g:racer_insert_paren = 1$/;"	v
+g:sneak#search#instance	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/search.vim	/^let g:sneak#search#instance = sneak#search#new()$/;"	v
+g:sneak#target_labels	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^let g:sneak#target_labels = get(g:, 'sneak#target_labels', "asdfghjkl;qwertyuiopzxcvbnm\/ASDFGHJKL:QWERTYUIOPZXCVBNM?")$/;"	v
 g:syntastic_	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^        let g:syntastic_{s:key} = copy(g:_SYNTASTIC_DEFAULTS[s:key])$/;"	v
 g:syntastic_ada_compiler_options	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/ada/gcc.vim	/^    let g:syntastic_ada_compiler_options = ''$/;"	v
 g:syntastic_apiblueprint_snowcrash_sort	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/apiblueprint/snowcrash.vim	/^    let g:syntastic_apiblueprint_snowcrash_sort = 1$/;"	v
@@ -2270,6 +2322,7 @@ gethistloc	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu!
 getinput	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:getinput(...)$/;"	f
 getinput	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/bookmarkdir.vim	/^fu! s:getinput(str, ...)$/;"	f
 getline	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.rs	/^pub fn getline(filepath: &Path, linenum: usize) -> String {$/;"	f
+getnchars	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! s:getnchars(n, mode)$/;"	f
 getnewmix	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/mixed.vim	/^fu! s:getnewmix(cwd, clim)$/;"	f
 getparent	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:getparent(item)$/;"	f
 getpos	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/oracle.vim	/^func! s:getpos(l, c)$/;"	f
@@ -2392,6 +2445,7 @@ iamhere	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    pub
 if	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go.vim	/^    onoremap <buffer> if :<c-u>call go#textobj#Function('i')<cr>$/;"	m
 ifilter	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:ifilter(list, str)$/;"	f
 ignore	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:ignore()$/;"	f
+init	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/hl.vim	/^func! s:init()$/;"	f
 init	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:init(mapmode)$/;"	f
 init	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^fu! s:init(objects)$/;"	f
 initX	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:initX(trigger)$/;"	f
@@ -2417,6 +2471,7 @@ is_double_dot	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.rs	/^p
 is_ident_char	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.rs	/^pub fn is_ident_char(c: char) -> bool {$/;"	f
 is_pattern_char	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.rs	/^pub fn is_pattern_char(c: char) -> bool {$/;"	f
 is_search_expr_char	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/util.rs	/^pub fn is_search_expr_char(c: char) -> bool {$/;"	f
+is_special_key	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! s:is_special_key(key)$/;"	f
 is_string_comment	/home/rmelton/projects/vimfiles/bundle/rust/indent/rust.vim	/^function! s:is_string_comment(lnum, col)$/;"	f
 iscmdwin	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:iscmdwin()$/;"	f
 ispathitem	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:ispathitem()$/;"	f
@@ -2471,6 +2526,8 @@ main_syntax	/home/rmelton/projects/vimfiles/bundle/json/syntax/json.vim	/^  let 
 main_syntax	/home/rmelton/projects/vimfiles/bundle/vim-go/syntax/gohtmltmpl.vim	/^    let main_syntax = 'html'$/;"	v
 main_syntax	/home/rmelton/projects/vimfiles/syntax/javascript.vim	/^  let main_syntax = 'javascript'$/;"	v
 manual_update_tags	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^function! s:manual_update_tags(bang) abort$/;"	f
+map_netrw_key	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^  func! s:map_netrw_key(key)$/;"	f
+map_reset_key	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! s:map_reset_key(key, mode)$/;"	f
 mask_comments	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^pub fn mask_comments(src: &str) -> String {$/;"	f
 mask_matchstmt	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^fn mask_matchstmt(matchstmt_src: &str, innerscope_start: usize) -> String {$/;"	f
 mask_sub_scopes	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^pub fn mask_sub_scopes(src: &str) -> String {$/;"	f
@@ -2625,6 +2682,7 @@ pathogen#uniq	/home/rmelton/projects/vimfiles/autoload/pathogen.vim	/^function! 
 pathshorten	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:pathshorten(str)$/;"	f
 pattern	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:pattern(dict,boundaries)$/;"	f
 phrasing_elements	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^let phrasing_elements = ['a', 'em', 'strong', 'small', 'mark', 'abbr', 'dfn', 'i', 'b', 'u', 'code', 'var', 'samp', 'kbd', 'sup', 'sub', 'q', 'cite', 'span', 'bdo', 'bdi', 'br', 'wbr', 'ins', 'del', 'img', 'picture', 'embed', 'object', 'iframe', 'map', 'area', 'script', 'noscript', 'ruby', 'video', 'audio', 'input', 'textarea', 'select', 'button', 'label', 'output', 'datalist', 'keygen', 'progress', 'command', 'canvas', 'time', 'meter', 'data', 'content', 'shadow']$/;"	v
+placematch	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! s:placematch(c, pos)$/;"	f
 point_is_in_span	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^fn point_is_in_span(point: u32, span: &codemap::Span) -> bool {$/;"	f
 point_to_coords	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^pub fn point_to_coords(src: &str, point: usize) -> (usize, usize) {$/;"	f
 point_to_coords_from_file	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^pub fn point_to_coords_from_file(path: &Path, point: usize) -> Option<(usize, usize)> {$/;"	f
@@ -2717,6 +2775,8 @@ resolve_ast_path	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/
 resolve_name	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_name(pathseg: &racer::PathSegment, filepath: &Path, pos: usize,$/;"	f
 resolve_path	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_path(path: &racer::Path, filepath: &Path, pos: usize,$/;"	f
 resolve_path_with_str	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_path_with_str(path: &racer::Path, filepath: &Path, pos: usize,$/;"	f
+restore_conceal_in_other_windows	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! s:restore_conceal_in_other_windows()$/;"	f
+restore_statusline	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! s:restore_statusline() "restore normal statusline highlight.$/;"	f
 robertmeta's vimrc	/home/rmelton/projects/vimfiles/README.md	/^# robertmeta's vimrc$/;"	h
 role	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/aria.vim	/^let role = extend(role, landmark_role)$/;"	v
 role	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/aria.vim	/^let role = extend(widget_role, document_structure)$/;"	v
@@ -2793,6 +2853,12 @@ rust#Expand	/home/rmelton/projects/vimfiles/bundle/rust/autoload/rust.vim	/^func
 rust#Jump	/home/rmelton/projects/vimfiles/bundle/rust/autoload/rust.vim	/^function! rust#Jump(mode, function) range$/;"	f
 rust#Run	/home/rmelton/projects/vimfiles/bundle/rust/autoload/rust.vim	/^function! rust#Run(bang, args)$/;"	f
 rust.vim	/home/rmelton/projects/vimfiles/bundle/rust/README.md	/^# rust.vim$/;"	h
+s	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^  nmap s <Plug>Sneak_s$/;"	m
+s.dosearch	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/search.vim	/^  func! s.dosearch(...) " a:1 : extra search options$/;"	f
+s.get_onscreen_searchpattern	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/search.vim	/^  func! s.get_onscreen_searchpattern(w)$/;"	f
+s.get_stopline	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/search.vim	/^  func! s.get_stopline()$/;"	f
+s.hasmatches	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/search.vim	/^  func! s.hasmatches(n)$/;"	f
+s.initpattern	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/search.vim	/^  func! s.initpattern()$/;"	f
 s:BLOCKLEVEL_TAGS	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/tidy.vim	/^let s:BLOCKLEVEL_TAGS = [$/;"	v
 s:EMPTY_TAGS	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/tidy.vim	/^let s:EMPTY_TAGS = [$/;"	v
 s:IGNORE_ERRORS	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/tidy.vim	/^let s:IGNORE_ERRORS = [$/;"	v
@@ -2852,6 +2918,7 @@ s:counts	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/
 s:cpo_save	/home/rmelton/projects/vimfiles/bundle/html5/indent/html.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/bundle/rust/compiler/rustc.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/syntax/vimperator.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cssRegionStart	/home/rmelton/projects/vimfiles/syntax/vimperator.vim	/^let s:cssRegionStart = '\\%(^\\s*sty\\%[le]!\\=\\s\\+\\%(-\\%(n\\|name\\)\\%(\\s\\+\\|=\\)\\S\\+\\s\\+\\)\\=[^-]\\S\\+\\s\\+\\)\\@<='$/;"	v
@@ -3133,6 +3200,7 @@ s:setup_done	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic/h
 s:setup_done	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic/signs.vim	/^let s:setup_done = 0$/;"	v
 s:skip_expr	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^let s:skip_expr = "synIDattr(synID(line('.'),col('.'),1),'name') =~ '".s:syng_strcom."'"$/;"	v
 s:skip_expr	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^let s:skip_expr = "synIDattr(synID(line('.'),col('.'),1),'name') =~ '".s:syng_strcom."'"$/;"	v
+s:st	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^let s:st = { 'rst':1, 'input':'', 'inputlen':0, 'reverse':0, 'bounds':[0,0], 'inclusive':0 }$/;"	v
 s:style	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^    let s:style = &background$/;"	v
 s:style	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^    let s:style = g:lucius_style$/;"	v
 s:syng_linecom	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^let s:syng_linecom = 'linecomment\\c'$/;"	v
@@ -3225,6 +3293,35 @@ size	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^fu!
 slice	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codecleaner.rs	/^pub fn slice(src: &str, (begin, end): (usize, usize)) -> &str {$/;"	f
 slice	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/testutils.rs	/^pub fn slice<'a>(src: &'a str, (begin, end): (usize, usize)) -> &'a str {$/;"	f
 snakecase	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:snakecase(word)$/;"	f
+sneak#cancel	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! sneak#cancel()$/;"	f
+sneak#debug#profile	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/debug.vim	/^func! sneak#debug#profile()$/;"	f
+sneak#debug#report	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/debug.vim	/^func! sneak#debug#report()$/;"	f
+sneak#hl#get	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/hl.vim	/^func! sneak#hl#get(hlgroup) "gets the definition of the specified highlight$/;"	f
+sneak#hl#links_to	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/hl.vim	/^func! sneak#hl#links_to(hlgroup)$/;"	f
+sneak#hl#removehl	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/hl.vim	/^func! sneak#hl#removehl() "remove highlighting$/;"	f
+sneak#init	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! sneak#init()$/;"	f
+sneak#is_sneaking	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! sneak#is_sneaking()$/;"	f
+sneak#reset	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! sneak#reset(key)$/;"	f
+sneak#rpt	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! sneak#rpt(op, reverse) abort$/;"	f
+sneak#search#get_cs	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/search.vim	/^func! sneak#search#get_cs(input, use_ic_scs)$/;"	f
+sneak#search#new	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/search.vim	/^func! sneak#search#new()$/;"	f
+sneak#state	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! sneak#state()$/;"	f
+sneak#streak#init	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! sneak#streak#init()$/;"	f
+sneak#streak#sanitize_target_labels	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! sneak#streak#sanitize_target_labels()$/;"	f
+sneak#streak#to	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/streak.vim	/^func! sneak#streak#to(s, v, reverse)$/;"	f
+sneak#to	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! sneak#to(op, input, inputlen, count, repeatmotion, reverse, inclusive, streak) abort "{{{$/;"	f
+sneak#util#echo	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/util.vim	/^func! sneak#util#echo(msg)$/;"	f
+sneak#util#getc	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/util.vim	/^func! sneak#util#getc()$/;"	f
+sneak#util#getchar	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/util.vim	/^func! sneak#util#getchar()$/;"	f
+sneak#util#has_upper	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/util.vim	/^func! sneak#util#has_upper(s)$/;"	f
+sneak#util#isvisualop	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/util.vim	/^func! sneak#util#isvisualop(op)$/;"	f
+sneak#util#nudge	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/util.vim	/^func! sneak#util#nudge(right)$/;"	f
+sneak#util#skipfold	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/util.vim	/^func! sneak#util#skipfold(current_line, reverse)$/;"	f
+sneak#util#strlen	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/util.vim	/^  func! sneak#util#strlen(s)$/;"	f
+sneak#util#wincol1	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/util.vim	/^func! sneak#util#wincol1()$/;"	f
+sneak#wrap	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^func! sneak#wrap(op, inputlen, reverse, inclusive, streak) abort$/;"	f
+sneak.vim :shoe:	/home/rmelton/projects/vimfiles/bundle/sneak/README.md	/^# sneak.vim :shoe:$/;"	h
+sneak_colorscheme	/home/rmelton/projects/vimfiles/bundle/sneak/autoload/sneak/hl.vim	/^augroup sneak_colorscheme " re-init if :colorscheme is changed at runtime. #108$/;"	a
 snippet	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/snippets.rs	/^    fn snippet(&self) -> String {$/;"	f
 snippet_for_match	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/snippets.rs	/^pub fn snippet_for_match(m: &Match) -> String {$/;"	f
 snippets	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub mod snippets;$/;"	m
@@ -3464,3 +3561,4 @@ xml_encode	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.v
 xml_entity_decode	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^function! s:xml_entity_decode(str)$/;"	f
 yO	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> yO  :call <SID>setup_paste()<CR>O$/;"	m
 yo	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> yo  :call <SID>setup_paste()<CR>o$/;"	m
+z	/home/rmelton/projects/vimfiles/bundle/sneak/plugin/sneak.vim	/^  omap z  <Plug>Sneak_s$/;"	m
