@@ -19,7 +19,7 @@ endif
 " Location of the ag utility
 if !exists("g:ag_prg")
   " --vimgrep (consistent output we can parse) is available from version  0.25.0+
-  if split(system("ag --version"), "[ \n\r\t]")[2] =~ '\d\+.[2-9][5-9]\(.\d\+\)\?'
+  if split(system("ag --version"), "[ \n\r\t]")[2] =~ '\d\+.\(\(2[5-9]\)\|\([3-9][0-9]\)\)\(.\d\+\)\?'
     let g:ag_prg="ag --vimgrep"
   else
     " --noheading seems odd here, but see https://github.com/ggreer/the_silver_searcher/issues/361

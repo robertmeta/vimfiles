@@ -501,6 +501,12 @@ let g:racer_cmd=$HOME.'/projects/racer/target/release/racer'
 let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " }}}
 
+" Sneak {{{
+let g:sneak#streak = 1
+let g:sneak#map_netrw = 1
+let g:sneak#s_next = 1
+" }}}
+
 " Theme setup {{{
 let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
