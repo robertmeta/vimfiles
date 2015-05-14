@@ -107,7 +107,7 @@ git clone https://github.com/cespare/vim-toml bundle/toml && rm -rf bundle/toml/
 # Sneak is a minimalist, versatile Vim motion plugin that jumps to any location specified by two characters. 
 # It works with multiple lines, operators (including repeat . and surround), keymaps, visual mode, 
 # unicode ("multibyte"), and macros.
-git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak.git
+git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
 
 # Modeline {{{
 # vim: set foldlevel=1: 
