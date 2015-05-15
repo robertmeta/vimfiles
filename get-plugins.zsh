@@ -103,7 +103,10 @@ git clone https://github.com/vim-scripts/autohotkey-ahk bundle/ahk && rm -rf bun
 
 # TOML
 git clone https://github.com/cespare/vim-toml bundle/toml && rm -rf bundle/toml/.git
-
+ 
+# EasyMotion provides a much simpler way to use some motions in vim. It takes
+# the <number> out of <number>w or <number>f{char} by highlighting all possible
+# choices and allowing you to press one key to jump directly to the target.
 git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
 
 # Modeline {{{
