@@ -501,10 +501,23 @@ let g:racer_cmd=$HOME.'/projects/racer/target/release/racer'
 let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " }}}
 
-" Sneak {{{
-let g:sneak#streak = 1
-let g:sneak#map_netrw = 1
-let g:sneak#s_next = 1
+" Easy Motion {{{
+" Settings
+let g:EasyMotion_do_mapping=0
+let g:EasyMotion_do_shade=1
+let g:EasyMotion_inc_highlight=1
+let g:EasyMotion_keys='ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
+let g:EasyMotion_landing_highlight=0
+let g:EasyMotion_off_screen_search=1
+let g:EasyMotion_use_smartsign_us=1
+let g:EasyMotion_use_upper=1
+" Mappings
+nmap <leader><space> <Plug>(easymotion-bd-w)  
+nmap <leader>j <Plug>(easymotion-s)
+nmap <leader>l <Plug>(easymotion-bd-jk)
+" Highlight Overrides
+hi link EasyMotionTarget2First Identifier
+hi link EasyMotionTarget2Second Number
 " }}}
 
 " Theme setup {{{
