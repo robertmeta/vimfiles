@@ -509,6 +509,7 @@ let g:EasyMotion_off_screen_search=1
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
+nmap \ <Plug>(easymotion-s)
 nmap <leader>j <Plug>(easymotion-s)
 nmap <leader>l <Plug>(easymotion-bd-jk)
 " Highlight Overrides
