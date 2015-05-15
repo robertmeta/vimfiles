@@ -311,6 +311,15 @@ if s:running_windows && has("gui_running") == 0
     set t_Co=256
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
+    set nocursorline 
+else 
+    " Active Window {{{
+    augroup Numbers
+        autocmd!
+        autocmd WinEnter * set cursorline 
+        autocmd WinLeave * set nocursorline 
+    augroup END
+    " }}}
 endif
 " }}}
 
@@ -322,13 +331,6 @@ if has("mouse")
 endif 
 " }}}
 
-" Active Window {{{
-augroup Numbers
-    autocmd!
-    autocmd WinEnter * set cursorline 
-    autocmd WinLeave * set nocursorline 
-augroup END
-" }}}
 
 " CtrlP {{{
 " Settings
