@@ -34,8 +34,8 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 " General mappings {{{
 nmap <space> <leader>
 " Easy scrolling, no coording
-nnoremap <leader>k <C-b>
-nnoremap <leader>j <C-f>
+nnoremap <leader>b <C-b>
+nnoremap <leader>f <C-f>
 " folding / unfolding outer layer
 nnoremap <leader>z :%foldc<cr> 
 nnoremap <leader>Z :%foldo<cr>
@@ -512,7 +512,6 @@ let g:EasyMotion_off_screen_search=1
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
-nmap <leader><space> <Plug>(easymotion-bd-w)  
 nmap <leader>j <Plug>(easymotion-s)
 nmap <leader>l <Plug>(easymotion-bd-jk)
 " Highlight Overrides
