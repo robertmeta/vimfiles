@@ -56,9 +56,6 @@ nnoremap <C-down> :cnext<cr>zvzz
 nnoremap <C-up> :cprev<cr>zvzz
 nnoremap <S-down> :lnext<cr>zvzz
 nnoremap <S-up> :lprev<cr>zvzz
-" keep centered when jumping serach results
-nnoremap n nzzzv
-nnoremap N Nzzzv
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " }}}
@@ -69,6 +66,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set completeopt=longest,menuone,preview " complete menu
 set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
+set cursorline " start with cursor line 
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set fileencoding=utf-8 " UTF-8
@@ -94,13 +92,13 @@ set noautoread " do NOT read on all changes
 set noautowriteall " do NOT write on all changes
 set noautowrite " do NOT write on all changes
 set nocursorcolumn " disable global cursor column 
-set nocursorline " no global cursor line 
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
+set norelativenumber " nope, not trying again
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
@@ -108,11 +106,10 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " turn on line numbers
 set numberwidth=5 " We are good up to 99999 lines
-set norelativenumber " nope, not trying again
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
-set scrolloff=9999 " Keep focus on middle of screen when possible
+set scrolloff=5 " Keep focus on middle of screen when possible
 set secure " but lets not go crazy
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
