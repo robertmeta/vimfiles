@@ -33,9 +33,6 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 
 " General mappings {{{
 nmap <space> <leader>
-" Easy scrolling, no coording
-nnoremap <leader>b <C-b>
-nnoremap <leader>f <C-f>
 " folding / unfolding outer layer
 nnoremap <leader>z :%foldc<cr> 
 nnoremap <leader>Z :%foldo<cr>
@@ -111,7 +108,7 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " turn on line numbers
 set numberwidth=5 " We are good up to 99999 lines
-set relativenumber " ok, trying again
+set norelativenumber " nope, not trying again
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
