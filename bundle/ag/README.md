@@ -27,6 +27,14 @@ cd ~/.vim/bundle && git clone https://github.com/rking/ag.vim ag && vim +Helptag
 echo "Plugin 'rking/ag.vim'" >> ~/.vimrc && vim +BundleInstall
 ```
 
+ * Or, if you don't use any sort of Vim plugin management: 
+
+```sh
+cd ~/.vim/bundle && git clone https://github.com/rking/ag.vim ag && echo "set runtimepath^=~/.vim/bundle/ag" >> ~/.vimrc
+```
+
+Then open vim and rum `:helptags ~/.vim/bundle/ag/doc`.
+
 ### Configuration
 
 You can specify a custom ag name and path in your .vimrc like so:

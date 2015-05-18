@@ -508,9 +508,12 @@ let g:EasyMotion_off_screen_search=1
 let g:EasyMotion_use_smartsign_us=1
 let g:EasyMotion_use_upper=1
 " Mappings
-nmap F <Plug>(easymotion-bd-w)
 nmap <leader>j <Plug>(easymotion-s)
 nmap <leader>l <Plug>(easymotion-bd-jk)
+nmap <leader><space> <Plug>(easymotion-s)
+vmap <leader>j <Plug>(easymotion-s)
+vmap <leader>l <Plug>(easymotion-bd-jk)
+vmap <leader><space> <Plug>(easymotion-s)
 " Highlight Overrides
 hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
