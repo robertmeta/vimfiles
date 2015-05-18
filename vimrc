@@ -511,10 +511,10 @@ let g:EasyMotion_use_upper=1
 " Mappings
 nmap <leader>j <Plug>(easymotion-s)
 nmap <leader>l <Plug>(easymotion-bd-jk)
-nmap <leader><space> <Plug>(easymotion-w)
+nmap <leader><space> <Plug>(easymotion-bd-w)
 vmap <leader>j <Plug>(easymotion-s)
 vmap <leader>l <Plug>(easymotion-bd-jk)
-vmap <leader><space> <Plug>(easymotion-w)
+vmap <leader><space> <Plug>(easymotion-bd-w)
 " Highlight Overrides
 hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
