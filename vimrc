@@ -45,6 +45,7 @@ nnoremap <leader>K <C-W>k
 nnoremap <leader>L <C-W>l
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w 
+nnoremap <leader>W <C-W>W 
 nnoremap <leader>x <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
