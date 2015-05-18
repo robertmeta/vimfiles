@@ -501,18 +501,18 @@ let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " Easy Motion {{{
 " Settings
 let g:EasyMotion_do_mapping=0
-let g:EasyMotion_do_shade=1
+let g:EasyMotion_do_shade=0
 let g:EasyMotion_inc_highlight=1
 let g:EasyMotion_keys='ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 let g:EasyMotion_landing_highlight=0
 let g:EasyMotion_off_screen_search=1
 let g:EasyMotion_use_smartsign_us=1
-let g:EasyMotion_use_upper=1
+let g:EasyMotion_use_upper=0
 " Mappings
-nmap <leader>j <Plug>(easymotion-s)
+nmap <leader>f <Plug>(easymotion-s)
 nmap <leader>l <Plug>(easymotion-bd-jk)
 nmap <leader><space> <Plug>(easymotion-bd-w)
-vmap <leader>j <Plug>(easymotion-s)
+vmap <leader>f <Plug>(easymotion-s)
 vmap <leader>l <Plug>(easymotion-bd-jk)
 vmap <leader><space> <Plug>(easymotion-bd-w)
 " Highlight Overrides
