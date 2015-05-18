@@ -51,8 +51,10 @@ nnoremap <leader>% :vsplit<cr>
 " Arrow control
 nnoremap <left> :NERDTreeToggle<cr>
 nnoremap <right> :TagbarToggle<cr>
-nnoremap <down> <C-f>
-nnoremap <up> <C-b>
+nnoremap <up> <C-f>
+nnoremap <down> <C-b>
+nnoremap <leader>j <C-f>
+nnoremap <leader>k <C-b>
 nnoremap <C-down> :cnext<cr>zvzz
 nnoremap <C-up> :cprev<cr>zvzz
 nnoremap <S-down> :lnext<cr>zvzz
