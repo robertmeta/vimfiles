@@ -475,13 +475,13 @@ let g:syntastic_always_populate_loc_list=1
 " }}}
 
 " Fugitive {{{
-nnoremap <leader>fa :Gadd<cr>
-nnoremap <leader>fc :Gcommit<cr>
-nnoremap <leader>fo :Gcheckout<cr>
-nnoremap <leader>fd :Gdiff<cr>
-nnoremap <leader>fs :Gstatus<cr>
-nnoremap <leader>fw :Gwrite<cr>
-nnoremap <leader>ff :Gwrite<cr>:Gcommit<cr>
+nnoremap <leader>va :Gadd<cr>
+nnoremap <leader>vc :Gcommit<cr>
+nnoremap <leader>vo :Gcheckout<cr>
+nnoremap <leader>vd :Gdiff<cr>
+nnoremap <leader>vs :Gstatus<cr>
+nnoremap <leader>vw :Gwrite<cr>
+nnoremap <leader>vg :Gwrite<cr>:Gcommit<cr>
 " }}}
 
 " Javascript {{{
@@ -507,7 +507,7 @@ let g:EasyMotion_keys='ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 let g:EasyMotion_landing_highlight=0
 let g:EasyMotion_off_screen_search=1
 let g:EasyMotion_use_smartsign_us=1
-let g:EasyMotion_use_upper=0
+let g:EasyMotion_use_upper=1
 " Mappings
 nmap <leader>f <Plug>(easymotion-s)
 nmap <leader>l <Plug>(easymotion-bd-jk)
