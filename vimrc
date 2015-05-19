@@ -64,6 +64,8 @@ nnoremap <S-up> :lprev<cr>zvzz
 nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " }}}
 
+let g:rainbow_active = 1
+
 " Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
@@ -268,11 +270,6 @@ if has("autocmd")
         au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
         au BufNewFile,BufRead *.md,*.markdown setlocal filetype=markdown " Markdown (common markdown?)
         au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
-        " Rainbow Parens
-        au Syntax * RainbowParenthesesLoadBraces
-        au Syntax * RainbowParenthesesLoadRound
-        au Syntax * RainbowParenthesesLoadSquare
-        au VimEnter * RainbowParenthesesActivate
         " Things I like spellcheck in
         au FileType asciidoc setlocal spell
         au FileType gitcommit setlocal spell
@@ -403,36 +400,6 @@ map <Leader>r :VimuxRunLastCommand<CR>
 " let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": ["go"] }
 " }}}
 
-" RainbowParentheses {{{
-let g:rbpt_colorpairs=[
-            \ ['blue', 'RoyalBlue3'],
-            \ ['darkred', 'firebrick3'],
-            \ ['darkgreen', 'Seagreen3'],
-            \ ['brown', 'DarkOrchid3'],
-            \ ['darkcyan', 'Seagreen3'],
-            \ ['darkmagenta', 'RoyalBlue3'],
-            \ ['blue', 'RoyalBlue3'],
-            \ ['darkred', 'firebrick3'],
-            \ ['darkgreen', 'Seagreen3'],
-            \ ['brown', 'DarkOrchid3'],
-            \ ['darkcyan', 'Seagreen3'],
-            \ ['darkmagenta', 'RoyalBlue3'],
-            \ ['blue', 'RoyalBlue3'],
-            \ ['darkred', 'firebrick3'],
-            \ ['darkgreen', 'Seagreen3'],
-            \ ['brown', 'DarkOrchid3'],
-            \ ['darkcyan', 'Seagreen3'],
-            \ ['darkmagenta', 'RoyalBlue3'],
-            \ ['blue', 'RoyalBlue3'],
-            \ ['darkred', 'firebrick3'],
-            \ ['darkgreen', 'Seagreen3'],
-            \ ['brown', 'DarkOrchid3'],
-            \ ['darkcyan', 'Seagreen3'],
-            \ ['darkmagenta', 'RoyalBlue3'],
-            \ ]
-let g:rbpt_max=24
-" }}}
-
 " HTML Settings {{{
 let html_number_lines=0
 let html_use_css=0
@@ -527,7 +494,6 @@ hi StatusLine ctermbg=cyan
 fun! LuciousLightColors()
     set background=light
     LuciusLightHighContrast
-    RainbowParenthesesActivate
     hi CursorLineNr ctermbg=cyan
     hi StatusLine ctermbg=cyan ctermfg=black
 endfun
@@ -535,7 +501,6 @@ endfun
 fun! LuciousDarkColors()
     set background=dark
     LuciusDark
-    RainbowParenthesesActivate
     hi LineNr ctermfg=lightgrey
     hi CursorLineNr ctermfg=cyan
     hi StatusLine ctermbg=cyan ctermfg=black

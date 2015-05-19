@@ -131,7 +131,6 @@ AgBuffer	/home/rmelton/projects/vimfiles/bundle/ag/plugin/ag.vim	/^command! -ban
 AgFile	/home/rmelton/projects/vimfiles/bundle/ag/plugin/ag.vim	/^command! -bang -nargs=* -complete=file AgFile call ag#Ag('grep<bang> -g', <q-args>)$/;"	c
 AgFromSearch	/home/rmelton/projects/vimfiles/bundle/ag/plugin/ag.vim	/^command! -bang -nargs=* -complete=file AgFromSearch call ag#AgFromSearch('grep<bang>', <q-args>)$/;"	c
 AgHelp	/home/rmelton/projects/vimfiles/bundle/ag/plugin/ag.vim	/^command! -bang -nargs=* -complete=help AgHelp call ag#AgHelp('grep<bang>',<q-args>)$/;"	c
-Always On:	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/readme.md	/^### Always On:$/;"	k
 Args	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/html/tidy.vim	/^function! s:Args() " {{{2$/;"	f
 Argument Seek	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^### Argument Seek$/;"	k
 Argument Text Objects	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^## Argument Text Objects$/;"	i
@@ -143,7 +142,6 @@ Bar	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    trait B
 Bar for Foo	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    impl Bar for Foo {$/;"	i
 Basic Options	/home/rmelton/projects/vimfiles/bundle/ctrlp/readme.md	/^## Basic Options$/;"	i
 Basic Usage	/home/rmelton/projects/vimfiles/bundle/ctrlp/readme.md	/^## Basic Usage$/;"	i
-Better Rainbow Parentheses	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/readme.md	/^# Better Rainbow Parentheses$/;"	h
 Bidirectional motions	/home/rmelton/projects/vimfiles/bundle/easymotion/README.md	/^### Bidirectional motions$/;"	k
 Blah	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    pub enum Blah { MyVariant }$/;"	g
 Blah	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    pub enum Blah { MyVariant, MyVariant2 }$/;"	g
@@ -191,7 +189,6 @@ Close	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:Cl
 CloseCustomFuncs	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:CloseCustomFuncs()$/;"	f
 CodeIndicesIter	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codecleaner.rs	/^pub struct CodeIndicesIter<'a> {$/;"	s
 Command not found	/home/rmelton/projects/vimfiles/bundle/vim-go/README.md	/^### Command not found$/;"	k
-Commands:	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/readme.md	/^### Commands:$/;"	k
 Commentary	/home/rmelton/projects/vimfiles/bundle/commentary/plugin/commentary.vim	/^command! -range -bar Commentary call s:go(<line1>,<line2>)$/;"	c
 Commit	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:Commit(args, ...) abort$/;"	f
 CommitComplete	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:CommitComplete(A,L,P) abort$/;"	f
@@ -646,6 +643,7 @@ MKFILES	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^MKFILES=Makefile
 MKFILES	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^MKFILES=Makefile `ls -1 | grep '.mk$$'`$/;"	m
 MYLEN	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    static MYLEN:uint = 30;$/;"	c
 MYSTATIC	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    pub static MYSTATIC:uint = 3;$/;"	c
+Manually:	/home/rmelton/projects/vimfiles/bundle/rainbow/README.md	/^### Manually:$/;"	k
 MapNextFamily	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^function! s:MapNextFamily(map,cmd)$/;"	f
 MapNorms	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:MapNorms()$/;"	f
 MapSpecs	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:MapSpecs()$/;"	f
@@ -696,7 +694,6 @@ Open	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:Ope
 OpenMulti	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:OpenMulti(...)$/;"	f
 OpenNoMarks	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:OpenNoMarks(md, line)$/;"	f
 Optional	/home/rmelton/projects/vimfiles/bundle/vim-go/README.md	/^### Optional$/;"	k
-Options:	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/readme.md	/^### Options:$/;"	k
 Overview	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^## Overview$/;"	i
 PAUSE_BEFORE_EXIT	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^    set PAUSE_BEFORE_EXIT=1$/;"	v
 PAUSE_BEFORE_EXIT	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags.cmd	/^set PAUSE_BEFORE_EXIT=0$/;"	v
@@ -755,13 +752,14 @@ RECORD_FILE	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^RECORD_FILE=
 RECORD_FILE	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^RECORD_FILE=.record$/;"	m
 RECORD_SCRIPT	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^RECORD_SCRIPT=.mkrecord$/;"	m
 RECORD_SCRIPT	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^RECORD_SCRIPT=.mkrecord$/;"	m
-RainbowParenthesesActivate	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/plugin/rainbow_parentheses.vim	/^com! RainbowParenthesesActivate     cal rainbow_parentheses#activate()$/;"	c
-RainbowParenthesesLoadBraces	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/plugin/rainbow_parentheses.vim	/^com! RainbowParenthesesLoadBraces   cal rainbow_parentheses#load(2)$/;"	c
-RainbowParenthesesLoadChevrons	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/plugin/rainbow_parentheses.vim	/^com! RainbowParenthesesLoadChevrons cal rainbow_parentheses#load(3)$/;"	c
-RainbowParenthesesLoadRound	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/plugin/rainbow_parentheses.vim	/^com! RainbowParenthesesLoadRound    cal rainbow_parentheses#load(0)$/;"	c
-RainbowParenthesesLoadSquare	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/plugin/rainbow_parentheses.vim	/^com! RainbowParenthesesLoadSquare   cal rainbow_parentheses#load(1)$/;"	c
-RainbowParenthesesToggle	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/plugin/rainbow_parentheses.vim	/^com! RainbowParenthesesToggle       cal rainbow_parentheses#toggle()$/;"	c
-RainbowParenthesesToggleAll	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/plugin/rainbow_parentheses.vim	/^com! RainbowParenthesesToggleAll    cal rainbow_parentheses#toggleall()$/;"	c
+RacerComplete	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! RacerComplete(findstart, base)$/;"	f
+RacerGetCompletions	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! RacerGetCompletions()$/;"	f
+RacerGetExpCompletions	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! RacerGetExpCompletions()$/;"	f
+RacerGetPrefixCol	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! RacerGetPrefixCol()$/;"	f
+RacerGoToDefinition	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! RacerGoToDefinition()$/;"	f
+RacerJumpToLocation	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! RacerJumpToLocation(filename, linenum, colnum)$/;"	f
+RainbowToggle	/home/rmelton/projects/vimfiles/bundle/rainbow/plugin/rainbow.vim	/^command! RainbowToggle call rainbow#toggle()$/;"	c
+Referenced:	/home/rmelton/projects/vimfiles/bundle/rainbow/README.md	/^### Referenced: $/;"	k
 References	/home/rmelton/projects/vimfiles/bundle/html5/README.md	/^## References$/;"	i
 RehighlightBlame	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:RehighlightBlame() abort$/;"	f
 RemoteComplete	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:RemoteComplete(A, L, P) abort$/;"	f
@@ -1305,6 +1303,7 @@ WGET_OPT	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^WGET_OPT=-c -nv
 WGET_OPT	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^WGET_OPT=-c -nv$/;"	m
 Wall	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^command! -bar -nargs=? Wall$/;"	c
 Wall	/home/rmelton/projects/vimfiles/bundle/eunuch/plugin/eunuch.vim	/^function! s:Wall() abort$/;"	f
+What is improved ?	/home/rmelton/projects/vimfiles/bundle/rainbow/README.md	/^### What is improved ? $/;"	k
 What?	/home/rmelton/projects/vimfiles/bundle/gutentags/README.md	/^## What?$/;"	i
 Why another plugin?	/home/rmelton/projects/vimfiles/bundle/vim-go/README.md	/^## Why another plugin?$/;"	i
 Why?	/home/rmelton/projects/vimfiles/bundle/gutentags/README.md	/^## Why?$/;"	i
@@ -1673,7 +1672,6 @@ clear	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymoti
 clearCommandLine	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:clearCommandLine()$/;"	f
 clear_marks	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^fu s:clear_marks(marks)$/;"	f
 clear_matches	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^fu s:clear_matches(...)$/;"	f
-cluster	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^func! s:cluster()$/;"	f
 cmdheight.get	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Modules/DrawCommandline.vim	/^function! s:cmdheight.get()$/;"	f
 cmdheight.restore	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Modules/DrawCommandline.vim	/^function! s:cmdheight.restore()$/;"	f
 cmdheight.save	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Over/Commandline/Modules/DrawCommandline.vim	/^function! s:cmdheight.save()$/;"	f
@@ -1953,7 +1951,6 @@ expand_search_expr_handles_a_function_arg	/home/rmelton/projects/vimfiles/bundle
 expand_search_expr_handles_chained_calls	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^fn expand_search_expr_handles_chained_calls() {$/;"	f
 expand_search_expr_handles_inline_closures	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^fn expand_search_expr_handles_inline_closures() {$/;"	f
 expand_search_expr_handles_pos_at_end_of_search_str	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/scopes.rs	/^fn expand_search_expr_handles_pos_at_end_of_search_str() {$/;"	f
-extend	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^func! s:extend()$/;"	f
 extractopts	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^function! s:extractopts(list,opts)$/;"	f
 f	/home/rmelton/projects/vimfiles/bundle/easymotion/t/easymotion_spec.vim	/^        map f <Plug>(easymotion-f)$/;"	m
 f	/home/rmelton/projects/vimfiles/bundle/easymotion/t/operator_pending_spec.vim	/^        omap f <Plug>(easymotion-f)$/;"	m
@@ -3150,12 +3147,6 @@ qflistSecond	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/oracle.vi
 quote	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets.vim	/^function! s:quote()$/;"	f
 racer	/home/rmelton/projects/vimfiles/bundle/racer/editors/racer.el	/^(defgroup racer nil$/;"	f
 racer	/home/rmelton/projects/vimfiles/bundle/racer/src/main.rs	/^pub mod racer;$/;"	m
-racer#Complete	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! racer#Complete(findstart, base)$/;"	f
-racer#GetCompletions	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! racer#GetCompletions()$/;"	f
-racer#GetExpCompletions	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! racer#GetExpCompletions()$/;"	f
-racer#GetPrefixCol	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! racer#GetPrefixCol()$/;"	f
-racer#GoToDefinition	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! racer#GoToDefinition()$/;"	f
-racer#JumpToLocation	/home/rmelton/projects/vimfiles/bundle/racer/plugin/racer.vim	/^function! racer#JumpToLocation(filename, linenum, colnum)$/;"	f
 racer--candidates	/home/rmelton/projects/vimfiles/bundle/racer/editors/racer.el	/^(defun racer--candidates ()$/;"	f
 racer--complete-at-point-fn	/home/rmelton/projects/vimfiles/bundle/racer/editors/racer.el	/^(defun racer--complete-at-point-fn ()$/;"	f
 racer--complete-or-indent	/home/rmelton/projects/vimfiles/bundle/racer/editors/racer.el	/^(defun racer--complete-or-indent ()$/;"	f
@@ -3174,11 +3165,12 @@ racer-rust-src-path	/home/rmelton/projects/vimfiles/bundle/racer/editors/racer.e
 racer-start-pos	/home/rmelton/projects/vimfiles/bundle/racer/editors/racer.el	/^(defvar racer-start-pos)$/;"	f
 racer-tmp-file-name	/home/rmelton/projects/vimfiles/bundle/racer/editors/racer.el	/^(defvar racer-tmp-file-name)$/;"	f
 racer_bench	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/bench.rs	/^mod racer_bench {$/;"	m
-rainbow_parentheses#activate	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^func! rainbow_parentheses#activate()$/;"	f
-rainbow_parentheses#clear	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^func! rainbow_parentheses#clear()$/;"	f
-rainbow_parentheses#load	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^func! rainbow_parentheses#load(...)$/;"	f
-rainbow_parentheses#toggle	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^func! rainbow_parentheses#toggle()$/;"	f
-rainbow_parentheses#toggleall	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^func! rainbow_parentheses#toggleall()$/;"	f
+rainbow#clear	/home/rmelton/projects/vimfiles/bundle/rainbow/plugin/rainbow.vim	/^func rainbow#clear()$/;"	f
+rainbow#hide	/home/rmelton/projects/vimfiles/bundle/rainbow/plugin/rainbow.vim	/^func rainbow#hide()$/;"	f
+rainbow#hook	/home/rmelton/projects/vimfiles/bundle/rainbow/plugin/rainbow.vim	/^func rainbow#hook()$/;"	f
+rainbow#load	/home/rmelton/projects/vimfiles/bundle/rainbow/plugin/rainbow.vim	/^func rainbow#load()$/;"	f
+rainbow#show	/home/rmelton/projects/vimfiles/bundle/rainbow/plugin/rainbow.vim	/^func rainbow#show()$/;"	f
+rainbow#toggle	/home/rmelton/projects/vimfiles/bundle/rainbow/plugin/rainbow.vim	/^func rainbow#toggle()$/;"	f
 rdfa_attributes	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let rdfa_attributes = {'about': [], 'content': [], 'datatype': [], 'prefix': [], 'profile': [], 'property': [], 'resource': [], 'rel': relrev, 'rev': relrev, 'typeof': [], 'vocab': []}$/;"	v
 rdfa_attributes_value	/home/rmelton/projects/vimfiles/bundle/html5/autoload/xml/html5.vim	/^    let rdfa_attributes_value = {$/;"	v
 rebar_file	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/erlang/erlang_check_file.erl	/^rebar_file(Dir) ->$/;"	f
@@ -3223,6 +3215,7 @@ repo_tree	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^
 repo_user	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:repo_user() dict abort$/;"	f
 resolve_ast_path	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^fn resolve_ast_path(path: &ast::Path, filepath: &Path, pos: usize) -> Option<Match> {$/;"	f
 resolve_name	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_name(pathseg: &racer::PathSegment, filepath: &Path, pos: usize,$/;"	f
+resolve_parenthesis	/home/rmelton/projects/vimfiles/bundle/rainbow/plugin/rainbow.vim	/^func s:resolve_parenthesis(p)$/;"	f
 resolve_path	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_path(path: &racer::Path, filepath: &Path, pos: usize,$/;"	f
 resolve_path_with_str	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/nameres.rs	/^pub fn resolve_path_with_str(path: &racer::Path, filepath: &Path, pos: usize,$/;"	f
 restore_cursor_state	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion.vim	/^function! s:restore_cursor_state(visualmode) "{{{$/;"	f
@@ -3514,10 +3507,9 @@ s:libs	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/autoload/jslib
 s:line_term	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^let s:line_term = '\\s*\\%(\\%(\\\/\\\/\\).*\\)\\=$'$/;"	v
 s:line_term	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^let s:line_term = '\\s*\\%(\\%(\\\/\\\/\\).*\\)\\=$'$/;"	v
 s:loaded	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion.vim	/^let s:loaded = {}$/;"	v
-s:loadtgl	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^let s:loadtgl = exists('g:rbpt_loadcmd_toggle') ? g:rbpt_loadcmd_toggle : 0$/;"	v
+s:loaded	/home/rmelton/projects/vimfiles/bundle/rainbow/plugin/rainbow.vim	/^let s:loaded = 1$/;"	v
 s:local_manifest	/home/rmelton/projects/vimfiles/bundle/rust/compiler/cargo.vim	/^    let s:local_manifest = fnamemodify(s:local_manifest, ':p:h').'\/'$/;"	v
 s:local_manifest	/home/rmelton/projects/vimfiles/bundle/rust/compiler/cargo.vim	/^let s:local_manifest = findfile(s:cargo_manifest_name, '.;')$/;"	v
-s:max	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^let s:max = exists('g:rbpt_max') ? g:rbpt_max : max([len(s:pairs), 16])$/;"	v
 s:maybe_in_progress	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^    let s:maybe_in_progress[module] = {}$/;"	v
 s:maybe_in_progress	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^let s:maybe_in_progress = {}$/;"	v
 s:modemap	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let s:modemap = g:SyntasticModeMap.Instance()$/;"	v
@@ -3557,14 +3549,13 @@ s:one_line_scope_regex	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^l
 s:one_time_notices_issued	/home/rmelton/projects/vimfiles/bundle/syntastic/autoload/syntastic/log.vim	/^let s:one_time_notices_issued = []$/;"	v
 s:origin	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire.vim	/^let s:origin = []$/;"	v
 s:packages	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^let s:packages = [$/;"	v
-s:pairs	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^let s:pairs = [$/;"	v
-s:pairs	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^let s:pairs = exists('g:rbpt_colorpairs') ? g:rbpt_colorpairs : s:pairs$/;"	v
 s:path	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/autoload/jslibsyntax.vim	/^let s:path = expand('<sfile>:p:h')$/;"	v
 s:priorities	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion/highlight.vim	/^let s:priorities = {$/;"	v
 s:ps1xml_cpo_save	/home/rmelton/projects/vimfiles/bundle/ps1/syntax/ps1xml.vim	/^let s:ps1xml_cpo_save = &cpo$/;"	v
 s:pylint_new	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/python/pylint.vim	/^let s:pylint_new = -1$/;"	v
 s:quiet_warnings	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^            let s:quiet_warnings = [s:quiet_warnings]$/;"	v
 s:quiet_warnings	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^        let s:quiet_warnings = get(g:syntastic_quiet_messages, 'type', [])$/;"	v
+s:rainbow_conf	/home/rmelton/projects/vimfiles/bundle/rainbow/plugin/rainbow.vim	/^let s:rainbow_conf = {$/;"	v
 s:registry	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let s:registry = g:SyntasticRegistry.Instance()$/;"	v
 s:repo_prototype	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^let s:repo_prototype = {}$/;"	v
 s:repos	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^let s:repos = {}$/;"	v
@@ -3820,7 +3811,6 @@ s:text	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/undo.vim	/^le
 s:triggers	/home/rmelton/projects/vimfiles/bundle/wildfire/autoload/wildfire/triggers.vim	/^let s:triggers = []$/;"	v
 s:type_map	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/fortran/gfortran.vim	/^let s:type_map = {}$/;"	v
 s:types	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/buffertag.vim	/^let s:types = {$/;"	v
-s:types	/home/rmelton/projects/vimfiles/bundle/rainbow_parentheses/autoload/rainbow_parentheses.vim	/^let s:types = [['(',')'],['\\[','\\]'],['{','}'],['<','>']]$/;"	v
 s:undercurl_items	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^let s:undercurl_items = [$/;"	v
 s:underline_items	/home/rmelton/projects/vimfiles/bundle/lucius/colors/lucius.vim	/^let s:underline_items = [$/;"	v
 s:update_queue	/home/rmelton/projects/vimfiles/bundle/gutentags/autoload/gutentags.vim	/^    let s:update_queue[module] = []$/;"	v
@@ -4145,6 +4135,7 @@ util	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub mod uti
 vacantdict	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp.vim	/^fu! s:vacantdict(dict)$/;"	f
 validfile	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/buffertag.vim	/^fu! s:validfile(fname, ftype)$/;"	f
 vfha	/home/rmelton/projects/vimfiles/bundle/easymotion/t/easymotion_spec.vim	/^        normal vfha$/;"	m
+via Vundle:	/home/rmelton/projects/vimfiles/bundle/rainbow/README.md	/^### via Vundle:$/;"	k
 vim	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^augroup vim-go$/;"	a
 vim-go	/home/rmelton/projects/vimfiles/bundle/vim-go/README.md	/^# vim-go$/;"	h
 vim-javascript v0.10.0	/home/rmelton/projects/vimfiles/bundle/javascript/README.md	/^# vim-javascript v0.10.0$/;"	h
@@ -4222,3 +4213,7 @@ yO	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nno
 yo	/home/rmelton/projects/vimfiles/bundle/unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> yo  :call <SID>setup_paste()<CR>o$/;"	m
 zip	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Data/List.vim	/^function! s:zip(...) abort$/;"	f
 zip_fill	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/vital/_easymotion/Data/List.vim	/^function! s:zip_fill(xs, ys, filler) abort$/;"	f
+以下是本插件所参考的旧版本：	/home/rmelton/projects/vimfiles/bundle/rainbow/README_zh.md	/^### 以下是本插件所参考的旧版本： $/;"	k
+使用Vundle安装:	/home/rmelton/projects/vimfiles/bundle/rainbow/README_zh.md	/^### 使用Vundle安装:$/;"	k
+手动安装:	/home/rmelton/projects/vimfiles/bundle/rainbow/README_zh.md	/^### 手动安装:$/;"	k
+有哪些改进？	/home/rmelton/projects/vimfiles/bundle/rainbow/README_zh.md	/^### 有哪些改进？ $/;"	k
