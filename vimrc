@@ -64,8 +64,6 @@ nnoremap <S-up> :lprev<cr>zvzz
 nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " }}}
 
-let g:rainbow_active = 1
-
 " Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
@@ -479,6 +477,10 @@ vmap <leader><space> <Plug>(easymotion-bd-w)
 " Highlight Overrides
 hi link EasyMotionTarget2First Identifier
 hi link EasyMotionTarget2Second Number
+" }}}
+
+" {{{ Rainbow Plugin
+let g:rainbow_active = 1
 " }}}
 
 " Theme setup {{{
