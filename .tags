@@ -1043,6 +1043,7 @@ SyntaxCheckers_javascript_closurecompiler_IsAvailable	/home/rmelton/projects/vim
 SyntaxCheckers_javascript_eslint_GetLocList	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/javascript/eslint.vim	/^function! SyntaxCheckers_javascript_eslint_GetLocList() dict$/;"	f
 SyntaxCheckers_javascript_eslint_IsAvailable	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/javascript/eslint.vim	/^function! SyntaxCheckers_javascript_eslint_IsAvailable() dict$/;"	f
 SyntaxCheckers_javascript_flow_GetLocList	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/javascript/flow.vim	/^function! SyntaxCheckers_javascript_flow_GetLocList() dict$/;"	f
+SyntaxCheckers_javascript_flow_IsAvailable	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/javascript/flow.vim	/^function! SyntaxCheckers_javascript_flow_IsAvailable() dict$/;"	f
 SyntaxCheckers_javascript_gjslint_GetLocList	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/javascript/gjslint.vim	/^function! SyntaxCheckers_javascript_gjslint_GetLocList() dict$/;"	f
 SyntaxCheckers_javascript_jscs_GetLocList	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/javascript/jscs.vim	/^function! SyntaxCheckers_javascript_jscs_GetLocList() dict$/;"	f
 SyntaxCheckers_javascript_jshint_GetLocList	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/javascript/jshint.vim	/^function! SyntaxCheckers_javascript_jshint_GetLocList() dict$/;"	f
@@ -2196,7 +2197,7 @@ g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/synta
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^        let g:_SYNTASTIC_UNAME = split(syntastic#util#system('uname'), "\\n")[0]$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Unknown'$/;"	v
 g:_SYNTASTIC_UNAME	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^    let g:_SYNTASTIC_UNAME = 'Windows'$/;"	v
-g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-84'$/;"	v
+g:_SYNTASTIC_VERSION	/home/rmelton/projects/vimfiles/bundle/syntastic/plugin/syntastic.vim	/^let g:_SYNTASTIC_VERSION = '3.6.0-86'$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/.vim\/after\/plugin\/abolish.vim")$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/bundle/abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/vimfiles\/after\/plugin\/abolish.vim")$/;"	v
 g:ag_apply_lmappings	/home/rmelton/projects/vimfiles/bundle/ag/autoload/ag.vim	/^  let g:ag_apply_lmappings=1$/;"	v
