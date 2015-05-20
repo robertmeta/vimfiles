@@ -264,7 +264,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<CR><CR>
         au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<CR><CR>
         " Override types
-        au BufNewFile,BufRead *.ahk setlocal filetype=ahk " Autohotkey
+        au BufNewFile,BufRead *.ahk setlocal filetype=autohotkey " Autohotkey
         au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
         au BufNewFile,BufRead *.md,*.markdown setlocal filetype=markdown " Markdown (common markdown?)
         au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
