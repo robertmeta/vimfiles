@@ -62,6 +62,11 @@ nnoremap <S-down> :lnext<cr>zvzz
 nnoremap <S-up> :lprev<cr>zvzz
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
+" Make bindings work better with new wrapping
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 " }}}
 
 " Basics Settings {{{
@@ -89,6 +94,7 @@ set infercase " case inferred by default
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linespace=0 " don't insert any extra pixel lines betweens rows
+set linebreak " break on words not mid-word
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
 set noautoread " do NOT read on all changes
