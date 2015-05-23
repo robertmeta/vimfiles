@@ -248,7 +248,6 @@ DEPEND_DIR	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/
 DIRS	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^DIRS=`ls -1F | grep \/ | sed -e 's\/\\\/\/\/'`$/;"	m
 DIRS	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^DIRS=`ls -1F | grep \/ | sed -e 's\/\\\/\/\/'`$/;"	m
 Default bindings	/home/rmelton/projects/vimfiles/bundle/easymotion/README.md	/^### Default bindings$/;"	k
-DefaultGoPath	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^function! DefaultGoPath()$/;"	f
 Description	/home/rmelton/projects/vimfiles/bundle/rust/README.md	/^## Description$/;"	i
 Diff	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:Diff(vert,...) abort$/;"	f
 DirComplete	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^function! s:DirComplete(A,L,P) abort$/;"	f
@@ -379,7 +378,6 @@ GF	/home/rmelton/projects/vimfiles/bundle/fugitive/plugin/fugitive.vim	/^functio
 GIT_SOURCES	/home/rmelton/projects/vimfiles/bundle/html5/Makefile	/^GIT_SOURCES=$/;"	m
 GIT_SOURCES	/home/rmelton/projects/vimfiles/bundle/javascriptlibsyntax/Makefile	/^GIT_SOURCES=$/;"	m
 GenericsVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^pub struct GenericsVisitor {$/;"	s
-GetBinPath	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^function! GetBinPath()$/;"	f
 GetChar	/home/rmelton/projects/vimfiles/bundle/easymotion/autoload/EasyMotion.vim	/^function! s:GetChar() " {{{$/;"	f
 GetDialect	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/asm/gcc.vim	/^function! s:GetDialect() " {{{2$/;"	f
 GetJavascriptIndent	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^function GetJavascriptIndent()$/;"	f
@@ -431,6 +429,8 @@ GoInstallBinaries	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^
 GoInstallBinaries	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^function! s:GoInstallBinaries(updateBinaries)$/;"	f
 GoLint	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^command! GoLint call go#lint#Run()$/;"	c
 GoNeosnippet	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/snippets.vim	/^function! s:GoNeosnippet()$/;"	f
+GoPath	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^command! -nargs=? -complete=dir GoPath call go#path#GoPath(<f-args>)$/;"	c
+GoPathClear	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^command! GoPathClear call go#path#GoPathClear()$/;"	c
 GoPlay	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 -range=% GoPlay call go#play#Share(<count>, <line1>, <line2>)$/;"	c
 GoReferrers	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^command! -range=% GoReferrers call go#oracle#Referrers(<count>)$/;"	c
 GoRename	/home/rmelton/projects/vimfiles/bundle/vim-go/ftplugin/go/commands.vim	/^command! -nargs=? GoRename call go#rename#Rename(<f-args>)$/;"	c
@@ -597,7 +597,6 @@ IsInStringOrComment	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^func
 IsLineComment	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^function s:IsLineComment(lnum, col)$/;"	f
 IsLineComment	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^function s:IsLineComment(lnum, col)$/;"	f
 IsShellValid	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/sh/sh.vim	/^function! s:IsShellValid() " {{{2$/;"	f
-IsWin	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^function! IsWin()$/;"	f
 Issues	/home/rmelton/projects/vimfiles/bundle/targets/README.md	/^## Issues$/;"	i
 Item	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codecleaner.rs	/^    type Item = (usize, usize);$/;"	T
 Item	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/codeiter.rs	/^    type Item = (usize, usize);$/;"	T
@@ -619,7 +618,6 @@ LOG_FILE	/home/rmelton/projects/vimfiles/bundle/gutentags/plat/win32/update_tags
 LetTypeVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^struct LetTypeVisitor {$/;"	s
 LetVisitor	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/ast.rs	/^pub struct LetVisitor {$/;"	s
 License	/home/rmelton/projects/vimfiles/bundle/html5/README.md	/^## License$/;"	i
-LineEnding	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^function! LineEnding()$/;"	f
 LineHasOpeningBrackets	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^function s:LineHasOpeningBrackets(lnum)$/;"	f
 LineHasOpeningBrackets	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^function s:LineHasOpeningBrackets(lnum)$/;"	f
 LoadConfigFile	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/java/javac.vim	/^function! s:LoadConfigFile() " {{{2$/;"	f
@@ -712,7 +710,6 @@ Path	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^impl Path {
 Path	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub struct Path {$/;"	s
 PathSearch	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub struct PathSearch {$/;"	s
 PathSegment	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/mod.rs	/^pub struct PathSegment {$/;"	s
-PathSep	/home/rmelton/projects/vimfiles/bundle/vim-go/plugin/go.vim	/^function! PathSep()$/;"	f
 Pathogen	/home/rmelton/projects/vimfiles/bundle/toml/README.md	/^### Pathogen$/;"	k
 Pathogen (https://github.com/tpope/vim-pathogen)	/home/rmelton/projects/vimfiles/bundle/easymotion/README.md	/^### Pathogen (https:\/\/github.com\/tpope\/vim-pathogen)$/;"	k
 Point	/home/rmelton/projects/vimfiles/bundle/racer/src/racer/test.rs	/^    struct Point {$/;"	s
@@ -2726,10 +2723,16 @@ go#package#CompleteMembers	/home/rmelton/projects/vimfiles/bundle/vim-go/autoloa
 go#package#FromPath	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/package.vim	/^function! go#package#FromPath(arg)$/;"	f
 go#package#ImportPath	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/package.vim	/^function! go#package#ImportPath(arg)$/;"	f
 go#package#Paths	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/package.vim	/^function! go#package#Paths()$/;"	f
+go#path#BinPath	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/path.vim	/^function! go#path#BinPath()$/;"	f
+go#path#CheckBinPath	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/path.vim	/^function! go#path#CheckBinPath(binpath)$/;"	f
+go#path#Default	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/path.vim	/^function! go#path#Default()$/;"	f
+go#path#Detect	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/path.vim	/^function! go#path#Detect()$/;"	f
+go#path#GoPath	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/path.vim	/^function! go#path#GoPath(...)$/;"	f
+go#path#GoPathClear	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/path.vim	/^function! go#path#GoPathClear()$/;"	f
+go#path#HasPath	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/path.vim	/^function! go#path#HasPath(path)$/;"	f
 go#play#Share	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/play.vim	/^function! go#play#Share(count, line1, line2)$/;"	f
 go#rename#Rename	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/rename.vim	/^function! go#rename#Rename(...)$/;"	f
 go#textobj#Function	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/textobj.vim	/^function! go#textobj#Function(mode)$/;"	f
-go#tool#BinPath	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/tool.vim	/^function! go#tool#BinPath(binpath)$/;"	f
 go#tool#Deps	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/tool.vim	/^function! go#tool#Deps()$/;"	f
 go#tool#ExecuteInDir	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/tool.vim	/^function! go#tool#ExecuteInDir(cmd) abort$/;"	f
 go#tool#Exists	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/tool.vim	/^function! go#tool#Exists(importpath)$/;"	f
@@ -2740,6 +2743,10 @@ go#tool#ShowErrors	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/too
 go#ui#CloseWindow	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/ui.vim	/^function! go#ui#CloseWindow()$/;"	f
 go#ui#OpenDefinition	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/ui.vim	/^function! go#ui#OpenDefinition(filter)$/;"	f
 go#ui#OpenWindow	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/ui.vim	/^function! go#ui#OpenWindow(title, content)$/;"	f
+go#util#IsWin	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/util.vim	/^function! go#util#IsWin()$/;"	f
+go#util#LineEnding	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/util.vim	/^function! go#util#LineEnding()$/;"	f
+go#util#PathListSep	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/util.vim	/^function! go#util#PathListSep()$/;"	f
+go#util#PathSep	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/util.vim	/^function! go#util#PathSep()$/;"	f
 go#vimproc#has_vimproc	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/vimproc.vim	/^function! go#vimproc#has_vimproc()$/;"	f
 gocodeAutocomplete	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/complete.vim	/^fu! s:gocodeAutocomplete()$/;"	f
 gocodeCommand	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/complete.vim	/^fu! s:gocodeCommand(cmd, preargs, args)$/;"	f
@@ -3498,6 +3505,7 @@ s:id	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/tag.vim	/^let s
 s:id	/home/rmelton/projects/vimfiles/bundle/ctrlp/autoload/ctrlp/undo.vim	/^let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)$/;"	v
 s:imports	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/sass/sass.vim	/^    let s:imports = '--compass'$/;"	v
 s:imports	/home/rmelton/projects/vimfiles/bundle/syntastic/syntax_checkers/sass/sass.vim	/^let s:imports = ''$/;"	v
+s:initial_go_path	/home/rmelton/projects/vimfiles/bundle/vim-go/autoload/go/path.vim	/^let s:initial_go_path = ""$/;"	v
 s:invalid	/home/rmelton/projects/vimfiles/bundle/targets/autoload/targets/state.vim	/^let s:invalid = 0$/;"	v
 s:js_keywords	/home/rmelton/projects/vimfiles/bundle/javascript/indent/javascript.vim	/^let s:js_keywords = '^\\s*\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|in\\|instanceof\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\)'$/;"	v
 s:js_keywords	/home/rmelton/projects/vimfiles/indent/javascript.vim	/^let s:js_keywords = '^\\s*\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|in\\|instanceof\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\)'$/;"	v

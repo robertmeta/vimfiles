@@ -3,6 +3,7 @@ mkdir -p bundle
 
 # Themes {{{
 git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
+git clone https://github.com/NLKNguyen/papercolor-theme.git bundle/paper && rm -rf bundle/paper/.git
 # }}}
 
 # Gutentags is a plugin that takes care of the much needed management of tags
