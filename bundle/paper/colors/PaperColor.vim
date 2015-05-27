@@ -483,16 +483,29 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("mkdRule", s:pink, "", "")
 
   " Python Highlighting
+  call <SID>X("pythonImport", s:pink, "", "bold")
   call <SID>X("pythonExceptions", s:red, "", "")
   call <SID>X("pythonException", s:purple, "", "bold")
   call <SID>X("pythonInclude", s:red, "", "")
   call <SID>X("pythonStatement", s:pink, "", "")
   call <SID>X("pythonConditional", s:purple, "", "bold")
   call <SID>X("pythonRepeat", s:purple, "", "bold")
-  call <SID>X("pythonFunction", s:blue, "", "")
+  call <SID>X("pythonFunction", s:aqua, "", "bold")
   call <SID>X("pythonPreCondit", s:purple, "", "")
   call <SID>X("pythonExClass", s:orange, "", "")
-  call <SID>X("pythonOperator", s:aqua, "", "bold")
+  call <SID>X("pythonOperator", s:purple, "", "bold")
+  call <SID>X("pythonBuiltin", s:foreground, "", "")
+  call <SID>X("pythonDecorator", s:orange, "", "")
+  call <SID>X("pythonEscape", s:green, "", "bold")
+  call <SID>X("pythonString", s:green, "", "")
+
+  call <SID>X("pythonBoolean", s:darkgreen, "", "bold")
+  call <SID>X("pythonExClass", s:red, "", "")
+  call <SID>X("pythonBytesEscape", s:green, "", "bold")
+  call <SID>X("pythonDottedName", s:purple, "", "")
+  call <SID>X("pythonStrFormat", s:foreground, "", "")
+  call <SID>X("pythonBuiltinFunc", s:foreground, "", "")
+  call <SID>X("pythonBuiltinObj", s:foreground, "", "")
 
   " Java Highlighting
   call <SID>X("javaExternal", s:red, "", "")
