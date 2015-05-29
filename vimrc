@@ -97,9 +97,6 @@ set linespace=0 " don't insert any extra pixel lines betweens rows
 set linebreak " break on words not mid-word
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
-set noautoread " do NOT read on all changes
-set noautowriteall " do NOT write on all changes
-set noautowrite " do NOT write on all changes
 set nocursorcolumn " disable global cursor column 
 set nocursorline " no cursor line 
 set noerrorbells " don't be noisy
@@ -146,10 +143,19 @@ set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
 " }}}
 
+" Zed Mode {{{
+" Inspired by: http://zedapp.org/vision/
+set autoread 
+set autowriteall
+set autowrite
+augroup zedmode 
+    au CursorHold * checktime                                                                                                                                                                       
+augroup END
+" }}}
+
 " Clipboard, Backup and Undo {{{
 set backup " make backup files
 if s:running_windows
-    set clipboard=unnamed "sync with OS clipboard
     set backupdir=~/vimfiles/backup/ " where to put backup files
     set directory=~/vimfiles/temp/ " directory to place swap files in
     set undodir=~/vimfiles/undo/ " where to put undo files
