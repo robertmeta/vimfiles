@@ -39,10 +39,10 @@ nnoremap <leader>z :%foldc<cr>
 nnoremap <leader>Z :%foldo<cr>
 " Scrolling
 " Window control
-nnoremap <leader>H <C-W>h
-nnoremap <leader>J <C-W>j
-nnoremap <leader>K <C-W>k
-nnoremap <leader>L <C-W>l
+nnoremap <leader>h <C-W>h
+nnoremap <leader>j <C-W>j
+nnoremap <leader>k <C-W>k
+nnoremap <leader>l <C-W>l
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
 nnoremap <leader>W <C-W>W
@@ -54,8 +54,6 @@ nnoremap <left> :NERDTreeToggle<cr>
 nnoremap <right> :TagbarToggle<cr>
 nnoremap <up> <C-f>
 nnoremap <down> <C-b>
-nnoremap <leader>j <C-f>
-nnoremap <leader>k <C-b>
 nnoremap <C-down> :cnext<cr>zvzz
 nnoremap <C-up> :cprev<cr>zvzz
 nnoremap <S-down> :lnext<cr>zvzz
