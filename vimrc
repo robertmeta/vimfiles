@@ -14,7 +14,6 @@ set encoding=utf-8 " yey! utf-8
 scriptencoding utf-8 " yey! utf-8
 " adds stuff under bundles to the path
 execute pathogen#infect()
-set rtp+=~/.fzf " fzf is awesome
 Helptag " Help for plugins
 " }}}
 
@@ -330,7 +329,6 @@ if has("mouse")
     set ttymouse=xterm2 " makes it work in everything
 endif
 " }}}
-
 
 " CtrlP {{{
 " Settings
