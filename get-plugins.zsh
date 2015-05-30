@@ -117,6 +117,10 @@ git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace &&
 # choices and allowing you to press one key to jump directly to the target.
 git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
 
+# This plugin provides Readline (Emacs) mappings for insert and command line
+# mode that try not to overlap with built-in Vim functionality.
+git clone git://github.com/tpope/vim-rsi bundle/rsi && rm -rf bundle/rsi/.git
+
 # Modeline {{{
 # vim: set foldlevel=1:
 # }}}
