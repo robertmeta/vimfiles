@@ -442,13 +442,8 @@ let g:syntastic_always_populate_loc_list=1
 " }}}
 
 " Fugitive {{{
-nnoremap <leader>va :Gadd<cr>
- noremap <leader>vc :Gcommit<cr>
-nnoremap <leader>vo :Gcheckout<cr>
-nnoremap <leader>vd :Gdiff<cr>
-nnoremap <leader>vs :Gstatus<cr>
-nnoremap <leader>vw :Gwrite<cr>
-nnoremap <leader>vv :Gwrite<cr>:Gcommit<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gwrite<cr>:Gcommit<cr>
 " }}}
 
 " Javascript {{{
