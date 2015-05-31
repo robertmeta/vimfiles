@@ -140,14 +140,14 @@ set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
 " }}}
 
-" Zed Mode {{{
+" NO! Zed Mode {{{
 " Inspired by: http://zedapp.org/vision/
-set autoread
-set autowriteall
-set autowrite
-augroup zedmode
-    au CursorHold * checktime
-augroup END
+set noautoread
+set noautowriteall
+set noautowrite
+" augroup zedmode
+"     au CursorHold * checktime
+" augroup END
 " }}}
 
 " Clipboard, Backup and Undo {{{
