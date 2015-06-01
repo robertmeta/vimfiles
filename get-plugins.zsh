@@ -95,10 +95,11 @@ git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer
 # Improved Html5 support
 git clone https://github.com/othree/html5.vim bundle/html5 && rm -rf bundle/html5/.git
 
-# JS / Json / Angular / etc
+# JS / Json / Angular / LESS / etc
 git clone https://github.com/leshill/vim-json bundle/json && rm -rf bundle/json/.git
 git clone https://github.com/othree/javascript-libraries-syntax.vim bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
 git clone https://github.com/pangloss/vim-javascript bundle/javascript && rm -rf bundle/javascript/.git
+git clone https://github.com/groenewege/vim-less bundle/less && rm -rf bundle/less/.git
 
 # Autohotkey
 git clone https://github.com/robertmeta/autohotkey-ahk bundle/ahk && rm -rf bundle/ahk/.git
