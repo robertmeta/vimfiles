@@ -45,6 +45,7 @@ nnoremap <leader>l <C-W>l
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
 nnoremap <leader>W <C-W>W
+nnoremap <leader>s <esc>:write<cr>
 nnoremap <leader>x <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
@@ -90,10 +91,13 @@ set incsearch " BUT do highlight as you type you search phrase
 set infercase " case inferred by default
 set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
-set linespace=0 " don't insert any extra pixel lines betweens rows
 set linebreak " break on words not mid-word
+set linespace=0 " don't insert any extra pixel lines betweens rows
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
+set noautoread
+set noautowrite
+set noautowriteall
 set nocursorcolumn " disable global cursor column
 set nocursorline " no cursor line
 set noerrorbells " don't be noisy
@@ -102,13 +106,13 @@ set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
+set nonumber " turn off line numbers
 set norelativenumber " nope, not trying again
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set number " turn on line numbers
 set numberwidth=5 " We are good up to 99999 lines
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
@@ -138,16 +142,6 @@ set t_vb= " seriously, shhhh, don't be noisy
 set viminfo+=! " Store upper-case registers in viminfo
 set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
-" }}}
-
-" NO! Zed Mode {{{
-" Inspired by: http://zedapp.org/vision/
-set noautoread
-set noautowriteall
-set noautowrite
-" augroup zedmode
-"     au CursorHold * checktime
-" augroup END
 " }}}
 
 " Clipboard, Backup and Undo {{{
