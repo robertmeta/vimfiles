@@ -112,7 +112,6 @@ git clone https://github.com/sickill/vim-pasta bundle/pasta && rm -rf bundle/pas
 
 # Better whitespace
 git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
-git clone https://github.com/aserebryakov/filestyle bundle/filestyle && rm -rf bundle/filestyle/.git
 
 # EasyMotion provides a much simpler way to use some motions in vim. It takes
 # the <number> out of <number>w or <number>f{char} by highlighting all possible

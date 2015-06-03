@@ -348,7 +348,7 @@ endif
 " Mappings
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
-nnoremap <leader>T :CtrlPBufTagAll<cr>
+nnoremap <leader>T :CtrlPTag<cr>
 nnoremap <leader>t :CtrlPBufTag<cr>
 " }}}
 
