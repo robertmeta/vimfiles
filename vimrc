@@ -348,8 +348,8 @@ endif
 " Mappings
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
-nnoremap <leader>T :CtrlPTag<cr>
-nnoremap <leader>t :CtrlPBufTag<cr>
+nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <leader>T :CtrlPBufTag<cr>
 " }}}
 
 " vim-go {{{
