@@ -27,6 +27,9 @@ git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/
 git clone https://github.com/luochen1990/rainbow.git bundle/rainbow && rm -rf bundle/rainbow/.git
 # git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
+# tmux
+git clone https://github.com/christoomey/vim-tmux-navigator bundle/tmuxnav && rm -rf bundle/tmuxnav/.git
+
 # With Wildfire you can quickly select the closest text object among a group of
 # candidates. By default candidates are `i'`, `i"`, `i)`, `i]`, `i}`, `ip` and `it`.
 git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
