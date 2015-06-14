@@ -29,17 +29,17 @@ pub fn match_values(src: &str, blobstart: usize, blobend: usize,
     it.chain(match_fn(src, blobstart, blobend, searchstr, filepath, search_type, local).into_iter())
 }
 
-fn find_keyword(src: &str, pattern: &str, search: &str, search_type: SearchType, local: bool) -> Option<usize> {
-    // search for <pub>?<whitespaces>+<pattern>{1}<whitespaces>+<search>{1}
+fn find_keyword(src: &str, pattern: &str, search: &str, search_type: SearchType, local: bool) 
+-> Option<usize> {
+    // search for "^(pub\s+)?(unsafe\s+)?pattern\s+search"
 
-    let patterns = if local && !src.starts_with("pub") {
-        vec![pattern]
-    } else {
-        vec!["pub", pattern]
-    };
+    // if not local must start with pub
+    if !local && !src.starts_with("pub") { return None; }
 
     let mut start = 0usize;
-    for pat in patterns.iter() {
+
+    // optional (pub\s+)?(unsafe\s+)?
+    for pat in ["pub", "unsafe"].into_iter() {
         if src[start..].starts_with(pat) {
             // remove whitespaces ... must have one at least
             start += pat.len();
@@ -50,9 +50,26 @@ fn find_keyword(src: &str, pattern: &str, search: &str, search_type: SearchType,
                     _ => break
                 }
             }
-            if start == oldstart { return None }
-        } else { return None }
+            if start == oldstart { return None; }
+        }
     }
+
+    // mandatory pattern\s+
+    if src[start..].starts_with(pattern) {
+        // remove whitespaces ... must have one at least
+        start += pattern.len();
+        let oldstart = start;
+        for &b in src[start..].as_bytes().iter() {
+            match b {
+                b' '|b'\r'|b'\n'|b'\t' => start += 1,
+                _ => break
+            }
+        }
+        if start == oldstart { return None; }
+    } else {
+        return None;
+    }
+
     if src[start..].starts_with(search) {
         match search_type {
             StartsWith => Some(start),
@@ -461,7 +478,6 @@ pub fn match_use(msrc: &str, blobstart: usize, blobend: usize,
         for path in use_item.paths.into_iter() {
             let len = path.segments.len();
 
-            // TODO: simplify this:
             if symbol_matches(search_type, searchstr, &*ident) { // i.e. 'use foo::bar as searchstr'
                 if len == 1 && path.segments[0].name == searchstr {
                     // is an exact match of a single use stmt.
@@ -477,14 +493,16 @@ pub fn match_use(msrc: &str, blobstart: usize, blobend: usize,
                         }
                     }
                 }
-            } else if &*ident == "" {
-                // if searching for a symbol and the last bit matches the symbol
-                // then find the fqn
+            } else if &*ident == "" {   // i.e. no 'as'. e.g. 'use foo::{bar, baz}'
+                // if searching for a symbol and the last path segment 
+                // matches the symbol then find the fqn
                 if len == 1 && path.segments[0].name == searchstr {
                     // is an exact match of a single use stmt.
                     // Do nothing because this will be picked up by the module
                     // search in a bit.
-                } else if path.segments[len-1].name.starts_with(searchstr) {
+                } else if symbol_matches(search_type, searchstr, 
+                                         &path.segments.last().unwrap().name) {
+                    // last path segment matches the path. find it!
                     for m in resolve_path(&path, filepath, 0, ExactMatch, BothNamespaces) {
                         out.push(m);
                         if let ExactMatch = search_type  {
