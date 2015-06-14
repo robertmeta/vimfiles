@@ -38,10 +38,8 @@ nnoremap <leader>z :%foldc<cr>
 nnoremap <leader>Z :%foldo<cr>
 " Scrolling
 " Window control
-nnoremap <leader>h <C-W>h
-nnoremap <leader>j <C-W>j
-nnoremap <leader>k <C-W>k
-nnoremap <leader>l <C-W>l
+nnoremap <leader>k <C-b>
+nnoremap <leader>j <C-f>
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
 nnoremap <leader>W <C-W>W
@@ -445,8 +443,9 @@ let g:angular_filename_convention='camelcased'
 " }}}
 
 " Gutentags {{{
-let g:gutentags_tagfile='.tags'
+let g:gutentags_tagfile='tags'
 set tags+=.tags
+set tags+=TAGS
 " }}}
 
 " Racer {{{
