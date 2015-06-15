@@ -65,6 +65,14 @@ nnoremap gj j
 nnoremap gk k
 " }}}
 
+" {{{ bust out of insert
+imap jj <Esc>
+imap fj <Esc>
+imap jf <Esc>
+imap jk <Esc>
+imap kj <Esc>
+" }}}
+
 " Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
