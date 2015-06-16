@@ -35,8 +35,9 @@ git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
 
 # Rainbow Parens Improved
-git clone https://github.com/luochen1990/rainbow.git bundle/rainbow && rm -rf bundle/rainbow/.git
-# git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
+#git clone https://github.com/luochen1990/rainbow.git bundle/rainbow && rm -rf bundle/rainbow/.git
+#git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
+git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # tmux
 git clone https://github.com/christoomey/vim-tmux-navigator bundle/tmuxnav && rm -rf bundle/tmuxnav/.git
