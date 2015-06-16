@@ -484,7 +484,8 @@ hi link EasyMotionTarget2Second Number
 " }}}
 
 " {{{ Rainbow Plugin
-let g:rainbow_active = 1
+let g:rainbow#max_level = 24
+let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
 " }}}
 
 " Theme setup {{{
