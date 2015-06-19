@@ -6,7 +6,7 @@ Inspired by Google's Material Design
 
 Improve code readability; great for presentation
 
-Currently designed for these languages:  C, C++, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R
+Currently designed for these languages:  C, C++, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R, PHP
 
 Other languages can still display well as long as your Vim is set up to recognize the language syntax even though that may not be the optimal experience. So, if the language you are working on isn't listed here, feel free to make a design request.
 
@@ -59,9 +59,10 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 ![Sample Assembly code](https://nlknguyen.files.wordpress.com/2015/05/asm.png)
 
 ![Vim-airline support](https://nlknguyen.files.wordpress.com/2015/05/gifrecord_2015-05-31_010251.gif)
+
 To set [vim-airline](https://github.com/bling/vim-airline) theme:
 
-    let g:airline_theme='papercolor'
+    let g:airline_theme='PaperColor'
 
 
 For more sceenshots, story behind the project, and other users' designs inspired by Paper Color, go to [this blog post](http://nlknguyen.com/2015/05/21/vim-paper-color-theme/)

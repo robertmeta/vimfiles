@@ -261,8 +261,8 @@ if has("autocmd")
         au!
         " Resize windows automagically
         au VimResized * :wincmd =
-        " For secure reading/writing
-        " au BufReadPost * if &key != "" | setlocal noswapfile nowritebackup viminfo= nobackup noshelltemp history=0 secure | endif " never used anyway, not nvim compatible
+        " Always rainbow parens
+        au BufRead,BufNewFile * RainbowParentheses
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
