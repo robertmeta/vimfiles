@@ -13,8 +13,6 @@ git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bund
 git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/disciple/.git
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
-mkdir -p bundle/herald/colors
-curl https://h3rald.com/files/herald.vim > bundle/herald/colors/herald.vim
 # }}}
 
 # Gutentags is a plugin that takes care of the much needed management of tags
@@ -35,8 +33,6 @@ git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
 
 # Rainbow Parens Improved
-#git clone https://github.com/luochen1990/rainbow.git bundle/rainbow && rm -rf bundle/rainbow/.git
-#git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # tmux
@@ -139,6 +135,9 @@ git clone https://github.com/tpope/vim-rsi bundle/rsi && rm -rf bundle/rsi/.git
 
 # Elixir
 git clone https://github.com/elixir-lang/vim-elixir bundle/elixir && rm -rf bundle/elixir/.git
+
+# RFC Grabber
+git clone https://github.com/mhinz/vim-rfc bundle/rfc && rm -rf bundle/rfc/.git
 
 # Modeline {{{
 # vim: set foldlevel=1:
