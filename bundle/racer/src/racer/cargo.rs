@@ -58,6 +58,19 @@ fn find_src_via_lockfile(kratename: &str, cargofile: &Path) -> Option<PathBuf> {
 }
 
 fn get_cargo_rootdir() -> Option<PathBuf> {
+    match env::var_os("CARGO_HOME") {
+        Some(x) =>
+        {
+            let d = PathBuf::from(x);
+            if path_exists(&d) {
+                return Some(d)
+            } else {
+                return None
+            };
+        },
+        None => ()
+    };
+    
     let mut d = otry!(env::home_dir());
     
     // try multirust first, since people with multirust installed will often still 
@@ -116,11 +129,15 @@ fn get_versioned_cratefile(kratename: &str, version: &str) -> Option<PathBuf> {
 
     // First, check for package name at root (src/kratename/lib.rs)
     d.push(kratename.to_string());
+    d.push("lib.rs");
     if let Err(_) = File::open(&d) {
         // It doesn't exist, so assume src/lib.rs
         d.pop();
+        d.pop();
+        d.push("lib.rs");
     }
-    d.push("lib.rs");
+    debug!("crate path with lib.rs {:?}",d);
+
     if let Err(_) = File::open(&d) {
         return None;
     }
