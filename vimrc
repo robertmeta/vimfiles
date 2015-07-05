@@ -102,8 +102,8 @@ set linespace=0 " don't insert any extra pixel lines betweens rows
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
 set noautoread " no
-set noautowrite " auto
 set noautowriteall " writing
+set noautowrite " auto
 set nocursorcolumn " disable global cursor column
 set nocursorline " no cursor line
 set noerrorbells " don't be noisy
@@ -112,14 +112,14 @@ set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
+set nonumber " turn off line numbers
+set norelativenumber " nope, not trying again
 set noshowmatch " don't show matching things (RainbowParentheses is better)
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set number " turn off line numbers
 set numberwidth=5 " We are good up to 99999 lines
-set relativenumber " nope, not trying again
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
