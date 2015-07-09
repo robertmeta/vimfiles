@@ -5,49 +5,81 @@
 "
 " Modified from the theme 'Tomorrow'
 
-" Basic Colors:
-let s:foreground = "4d4d4c"
-let s:background = "F5F5F5"
-let s:selection = "d6d6d6"
-let s:window = "efefef"
-let s:line = "efefef"
+" Palette:
+"
+let s:red     = "#df0000" "Include/Exception
+let s:green   = "#008700" "Boolean/Special
+let s:blue    = "#4271ae" "Keyword
 
-" Foreground Colors:
-let s:comment = "8e908c"
+let s:pink    = "#d7005f" "Type
+let s:olive   = "#718c00" "String
+let s:navy    = "#005f87" "StorageClass
 
-let s:red = "df0000"
-let s:pink = "d7005f"
+let s:orange  = "#d75f00" "Number
+let s:purple  = "#8959a8" "Repeat/Conditional
+let s:aqua    = "#3e999f" "Operator/Delimiter
 
-let s:green = "008700"
-let s:olive = "718c00"
+" Basics:
+let s:foreground   = "#4d4d4c"
+let s:background   = "#F5F5F5"
+let s:selection    = "#d6d6d6"
+let s:nontext      = "#dfafff"
+let s:window       = "#efefef"
+let s:divider      = s:navy
+let s:linenumber   = "#bcbcbc"
+let s:comment      = "#8e908c"
+let s:todo         = "#00af5f"
+let s:cursorline   = "#dfdfff"
+let s:cursorcolumn = "#efefef"
+let s:error        = "#ffafdf"
 
-let s:blue = "4271ae"
-let s:navy = "005f87"
-let s:aqua = "3e999f"
+" Spelling:
+let s:spellbad   = "#ffafdf"
+let s:spellcap   = "#ffffaf"
+let s:spellrare  = "#afff87"
+let s:spelllocal = "#dfdfff"
 
-let s:orange = "d75f00"
+" Tabline:
+let s:tabline_bg          = s:navy
+let s:tabline_active_fg   = s:foreground
+let s:tabline_active_bg   = s:window
+let s:tabline_inactive_fg = s:background
+let s:tabline_inactive_bg = s:aqua
 
-let s:purple = "8959a8"
+" Statusline:
+let s:statusline_active_fg   = s:window
+let s:statusline_active_bg   = s:navy
+let s:statusline_inactive_fg = s:foreground
+let s:statusline_inactive_bg = s:window
 
-" Background Colors:
-let s:yellow = "ffff00"
+" Search:
+let s:search_fg = s:foreground
+let s:search_bg = "#ffff5f"
 
-let s:lightblue = "dfdfff"
+" Visual:
+let s:visual_fg = s:background
+let s:visual_bg = s:blue
 
-let s:mediumgreen = "afff87"
-let s:lightgreen = "dfffdf"
+" Folded:
+let s:folded_fg = s:navy
+let s:folded_bg = s:cursorline
 
-let s:mediumpink = "ffafdf"
-let s:lightpink = "ffdfff"
+" Diff:
+let s:diffadd_fg    = ""
+let s:diffadd_bg    = "#afffaf"
 
-let s:lightyellow = "ffffdf"
-let s:mediumyellow = "ffffaf"
+let s:diffdelete_fg = "#ffdfff"
+let s:diffdelete_bg = "#ffdfff"
 
+let s:difftext_fg   = ""
+let s:difftext_bg   = "#ffffdf"
+
+let s:diffchange_fg = ""
+let s:diffchange_bg   = "#ffffaf"
 
 set background=light
 hi clear
 syntax reset
-
 let g:colors_name = "PaperColor"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
@@ -236,11 +268,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     endif
   endfun
 
-  " Returns the palette index to approximate the 'rrggbb' hex string
+  " Returns the palette index to approximate the '#rrggbb' hex string
   fun <SID>rgb(rgb)
-    let l:r = ("0x" . strpart(a:rgb, 0, 2)) + 0
-    let l:g = ("0x" . strpart(a:rgb, 2, 2)) + 0
-    let l:b = ("0x" . strpart(a:rgb, 4, 2)) + 0
+    let l:r = ("0x" . strpart(a:rgb, 1, 2)) + 0
+    let l:g = ("0x" . strpart(a:rgb, 3, 2)) + 0
+    let l:b = ("0x" . strpart(a:rgb, 5, 2)) + 0
 
     return <SID>colour(l:r, l:g, l:b)
   endfun
@@ -248,10 +280,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " Sets the highlighting for the given group
   fun <SID>X(group, fg, bg, attr)
     if a:fg != ""
-      exec "hi " . a:group . " guifg=#" . a:fg . " ctermfg=" . <SID>rgb(a:fg)
+      exec "hi " . a:group . " guifg=" . a:fg . " ctermfg=" . <SID>rgb(a:fg)
     endif
     if a:bg != ""
-      exec "hi " . a:group . " guibg=#" . a:bg . " ctermbg=" . <SID>rgb(a:bg)
+      exec "hi " . a:group . " guibg=" . a:bg . " ctermbg=" . <SID>rgb(a:bg)
     endif
     if a:attr != ""
       exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
@@ -260,36 +292,36 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " Vim Highlighting
   call <SID>X("Normal", s:foreground, s:background, "")
-  highlight LineNr term=bold cterm=NONE ctermfg=grey ctermbg=NONE gui=NONE guifg=grey guibg=NONE
-  call <SID>X("NonText", s:selection, "", "")
-  call <SID>X("SpecialKey", s:selection, "", "")
-  call <SID>X("Search", s:foreground, s:yellow, "")
-  " call <SID>X("LineNr", s:aqua, s:background, "reverse")
-  call <SID>X("TabLine", s:aqua, s:background, "reverse")
-  call <SID>X("TabLineFill", s:navy, s:foreground, "reverse")
-  call <SID>X("TabLineSel", s:window, s:foreground, "reverse")
-  call <SID>X("StatusLine", s:window, s:navy, "bold")
-  call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
-  call <SID>X("VertSplit", s:navy, s:background, "none")
+  highlight LineNr term=bold cterm=NONE ctermfg=darkgrey ctermbg=NONE gui=NONE guifg=darkgrey guibg=NONE
+  call <SID>X("NonText", s:nontext, "", "")
+  call <SID>X("SpecialKey", s:nontext, "", "")
+  call <SID>X("Search", s:search_fg, s:search_bg, "")
+  call <SID>X("LineNr", s:linenumber, "", "")
+  call <SID>X("TabLine", s:tabline_inactive_fg, s:tabline_inactive_bg, "None")
+  call <SID>X("TabLineFill", "", s:tabline_bg, "None")
+  call <SID>X("TabLineSel", s:tabline_active_fg, s:tabline_active_bg, "None")
+  call <SID>X("StatusLine", s:statusline_active_fg, s:statusline_active_bg, "bold")
+  call <SID>X("StatusLineNC", s:statusline_inactive_fg, s:statusline_inactive_bg, "None")
+  call <SID>X("VertSplit", s:divider, s:background, "none")
   " call <SID>X("VertSplit", s:red, s:background, "none")
-  call <SID>X("Visual", s:background, s:blue, "")
+  call <SID>X("Visual", s:visual_fg, s:visual_bg, "")
   call <SID>X("Directory", s:blue, "", "")
   call <SID>X("ModeMsg", s:olive, "", "")
   call <SID>X("MoreMsg", s:olive, "", "")
   call <SID>X("Question", s:olive, "", "")
   call <SID>X("WarningMsg", s:pink, "", "")
   call <SID>X("MatchParen", "", s:selection, "")
-  call <SID>X("Folded", s:navy, s:lightblue, "")
+  call <SID>X("Folded", s:folded_fg, s:folded_bg, "")
   call <SID>X("FoldColumn", "", s:background, "")
   if version >= 700
-    call <SID>X("CursorLine", "", s:lightblue, "none")
-    call <SID>X("CursorColumn", "", s:line, "none")
+    call <SID>X("CursorLine", "", s:cursorline, "none")
+    call <SID>X("CursorColumn", "", s:cursorcolumn, "none")
     call <SID>X("PMenu", s:foreground, s:selection, "none")
     call <SID>X("PMenuSel", s:foreground, s:selection, "reverse")
     call <SID>X("SignColumn", "", s:background, "none")
   end
   if version >= 703
-    call <SID>X("ColorColumn", "", s:line, "none")
+    call <SID>X("ColorColumn", "", s:cursorcolumn, "none")
   end
 
   " Standard Group Highlighting:
@@ -308,7 +340,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Statement", s:pink, "", "")
   call <SID>X("Conditional", s:purple, "", "bold")
   call <SID>X("Repeat", s:purple, "", "bold")
-  call <SID>X("Label", s:blue, "", "underline")
+  call <SID>X("Label", s:blue, "", "")
   call <SID>X("Operator", s:aqua, "", "none")
   call <SID>X("Keyword", s:blue, "", "")
   call <SID>X("Exception", s:red, "", "")
@@ -333,8 +365,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   "call <SID>X("Ignore", "666666", "", "")
 
-  call <SID>X("Error", s:foreground, s:mediumpink, "")
-  call <SID>X("Todo", s:comment, s:background, "bold")
+  call <SID>X("Error", s:foreground, s:error, "")
+  call <SID>X("Todo", s:todo, s:background, "bold")
 
   call <SID>X("Title", s:comment, "", "")
   call <SID>X("Global", s:blue, "", "")
@@ -382,7 +414,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("cFormat", s:olive, "", "")
   call <SID>X("cStorageClass", s:navy, "", "bold")
 
-  call <SID>X("cBoolean", s:navy, "", "")
+  call <SID>X("cBoolean", s:green, "", "")
   call <SID>X("cCharacter", s:olive, "", "")
   call <SID>X("cConstant", s:comment, "", "bold")
   call <SID>X("cConditional", s:purple, "", "bold")
@@ -401,7 +433,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("cOperator",s:aqua, "", "")
   " call <SID>X("cStatement",s:pink, "", "")
   call <SID>X("cFunction", s:foreground, "", "")
-  call <SID>X("cTodo", s:comment, "", "bold")
+  " call <SID>X("cTodo", s:comment, "", "bold")
   " call <SID>X("cStructure", s:blue, "", "bold")
   call <SID>X("cCustomParen", s:foreground, "", "")
   " call <SID>X("cCustomFunc", s:foreground, "", "")
@@ -559,18 +591,25 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("javaBoolean", s:navy, "", "")
 
   " JavaScript Highlighting
-  " call <SID>X("javaScriptBraces", s:foreground, "", "")
+  call <SID>X("javaScriptBraces", s:blue, "", "")
   call <SID>X("javaScriptParens", s:blue, "", "")
-  call <SID>X("javaScriptFunction", s:blue, "", "bold")
+  call <SID>X("javaScriptIdentifier", s:navy, "", "bold")
+  call <SID>X("javaScriptFunction", s:pink, "", "bold")
   call <SID>X("javaScriptConditional", s:purple, "", "bold")
   call <SID>X("javaScriptRepeat", s:purple, "", "bold")
-
   call <SID>X("javaScriptBoolean", s:orange, "", "")
   " call <SID>X("javaScriptNumber", s:orange, "", "")
   call <SID>X("javaScriptMember", s:navy, "", "")
   " call <SID>X("javascriptNull", s:orange, "", "")
   " call <SID>X("javascriptGlobal", s:blue, "", "")
   " call <SID>X("javascriptStatement", s:pink, "", "")
+
+  " @target: https://github.com/pangloss/vim-javascript
+  call <SID>X("jsFuncParens", s:blue, "", "")
+  call <SID>X("jsFuncBraces", s:blue, "", "")
+  call <SID>X("jsParens", s:blue, "", "")
+  call <SID>X("jsBraces", s:blue, "", "")
+  call <SID>X("jsNoise", s:blue, "", "")
 
 
   " Go Highlighting
@@ -580,7 +619,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("goConditional", s:purple, "", "bold")
   call <SID>X("goConstants", s:orange, "", "")
   call <SID>X("goFunction", s:orange, "", "")
-  call <SID>X("goTodo", s:comment, "", "bold")
+  " call <SID>X("goTodo", s:comment, "", "bold")
   call <SID>X("goDeclType", s:blue, "", "")
   call <SID>X("goBuiltins", s:purple, "", "")
 
@@ -778,16 +817,16 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("TagbarSignature", s:aqua, "", "")
 
   " Plugin: Vimdiff
-  call <SID>X("DiffAdd",    "", s:lightgreen, "none")
-  call <SID>X("DiffChange", "", s:lightyellow, "none")
-  call <SID>X("DiffDelete", s:lightpink, s:lightpink, "none")
-  call <SID>X("DiffText",   "", s:mediumyellow, "none")
+  call <SID>X("DiffAdd",    s:diffadd_fg,    s:diffadd_bg,    "none")
+  call <SID>X("DiffChange", s:diffchange_fg, s:diffchange_bg, "none")
+  call <SID>X("DiffDelete", s:diffdelete_fg, s:diffdelete_bg, "none")
+  call <SID>X("DiffText",   s:difftext_fg,   s:difftext_bg,   "none")
 
   " Plugin: Spell Checking
-  call <SID>X("SpellBad", s:foreground, s:mediumpink, "")
-  call <SID>X("SpellCap", s:foreground, s:mediumyellow, "")
-  call <SID>X("SpellRare", s:foreground, s:mediumgreen, "")
-  call <SID>X("SpellLocal", s:foreground, s:lightblue, "")
+  call <SID>X("SpellBad",   s:foreground, s:spellbad,   "")
+  call <SID>X("SpellCap",   s:foreground, s:spellcap,   "")
+  call <SID>X("SpellRare",  s:foreground, s:spellrare,  "")
+  call <SID>X("SpellLocal", s:foreground, s:spelllocal, "")
 
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME

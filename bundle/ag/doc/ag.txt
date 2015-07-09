@@ -91,6 +91,13 @@ supports multiple matches on the same line of text, for example.
 
 For background, see: https://github.com/rking/ag.vim/pull/88
 
+                                                       *g:ag_working_path_mode*
+A mapping that describes where ag will be run. Default is the current working
+directory. Specifying 'r' as the argument will tell it to run from the project
+rootdirectory. For now any other mapping will result to the default.
+Example:
+  let g:ag_working_path_mode='r'
+
                                                                *g:ag_highlight*
 If 1, highlight the search terms after searching. Default: 0. Example: >
   let g:ag_highlight=1

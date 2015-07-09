@@ -13,6 +13,7 @@ git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bund
 git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/disciple/.git
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
+git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
 # }}}
 
 # Gutentags is a plugin that takes care of the much needed management of tags

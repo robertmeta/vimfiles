@@ -47,6 +47,10 @@ if !exists("g:ag_mapping_message")
   let g:ag_mapping_message=1
 endif
 
+if !exists("g:ag_working_path_mode")
+    let g:ag_working_path_mode = 'c'
+endif
+
 function! ag#AgBuffer(cmd, args)
   let l:bufs = filter(range(1, bufnr('$')), 'buflisted(v:val)')
   let l:files = []
@@ -94,7 +98,20 @@ function! ag#Ag(cmd, args)
     let &grepformat=g:ag_format
     set t_ti=
     set t_te=
-    silent! execute a:cmd . " " . escape(l:grepargs, '|')
+    if g:ag_working_path_mode ==? 'r' " Try to find the projectroot for current buffer
+      let l:cwd_back = getcwd()
+      let l:cwd = s:guessProjectRoot()
+      try
+        exe "lcd ".l:cwd
+      catch
+        echom 'Failed to change directory to:'.l:cwd
+      finally
+        silent! execute a:cmd . " " . escape(l:grepargs, '|')
+        exe "lcd ".l:cwd_back
+      endtry
+    else " Someone chose an undefined value or 'c' so we revert to the default
+      silent! execute a:cmd . " " . escape(l:grepargs, '|')
+    endif
   finally
     let &grepprg=l:grepprg_bak
     let &grepformat=l:grepformat_bak
@@ -119,9 +136,9 @@ function! ag#Ag(cmd, args)
   endif
 
   " If highlighting is on, highlight the search keyword.
-  if exists("g:ag_highlight")
-    let @/=a:args
-    set hlsearch
+  if exists('g:ag_highlight')
+    let @/ = matchstr(a:args, "\\v(-)\@<!(\<)\@<=\\w+|['\"]\\zs.{-}\\ze['\"]")
+    call feedkeys(":let &hlsearch=1 \| echo \<CR>", 'n')
   end
 
   redraw!
@@ -167,7 +184,7 @@ endfunction
 function! ag#GetDocLocations()
   let dp = ''
   for p in split(&runtimepath,',')
-    let p = p.'/doc/'
+    let p = p.'doc/'
     if isdirectory(p)
       let dp = p.'*.txt '.dp
     endif
@@ -178,4 +195,22 @@ endfunction
 function! ag#AgHelp(cmd,args)
   let args = a:args.' '.ag#GetDocLocations()
   call ag#Ag(a:cmd,args)
+endfunction
+
+function! s:guessProjectRoot()
+  let l:splitsearchdir = split(getcwd(), "/")
+
+  while len(l:splitsearchdir) > 2
+    let l:searchdir = '/'.join(l:splitsearchdir, '/').'/'
+    for l:marker in ['.rootdir', '.git', '.hg', '.svn', 'bzr', '_darcs', 'build.xml']
+      " found it! Return the dir
+      if filereadable(l:searchdir.l:marker) || isdirectory(l:searchdir.l:marker)
+        return l:searchdir
+      endif
+    endfor
+    let l:splitsearchdir = l:splitsearchdir[0:-2] " Splice the list to get rid of the tail directory
+  endwhile
+
+  " Nothing found, fallback to current working dir
+  return getcwd()
 endfunction
