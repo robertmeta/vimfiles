@@ -81,6 +81,7 @@ set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
+set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
 set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
 set foldenable " Turn on folding
@@ -99,18 +100,19 @@ set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
+set listchars=trail:·,tab:|\ ,eol:¬
+set list " going to try seeing the broken again
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
-set noautoread " no
-set noautowriteall " writing
-set noautowrite " auto
+set noautoread " nope
+set noautowriteall " nope
+set noautowrite " nope
 set nocursorcolumn " disable global cursor column
 set nocursorline " no cursor line
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
-set nolist " too much broken, I don't want to see it
 set nomore " Scroll away, no pausing
 set nonumber " turn off line numbers
 set norelativenumber " nope, not trying again
