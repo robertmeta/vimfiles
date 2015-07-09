@@ -101,7 +101,7 @@ set lazyredraw " do not redraw while running macros
 set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
 set listchars=trail:·,tab:\|\ ,eol:¬
-set list " going to try seeing the broken again
+set nolist " going to try seeing the broken again
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
 set noautoread " nope
