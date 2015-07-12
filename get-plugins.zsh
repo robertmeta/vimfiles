@@ -20,6 +20,8 @@ git clone https://github.com/justinmk/vim-gtfo bundle/gtfo && rm -rf bundle/gtfo
 git clone https://github.com/justinmk/vim-dirvish bundle/dirvish && rm -rf bundle/dirvish/.git
 git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
 
+git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
+
 # Gutentags is a plugin that takes care of the much needed management of tags
 # files in Vim. It will (re)generate tag files as you work while staying
 # completely out of your way. It will even do its best to keep those tag files
@@ -36,14 +38,14 @@ git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/
 
 # Easily interact with tmux from vim.
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
-git clone https://github.com/christoomey/vim-tmux-navigator bundle/tmuxnav && rm -rf bundle/tmuxnav/.git
+# git clone https://github.com/christoomey/vim-tmux-navigator bundle/tmuxnav && rm -rf bundle/tmuxnav/.git
 
 # Rainbow Parens Improved
 git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # With Wildfire you can quickly select the closest text object among a group of
 # candidates. By default candidates are `i'`, `i"`, `i)`, `i]`, `i}`, `ip` and `it`.
-git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
+# git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
 
 # This plugin is a front for the_silver_searcher: ag. Ag can be used as a
 # replacement for ack. This plugin will allow you to run ag from vim, and shows
@@ -72,7 +74,7 @@ git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 
 # Makes netrw less dumb
-git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
+# git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 
 # Supertab is a vim plugin which allows you to use <Tab> for all your insert completion needs (:help ins-completion).
 git clone https://github.com/ajh17/VimCompletesMe.git bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
@@ -99,8 +101,7 @@ git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bun
 # PowerShell scripts, modules, and XML configuration files.
 git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.git
 
-# This plugin provides syntax and supporting functionality for the Rust
-# filetype.
+# This plugin provides syntax and supporting functionality for the Rust filetype.
 git clone https://github.com/rust-lang/rust.vim bundle/rust && rm -rf bundle/rust/.git
 
 # Racer (rust autocomplete) support
@@ -140,7 +141,7 @@ git clone https://github.com/tpope/vim-rsi bundle/rsi && rm -rf bundle/rsi/.git
 git clone https://github.com/elixir-lang/vim-elixir bundle/elixir && rm -rf bundle/elixir/.git
 
 # RFC Grabber
-git clone https://github.com/mhinz/vim-rfc bundle/rfc && rm -rf bundle/rfc/.git
+# git clone https://github.com/mhinz/vim-rfc bundle/rfc && rm -rf bundle/rfc/.git
 
 # Modeline {{{
 # vim: set foldlevel=1:

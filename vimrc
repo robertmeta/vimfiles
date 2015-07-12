@@ -490,6 +490,8 @@ let g:rainbow#max_level = 24
 let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
 " }}}
 
+let g:gtfo#terminals = { 'win' : 'powershell -NoLogo -NoExit -Command' }
+
 " Theme setup {{{
 let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
