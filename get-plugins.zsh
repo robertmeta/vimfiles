@@ -16,6 +16,10 @@ git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bu
 git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
 # }}}
 
+git clone https://github.com/justinmk/vim-gtfo bundle/gtfo && rm -rf bundle/gtfo/.git
+git clone https://github.com/justinmk/vim-dirvish bundle/dirvish && rm -rf bundle/dirvish/.git
+git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
+
 # Gutentags is a plugin that takes care of the much needed management of tags
 # files in Vim. It will (re)generate tag files as you work while staying
 # completely out of your way. It will even do its best to keep those tag files
@@ -126,7 +130,7 @@ git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace &&
 # EasyMotion provides a much simpler way to use some motions in vim. It takes
 # the <number> out of <number>w or <number>f{char} by highlighting all possible
 # choices and allowing you to press one key to jump directly to the target.
-git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
+# git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
 
 # This plugin provides Readline (Emacs) mappings for insert and command line
 # mode that try not to overlap with built-in Vim functionality.
