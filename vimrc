@@ -38,6 +38,7 @@ nnoremap <leader>z :%foldc<cr>
 nnoremap <leader>Z :%foldo<cr>
 " Scrolling
 " Window control
+nnoremap - <esc>:dirvish<cr>
 nnoremap <leader>k <C-b>
 nnoremap <leader>j <C-f>
 nnoremap <leader>o <C-W>o
