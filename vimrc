@@ -122,7 +122,7 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " off line numbers
 set numberwidth=5 " We are good up to 99999 lines
-set relativenumber " nope, not trying again
+set norelativenumber " nope, not trying again
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
@@ -392,6 +392,11 @@ if has("autocmd")
         au FileType go nmap gD <Plug>(go-doc)
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
+    augroup END
+    augroup CursorLineOnlyInActiveWindow
+        autocmd!
+        autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
+        autocmd WinLeave * setlocal nocursorline norelativenumber
     augroup END
 endif
 " }}}
