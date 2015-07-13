@@ -286,6 +286,11 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
     augroup END
+    augroup CursorLineOnlyInActiveWindow
+        autocmd!
+        autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
+        autocmd WinLeave * setlocal nocursorline norelativenumber
+    augroup END
 endif
 " }}}
 
@@ -392,11 +397,6 @@ if has("autocmd")
         au FileType go nmap gD <Plug>(go-doc)
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
-    augroup END
-    augroup CursorLineOnlyInActiveWindow
-        autocmd!
-        autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
-        autocmd WinLeave * setlocal nocursorline norelativenumber
     augroup END
 endif
 " }}}
