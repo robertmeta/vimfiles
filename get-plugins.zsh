@@ -22,6 +22,8 @@ git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sn
 
 git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 
+git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/undotree/.git
+
 # Gutentags is a plugin that takes care of the much needed management of tags
 # files in Vim. It will (re)generate tag files as you work while staying
 # completely out of your way. It will even do its best to keep those tag files
