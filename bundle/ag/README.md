@@ -21,7 +21,7 @@ Vim has various ways of installing plugins, the standard way is in [the document
   cd ~/.vim/bundle && git clone https://github.com/rking/ag.vim ag && echo "set runtimepath^=~/.vim/bundle/ag" >> ~/.vimrc
   ```
 
-  Then open vim and rum `:helptags ~/.vim/bundle/ag/doc`.
+  Then open vim and run `:helptags ~/.vim/bundle/ag/doc`.
 
 ### Configuration ###
 

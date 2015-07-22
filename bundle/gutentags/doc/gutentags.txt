@@ -223,6 +223,15 @@ g:gutentags_ctags_executable
                         Specifies the ctags executable to launch.
                         Defaults to `ctags`.
 
+                                     *gutentags_ctags_executable_{filetype}*
+g:gutentags_ctags_executable_{filetype}
+                        Specifies the ctags executable to launch for
+                        {filetype} files. It has precedence over
+                        g:gutentags_ctags_executable.
+                        Example: >
+                         let g:gutentags_ctags_executable_ruby = 'ripper-tags'
+<
+
                                                 *gutentags_tagfile*
 g:gutentags_tagfile
                         Specifies the name of the tag file to create. This
@@ -279,6 +288,20 @@ g:gutentags_generate_on_missing
                         |GutentagsUpdate| or |GutentagsGenerate| is run.
                         Defaults to 1.
 
+                                                *gutentags_generate_on_new*
+g:gutentags_generate_on_new
+                        If set to 1, Gutentags will start generating the tag
+                        file when a new project is open. A new project is
+                        considered open when a buffer is created for a file
+                        whose corresponding tag file has not been "seen" yet
+                        in the current Vim session -- which pretty much means
+                        when you open the first file in a given source control
+                        repository.
+                        When set to 0, Gutentags won't do anything special.
+                        See also |gutentags_generate_on_missing| and
+                        |gutentags_generate_on_write|.
+                        Defaults to 1.
+
                                                 *gutentags_generate_on_write*
 g:gutentags_generate_on_write
                         If set to 1, Gutentags will update the current
@@ -318,14 +341,18 @@ g:gutentags_define_advanced_commands
 Gutentags can be customized to some extent on a per-project basis with the
 following files present in the project root directory:
 
-                                                *gutentags-.ctags*
-`.ctags`: if this file exists, Ctags will be told to load additional
+                                                *gutentags-.gutctags*
+`.gutctags`: if this file exists, Ctags will be told to load additional
 command-line parameters by reading it line by line (see the Ctags
 documentation for more information).
 
-Note that for complex reasons, Gutentags can't always run `ctags` from the
-project root, so if the `.ctags` file exists, its path will actually be passed
-through the `--options=` parameter.
+Note that for complex reasons, Gutentags can't run `ctags` from the project
+root if you're using |gutentags_cache_dir|, so if the `.gutctags` file exists,
+it will be pre-processed in order to make all `--exclude=` clauses into
+absolute paths (by prepending the project root). The resulting file will be
+saved into the cache directory, and passed to `ctags` via the `--options=`
+parameter. If you're _not_ using |gutentags_cache_dir|, the `.gutctags` file
+is _not_ pre-processed, and is passed as-is via the `--options=` parameter.
 
                                                 *gutentags-.notags*
 `.notags`: if this file exists, Gutentags will be disabled completely for that

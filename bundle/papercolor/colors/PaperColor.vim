@@ -7,84 +7,193 @@
 
 hi clear
 syntax reset
-set background=light
 let g:colors_name = "PaperColor"
 
-" Palette:
-"
-let s:red     = "#df0000" "Include/Exception
-let s:green   = "#008700" "Boolean/Special
-let s:blue    = "#4271ae" "Keyword
+fun! s:Load_Settings_Override(custom)
+  if has_key(a:custom, 'cursorline')
+    let s:cursorline = a:custom['cursorline']
+  endif
+  if has_key(a:custom, 'background')
+    let s:background = a:custom['background']
+  endif
+endfun
 
-let s:pink    = "#d7005f" "Type
-let s:olive   = "#718c00" "String
-let s:navy    = "#005f87" "StorageClass
+let s:is_dark=(&background == 'dark')
 
-let s:orange  = "#d75f00" "Number
-let s:purple  = "#8959a8" "Repeat/Conditional
-let s:aqua    = "#3e999f" "Operator/Delimiter
+if s:is_dark " DARK VARIANT
+  " Palette: These color names are corresponding to the original light version,
+  "          and they don't represent the HEX code that they store in this block.
+  let s:red     = "#00af5f" "Include/Exception
+  let s:green   = "#dfaf00" "Boolean/Special
+  let s:blue    = "#00afaf" "Keyword
 
-" Basics:
-let s:foreground   = "#4d4d4c"
-let s:background   = "#F5F5F5"
-let s:selection    = "#d6d6d6"
-let s:nontext      = "#dfafff"
-let s:window       = "#efefef"
-let s:divider      = s:navy
-let s:linenumber   = "#bcbcbc"
-let s:comment      = "#8e908c"
-let s:todo         = "#00af5f"
-let s:cursorline   = "#eeeeee"
-let s:cursorcolumn = "#efefef"
-let s:error        = "#ffafdf"
+  let s:pink    = "#afdf00" "Type
+  let s:olive   = "#dfaf5f" "String
+  let s:navy    = "#df875f" "StorageClass
 
-" Spelling:
-let s:spellbad   = "#ffafdf"
-let s:spellcap   = "#ffffaf"
-let s:spellrare  = "#afff87"
-let s:spelllocal = "#dfdfff"
+  let s:orange  = "#ff5faf" "Number
+  let s:purple  = "#af87af" "Repeat/Conditional
+  let s:aqua    = "#5fafdf" "Operator/Delimiter
 
-" Tabline:
-let s:tabline_bg          = s:navy
-let s:tabline_active_fg   = s:foreground
-let s:tabline_active_bg   = s:window
-let s:tabline_inactive_fg = s:background
-let s:tabline_inactive_bg = s:aqua
+  " Basics:
+  let s:foreground   = "#d0d0d0"
+  let s:background   = "#262626"
+  let s:selection    = "#3a3a3a"
+  let s:nontext      = "#585858"
+  let s:window       = "#3a3a3a"
+  let s:divider      = "#5f8787"
+  let s:linenumber   = "#606060"
+  let s:comment      = "#5f875f"
+  let s:todo         = "#ff8700"
+  let s:cursorline   = "#303030"
+  let s:cursorcolumn = "#303030"
+  let s:error        = "#5f0000"
 
-" Statusline:
-let s:statusline_active_fg   = s:window
-let s:statusline_active_bg   = s:navy
-let s:statusline_inactive_fg = s:foreground
-let s:statusline_inactive_bg = s:window
+  " Spelling:
+  let s:spellbad   = "#5f0000"
+  let s:spellcap   = "#5f005f"
+  let s:spellrare  = "#005f00"
+  let s:spelllocal = "#00005f"
 
-" Search:
-let s:search_fg = s:foreground
-let s:search_bg = "#ffff5f"
+  " Tabline:
+  let s:tabline_bg          = "#3a3a3a"
+  let s:tabline_active_fg   = "#1c1c1c"
+  let s:tabline_active_bg   = "#00afaf"
+  let s:tabline_inactive_fg = "#c6c6c6"
+  let s:tabline_inactive_bg = "#585858"
 
-" Visual:
-let s:visual_fg = s:background
-let s:visual_bg = s:blue
+  " Statusline:
+  let s:statusline_active_fg   = "#1c1c1c"
+  let s:statusline_active_bg   = "#5f8787"
+  let s:statusline_inactive_fg = "#c6c6c6"
+  let s:statusline_inactive_bg = "#444444"
 
-" Folded:
-let s:folded_fg = s:navy
-let s:folded_bg = s:cursorline
+  " Search:
+  let s:search_fg = "#000000"
+  let s:search_bg = "#00875f"
 
-" Diff:
-let s:diffadd_fg    = ""
-let s:diffadd_bg    = "#afffaf"
+  " Visual:
+  let s:visual_fg = "#000000"
+  let s:visual_bg = "#8787af"
 
-let s:diffdelete_fg = "#ffdfff"
-let s:diffdelete_bg = "#ffdfff"
+  " Folded:
+  let s:folded_fg = "#5faf87"
+  let s:folded_bg = "#1c1c1c"
 
-let s:difftext_fg   = ""
-let s:difftext_bg   = "#ffffdf"
+  " Diff:
+  let s:diffadd_fg    = "#000000"
+  let s:diffadd_bg    = "#5faf00"
 
-let s:diffchange_fg = ""
-let s:diffchange_bg = "#ffffaf"
+  let s:diffdelete_fg = "#5f0000"
+  let s:diffdelete_bg = "#5f0000"
 
-" User Custom:
-if exists("g:PaperColor_Light_CursorLine")
-  let s:cursorline = g:PaperColor_Light_CursorLine
+  let s:difftext_fg   = "#000000"
+  let s:difftext_bg   = "#ffdf5f"
+
+  let s:diffchange_fg = "#000000"
+  let s:diffchange_bg = "#dfaf00"
+
+  " User Custom:
+  " TODO: Deprecate this in September, 2015 {{{
+  if exists("g:PaperColor_Dark_CursorLine")
+    let s:cursorline = g:PaperColor_Dark_CursorLine
+    echo 'Message from PaperColor.vim: g:PaperColor_Dark_CursorLine variable will be deprecated'
+    echo 'See http://github.com/NLKNguyen/papercolor-theme for better option'
+  endif
+  " }}}
+
+  " Override Settings:
+  if exists("g:PaperColor_Dark_Override")
+    call s:Load_Settings_Override(g:PaperColor_Dark_Override)
+  endif
+
+else " LIGHT VARIANT
+  " Palette:
+  "
+  let s:red     = "#df0000" "Include/Exception
+  let s:green   = "#008700" "Boolean/Special
+  let s:blue    = "#4271ae" "Keyword
+
+  let s:pink    = "#d7005f" "Type
+  let s:olive   = "#718c00" "String
+  let s:navy    = "#005f87" "StorageClass
+
+  let s:orange  = "#d75f00" "Number
+  let s:purple  = "#8959a8" "Repeat/Conditional
+  let s:aqua    = "#3e999f" "Operator/Delimiter
+
+  " Basics:
+  let s:foreground   = "#4d4d4c"
+  let s:background   = "#F5F5F5"
+  let s:selection    = "#d6d6d6"
+  let s:nontext      = "#dfafff"
+  let s:window       = "#efefef"
+  let s:divider      = s:navy
+  let s:linenumber   = "#bcbcbc"
+  let s:comment      = "#8e908c"
+  let s:todo         = "#00af5f"
+  let s:cursorline   = "#eeeeee"
+  let s:cursorcolumn = "#efefef"
+  let s:error        = "#ffafdf"
+
+  " Spelling:
+  let s:spellbad   = "#ffafdf"
+  let s:spellcap   = "#ffffaf"
+  let s:spellrare  = "#afff87"
+  let s:spelllocal = "#dfdfff"
+
+  " Tabline:
+  let s:tabline_bg          = s:navy
+  let s:tabline_active_fg   = s:foreground
+  let s:tabline_active_bg   = s:window
+  let s:tabline_inactive_fg = s:background
+  let s:tabline_inactive_bg = s:aqua
+
+  " Statusline:
+  let s:statusline_active_fg   = s:window
+  let s:statusline_active_bg   = s:navy
+  let s:statusline_inactive_fg = s:foreground
+  let s:statusline_inactive_bg = "#dadada"
+
+  " Search:
+  let s:search_fg = s:foreground
+  let s:search_bg = "#ffff5f"
+
+  " Visual:
+  let s:visual_fg = s:background
+  let s:visual_bg = s:blue
+
+  " Folded:
+  let s:folded_fg = s:navy
+  let s:folded_bg = "#dfdfff"
+
+  " Diff:
+  let s:diffadd_fg    = ""
+  let s:diffadd_bg    = "#afffaf"
+
+  let s:diffdelete_fg = "#ffdfff"
+  let s:diffdelete_bg = "#ffdfff"
+
+  let s:difftext_fg   = ""
+  let s:difftext_bg   = "#ffffdf"
+
+  let s:diffchange_fg = ""
+  let s:diffchange_bg = "#ffffaf"
+
+  " User Custom:
+  " TODO: Deprecate this in September, 2015 {{{
+  if exists("g:PaperColor_Light_CursorLine")
+    let s:cursorline = g:PaperColor_Light_CursorLine
+    echo 'Message from PaperColor.vim: g:PaperColor_Light_CursorLine variable will be deprecated'
+    echo 'See http://github.com/NLKNguyen/papercolor-theme for better option'
+  endif
+  " }}}
+
+  " Override Settings:
+  if exists("g:PaperColor_Light_Override")
+    call s:Load_Settings_Override(g:PaperColor_Light_Override)
+  endif
+
 endif
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
@@ -297,6 +406,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " Vim Highlighting
   call <SID>X("Normal", s:foreground, s:background, "")
+
+  " Switching between dark & light variant through `set background`
+  " https://github.com/NLKNguyen/papercolor-theme/pull/20
+  if s:is_dark
+    set background=dark
+  else
+    set background=light
+  endif
+
   highlight LineNr term=bold cterm=NONE ctermfg=darkgrey ctermbg=NONE gui=NONE guifg=darkgrey guibg=NONE
   call <SID>X("NonText", s:nontext, "", "")
   call <SID>X("SpecialKey", s:nontext, "", "")
@@ -361,7 +479,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Structure", s:blue, "", "bold")
   call <SID>X("Typedef", s:pink, "", "bold")
 
-  call <SID>X("Special", s:green, "", "")
+  call <SID>X("Special", s:foreground, "", "")
   call <SID>X("SpecialChar", s:foreground, "", "")
   call <SID>X("Tag", s:green, "", "")
   call <SID>X("Delimiter",s:aqua, "", "")
@@ -421,7 +539,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   call <SID>X("cBoolean", s:green, "", "")
   call <SID>X("cCharacter", s:olive, "", "")
-  call <SID>X("cConstant", s:comment, "", "bold")
+  call <SID>X("cConstant", s:green, "", "bold")
   call <SID>X("cConditional", s:purple, "", "bold")
   call <SID>X("cSpecial", s:olive, "", "bold")
   call <SID>X("cDefine", s:blue, "", "")
@@ -793,6 +911,20 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("perlSubName", s:aqua, "", "bold")
   call <SID>X("perlSpecialString", s:olive, "", "bold")
 
+  " Lua Highlighting
+  call <SID>X("luaFunc", s:foreground, "", "")
+  call <SID>X("luaIn", s:blue, "", "bold")
+  call <SID>X("luaFunction", s:pink, "", "")
+  call <SID>X("luaStatement", s:blue, "", "")
+  call <SID>X("luaRepeat", s:blue, "", "bold")
+  call <SID>X("luaCondStart", s:purple, "", "bold")
+  call <SID>X("luaTable", s:aqua, "", "bold")
+  call <SID>X("luaConstant", s:green, "", "bold")
+  call <SID>X("luaElse", s:purple, "", "bold")
+  call <SID>X("luaCondElseif", s:purple, "", "bold")
+  call <SID>X("luaCond", s:purple, "", "bold")
+  call <SID>X("luaCondEnd", s:purple, "", "")
+
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
   call <SID>X("netrwList", s:pink, "", "")
@@ -851,13 +983,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("ShowMarksHLu", s:yellow, s:background, "none")
   " call <SID>X("ShowMarksHLm", s:aqua, s:background, "none")
 
-  " " Lua Highlighting
-  " call <SID>X("luaStatement", s:purple, "", "")
-  " call <SID>X("luaRepeat", s:purple, "", "")
-  " call <SID>X("luaCondStart", s:purple, "", "")
-  " call <SID>X("luaCondElseif", s:purple, "", "")
-  " call <SID>X("luaCond", s:purple, "", "")
-  " call <SID>X("luaCondEnd", s:purple, "", "")
 
   " " Cucumber Highlighting
   " call <SID>X("cucumberGiven", s:blue, "", "")
@@ -865,29 +990,30 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 
   " " Clojure "highlighting
-  " call <SID>X("clojureConstant", s:orange, "", "")
-  " call <SID>X("clojureBoolean", s:orange, "", "")
-  " call <SID>X("clojureCharacter", s:orange, "", "")
-  " call <SID>X("clojureKeyword", s:olive, "", "")
-  " call <SID>X("clojureNumber", s:orange, "", "")
-  " call <SID>X("clojureString", s:olive, "", "")
-  " call <SID>X("clojureRegexp", s:olive, "", "")
-  " call <SID>X("clojureParen", s:aqua, "", "")
-  " call <SID>X("clojureVariable", s:yellow, "", "")
-  " call <SID>X("clojureCond", s:blue, "", "")
-  " call <SID>X("clojureDefine", s:purple, "", "")
-  " call <SID>X("clojureException", s:pink, "", "")
-  " call <SID>X("clojureFunc", s:blue, "", "")
-  " call <SID>X("clojureMacro", s:blue, "", "")
-  " call <SID>X("clojureRepeat", s:blue, "", "")
-  " call <SID>X("clojureSpecial", s:purple, "", "")
-  " call <SID>X("clojureQuote", s:blue, "", "")
-  " call <SID>X("clojureUnquote", s:blue, "", "")
-  " call <SID>X("clojureMeta", s:blue, "", "")
-  " call <SID>X("clojureDeref", s:blue, "", "")
-  " call <SID>X("clojureAnonArg", s:blue, "", "")
-  " call <SID>X("clojureRepeat", s:blue, "", "")
-  " call <SID>X("clojureDispatch", s:blue, "", "")
+  call <SID>X("clojureConstant", s:blue, "", "")
+  call <SID>X("clojureBoolean", s:orange, "", "")
+  call <SID>X("clojureCharacter", s:olive, "", "")
+  call <SID>X("clojureKeyword", s:pink, "", "")
+  call <SID>X("clojureNumber", s:orange, "", "")
+  call <SID>X("clojureString", s:olive, "", "")
+  call <SID>X("clojureRegexp", s:purple, "", "")
+  call <SID>X("clojureRegexpEscape", s:pink, "", "")
+  call <SID>X("clojureParen", s:aqua, "", "")
+  call <SID>X("clojureVariable", s:olive, "", "")
+  call <SID>X("clojureCond", s:blue, "", "")
+  call <SID>X("clojureDefine", s:purple, "", "")
+  call <SID>X("clojureException", s:pink, "", "")
+  call <SID>X("clojureFunc", s:navy, "", "")
+  call <SID>X("clojureMacro", s:blue, "", "")
+  call <SID>X("clojureRepeat", s:blue, "", "")
+  call <SID>X("clojureSpecial", s:purple, "", "")
+  call <SID>X("clojureQuote", s:blue, "", "")
+  call <SID>X("clojureUnquote", s:blue, "", "")
+  call <SID>X("clojureMeta", s:blue, "", "")
+  call <SID>X("clojureDeref", s:blue, "", "")
+  call <SID>X("clojureAnonArg", s:blue, "", "")
+  call <SID>X("clojureRepeat", s:blue, "", "")
+  call <SID>X("clojureDispatch", s:aqua, "", "")
 
   " " Scala "highlighting
   " call <SID>X("scalaKeyword", s:purple, "", "")
@@ -950,3 +1076,4 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   delf <SID>grey_level
   delf <SID>grey_number
 endif
+" vim: fdm=marker
