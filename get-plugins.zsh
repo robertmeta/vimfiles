@@ -19,6 +19,7 @@ git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm 
 # Basically just got / gof / goT/ goF
 git clone https://github.com/justinmk/vim-gtfo bundle/gtfo && rm -rf bundle/gtfo/.git
 
+# Slight improvements on netrw
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 
 # Sneak provides a way to move quickly and precisely to locations that would
