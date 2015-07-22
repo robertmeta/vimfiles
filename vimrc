@@ -493,7 +493,7 @@ let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " {{{ Rainbow Plugin
 let g:rainbow#max_level = 24
 let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
-let g:rainbow#blacklist = [233, 234]
+let g:rainbow#blacklist = [188, 150]
 " }}}
 
 let g:gtfo#terminals = { 'win' : 'powershell -NoLogo -NoExit -Command' }
