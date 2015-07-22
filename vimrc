@@ -122,7 +122,7 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " off line numbers
 set numberwidth=5 " We are good up to 99999 lines
-set norelativenumber " nope, not trying again
+set norelativenumber " no;e, not trying again
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
