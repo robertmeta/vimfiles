@@ -503,10 +503,7 @@ let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 set background=dark
-colo lucius
-hi LineNr ctermfg=lightgrey
-hi CursorLineNr ctermfg=cyan
-hi StatusLine ctermbg=cyan
+colo molokai
 
 fun! LuciousLightColors()
     set background=light
