@@ -48,7 +48,7 @@ endif
 if !exists('g:gutentags_project_root')
     let g:gutentags_project_root = []
 endif
-let g:gutentags_project_root += ['.git', '.hg', '.svn', '.bzr', '_darcs']
+let g:gutentags_project_root += ['.git', '.hg', '.svn', '.bzr', '_darcs', '_FOSSIL_', '.fslckout']
 
 if !exists('g:gutentags_exclude')
     let g:gutentags_exclude = []
@@ -69,6 +69,9 @@ endif
 if !exists('g:gutentags_cache_dir')
     let g:gutentags_cache_dir = ''
 else
+    " Make sure we get an absolute/resolved path (e.g. expanding `~/`), and
+    " strip any trailing slash.
+    let g:gutentags_cache_dir = fnamemodify(g:gutentags_cache_dir, ':p')
     let g:gutentags_cache_dir = fnamemodify(g:gutentags_cache_dir, ':s?[/\\]$??')
 endif
 
@@ -82,9 +85,11 @@ endif
 
 if has('win32')
     let g:gutentags_plat_dir = expand('<sfile>:h:h:p') . "\\plat\\win32\\"
+    let g:gutentags_res_dir = expand('<sfile>:h:h:p') . "\\res\\"
     let g:gutentags_script_ext = '.cmd'
 else
     let g:gutentags_plat_dir = expand('<sfile>:h:h:p') . '/plat/unix/'
+    let g:gutentags_res_dir = expand('<sfile>:h:h:p') . '/res/'
     let g:gutentags_script_ext = '.sh'
 endif
 
