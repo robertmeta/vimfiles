@@ -410,6 +410,12 @@ impl<'v> visit::Visitor<'v> for ExprTypeVisitor {
         debug!("visit_expr {:?}", expr);
         //walk_expr(self, ex, e)
         match expr.node {
+            ast::ExprUnary(_, ref expr) => {
+                self.visit_expr(expr);
+            }
+            ast::ExprAddrOf(_, ref expr) => {
+                self.visit_expr(expr);
+            }
             ast::ExprPath(_, ref path) => {
                 debug!("expr is a path {:?}", to_racer_path(path));
                 self.result = resolve_ast_path(path,
@@ -608,7 +614,9 @@ impl<'v> visit::Visitor<'v> for StructVisitor {
                 }
                 ast::UnnamedField(_) => {
                     let ty = to_racer_ty(&*field.node.ty, &self.scope);
-                    self.fields.push(("".to_string(), point as usize, ty));
+                    // name unnamed field by its ordinal, since self.0 works
+                    let name = format!("{}",self.fields.len());
+                    self.fields.push((name, point as usize, ty));
                 }
             }
         }
