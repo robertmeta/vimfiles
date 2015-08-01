@@ -19,12 +19,9 @@ git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm 
 # Basically just got / gof / goT/ goF
 git clone https://github.com/justinmk/vim-gtfo bundle/gtfo && rm -rf bundle/gtfo/.git
 
-# Slight improvements on netrw
-git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
-
 # Sneak provides a way to move quickly and precisely to locations that would
 # be awkward to reach with built-in Vim motions.
-git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
+#git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
 
 # This plugin is a tool for dealing with pairs of "surroundings."  Examples
 # of surroundings include parentheses, quotes, and HTML tags
@@ -85,7 +82,7 @@ git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 
 # Makes netrw less dumb
-# git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
+git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 
 # Supertab is a vim plugin which allows you to use <Tab> for all your insert completion needs (:help ins-completion).
 git clone https://github.com/ajh17/VimCompletesMe.git bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
@@ -142,7 +139,7 @@ git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace &&
 # EasyMotion provides a much simpler way to use some motions in vim. It takes
 # the <number> out of <number>w or <number>f{char} by highlighting all possible
 # choices and allowing you to press one key to jump directly to the target.
-# git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
+git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
 
 # This plugin provides Readline (Emacs) mappings for insert and command line
 # mode that try not to overlap with built-in Vim functionality.
