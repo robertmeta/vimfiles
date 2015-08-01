@@ -285,11 +285,6 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
     augroup END
-    augroup CursorLineOnlyInActiveWindow
-        autocmd!
-        autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
-        autocmd WinLeave * setlocal nocursorline norelativenumber
-    augroup END
 endif
 " }}}
 
@@ -455,12 +450,6 @@ nnoremap <leader>gc :Gwrite<cr>:Gcommit<cr>
 
 " Javascript {{{
 let g:angular_filename_convention='camelcased'
-" }}}
-
-" Gutentags {{{
-let g:gutentags_tagfile='tags'
-set tags+=.tags
-set tags+=TAGS
 " }}}
 
 " Racer {{{
