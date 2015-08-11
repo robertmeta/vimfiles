@@ -39,7 +39,7 @@ intelligently (depending on the context) use:
 
 1. Local keyword completion (|i_Ctrl-X_Ctrl-N|)
 2. File path completion     (|i_Ctrl-X_Ctrl-F|)
-3. Omni completion          (|i_Ctrl-X_Ctrl-F|)
+3. Omni completion          (|i_Ctrl-X_Ctrl-O|)
 
 You can set |b:vcm_tab_complete| to one of the following to use a specific type
 of completion:
