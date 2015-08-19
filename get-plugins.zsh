@@ -16,6 +16,8 @@ git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bu
 git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
 # }}}
 
+# Browse docs in vim
+git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -rf bundle/viewdoc/.git
 # Allow autocomplete from other panes
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
 
