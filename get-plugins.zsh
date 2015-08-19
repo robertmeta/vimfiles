@@ -16,6 +16,9 @@ git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bu
 git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
 # }}}
 
+# Allow autocomplete from other panes
+git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
+
 # Basically just got / gof / goT/ goF
 git clone https://github.com/justinmk/vim-gtfo bundle/gtfo && rm -rf bundle/gtfo/.git
 

@@ -2,13 +2,15 @@
 
 [![Build Status](https://travis-ci.org/phildawes/racer.svg?branch=master)](https://travis-ci.org/phildawes/racer)
 
-![alt text](https://github.com/phildawes/racer/raw/master/images/racer1.png "Racer emacs session")
+![racer completion screenshot](images/racer_completion.png)
+
+![racer eldoc screenshot](images/racer_eldoc.png)
 
 *RACER* = *R*ust *A*uto-*C*omplete-*er*. A utility intended to provide rust code completion for editors and IDEs. Maybe one day the 'er' bit will be exploring + refactoring or something.
 
 ## Installation
 
-1. ```cd racer; cargo build --release```
+1. ```cd racer; cargo build --release```.  The binary will now be in ```./target/release/racer```
 
 2. Set the ```RUST_SRC_PATH``` env variable to point to the 'src' dir in your rust source installation
 
@@ -21,34 +23,38 @@
 
 ## Emacs integration
 
-1. Install emacs 24
+1. Install emacs 24.
 
-2. Install [rust-mode](https://github.com/rust-lang/rust-mode).
-
-3. Install company mode. (e.g. via ELPA: ```M-x list-packages```, select ```'company'```)
-
-4. Configure Emacs to find racer:
+2. Allow Emacs to install packages from MELPA:
 
    ```
+   (require 'package)
+   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+   ```
+
+2. Install racer: ```M-x package-list``` Find the racer package and install it
+
+3. If racer is not in the path, configure emacs to find your racer binary and rust source directory
+   ```
+   (setq racer-cmd "<path-to-racer-srcdir>/target/release/racer")
    (setq racer-rust-src-path "<path-to-rust-srcdir>/src/")
-   (setq racer-cmd "<path-to-racer>/target/release/racer")
-   (add-to-list 'load-path "<path-to-racer>/editors/emacs")
-   (eval-after-load "rust-mode" '(require 'racer))
    ```
 
-5. Configure Emacs to activate racer and setup some key bindings when rust-mode starts:
+4. Configure Emacs to activate racer and setup some key bindings when rust-mode starts:
 
    ```
    (add-hook 'rust-mode-hook 
 	  '(lambda () 
 	     (racer-activate)
+	     (racer-turn-on-eldoc)
 	     (local-set-key (kbd "M-.") #'racer-find-definition)
 	     (local-set-key (kbd "TAB") #'racer-complete-or-indent)))
    ```
 
-7. Open a rust file and try typing ```use std::io::B``` and press \<tab\>
+5. Open a rust file and try typing ```use std::io::B``` and press \<tab\>
 
-8. Place your cursor over a symbol and hit M-. to jump to the definition.
+6. Place your cursor over a symbol and hit M-. to jump to the
+definition.
 
 ## Vim integration
 
