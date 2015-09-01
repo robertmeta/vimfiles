@@ -12,11 +12,13 @@
 
 1. ```cd racer; cargo build --release```.  The binary will now be in ```./target/release/racer```
 
-2. Set the ```RUST_SRC_PATH``` env variable to point to the 'src' dir in your rust source installation
+2. Fetch the rust sourcecode from git, or download from https://www.rust-lang.org/install.html
+
+3. Set the ```RUST_SRC_PATH``` env variable to point to the 'src' dir in the rust source installation
 
    (e.g. ```% export RUST_SRC_PATH=/usr/local/src/rust/src``` )
 
-3. Test on the command line:
+4. Test on the command line:
 
    ```./target/release/racer complete std::io::B ```  (should show some completions)
 
@@ -27,33 +29,35 @@
 
 2. Allow Emacs to install packages from MELPA:
 
-   ```
+   ```el
    (require 'package)
-   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
    ```
 
-2. Install racer: ```M-x package-list``` Find the racer package and install it
+2. Install racer: `M-x package-list` Find the racer package and install it
 
 3. If racer is not in the path, configure emacs to find your racer binary and rust source directory
-   ```
+   ```el
    (setq racer-cmd "<path-to-racer-srcdir>/target/release/racer")
    (setq racer-rust-src-path "<path-to-rust-srcdir>/src/")
    ```
 
-4. Configure Emacs to activate racer and setup some key bindings when rust-mode starts:
-
-   ```
-   (add-hook 'rust-mode-hook 
-	  '(lambda () 
-	     (racer-activate)
-	     (racer-turn-on-eldoc)
-	     (local-set-key (kbd "M-.") #'racer-find-definition)
-	     (local-set-key (kbd "TAB") #'racer-complete-or-indent)))
+4. Configure Emacs to activate racer when rust-mode starts:
+   ```el
+   (add-hook 'rust-mode-hook #'racer-mode)
+   (add-hook 'racer-mode-hook #'eldoc-mode)
    ```
 
-5. Open a rust file and try typing ```use std::io::B``` and press \<tab\>
+   For completions, install company with `M-x package-install RET company`. A sample configuration:
+   ```el
+   (global-set-key (kbd "TAB") #'company-complete) ; or company-indent-or-complete-common
+   (setq company-tooltip-align-annotations t)
+   ```
+   For automatic completions, customize `company-idle-delay` and `company-minimum-prefix-length`.
 
-6. Place your cursor over a symbol and hit M-. to jump to the
+5. Open a rust file and try typing ```use std::io::B``` and press `<tab>`
+
+6. Place your cursor over a symbol and hit `M-.` to jump to the
 definition.
 
 ## Vim integration

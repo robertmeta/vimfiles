@@ -113,7 +113,7 @@ function! s:extract_colors()
   redir => output
     silent hi
   redir END
-  let lines = filter(split(output, '\n'), 'v:val =~# "fg" && v:val !~# "bg"')
+  let lines = filter(split(output, '\n'), 'v:val =~# "fg" && v:val !~? "links" && v:val !~# "bg"')
   let colors = s:uniq(reverse(map(lines, 's:extract_fg(v:val)')))
   let [blacklist, fg] = s:blacklist()
   for c in get(g:, 'rainbow#blacklist', [])

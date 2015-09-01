@@ -1,5 +1,5 @@
 " Author:               pawel.wiecek@tieto.com
-" Maintainer:           pawel.wiecek@tieto.com
+" Maintainer:           john.ch.fr@gmail.com
 " Version:              see in viewdoc.vim
 " Last Modified:        see in viewdoc.vim
 " License:              see in viewdoc.vim
@@ -26,7 +26,7 @@ endif
 " Can be called:
 "  - with no parameters, will load info directory
 "  - with one or more parameters, should behave identically to GNU Info.
-command -bar -bang -nargs=* -complete=custom,s:CompleteInfo ViewDocInfo
+command -bar -bang -nargs=* -complete=customlist,s:CompleteInfo ViewDocInfo
 	\ call ViewDoc('<bang>'=='' ? 'new' : 'doc', s:ParamsToNode(<f-args>), 'infocmd')
 " - abbrev
 if !exists('g:no_plugin_abbrev') && !exists('g:no_viewdoc_abbrev')
@@ -166,9 +166,13 @@ endfunction
 
 " Handler for command line commands
 function s:ViewDoc_info_cmd(topic, ...)
+	let nothing = { 'ft': 'info', 'cmd': 'false', 'topic': a:topic }
 	let h = { 'ft': 'info',
 		\ 'topic': s:FixNodeName(a:topic) }
 	let h.cmd = printf('%s %s -o-', g:viewdoc_info_cmd, shellescape(h.topic, 1))
+	if h.topic == ''
+		return nothing
+	endif
 	return h
 endfunction
 
@@ -187,7 +191,7 @@ function s:ParamsToNode(...)
 		endif
 		let sh_args =  join(map(args, 'shellescape(v:val)'), ' ')
 		return system(printf('%s %s -o- | head -n 2', g:viewdoc_info_cmd, sh_args) .
-		\             ' | sed -n ''s/^File: \(.*\)\.info,  Node: \([^,]*\),.*/(\1)\2/p''')
+		\             ' | sed -n ''s/^File: \(.*\)\.info.*,  Node: \([^,]*\),.*/(\1)\2/p''')
 	endif
 endfunction
 
@@ -215,11 +219,11 @@ function s:CompleteInfo(ArgLead, CmdLine, CursorPos)
 	let line = join(split(a:CmdLine[0:a:CursorPos])[1:], ' ')
 	let lead = substitute(a:ArgLead, '\\', '', 'g')
 	let trail = split(line[:-len(a:ArgLead)-1], '[^\\]\zs ')
-	let base_cmd = g:viewdoc_info_cmd . " '(dir)Top' 2>/dev/null"
+	let base_cmd = g:viewdoc_info_cmd . " '(dir)Top' -o- 2>/dev/null"
 	let keys_pipe = ' | sed -n ''s/\* \([^:]*\): (.*/\1/p'''
 	if len(trail) == 0
 		if len(lead) == 0
-			return escape(system(base_cmd . keys_pipe), ' ')
+			return split(escape(system(base_cmd . keys_pipe), ' '), "\n")
 		endif
 		let pipe = keys_pipe
 		if lead[0] == '('
@@ -230,7 +234,7 @@ function s:CompleteInfo(ArgLead, CmdLine, CursorPos)
 		let args = join(map(trail, 'shellescape(v:val)'), ' ')
 		let base_cmd = substitute(base_cmd, "'(dir)Top'", args, '')
 	endif
-	return escape(system(base_cmd . pipe . " | sed -n " . shellescape("/^" . lead . "/Ip")), ' ')
+	return split(escape(system(base_cmd . pipe . " | sed -n " . shellescape("/^" . lead . "/Ip")), ' '), "\n")
 endfunction
 
 
