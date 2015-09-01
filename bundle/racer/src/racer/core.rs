@@ -1,15 +1,22 @@
 use std::fs::File;
-use std::io::{BufReader, Read};
-use std::{str, vec, fmt};
+use std::io::Read;
+use std::{vec, fmt};
 use std::path;
 use std::io;
+use std::cell::RefCell;
+use std::collections::HashMap;
+use std::ops::Deref;
+use std::slice;
+use std::cmp::{min, max};
 
+use typed_arena::Arena;
 
 use scopes;
 use nameres;
 use ast;
+use codecleaner;
 
-#[derive(Debug,Clone,PartialEq)]
+#[derive(Debug,Clone,Copy,PartialEq)]
 pub enum MatchType {
     Struct,
     Module,
@@ -18,6 +25,8 @@ pub enum MatchType {
     Crate,
     Let,
     IfLet,
+    WhileLet,
+    For,
     StructField,
     Impl,
     Enum,
@@ -29,32 +38,24 @@ pub enum MatchType {
     Static
 }
 
-impl Copy for MatchType {}
-
-#[derive(Debug,Clone)]
+#[derive(Debug,Clone,Copy)]
 pub enum SearchType {
     ExactMatch,
     StartsWith
 }
 
-impl Copy for SearchType {}
-
-#[derive(Debug,Clone)]
+#[derive(Debug,Clone,Copy)]
 pub enum Namespace {
     TypeNamespace,
     ValueNamespace,
     BothNamespaces
 }
 
-impl Copy for Namespace {}
-
-#[derive(Debug,Clone)]
+#[derive(Debug,Clone,Copy)]
 pub enum CompletionType {
     CompleteField,
     CompletePath
 }
-
-impl Copy for CompletionType {}
 
 #[derive(Clone)]
 pub struct Match {
@@ -66,7 +67,6 @@ pub struct Match {
     pub contextstr: String,
     pub generic_args: Vec<String>,
     pub generic_types: Vec<PathSearch>,  // generic types are evaluated lazily
-    pub session: Session
 }
 
 
@@ -81,14 +81,13 @@ impl Match {
             contextstr: self.contextstr.clone(),
             generic_args: self.generic_args.clone(),
             generic_types: generic_types,
-            session: self.session.clone()
         }
     }
 }
 
 impl fmt::Debug for Match {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "Match [{:?}, {:?}, {:?}, {:?}, {:?}, {:?}, {:?} |{}|, {:?}]",
+        write!(f, "Match [{:?}, {:?}, {:?}, {:?}, {:?}, {:?}, {:?} |{}|]",
                self.matchstr,
                self.filepath.to_str(),
                self.point,
@@ -96,30 +95,27 @@ impl fmt::Debug for Match {
                self.mtype,
                self.generic_args,
                self.generic_types,
-               self.contextstr,
-               self.session)
+               self.contextstr)
     }
 }
 
 #[derive(Clone)]
 pub struct Scope {
     pub filepath: path::PathBuf,
-    pub point: usize,
-    pub session: Session
+    pub point: usize
 }
 
 impl Scope {
     pub fn from_match(m: &Match) -> Scope {
-        Scope{ filepath: m.filepath.clone(), point: m.point, session: m.session.clone() }
+        Scope{ filepath: m.filepath.clone(), point: m.point }
     }
 }
 
 impl fmt::Debug for Scope {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "Scope [{:?}, {:?}, {:?}]",
+        write!(f, "Scope [{:?}, {:?}]",
                self.filepath.to_str(),
-               self.point,
-               self.session)
+               self.point)
     }
 }
 
@@ -201,31 +197,168 @@ pub struct PathSegment {
 pub struct PathSearch {
     pub path: Path,
     pub filepath: path::PathBuf,
-    pub point: usize,
-    pub session: Session
+    pub point: usize
 }
 
 impl fmt::Debug for PathSearch {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "Search [{:?}, {:?}, {:?}, {:?}]",
+        write!(f, "Search [{:?}, {:?}, {:?}]",
                self.path,
                self.filepath.to_str(),
-               self.point,
-               self.session)
+               self.point)
     }
 }
 
-#[derive(Debug,Clone)]
-pub struct Session {
-    pub query_path: path::PathBuf,            // the input path of the query
-    pub substitute_file: path::PathBuf        // the temporary file
+pub struct IndexedSource {
+    pub code: String,
+    pub idx: Vec<(usize, usize)>
 }
 
-impl Session {
-    pub fn from_path(query_path: &path::Path, substitute_file: &path::Path) -> Session {
+#[derive(Clone,Copy)]
+pub struct Src<'c> {
+    pub src: &'c IndexedSource,
+    pub from: usize,
+    pub to: usize
+}
+
+impl IndexedSource {
+    pub fn new(src: String) -> IndexedSource {
+        let indices = codecleaner::code_chunks(&src).collect();
+        IndexedSource {
+            code: src,
+            idx: indices
+        }
+    }
+
+    pub fn with_src(&self, new_src: String) -> IndexedSource {
+        IndexedSource {
+            code: new_src,
+            idx: self.idx.clone()
+        }
+    }
+
+    pub fn as_ref(&self) -> Src {
+        Src {
+            src: self,
+            from: 0,
+            to: self.len()
+        }
+    }
+}
+
+impl<'c> Src<'c> {
+    pub fn from(&self, from: usize) -> Src<'c> {
+        Src {
+            src: self.src,
+            from: self.from + from,
+            to: self.to
+        }
+    }
+
+    pub fn to(&self, to: usize) -> Src<'c> {
+        Src {
+            src: self.src,
+            from: self.from,
+            to: self.from + to
+        }
+    }
+
+    pub fn from_to(&self, from: usize, to: usize) -> Src<'c> {
+        Src {
+            src: self.src,
+            from: self.from + from,
+            to: self.from + to
+        }
+    }
+
+    pub fn chunk_indices(&self) -> CodeChunkIter<'c> {
+        CodeChunkIter { src: *self, iter: self.src.idx.iter() }
+    }
+}
+
+pub struct CodeChunkIter<'c> {
+    src: Src<'c>,
+    iter: slice::Iter<'c, (usize, usize)>
+}
+
+impl<'c> Iterator for CodeChunkIter<'c> {
+    type Item = (usize, usize);
+
+    fn next(&mut self) -> Option<(usize, usize)> {
+        loop {
+            match self.iter.next() {
+                None => return None,
+                Some(&(start, end)) => {
+                    if end < self.src.from {
+                        continue;
+                    }
+                    if start > self.src.to {
+                        return None;
+                    } else {
+                        return Some((
+                            max(start, self.src.from) - self.src.from,
+                            min(end, self.src.to) - self.src.from));
+                    }
+                }
+            }
+        }
+    }
+}
+
+impl Deref for IndexedSource {
+    type Target = str;
+    fn deref(&self) -> &str {
+        &self.code
+    }
+}
+
+impl<'c> Deref for Src<'c> {
+    type Target = str;
+    fn deref(&self) -> &str {
+        &self.src.code[self.from..self.to]
+    }
+}
+
+pub fn new_source(src: String) -> IndexedSource {
+    IndexedSource::new(src)
+}
+
+pub struct FileCache<'s> {
+    arena: Arena<IndexedSource>,
+    raw_map: RefCell<HashMap<path::PathBuf, &'s IndexedSource>>,
+    masked_map: RefCell<HashMap<path::PathBuf, &'s IndexedSource>>,
+}
+
+impl<'s> FileCache<'s> {
+    pub fn new<'a>() -> FileCache<'a> {
+        FileCache {
+            arena: Arena::new(),
+            raw_map: RefCell::new(HashMap::new()),
+            masked_map: RefCell::new(HashMap::new()),
+        }
+    }
+}
+
+pub struct Session<'s> {
+    query_path: path::PathBuf,            // the input path of the query
+    substitute_file: path::PathBuf,       // the temporary file
+    cache: FileCache<'s>                  // cache for file contents
+}
+
+pub type SessionRef<'s> = &'s Session<'s>;
+
+impl<'s> fmt::Debug for Session<'s> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
+        write!(f, "Session({:?}, {:?})", self.query_path, self.substitute_file)
+    }
+}
+
+impl<'s> Session<'s> {
+    pub fn from_path<'a>(query_path: &path::Path, substitute_file: &path::Path) -> Session<'a> {
         Session {
             query_path: query_path.to_path_buf(),
-            substitute_file: substitute_file.to_path_buf()
+            substitute_file: substitute_file.to_path_buf(),
+            cache: FileCache::new()
         }
     }
 
@@ -236,36 +369,46 @@ impl Session {
             File::open(path)
         }
     }
-}
 
-pub fn load_file(filepath: &path::Path, session: &Session) -> String {
-    let mut rawbytes = Vec::new();
-    if let Ok(f) = session.open_file(filepath) {
-        BufReader::new(f).read_to_end(&mut rawbytes).unwrap();
-    } else {
-        error!("load_file couldn't open {:?}. Returning empty string",filepath);
-        return "".into();
+    pub fn read_file(&self, path: &path::Path) -> Vec<u8> {
+        let mut rawbytes = Vec::new();
+        if let Ok(mut f) = self.open_file(path) {
+            f.read_to_end(&mut rawbytes).unwrap();
+            // skip BOM bytes, if present
+            if rawbytes.len() > 2 && rawbytes[0..3] == [0xEF, 0xBB, 0xBF] {
+                let mut it = rawbytes.into_iter();
+                it.next(); it.next(); it.next();
+                it.collect()
+            } else {
+                rawbytes
+            }
+        } else {
+            error!("read_file couldn't open {:?}. Returning empty string", path);
+            Vec::new()
+        }
     }
 
-    // skip BOF bytes, if present
-    if rawbytes.len() > 2 && rawbytes[0..3] == [0xEF, 0xBB, 0xBF] {
-        let mut it = rawbytes.into_iter();
-        it.next(); it.next(); it.next();
-        String::from_utf8(it.collect::<Vec<_>>()).unwrap()
-    } else {
-        String::from_utf8(rawbytes).unwrap()
+    pub fn load_file(&'s self, filepath: &path::Path) -> Src<'s> {
+        let mut cache = self.cache.raw_map.borrow_mut();
+        cache.entry(filepath.to_path_buf()).or_insert_with(|| {
+            let rawbytes = self.read_file(filepath);
+            let res = String::from_utf8(rawbytes).unwrap();
+            self.cache.arena.alloc(IndexedSource::new(res))
+        }).as_ref()
+    }
+
+    pub fn load_file_and_mask_comments(&'s self, filepath: &path::Path) -> Src<'s> {
+        let mut cache = self.cache.masked_map.borrow_mut();
+        cache.entry(filepath.to_path_buf()).or_insert_with(|| {
+            let src = self.load_file(filepath);
+            // create a new IndexedSource with new source, but same indices
+            self.cache.arena.alloc(src.src.with_src(scopes::mask_comments(src)))
+        }).as_ref()
     }
 }
 
-pub fn load_file_and_mask_comments(filepath: &path::Path, session: &Session) -> String {
-    let mut filetxt = Vec::new();
-    BufReader::new(session.open_file(filepath).unwrap()).read_to_end(&mut filetxt).unwrap();
-    let src = str::from_utf8(&filetxt).unwrap();
 
-    scopes::mask_comments(src)
-}
-
-pub fn complete_from_file(src: &str, filepath: &path::Path, pos: usize, session: &Session) -> vec::IntoIter<Match> {
+pub fn complete_from_file(src: &str, filepath: &path::Path, pos: usize, session: SessionRef) -> vec::IntoIter<Match> {
     let start = scopes::get_start_of_search_expr(src, pos);
     let expr = &src[start..pos];
 
@@ -296,7 +439,7 @@ pub fn complete_from_file(src: &str, filepath: &path::Path, pos: usize, session:
             debug!("complete_from_file context is {:?}", context);
             context.map(|ty| {
                 if let Ty::TyMatch(m) = ty {
-                    for m in nameres::search_for_field_or_method(m, searchstr, SearchType::StartsWith) {
+                    for m in nameres::search_for_field_or_method(m, searchstr, SearchType::StartsWith, session) {
                         out.push(m)
                     }
                 }
@@ -306,12 +449,11 @@ pub fn complete_from_file(src: &str, filepath: &path::Path, pos: usize, session:
     out.into_iter()
 }
 
-
-pub fn find_definition(src: &str, filepath: &path::Path, pos: usize, session: &Session) -> Option<Match> {
+pub fn find_definition(src: &str, filepath: &path::Path, pos: usize, session: SessionRef) -> Option<Match> {
     find_definition_(src, filepath, pos, session)
 }
 
-pub fn find_definition_(src: &str, filepath: &path::Path, pos: usize, session: &Session) -> Option<Match> {
+pub fn find_definition_(src: &str, filepath: &path::Path, pos: usize, session: SessionRef) -> Option<Match> {
     let (start, end) = scopes::expand_search_expr(src, pos);
     let expr = &src[start..end];
 
@@ -346,7 +488,7 @@ pub fn find_definition_(src: &str, filepath: &path::Path, pos: usize, session: &
                 // for now, just handle matches
                 match ty {
                     Ty::TyMatch(m) => {
-                        nameres::search_for_field_or_method(m, searchstr, SearchType::ExactMatch).nth(0)
+                        nameres::search_for_field_or_method(m, searchstr, SearchType::ExactMatch, session).nth(0)
                     }
                     _ => None
                 }
