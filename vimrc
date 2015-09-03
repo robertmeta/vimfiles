@@ -107,7 +107,7 @@ set noautoread " nope
 set noautowriteall " nope
 set noautowrite " nope
 set nocursorcolumn " disable global cursor column
-set nocursorline " no cursor line
+set cursorline " cursor line
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
@@ -457,11 +457,13 @@ let g:racer_cmd=$HOME.'/projects/racer/target/release/racer'
 let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " }}}
 
+" Highlight current line {{{
 augroup CursorLine
     au!
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     au WinLeave * setlocal nocursorline
 augroup END
+" }}}
 
 " Easy Motion {{{
 " Settings
