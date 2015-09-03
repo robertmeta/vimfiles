@@ -457,6 +457,12 @@ let g:racer_cmd=$HOME.'/projects/racer/target/release/racer'
 let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " }}}
 
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+
 " Easy Motion {{{
 " Settings
 let g:EasyMotion_do_mapping=0
