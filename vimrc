@@ -290,7 +290,7 @@ endif
 
 " GUI {{{
 if has("gui_running")
-    set guifont=Consolas:h9:cANSI " My favorite font
+    set guifont=Hack:h8:cANSI " My favorite font
     set guioptions=ce
     "              ||
     "              |+-- use simple dialogs rather than pop-ups
