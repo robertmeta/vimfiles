@@ -131,6 +131,7 @@ set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
 set showbreak=+++\  " this is how we show breaks (this comment is broken in vim, dafaq)
 set showcmd " Show the commands
+set cmdheight=2 " Gets rid of all the press enter to continue
 set showmode " default but just in case
 set sidescroll=5 " If you hit edge, jump 5
 set sidescrolloff=5 " Keep 5 lines at the size
