@@ -466,6 +466,11 @@ augroup CursorLine
 augroup END
 " }}}
 
+" Markdown {{{
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_frontmatter=1
+" }}}
+
 " Easy Motion {{{
 " Settings
 let g:EasyMotion_do_mapping=0

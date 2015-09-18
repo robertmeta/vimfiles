@@ -43,6 +43,7 @@ let s:bins = [
 	\ ]
 
 let s:types = {
+	\ 'ant'    : '%sant%sant%spt',
 	\ 'asm'    : '%sasm%sasm%sdlmt',
 	\ 'aspperl': '%sasp%sasp%sfsv',
 	\ 'aspvbs' : '%sasp%sasp%sfsv',
@@ -52,6 +53,7 @@ let s:types = {
 	\ 'cpp'    : '%sc++%sc++%snvdtcgsuf',
 	\ 'cs'     : '%sc#%sc#%sdtncEgsipm',
 	\ 'cobol'  : '%scobol%scobol%sdfgpPs',
+	\ 'dosbatch': '%sdosbatch%sdosbatch%slv',
 	\ 'eiffel' : '%seiffel%seiffel%scf',
 	\ 'erlang' : '%serlang%serlang%sdrmf',
 	\ 'expect' : '%stcl%stcl%scfp',
@@ -62,6 +64,7 @@ let s:types = {
 	\ 'lisp'   : '%slisp%slisp%sf',
 	\ 'lua'    : '%slua%slua%sf',
 	\ 'make'   : '%smake%smake%sm',
+	\ 'matlab' : '%smatlab%smatlab%sf',
 	\ 'ocaml'  : '%socaml%socaml%scmMvtfCre',
 	\ 'pascal' : '%spascal%spascal%sfp',
 	\ 'perl'   : '%sperl%sperl%sclps',
@@ -77,9 +80,11 @@ let s:types = {
 	\ 'slang'  : '%sslang%sslang%snf',
 	\ 'sml'    : '%ssml%ssml%secsrtvf',
 	\ 'sql'    : '%ssql%ssql%scFPrstTvfp',
+	\ 'tex'    : '%stex%stex%sipcsubPGl',
 	\ 'tcl'    : '%stcl%stcl%scfmp',
 	\ 'vera'   : '%svera%svera%scdefgmpPtTvx',
 	\ 'verilog': '%sverilog%sverilog%smcPertwpvf',
+	\ 'vhdl'   : '%svhdl%svhdl%sPctTrefp',
 	\ 'vim'    : '%svim%svim%savf',
 	\ 'yacc'   : '%syacc%syacc%sl',
 	\ }

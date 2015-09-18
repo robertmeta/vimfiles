@@ -22,6 +22,11 @@ git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -r
 # Allow autocomplete from other panes
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
 
+# Used by better markdown
+git clone https://github.com/godlygeek/tabular bundle/tabular && rm -rf bundle/tabular/.git
+# Better markdown
+git clone https://github.com/plasticboy/vim-markdown bundle/markdown && rm -rf bundle/markdown/.git
+
 # Basically just got / gof / goT/ goF
 git clone https://github.com/justinmk/vim-gtfo bundle/gtfo && rm -rf bundle/gtfo/.git
 
