@@ -473,7 +473,7 @@ let g:vim_markdown_frontmatter=1
 
 " Choosewin {{{
 let g:choosewin_overlay_enable=1
-nmap = <Plug>(choosewin)
+nmap <leader>w <Plug>(choosewin)
 " }}}
 
 " Easy Motion {{{
