@@ -17,6 +17,9 @@ git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm 
 git clone https://github.com/christophermca/meta5.git bundle/meta5 && rm -rf bundle/meta5/.git
 # }}}
 
+# Window Chooser
+git clone https://github.com/t9md/vim-choosewin bundle/choosewin && rm -rf bundle/choosewin/.git
+
 # Browse docs in vim
 git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -rf bundle/viewdoc/.git
 # Allow autocomplete from other panes

@@ -471,6 +471,11 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_frontmatter=1
 " }}}
 
+" Choosewin {{{
+let g:choosewin_overlay_enable=1
+nmap = <Plug>(choosewin)
+" }}}
+
 " Easy Motion {{{
 " Settings
 let g:EasyMotion_do_mapping=0
