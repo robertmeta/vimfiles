@@ -17,9 +17,6 @@ git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm 
 git clone https://github.com/christophermca/meta5.git bundle/meta5 && rm -rf bundle/meta5/.git
 # }}}
 
-# Window Chooser
-git clone https://github.com/t9md/vim-choosewin bundle/choosewin && rm -rf bundle/choosewin/.git
-
 # Browse docs in vim
 git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -rf bundle/viewdoc/.git
 # Allow autocomplete from other panes
@@ -149,11 +146,6 @@ git clone https://github.com/sickill/vim-pasta bundle/pasta && rm -rf bundle/pas
 
 # Better whitespace
 git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
-
-# EasyMotion provides a much simpler way to use some motions in vim. It takes
-# the <number> out of <number>w or <number>f{char} by highlighting all possible
-# choices and allowing you to press one key to jump directly to the target.
-git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
 
 # This plugin provides Readline (Emacs) mappings for insert and command line
 # mode that try not to overlap with built-in Vim functionality.
