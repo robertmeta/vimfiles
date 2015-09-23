@@ -1,0 +1,4 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=406
+
+I inverted whitedust.vim (vimscript #348) by hand, then decided that was a complete waste of time, and wrote vimscript #405 to do automatic inversions for me :)
+In any case, here is blackdust, the inverse of whitedust.
