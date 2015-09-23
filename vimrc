@@ -463,6 +463,10 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_frontmatter=1
 " }}}
 
+" Sneak {{{
+let g:sneak#streak = 1
+" }}}
+
 " {{{ Rainbow Plugin
 let g:rainbow#max_level = 24
 let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
