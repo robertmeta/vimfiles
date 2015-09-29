@@ -34,7 +34,6 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 let mapleader = "\<space>"
 
 " folding / unfolding outer layer
-nnoremap <F12> :set paste<CR>p:set nopaste<CR>
 nnoremap <leader>z :%foldc<cr>
 nnoremap <leader>Z :%foldo<cr>
 " Scrolling
