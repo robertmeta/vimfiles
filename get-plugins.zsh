@@ -6,7 +6,6 @@ git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpo
 git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
 git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
-git clone https://github.com/NLKNguyen/papercolor-theme.git bundle/paper && rm -rf bundle/paper/.git
 git clone https://github.com/vim-scripts/blackdust.vim bundle/blackdust && rm -rf bundle/blackdust/.git
 git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
 git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bundle/apprentice/.git
@@ -22,12 +21,17 @@ git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -r
 # Allow autocomplete from other panes
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
 
+# Used by better markdown
+git clone https://github.com/godlygeek/tabular bundle/tabular && rm -rf bundle/tabular/.git
+# Better markdown
+git clone https://github.com/plasticboy/vim-markdown bundle/markdown && rm -rf bundle/markdown/.git
+
 # Basically just got / gof / goT/ goF
 git clone https://github.com/justinmk/vim-gtfo bundle/gtfo && rm -rf bundle/gtfo/.git
 
 # Sneak provides a way to move quickly and precisely to locations that would
 # be awkward to reach with built-in Vim motions.
-#git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
+git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
 
 # This plugin is a tool for dealing with pairs of "surroundings."  Examples
 # of surroundings include parentheses, quotes, and HTML tags
@@ -91,7 +95,7 @@ git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bu
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 
 # Supertab is a vim plugin which allows you to use <Tab> for all your insert completion needs (:help ins-completion).
-git clone https://github.com/ajh17/VimCompletesMe.git bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
+git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
 
 # Targets.vim adds various |text-objects| to give you more targets to operate
 # on. It expands on the idea of simple commands like `di'` (delete inside the
@@ -141,11 +145,6 @@ git clone https://github.com/sickill/vim-pasta bundle/pasta && rm -rf bundle/pas
 
 # Better whitespace
 git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
-
-# EasyMotion provides a much simpler way to use some motions in vim. It takes
-# the <number> out of <number>w or <number>f{char} by highlighting all possible
-# choices and allowing you to press one key to jump directly to the target.
-git clone https://github.com/Lokaltog/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
 
 # This plugin provides Readline (Emacs) mappings for insert and command line
 # mode that try not to overlap with built-in Vim functionality.

@@ -34,6 +34,7 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 let mapleader = "\<space>"
 
 " folding / unfolding outer layer
+nnoremap <F12> :set paste<CR>p:set nopaste<CR>
 nnoremap <leader>z :%foldc<cr>
 nnoremap <leader>Z :%foldo<cr>
 " Scrolling
@@ -64,16 +65,6 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 " }}}
-
-" {{{ bust out of insert
-imap jj <Esc>
-imap fj <Esc>
-imap jf <Esc>
-imap jk <Esc>
-imap kj <Esc>
-" }}}
-
-nmap <F12> :set paste<CR>p:set nopaste<CR>
 
 " Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
@@ -123,7 +114,7 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " off line numbers
 set numberwidth=5 " We are good up to 99999 lines
-set norelativenumber " no;e, not trying again
+set relativenumber " trying again
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
@@ -463,31 +454,18 @@ let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " Highlight current line {{{
 augroup CursorLine
     au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
+    au WinLeave * setlocal nocursorline norelativenumber
 augroup END
 " }}}
 
-" Easy Motion {{{
-" Settings
-let g:EasyMotion_do_mapping=0
-let g:EasyMotion_do_shade=1
-let g:EasyMotion_inc_highlight=1
-let g:EasyMotion_keys='ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
-let g:EasyMotion_landing_highlight=0
-let g:EasyMotion_off_screen_search=1
-let g:EasyMotion_use_smartsign_us=1
-let g:EasyMotion_use_upper=1
-" Mappings
-nmap <leader>f <Plug>(easymotion-s)
-nmap <leader>l <Plug>(easymotion-bd-jk)
-nmap <leader><space> <Plug>(easymotion-bd-w)
-vmap <leader>f <Plug>(easymotion-s)
-vmap <leader>l <Plug>(easymotion-bd-jk)
-vmap <leader><space> <Plug>(easymotion-bd-w)
-" Highlight Overrides
-hi link EasyMotionTarget2First Identifier
-hi link EasyMotionTarget2Second Number
+" Markdown {{{
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_frontmatter=1
+" }}}
+
+" Sneak {{{
+let g:sneak#streak = 1
 " }}}
 
 " {{{ Rainbow Plugin
