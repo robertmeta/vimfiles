@@ -73,6 +73,8 @@ imap jk <Esc>
 imap kj <Esc>
 " }}}
 
+nmap <F12> :set paste<CR>p:set nopaste<CR>
+
 " Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
