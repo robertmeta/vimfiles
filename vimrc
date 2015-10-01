@@ -342,9 +342,9 @@ let g:ctrlp_working_path_mode='ra'
 if s:running_windows
     let g:ctrlp_cache_dir=$HOME.'/vimfiles/ctrlp_cache'
     let g:ctrlp_user_command='dir %s /-n /b /s /a-d | findstr /v \.git | findstr /v \.hg' " Windows
-else
+else " MacOSX/Linux
     let g:ctrlp_cache_dir=$HOME.'/.vim/ctrlp_cache'
-    let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'       " MacOSX/Linux
+    let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'
 endif
 " Mappings
 nnoremap <leader>b :CtrlPBuffer<cr>
