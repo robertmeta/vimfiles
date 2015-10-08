@@ -494,7 +494,7 @@ endfun
 
 fun! LuciousDarkColors()
     set background=dark
-    LuciusDark
+    LuciusDarkHighContrast
     hi LineNr ctermfg=lightgrey
     hi CursorLineNr ctermfg=cyan
     hi StatusLine ctermbg=cyan ctermfg=black
