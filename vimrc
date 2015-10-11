@@ -503,10 +503,12 @@ endfun
 fun! FruitLightColors()
     set background=light
     colo summerfruit256
-    " hi SpecialKey cterm=NONE ctermfg=grey
+    hi SpecialKey cterm=NONE ctermfg=grey
     hi StatusLine ctermbg=152 ctermfg=32
     hi CursorLine cterm=NONE ctermbg=15
     hi Comment ctermfg=22
+    hi Normal ctermfg=black ctermbg=white guifg=#000000 guibg=#ffffff
+
 endfun
 " }}}
 
