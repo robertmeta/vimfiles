@@ -507,7 +507,6 @@ fun! FruitLightColors()
     hi StatusLine ctermbg=152 ctermfg=32
     hi CursorLine cterm=NONE ctermbg=7
     hi Comment ctermfg=22
-    RainbowParenthesesActivate
 endfun
 " }}}
 
