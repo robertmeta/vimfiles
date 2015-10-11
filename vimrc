@@ -499,6 +499,16 @@ fun! LuciousDarkColors()
     hi CursorLineNr ctermfg=cyan
     hi StatusLine ctermbg=cyan ctermfg=black
 endfun
+
+fun! FruitLightColors()
+    set background=light
+    colo summerfruit256
+    hi SpecialKey cterm=NONE ctermfg=grey
+    hi StatusLine ctermbg=152 ctermfg=32
+    hi CursorLine cterm=NONE ctermbg=7
+    hi Comment ctermfg=22
+    RainbowParenthesesActivate
+endfun
 " }}}
 
 " Modeline {{{

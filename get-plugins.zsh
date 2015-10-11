@@ -14,6 +14,7 @@ git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molo
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
 git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
 git clone https://github.com/christophermca/meta5.git bundle/meta5 && rm -rf bundle/meta5/.git
+git clone https://github.com/vim-scripts/summerfruit256.vim.git bundle/summerfruit && rm -rf bundle/summerfruit/.git
 # }}}
 
 # Browse docs in vim
