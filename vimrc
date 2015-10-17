@@ -410,7 +410,7 @@ let use_xhtml=0
 
 " Tagbar {{{
 let g:tagbar_show_linenumbers = -1
-let g:tagbar_left = 0
+let g:tagbar_left = 1
 " }}}
 
 " Perl Settings {{{
