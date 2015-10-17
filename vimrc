@@ -408,6 +408,11 @@ let html_use_css=0
 let use_xhtml=0
 " }}}
 
+" Tagbar {{{
+let g:tagbar_show_linenumbers = -1
+let g:tagbar_left = 0
+" }}}
+
 " Perl Settings {{{
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
 " }}}
