@@ -19,7 +19,9 @@ git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit &
 
 
 # Browse docs in vim
-# git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -rf bundle/viewdoc/.git
+git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -rf bundle/viewdoc/.git
+
+git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
 
 # Allow autocomplete from other panes
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
