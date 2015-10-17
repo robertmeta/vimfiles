@@ -14,8 +14,9 @@ git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molo
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
 git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
 git clone https://github.com/christophermca/meta5.git bundle/meta5 && rm -rf bundle/meta5/.git
-git clone https://github.com/vim-scripts/summerfruit256.vim.git bundle/summerfruit && rm -rf bundle/summerfruit/.git
+git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit && rm -rf bundle/summerfruit/.git
 # }}}
+
 
 # Browse docs in vim
 # git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -rf bundle/viewdoc/.git
@@ -96,8 +97,11 @@ git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle
 # This plugin provides several pairs of bracket maps. [a ]a [q ]q etc
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 
+# NERDTree
+git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
+
 # Makes netrw less dumb
-git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
+# git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 
 # Supertab is a vim plugin which allows you to use <Tab> for all your insert completion needs (:help ins-completion).
 git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git

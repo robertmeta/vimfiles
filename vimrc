@@ -418,8 +418,7 @@ let g:netrw_altfile=1
 " NERDTree {{{
 let NERDChristmasTree=1
 let NERDTreeDirArrows=1
-let NERDTreeHijackNetrw=0 " I use vim-vinegar most of the time, don't mess with -
-let NERDTreeMinimalUI=0
+let NERDTreeMinimalUI=1
 " }}}
 
 " Tagbar {{{
