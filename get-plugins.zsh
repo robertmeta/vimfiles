@@ -18,12 +18,13 @@ git clone https://github.com/vim-scripts/summerfruit256.vim.git bundle/summerfru
 # }}}
 
 # Browse docs in vim
-git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -rf bundle/viewdoc/.git
+# git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -rf bundle/viewdoc/.git
+
 # Allow autocomplete from other panes
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
 
 # Highlight optimal jump point
-git clone https://github.com/unblevable/quick-scope bundle/quickscope && rm -rf bundle/quickscope/.git
+# git clone https://github.com/unblevable/quick-scope bundle/quickscope && rm -rf bundle/quickscope/.git
 
 # Used by better markdown
 git clone https://github.com/godlygeek/tabular bundle/tabular && rm -rf bundle/tabular/.git
