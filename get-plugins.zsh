@@ -15,6 +15,11 @@ git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bu
 git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
 git clone https://github.com/christophermca/meta5.git bundle/meta5 && rm -rf bundle/meta5/.git
 git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit && rm -rf bundle/summerfruit/.git
+git clone https://github.com/wimstefan/Lightning bundle/lightning && rm -rf bundle/lightning/.git
+git clone https://github.com/ajgrf/sprinkles bundle/sprinkles && rm -rf bundle/sprinkles/.git
+git clone https://github.com/acarapetis/vim-colors-github bundle/githubcolor && rm -rf bundle/githubcolor/.git
+git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && rm -rf bundle/mactheme/.git
+git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
 # }}}
 
 
