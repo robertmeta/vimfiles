@@ -22,6 +22,7 @@ git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && r
 git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
 # }}}
 
+git clone https://github.com/osyo-manga/vim-over bundle/vimover && rm -rf bundle/vimover/.git
 
 # Browse docs in vim
 git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -rf bundle/viewdoc/.git
