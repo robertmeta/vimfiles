@@ -22,18 +22,11 @@ git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && r
 git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
 # }}}
 
-git clone https://github.com/osyo-manga/vim-over bundle/vimover && rm -rf bundle/vimover/.git
-
-# Browse docs in vim
-git clone https://github.com/powerman/vim-plugin-viewdoc bundle/viewdoc && rm -rf bundle/viewdoc/.git
-
+# Great for working with others who love visual aids
 git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
 
 # Allow autocomplete from other panes
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
-
-# Highlight optimal jump point
-# git clone https://github.com/unblevable/quick-scope bundle/quickscope && rm -rf bundle/quickscope/.git
 
 # Used by better markdown
 git clone https://github.com/godlygeek/tabular bundle/tabular && rm -rf bundle/tabular/.git
@@ -108,10 +101,7 @@ git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bu
 # NERDTree
 git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
 
-# Makes netrw less dumb
-# git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
-
-# Supertab is a vim plugin which allows you to use <Tab> for all your insert completion needs (:help ins-completion).
+# VimCompletesMe is a vim plugin which allows you to use <Tab> for all your insert completion needs (:help ins-completion).
 git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
 
 # Targets.vim adds various |text-objects| to give you more targets to operate
@@ -169,9 +159,6 @@ git clone https://github.com/tpope/vim-rsi bundle/rsi && rm -rf bundle/rsi/.git
 
 # Elixir
 git clone https://github.com/elixir-lang/vim-elixir bundle/elixir && rm -rf bundle/elixir/.git
-
-# RFC Grabber
-# git clone https://github.com/mhinz/vim-rfc bundle/rfc && rm -rf bundle/rfc/.git
 
 # Modeline {{{
 # vim: set foldlevel=1:
