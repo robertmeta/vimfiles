@@ -454,7 +454,6 @@ fun! FruitLightColors()
     hi CursorLine cterm=NONE ctermbg=15
     hi Comment ctermfg=22
     hi Normal ctermfg=black ctermbg=white guifg=#000000 guibg=#ffffff
-
 endfun
 " }}}
 
