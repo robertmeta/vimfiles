@@ -384,11 +384,13 @@ let g:vim_markdown_frontmatter=1
 " }}}
 
 " NERDTree {{{
-let NERDTreeShowLineNumbers=1
 let NERDChristmasTree=1
+let NERDTreeCascadeOpenSingleChildDir=1
 let NERDTreeDirArrows=1
 let NERDTreeMinimalUI=1
 let NERDTreeQuitOnOpen=1
+let NERDTreeShowLineNumbers=1
+let NERDTreeWinSize=50
 " }}}
 
 " Netrw {{{
