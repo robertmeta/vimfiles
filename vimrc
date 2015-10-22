@@ -56,7 +56,7 @@ nnoremap <C-down> :cnext<cr>zvzz
 nnoremap <C-up> :cprev<cr>zvzz
 nnoremap <S-down> :lnext<cr>zvzz
 nnoremap <S-up> :lprev<cr>zvzz
-nnoremap - :NERDTreeCWD<cr>
+nnoremap - :NERDTreeFind<cr>
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " Make bindings work better with new wrapping
@@ -388,6 +388,7 @@ let NERDTreeShowLineNumbers=1
 let NERDChristmasTree=1
 let NERDTreeDirArrows=1
 let NERDTreeMinimalUI=1
+let NERDTreeQuitOnOpen=1
 " }}}
 
 " Netrw {{{
