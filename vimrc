@@ -30,7 +30,7 @@ syntax on " syntax highlighting on
 syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 " }}}
 
-" General mappings {{{
+" Mappings {{{
 let mapleader = "\<space>"
 
 " folding / unfolding outer layer
@@ -64,13 +64,24 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+" CtrlP Mappings
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>p :CtrlPMixed<cr>
+nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <leader>T :CtrlPBufTag<cr>
+" Vimux
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vx :VimuxInterruptRunner<CR>
+map <Leader>r :VimuxRunLastCommand<CR>
 " }}}
 
 " Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set completeopt=longest,menuone,preview " complete menu
-set completeopt=menuone " don't use a pop up menu for completions
 set complete=.,w,b,u,t " complete options
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
@@ -184,7 +195,7 @@ endif
 set wildmode=list:longest " turn on wild mode huge list
 " }}}
 
-" {{{
+" Various formatting / output options {{{
 set formatoptions=qrn1j " used to be just rq
 "                 |||||
 "                 ||||+-- remove comment when joining lines
@@ -192,9 +203,7 @@ set formatoptions=qrn1j " used to be just rq
 "                 ||+-- format numbered lists using "formatlistpat"
 "                 |+-- enter extends comments
 "                 +-- allow gq to work on comment
-" }}}
-
-" {{{
+"
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 "             ||||||
 "             |||||+-- no intro message
@@ -203,9 +212,7 @@ set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 "             ||+-- not "Search hit bottom" crap
 "             |+-- file read message overwrites subsequent
 "             +-- use every short text trick
-" }}}
-
-" Status Line {{{
+"
 set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}%{gutentags#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
 "              | | | | |  |  |                       |                         |      |  |     |    |
 "              | | | | |  |  |                       |                         |      |  |     |    +-- current column
@@ -221,9 +228,7 @@ set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}%{gutentags#statusline()}[%
 "              | | +-- readonly flag in square brackets
 "              | +-- rodified flag in square brackets
 "              +-- full path to file in the buffer
-" }}}
-
-" cpoptions {{{
+"
 set cpoptions=aABceFsmq
 "             |||||||||
 "             ||||||||+-- When joining lines, leave the cursor between joined lines
@@ -234,9 +239,7 @@ set cpoptions=aABceFsmq
 "             ||+-- A backslash has no special meaning in mappings
 "             |+-- :write updates alternative file name
 "             +-- :read updates alternative file name
-" }}}
-
-" whichwrap {{{
+"
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | | | | | | | | |
 "             | | | | | | | | +-- "]" Insert and Replace
@@ -250,7 +253,7 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             +-- <BS> Normal and Visual
 " }}}
 
-" General Autocommands {{{
+" Autocommands {{{
 if has("autocmd")
     augroup general
         " Clear!
@@ -278,6 +281,13 @@ if has("autocmd")
         au FileType gitcommit setlocal spell
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
+        " Go setlocalup assumptions: gocode, godef, gotags all in path
+        au FileType go nmap gd <Plug>(go-def)
+        au FileType go nmap gr <Plug>(go-rename)
+        au FileType go nmap gi <Plug>(go-info)
+        au FileType go nmap gD <Plug>(go-doc)
+        au FileType go nmap gt <Plug>(go-test-func)
+        au FileType go nmap gT <Plug>(go-test)
     augroup END
 endif
 " }}}
@@ -287,14 +297,14 @@ if has("gui_running")
     set guifont=Hack:h8:cANSI " My favorite font
     set guioptions=ce
     "              ||
-    "              |+-- use simple dialogs rather than pop-ups
-    "              +-- use GUI tabs, not console style tabs
+    "              |+-- use GUI tabs, not console style tabs
+    "              +-- use simple dialogs rather than pop-ups
 endif
 " }}}
 
 " 256 color term tweaks {{{
 if s:colorful_term
-    "256 color --
+    " 256 color -- this is a bad idea generally, but I use it anyway
     let &t_Co=256
     " don't clear background color
     set t_ut=
@@ -309,15 +319,6 @@ if s:colorful_term
 endif
 " }}}
 
-" ConEMU Settings (awesome!) {{{
-if s:running_windows && has("gui_running") == 0
-    set term=xterm
-    set t_Co=256
-    let &t_AB="\e[48;5;%dm"
-    let &t_AF="\e[38;5;%dm"
-endif
-" }}}
-
 " Mousing {{{
 if has("mouse")
     set mouse=a " use mouse everywhere
@@ -326,8 +327,13 @@ if has("mouse")
 endif
 " }}}
 
+" Ag Grep {{{
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+endif
+" }}}
+
 " CtrlP {{{
-" Settings
 let g:ctrlp_buftag_ctags_bin='ctags'
 let g:ctrlp_buftag_types={'go': '--language-force=go --golang-types=ftv', 'javascript': '--langauge-force=js'}
 let g:ctrlp_follow_symlinks=1
@@ -347,109 +353,11 @@ else " MacOSX/Linux
     let g:ctrlp_cache_dir=$HOME.'/.vim/ctrlp_cache'
     let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'
 endif
-" Mappings
-nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>p :CtrlPMixed<cr>
-nnoremap <leader>t :CtrlPTag<cr>
-nnoremap <leader>T :CtrlPBufTag<cr>
-" }}}
-
-" vim-go {{{
-" Settings
-let g:go_auto_type_info=0
-let g:godef_same_file_in_same_window=1
-let g:godef_split=0
-let g:go_fmt_autosave=1
-let g:go_fmt_command="goimports"
-let g:go_fmt_fail_silently=0
-let g:go_highlight_array_whitespace_error=1
-let g:go_highlight_chan_whitespace_error=1
-let g:go_highlight_extra_types=1
-let g:go_highlight_functions=1
-let g:go_highlight_methods=1
-let g:go_highlight_operators=1
-let g:go_highlight_space_tab_error=1
-let g:go_highlight_structs=1
-let g:go_highlight_trailing_whitespace_error=1
-" Not sure why this doesn't work by default on windows
-let g:go_bin_path=$HOME."/go/bin"
-" Autocommands
-if has("autocmd")
-    augroup vimgo
-        " Clear!
-        au!
-        " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au FileType go nmap gd <Plug>(go-def)
-        au FileType go nmap gr <Plug>(go-rename)
-        au FileType go nmap gi <Plug>(go-info)
-        au FileType go nmap gD <Plug>(go-doc)
-        au FileType go nmap gt <Plug>(go-test-func)
-        au FileType go nmap gT <Plug>(go-test)
-    augroup END
-endif
-" }}}
-
-" Vimux {{{
-map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vi :VimuxInspectRunner<CR>
-map <Leader>vq :VimuxCloseRunner<CR>
-map <Leader>vx :VimuxInterruptRunner<CR>
-map <Leader>r :VimuxRunLastCommand<CR>
-" }}}
-
-" Syntastic {{{
-" let g:syntastic_mode_map = { "mode": "active", "active_filetypes": [], "passive_filetypes": ["go"] }
-" }}}
-
-" HTML Settings {{{
-let html_number_lines=0
-let html_use_css=0
-let use_xhtml=0
-" }}}
-
-" Tagbar {{{
-let g:tagbar_show_linenumbers = -1
-let g:tagbar_left = 1
-" }}}
-
-" Perl Settings {{{
-let perl_extended_vars=1 " highlight advanced perl vars inside strings
-" }}}
-
-" Netrw {{{
-let g:netrw_altfile=1
-" }}}
-
-" NERDTree {{{
-let NERDTreeShowLineNumbers=1
-let NERDChristmasTree=1
-let NERDTreeDirArrows=1
-let NERDTreeMinimalUI=1
-" }}}
-
-" Ag grep {{{
-if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor
-endif
-" }}}
-
-" {{{ Syntastic
-let g:syntastic_always_populate_loc_list=1
 " }}}
 
 " Fugitive {{{
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gwrite<cr>:Gcommit<cr>
-" }}}
-
-" Javascript {{{
-let g:angular_filename_convention='camelcased'
-" }}}
-
-" Racer {{{
-let g:racer_cmd=$HOME.'/projects/racer/target/release/racer'
-let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " }}}
 
 " Highlight current line {{{
@@ -460,22 +368,58 @@ augroup CursorLine
 augroup END
 " }}}
 
+" HTML Settings {{{
+let html_number_lines=0
+let html_use_css=0
+let use_xhtml=0
+" }}}
+
+" Javascript {{{
+let g:angular_filename_convention='camelcased'
+" }}}
+
 " Markdown {{{
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_frontmatter=1
+" }}}
+
+" NERDTree {{{
+let NERDTreeShowLineNumbers=1
+let NERDChristmasTree=1
+let NERDTreeDirArrows=1
+let NERDTreeMinimalUI=1
+" }}}
+
+" Netrw {{{
+let g:netrw_altfile=1
+" }}}
+
+" Perl Settings {{{
+let perl_extended_vars=1 " highlight advanced perl vars inside strings
+" }}}
+
+" Racer {{{
+let g:racer_cmd=$HOME.'/projects/racer/target/release/racer'
+let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
+" }}}
+
+" {{{ Rainbow Plugin
+let g:rainbow#max_level = 24
+let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
+" }}}
+
+" {{{ Syntastic
+let g:syntastic_always_populate_loc_list=1
 " }}}
 
 " Sneak {{{
 let g:sneak#streak = 1
 " }}}
 
-" {{{ Rainbow Plugin
-let g:rainbow#max_level = 24
-let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
-let g:rainbow#blacklist = [188, 150]
+" Tagbar {{{
+let g:tagbar_show_linenumbers = -1
+let g:tagbar_left = 1
 " }}}
-
-let g:gtfo#terminals = { 'win' : 'powershell -NoLogo -NoExit -Command' }
 
 " Theme setup {{{
 let g:lucius_contrast='normal'
@@ -514,6 +458,26 @@ fun! FruitLightColors()
 endfun
 " }}}
 
+" Vim Go (vim-go) {{{
+let g:go_auto_type_info=0
+let g:godef_same_file_in_same_window=1
+let g:godef_split=0
+let g:go_fmt_autosave=1
+let g:go_fmt_command="goimports"
+let g:go_fmt_fail_silently=0
+let g:go_highlight_array_whitespace_error=1
+let g:go_highlight_chan_whitespace_error=1
+let g:go_highlight_extra_types=1
+let g:go_highlight_functions=1
+let g:go_highlight_methods=1
+let g:go_highlight_operators=1
+let g:go_highlight_space_tab_error=1
+let g:go_highlight_structs=1
+let g:go_highlight_trailing_whitespace_error=1
+" Not sure why this doesn't work by default on windows
+let g:go_bin_path=$HOME."/go/bin"
+" }}}
+
 " Modeline {{{
-" vim: set foldlevel=1:
+" vim: set foldlevel=0:
 " }}}
