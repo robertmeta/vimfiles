@@ -104,7 +104,6 @@ set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
-set listchars=trail:·,tab:\|\ ,eol:¬
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
 set noautoread " nope
@@ -266,8 +265,8 @@ if has("autocmd")
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au BufRead,BufNewFile *.go setlocal noexpandtab ts=8 sw=8 sts=8 syntax=go ft=go foldmethod=indent foldmarker={,} list listchars=tab:\|\ " so does make
-        au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make list listchars=tab:\|\ " so does make
+        au BufRead,BufNewFile *.go setlocal noexpandtab ts=8 sw=8 sts=8 syntax=go ft=go foldmethod=indent foldmarker={,} " so does make
+        au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make " so does make
         " Some JS awesome via romainl
         au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<CR><CR>
         au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<CR><CR>
