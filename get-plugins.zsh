@@ -22,6 +22,9 @@ git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && r
 git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
 # }}}
 
+# Fuzzy searching
+git clone https://github.com/ggVGc/vim-fuzzysearch bundle/fuzzysearch && rm -rf bundle/fuzzysearch/.git
+
 # Great for working with others who love visual aids
 git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
 
