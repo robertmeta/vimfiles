@@ -460,6 +460,10 @@ fun! FruitLightColors()
 endfun
 " }}}
 
+" Trollstopper {{{
+call matchadd('Error', '[^\d0-\d127]')
+" }}}
+
 " Vim Go (vim-go) {{{
 let g:go_auto_type_info=0
 let g:godef_same_file_in_same_window=1
