@@ -76,6 +76,9 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>r :VimuxRunLastCommand<CR>
+" Fuzzy
+nnoremap <leader>fr :%s///g<left><left>
+nnoremap <leader>f :FuzzySearch<cr>
 " }}}
 
 " Basics Settings {{{
@@ -287,6 +290,9 @@ if has("autocmd")
         au FileType go nmap gD <Plug>(go-doc)
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
+        " Highlight current line
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
+        au WinLeave * setlocal nocursorline norelativenumber
     augroup END
 endif
 " }}}
@@ -359,12 +365,8 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gwrite<cr>:Gcommit<cr>
 " }}}
 
-" Highlight current line {{{
-augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
-    au WinLeave * setlocal nocursorline norelativenumber
-augroup END
+" FuzzySearch {{{
+g:fuzzysearch_match_spaces = 1
 " }}}
 
 " HTML Settings {{{
