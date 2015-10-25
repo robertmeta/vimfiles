@@ -77,7 +77,6 @@ map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>r :VimuxRunLastCommand<CR>
 " Fuzzy
-nnoremap <leader>fr :%s///g<left><left>
 nnoremap <leader>f :FuzzySearch<cr>
 " }}}
 
