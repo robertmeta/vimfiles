@@ -366,7 +366,7 @@ nnoremap <leader>gc :Gwrite<cr>:Gcommit<cr>
 " }}}
 
 " FuzzySearch {{{
-g:fuzzysearch_match_spaces = 1
+let g:fuzzysearch_match_spaces=1
 " }}}
 
 " HTML Settings {{{
