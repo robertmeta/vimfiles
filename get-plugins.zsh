@@ -20,6 +20,7 @@ git clone https://github.com/ajgrf/sprinkles bundle/sprinkles && rm -rf bundle/s
 git clone https://github.com/acarapetis/vim-colors-github bundle/githubcolor && rm -rf bundle/githubcolor/.git
 git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && rm -rf bundle/mactheme/.git
 git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
+git clone https://bitbucket.org/kisom/eink.vim bundle/eink && rm -rf bundle/eink/.git
 # }}}
 
 # Fuzzy searching
