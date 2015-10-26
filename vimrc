@@ -112,7 +112,7 @@ set noautoread " nope
 set noautowriteall " nope
 set noautowrite " nope
 set nocursorcolumn " disable global cursor column
-set cursorline " cursor line
+set nocursorline " cursor line
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
@@ -288,8 +288,8 @@ if has("autocmd")
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
-        au WinLeave * setlocal nocursorline norelativenumber
+        au VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
+        au WinLeave * setlocal norelativenumber
     augroup END
 endif
 " }}}
