@@ -485,5 +485,5 @@ let g:go_bin_path=$HOME."/go/bin"
 " }}}
 
 " Modeline {{{
-" vim: set foldlevel=0:
+" vim: set foldlevel=1:
 " }}}
