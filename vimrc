@@ -430,9 +430,9 @@ let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 set background=dark
 colo eink
-hi LineNr ctermfg=lightgrey
-hi CursorLineNr ctermfg=cyan
-hi StatusLine ctermbg=cyan
+" hi LineNr ctermfg=lightgrey
+" hi CursorLineNr ctermfg=cyan
+" hi StatusLine ctermbg=cyan
 
 fun! LuciousLightColors()
     set background=light
