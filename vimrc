@@ -119,7 +119,7 @@ set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " going to try seeing the broken again
 set nomore " Scroll away, no pausing
-set noshowmatch " don't show matching things (RainbowParentheses is better)
+set showmatch " do show matching things
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
@@ -261,8 +261,6 @@ if has("autocmd")
         au!
         " Resize windows automagically
         au VimResized * :wincmd =
-        " Always rainbow parens
-        au BufRead,BufNewFile * RainbowParentheses
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
