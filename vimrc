@@ -482,6 +482,10 @@ let g:go_highlight_trailing_whitespace_error=1
 let g:go_bin_path=$HOME."/go/bin"
 " }}}
 
+" Experiment {{{
+syntax off
+" }}}
+
 " Modeline {{{
 " vim: set foldlevel=1:
 " }}}
