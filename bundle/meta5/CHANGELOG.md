@@ -1,3 +1,8 @@
+v0.13.0
+-------
+fd2a13e fixing color change
+cac132b fold-color change
+
 v0.12.0
 -------
 85b84d0 fixes issues #5 and issues #6

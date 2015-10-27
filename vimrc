@@ -25,7 +25,6 @@ let s:colorful_term=(&term  =~ "xterm") || (&term  =~ "screen")
 " Loading Settings {{{
 let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
-let loaded_matchparen=1 " we don't want to use matching paren plugin, we got RainbowParen
 syntax on " syntax highlighting on
 syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 " }}}
@@ -470,6 +469,7 @@ let g:go_fmt_autosave=1
 let g:go_fmt_command="goimports"
 let g:go_fmt_fail_silently=0
 let g:go_highlight_array_whitespace_error=1
+let g:go_highlight_build_constraints=1
 let g:go_highlight_chan_whitespace_error=1
 let g:go_highlight_extra_types=1
 let g:go_highlight_functions=1
