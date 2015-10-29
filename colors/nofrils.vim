@@ -47,7 +47,7 @@ if &background == "light"
         hi Identifier cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
         hi Statement cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
         hi Ignore cterm=bold ctermfg=none gui=bold guifg=none
-        hi String term=underline ctermfg=8 term=italic guifg=none
+        hi String cterm=underline ctermfg=8 term=italic guifg=none
         hi ErrorMsg cterm=reverse ctermbg=15 ctermfg=9 gui=reverse guibg=none guifg=firebrick3
         hi Error cterm=reverse ctermbg=15 ctermfg=9 gui=reverse guibg=none guifg=firebrick3
         hi Todo cterm=bold,standout ctermbg=0 ctermfg=11 gui=bold,standout guibg=none guifg=darkgoldenrod2
