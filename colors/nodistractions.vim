@@ -8,7 +8,7 @@ if exists("syntax_on")
         syntax reset
 endif
 
-let colors_name = "nodistractions"
+let colors_name = "nofrils"
 
 if &background == "light"
         hi Normal cterm=none ctermbg=white ctermfg=235 gui=none guibg=snow1 guifg=gray11
