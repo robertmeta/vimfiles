@@ -11,13 +11,13 @@ endif
 let colors_name = "nofrils"
 
 if &background == "light"
-        hi Normal cterm=none ctermbg=white ctermfg=235 gui=none guibg=snow1 guifg=gray11
+        hi Normal cterm=none ctermbg=white ctermfg=black gui=none guibg=snow1 guifg=gray11
         hi SpecialKey cterm=bold ctermfg=none gui=bold guifg=none
         hi IncSearch cterm=reverse ctermfg=none gui=reverse guifg=none
         hi Search cterm=reverse ctermfg=none gui=reverse guifg=none
         hi MoreMsg cterm=bold ctermfg=none gui=bold guifg=none
         hi ModeMsg cterm=bold ctermfg=none gui=bold guifg=none
-        hi LineNr cterm=none ctermfg=235 gui=none guifg=gray60
+        hi LineNr cterm=none ctermbg=8 ctermfg=white gui=none guifg=gray60
         hi StatusLine cterm=bold,reverse ctermfg=none gui=bold,reverse guifg=none
         hi StatusLineNC cterm=reverse ctermfg=none gui=reverse guifg=none
         hi VertSplit cterm=reverse ctermfg=none gui=reverse guifg=none
@@ -43,24 +43,24 @@ if &background == "light"
         hi Directive cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
         hi Conditional cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
         hi Comment cterm=bold ctermbg=none ctermfg=240 gui=bold guibg=none guifg=gray17
-        hi Func cterm=none ctermbg=234 ctermfg=250 gui=none guibg=none guifg=gray17
+        hi Func cterm=none ctermbg=234 ctermfg=black gui=none guibg=none guifg=gray17
         hi Identifier cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
         hi Statement cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
         hi Ignore cterm=bold ctermfg=none gui=bold guifg=none
-        hi String cterm=underline ctermfg=8 term=italic guifg=none
+        hi String cterm=bold ctermfg=240 term=italic guifg=none
         hi ErrorMsg cterm=reverse ctermbg=15 ctermfg=9 gui=reverse guibg=none guifg=firebrick3
         hi Error cterm=reverse ctermbg=15 ctermfg=9 gui=reverse guibg=none guifg=firebrick3
         hi Todo cterm=bold,standout ctermbg=0 ctermfg=11 gui=bold,standout guibg=none guifg=darkgoldenrod2
-        hi MatchParen cterm=bold ctermbg=250 ctermfg=none gui=bold guibg=gray70 guifg=none
-        hi ColorColumn ctermbg=255 guifg=gray60
+        hi MatchParen cterm=bold ctermbg=black ctermfg=none gui=bold guibg=gray70 guifg=none
+        hi ColorColumn ctermbg=black guifg=gray60
 else
-        hi Normal cterm=none ctermbg=234 ctermfg=250 gui=none guibg=#1d1f21 guifg=gray70
+        hi Normal cterm=none ctermbg=black ctermfg=white gui=none guibg=#1d1f21 guifg=gray70
         hi SpecialKey cterm=bold ctermfg=none gui=bold guifg=none
         hi IncSearch cterm=reverse ctermfg=none gui=reverse guifg=none
         hi Search cterm=reverse ctermfg=none gui=reverse guifg=none
         hi MoreMsg cterm=bold ctermfg=none gui=bold guifg=none
         hi ModeMsg cterm=bold ctermfg=none gui=bold guifg=none
-        hi LineNr cterm=none ctermfg=238 gui=none guifg=gray30
+        hi LineNr cterm=none ctermbg=8 ctermfg=white gui=none guifg=gray30
         hi StatusLine cterm=bold,reverse ctermfg=none gui=bold,reverse guifg=none
         hi StatusLineNC cterm=reverse ctermfg=none gui=reverse guifg=none
         hi VertSplit cterm=reverse ctermfg=none gui=reverse guifg=none
@@ -85,15 +85,15 @@ else
         hi PreProc cterm=none ctermfg=none gui=none guifg=none
         hi Directive cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
         hi Conditional cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
-        hi Comment cterm=none ctermbg=none ctermfg=245 gui=none guibg=none guifg=gray50
-        hi Func cterm=none ctermbg=234 ctermfg=250 gui=none guibg=none guifg=gray50
+        hi Comment cterm=none ctermbg=none ctermfg=240 gui=none guibg=none guifg=gray50
+        hi Func cterm=none ctermbg=234 ctermfg=black gui=none guibg=none guifg=gray50
         hi Identifier cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
         hi Statement cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
         hi Ignore cterm=bold ctermfg=none gui=bold guifg=none
-        hi String cterm=bold ctermfg=7 gui=italic guifg=none
+        hi String cterm=bold ctermfg=245 gui=italic guifg=none
         hi ErrorMsg cterm=reverse ctermbg=15 ctermfg=9 gui=reverse guibg=none guifg=firebrick3
         hi Error cterm=reverse ctermbg=15 ctermfg=9 gui=reverse guibg=none guifg=firebrick3
         hi Todo cterm=bold,standout ctermbg=0 ctermfg=11 gui=bold,standout guibg=none guifg=darkgoldenrod2
-        hi MatchParen cterm=bold ctermbg=250 ctermfg=none gui=bold guibg=gray45 guifg=none
-        hi ColorColumn ctermbg=255 guibg=gray10
+        hi MatchParen cterm=bold ctermbg=black ctermfg=none gui=bold guibg=gray45 guifg=none
+        hi ColorColumn ctermbg=black guibg=gray10
 endif
