@@ -17,7 +17,7 @@ if &background == "light"
         hi Search cterm=reverse ctermfg=none gui=reverse guifg=none
         hi MoreMsg cterm=bold ctermfg=none gui=bold guifg=none
         hi ModeMsg cterm=bold ctermfg=none gui=bold guifg=none
-        hi LineNr cterm=none ctermbg=8 ctermfg=white gui=none guifg=gray60
+        hi LineNr cterm=none ctermbg=white ctermfg=black gui=none guifg=gray60
         hi StatusLine cterm=bold,reverse ctermfg=none gui=bold,reverse guifg=none
         hi StatusLineNC cterm=reverse ctermfg=none gui=reverse guifg=none
         hi VertSplit cterm=reverse ctermfg=none gui=reverse guifg=none
@@ -60,7 +60,7 @@ else
         hi Search cterm=reverse ctermfg=none gui=reverse guifg=none
         hi MoreMsg cterm=bold ctermfg=none gui=bold guifg=none
         hi ModeMsg cterm=bold ctermfg=none gui=bold guifg=none
-        hi LineNr cterm=none ctermbg=8 ctermfg=white gui=none guifg=gray30
+        hi LineNr cterm=none ctermfg=8 ctermbg=black gui=none guifg=gray30
         hi StatusLine cterm=bold,reverse ctermfg=none gui=bold,reverse guifg=none
         hi StatusLineNC cterm=reverse ctermfg=none gui=reverse guifg=none
         hi VertSplit cterm=reverse ctermfg=none gui=reverse guifg=none
