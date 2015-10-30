@@ -426,7 +426,7 @@ let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 set background=dark
-colo nofrils
+colo eink
 " hi LineNr ctermfg=lightgrey
 " hi CursorLineNr ctermfg=cyan
 " hi StatusLine ctermbg=cyan
