@@ -61,9 +61,9 @@ else
         hi MoreMsg cterm=bold ctermfg=none gui=bold guifg=none
         hi ModeMsg cterm=bold ctermfg=none gui=bold guifg=none
         hi LineNr cterm=none ctermfg=8 ctermbg=black gui=none guifg=gray30
-        hi StatusLine cterm=bold,reverse ctermfg=none gui=bold,reverse guifg=none
-        hi StatusLineNC cterm=reverse ctermfg=none gui=reverse guifg=none
-        hi VertSplit cterm=reverse ctermfg=none gui=reverse guifg=none
+        hi StatusLine cterm=bold ctermfg=white gui=bold,reverse guifg=none
+        hi StatusLineNC cterm=none ctermfg=7 gui=reverse guifg=none
+        hi VertSplit cterm=none ctermfg=none gui=reverse guifg=none
         hi Title cterm=bold ctermfg=none gui=bold guifg=none
         hi Visual cterm=reverse ctermfg=none gui=reverse guifg=none
         hi VisualNOS cterm=bold ctermfg=none gui=bold guifg=none
