@@ -25,7 +25,7 @@ git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/
 # }}}
 
 # Lets try this
-git clone https://github.com/garyburd/go-explorer bundle/go-explorer && bundle/go-explorer/.git
+git clone https://github.com/garyburd/go-explorer bundle/goexplorer && rm -rf bundle/goexplorer/.git
 
 # Fuzzy searching
 # git clone https://github.com/ggVGc/vim-fuzzysearch bundle/fuzzysearch && rm -rf bundle/fuzzysearch/.git
