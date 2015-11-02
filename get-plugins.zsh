@@ -24,6 +24,9 @@ git clone https://bitbucket.org/kisom/eink.vim bundle/eink && rm -rf bundle/eink
 git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
 # }}}
 
+# Lets try this
+git clone https://github.com/garyburd/go-explorer bundle/go-explorer && bundle/go-explorer/.git
+
 # Fuzzy searching
 # git clone https://github.com/ggVGc/vim-fuzzysearch bundle/fuzzysearch && rm -rf bundle/fuzzysearch/.git
 
