@@ -24,13 +24,13 @@ git clone https://bitbucket.org/kisom/eink.vim bundle/eink && rm -rf bundle/eink
 # }}}
 
 # Fuzzy searching
-git clone https://github.com/ggVGc/vim-fuzzysearch bundle/fuzzysearch && rm -rf bundle/fuzzysearch/.git
+# git clone https://github.com/ggVGc/vim-fuzzysearch bundle/fuzzysearch && rm -rf bundle/fuzzysearch/.git
 
 # Great for working with others who love visual aids
-git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
+# git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
 
 # Allow autocomplete from other panes
-git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
+# git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
 
 # Used by better markdown
 git clone https://github.com/godlygeek/tabular bundle/tabular && rm -rf bundle/tabular/.git
@@ -38,7 +38,7 @@ git clone https://github.com/godlygeek/tabular bundle/tabular && rm -rf bundle/t
 git clone https://github.com/plasticboy/vim-markdown bundle/markdown && rm -rf bundle/markdown/.git
 
 # Basically just got / gof / goT/ goF
-git clone https://github.com/justinmk/vim-gtfo bundle/gtfo && rm -rf bundle/gtfo/.git
+# git clone https://github.com/justinmk/vim-gtfo bundle/gtfo && rm -rf bundle/gtfo/.git
 
 # Sneak provides a way to move quickly and precisely to locations that would
 # be awkward to reach with built-in Vim motions.
@@ -49,7 +49,7 @@ git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sn
 git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 
 # Visual undotree, great for dealing with a change deep in an undo branch
-git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/undotree/.git
+# git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/undotree/.git
 
 # Gutentags is a plugin that takes care of the much needed management of tags
 # files in Vim. It will (re)generate tag files as you work while staying
