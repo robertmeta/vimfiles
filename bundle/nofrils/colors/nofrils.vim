@@ -6,13 +6,13 @@ endif
 let colors_name = "nofrils"
 
 if &background == "light"
-        hi Normal cterm=none ctermbg=254 ctermfg=0
+        hi Normal cterm=none ctermbg=230 ctermfg=0
         hi Char cterm=none ctermbg=none ctermfg=none
         hi ColorColumn ctermbg=0
         hi Comment cterm=none ctermbg=none ctermfg=240
         hi Conditional cterm=none ctermbg=none ctermfg=none
         hi Constant cterm=none ctermbg=none ctermfg=none
-        hi CursorLine cterm=none ctermfg=none ctermbg=253
+        hi CursorLine cterm=none ctermfg=none ctermbg=229
         hi DiffAdd cterm=none ctermfg=none
         hi DiffChange cterm=none ctermfg=none
         hi DiffDelete cterm=none ctermfg=none
@@ -28,7 +28,7 @@ if &background == "light"
         hi Ignore cterm=none ctermfg=none
         hi IncSearch cterm=reverse ctermfg=none
         hi Keyword cterm=none ctermbg=none ctermfg=none
-        hi LineNr cterm=none ctermfg=8 ctermbg=254
+        hi LineNr cterm=none ctermfg=8 ctermbg=230
         hi MatchParen cterm=none ctermbg=0 ctermfg=none
         hi ModeMsg cterm=none ctermfg=none
         hi MoreMsg cterm=none ctermfg=none

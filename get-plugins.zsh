@@ -21,6 +21,7 @@ git clone https://github.com/acarapetis/vim-colors-github bundle/githubcolor && 
 git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && rm -rf bundle/mactheme/.git
 git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
 git clone https://bitbucket.org/kisom/eink.vim bundle/eink && rm -rf bundle/eink/.git
+git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
 # }}}
 
 # Fuzzy searching
