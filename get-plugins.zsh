@@ -24,25 +24,12 @@ git clone https://bitbucket.org/kisom/eink.vim bundle/eink && rm -rf bundle/eink
 git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
 # }}}
 
-# Lets try this
-git clone https://github.com/garyburd/go-explorer bundle/goexplorer && rm -rf bundle/goexplorer/.git
-
-# Fuzzy searching
-# git clone https://github.com/ggVGc/vim-fuzzysearch bundle/fuzzysearch && rm -rf bundle/fuzzysearch/.git
-
-# Great for working with others who love visual aids
-# git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
-
-# Allow autocomplete from other panes
-# git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
+git clone https://github.com/airblade/vim-gitgutter bundle/gitgutter && rm -rf bundle/gitgutter/.git
 
 # Used by better markdown
 git clone https://github.com/godlygeek/tabular bundle/tabular && rm -rf bundle/tabular/.git
 # Better markdown
 git clone https://github.com/plasticboy/vim-markdown bundle/markdown && rm -rf bundle/markdown/.git
-
-# Basically just got / gof / goT/ goF
-# git clone https://github.com/justinmk/vim-gtfo bundle/gtfo && rm -rf bundle/gtfo/.git
 
 # Sneak provides a way to move quickly and precisely to locations that would
 # be awkward to reach with built-in Vim motions.

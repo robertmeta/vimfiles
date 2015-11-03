@@ -414,6 +414,10 @@ let g:tagbar_show_linenumbers = -1
 let g:tagbar_left = 1
 " }}}
 
+" Git Gutter {{{
+let g:gitgutter_sign_column_always = 1
+" }}}
+
 " Vim Go (vim-go) {{{
 let g:go_auto_type_info=0
 let g:godef_same_file_in_same_window=1
