@@ -358,10 +358,6 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gwrite<cr>:Gcommit<cr>
 " }}}
 
-" FuzzySearch {{{
-let g:fuzzysearch_match_spaces=1
-" }}}
-
 " HTML Settings {{{
 let html_number_lines=0
 let html_use_css=0
@@ -445,34 +441,6 @@ let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 set background=dark
 colo nofrils
-" hi LineNr ctermfg=lightgrey
-" hi CursorLineNr ctermfg=cyan
-" hi StatusLine ctermbg=cyan
-
-fun! LuciousLightColors()
-    set background=light
-    LuciusLightHighContrast
-    hi CursorLineNr ctermbg=cyan
-    hi StatusLine ctermbg=cyan ctermfg=black
-endfun
-
-fun! LuciousDarkColors()
-    set background=dark
-    LuciusDarkHighContrast
-    hi LineNr ctermfg=lightgrey
-    hi CursorLineNr ctermfg=cyan
-    hi StatusLine ctermbg=cyan ctermfg=black
-endfun
-
-fun! FruitLightColors()
-    set background=light
-    colo summerfruit256
-    hi SpecialKey cterm=NONE ctermfg=grey
-    hi StatusLine ctermbg=152 ctermfg=32
-    hi CursorLine cterm=NONE ctermbg=15
-    hi Comment ctermfg=22
-    hi Normal ctermfg=black ctermbg=white guifg=#000000 guibg=#ffffff
-endfun
 " }}}
 
 " Modeline {{{
