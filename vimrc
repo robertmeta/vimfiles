@@ -411,17 +411,9 @@ let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
 let g:syntastic_always_populate_loc_list=1
 " }}}
 
-" Sneak {{{
-let g:sneak#streak = 1
-" }}}
-
 " Tagbar {{{
 let g:tagbar_show_linenumbers = -1
 let g:tagbar_left = 1
-" }}}
-
-" Trollstopper {{{
-call matchadd('Error', '[^\d0-\d127]')
 " }}}
 
 " Vim Go (vim-go) {{{
