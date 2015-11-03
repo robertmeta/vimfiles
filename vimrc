@@ -74,15 +74,15 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>r :VimuxRunLastCommand<CR>
-" Fuzzy
-nnoremap <leader>f :FuzzySearch<cr>
 " }}}
 
 " Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
+set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=longest,menuone,preview " complete menu
 set complete=.,w,b,u,t " complete options
+set cursorline " cursor line
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
@@ -110,21 +110,19 @@ set noautoread " nope
 set noautowriteall " nope
 set noautowrite " nope
 set nocursorcolumn " disable global cursor column
-set cursorline " cursor line
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " going to try seeing the broken again
 set nomore " Scroll away, no pausing
-set showmatch " do show matching things
+set nonumber " off line numbers
+set norelativenumber " trying again
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set number " off line numbers
 set numberwidth=5 " We are good up to 99999 lines
-set relativenumber " trying again
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
@@ -134,7 +132,7 @@ set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
 set showbreak=+++\  " this is how we show breaks (this comment is broken in vim, dafaq)
 set showcmd " Show the commands
-set cmdheight=2 " Gets rid of all the press enter to continue
+set showmatch " do show matching things
 set showmode " default but just in case
 set sidescroll=5 " If you hit edge, jump 5
 set sidescrolloff=5 " Keep 5 lines at the size
@@ -286,8 +284,8 @@ if has("autocmd")
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
-        au WinLeave * setlocal norelativenumber
+        " au VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
+        " au WinLeave * setlocal norelativenumber
     augroup END
 endif
 " }}}
@@ -385,7 +383,7 @@ let NERDTreeCascadeOpenSingleChildDir=1
 let NERDTreeDirArrows=1
 let NERDTreeMinimalUI=1
 let NERDTreeQuitOnOpen=1
-let NERDTreeShowLineNumbers=1
+let NERDTreeShowLineNumbers=0
 let NERDTreeWinSize=50
 " }}}
 
