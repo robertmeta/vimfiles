@@ -145,48 +145,56 @@ function! s:extract_colors()
 endfunction
 
 function! s:show_colors()
-  for level in reverse(range(1, b:rainbow_max_level))
+  for level in reverse(range(1, s:max_level))
     execute 'hi rainbowParensShell'.level
   endfor
 endfunction
 
-function! rainbow_parentheses#activate()
-  let max = get(g:, 'rainbow#max_level', 16)
+let s:generation = 0
+function! rainbow_parentheses#activate(...)
+  let force = get(a:000, 0, 0)
+  if exists('#rainbow_parentheses') && get(b:, 'rainbow_enabled', -1) == s:generation && !force
+    return
+  endif
+
+  let s:generation += 1
+  let s:max_level = get(g:, 'rainbow#max_level', 16)
   let colors = exists('g:rainbow#colors') ?
     \ map(copy(g:rainbow#colors[&bg]), 's:colors_to_hi(v:val)') :
     \ s:extract_colors()
 
-  for level in range(1, max)
+  for level in range(1, s:max_level)
     let col = colors[(level - 1) % len(colors)]
-    execute printf('hi rainbowParensShell%d %s', max - level + 1, col)
+    execute printf('hi rainbowParensShell%d %s', s:max_level - level + 1, col)
   endfor
-  call s:regions(max)
+  call s:regions(s:max_level)
 
   command! -bang -nargs=? -bar RainbowParenthesesColors call s:show_colors()
   augroup rainbow_parentheses
     autocmd!
-    autocmd ColorScheme,Syntax * call rainbow_parentheses#activate()
+    autocmd ColorScheme,Syntax * call rainbow_parentheses#activate(1)
   augroup END
-  let b:rainbow_max_level = max
+  let b:rainbow_enabled = s:generation
 endfunction
 
 function! rainbow_parentheses#deactivate()
-  if exists('b:rainbow_max_level')
-    for level in range(1, b:rainbow_max_level)
-      execute 'hi clear rainbowParensShell'.level
-      execute 'syntax clear rainbowParens'.level
+  if exists('#rainbow_parentheses')
+    for level in range(1, s:max_level)
+      " FIXME How to cope with changes in rainbow#max_level?
+      silent! execute 'hi clear rainbowParensShell'.level
+      " FIXME buffer-local
+      silent! execute 'syntax clear rainbowParens'.level
     endfor
     augroup rainbow_parentheses
       autocmd!
     augroup END
     augroup! rainbow_parentheses
-    unlet b:rainbow_max_level
     delc RainbowParenthesesColors
   endif
 endfunction
 
 function! rainbow_parentheses#toggle()
-  if exists('b:rainbow_max_level')
+  if exists('#rainbow_parentheses')
     call rainbow_parentheses#deactivate()
   else
     call rainbow_parentheses#activate()
