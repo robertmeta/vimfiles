@@ -440,7 +440,7 @@ let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 set background=dark
-colo nofrils-dark
+colo nofrils
 " }}}
 
 " Modeline {{{
