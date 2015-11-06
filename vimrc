@@ -284,8 +284,8 @@ if has("autocmd")
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
-        " au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-        " au WinLeave * setlocal nocursorline
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+        au WinLeave * setlocal nocursorline
     augroup END
 endif
 " }}}
