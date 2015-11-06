@@ -97,6 +97,7 @@ set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
 set hidden " load files in background
 set history=9999 " big old history
+set hlsearch " do highlight searched for phrases
 set ignorecase " case insensitive by default
 set incsearch " BUT do highlight as you type you search phrase
 set infercase " case inferred by default
@@ -112,7 +113,6 @@ set noautowrite " nope
 set nocursorcolumn " disable global cursor column
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
-set nohlsearch " don't  highlight searched for phrases
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " going to try seeing the broken again
 set nomore " Scroll away, no pausing
@@ -284,8 +284,8 @@ if has("autocmd")
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
-        " au VimEnter,WinEnter,BufWinEnter * setlocal relativenumber
-        " au WinLeave * setlocal norelativenumber
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+        au WinLeave * setlocal nocursorline
     augroup END
 endif
 " }}}
@@ -440,7 +440,7 @@ let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 set background=dark
-colo nofrils
+colo nofrils-dark
 " }}}
 
 " Modeline {{{
