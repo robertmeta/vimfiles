@@ -26,6 +26,7 @@ let s:colorful_term=(&term  =~ "xterm") || (&term  =~ "screen")
 let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 syntax on " syntax highlighting on
+
 syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 " }}}
 
@@ -412,6 +413,10 @@ let g:tagbar_left = 1
 
 " Git Gutter {{{
 let g:gitgutter_sign_column_always = 1
+" }}}
+
+" Signature {{{
+let g:SignatureMarkTextHLDynamic = 1 " works with gitgutter
 " }}}
 
 " Vim Go (vim-go) {{{
