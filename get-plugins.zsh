@@ -24,9 +24,6 @@ git clone https://bitbucket.org/kisom/eink.vim bundle/eink && rm -rf bundle/eink
 git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
 # }}}
 
-# Put marks in the sign column
-git clone https://github.com/kshenoy/vim-signature bundle/signature && rm -rf bundle/signature/.git
-
 # Put git status in the sign column
 git clone https://github.com/airblade/vim-gitgutter bundle/gitgutter && rm -rf bundle/gitgutter/.git
 
