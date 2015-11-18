@@ -25,7 +25,7 @@ git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/
 # }}}
 
 # Put git status in the sign column
-git clone https://github.com/airblade/vim-gitgutter bundle/gitgutter && rm -rf bundle/gitgutter/.git
+# git clone https://github.com/airblade/vim-gitgutter bundle/gitgutter && rm -rf bundle/gitgutter/.git
 
 # Be able to repeat many things!
 git clone https://github.com/tpope/vim-repeat.git bundle/repeat && rm -rf bundle/repeat/.git

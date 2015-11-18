@@ -118,8 +118,8 @@ set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " going to try seeing the broken again
 set nomore " Scroll away, no pausing
-set nonumber " off line numbers
-set norelativenumber " trying again
+set number " line numbers
+set relativenumber " trying again
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
@@ -286,8 +286,8 @@ if has("autocmd")
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-        au WinLeave * setlocal nocursorline
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline number relativenumber
+        au WinLeave * setlocal nocursorline number norelativenumber
     augroup END
 endif
 " }}}
