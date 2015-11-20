@@ -44,8 +44,7 @@ nnoremap <leader>j <C-f>
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
 nnoremap <leader>W <C-W>W
-nnoremap <leader>s <esc>:write<cr>
-nnoremap <leader>x <esc>:close<cr>
+nnoremap <leader>s <esc>:SyntasticCheck<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
 " Arrow control
@@ -416,7 +415,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_go_checkers = ['go', 'gometalinter']
-let g:syntastic_mode_map = { 'mode': 'active' }
+let g:syntastic_mode_map = { 'mode': 'passive' }
 
 " }}}
 
