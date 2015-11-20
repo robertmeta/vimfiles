@@ -81,7 +81,7 @@ map <Leader>r :VimuxRunLastCommand<CR>
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
-set completeopt=longest,menuone,preview " complete menu
+set completeopt=longest,menuone " complete menu
 set complete=.,w,b,u,t " complete options
 set cursorline " cursor line
 set diffopt=filler,iwhite " filler and whitespace
