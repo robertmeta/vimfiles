@@ -69,7 +69,7 @@ git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_par
 
 # With Wildfire you can quickly select the closest text object among a group of
 # candidates. By default candidates are `i'`, `i"`, `i)`, `i]`, `i}`, `ip` and `it`.
-# git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
+git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
 
 # This plugin is a front for the_silver_searcher: ag. Ag can be used as a
 # replacement for ack. This plugin will allow you to run ag from vim, and shows
