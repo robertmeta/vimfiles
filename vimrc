@@ -49,6 +49,7 @@ nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
 " Arrow control
 nnoremap <left> :NERDTreeToggle<cr>
+nnoremap - :NERDTreeCWD<cr>
 nnoremap <right> :TagbarToggle<cr>
 nnoremap <up> <C-f>
 nnoremap <down> <C-b>
