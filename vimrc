@@ -22,7 +22,7 @@ Helptag " Help for plugins
 let s:running_windows=has("win16") || has("win32") || has("win64")
 let s:colorful_term=(&term  =~ "xterm") || (&term  =~ "screen")
 " }}}
-"
+
 " Loading Settings {{{
 let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
@@ -45,11 +45,12 @@ nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
 nnoremap <leader>W <C-W>W
 nnoremap <leader>s <esc>:SyntasticCheck<cr>
+nnoremap <leader>c <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
 " Arrow control
 nnoremap <left> :NERDTreeToggle<cr>
-nnoremap - :NERDTreeCWD<cr>
+nnoremap - :NERDTreeFind<cr>
 nnoremap <right> :TagbarToggle<cr>
 nnoremap <up> <C-f>
 nnoremap <down> <C-b>
@@ -122,7 +123,7 @@ set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " going to try seeing the broken again
 set nomore " Scroll away, no pausing
 set nonumber " no line numbers
-set norelativenumber " trying again
+set norelativenumber " no thank you
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
@@ -289,7 +290,7 @@ if has("autocmd")
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline 
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
         au WinLeave * setlocal nocursorline
     augroup END
 endif
@@ -388,6 +389,7 @@ let NERDTreeMinimalUI=1
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowLineNumbers=0
 let NERDTreeWinSize=50
+let NERDTreeAutoDeleteBuffer=1
 " }}}
 
 " Netrw {{{
