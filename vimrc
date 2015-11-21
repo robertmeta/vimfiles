@@ -68,6 +68,9 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
 nnoremap <leader>t :CtrlPTag<cr>
 nnoremap <leader>T :CtrlPBufTag<cr>
+" Indent / Outdent
+vnoremap < <gv
+vnoremap > >gv
 " Vimux
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
