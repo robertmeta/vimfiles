@@ -261,6 +261,8 @@ if has("autocmd")
     augroup general
         " Clear!
         au!
+        " If tree is last window
+        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
         " Resize windows automagically
         au VimResized * :wincmd =
         " Things that use two spaces rather than four
