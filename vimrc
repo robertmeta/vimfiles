@@ -45,7 +45,7 @@ nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
 nnoremap <leader>W <C-W>W
 nnoremap <leader>s <esc>:SyntasticCheck<cr>
-nnoremap <leader>c <esc>:close<cr>
+nnoremap <leader>q <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
 " Arrow control
