@@ -12,6 +12,7 @@
 " Baseline {{{
 set encoding=utf-8 " yey! utf-8
 scriptencoding utf-8 " yey! utf-8
+
 " adds stuff under bundles to the path
 execute pathogen#infect()
 Helptag " Help for plugins
@@ -21,7 +22,7 @@ Helptag " Help for plugins
 let s:running_windows=has("win16") || has("win32") || has("win64")
 let s:colorful_term=(&term  =~ "xterm") || (&term  =~ "screen")
 " }}}
-"
+
 " Loading Settings {{{
 let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
@@ -43,12 +44,13 @@ nnoremap <leader>j <C-f>
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
 nnoremap <leader>W <C-W>W
-nnoremap <leader>s <esc>:write<cr>
-nnoremap <leader>x <esc>:close<cr>
+nnoremap <leader>s <esc>:SyntasticCheck<cr>
+nnoremap <leader>q <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
 " Arrow control
 nnoremap <left> :NERDTreeToggle<cr>
+nnoremap - :NERDTreeFind<cr>
 nnoremap <right> :TagbarToggle<cr>
 nnoremap <up> <C-f>
 nnoremap <down> <C-b>
@@ -68,6 +70,9 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
 nnoremap <leader>t :CtrlPTag<cr>
 nnoremap <leader>T :CtrlPBufTag<cr>
+" Indent / Outdent
+vnoremap < <gv
+vnoremap > >gv
 " Vimux
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
@@ -81,7 +86,7 @@ map <Leader>r :VimuxRunLastCommand<CR>
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
-set completeopt=longest,menuone,preview " complete menu
+set completeopt=longest,menuone " complete menu
 set complete=.,w,b,u,t " complete options
 set cursorline " cursor line
 set diffopt=filler,iwhite " filler and whitespace
@@ -117,8 +122,8 @@ set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " going to try seeing the broken again
 set nomore " Scroll away, no pausing
-set nonumber " off line numbers
-set norelativenumber " trying again
+set nonumber " no line numbers
+set norelativenumber " no thank you
 set nospell " too many broken syntax files to have spellcheck on everywhere
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
@@ -256,6 +261,8 @@ if has("autocmd")
     augroup general
         " Clear!
         au!
+        " If tree is last window
+        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
         " Resize windows automagically
         au VimResized * :wincmd =
         " Things that use two spaces rather than four
@@ -322,7 +329,9 @@ endif
 if has("mouse")
     set mouse=a " use mouse everywhere
     set nomousehide " don't hide the mouse
-    set ttymouse=xterm2 " makes it work in everything
+    if !has('nvim')
+          set ttymouse=xterm2
+    endif
 endif
 " }}}
 
@@ -379,9 +388,10 @@ let NERDChristmasTree=1
 let NERDTreeCascadeOpenSingleChildDir=1
 let NERDTreeDirArrows=1
 let NERDTreeMinimalUI=1
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 let NERDTreeShowLineNumbers=0
 let NERDTreeWinSize=50
+let NERDTreeAutoDeleteBuffer=1
 " }}}
 
 " Netrw {{{
@@ -403,7 +413,19 @@ let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
 " }}}
 
 " {{{ Syntastic
-let g:syntastic_always_populate_loc_list=1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_go_checkers = ['go', 'gometalinter']
+let g:syntastic_mode_map = { 'mode': 'passive' }
+
+let g:syntastic_enable_signs = 0
 " }}}
 
 " Tagbar {{{
@@ -421,6 +443,7 @@ let g:SignatureMarkTextHLDynamic = 1 " works with gitgutter
 
 " Vim Go (vim-go) {{{
 let g:go_auto_type_info=0
+let g:go_bin_path=$HOME."/go/bin"
 let g:godef_same_file_in_same_window=1
 let g:godef_split=0
 let g:go_fmt_autosave=1
@@ -436,8 +459,6 @@ let g:go_highlight_operators=1
 let g:go_highlight_space_tab_error=1
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
-" Not sure why this doesn't work by default on windows
-let g:go_bin_path=$HOME."/go/bin"
 " }}}
 
 " z Finally -- Theme setup {{{

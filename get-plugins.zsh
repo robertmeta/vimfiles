@@ -2,33 +2,30 @@ rm -rf bundle
 mkdir -p bundle
 
 # Themes {{{
+git clone https://bitbucket.org/kisom/eink.vim bundle/eink && rm -rf bundle/eink/.git
+git clone https://github.com/acarapetis/vim-colors-github bundle/githubcolor && rm -rf bundle/githubcolor/.git
+git clone https://github.com/ajgrf/sprinkles bundle/sprinkles && rm -rf bundle/sprinkles/.git
+git clone https://github.com/christophermca/meta5.git bundle/meta5 && rm -rf bundle/meta5/.git
 git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
 git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
 git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
-git clone https://github.com/vim-scripts/blackdust.vim bundle/blackdust && rm -rf bundle/blackdust/.git
 git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
+git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && rm -rf bundle/mactheme/.git
+git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
+git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
+git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
 git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bundle/apprentice/.git
 git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/disciple/.git
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
-git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
-git clone https://github.com/christophermca/meta5.git bundle/meta5 && rm -rf bundle/meta5/.git
+git clone https://github.com/vim-scripts/blackdust.vim bundle/blackdust && rm -rf bundle/blackdust/.git
 git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit && rm -rf bundle/summerfruit/.git
 git clone https://github.com/wimstefan/Lightning bundle/lightning && rm -rf bundle/lightning/.git
-git clone https://github.com/ajgrf/sprinkles bundle/sprinkles && rm -rf bundle/sprinkles/.git
-git clone https://github.com/acarapetis/vim-colors-github bundle/githubcolor && rm -rf bundle/githubcolor/.git
-git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && rm -rf bundle/mactheme/.git
-git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
-git clone https://bitbucket.org/kisom/eink.vim bundle/eink && rm -rf bundle/eink/.git
-git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
 # }}}
 
-# Put marks in the sign column
-git clone https://github.com/kshenoy/vim-signature bundle/signature && rm -rf bundle/signature/.git
-
 # Put git status in the sign column
-git clone https://github.com/airblade/vim-gitgutter bundle/gitgutter && rm -rf bundle/gitgutter/.git
+# git clone https://github.com/airblade/vim-gitgutter bundle/gitgutter && rm -rf bundle/gitgutter/.git
 
 # Be able to repeat many things!
 git clone https://github.com/tpope/vim-repeat.git bundle/repeat && rm -rf bundle/repeat/.git
@@ -38,8 +35,7 @@ git clone https://github.com/godlygeek/tabular bundle/tabular && rm -rf bundle/t
 # Better markdown
 git clone https://github.com/plasticboy/vim-markdown bundle/markdown && rm -rf bundle/markdown/.git
 
-# Sneak provides a way to move quickly and precisely to locations that would
-# be awkward to reach with built-in Vim motions.
+# Sneak provides a way to move quickly and precisely to locations that would be awkward to reach with built-in Vim motions.
 git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
 
 # This plugin is a tool for dealing with pairs of "surroundings."  Examples
@@ -72,7 +68,7 @@ git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_par
 
 # With Wildfire you can quickly select the closest text object among a group of
 # candidates. By default candidates are `i'`, `i"`, `i)`, `i]`, `i}`, `ip` and `it`.
-# git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
+git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
 
 # This plugin is a front for the_silver_searcher: ag. Ag can be used as a
 # replacement for ack. This plugin will allow you to run ag from vim, and shows
@@ -101,10 +97,10 @@ git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 
 # NERDTree
-# git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
+git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
 
 # Vinegar makes netrw not suck as much
-git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
+# git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 
 # VimCompletesMe is a vim plugin which allows you to use <Tab> for all your insert completion needs (:help ins-completion).
 git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
