@@ -26,6 +26,7 @@ git clone https://github.com/wimstefan/Lightning bundle/lightning && rm -rf bund
 
 # Put git status in the sign column
 # git clone https://github.com/airblade/vim-gitgutter bundle/gitgutter && rm -rf bundle/gitgutter/.git
+git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
 
 # Be able to repeat many things!
 git clone https://github.com/tpope/vim-repeat.git bundle/repeat && rm -rf bundle/repeat/.git

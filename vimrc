@@ -288,7 +288,8 @@ if has("autocmd")
         au FileType go nmap gd <Plug>(go-def)
         au FileType go nmap gr <Plug>(go-rename)
         au FileType go nmap gi <Plug>(go-info)
-        au FileType go nmap gD <Plug>(go-doc)
+        " au FileType go nmap gD <Plug>(go-doc)
+
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
