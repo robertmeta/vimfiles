@@ -91,10 +91,12 @@ Stick this in your vimrc: `autocmd vimenter * NERDTree`
 
 > How can I open a NERDTree automatically when vim starts up if no files were specified?
 
-Stick this in your vimrc
+Stick this in your vimrc:
 
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+Note: Now start vim with plain `vim`, not `vim .`
 
 > How can I map a specific key or shortcut to open NERDTree?
 
@@ -116,6 +118,5 @@ See here: https://github.com/scrooloose/nerdtree/issues/433#issuecomment-9259069
 
 Use these variables in your vimrc. Note that below are default arrow symbols
 
-    let g:NERDTreeDirArrows = 1
     let g:NERDTreeDirArrowExpandable = '▸'
     let g:NERDTreeDirArrowCollapsible = '▾'

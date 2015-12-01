@@ -124,7 +124,7 @@ set nolist " going to try seeing the broken again
 set nomore " Scroll away, no pausing
 set nonumber " no line numbers
 set norelativenumber " no thank you
-set nospell " too many broken syntax files to have spellcheck on everywhere
+set spell " trying again
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
@@ -443,6 +443,7 @@ let g:SignatureMarkTextHLDynamic = 1 " works with gitgutter
 " }}}
 
 " Vim Go (vim-go) {{{
+get g:go_highlight_string_spellcheck=0
 let g:go_auto_type_info=0
 let g:go_bin_path=$HOME."/go/bin"
 let g:godef_same_file_in_same_window=1

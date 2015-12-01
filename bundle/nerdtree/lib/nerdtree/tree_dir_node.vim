@@ -73,6 +73,22 @@ function! s:TreeDirNode.createChild(path, inOrder)
     return newTreeNode
 endfunction
 
+"FUNCTION: TreeDirNode.displayString() {{{1
+unlet s:TreeDirNode.displayString
+function! s:TreeDirNode.displayString()
+    let cascade = self.getCascade()
+    let rv = ""
+    for node in cascade
+        let rv = rv . node.path.displayString()
+    endfor
+
+    let sym = cascade[-1].isOpen ? g:NERDTreeDirArrowCollapsible : g:NERDTreeDirArrowExpandable
+
+    let flags = cascade[-1].path.flagSet.renderToString()
+
+    return sym . ' ' . flags . rv
+endfunction
+
 "FUNCTION: TreeDirNode.findNode(path) {{{1
 "Will find one of the children (recursively) that has the given path
 "
@@ -96,6 +112,33 @@ function! s:TreeDirNode.findNode(path)
         endfor
     endif
     return {}
+endfunction
+
+"FUNCTION: TreeDirNode.getCascade() {{{1
+"Return an array of dir nodes (starting from self) that can be cascade opened.
+function! s:TreeDirNode.getCascade()
+
+    let rv = [self]
+    let node = self
+
+    while 1
+        let vc = node.getVisibleChildren()
+        if len(vc) != 1
+            break
+        endif
+
+        let visChild = vc[0]
+
+        "TODO: optimize
+        if !visChild.path.isDirectory
+            break
+        endif
+
+        call add(rv, visChild)
+        let node = visChild
+    endwhile
+
+    return rv
 endfunction
 
 "FUNCTION: TreeDirNode.getChildCount() {{{1
@@ -216,6 +259,13 @@ endfunction
 "returns 1 if this node has any childre, 0 otherwise..
 function! s:TreeDirNode.hasVisibleChildren()
     return self.getVisibleChildCount() != 0
+endfunction
+
+"FUNCTION: TreeDirNode.isCascadable() {{{1
+"true if this dir has only one visible child - which is also a dir
+function! s:TreeDirNode.isCascadable()
+    let c = self.getVisibleChildren()
+    return len(c) == 1 && c[0].path.isDirectory
 endfunction
 
 "FUNCTION: TreeDirNode._initChildren() {{{1

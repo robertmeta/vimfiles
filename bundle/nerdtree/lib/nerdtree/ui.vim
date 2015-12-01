@@ -116,7 +116,7 @@ function! s:UI._dumpHelp()
         let @h=@h."\" :ClearBookmarks [<names>]\n"
         let @h=@h."\" :ClearAllBookmarks\n"
         silent! put h
-    elseif g:NERDTreeMinimalUI == 0
+    elseif !self.isMinimal()
         let @h="\" Press ". g:NERDTreeMapHelp ." for help\n"
         silent! put h
     endif
@@ -156,13 +156,6 @@ function! s:UI.getPath(ln)
     "check to see if we have the root node
     if a:ln == rootLine
         return self.nerdtree.root.path
-    endif
-
-    if !g:NERDTreeDirArrows
-        " in case called from outside the tree
-        if line !~# '^ *[|`'.g:NERDTreeDirArrowExpandable.g:NERDTreeDirArrowCollapsible.' ]' || line =~# '^$'
-            return {}
-        endif
     endif
 
     if line ==# s:UI.UpDirLine()
@@ -287,13 +280,11 @@ endfunction
 
 "FUNCTION: s:UI._indentLevelFor(line) {{{1
 function! s:UI._indentLevelFor(line)
-    let level = match(a:line, '[^ \-+~'.g:NERDTreeDirArrowExpandable.g:NERDTreeDirArrowCollapsible.'`|]') / s:UI.IndentWid()
-    " check if line includes arrows
-    if match(a:line, '['.g:NERDTreeDirArrowExpandable.g:NERDTreeDirArrowCollapsible.']') > -1
-        " decrement level as arrow uses 3 ascii chars
-        let level = level - 1
-    endif
-    return level
+    "have to do this work around because match() returns bytes, not chars
+    let numLeadBytes = match(a:line, '\M\[^ '.g:NERDTreeDirArrowExpandable.g:NERDTreeDirArrowCollapsible.']')
+    let leadChars = strchars(a:line[0:numLeadBytes-1])
+
+    return leadChars / s:UI.IndentWid()
 endfunction
 
 "FUNCTION: s:UI.IndentWid() {{{1
@@ -306,19 +297,20 @@ function! s:UI.isIgnoreFilterEnabled()
     return self._ignoreEnabled == 1
 endfunction
 
+"FUNCTION: s:UI.isMinimal() {{{1
+function! s:UI.isMinimal()
+    return g:NERDTreeMinimalUI
+endfunction
+
 "FUNCTION: s:UI.MarkupReg() {{{1
 function! s:UI.MarkupReg()
-    if g:NERDTreeDirArrows
-        return '^\(['.g:NERDTreeDirArrowExpandable.g:NERDTreeDirArrowCollapsible.'] \| \+['.g:NERDTreeDirArrowExpandable.g:NERDTreeDirArrowCollapsible.'] \| \+\)'
-    endif
-
-    return '^[ `|]*[\-+~]'
+    return '^\(['.g:NERDTreeDirArrowExpandable.g:NERDTreeDirArrowCollapsible.'] \| \+['.g:NERDTreeDirArrowExpandable.g:NERDTreeDirArrowCollapsible.'] \| \+\)'
 endfunction
 
 "FUNCTION: s:UI._renderBookmarks {{{1
 function! s:UI._renderBookmarks()
 
-    if g:NERDTreeMinimalUI == 0
+    if !self.isMinimal()
         call setline(line(".")+1, ">----------Bookmarks----------")
         call cursor(line(".")+1, col("."))
     endif
@@ -426,7 +418,7 @@ function! s:UI.render()
     call self._dumpHelp()
 
     "delete the blank line before the help and add one after it
-    if g:NERDTreeMinimalUI == 0
+    if !self.isMinimal()
         call setline(line(".")+1, "")
         call cursor(line(".")+1, col("."))
     endif
@@ -436,7 +428,7 @@ function! s:UI.render()
     endif
 
     "add the 'up a dir' line
-    if !g:NERDTreeMinimalUI
+    if !self.isMinimal()
         call setline(line(".")+1, s:UI.UpDirLine())
         call cursor(line(".")+1, col("."))
     endif

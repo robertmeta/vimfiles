@@ -91,6 +91,7 @@ let [s:pref, s:bpref, s:opts, s:new_opts, s:lc_opts] =
 	\ 'working_path_mode':     ['s:pathmode', 'ra'],
 	\ 'line_prefix':					 ['s:lineprefix', '> '],
 	\ 'open_single_match':     ['s:opensingle', []],
+	\ 'brief_prompt':          ['s:brfprt', 0],
 	\ }, {
 	\ 'open_multiple_files':   's:opmul',
 	\ 'regexp':                's:regexp',
@@ -417,7 +418,11 @@ fu! s:UserCmd(lscmd)
 		let lscmd = substitute(lscmd, '\v(^|\&\&\s*)\zscd (/d)@!', 'cd /d ', '')
 	en
 	let path = exists('*shellescape') ? shellescape(path) : path
-	let g:ctrlp_allfiles = split(system(printf(lscmd, path)), "\n")
+	if has('patch-7.4-597')
+		let g:ctrlp_allfiles = systemlist(printf(lscmd, path))
+	else
+		let g:ctrlp_allfiles = split(system(printf(lscmd, path)), "\n")
+	end
 	if exists('+ssl') && exists('ssl')
 		let &ssl = ssl
 		cal map(g:ctrlp_allfiles, 'tr(v:val, "\\", "/")')
@@ -670,6 +675,10 @@ endf
 
 fu! s:PrtBS()
 	if !s:focus | retu | en
+	if empty(s:prompt[0]) && s:brfprt != 0
+		cal s:PrtExit()
+		retu
+	endif
 	unl! s:hstgot
 	let [s:prompt[0], s:matches] = [substitute(s:prompt[0], '.$', '', ''), 1]
 	cal s:BuildPrompt(1)

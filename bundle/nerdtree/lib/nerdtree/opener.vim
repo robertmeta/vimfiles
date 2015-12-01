@@ -247,16 +247,9 @@ function! s:Opener._openFile()
     endif
 
     call self._gotoTargetWin()
-
-    if self._nerdtree.isWinTree()
-        call self._path.edit()
-    else
-        call self._path.edit()
-
-
-        if self._stay
-            call self._restoreCursorPos()
-        endif
+    call self._path.edit()
+    if self._stay
+        call self._restoreCursorPos()
     endif
 endfunction
 
@@ -272,7 +265,7 @@ function! s:Opener._openDirectory(node)
         elseif self._where == 't'
             call g:NERDTreeCreator.CreateTabTree(a:node.path.str())
         else
-            call g:NERDTreeCreator.CreateWindow(a:node.path.str())
+            call g:NERDTreeCreator.CreateWindowTree(a:node.path.str())
         endif
     endif
 
