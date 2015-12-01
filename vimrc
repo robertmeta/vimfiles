@@ -443,7 +443,6 @@ let g:SignatureMarkTextHLDynamic = 1 " works with gitgutter
 " }}}
 
 " Vim Go (vim-go) {{{
-get g:go_highlight_string_spellcheck=0
 let g:go_auto_type_info=0
 let g:go_bin_path=$HOME."/go/bin"
 let g:godef_same_file_in_same_window=1
@@ -459,6 +458,7 @@ let g:go_highlight_functions=1
 let g:go_highlight_methods=1
 let g:go_highlight_operators=1
 let g:go_highlight_space_tab_error=1
+let g:go_highlight_string_spellcheck=0
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
 " }}}
