@@ -124,7 +124,7 @@ set nolist " going to try seeing the broken again
 set nomore " Scroll away, no pausing
 set nonumber " no line numbers
 set norelativenumber " no thank you
-set spell " trying again
+set nospell " nope nope nope
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
