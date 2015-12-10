@@ -27,7 +27,7 @@ Vim has various ways of installing plugins, the standard way is in [the document
 
 You can specify a custom ag name and path in your .vimrc like so:
 
-    let g:agprg="<custom-ag-path-goes-here> --vimgrep"
+    let g:ag_prg="<custom-ag-path-goes-here> --vimgrep"
 
 You can configure ag.vim to always start searching from your project root
 instead of the cwd
