@@ -49,8 +49,6 @@ nnoremap <leader>q <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
 " Arrow control
-nnoremap <left> :NERDTreeToggle<cr>
-nnoremap - :NERDTreeFind<cr>
 nnoremap <right> :TagbarToggle<cr>
 nnoremap <up> <C-f>
 nnoremap <down> <C-b>
@@ -261,8 +259,6 @@ if has("autocmd")
     augroup general
         " Clear!
         au!
-        " If tree is last window
-        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
         " Resize windows automagically
         au VimResized * :wincmd =
         " Things that use two spaces rather than four
@@ -382,17 +378,6 @@ let g:angular_filename_convention='camelcased'
 " Markdown {{{
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_frontmatter=1
-" }}}
-
-" NERDTree {{{
-let NERDChristmasTree=1
-let NERDTreeCascadeOpenSingleChildDir=1
-let NERDTreeDirArrows=1
-let NERDTreeMinimalUI=1
-let NERDTreeQuitOnOpen=0
-let NERDTreeShowLineNumbers=0
-let NERDTreeWinSize=50
-let NERDTreeAutoDeleteBuffer=1
 " }}}
 
 " Netrw {{{
