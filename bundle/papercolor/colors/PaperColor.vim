@@ -266,6 +266,7 @@ if s:is_dark " DARK VARIANT
   let s:comment      = ['#8a8a8a', '244']
   let s:todo         = ['#ff8700', '208']
   let s:cursorline   = ['#303030', '235']
+  let s:cursorlinenr = ['#ffff00', '226']
   let s:cursorcolumn = ['#303030', '235']
   let s:error        = ['#5f0000', '52']
   let s:matchparen   = ['#4e4e4e', '239']
@@ -346,6 +347,7 @@ else " LIGHT VARIANT
   let s:comment      = ['#878787', '102']
   let s:todo         = ['#00af5f', '35']
   let s:cursorline   = ['#e4e4e4', '254']
+  let s:cursorlinenr = ['#af0000', '124']
   let s:cursorcolumn = ['#e4e4e4', '254']
   let s:error        = ['#ffafdf', '218']
   let s:matchparen   = ['#c6c6c6', '251']
@@ -438,6 +440,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("FoldColumn", "", s:background, "")
   if version >= 700
     call s:HL("CursorLine", "", s:cursorline, "none")
+    call s:HL("CursorLineNr", s:cursorlinenr, "", "none")
     call s:HL("CursorColumn", "", s:cursorcolumn, "none")
     call s:HL("PMenu", s:foreground, s:selection, "none")
     call s:HL("PMenuSel", s:foreground, s:selection, "reverse")
@@ -688,10 +691,19 @@ call s:HL("cssDimensionProp", s:foreground, "", "")
 call s:HL("cssClassName", s:pink, "", "")
 
   " Markdown Highlighting
+  call s:HL("markdownHeadingRule", s:pink, "", "bold")
   call s:HL("markdownH1", s:pink, "", "bold")
+  call s:HL("markdownH2", s:orange, "", "bold")
   call s:HL("markdownBlockquote", s:pink, "", "")
-  call s:HL("markdownCodeBlock", s:purple, "", "bold")
+  call s:HL("markdownCodeBlock", s:olive, "", "")
+  call s:HL("markdownCode", s:olive, "", "")
   call s:HL("markdownLink", s:blue, "", "bold")
+  call s:HL("markdownUrl", s:blue, "", "")
+  call s:HL("markdownLinkText", s:pink, "", "")
+  call s:HL("markdownLinkTextDelimiter", s:purple, "", "")
+  call s:HL("markdownLinkDelimiter", s:purple, "", "")
+  call s:HL("markdownCodeDelimiter", s:blue, "", "")
+
   call s:HL("mkdCode", s:olive, "", "none")
   call s:HL("mkdLink", s:blue, "", "bold")
   call s:HL("mkdURL", s:comment, "", "none")
@@ -700,6 +712,16 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("mkdLinkTitle", s:pink, "", "none")
   call s:HL("mkdDelimiter", s:aqua, "", "")
   call s:HL("mkdRule", s:pink, "", "")
+
+  " reStructuredText Highlighting
+  call s:HL("rstSections", s:pink, "", "bold")
+  call s:HL("rstDelimiter", s:pink, "", "bold")
+  call s:HL("rstExplicitMarkup", s:pink, "", "bold")
+  call s:HL("rstDirective", s:blue, "", "")
+  call s:HL("rstHyperlinkTarget", s:green, "", "")
+  call s:HL("rstExDirective", s:foreground, "", "")
+  call s:HL("rstInlineLiteral", s:olive, "", "")
+  call s:HL("rstInterpretedTextOrHyperlinkReference", s:blue, "", "")
 
   " Python Highlighting
   call s:HL("pythonImport", s:pink, "", "bold")
@@ -748,12 +770,13 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("javaScriptFunction", s:pink, "", "bold")
   call s:HL("javaScriptConditional", s:purple, "", "bold")
   call s:HL("javaScriptRepeat", s:purple, "", "bold")
-  call s:HL("javaScriptBoolean", s:orange, "", "")
-  " call s:HL("javaScriptNumber", s:orange, "", "")
+  call s:HL("javaScriptBoolean", s:green, "", "bold")
+  call s:HL("javaScriptNumber", s:orange, "", "")
   call s:HL("javaScriptMember", s:navy, "", "")
+  call s:HL("javaScriptReserved", s:pink, "", "")
   " call s:HL("javascriptNull", s:orange, "", "")
   " call s:HL("javascriptGlobal", s:blue, "", "")
-  " call s:HL("javascriptStatement", s:pink, "", "")
+  call s:HL("javascriptStatement", s:pink, "", "")
 
   " @target https://github.com/pangloss/vim-javascript
   call s:HL("jsFuncParens", s:blue, "", "")

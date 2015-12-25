@@ -1260,7 +1260,7 @@ function! s:Grep(cmd,bang,arg) abort
   try
     execute cd.'`=s:repo().tree()`'
     let &grepprg = s:repo().git_command('--no-pager', 'grep', '-n', '--no-color')
-    let &grepformat = '%f:%l:%m,%f'
+    let &grepformat = '%f:%l:%m,%m %f match%ts,%f'
     exe a:cmd.'! '.escape(matchstr(a:arg,'\v\C.{-}%($|[''" ]\@=\|)@='),'|')
     let list = a:cmd =~# '^l' ? getloclist(0) : getqflist()
     for entry in list
@@ -1408,7 +1408,9 @@ function! s:Edit(cmd,bang,...) abort
   catch /^fugitive:/
     return 'echoerr v:errmsg'
   endtry
-  let file = s:sub(file, '/$', '')
+  if file !~# '^fugitive:'
+    let file = s:sub(file, '/$', '')
+  endif
   if a:cmd ==# 'read'
     return 'silent %delete_|read '.s:fnameescape(file).'|silent 1delete_|diffupdate|'.line('.')
   else
@@ -2850,7 +2852,7 @@ function! s:cfile() abort
       elseif getline('.') =~# '^[+-]' && search('^@@ -\d\+,\d\+ +\d\+,','bnW')
         let type = getline('.')[0]
         let lnum = line('.') - 1
-        let offset = -1
+        let offset = 0
         while getline(lnum) !~# '^@@ -\d\+,\d\+ +\d\+,'
           if getline(lnum) =~# '^[ '.type.']'
             let offset += 1

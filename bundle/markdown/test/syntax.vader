@@ -7,12 +7,62 @@ Execute (bold):
   AssertNotEqual SyntaxOf('c'), 'htmlBold'
 
 Given markdown;
+a __b__ c
+
+Execute (bold):
+  AssertNotEqual SyntaxOf('a'), 'htmlBold'
+  AssertEqual SyntaxOf('b'), 'htmlBold'
+  AssertNotEqual SyntaxOf('c'), 'htmlBold'
+
+Given markdown;
 a *b* c
 
 Execute (italic):
   AssertNotEqual SyntaxOf('a'), 'htmlItalic'
   AssertEqual SyntaxOf('b'), 'htmlItalic'
   AssertNotEqual SyntaxOf('c'), 'htmlItalic'
+
+Given markdown;
+a _b_ c
+
+Execute (italic):
+  AssertNotEqual SyntaxOf('a'), 'htmlItalic'
+  AssertEqual SyntaxOf('b'), 'htmlItalic'
+  AssertNotEqual SyntaxOf('c'), 'htmlItalic'
+
+Given markdown;
+a \*b\* c
+
+Execute (not italic with escaped asterisks):
+  AssertNotEqual SyntaxOf('a'), 'htmlItalic'
+  AssertNotEqual SyntaxOf('b'), 'htmlItalic'
+  AssertNotEqual SyntaxOf('c'), 'htmlItalic'
+
+Given markdown;
+a \_b\_ c
+
+Execute (not italic with escaped underscores):
+  AssertNotEqual SyntaxOf('a'), 'htmlItalic'
+  AssertNotEqual SyntaxOf('b'), 'htmlItalic'
+  AssertNotEqual SyntaxOf('c'), 'htmlItalic'
+
+Given markdown;
+a _b\_c_ d
+
+Execute (italic with escaped underscores):
+  AssertNotEqual SyntaxOf('a'), 'htmlItalic'
+  AssertEqual SyntaxOf('b'), 'htmlItalic'
+  AssertEqual SyntaxOf('c'), 'htmlItalic'
+  AssertNotEqual SyntaxOf('d'), 'htmlItalic'
+
+Given markdown;
+a __b\_\_c__ d
+
+Execute (bold with escaped underscores):
+  AssertNotEqual SyntaxOf('a'), 'htmlBold'
+  AssertEqual SyntaxOf('b'), 'htmlBold'
+  AssertEqual SyntaxOf('c'), 'htmlBold'
+  AssertNotEqual SyntaxOf('d'), 'htmlBold'
 
 # Links
 
@@ -105,6 +155,17 @@ code
 Execute (code blocks can have a language specifier):
   AssertEqual SyntaxOf('c'), 'mkdCode'
 
+Given markdown;
+```c++
+code
+```
+
+text
+
+Execute (code blocks can be fenced with backticks and a language specifier):
+  AssertEqual SyntaxOf('code'), 'mkdCode'
+  AssertNotEqual SyntaxOf('text'), 'mkdCode'
+
 # Math
 
 Given markdown;
@@ -147,6 +208,20 @@ Execute (multiline math):
   AssertEqual SyntaxOf('b'), 'mkdMath'
   AssertNotEqual SyntaxOf('c'), 'mkdMath'
 
+Given markdown;
+$ \sqrt{a}{b} $
+$$ \frac{a}{b} $$
+
+Execute (math tex highlighting):
+  let g:vim_markdown_math=0
+  syn off | syn on
+  AssertNotEqual SyntaxOf('sqrt'), 'texStatement'
+  AssertNotEqual SyntaxOf('frac'), 'texStatement'
+  let g:vim_markdown_math=1
+  syn off | syn on
+  AssertEqual SyntaxOf('sqrt'), 'texStatement'
+  AssertEqual SyntaxOf('frac'), 'texStatement'
+
 # YAML frontmatter
 
 Given markdown;
@@ -185,3 +260,16 @@ Execute (rules are not mistaken by YAML frontmatter delimiters):
   let g:vim_markdown_frontmatter=1
   syn off | syn on
   AssertEqual SyntaxAt(5, 1), 'mkdRule'
+
+# Header
+
+Given markdown;
+# #a
+ccc
+
+## #b
+ddd
+
+Execute (header title starts with #):
+  AssertEqual SyntaxOf('a'), 'htmlH1'
+  AssertEqual SyntaxOf('b'), 'htmlH2'
