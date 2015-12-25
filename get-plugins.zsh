@@ -25,12 +25,12 @@ git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit &
 # }}}
 
 # Snippets {{{
-# git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
-# git clone https://github.com/MarcWeber/vim-addon-mw-utils bundle/mw-utils && bundle/mw-utils/.git
-# git clone https://github.com/garbas/vim-snipmate bundle/snipmate && bundle/snipmate/.git
+git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
+git clone https://github.com/MarcWeber/vim-addon-mw-utils bundle/mw-utils && rm -rf bundle/mw-utils/.git
+git clone https://github.com/garbas/vim-snipmate bundle/snipmate && rm -rf bundle/snipmate/.git
 #
 # # Optional:
-# git clone https://github.com/honza/vim-snippets bundle/snippets && bundle/snippets/.git
+git clone https://github.com/honza/vim-snippets bundle/snippets && rm -rf bundle/snippets/.git
 # }}}
 
 # Put git status in the sign column
