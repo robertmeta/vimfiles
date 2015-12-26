@@ -71,6 +71,8 @@ nnoremap <leader>T :CtrlPBufTag<cr>
 " Indent / Outdent
 vnoremap < <gv
 vnoremap > >gv
+map <C-tab> <Plug>snipMateNextOrTrigger
+imap <C-tab> <Plug>snipMateNextOrTrigger
 " Vimux
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
