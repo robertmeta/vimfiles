@@ -113,7 +113,7 @@ git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bu
 git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 
 # VimCompletesMe is a vim plugin which allows you to use <Tab> for all your insert completion needs (:help ins-completion).
-# git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
+git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
 
 # Targets.vim adds various |text-objects| to give you more targets to operate
 # on. It expands on the idea of simple commands like `di'` (delete inside the
