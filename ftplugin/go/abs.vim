@@ -3,7 +3,7 @@ func! Eatchar(pat)
     return (c =~ a:pat) ? '' : c
 endfunc
 iab xif if  {<CR> <BS><CR><BS>}<UP><UP><RIGHT><RIGHT><C-R>=Eatchar('\s')<CR>
-iab xel else  {<CR> <BS><CR><BS>}<UP><UP><RIGHT><RIGHT><RIGHT><RIGHT><C-R>=Eatchar('\s')<CR>
+iab xel else {<CR> <BS><CR><BS>}<UP><UP><RIGHT><RIGHT><RIGHT><RIGHT><C-R>=Eatchar('\s')<CR>
 iab xie if  {<CR> <BS><CR><BS>} else {<CR> <BS><CR>}<UP><UP><UP><UP><RIGHT><RIGHT><C-R>=Eatchar('\s')<CR>
 iab xerr if err != nil {<CR> <BS><CR><BS>}<UP><END><C-R>=Eatchar('\s')<CR>
 iab xdfr defer func() {<CR> <BS>if err := recover(); err != nil {<CR> <BS><CR><BS>}<CR><BS>}()<UP><UP><END><C-R>=Eatchar('\s')<CR>
