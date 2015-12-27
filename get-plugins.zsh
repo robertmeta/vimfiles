@@ -11,7 +11,7 @@ git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpo
 git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
 git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
-git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && rm -rf bundle/mactheme/.git
+#git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && rm -rf bundle/mactheme/.git
 git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
 #git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
 git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
@@ -25,12 +25,12 @@ git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit &
 # }}}
 
 # Snippets {{{
-git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
-git clone https://github.com/MarcWeber/vim-addon-mw-utils bundle/mw-utils && rm -rf bundle/mw-utils/.git
-git clone https://github.com/garbas/vim-snipmate bundle/snipmate && rm -rf bundle/snipmate/.git
+# git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
+# git clone https://github.com/MarcWeber/vim-addon-mw-utils bundle/mw-utils && rm -rf bundle/mw-utils/.git
+# git clone https://github.com/garbas/vim-snipmate bundle/snipmate && rm -rf bundle/snipmate/.git
 #
 # # Optional:
-git clone https://github.com/honza/vim-snippets bundle/snippets && rm -rf bundle/snippets/.git
+# git clone https://github.com/honza/vim-snippets bundle/snippets && rm -rf bundle/snippets/.git
 # }}}
 
 # Put git status in the sign column
@@ -50,7 +50,7 @@ git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sn
 
 # This plugin is a tool for dealing with pairs of "surroundings."  Examples
 # of surroundings include parentheses, quotes, and HTML tags
-git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
+# git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 
 # Visual undotree, great for dealing with a change deep in an undo branch
 # git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/undotree/.git
