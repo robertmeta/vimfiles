@@ -50,7 +50,7 @@ git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sn
 
 # This plugin is a tool for dealing with pairs of "surroundings."  Examples
 # of surroundings include parentheses, quotes, and HTML tags
-# git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
+git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 
 # Visual undotree, great for dealing with a change deep in an undo branch
 # git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/undotree/.git
