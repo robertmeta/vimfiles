@@ -74,16 +74,16 @@ git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/
 # git clone https://github.com/christoomey/vim-tmux-navigator bundle/tmuxnav && rm -rf bundle/tmuxnav/.git
 
 # Rainbow Parens Improved
-git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
+# git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # With Wildfire you can quickly select the closest text object among a group of
 # candidates. By default candidates are `i'`, `i"`, `i)`, `i]`, `i}`, `ip` and `it`.
-git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
+# git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
 
 # This plugin is a front for the_silver_searcher: ag. Ag can be used as a
 # replacement for ack. This plugin will allow you to run ag from vim, and shows
 # the results in a split window.
-git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
+# git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
 
 # Abolish lets you quickly find, substitute, and abbreviate several variations
 # of a word at once.  By default, three case variants (foo, Foo, and FOO) are
@@ -120,7 +120,7 @@ git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -r
 # single quotes around the cursor) to give you more opportunities to craft
 # powerful commands that can be repeated reliably. Another major goal is to
 # handle all corner cases correctly.
-git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
+# git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
 
 # Full path fuzzy file, buffer, mru, tag, ... finder with an intuitive interface.
 # Written in pure Vimscript for MacVim, gVim and Vim version 7.0+. Has full
