@@ -86,7 +86,8 @@ Given markdown;
 [a](b) c [d](e)
 
 Execute (multiple links on a line):
-  AssertEqual SyntaxOf('c'), ''
+  AssertNotEqual SyntaxOf('c'), 'mkdLink'
+  AssertNotEqual SyntaxOf('c'), 'mkdURL'
 
 # Autolinks
 
@@ -138,7 +139,7 @@ Execute (autolinks can be backslash escaped):
   AssertNotEqual SyntaxOf('<'), 'mkdDelimiter'
 
 Given markdown;
-a (http://b) c
+a (http://b.bb) c
 
 Execute (autolink in parenthesis):
   AssertNotEqual SyntaxOf('a'), 'mkdInlineURL'
@@ -146,6 +147,15 @@ Execute (autolink in parenthesis):
   AssertEqual SyntaxOf('b'), 'mkdInlineURL'
   AssertEqual SyntaxOf(')'), 'mkdDelimiter'
   AssertNotEqual SyntaxOf('c'), 'mkdInlineURL'
+
+Given markdown;
+[![a](http://b)](http://c)
+
+Execute (autolink in link text):
+  AssertEqual SyntaxOf('!'), 'mkdDelimiter'
+  AssertEqual SyntaxOf('a'), 'mkdLink'
+  AssertEqual SyntaxOf('b'), 'mkdURL'
+  AssertEqual SyntaxOf('c'), 'mkdURL'
 
 # Code Blocks
 
@@ -175,6 +185,43 @@ text
 Execute (code blocks can be fenced with backticks and a language specifier):
   AssertEqual SyntaxOf('code'), 'mkdCode'
   AssertNotEqual SyntaxOf('text'), 'mkdCode'
+
+# Indent Code Blocks
+
+Given markdown;
+a
+
+    b
+    c
+
+Execute (indent code blocks):
+  AssertNotEqual SyntaxOf('a'), 'mkdCode'
+  AssertEqual SyntaxOf('b'), 'mkdCode'
+  AssertEqual SyntaxOf('c'), 'mkdCode'
+
+Given markdown;
+# a
+
+b
+
+    c
+
+Execute (indent code blocks after header):
+  AssertNotEqual SyntaxOf('a'), 'mkdCode'
+  AssertNotEqual SyntaxOf('b'), 'mkdCode'
+  AssertEqual SyntaxOf('c'), 'mkdCode'
+
+Given markdown;
+-   a
+
+    b
+
+        c
+
+Execute (indent code blocks after list):
+  AssertNotEqual SyntaxOf('a'), 'mkdCode'
+  AssertNotEqual SyntaxOf('b'), 'mkdCode'
+  AssertEqual SyntaxOf('c'), 'mkdCode'
 
 # Math
 
@@ -283,3 +330,32 @@ ddd
 Execute (header title starts with #):
   AssertEqual SyntaxOf('a'), 'htmlH1'
   AssertEqual SyntaxOf('b'), 'htmlH2'
+
+# List
+
+Given markdown;
+- a & b
+1. c > d
+
+Execute (& and > are not marked as htmlError in lists):
+  AssertEqual SyntaxOf('-'), 'mkdListItem'
+  AssertEqual SyntaxOf('1.'), 'mkdListItem'
+  AssertNotEqual SyntaxOf('&'), 'htmlError'
+  AssertNotEqual SyntaxOf('>'), 'htmlError'
+
+# HTML
+
+Given markdown;
+a
+
+<p>b</p>
+
+- <span>c</span>
+
+Execute (HTML tag in text):
+  AssertEqual SyntaxOf('p'), 'htmlTagName'
+  AssertEqual SyntaxOf('<p>'), 'htmlTag'
+  AssertEqual SyntaxOf('</p>'), 'htmlEndTag'
+  AssertEqual SyntaxOf('span'), 'htmlTagName'
+  AssertEqual SyntaxOf('<span>'), 'htmlTag'
+  AssertEqual SyntaxOf('</span>'), 'htmlEndTag'

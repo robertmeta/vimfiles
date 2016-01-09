@@ -49,6 +49,8 @@ nnoremap <leader>q <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
 " Arrow control
+nnoremap <left> :NERDTreeToggle<cr>
+nnoremap - :NERDTreeFind<cr>
 nnoremap <right> :TagbarToggle<cr>
 nnoremap <up> <C-f>
 nnoremap <down> <C-b>
@@ -429,6 +431,17 @@ let g:gitgutter_sign_column_always = 1
 " Signature {{{
 let g:SignatureMarkTextHLDynamic = 1 " works with gitgutter
 " }}}
+
+" NERDTree {{{
+let NERDChristmasTree=1
+let NERDTreeCascadeOpenSingleChildDir=1
+let NERDTreeDirArrows=1
+let NERDTreeMinimalUI=1
+let NERDTreeQuitOnOpen=0
+let NERDTreeShowLineNumbers=0
+let NERDTreeWinSize=50
+let NERDTreeAutoDeleteBuffer=1
+" " }}}
 
 " Vim Go (vim-go) {{{
 let g:go_auto_type_info=0

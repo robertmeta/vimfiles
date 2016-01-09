@@ -1,8 +1,3 @@
-" Vim indent file
-" Language: Elixir
-" Maintainer: Carlos Galdino <carloshsgaldino@gmail.com>
-" Last Change: 2013 Apr 24
-
 if exists("b:did_indent")
   finish
 endif
@@ -29,7 +24,7 @@ let s:symbols_end  = '\]\|}'
 let s:arrow        = '^.*->$'
 let s:pipeline     = '^\s*|>.*$'
 
-let s:indent_keywords   = '\<\%(' . s:block_start . '\|' . s:block_middle . '\)$' . '\|' . s:arrow
+let s:indent_keywords   = '\<:\@<!\%(' . s:block_start . '\|' . s:block_middle . '\)$' . '\|' . s:arrow
 let s:deindent_keywords = '^\s*\<\%(' . s:block_end . '\|' . s:block_middle . '\)\>' . '\|' . s:arrow
 
 function! GetElixirIndent()
@@ -60,16 +55,12 @@ function! GetElixirIndent()
 
     let ind += opened_symbol * &sw
 
-    if last_line =~ '^\s*\(' . s:symbols_end . '\)'
+    if last_line =~ '^\s*\(' . s:symbols_end . '\)' || last_line =~ s:indent_keywords
       let ind += &sw
     endif
 
     if current_line =~ '^\s*\(' . s:symbols_end . '\)'
       let ind -= &sw
-    endif
-
-    if last_line =~ s:indent_keywords
-      let ind += &sw
     endif
 
     " if line starts with pipeline

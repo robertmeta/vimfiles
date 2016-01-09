@@ -1,8 +1,3 @@
-" Vim syntax file
-" Language: Elixir
-" Maintainer: Carlos Galdino <carloshsgaldino@gmail.com>
-" Last Change: 2013 Apr 24
-
 if exists("b:current_syntax")
   finish
 endif
@@ -22,9 +17,9 @@ syn keyword elixirKeyword quote unquote super spawn spawn_link spawn_monitor
 " Functions used on guards
 syn keyword elixirKeyword contained is_atom is_binary is_bitstring is_boolean
 syn keyword elixirKeyword contained is_float is_function is_integer is_list
-syn keyword elixirKeyword contained is_map is_number is_pid is_port is_record
-syn keyword elixirKeyword contained is_reference is_tuple is_exception abs
-syn keyword elixirKeyword contained bit_size byte_size div elem hd length
+syn keyword elixirKeyword contained is_map is_nil is_number is_pid is_port
+syn keyword elixirKeyword contained is_record is_reference is_tuple is_exception
+syn keyword elixirKeyword contained abs bit_size byte_size div elem hd length
 syn keyword elixirKeyword contained map_size node rem round tl trunc tuple_size
 
 syn match elixirGuard '.*when.*' contains=ALLBUT,@elixirNotTop
@@ -91,7 +86,7 @@ syn region elixirDocString     start=+\z('''\)+ end=+^\s*\zs\z1+ contains=elixir
 syn match elixirAtomInterpolated   ':\("\)\@=' contains=elixirString
 syn match elixirString             "\(\w\)\@<!?\%(\\\(x\d{1,2}\|\h{1,2}\h\@!\>\|0[0-7]{0,2}[0-7]\@!\>\|[^x0MC]\)\|(\\[MC]-)+\w\|[^\s\\]\)"
 
-syn region elixirBlock              matchgroup=elixirBlockDefinition start="\<do\>\(:\)\@!" end="\<end\>" contains=ALLBUT,@elixirNotTop fold
+syn region elixirBlock              matchgroup=elixirBlockDefinition start="\<do\>:\@!" end="\<end\>" contains=ALLBUT,@elixirNotTop fold
 syn region elixirAnonymousFunction  matchgroup=elixirBlockDefinition start="\<fn\>"         end="\<end\>" contains=ALLBUT,@elixirNotTop fold
 
 syn region elixirArguments start="(" end=")" contained contains=elixirOperator,elixirAtom,elixirPseudoVariable,elixirAlias,elixirBoolean,elixirVariable,elixirUnusedVariable,elixirNumber,elixirDocString,elixirAtomInterpolated,elixirRegex,elixirString,elixirStringDelimiter,elixirRegexDelimiter,elixirInterpolationDelimiter,elixirSigilDelimiter
@@ -145,7 +140,7 @@ syn match  elixirCallbackDeclaration    "[^[:space:];#<,()\[\]]\+" contained con
 
 syn cluster elixirDeclaration contains=elixirFunctionDeclaration,elixirModuleDeclaration,elixirProtocolDeclaration,elixirImplDeclaration,elixirRecordDeclaration,elixirMacroDeclaration,elixirDelegateDeclaration,elixirOverridableDeclaration,elixirExceptionDeclaration,elixirCallbackDeclaration,elixirStructDeclaration
 
-hi def link elixirBlockDefinition        Define
+hi def link elixirBlockDefinition        Keyword
 hi def link elixirDefine                 Define
 hi def link elixirPrivateDefine          Define
 hi def link elixirModuleDefine           Define
