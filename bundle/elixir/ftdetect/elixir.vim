@@ -1,10 +1,18 @@
-au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
-au FileType elixir setl sw=2 sts=2 et iskeyword+=!,?
+au BufRead,BufNewFile *.ex,*.exs call s:setf('elixir')
+au BufRead,BufNewFile *.eex call s:setf('eelixir')
 
-function! s:DetectElixir()
-    if getline(1) =~ '^#!.*\<elixir\>'
-        set filetype=elixir
+au FileType elixir,eelixir setl sw=2 sts=2 et iskeyword+=!,?
+
+au BufNewFile,BufRead * call s:DetectElixir()
+
+function! s:setf(filetype) abort
+    if &filetype !=# a:filetype
+        let &filetype = a:filetype
     endif
 endfunction
 
-autocmd BufNewFile,BufRead * call s:DetectElixir()
+function! s:DetectElixir()
+    if getline(1) =~ '^#!.*\<elixir\>'
+        call s:setf('elixir')
+    endif
+endfunction
