@@ -51,6 +51,7 @@ nnoremap <leader>% :vsplit<cr>
 " Arrow control
 nnoremap <left> :NERDTreeToggle<cr>
 nnoremap - :NERDTreeFind<cr>
+map - :NERDTreeFind<cr>
 nnoremap <right> :TagbarToggle<cr>
 nnoremap <up> <C-f>
 nnoremap <down> <C-b>
