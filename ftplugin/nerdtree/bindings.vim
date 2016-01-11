@@ -1,1 +1,1 @@
-nnoremap <buffer> - u
+map <buffer> - u
