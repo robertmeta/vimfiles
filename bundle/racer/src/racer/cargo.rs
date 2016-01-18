@@ -22,7 +22,7 @@ macro_rules! vectry {
 }
 
 /// Gets the branch from a git source string if one is present.
-fn get_branch_from_source(source: &String) -> Option<&str> {
+fn get_branch_from_source(source: &str) -> Option<&str> {
     debug!("get_branch_from_source - Finding branch from {:?}", source);
     match source.find("branch=") {
         Some(idx) => {
@@ -41,21 +41,21 @@ fn get_branch_from_source(source: &String) -> Option<&str> {
 
 #[test]
 fn gets_branch_from_git_source_with_hash() {
-    let source = "git+https://github.com/phildawes/racer.git?branch=dev#9e04f91f0426c1cf8ec5e5023f74d7261f5a9dd1".to_string();
+    let source = "git+https://github.com/phildawes/racer.git?branch=dev#9e04f91f0426c1cf8ec5e5023f74d7261f5a9dd1".to_owned();
     let branch = get_branch_from_source(&source);
     assert_eq!(branch, Some("dev"));
 }
 
 #[test]
 fn gets_branch_from_git_source_without_hash() {
-    let source = "git+https://github.com/phildawes/racer.git?branch=dev".to_string();
+    let source = "git+https://github.com/phildawes/racer.git?branch=dev".to_owned();
     let branch = get_branch_from_source(&source);
     assert_eq!(branch, Some("dev"));
 }
 
 #[test]
 fn empty_if_no_branch() {
-    let source = "git+https://github.com/phildawes/racer.git#9e04f91f0426c1cf8ec5e5023f74d7261f5a9dd1".to_string();
+    let source = "git+https://github.com/phildawes/racer.git#9e04f91f0426c1cf8ec5e5023f74d7261f5a9dd1".to_owned();
     let branch = get_branch_from_source(&source);
     assert_eq!(branch, None);
 }
@@ -75,7 +75,7 @@ fn find_src_via_lockfile(kratename: &str, cargofile: &Path) -> Option<PathBuf> {
     };
 
     for item in t {
-        if let &toml::Value::Table(ref t) = item {
+        if let toml::Value::Table(ref t) = *item {
             if let Some(&toml::Value::String(ref name)) = t.get("name") {
                 if name.replace("-", "_") == kratename {
                     debug!("found matching crate {:?}", t);
@@ -117,9 +117,9 @@ fn get_cargo_rootdir(cargofile: &Path) -> Option<PathBuf> {
         },
         None => ()
     };
-    
+
     let mut d = otry!(env::home_dir());
-    
+
     // try multirust first, since people with multirust installed will often still 
     // have an old .cargo directory lying around
     d.push(".multirust");
@@ -240,15 +240,34 @@ fn find_src_via_tomlfile(kratename: &str, cargofile: &Path) -> Option<PathBuf> {
 
 
     // is it this lib?  (e.g. you're searching from tests to find the main library crate)
-    if let Some(&toml::Value::Table(ref t)) = table.get("lib") {
-        if let Some(&toml::Value::String(ref name)) = t.get("name") {
-            if name == kratename {
-                debug!("found {} as lib entry in Cargo.toml", kratename);
-                if let Some(&toml::Value::String(ref pathstr)) = t.get("path") {
-                    let p = Path::new(pathstr);
-                    let libpath = otry!(cargofile.parent()).join(p);
-                    return Some(libpath);
-                }
+    {
+        let package_name = if let Some(&toml::Value::Table(ref t)) = table.get("package") {
+            if let Some(&toml::Value::String(ref name)) = t.get("name") {
+                name
+            } else {
+                // it's invalid for a package to be nameless anyway
+                return None;
+            }
+        } else {
+            return None;
+        };
+
+        let mut lib_name = package_name;
+        let mut lib_path = otry!(cargofile.parent()).join("src").join("lib.rs");
+        if let Some(&toml::Value::Table(ref t)) = table.get("lib") {
+            if let Some(&toml::Value::String(ref name)) = t.get("name") {
+                lib_name = name;
+            }
+            if let Some(&toml::Value::String(ref pathstr)) = t.get("path") {
+                let p = Path::new(pathstr);
+                lib_path = otry!(cargofile.parent()).join(p);
+            }
+        }
+
+        if lib_name == kratename {
+            debug!("found {} as lib entry in Cargo.toml", kratename);
+            if ::std::fs::metadata(&lib_path).ok().map(|m| m.is_file()).unwrap_or(false) {
+                return Some(lib_path);
             }
         }
     }

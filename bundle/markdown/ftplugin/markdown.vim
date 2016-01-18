@@ -302,18 +302,67 @@ function! s:Toc(...)
         let l:window_type = 'vertical'
     endif
 
-    try
-        silent lvimgrep /\(^\S.*\(\n[=-]\+\n\)\@=\|^#\+\)/ %
-    catch /E480/
+
+    let l:bufnr = bufnr('%')
+    let l:fenced_block = 0
+    let l:front_matter = 0
+    let l:header_list = []
+    let l:header_max_len = 0
+    let l:vim_markdown_toc_autofit = get(g:, "vim_markdown_toc_autofit", 0)
+    let l:vim_markdown_frontmatter = get(g:, "vim_markdown_frontmatter", 0)
+    for i in range(1, line('$'))
+        let l:lineraw = getline(i)
+        let l:l1 = getline(i+1)
+        let l:line = substitute(l:lineraw, "#", "\\\#", "g")
+        if l:line =~ '````*' || l:line =~ '\~\~\~\~*'
+            if l:fenced_block == 0
+                let l:fenced_block = 1
+            elseif l:fenced_block == 1
+                let l:fenced_block = 0
+            endif
+        elseif l:vim_markdown_frontmatter == 1
+            if l:front_matter == 1
+                if l:line == '---'
+                    let l:front_matter = 0
+                endif
+            elseif i == 1
+                if l:line == '---'
+                    let l:front_matter = 1
+                endif
+            endif
+        endif
+        if l:line =~ '^#\+' || (l:l1 =~ '^=\+\s*$' || l:l1 =~ '^-\+\s*$') && l:line =~ '^\S'
+            let l:is_header = 1
+        else
+            let l:is_header = 0
+        endif
+        if l:is_header == 1 && l:fenced_block == 0 && l:front_matter == 0
+            " append line to location list
+            let l:item = {'lnum': i, 'text': l:line, 'valid': 1, 'bufnr': l:bufnr, 'col': 1}
+            let l:header_list = l:header_list + [l:item]
+            " keep track of the longest header size (heading level + title)
+            let l:total_len = stridx(l:line, ' ') + len(l:line)
+            if l:total_len > l:header_max_len
+                let l:header_max_len = l:total_len
+            endif
+        endif
+    endfor
+    if len(l:header_list) == 0
         echom "Toc: No headers."
         return
-    endtry
+    endif
+    call setloclist(0, l:header_list)
 
     if l:window_type ==# 'horizontal'
         lopen
     elseif l:window_type ==# 'vertical'
         vertical lopen
-        let &winwidth=(&columns/2)
+        " auto-fit toc window when possible to shrink it
+        if (&columns/2) > l:header_max_len && l:vim_markdown_toc_autofit == 1
+            execute 'vertical resize ' . (l:header_max_len + 1)
+        else
+            execute 'vertical resize ' . (&columns/2)
+        endif
     elseif l:window_type ==# 'tab'
         tab lopen
     else
@@ -330,7 +379,7 @@ function! s:Toc(...)
             let d.text = substitute(d.text, '\v[ ]*#*$', '', '')
         " setex headers
         else
-            let l:next_line = getbufline(bufname(d.bufnr), d.lnum+1)
+            let l:next_line = getbufline(d.bufnr, d.lnum+1)
             if match(l:next_line, "=") > -1
                 let l:level = 0
             elseif match(l:next_line, "-") > -1
@@ -553,3 +602,84 @@ command! -buffer Toc call s:Toc()
 command! -buffer Toch call s:Toc('horizontal')
 command! -buffer Tocv call s:Toc('vertical')
 command! -buffer Toct call s:Toc('tab')
+
+" Heavily based on vim-notes - http://peterodding.com/code/vim/notes/
+let s:filetype_dict = {
+    \ 'c++': 'cpp',
+    \ 'viml': 'vim'
+\ }
+
+function! s:Markdown_highlight_sources(force)
+    " Syntax highlight source code embedded in notes.
+    " Look for code blocks in the current file
+    let filetypes = {}
+    for line in getline(1, '$')
+        let ft = matchstr(line, '```\zs[0-9A-Za-z_+-]*')
+        if !empty(ft) && ft !~ '^\d*$' | let filetypes[ft] = 1 | endif
+    endfor
+    if !exists('b:mkd_known_filetypes')
+        let b:mkd_known_filetypes = {}
+    endif
+    if !a:force && (b:mkd_known_filetypes == filetypes || empty(filetypes))
+        return
+    endif
+
+    " Now we're ready to actually highlight the code blocks.
+    let startgroup = 'mkdCodeStart'
+    let endgroup = 'mkdCodeEnd'
+    for ft in keys(filetypes)
+        if a:force || !has_key(b:mkd_known_filetypes, ft)
+            if has_key(s:filetype_dict, ft)
+                let filetype = s:filetype_dict[ft]
+            else
+                let filetype = ft
+            endif
+            let group = 'mkdSnippet' . toupper(substitute(filetype, "[+-]", "_", "g"))
+            let include = s:syntax_include(filetype)
+            let command = 'syntax region %s matchgroup=%s start="^\s*```%s$" matchgroup=%s end="\s*```$" keepend contains=%s%s'
+            execute printf(command, group, startgroup, ft, endgroup, include, has('conceal') ? ' concealends' : '')
+            execute printf('syntax cluster mkdNonListItem add=%s', group)
+
+            let b:mkd_known_filetypes[ft] = 1
+        endif
+    endfor
+endfunction
+
+function! s:syntax_include(filetype)
+    " Include the syntax highlighting of another {filetype}.
+    let grouplistname = '@' . toupper(a:filetype)
+    " Unset the name of the current syntax while including the other syntax
+    " because some syntax scripts do nothing when "b:current_syntax" is set
+    if exists('b:current_syntax')
+        let syntax_save = b:current_syntax
+        unlet b:current_syntax
+    endif
+    try
+        execute 'syntax include' grouplistname 'syntax/' . a:filetype . '.vim'
+        execute 'syntax include' grouplistname 'after/syntax/' . a:filetype . '.vim'
+    catch /E484/
+        " Ignore missing scripts
+    endtry
+    " Restore the name of the current syntax
+    if exists('syntax_save')
+        let b:current_syntax = syntax_save
+    elseif exists('b:current_syntax')
+        unlet b:current_syntax
+    endif
+    return grouplistname
+endfunction
+
+
+function! s:Markdown_refresh_syntax(force)
+    if &filetype == 'markdown' && line('$') > 1
+        call s:Markdown_highlight_sources(a:force)
+    endif
+endfunction
+
+augroup Mkd
+    autocmd!
+    au BufWinEnter * call s:Markdown_refresh_syntax(1)
+    au BufWritePost * call s:Markdown_refresh_syntax(0)
+    au InsertEnter,InsertLeave * call s:Markdown_refresh_syntax(0)
+    au CursorHold,CursorHoldI * call s:Markdown_refresh_syntax(0)
+augroup END

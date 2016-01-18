@@ -73,8 +73,6 @@ nnoremap <leader>T :CtrlPBufTag<cr>
 " Indent / Outdent
 vnoremap < <gv
 vnoremap > >gv
-map <C-tab> <Plug>snipMateNextOrTrigger
-imap <C-tab> <Plug>snipMateNextOrTrigger
 " Vimux
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
@@ -82,6 +80,11 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>r :VimuxRunLastCommand<CR>
+" Easymotion
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+nmap s <Plug>(easymotion-overwin-f2)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 " }}}
 
 " Basics Settings {{{

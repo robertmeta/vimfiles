@@ -18,6 +18,7 @@ before_script: |
     cd "$TRAVIS_BUILD_DIR"
   fi
   sudo pip install virtualenv
+  stty cols 80
 
 script:
   - make test

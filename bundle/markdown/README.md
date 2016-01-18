@@ -59,7 +59,7 @@ tar --strip=1 -zxf vim-markdown-master.tar.gz
 Add the following line to your `.vimrc` to disable the folding configuration:
 
 ```vim
-let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_folding_disabled = 1
 ```
 
 This option only controls Vim Markdown specific folding configuration.
@@ -76,7 +76,22 @@ To fold in a style like [python-mode](https://github.com/klen/python-mode), add
 the following to your `.vimrc`:
 
 ```vim
-let g:vim_markdown_folding_style_pythonic=1
+let g:vim_markdown_folding_style_pythonic = 1
+```
+
+### Set header folding level
+
+Folding level is a number between 1 and 6. By default, if not specified, it is set to 1.
+
+```vim
+let g:vim_markdown_folding_level = 6
+```
+
+Tip: it can be changed on the fly with:
+
+```vim
+:let g:vim_markdown_folding_level = 1
+:edit
 ```
 
 ### Disable Default Key Mappings
@@ -84,10 +99,19 @@ let g:vim_markdown_folding_style_pythonic=1
 Add the following line to your `.vimrc` to disable default key mappings:
 
 ```vim
-let g:vim_markdown_no_default_key_mappings=1
+let g:vim_markdown_no_default_key_mappings = 1
 ```
 
 You can also map them by yourself with `<Plug>` mappings.
+
+### Enable TOC window auto-fit
+
+Allow for the TOC window to auto-fit when it's possible for it to shrink.
+It never increases its default size (half screen), it only shrinks.
+
+```vim
+let g:vim_markdown_toc_autofit = 1
+```
 
 ### Syntax extensions
 
@@ -98,7 +122,7 @@ The following options control which syntax extensions will be turned on. They ar
 Used as `$x^2$`, `$$x^2$$`, escapable as `\$x\$` and `\$\$x\$\$`.
 
 ```vim
-let g:vim_markdown_math=1
+let g:vim_markdown_math = 1
 ```
 
 #### YAML frontmatter
@@ -106,8 +130,9 @@ let g:vim_markdown_math=1
 Highlight YAML frontmatter as used by Jekyll:
 
 ```vim
-let g:vim_markdown_frontmatter=1
+let g:vim_markdown_frontmatter = 1
 ```
+
 
 ## Mappings
 
@@ -150,6 +175,8 @@ To disable a map use:
     map <Plug> <Plug>Markdown_MoveToParentHeader
 
 ## Commands
+
+The following requires `:filetype plugin on`.
 
 -   `:HeaderDecrease`:
 
