@@ -80,11 +80,6 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>r :VimuxRunLastCommand<CR>
-" Easymotion
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-nmap s <Plug>(easymotion-overwin-f2)
-nmap <Leader>l <Plug>(easymotion-overwin-line)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
 " }}}
 
 " Basics Settings {{{
@@ -293,7 +288,6 @@ if has("autocmd")
         au FileType go nmap gr <Plug>(go-rename)
         au FileType go nmap gi <Plug>(go-info)
         " au FileType go nmap gD <Plug>(go-doc)
-
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
