@@ -49,7 +49,7 @@ git clone https://github.com/plasticboy/vim-markdown bundle/markdown && rm -rf b
 # git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
 
 # Easymotion 
-git clone https://github.com/easymotion/vim-easymotion bundle/easymotion && rm -rf bundle/easymotion/.git
+git clone https://github.com/easymotion/vim-easymotion bundle/EasyMotion && rm -rf bundle/EasyMotion/.git
 
 # This plugin is a tool for dealing with pairs of "surroundings."  Examples
 # of surroundings include parentheses, quotes, and HTML tags
