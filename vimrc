@@ -151,7 +151,7 @@ set switchbuf=useopen " when working with quickfix use new splits
 set synmaxcol=500 " Don't try to highlight lines longer than X characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 set textwidth=0 " No autowrapping
-set title " mess witht he title
+set notitle " don't mess with the title on exit
 set ttimeoutlen=10 " 10ms timeout
 set ttimeout " time out on key codes
 set ttyfast " Assume a fast terminal
