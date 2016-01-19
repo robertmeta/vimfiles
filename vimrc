@@ -44,7 +44,7 @@ nnoremap <leader>j <C-f>
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
 nnoremap <leader>W <C-W>W
-nnoremap <leader>s <esc>:SyntasticCheck<cr>
+nnoremap <leader>S <esc>:SyntasticCheck<cr>
 nnoremap <leader>q <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
@@ -80,6 +80,11 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>r :VimuxRunLastCommand<CR>
+" EasyMotion
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 " }}}
 
 " Basics Settings {{{
