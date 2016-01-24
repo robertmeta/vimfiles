@@ -113,6 +113,18 @@ It never increases its default size (half screen), it only shrinks.
 let g:vim_markdown_toc_autofit = 1
 ```
 
+### Syntax Concealing
+
+Concealing is set for some syntax.
+
+For example, conceal `[link text](link url)` as just `link text`.
+
+To enable/disable conceal use Vim's standard conceal configuration.
+
+```vim
+set conceallevel=2
+```
+
 ### Syntax extensions
 
 The following options control which syntax extensions will be turned on. They are off by default.
@@ -125,14 +137,33 @@ Used as `$x^2$`, `$$x^2$$`, escapable as `\$x\$` and `\$\$x\$\$`.
 let g:vim_markdown_math = 1
 ```
 
-#### YAML frontmatter
+#### YAML Front Matter
 
-Highlight YAML frontmatter as used by Jekyll:
+Highlight YAML front matter as used by Jekyll or [Hugo](https://gohugo.io/content/front-matter/).
 
 ```vim
 let g:vim_markdown_frontmatter = 1
 ```
 
+#### TOML Front Matter
+
+Highlight TOML front matter as used by [Hugo](https://gohugo.io/content/front-matter/).
+
+TOML syntax highlight requires [vim-toml](https://github.com/cespare/vim-toml).
+
+```vim
+let g:vim_markdown_toml_frontmatter = 1
+```
+
+#### JSON Front Matter
+
+Highlight JSON front matter as used by [Hugo](https://gohugo.io/content/front-matter/).
+
+JSON syntax highlight requires [vim-json](https://github.com/elzr/vim-json).
+
+```vim
+let g:vim_markdown_json_frontmatter = 1
+```
 
 ## Mappings
 

@@ -1090,6 +1090,48 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("xmlEndTag", s:wine, "", "")
   call s:HL("xmlNamespace", s:blue, "", "")
 
+  " Exlixir Highlighting
+  " @target https://github.com/elixir-lang/vim-elixir
+  call s:HL("elixirAlias", s:blue, "", "bold")
+  call s:HL("elixirAtom", s:navy, "", "")
+  call s:HL("elixirVariable", s:navy, "", "")
+  call s:HL("elixirStringDelimiter", s:olive, "", "")
+  call s:HL("elixirKeyword", s:purple, "", "bold")
+  call s:HL("elixirBlockDefinition", s:pink, "", "")
+  call s:HL("elixirDefine", s:pink, "", "")
+  call s:HL("elixirStructDefine", s:pink, "", "")
+  call s:HL("elixirPrivateDefine", s:pink, "", "")
+  call s:HL("elixirModuleDefine", s:pink, "", "")
+  call s:HL("elixirFunctionDeclaration", s:foreground, "", "bold")
+
+  " Erlang Highlighting
+  call s:HL("erlangBIF", s:purple, "", "bold,")
+  call s:HL("erlangBracket", s:pink, "", "")
+  call s:HL("erlangLocalFuncCall", s:foreground, "", "")
+  call s:HL("erlangVariable", s:foreground, "", "")
+  call s:HL("erlangAtom", s:navy, "", "")
+  call s:HL("erlangAttribute", s:blue, "", "bold")
+  call s:HL("erlangRecordDef", s:blue, "", "bold")
+  call s:HL("erlangRecord", s:blue, "", "")
+  call s:HL("erlangRightArrow", s:blue, "", "bold")
+  call s:HL("erlangStringModifier", s:olive, "", "bold")
+  call s:HL("erlangInclude", s:blue, "", "bold")
+  call s:HL("erlangKeyword", s:pink, "", "")
+  call s:HL("erlangGlobalFuncCall", s:foreground, "", "")
+
+  " Cucumber Highlighting
+  call s:HL("cucumberFeature", s:blue, "", "bold")
+  call s:HL("cucumberBackground", s:pink, "", "bold")
+  call s:HL("cucumberScenario", s:pink, "", "bold")
+  call s:HL("cucumberGiven", s:orange, "", "")
+  call s:HL("cucumberGivenAnd", s:blue, "", "")
+  call s:HL("cucumberThen", s:orange, "", "")
+  call s:HL("cucumberThenAnd", s:blue, "", "")
+  call s:HL("cucumberWhen", s:purple, "", "bold")
+  call s:HL("cucumberScenarioOutline", s:pink, "", "bold")
+  call s:HL("cucumberExamples", s:aqua, "", "")
+  call s:HL("cucumberTags", s:aqua, "", "")
+  call s:HL("cucumberPlaceholder", s:aqua, "", "")
   " }}}
 
   " Plugin: Netrw
@@ -1167,9 +1209,6 @@ call s:HL("cssClassName", s:pink, "", "")
   " call s:HL("ShowMarksHLm", s:aqua, s:background, "none")
 
 
-  " " Cucumber Highlighting
-  " call s:HL("cucumberGiven", s:blue, "", "")
-  " call s:HL("cucumberGivenAnd", s:blue, "", "")
 
 
 

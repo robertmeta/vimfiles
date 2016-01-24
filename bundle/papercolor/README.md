@@ -6,7 +6,7 @@ Inspired by Google's Material Design
 
 Improve code readability; great for presentation
 
-Currently designed for these file types:  C, C++, Java, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, JSON, HTML, XML, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R, PHP, Perl, LUA, Clojure, Dockerfile, NGINX, Yaml, Dosini, Mail, reStructuredText
+Currently designed for these file types:  C, C++, Java, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, JSON, HTML, XML, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R, PHP, Perl, LUA, Clojure, Dockerfile, NGINX, Yaml, Dosini, Mail, reStructuredText, Erlang, Elixir, Cucumber
 
 Other file types can still display well as long as your Vim is set up to recognize the language syntax even though that may not be the optimal experience. So, if the language you are working on isn't listed here, feel free to make a design request.
 
@@ -78,6 +78,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 * Python: [python-syntax](https://github.com/hdima/python-syntax/)
 * Dockerfile: [dockerfile.vim](https://github.com/docker/docker/tree/master/contrib/syntax/vim)
 * NGINX: [nginx-vim-syntax](https://github.com/evanmiller/nginx-vim-syntax)
+* Elixir: [vim-elixir](https://github.com/elixir-lang/vim-elixir)
 
 
 ## Screenshots
@@ -113,3 +114,19 @@ To set [lightline](https://github.com/itchyny/lightline.vim) theme:
 For more sceenshots, story behind the project, and other users' designs inspired by Paper Color, go to [this blog post](http://nlknguyen.com/2015/05/21/vim-paper-color-theme/)
 
 Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://github.com/NLKNguyen/papercolor-theme/issues) or via the blog above.
+
+# Related Projects Based On PaperColor
+[Material iTerm](https://github.com/stoeffel/material-iterm) theme by Christoph Hermann
+
+[Material Terminator](https://github.com/marhs/material-terminator) (terminal emulator) theme by Marco Herrero
+
+[Terminal Theme](https://www.reddit.com/r/vim/comments/36xzbs/vim_paper_color_theme_inspired_by_googles/crqbfpa) by Fixles
+
+[PaperColor Theme for Vis Editor](https://github.com/jceb/dotfiles/blob/master/config/vis/lexers/themes/papercolor.lua) by Jan Christoph Ebersbach
+
+[Airline PaperColor Theme for Emacs Powerline](https://github.com/AnthonyDiGirolamo/airline-themes) by Anthony DiGirolamo
+
+[Airline PaperColor Theme for Vim Lightline](https://github.com/itchyny/lightline.vim) 
+
+
+Feel free to add related projects here!
