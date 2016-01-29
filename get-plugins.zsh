@@ -36,6 +36,7 @@ git clone https://github.com/AlessandroYorba/Alduin bundle/alduin && rm -rf bund
 # }}}
 
 # Gisty goodness
+git clone https://github.com/mattn/webapi-vim bundle/webapi && rm -rf bundle/webapi/.git
 git clone https://github.com/mattn/gist-vim bundle/gist && rm -rf bundle/gist/.git
 
 # Put git status in the sign column
