@@ -23,6 +23,7 @@ git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molo
 git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit && rm -rf bundle/summerfruit/.git
 #git clone https://github.com/wimstefan/Lightning bundle/lightning && rm -rf bundle/lightning/.git
 git clone https://github.com/ewilazarus/preto bundle/preto && rm -rf bundle/preto/.git
+git clone https://github.com/AlessandroYorba/Alduin bundle/alduin && rm -rf bundle/alduin/.git
 # }}}
 
 # Snippets {{{
@@ -49,7 +50,7 @@ git clone https://github.com/plasticboy/vim-markdown bundle/markdown && rm -rf b
 # Sneak provides a way to move quickly and precisely to locations that would be awkward to reach with built-in Vim motions.
 git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
 
-# Easymotion 
+# Easymotion
 # git clone https://github.com/easymotion/vim-easymotion bundle/EasyMotion && rm -rf bundle/EasyMotion/.git
 
 # This plugin is a tool for dealing with pairs of "surroundings."  Examples
