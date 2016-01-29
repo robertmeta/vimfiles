@@ -470,6 +470,7 @@ let g:go_highlight_trailing_whitespace_error=1
 let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
+let g:alduin_Shout_Windhelm = 1
 set background=dark
 colo nofrils-dark
 " }}}
