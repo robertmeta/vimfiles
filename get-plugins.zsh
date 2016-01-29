@@ -35,6 +35,9 @@ git clone https://github.com/AlessandroYorba/Alduin bundle/alduin && rm -rf bund
 # git clone https://github.com/honza/vim-snippets bundle/snippets && rm -rf bundle/snippets/.git
 # }}}
 
+# Gisty goodness
+git clone https://github.com/mattn/gist-vim bundle/gist && rm -rf bundle/gist/.git
+
 # Put git status in the sign column
 # git clone https://github.com/airblade/vim-gitgutter bundle/gitgutter && rm -rf bundle/gitgutter/.git
 git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git

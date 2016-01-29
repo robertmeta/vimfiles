@@ -472,8 +472,8 @@ let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 let g:alduin_Shout_Windhelm = 1
 set background=dark
-colo alduin
-" colo nofrils-dark
+" colo alduin
+colo nofrils-dark
 " }}}
 
 " Modeline {{{
