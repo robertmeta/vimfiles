@@ -1,11 +1,10 @@
-
-"          ___                            
-"         -   -_, ,,  |\                  
-"        (  ~/||  ||   \\         '       
-"        (  / ||  ||  / \\ \\ \\ \\ \\/\\ 
-"         \/==||  || || || || || || || || 
-"         /_ _||  || || || || || || || || 
-"        (  - \\, \\  \\/  \\/\\ \\ \\ \\ 
+"  "        ___                                 "
+"  "       -   -_, ,,  |\                       "
+"  "      (  ~/||  ||   \\         '            "
+"  "      (  / ||  ||  / \\ \\ \\ \\ \\/\\      "
+"  "       \/==||  || || || || || || || ||      "
+"  "       /_ _||  || || || || || || || ||      "
+"  "      (  - \\, \\  \\/  \\/\\ \\ \\ \\      "
 
 
 
@@ -13,6 +12,9 @@
 " A Terminal Vim colorscheme 
 " Author:       Alessandro Yorba 
 " Maintainer:   Alessandro Yorba
+" Script URL:   https://github.com/AlessandroYorba/Alduin
+" Version:      1.0~git
+" Last Change:  January 29th, 2016
 " License:      MIT
 " Notes:        To check the meaning of the highlight groups, :help 'highlight'
 
@@ -45,13 +47,13 @@ let s:alduin = {}
 let s:alduin.Krosulhah   = [ '5f0000', 52  ]
 let s:alduin.Morthal     = [ '5f5f87', 60  ]
 let s:alduin.Dawnstar    = [ '5f8787', 66  ]
-let s:alduin.Sahloknir   = [ '870000', 88  ]
 let s:alduin.Durnehviir  = [ '875f5f', 95  ]
 let s:alduin.Winterhold  = [ '87875f', 101 ]
 let s:alduin.Relonikiv   = [ '878787', 102 ]
 let s:alduin.Falkreath   = [ '8787af', 103 ]
 let s:alduin.Mirmulnir   = [ '87afaf', 109 ]
 let s:alduin.Markarth    = [ '87ffaf', 121 ]
+let s:alduin.Sahloknir   = [ '870000', 124 ]
 let s:alduin.Odahviing   = [ 'af5f00', 130 ]
 let s:alduin.Windhelm    = [ 'af5f5f', 131 ]
 let s:alduin.Viinturuth  = [ 'af875f', 137 ]
@@ -225,6 +227,7 @@ call s:HL( 'Typedef', 'Viinturuth', '', 'none' )
 "                                 HTML:                             |
 "--------------------------------------------------------------------
 call s:HL( 'htmlArg', 'Durnehviir', '', 'none' )
+call s:HL( 'htmlItalic', 'Sahrotaar', '', 'none' )
 
 
 "--------------------------------------------------------------------
