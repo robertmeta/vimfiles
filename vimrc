@@ -80,11 +80,6 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>r :VimuxRunLastCommand<CR>
-" EasyMotion
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-nmap <Leader>s <Plug>(easymotion-overwin-f2)
-nmap <Leader>l <Plug>(easymotion-overwin-line)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
 " }}}
 
 " Basics Settings {{{
@@ -127,7 +122,7 @@ set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " going to try seeing the broken again
 set nomore " Scroll away, no pausing
-set nonumber " no line numbers
+set number " line numbers, I like 'em
 set norelativenumber " no thank you
 set nospell " nope nope nope
 set nostartofline " leave my cursor where it was
