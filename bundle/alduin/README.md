@@ -1,4 +1,4 @@
-![Screenshot Alduin](Screenshots/alduin.jpg)
+![Screenshot Alduin](https://cloud.githubusercontent.com/assets/11221489/12768994/d08b5f52-c9c8-11e5-81ec-aa05577e41a6.jpg)
 
 # Alduin #
 
@@ -14,23 +14,41 @@ The following screenshots of Alduin were made using a default Vi IMproved 7.3 di
 
 
 #### JavaScript ####
-![Screenshot JavaScript](Screenshots/javascript.png)
+![Screenshot JavaScript](https://cloud.githubusercontent.com/assets/11221489/12769039/235f443c-c9c9-11e5-9fae-e6350e450bb9.png)
 
 #### Additional Screenshots ####
 Moving Screenshots to new location. TBD
 
-### Custom Options ###
+### Custom Options / Shouts ###
 
-#### Not a fan of the dark red? ####
-The default forground color for highlight group "Special" is xtermfg=124 guifg=#af0000
-![Screenshot of Default Red](Screenshots/defaultRed.png)
+#### let g:alduin_Shout_Windhelm = 1 ####
+The default forground color for the highlight group "Special" is xtermfg=124, guifg=#af0000. 
+Not a fan of the dark red? 
+![Screenshot of Default Red](https://cloud.githubusercontent.com/assets/11221489/12769011/f1b4b174-c9c8-11e5-8e40-387edbe73b55.png)
 
-#### Don't worry Dragonborn! ####
-You can change it to a lighter red 
-![Screenshot of Default Red](Screenshots/softRed.png)
+##### Don't worry Dragonborn! #####
+If you add the following code to your vimrc: 
 
-Add this bit of code to your .vimrc 
-
-        "Replaces the Dark Red to Soft Red
         let g:alduin_Shout_Windhelm = 1
         colorscheme alduin
+
+the 'Special" highlighting color will change to:
+![Screenshot of Default Red](https://cloud.githubusercontent.com/assets/11221489/12769020/f8fd0652-c9c8-11e5-83a0-ce96a0166852.png)
+
+
+##### Current Release Notes #####
+Additions:
+
+* Added 'Todo' highlighting 
+* Added 'FoldColumn' highlighting
+
+Changes: 
+
+* Changed 'Special' highlighting color for alduin.Sahloknir to guifg='870000', ctermfg=124
+
+Fixes: 
+
+* Added better support for 'MatchParen'. The xterm=reverse behavior made it difficult to determine cursor location for certain syntax files e.g. python or C++ or txt. The behavior is no longer reversed when the cursor is at a paren. The background color for all 'MatchParen' is now set to xterm=95. 
+
+Misc: 
+Alduin is now part if the collection of schemes at (http://vimcolors.com/)

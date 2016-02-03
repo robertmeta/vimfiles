@@ -120,7 +120,8 @@ set nocursorcolumn " disable global cursor column
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
-set nolist " going to try seeing the broken again
+set listchars=tab:»\,eol:¬
+set list " going to try seeing the broken again
 set nomore " Scroll away, no pausing
 set number " line numbers, I like 'em
 set norelativenumber " no thank you
