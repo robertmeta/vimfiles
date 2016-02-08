@@ -171,7 +171,7 @@ git clone https://github.com/cespare/vim-toml bundle/toml && rm -rf bundle/toml/
 git clone https://github.com/sickill/vim-pasta bundle/pasta && rm -rf bundle/pasta/.git
 
 # Better whitespace
-git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
+# git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
 
 # This plugin provides Readline (Emacs) mappings for insert and command line
 # mode that try not to overlap with built-in Vim functionality.

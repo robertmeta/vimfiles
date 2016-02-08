@@ -63,6 +63,22 @@ else
   let s:low_color = 1
 endif
 
+" Configuration Variables:
+" - g:jellybeans_background_color
+" - g:jellybeans_overrides
+" - g:jellybeans_use_lowcolor_black
+" - g:jellybeans_use_term_italics
+
+if !exists("g:jellybeans_background_color")
+  let g:jellybeans_background_color = "151515"
+end
+
+if !exists("g:jellybeans_use_lowcolor_black") || g:jellybeans_use_lowcolor_black
+  let s:termBlack = "Black"
+else
+  let s:termBlack = "Grey"
+endif
+
 " Color approximation functions by Henry So, Jr. and David Liang {{{
 " Added to jellybeans.vim by Daniel Herbert
 
@@ -276,39 +292,42 @@ fun! s:X(group, fg, bg, attr, lcfg, lcbg)
     let l:fge = empty(a:fg)
     let l:bge = empty(a:bg)
 
+    if a:bg == g:jellybeans_background_color
+      let l:ctermbg = 'NONE'
+    else
+      let l:ctermbg = s:rgb(a:bg)
+    endif
+
     if !l:fge && !l:bge
-      exec "hi ".a:group." guifg=#".a:fg." guibg=#".a:bg." ctermfg=".s:rgb(a:fg)." ctermbg=".s:rgb(a:bg)
+      exec "hi ".a:group." guifg=#".a:fg." guibg=#".a:bg." ctermfg=".s:rgb(a:fg)." ctermbg=".l:ctermbg
     elseif !l:fge && l:bge
       exec "hi ".a:group." guifg=#".a:fg." guibg=NONE ctermfg=".s:rgb(a:fg)." ctermbg=NONE"
     elseif l:fge && !l:bge
-      exec "hi ".a:group." guifg=NONE guibg=#".a:bg." ctermfg=NONE ctermbg=".s:rgb(a:bg)
+      exec "hi ".a:group." guifg=NONE guibg=#".a:bg." ctermfg=NONE ctermbg=".l:ctermbg
     endif
   endif
 
-  if a:attr == ""
-    exec "hi ".a:group." gui=none cterm=none"
+  if empty(a:attr)
+    let l:attr = "none"
   else
-    let l:noitalic = join(filter(split(a:attr, ","), "v:val !=? 'italic'"), ",")
-    if empty(l:noitalic)
-      let l:noitalic = "none"
-    endif
-    exec "hi ".a:group." gui=".a:attr." cterm=".l:noitalic
+    let l:attr = a:attr
   endif
+
+  if exists("g:jellybeans_use_term_italics") && g:jellybeans_use_term_italics
+    let l:cterm_attr = l:attr
+  else
+    let l:cterm_attr = join(filter(split(l:attr, ","), "v:val !=? 'italic'"), ",")
+    if empty(l:cterm_attr)
+      let l:cterm_attr = "none"
+    endif
+  endif
+
+  exec "hi ".a:group." gui=".l:attr." cterm=".l:cterm_attr
 endfun
 " }}}
 
-if !exists("g:jellybeans_background_color")
-  let g:jellybeans_background_color = "151515"
-end
-
 call s:X("Normal","e8e8d3",g:jellybeans_background_color,"","White","")
 set background=dark
-
-if !exists("g:jellybeans_use_lowcolor_black") || g:jellybeans_use_lowcolor_black
-    let s:termBlack = "Black"
-else
-    let s:termBlack = "Grey"
-endif
 
 if version >= 700
   call s:X("CursorLine","","1c1c1c","","",s:termBlack)
@@ -442,10 +461,18 @@ hi! link erlangFunction rubyPredefinedIdentifier
 hi! link erlangDirective Statement
 hi! link erlangNode Identifier
 
+" Elixir
+
+hi! link elixirAtom rubySymbol
+
+
 " JavaScript
 
 hi! link javaScriptValue Constant
 hi! link javaScriptRegexpString rubyRegexp
+hi! link javaScriptTemplateVar StringDelim
+hi! link javaScriptTemplateDelim Identifier
+hi! link javaScriptTemplateString String
 
 " CoffeeScript
 
@@ -513,9 +540,6 @@ call s:X("IndentGuidesEven","","1b1b1b","","","")
 hi! link TagListFileName Directory
 call s:X("PreciseJumpTarget","B9ED67","405026","","White","Green")
 
-if !exists("g:jellybeans_background_color_256")
-  let g:jellybeans_background_color_256=233
-end
 " Manual overrides for 256-color terminals. Dark colors auto-map badly.
 if !s:low_color
   hi StatusLineNC ctermbg=235
@@ -525,10 +549,7 @@ if !s:low_color
   hi CursorColumn ctermbg=234
   hi CursorLine ctermbg=234
   hi SpecialKey ctermbg=234
-  exec "hi NonText ctermbg=".g:jellybeans_background_color_256
-  exec "hi LineNr ctermbg=".g:jellybeans_background_color_256
   hi DiffText ctermfg=81
-  exec "hi Normal ctermbg=".g:jellybeans_background_color_256
   hi DbgBreakPt ctermbg=53
   hi IndentGuidesOdd ctermbg=235
   hi IndentGuidesEven ctermbg=234
