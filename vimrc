@@ -111,6 +111,7 @@ set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
+set listchars=tab:»\ ,eol:¬,trail:‽ " if I need listchars
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
 set noautoread " nope
@@ -127,6 +128,7 @@ set norelativenumber " no thank you
 set nospell " nope nope nope
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
+set notitle " don't mess with the title on exit
 set novisualbell " don't be noisy
 set numberwidth=5 " We are good up to 99999 lines
 set omnifunc=syntaxcomplete#Complete
@@ -151,7 +153,6 @@ set switchbuf=useopen " when working with quickfix use new splits
 set synmaxcol=500 " Don't try to highlight lines longer than X characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 set textwidth=0 " No autowrapping
-set notitle " don't mess with the title on exit
 set ttimeoutlen=10 " 10ms timeout
 set ttimeout " time out on key codes
 set ttyfast " Assume a fast terminal
