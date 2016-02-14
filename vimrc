@@ -33,7 +33,6 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 
 " Mappings {{{
 let mapleader = "\<space>"
-
 " folding / unfolding outer layer
 nnoremap <leader>z :%foldc<cr>
 nnoremap <leader>Z :%foldo<cr>
@@ -49,17 +48,15 @@ nnoremap <leader>q <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
 " Arrow control
-nnoremap <left> :NERDTreeToggle<cr>
 nnoremap - :NERDTreeFind<cr>
-nnoremap <right> :TagbarToggle<cr>
-nnoremap <up> <C-f>
-nnoremap <down> <C-b>
-nnoremap <C-down> :cnext<cr>zvzz
-nnoremap <C-up> :cprev<cr>zvzz
-nnoremap <S-down> :lnext<cr>zvzz
-nnoremap <S-up> :lprev<cr>zvzz
+nnoremap <left> :cprev<cr>
+nnoremap <right> :cnext<cr>
+nnoremap <up> :lprev<cr>
+nnoremap <down> :lnext<cr>
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
+" Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
+vmap <BS> x
 " Make bindings work better with new wrapping
 nnoremap j gj
 nnoremap k gk
@@ -125,13 +122,12 @@ set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " nope nope nope
 set nomore " Scroll away, no pausing
-set number " line numbers
 set norelativenumber " no thank you
 set nospell " nope nope nope
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
-set notitle " don't mess with the title on exit
 set novisualbell " don't be noisy
+set number " line numbers
 set numberwidth=5 " We are good up to 99999 lines
 set omnifunc=syntaxcomplete#Complete
 set report=0 " tell us when anything is changed via :
@@ -155,11 +151,12 @@ set switchbuf=useopen " when working with quickfix use new splits
 set synmaxcol=500 " Don't try to highlight lines longer than X characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 set textwidth=0 " No autowrapping
+set title " mess with the title
+set titlestring= " no title string
 set ttimeoutlen=10 " 10ms timeout
 set ttimeout " time out on key codes
 set ttyfast " Assume a fast terminal
 set t_vb= " seriously, shhhh, don't be noisy
-set viminfo+=! " Store upper-case registers in viminfo
 set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
 " }}}
@@ -203,6 +200,16 @@ set wildmode=list:longest " turn on wild mode huge list
 " }}}
 
 " Various formatting / output options {{{
+set viminfo=!,h,'500,<10000,s1000,/1000,:1000
+"           | | |    |      |     |     |
+"           | | |    |      |     |     +-- remember last 1000 commands
+"           | | |    |      |     +-- remember last 1000 search patterns
+"           | | |    |      +- remember up to 1MB in each register
+"           | | |    +-- remember up to 10000 lines in each register
+"           | | +-- remember marks for last 500 files
+"           | +-- disable hlsearch while loading viminfo
+"           +-- include uppercase registers
+"
 set formatoptions=qrn1j " used to be just rq
 "                 |||||
 "                 ||||+-- remove comment when joining lines
