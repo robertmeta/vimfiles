@@ -65,6 +65,8 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+" Turn off search highlight with backspace
+nmap <silent> <BS>  :nohlsearch<CR>
 " CtrlP Mappings
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
@@ -123,7 +125,7 @@ set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " nope nope nope
 set nomore " Scroll away, no pausing
-set nonumber " line numbers, not useful noise
+set number " line numbers
 set norelativenumber " no thank you
 set nospell " nope nope nope
 set nostartofline " leave my cursor where it was
