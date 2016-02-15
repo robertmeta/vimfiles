@@ -10,7 +10,7 @@ git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpo
 #git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
 git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
-git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
+#git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
 #git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && rm -rf bundle/mactheme/.git
 git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
 #git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
@@ -22,8 +22,9 @@ git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molo
 #git clone https://github.com/vim-scripts/blackdust.vim bundle/blackdust && rm -rf bundle/blackdust/.git
 git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit && rm -rf bundle/summerfruit/.git
 #git clone https://github.com/wimstefan/Lightning bundle/lightning && rm -rf bundle/lightning/.git
-git clone https://github.com/ewilazarus/preto bundle/preto && rm -rf bundle/preto/.git
-git clone https://github.com/AlessandroYorba/Alduin bundle/alduin && rm -rf bundle/alduin/.git
+#git clone https://github.com/ewilazarus/preto bundle/preto && rm -rf bundle/preto/.git
+# git clone https://github.com/AlessandroYorba/Alduin bundle/alduin && rm -rf bundle/alduin/.git
+git clone https://github.com/AlessandroYorba/Sierra bundle/sierra && rm -rf bundle/sierra/.git
 # }}}
 
 # Snippets {{{
@@ -33,6 +34,10 @@ git clone https://github.com/AlessandroYorba/Alduin bundle/alduin && rm -rf bund
 #
 # # Optional:
 # git clone https://github.com/honza/vim-snippets bundle/snippets && rm -rf bundle/snippets/.git
+# }}}
+
+# Vim Table mode {{{
+git clone https://github.com/dhruvasagar/vim-table-mode bundle/table-mode && rm -rf bundle/table-mode/.git
 # }}}
 
 # Gisty goodness
