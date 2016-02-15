@@ -476,6 +476,10 @@ let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
 " }}}
 
+" Sierra defaults {{{
+let g:sierra_Twilight = 1
+" }}}
+
 " z Finally -- Theme setup {{{
 let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
