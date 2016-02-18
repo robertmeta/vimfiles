@@ -62,6 +62,13 @@ git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sn
 # Easymotion
 # git clone https://github.com/easymotion/vim-easymotion bundle/EasyMotion && rm -rf bundle/EasyMotion/.git
 
+# Lots fo better programming language support 
+git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git
+
+# Ag related
+git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
+git clone https://github.com/Chun-Yang/vim-action-ag bundle/actionag && rm -rf bundle/actionag/.git
+
 # This plugin is a tool for dealing with pairs of "surroundings."  Examples
 # of surroundings include parentheses, quotes, and HTML tags
 git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
