@@ -22,6 +22,10 @@ if !exists('g:vcm_default_maps')
   let g:vcm_default_maps = 1
 endif
 
+if !exists('g:vcm_omni_pattern')
+  let g:vcm_omni_pattern = '\v(\.\|->\|::)'
+endif
+
 " Functions: {{{1
 function! s:vim_completes_me(shift_tab)
   let dirs = ["\<c-p>", "\<c-n>"]
@@ -45,15 +49,13 @@ function! s:vim_completes_me(shift_tab)
 
   " Figure out if user has started typing a path or a period or an arrow
   " operator
-  let period = match(substr, '\.') != -1
-  let arrow_oper = match(substr, '->') != -1
-  let double_colon = match(substr, '::') != -1
+  let omni_pattern = match(substr, get(b:, 'vcm_omni_pattern')) != -1
   let file_path = (has('win32') || has('win64')) ? '\\' : '\/'
   let file_pattern = match(substr, file_path) != -1
 
   if file_pattern
     return "\<C-x>\<C-f>"
-  elseif (period || arrow_oper || double_colon) && (&omnifunc != '')
+  elseif omni_pattern && (&omnifunc != '')
     if get(b:, 'tab_complete_pos', []) == pos
       let exp = "\<C-x>" . dirs[!dir]
     else
@@ -73,16 +75,12 @@ function! s:vim_completes_me(shift_tab)
   let b:completion_tried = 1
   if map ==? "user"
     return "\<C-x>\<C-u>"
-  elseif map ==? "tags"
-    return "\<C-x>\<C-]>"
   elseif map ==? "omni"
     return "\<C-x>\<C-o>"
-  elseif map ==? "dict"
-    return "\<C-x>\<C-k>"
   elseif map ==? "vim"
     return "\<C-x>\<C-v>"
   else
-    return "\<C-x>" . dirs[!dir]
+    return dirs[!dir]
   endif
 endfunction
 

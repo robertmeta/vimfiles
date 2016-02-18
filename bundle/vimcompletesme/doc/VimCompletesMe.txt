@@ -28,6 +28,8 @@ following options:
 |'g:vcm_direction'|             Controls the direction of the completion.
 |'g:vcm_s_tab_behavior'|        Controls the behavior of Shift-Tab.
 |'g:vcm_default_maps'|          Set up default maps (Tab + Shift Tab)
+|'b:vcm_omni_pattern|           Local pattern to trigger Omni-completion
+|'g:vcm_omni_pattern|           Global pattern to trigger Omni-completion
 
 ------------------------------------------------------------------------------
                                                          *'b:vcm_tab_complete'*
@@ -44,11 +46,9 @@ intelligently (depending on the context) use:
 You can set |b:vcm_tab_complete| to one of the following to use a specific type
 of completion:
 
-1. "dict"   - Dictionary completion |i_Ctrl-X_Ctrl-K|
-2. "user"   - User-defined completion |i_Ctrl-X_Ctrl-U|
-3. "vim"    - Vim command line completion |i_Ctrl-X_Ctrl-V|
-4. "tags"   - Tag based completion |i_Ctrl-X_Ctrl-]|
-5. "omni"   - Omni completion |i_Ctrl-X_Ctrl-O|
+1. "user"   - User-defined completion |i_Ctrl-X_Ctrl-U|
+2. "vim"    - Vim command line completion |i_Ctrl-X_Ctrl-V|
+3. "omni"   - Omni completion |i_Ctrl-X_Ctrl-O|
 
 The b:vcm_tab_complete makes a great |:autocmd| as follows:
 >
@@ -109,6 +109,20 @@ own mappings, unset this variable by putting the following in your |vimrc|:
 >
     let g:vcm_default_maps = 0
 <
+------------------------------------------------------------------------------
+                                                         *'g:vcm_omni_pattern*
+Values: string                                                               ~
+Default: '\v(\.\|->\|::)'                                                    ~
+
+The global pattern after which VimCompletesMe triggers Omni-completion.
+
+------------------------------------------------------------------------------
+                                                         *'b:vcm_omni_pattern*
+Values: string                                                               ~
+Default: g:vcm_omni_pattern                                                  ~
+
+The buffer-local pattern after which VimCompletesMe triggers Omni-completion.
+
 ==============================================================================
  3. FREQUENTLY ASKED QUESTIONS                             *VimCompletesMe-faq*
 
