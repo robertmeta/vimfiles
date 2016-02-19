@@ -148,6 +148,12 @@ Execute (bold italic with asterisks in multiple lines):
   AssertEqual SyntaxOf('c'), 'htmlBoldItalic'
   AssertNotEqual SyntaxOf('d'), 'htmlBoldItalic'
 
+Given markdown;
+*a
+
+Execute (not italic with an asterisk):
+  AssertNotEqual SyntaxOf('a'), 'htmlItalic'
+
 # Links
 
 Given markdown;
@@ -203,6 +209,34 @@ Execute (conceal link):
     AssertEqual synconcealed(1, 5)[0], 1
     AssertEqual synconcealed(1, 6)[0], 1
     setlocal conceallevel=0
+  endif
+
+Execute (disable conceal):
+  if has('conceal')
+    let g:vim_markdown_conceal=0
+    syn off | syn on
+    setlocal conceallevel=2
+    AssertEqual synconcealed(1, 1)[0], 0
+    AssertEqual synconcealed(1, 2)[0], 0
+    AssertEqual synconcealed(1, 3)[0], 0
+    AssertEqual synconcealed(1, 4)[0], 0
+    AssertEqual synconcealed(1, 4)[0], 0
+    AssertEqual synconcealed(1, 5)[0], 0
+    AssertEqual synconcealed(1, 6)[0], 0
+
+    let g:vim_markdown_conceal=1
+    syn off | syn on
+    AssertEqual synconcealed(1, 1)[0], 1
+    AssertEqual synconcealed(1, 2)[0], 0
+    AssertEqual synconcealed(1, 3)[0], 1
+    AssertEqual synconcealed(1, 4)[0], 1
+    AssertEqual synconcealed(1, 4)[0], 1
+    AssertEqual synconcealed(1, 5)[0], 1
+    AssertEqual synconcealed(1, 6)[0], 1
+
+    setlocal conceallevel=0
+    unlet g:vim_markdown_conceal
+    syn off | syn on
   endif
 
 # Autolinks
@@ -395,6 +429,35 @@ Execute (fenced code block syntax with alias language specifier):
   call b:func(0)
   AssertEqual SyntaxOf('g:a'), 'vimVar'
   AssertEqual SyntaxOf('g:b'), 'vimVar'
+
+Given markdown;
+```csharp
+var s = "foo";
+```
+
+Execute (fenced code block languages setting):
+  let g:vim_markdown_fenced_languages = ['csharp=cs']
+  source ../ftplugin/markdown.vim
+  let b:func = Markdown_GetFunc('vim-markdown/ftplugin/markdown.vim', 'MarkdownRefreshSyntax')
+  call b:func(0)
+  AssertEqual SyntaxOf('foo'), 'csString'
+  unlet g:vim_markdown_fenced_languages
+
+Given markdown;
+```vim
+let g:a = 1
+```
+
+Execute (fenced code block includes language syntax with reopening same buffer):
+  let b:func = Markdown_GetFunc('vim-markdown/ftplugin/markdown.vim', 'MarkdownRefreshSyntax')
+  call b:func(0)
+  split
+  quit
+  edit
+  set filetype=markdown
+  execute "normal! i```vim\<cr>let g:a = 1\<cr>```"
+  call b:func(1)
+  AssertEqual SyntaxOf('g:a'), 'vimVar'
 
 Given markdown;
 ```a+b-
