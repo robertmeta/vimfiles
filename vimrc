@@ -129,7 +129,7 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " line numbers
 set numberwidth=5 " We are good up to 99999 lines
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
@@ -411,28 +411,21 @@ let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
 " }}}
 
 " {{{ Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_enable_signs = 0
 let g:syntastic_go_checkers = ['go', 'gometalinter']
 let g:syntastic_mode_map = { 'mode': 'passive' }
-
-let g:syntastic_enable_signs = 0
+set statusline+=%*
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%#warningmsg#
 " }}}
 
 " Tagbar {{{
 let g:tagbar_show_linenumbers = -1
 let g:tagbar_left = 1
-" }}}
-
-" Git Gutter {{{
-let g:gitgutter_sign_column_always = 1
 " }}}
 
 " Signature {{{
@@ -486,7 +479,6 @@ let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 let g:alduin_Shout_Windhelm = 1
 set background=dark
-" colo alduin
 colo nofrils-dark
 " }}}
 
