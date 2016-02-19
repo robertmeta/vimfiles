@@ -127,11 +127,34 @@ Concealing is set for some syntax.
 
 For example, conceal `[link text](link url)` as just `link text`.
 
-To enable/disable conceal use Vim's standard conceal configuration.
+To enable conceal use Vim's standard conceal configuration.
 
 ```vim
 set conceallevel=2
 ```
+
+To disable conceal regardless of `conceallevel` setting, add the following to your `.vimrc`:
+
+```vim
+let g:vim_markdown_conceal = 0
+```
+
+### Fenced code block languages
+
+You can use filetype name as fenced code block languages for syntax highlighting.
+If you want to use different name from filetype, you can add it in your `.vimrc` like so:
+
+```vim
+let g:vim_markdown_fenced_languages = ['csharp=cs']
+```
+
+This will cause the following to be highlighted using the `cs` filetype syntax.
+
+    ```csharp
+    ...
+    ```
+
+Default is `['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini']`.
 
 ### Syntax extensions
 

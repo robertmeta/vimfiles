@@ -614,12 +614,21 @@ command! -buffer Tocv call s:Toc('vertical')
 command! -buffer Toct call s:Toc('tab')
 
 " Heavily based on vim-notes - http://peterodding.com/code/vim/notes/
-let s:filetype_dict = {
-    \ 'c++': 'cpp',
-    \ 'viml': 'vim',
-    \ 'bash': 'sh',
-    \ 'ini': 'dosini'
-\ }
+if exists('g:vim_markdown_fenced_languages')
+    let s:filetype_dict = {}
+    for s:filetype in g:vim_markdown_fenced_languages
+        let key = matchstr(s:filetype, "[^=]*")
+        let val = matchstr(s:filetype, "[^=]*$")
+        let s:filetype_dict[key] = val
+    endfor
+else
+    let s:filetype_dict = {
+        \ 'c++': 'cpp',
+        \ 'viml': 'vim',
+        \ 'bash': 'sh',
+        \ 'ini': 'dosini'
+    \ }
+endif
 
 function! s:MarkdownHighlightSources(force)
     " Syntax highlight source code embedded in notes.
@@ -658,7 +667,7 @@ function! s:MarkdownHighlightSources(force)
                 let include = '@' . toupper(filetype)
             endif
             let command = 'syntax region %s matchgroup=%s start="^\s*```%s$" matchgroup=%s end="\s*```$" keepend contains=%s%s'
-            execute printf(command, group, startgroup, ft, endgroup, include, has('conceal') ? ' concealends' : '')
+            execute printf(command, group, startgroup, ft, endgroup, include, has('conceal') && get(g:, 'vim_markdown_conceal', 1) ? ' concealends' : '')
             execute printf('syntax cluster mkdNonListItem add=%s', group)
 
             let b:mkd_known_filetypes[ft] = 1
@@ -697,9 +706,16 @@ function! s:MarkdownRefreshSyntax(force)
     endif
 endfunction
 
+function! s:MarkdownClearSyntaxVariables()
+    if &filetype == 'markdown'
+        unlet! b:mkd_included_filetypes
+    endif
+endfunction
+
 augroup Mkd
     autocmd!
     au BufWinEnter * call s:MarkdownRefreshSyntax(1)
+    au BufUnload * call s:MarkdownClearSyntaxVariables()
     au BufWritePost * call s:MarkdownRefreshSyntax(0)
     au InsertEnter,InsertLeave * call s:MarkdownRefreshSyntax(0)
     au CursorHold,CursorHoldI * call s:MarkdownRefreshSyntax(0)

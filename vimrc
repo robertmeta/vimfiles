@@ -278,7 +278,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au BufRead,BufNewFile *.go setlocal noexpandtab ts=8 sw=8 sts=8 syntax=go ft=go foldmethod=indent foldmarker={,} " so does make
+        au BufRead,BufNewFile *.go setlocal noexpandtab ts=8 sw=8 sts=8 syntax=go ft=go foldmethod=indent foldmarker={,} b:vcm_tab_complete = "omni" " so does make
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make " so does make
         " Some JS awesome via romainl
         au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<CR><CR>
@@ -411,28 +411,21 @@ let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
 " }}}
 
 " {{{ Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_enable_signs = 0
 let g:syntastic_go_checkers = ['go', 'gometalinter']
 let g:syntastic_mode_map = { 'mode': 'passive' }
-
-let g:syntastic_enable_signs = 0
+set statusline+=%*
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%#warningmsg#
 " }}}
 
 " Tagbar {{{
 let g:tagbar_show_linenumbers = -1
 let g:tagbar_left = 1
-" }}}
-
-" Git Gutter {{{
-let g:gitgutter_sign_column_always = 1
 " }}}
 
 " Signature {{{
@@ -486,7 +479,6 @@ let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 let g:alduin_Shout_Windhelm = 1
 set background=dark
-" colo alduin
 colo nofrils-dark
 " }}}
 
