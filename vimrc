@@ -79,6 +79,11 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>r :VimuxRunLastCommand<CR>
+" Easy Motion
+" nmap <Leader>f <Plug>(easymotion-overwin-f)
+" nmap <Leader>s <Plug>(easymotion-overwin-f2)
+" nmap <Leader>l <Plug>(easymotion-overwin-line)
+" nmap <Leader>w <Plug>(easymotion-overwin-w)
 " }}}
 
 " Basics Settings {{{
@@ -122,7 +127,6 @@ set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " nope nope nope
 set nomore " Scroll away, no pausing
-set norelativenumber " no thank you
 set nospell " nope nope nope
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
@@ -130,6 +134,7 @@ set novisualbell " don't be noisy
 set number " line numbers
 set numberwidth=5 " We are good up to 99999 lines
 set omnifunc=syntaxcomplete#Complete
+set relativenumber " thank you
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5

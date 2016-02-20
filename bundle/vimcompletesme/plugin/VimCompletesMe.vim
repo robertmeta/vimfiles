@@ -23,7 +23,7 @@ if !exists('g:vcm_default_maps')
 endif
 
 if !exists('g:vcm_omni_pattern')
-  let g:vcm_omni_pattern = '\v(\.\|->\|::)'
+  let g:vcm_omni_pattern = '\(\.\|\->\|::\)'
 endif
 
 " Functions: {{{1
@@ -49,7 +49,8 @@ function! s:vim_completes_me(shift_tab)
 
   " Figure out if user has started typing a path or a period or an arrow
   " operator
-  let omni_pattern = match(substr, get(b:, 'vcm_omni_pattern')) != -1
+  let test_pattern = get(b:, 'vcm_omni_pattern', get(g:, 'vcm_omni_pattern'))
+  let omni_pattern = match(substr, test_pattern) != -1
   let file_path = (has('win32') || has('win64')) ? '\\' : '\/'
   let file_pattern = match(substr, file_path) != -1
 

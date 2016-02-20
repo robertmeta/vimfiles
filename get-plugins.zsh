@@ -60,7 +60,7 @@ git clone https://github.com/plasticboy/vim-markdown bundle/markdown && rm -rf b
 git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
 
 # Easymotion
-# git clone https://github.com/easymotion/vim-easymotion bundle/EasyMotion && rm -rf bundle/EasyMotion/.git
+ #git clone https://github.com/easymotion/vim-easymotion bundle/EasyMotion && rm -rf bundle/EasyMotion/.git
 
 # Lots fo better programming language support 
 git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git
