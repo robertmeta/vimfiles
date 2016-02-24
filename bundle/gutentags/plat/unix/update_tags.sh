@@ -69,18 +69,25 @@ echo $$ > "$TAGS_FILE.lock"
 # Remove lock and temp file if script is stopped unexpectedly.
 trap "errorcode=$?; rm -f \"$TAGS_FILE.lock\" \"$TAGS_FILE.temp\"; exit $errorcode" INT TERM EXIT
 
+INDEX_WHOLE_PROJECT=1
 if [ -f "$TAGS_FILE" ]; then
     if [ "$UPDATED_SOURCE" != "" ]; then
         echo "Removing references to: $UPDATED_SOURCE"
         echo "grep -v "$UPDATED_SOURCE" \"$TAGS_FILE\" > \"$TAGS_FILE.temp\""
         grep -v "$UPDATED_SOURCE" "$TAGS_FILE" > "$TAGS_FILE.temp"
-        CTAGS_ARGS="$CTAGS_ARGS --append \"$UPDATED_SOURCE\""
+        INDEX_WHOLE_PROJECT=0
     fi
 fi
 
-echo "Running ctags"
-echo "$CTAGS_EXE -f \"$TAGS_FILE.temp\" $CTAGS_ARGS \"$PROJECT_ROOT\""
-$CTAGS_EXE -f "$TAGS_FILE.temp" $CTAGS_ARGS "$PROJECT_ROOT"
+if [ $INDEX_WHOLE_PROJECT -eq 1 ]; then
+    echo "Running ctags on whole project"
+    echo "$CTAGS_EXE -f \"$TAGS_FILE.temp\" $CTAGS_ARGS \"$PROJECT_ROOT\""
+    $CTAGS_EXE -f "$TAGS_FILE.temp" $CTAGS_ARGS "$PROJECT_ROOT"
+else
+    echo "Running ctags on \"$UPDATED_SOURCE\""
+    echo "$CTAGS_EXE -f \"$TAGS_FILE.temp\" $CTAGS_ARGS --append \"$UPDATED_SOURCE\""
+    $CTAGS_EXE -f "$TAGS_FILE.temp" $CTAGS_ARGS --append "$UPDATED_SOURCE"
+fi
 
 echo "Replacing tags file"
 echo "mv -f \"$TAGS_FILE.temp\" \"$TAGS_FILE\""
