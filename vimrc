@@ -80,10 +80,10 @@ map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>r :VimuxRunLastCommand<CR>
 " Easy Motion
-" nmap <Leader>f <Plug>(easymotion-overwin-f)
-" nmap <Leader>s <Plug>(easymotion-overwin-f2)
-" nmap <Leader>l <Plug>(easymotion-overwin-line)
-" nmap <Leader>w <Plug>(easymotion-overwin-w)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 " }}}
 
 " Basics Settings {{{
