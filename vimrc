@@ -63,12 +63,12 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 " Turn off search highlight with backspace
-nmap <silent> <BS>  :nohlsearch<CR>
+nmap <silent> <BS> :nohlsearch<CR>
 " CtrlP Mappings
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
-nnoremap <leader>t :CtrlPTag<cr>
-nnoremap <leader>T :CtrlPBufTag<cr>
+nnoremap <leader>T :CtrlPTag<cr>
+nnoremap <leader>t :CtrlPBufTag<cr>
 " Indent / Outdent
 vnoremap < <gv
 vnoremap > >gv
