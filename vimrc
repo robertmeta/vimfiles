@@ -82,8 +82,10 @@ map <Leader>r :VimuxRunLastCommand<CR>
 " Easy Motion
 let g:EasyMotion_do_mapping=0
 nmap <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>s <Plug>(easymotion-bd-f2)
 nmap <Leader>l <Plug>(easymotion-bd-jk)
 vmap <Leader>f <Plug>(easymotion-bd-f)
+vmap <Leader>s <Plug>(easymotion-bd-f2)
 vmap <Leader>l <Plug>(easymotion-bd-jk)
 " }}}
 
