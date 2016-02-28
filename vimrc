@@ -63,7 +63,8 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 " Turn off search highlight with backspace
-nmap <silent> <BS> :nohlsearch<CR>
+nnoremap <silent> <BS> :nohlsearch<CR>:let g:nofrils_strbackgrounds=0<CR>:syn off<CR>:syn on<CR>:RainbowParentheses!<CR>
+nnoremap <silent> <CR> :set hlsearch<CR>:let g:nofrils_strbackgrounds=1<CR>:syn off<CR>:syn on<CR>:RainbowParentheses<CR>
 " CtrlP Mappings
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
@@ -482,15 +483,12 @@ let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
 " }}}
 
-" Sierra defaults {{{
-let g:sierra_Twilight = 1
-" }}}
-
 " z Finally -- Theme setup {{{
 let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 let g:alduin_Shout_Windhelm = 1
+let g:sierra_Twilight = 1
 set background=dark
 " colo alduin
 colo nofrils-dark
