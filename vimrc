@@ -80,10 +80,11 @@ map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>r :VimuxRunLastCommand<CR>
 " Easy Motion
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-nmap <Leader>s <Plug>(easymotion-overwin-f2)
-nmap <Leader>l <Plug>(easymotion-overwin-line)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
+let g:EasyMotion_do_mapping=0
+nmap <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>l <Plug>(easymotion-bd-jk)
+vmap <Leader>f <Plug>(easymotion-bd-f)
+vmap <Leader>l <Plug>(easymotion-bd-jk)
 " }}}
 
 " Basics Settings {{{
@@ -131,10 +132,10 @@ set nospell " nope nope nope
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set number " line numbers
+set nonumber " no line numbers
 set numberwidth=5 " We are good up to 99999 lines
 set omnifunc=syntaxcomplete#Complete
-set relativenumber " thank you
+set norelativenumber " no thank you
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
