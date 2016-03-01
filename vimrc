@@ -310,9 +310,7 @@ if has("autocmd")
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
         au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-        au VimEnter,WinEnter,BufWinEnter * RainbowParentheses
         au WinLeave * setlocal nocursorline
-        au WinLeave * RainbowParentheses!
     augroup END
 endif
 " }}}
@@ -489,7 +487,7 @@ let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 let g:alduin_Shout_Windhelm = 1
 let g:sierra_Twilight = 1
-let g:nofrils_strbackgrounds=1
+let g:nofrils_strbackgrounds = 0 
 set background=dark
 " colo alduin
 colo nofrils-dark
