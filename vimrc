@@ -312,7 +312,7 @@ if has("autocmd")
         au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
         au VimEnter,WinEnter,BufWinEnter * RainbowParentheses
         au WinLeave * setlocal nocursorline
-        au WinLeave * RainbowParenthesesColors!
+        au WinLeave * RainbowParentheses!
     augroup END
 endif
 " }}}
