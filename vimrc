@@ -63,8 +63,7 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 " Turn off search highlight with backspace
-nnoremap <silent> <BS> :nohlsearch<CR>:let g:nofrils_strbackgrounds=0<CR>:syn off<CR>:syn on<CR>:RainbowParentheses!<CR>
-nnoremap <silent> <CR> :set hlsearch<CR>:let g:nofrils_strbackgrounds=1<CR>:syn off<CR>:syn on<CR>:RainbowParentheses<CR>
+nnoremap <silent> <BS> :nohlsearch<CR>
 " CtrlP Mappings
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
@@ -311,7 +310,9 @@ if has("autocmd")
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
         au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+        au VimEnter,WinEnter,BufWinEnter * RainbowParentheses
         au WinLeave * setlocal nocursorline
+        au WinLeave * RainbowParenthesesColors!
     augroup END
 endif
 " }}}
@@ -488,6 +489,7 @@ let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
 let g:alduin_Shout_Windhelm = 1
 let g:sierra_Twilight = 1
+let g:nofrils_strbackgrounds=1
 set background=dark
 " colo alduin
 colo nofrils-dark

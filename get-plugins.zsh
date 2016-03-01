@@ -2,47 +2,18 @@ rm -rf bundle
 mkdir -p bundle
 
 # Themes {{{
-#git clone https://bitbucket.org/kisom/eink.vim bundle/eink && rm -rf bundle/eink/.git
 git clone https://github.com/acarapetis/vim-colors-github bundle/githubcolor && rm -rf bundle/githubcolor/.git
-#git clone https://github.com/ajgrf/sprinkles bundle/sprinkles && rm -rf bundle/sprinkles/.git
-#git clone https://github.com/christophermca/meta5.git bundle/meta5 && rm -rf bundle/meta5/.git
 git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
-#git clone https://github.com/freeo/vim-kalisi bundle/kalisi && rm -rf bundle/kalisi/.git
 git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
 git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
-#git clone https://github.com/nanotech/jellybeans.vim bundle/jellybeans && rm -rf bundle/jellybeans/.git
-#git clone https://github.com/nelstrom/vim-mac-classic-theme bundle/mactheme && rm -rf bundle/mactheme/.git
 git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
-#git clone https://github.com/pthk/vim-sol bundle/sol && rm -rf bundle/sol/.git
 git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
 git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bundle/apprentice/.git
 git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/disciple/.git
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
-#git clone https://github.com/tpope/vim-vividchalk bundle/vividchalk && rm -rf bundle/vividchalk/.git
-#git clone https://github.com/vim-scripts/blackdust.vim bundle/blackdust && rm -rf bundle/blackdust/.git
 git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit && rm -rf bundle/summerfruit/.git
-#git clone https://github.com/wimstefan/Lightning bundle/lightning && rm -rf bundle/lightning/.git
-#git clone https://github.com/ewilazarus/preto bundle/preto && rm -rf bundle/preto/.git
-# git clone https://github.com/AlessandroYorba/Alduin bundle/alduin && rm -rf bundle/alduin/.git
 git clone https://github.com/AlessandroYorba/Sierra bundle/sierra && rm -rf bundle/sierra/.git
 # }}}
-
-# Snippets {{{
-# git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
-# git clone https://github.com/MarcWeber/vim-addon-mw-utils bundle/mw-utils && rm -rf bundle/mw-utils/.git
-# git clone https://github.com/garbas/vim-snipmate bundle/snipmate && rm -rf bundle/snipmate/.git
-#
-# # Optional:
-# git clone https://github.com/honza/vim-snippets bundle/snippets && rm -rf bundle/snippets/.git
-# }}}
-
-# Vim Table mode {{{
-git clone https://github.com/dhruvasagar/vim-table-mode bundle/table-mode && rm -rf bundle/table-mode/.git
-# }}}
-
-# Gisty goodness
-git clone https://github.com/mattn/webapi-vim bundle/webapi && rm -rf bundle/webapi/.git
-git clone https://github.com/mattn/gist-vim bundle/gist && rm -rf bundle/gist/.git
 
 # Put git status in the sign column
 # git clone https://github.com/airblade/vim-gitgutter bundle/gitgutter && rm -rf bundle/gitgutter/.git
@@ -56,25 +27,15 @@ git clone https://github.com/godlygeek/tabular bundle/tabular && rm -rf bundle/t
 # Better markdown
 git clone https://github.com/plasticboy/vim-markdown bundle/markdown && rm -rf bundle/markdown/.git
 
-# Sneak provides a way to move quickly and precisely to locations that would be awkward to reach with built-in Vim motions.
-# git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
-
 # Easymotion
 git clone https://github.com/easymotion/vim-easymotion bundle/EasyMotion && rm -rf bundle/EasyMotion/.git
 
 # Lots fo better programming language support 
 git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git
 
-# Ag related
-git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
-git clone https://github.com/Chun-Yang/vim-action-ag bundle/actionag && rm -rf bundle/actionag/.git
-
 # This plugin is a tool for dealing with pairs of "surroundings."  Examples
 # of surroundings include parentheses, quotes, and HTML tags
 git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
-
-# Visual undotree, great for dealing with a change deep in an undo branch
-# git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/undotree/.git
 
 # Gutentags is a plugin that takes care of the much needed management of tags
 # files in Vim. It will (re)generate tag files as you work while staying
@@ -92,19 +53,19 @@ git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/
 
 # Easily interact with tmux from vim.
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
-# git clone https://github.com/christoomey/vim-tmux-navigator bundle/tmuxnav && rm -rf bundle/tmuxnav/.git
 
 # Rainbow Parens Improved
 git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # With Wildfire you can quickly select the closest text object among a group of
 # candidates. By default candidates are `i'`, `i"`, `i)`, `i]`, `i}`, `ip` and `it`.
-# git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
+git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
 
 # This plugin is a front for the_silver_searcher: ag. Ag can be used as a
 # replacement for ack. This plugin will allow you to run ag from vim, and shows
 # the results in a split window.
-# git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
+git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
+git clone https://github.com/Chun-Yang/vim-action-ag bundle/actionag && rm -rf bundle/actionag/.git
 
 # Abolish lets you quickly find, substitute, and abbreviate several variations
 # of a word at once.  By default, three case variants (foo, Foo, and FOO) are
@@ -164,33 +125,12 @@ git clone https://github.com/rust-lang/rust.vim bundle/rust && rm -rf bundle/rus
 # Racer (rust autocomplete) support
 git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer/.git # Unstable and annoying
 
-# Improved Html5 support
-git clone https://github.com/othree/html5.vim bundle/html5 && rm -rf bundle/html5/.git
-
-# JS / Json / Angular / LESS / etc
-git clone https://github.com/leshill/vim-json bundle/json && rm -rf bundle/json/.git
-git clone https://github.com/othree/javascript-libraries-syntax.vim bundle/javascriptlibsyntax && rm -rf bundle/javascriptlibsyntax/.git
-git clone https://github.com/pangloss/vim-javascript bundle/javascript && rm -rf bundle/javascript/.git
-git clone https://github.com/groenewege/vim-less bundle/less && rm -rf bundle/less/.git
-
-# Autohotkey
-git clone https://github.com/robertmeta/autohotkey-ahk bundle/ahk && rm -rf bundle/ahk/.git
-
-# TOML
-git clone https://github.com/cespare/vim-toml bundle/toml && rm -rf bundle/toml/.git
-
-# Pasting in Vim with indentation adjusted to destination context.
-git clone https://github.com/sickill/vim-pasta bundle/pasta && rm -rf bundle/pasta/.git
-
 # Better whitespace
-# git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
+git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
 
 # This plugin provides Readline (Emacs) mappings for insert and command line
 # mode that try not to overlap with built-in Vim functionality.
 git clone https://github.com/tpope/vim-rsi bundle/rsi && rm -rf bundle/rsi/.git
-
-# Elixir
-git clone https://github.com/elixir-lang/vim-elixir bundle/elixir && rm -rf bundle/elixir/.git
 
 # Modeline {{{
 # vim: set foldlevel=1:
