@@ -3,7 +3,7 @@
 " URL: https://github.com/robertmeta/nofrils
 " (see this url for latest release & screenshots)
 " License: OSI approved MIT license
-" Modified: 2016 Feb 26 
+" Modified: 2016 Feb 26
 
 hi clear
 if exists("syntax_on")
@@ -23,7 +23,7 @@ hi Normal		term=NONE	cterm=NONE	ctermfg=0	ctermbg=255	gui=NONE	guifg=#000000	gui
 " Faded {{{
 hi Comment		term=NONE	cterm=NONE	ctermfg=248	ctermbg=NONE	gui=NONE	guifg=#A8A8A8	guibg=NONE
 hi FoldColumn		term=NONE	cterm=NONE	ctermfg=240	ctermbg=253	gui=NONE	guifg=#585858	guibg=#DADADA
-hi Folded		term=NONE	cterm=NONE	ctermfg=240	ctermbg=253	gui=NONE	guifg=#585858	guibg=#DADADA
+hi Folded		term=NONE	cterm=NONE	ctermfg=240	ctermbg=NONE	gui=NONE	guifg=#585858	guibg=NONE
 hi LineNr		term=NONE	cterm=NONE	ctermfg=8	ctermbg=255	gui=NONE	guifg=#555555	guibg=#E4E4E4
 hi NonText		term=NONE	cterm=NONE	ctermfg=248	ctermbg=NONE	gui=NONE	guifg=#A8A8A8	guibg=NONE
 hi SignColumn		term=NONE	cterm=NONE	ctermfg=240	ctermbg=255	gui=NONE	guifg=#585858	guibg=#E4E4E4
@@ -126,7 +126,7 @@ hi Typedef		term=NONE	cterm=NONE	ctermfg=NONE	ctermbg=NONE	gui=NONE	guifg=NONE	g
 hi Underlined		term=NONE	cterm=NONE	ctermfg=NONE	ctermbg=NONE	gui=NONE	guifg=NONE	guibg=NONE
 " }}}
 
-" {{{ Optional overrides
+" Optional Syntax Features {{{
 if g:nofrils_strbackgrounds
     hi String		term=NONE	cterm=NONE	ctermfg=NONE	ctermbg=253	gui=NONE	guifg=NONE	guibg=#DADADA
 end

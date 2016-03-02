@@ -20,7 +20,7 @@ Helptag " Help for plugins
 
 " DRY helpers {{{
 let s:running_windows=has("win16") || has("win32") || has("win64")
-let s:colorful_term=(&term  =~ "xterm") || (&term  =~ "screen")
+let s:colorful_term=(&term=~"xterm") || (&term=~"screen")
 " }}}
 
 " Loading Settings {{{
@@ -32,7 +32,7 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 " }}}
 
 " Mappings {{{
-let mapleader = "\<space>"
+let mapleader="\<space>"
 " folding / unfolding outer layer
 nnoremap <leader>z :%foldc<cr>
 nnoremap <leader>Z :%foldo<cr>
@@ -209,70 +209,70 @@ set wildmode=list:longest " turn on wild mode huge list
 
 " Various formatting / output options {{{
 set viminfo=!,h,'500,<10000,s1000,/1000,:1000
-"           | | |    |      |     |     |
-"           | | |    |      |     |     +-- remember last 1000 commands
-"           | | |    |      |     +-- remember last 1000 search patterns
-"           | | |    |      +- remember up to 1MB in each register
-"           | | |    +-- remember up to 10000 lines in each register
-"           | | +-- remember marks for last 500 files
-"           | +-- disable hlsearch while loading viminfo
-"           +-- include uppercase registers
+"             | | |    |      |     |     |
+"             | | |    |      |     |     +-- remember last 1000 commands
+"             | | |    |      |     +-- remember last 1000 search patterns
+"             | | |    |      +- remember up to 1MB in each register
+"             | | |    +-- remember up to 10000 lines in each register
+"             | | +-- remember marks for last 500 files
+"             | +-- disable hlsearch while loading viminfo
+"             +-- include uppercase registers
 "
 set formatoptions=qrn1j " used to be just rq
-"                 |||||
-"                 ||||+-- remove comment when joining lines
-"                 |||+-- don't break after one letter word
-"                 ||+-- format numbered lists using "formatlistpat"
-"                 |+-- enter extends comments
-"                 +-- allow gq to work on comment
+"                   |||||
+"                   ||||+-- remove comment when joining lines
+"                   |||+-- don't break after one letter word
+"                   ||+-- format numbered lists using 'formatlistpat'
+"                   |+-- enter extends comments
+"                   +-- allow gq to work on comment
 "
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
-"             ||||||
-"             |||||+-- no intro message
-"             ||||+-- truncate messages in the middle
-"             |||+-- truncate file message
-"             ||+-- not "Search hit bottom" crap
-"             |+-- file read message overwrites subsequent
-"             +-- use every short text trick
+"               ||||||
+"               |||||+-- no intro message
+"               ||||+-- truncate messages in the middle
+"               |||+-- truncate file message
+"               ||+-- not "Search hit bottom" crap
+"               |+-- file read message overwrites subsequent
+"               +-- use every short text trick
 "
 set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}%{gutentags#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
-"              | | | | |  |  |                       |                         |      |  |     |    |
-"              | | | | |  |  |                       |                         |      |  |     |    +-- current column
-"              | | | | |  |  |                       |                         |      |  |     +-- current line
-"              | | | | |  |  |                       |                         |      |  +-- current % into file
-"              | | | | |  |  |                       |                         |      +-- current syntax in square brackets
-"              | | | | |  |  |                       |                         +-- current fileformat
-"              | | | | |  |  |                       +-- Display the gutentags current status
-"              | | | | |  |  +-- add fugitive info
-"              | | | | |  +-- number of lines
-"              | | | | +-- preview flag in square brackets
-"              | | | +-- help flag in square brackets
-"              | | +-- readonly flag in square brackets
-"              | +-- rodified flag in square brackets
-"              +-- full path to file in the buffer
+"                | | | | |  |  |                       |                         |      |  |     |    |
+"                | | | | |  |  |                       |                         |      |  |     |    +-- current column
+"                | | | | |  |  |                       |                         |      |  |     +-- current line
+"                | | | | |  |  |                       |                         |      |  +-- current % into file
+"                | | | | |  |  |                       |                         |      +-- current syntax in square brackets
+"                | | | | |  |  |                       |                         +-- current fileformat
+"                | | | | |  |  |                       +-- Display the gutentags current status
+"                | | | | |  |  +-- add fugitive info
+"                | | | | |  +-- number of lines
+"                | | | | +-- preview flag in square brackets
+"                | | | +-- help flag in square brackets
+"                | | +-- readonly flag in square brackets
+"                | +-- rodified flag in square brackets
+"                +-- full path to file in the buffer
 "
 set cpoptions=aABceFsmq
-"             |||||||||
-"             ||||||||+-- When joining lines, leave the cursor between joined lines
-"             |||||||+-- When a new match is created (showmatch) pause for .5
-"             ||||||+-- Set buffer options when entering the buffer
-"             |||||+-- :write command updates current file name automatically add <cr> to the last line when using :@r
-"             |||+-- Searching continues at the end of the match at the cursor position
-"             ||+-- A backslash has no special meaning in mappings
-"             |+-- :write updates alternative file name
-"             +-- :read updates alternative file name
+"               |||||||||
+"               ||||||||+-- When joining lines, leave the cursor between joined lines
+"               |||||||+-- When a new match is created (showmatch) pause for .5
+"               ||||||+-- Set buffer options when entering the buffer
+"               |||||+-- :write command updates current file name automatically add <cr> to the last line when using :@r
+"               |||+-- Searching continues at the end of the match at the cursor position
+"               ||+-- A backslash has no special meaning in mappings
+"               |+-- :write updates alternative file name
+"               +-- :read updates alternative file name
 "
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
-"             | | | | | | | | |
-"             | | | | | | | | +-- "]" Insert and Replace
-"             | | | | | | | +-- "[" Insert and Replace
-"             | | | | | | +-- "~" Normal
-"             | | | | | +-- <Right> Normal and Visual
-"             | | | | +-- <Left> Normal and Visual
-"             | | | +-- "l" Normal and Visual (not recommended)
-"             | | +-- "h" Normal and Visual (not recommended)
-"             | +-- <Space> Normal and Visual
-"             +-- <BS> Normal and Visual
+"               | | | | | | | | |
+"               | | | | | | | | +-- "]" Insert and Replace
+"               | | | | | | | +-- "[" Insert and Replace
+"               | | | | | | +-- "~" Normal
+"               | | | | | +-- <Right> Normal and Visual
+"               | | | | +-- <Left> Normal and Visual
+"               | | | +-- "l" Normal and Visual (not recommended)
+"               | | +-- "h" Normal and Visual (not recommended)
+"               | +-- <Space> Normal and Visual
+"               +-- <BS> Normal and Visual
 " }}}
 
 " Autocommands {{{
@@ -414,39 +414,39 @@ let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " }}}
 
 " {{{ Rainbow Plugin
-let g:rainbow#max_level = 24
-let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
+let g:rainbow#max_level=24
+let g:rainbow#pairs=[['(', ')'], ['{', '}'], ['[', ']']]
 " }}}
 
 " {{{ Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['go', 'gometalinter']
-let g:syntastic_mode_map = { 'mode': 'passive' }
-let g:syntastic_enable_signs = 0
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_go_checkers=['go', 'gometalinter']
+let g:syntastic_mode_map={ 'mode': 'passive' }
+let g:syntastic_enable_signs=0
 " }}}
 
 " Tagbar {{{
-let g:tagbar_show_linenumbers = -1
-let g:tagbar_left = 1
+let g:tagbar_show_linenumbers=-1
+let g:tagbar_left=1
 " }}}
 
 " Git Gutter {{{
-let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_column_always=1
 " }}}
 
 " Signature {{{
-let g:SignatureMarkTextHLDynamic = 1 " works with gitgutter
+let g:SignatureMarkTextHLDynamic=1 " works with gitgutter
 " }}}
 
 " Gist {{{
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
+let g:gist_show_privates=1
+let g:gist_post_private=1
 " }}}
 
 " NERDTree {{{
@@ -485,11 +485,10 @@ let g:go_highlight_trailing_whitespace_error=1
 let g:lucius_contrast='normal'
 let g:lucius_contrast_bg='normal'
 let g:lucius_style='dark'
-let g:alduin_Shout_Windhelm = 1
-let g:sierra_Twilight = 1
-let g:nofrils_strbackgrounds = 0 
+let g:alduin_Shout_Windhelm=1
+let g:sierra_Twilight=1
+let g:nofrils_strbackgrounds=0
 set background=dark
-" colo alduin
 colo nofrils-dark
 " }}}
 
