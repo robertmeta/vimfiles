@@ -16,7 +16,6 @@ git clone https://github.com/AlessandroYorba/Sierra bundle/sierra && rm -rf bund
 # }}}
 
 # Put git status in the sign column
-# git clone https://github.com/airblade/vim-gitgutter bundle/gitgutter && rm -rf bundle/gitgutter/.git
 git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
 
 # Be able to repeat many things!
@@ -89,10 +88,10 @@ git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 
 # NERDTree
-git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
+# git clone https://github.com/scrooloose/nerdtree bundle/nerdtree && rm -rf bundle/nerdtree/.git
 
 # Vinegar makes netrw not suck as much
-# git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
+git clone https://github.com/tpope/vim-vinegar bundle/vinegar && rm -rf bundle/vinegar/.git
 
 # VimCompletesMe is a vim plugin which allows you to use <Tab> for all your insert completion needs (:help ins-completion).
 git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
@@ -102,7 +101,8 @@ git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -r
 # single quotes around the cursor) to give you more opportunities to craft
 # powerful commands that can be repeated reliably. Another major goal is to
 # handle all corner cases correctly.
-# git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
+git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
+git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
 
 # Full path fuzzy file, buffer, mru, tag, ... finder with an intuitive interface.
 # Written in pure Vimscript for MacVim, gVim and Vim version 7.0+. Has full

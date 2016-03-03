@@ -12,7 +12,6 @@
 " Baseline {{{
 set encoding=utf-8 " yey! utf-8
 scriptencoding utf-8 " yey! utf-8
-
 " adds stuff under bundles to the path
 execute pathogen#infect()
 Helptag " Help for plugins
@@ -27,7 +26,6 @@ let s:colorful_term=(&term=~"xterm") || (&term=~"screen")
 let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 syntax on " syntax highlighting on
-
 syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 " }}}
 
@@ -35,7 +33,7 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 let mapleader="\<space>"
 " folding / unfolding outer layer
 nnoremap <leader>z :%foldc<cr>
-nnoremap <leader>Z :%foldo<cr>
+nnoremap <leader>x :%foldo<cr>
 " Scrolling
 " Window control
 nnoremap <leader>k <C-b>
@@ -48,7 +46,6 @@ nnoremap <leader>q <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
 " Arrow control
-nnoremap - :NERDTreeFind<cr>
 nnoremap <left> :cprev<cr>
 nnoremap <right> :cnext<cr>
 nnoremap <up> :lprev<cr>
@@ -82,11 +79,13 @@ map <Leader>r :VimuxRunLastCommand<CR>
 " Easy Motion
 let g:EasyMotion_do_mapping=0
 nmap <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>s <Plug>(easymotion-bd-f2)
+nmap <Leader>g <Plug>(easymotion-bd-f)
 nmap <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>s <Plug>(easymotion-bd-f2)
 vmap <Leader>f <Plug>(easymotion-bd-f)
-vmap <Leader>s <Plug>(easymotion-bd-f2)
+vmap <Leader>g <Plug>(easymotion-bd-f)
 vmap <Leader>l <Plug>(easymotion-bd-jk)
+vmap <Leader>s <Plug>(easymotion-bd-f2)
 " }}}
 
 " Basics Settings {{{
@@ -167,6 +166,7 @@ set ttyfast " Assume a fast terminal
 set t_vb= " seriously, shhhh, don't be noisy
 set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
+set path=.,** " Useful path!
 " }}}
 
 " Clipboard, Backup and Undo {{{
