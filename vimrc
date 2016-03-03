@@ -129,14 +129,15 @@ set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " nope nope nope
 set nomore " Scroll away, no pausing
+set nonumber " no line numbers
+set norelativenumber " no thank you
 set nospell " nope nope nope
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set nonumber " no line numbers
 set numberwidth=5 " We are good up to 99999 lines
 set omnifunc=syntaxcomplete#Complete
-set norelativenumber " no thank you
+set path=.,** " Useful path!
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
@@ -166,7 +167,6 @@ set ttyfast " Assume a fast terminal
 set t_vb= " seriously, shhhh, don't be noisy
 set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
-set path=.,** " Useful path!
 " }}}
 
 " Clipboard, Backup and Undo {{{
