@@ -33,7 +33,7 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 let mapleader="\<space>"
 " folding / unfolding outer layer
 nnoremap <leader>z :%foldc<cr>
-nnoremap <leader>x :%foldo<cr>
+nnoremap <leader>Z :%foldo<cr>
 " Scrolling
 " Window control
 nnoremap <leader>k <C-b>
@@ -70,12 +70,14 @@ nnoremap <leader>t :CtrlPBufTag<cr>
 vnoremap < <gv
 vnoremap > >gv
 " Vimux
-map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vi :VimuxInspectRunner<CR>
-map <Leader>vq :VimuxCloseRunner<CR>
-map <Leader>vx :VimuxInterruptRunner<CR>
-map <Leader>r :VimuxRunLastCommand<CR>
+nnoremap <Leader>vp :VimuxPromptCommand<CR>
+nnoremap <Leader>vl :VimuxRunLastCommand<CR>
+nnoremap <Leader>vi :VimuxInspectRunner<CR>
+nnoremap <Leader>vq :VimuxCloseRunner<CR>
+nnoremap <Leader>x :VimuxInterruptRunner<CR>
+nnoremap <Leader>vx :VimuxInterruptRunner<CR>
+nnoremap <Leader>r :VimuxRunLastCommand<CR>
+nnoremap <Leader>vr :VimuxRunLastCommand<CR>
 " Easy Motion
 let g:EasyMotion_do_mapping=0
 nmap <Leader>f <Plug>(easymotion-bd-f)
