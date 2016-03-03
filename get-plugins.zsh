@@ -64,7 +64,12 @@ git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/
 # replacement for ack. This plugin will allow you to run ag from vim, and shows
 # the results in a split window.
 git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
+
+# AG
 git clone https://github.com/Chun-Yang/vim-action-ag bundle/actionag && rm -rf bundle/actionag/.git
+
+# Sensible
+git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
 
 # Abolish lets you quickly find, substitute, and abbreviate several variations
 # of a word at once.  By default, three case variants (foo, Foo, and FOO) are
