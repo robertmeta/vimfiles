@@ -928,11 +928,11 @@ fu! s:MapSpecs()
 endf
 
 fu! s:KeyLoop()
-	let t_ve = &t_ve
+	let [t_ve, guicursor] = [&t_ve, &guicursor]
 	set t_ve=
+	set guicursor=a:NONE
 	try
 		wh exists('s:init') && s:keyloop
-			redr
 			let nr = getchar()
 			let chr = !type(nr) ? nr2char(nr) : nr
 			if nr >=# 0x20
@@ -944,6 +944,7 @@ fu! s:KeyLoop()
 		endw
 	fina
 		let &t_ve = t_ve
+		let &guicursor = guicursor
 	endt
 endf
 " * Toggling {{{1
