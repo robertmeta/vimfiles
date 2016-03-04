@@ -54,8 +54,7 @@ git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
 
 # Rainbow Parens Improved
-# git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
-git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
+git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # With Wildfire you can quickly select the closest text object among a group of
 # candidates. By default candidates are `i'`, `i"`, `i)`, `i]`, `i}`, `ip` and `it`.
