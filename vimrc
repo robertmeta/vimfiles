@@ -66,9 +66,6 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
 nnoremap <leader>T :CtrlPTag<cr>
 nnoremap <leader>t :CtrlPBufTag<cr>
-" Indent / Outdent
-vnoremap < <gv
-vnoremap > >gv
 " Vimux
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
 nnoremap <Leader>vl :VimuxRunLastCommand<CR>
@@ -104,7 +101,7 @@ set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
 set foldenable " Turn on folding
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-set foldmarker={{{,}}} " use simple markers
+set foldmarker={,} " use simple markers
 set foldmethod=marker " Fold on the marker
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
@@ -288,7 +285,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au BufRead,BufNewFile *.go setlocal noexpandtab ts=8 sw=8 sts=8 syntax=go ft=go foldmethod=marker foldmarker={,} " so does make
+        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go " so does make
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make " so does make
         " Some JS awesome via romainl
         au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<CR><CR>
@@ -362,7 +359,6 @@ endif
 
 " CtrlP {{{
 let g:ctrlp_buftag_ctags_bin='ctags'
-let g:ctrlp_buftag_types={'go': '--language-force=go --golang-types=ftv', 'javascript': '--langauge-force=js'}
 let g:ctrlp_follow_symlinks=1
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_match_window_reversed=1
@@ -382,19 +378,10 @@ else " MacOSX/Linux
 endif
 " }}}
 
-" Fugitive {{{
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gc :Gwrite<cr>:Gcommit<cr>
-" }}}
-
 " HTML Settings {{{
 let html_number_lines=0
 let html_use_css=0
 let use_xhtml=0
-" }}}
-
-" Javascript {{{
-let g:angular_filename_convention='camelcased'
 " }}}
 
 " Markdown {{{
@@ -461,14 +448,6 @@ let g:syntastic_enable_signs=0
 " Tagbar {{{
 let g:tagbar_show_linenumbers=-1
 let g:tagbar_left=1
-" }}}
-
-" Git Gutter {{{
-let g:gitgutter_sign_column_always=1
-" }}}
-
-" Signature {{{
-let g:SignatureMarkTextHLDynamic=1 " works with gitgutter
 " }}}
 
 " Gist {{{
