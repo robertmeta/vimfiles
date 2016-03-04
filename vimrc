@@ -313,6 +313,11 @@ if has("autocmd")
         " Highlight current line
         au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
         au WinLeave * setlocal nocursorline
+        au VimEnter * RainbowParenthesesToggle
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
+        au Syntax * RainbowParenthesesLoadChevrons
     augroup END
 endif
 " }}}
@@ -416,8 +421,35 @@ let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
 " }}}
 
 " {{{ Rainbow Plugin
-let g:rainbow#max_level=24
-let g:rainbow#pairs=[['(', ')'], ['{', '}'], ['[', ']']]
+" let g:rainbow#max_level=24
+" let g:rainbow#pairs=[['(', ')'], ['{', '}'], ['[', ']']]
+let g:rbpt_colorpairs=[
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seagreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seagreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seagreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+    \ ['blue', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['brown', 'DarkOrchid3'],
+    \ ['darkcyan', 'Seagreen3'],
+    \ ['darkmagenta', 'RoyalBlue3'],
+\ ]
+let g:rbpt_max=24
 " }}}
 
 " {{{ Syntastic
