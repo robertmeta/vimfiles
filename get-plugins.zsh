@@ -15,16 +15,8 @@ git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit &
 git clone https://github.com/AlessandroYorba/Sierra bundle/sierra && rm -rf bundle/sierra/.git
 # }}}
 
-# Put git status in the sign column
-git clone https://github.com/majutsushi/tagbar bundle/tagbar && rm -rf bundle/tagbar/.git
-
 # Be able to repeat many things!
 git clone https://github.com/tpope/vim-repeat.git bundle/repeat && rm -rf bundle/repeat/.git
-
-# Used by better markdown
-git clone https://github.com/godlygeek/tabular bundle/tabular && rm -rf bundle/tabular/.git
-# Better markdown
-git clone https://github.com/plasticboy/vim-markdown bundle/markdown && rm -rf bundle/markdown/.git
 
 # Easymotion
 git clone https://github.com/easymotion/vim-easymotion bundle/EasyMotion && rm -rf bundle/EasyMotion/.git
@@ -52,22 +44,10 @@ git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/
 
 # Easily interact with tmux from vim.
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
+git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
 
 # Rainbow Parens Improved
-git clone https://github.com/kien/rainbow_parentheses.vim  bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
-# git clone https://github.com/junegunn/rainbow_parentheses.vim bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
-
-# With Wildfire you can quickly select the closest text object among a group of
-# candidates. By default candidates are `i'`, `i"`, `i)`, `i]`, `i}`, `ip` and `it`.
-git clone https://github.com/gcmt/wildfire.vim bundle/wildfire && rm -rf bundle/wildfire/.git
-
-# This plugin is a front for the_silver_searcher: ag. Ag can be used as a
-# replacement for ack. This plugin will allow you to run ag from vim, and shows
-# the results in a split window.
-git clone https://github.com/rking/ag.vim bundle/ag && rm -rf bundle/ag/.git
-
-# AG
-git clone https://github.com/Chun-Yang/vim-action-ag bundle/actionag && rm -rf bundle/actionag/.git
+git clone https://github.com/junegunn/rainbow_parentheses.vim  bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # Sensible
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
@@ -108,13 +88,15 @@ git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -r
 # powerful commands that can be repeated reliably. Another major goal is to
 # handle all corner cases correctly.
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
-git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
+
+# FZF support
+git clone https://github.com/junegunn/fzf.vim bundle/fzf && rm -rf bundle/fzf/.git
 
 # Full path fuzzy file, buffer, mru, tag, ... finder with an intuitive interface.
 # Written in pure Vimscript for MacVim, gVim and Vim version 7.0+. Has full
 # support for Vim's |regexp| as search pattern, built-in MRU files monitoring,
 # project's root finder, and more.
-git clone https://github.com/ctrlpvim/ctrlp.vim bundle/ctrlp && rm -rf bundle/ctrlp/.git
+# git clone https://github.com/ctrlpvim/ctrlp.vim bundle/ctrlp && rm -rf bundle/ctrlp/.git
 
 # Syntastic is a syntax checking plugin that runs files through external syntax
 # checkers. This can be done on demand, or automatically as files are saved and
@@ -126,10 +108,10 @@ git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bun
 git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.git
 
 # This plugin provides syntax and supporting functionality for the Rust filetype.
-git clone https://github.com/rust-lang/rust.vim bundle/rust && rm -rf bundle/rust/.git
+# git clone https://github.com/rust-lang/rust.vim bundle/rust && rm -rf bundle/rust/.git
 
 # Racer (rust autocomplete) support
-git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer/.git # Unstable and annoying
+# git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer/.git # Unstable and annoying
 
 # Better whitespace
 git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
@@ -139,5 +121,5 @@ git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace &&
 git clone https://github.com/tpope/vim-rsi bundle/rsi && rm -rf bundle/rsi/.git
 
 # Modeline {{{
-# vim: set foldlevel=1:
+# vim: set foldlevel=1 foldmarker={{{,}}}:
 # }}}

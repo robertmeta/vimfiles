@@ -14,7 +14,7 @@ set encoding=utf-8 " yey! utf-8
 scriptencoding utf-8 " yey! utf-8
 " adds stuff under bundles to the path
 execute pathogen#infect()
-Helptag " Help for plugins
+pathogen#helptags()
 " }}}
 
 " DRY helpers {{{
@@ -62,10 +62,10 @@ nnoremap gk k
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<CR>
 " CtrlP Mappings
-nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>p :CtrlPMixed<cr>
-nnoremap <leader>T :CtrlPTag<cr>
-nnoremap <leader>t :CtrlPBufTag<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>p :Files<cr>
+nnoremap <leader>T :Tags<cr>
+nnoremap <leader>t :BTags<cr>
 " Vimux
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
 nnoremap <Leader>vl :VimuxRunLastCommand<CR>
@@ -357,27 +357,6 @@ if executable("ag")
 endif
 " }}}
 
-" CtrlP {{{
-let g:ctrlp_buftag_ctags_bin='ctags'
-let g:ctrlp_follow_symlinks=1
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_match_window_reversed=1
-let g:ctrlp_max_depth=1000
-let g:ctrlp_max_files=100000
-let g:ctrlp_max_height=30
-let g:ctrlp_open_multiple_files='ij'
-let g:ctrlp_show_hidden=1
-let g:ctrlp_use_caching=1
-let g:ctrlp_working_path_mode='ra'
-if s:running_windows
-    let g:ctrlp_cache_dir=$HOME.'/vimfiles/ctrlp_cache'
-    let g:ctrlp_user_command='dir %s /-n /b /s /a-d | findstr /v \.git | findstr /v \.hg' " Windows
-else " MacOSX/Linux
-    let g:ctrlp_cache_dir=$HOME.'/.vim/ctrlp_cache'
-    let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'
-endif
-" }}}
-
 " HTML Settings {{{
 let html_number_lines=0
 let html_use_css=0
@@ -397,41 +376,6 @@ let g:netrw_altfile=1
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
 " }}}
 
-" Racer {{{
-let g:racer_cmd=$HOME.'/projects/racer/target/release/racer'
-let $RUST_SRC_PATH=$HOME.'/projects/rust/src'
-" }}}
-
-" RainbowParentheses {{{
-let g:rbpt_colorpairs=[
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-\ ]
-let g:rbpt_max=24
-" }}}
-
 " {{{ Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -440,31 +384,10 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
-let g:syntastic_go_checkers=['go', 'gometalinter']
+let g:syntastic_go_checkers=[ 'go', 'gometalinter' ]
 let g:syntastic_mode_map={ 'mode': 'passive' }
 let g:syntastic_enable_signs=0
 " }}}
-
-" Tagbar {{{
-let g:tagbar_show_linenumbers=-1
-let g:tagbar_left=1
-" }}}
-
-" Gist {{{
-let g:gist_show_privates=1
-let g:gist_post_private=1
-" }}}
-
-" NERDTree {{{
-let NERDChristmasTree=1
-let NERDTreeCascadeOpenSingleChildDir=1
-let NERDTreeDirArrows=1
-let NERDTreeMinimalUI=1
-let NERDTreeQuitOnOpen=1
-let NERDTreeShowLineNumbers=0
-let NERDTreeWinSize=50
-let NERDTreeAutoDeleteBuffer=1
-" " }}}
 
 " Vim Go (vim-go) {{{
 let g:go_auto_type_info=0
@@ -488,16 +411,9 @@ let g:go_highlight_trailing_whitespace_error=1
 " }}}
 
 " z Finally -- Theme setup {{{
-let g:lucius_contrast='normal'
-let g:lucius_contrast_bg='normal'
-let g:lucius_style='dark'
-let g:alduin_Shout_Windhelm=1
-let g:sierra_Twilight=1
-let g:nofrils_strbackgrounds=0
-set background=dark
 colo nofrils-dark
 " }}}
 
 " Modeline {{{
-" vim: set foldlevel=1:
+" vim: set foldlevel=1 foldmarker={{{,}}}:
 " }}}
