@@ -39,8 +39,6 @@ nnoremap <leader>Z :%foldo<cr>
 nnoremap <leader>k <C-b>
 nnoremap <leader>j <C-f>
 nnoremap <leader>o <C-W>o
-nnoremap <leader>w <C-W>w
-nnoremap <leader>W <C-W>W
 nnoremap <leader>S <esc>:SyntasticCheck<cr>
 nnoremap <leader>q <esc>:close<cr>
 nnoremap <leader>" :split<cr>
@@ -61,20 +59,28 @@ nnoremap gj j
 nnoremap gk k
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<CR>
-" CtrlP Mappings
+" FZF Mappings
+nnoremap <leader>a :Ag 
 nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>p :Files<cr>
-nnoremap <leader>T :Tags<cr>
+nnoremap <leader>c :BCommit<cr>
+nnoremap <leader>C :Commit<cr>
+nnoremap <leader>h :History<cr>
+nnoremap <leader>H :History:<cr>
+nnoremap <leader>L :Lines<cr>
+nnoremap <leader>P :Files<cr>
+nnoremap <leader>p :GitFiles<cr>
 nnoremap <leader>t :BTags<cr>
+nnoremap <leader>T :Tags<cr>
+nnoremap <leader>w :Windows<cr>
 " Vimux
-nnoremap <Leader>vp :VimuxPromptCommand<CR>
-nnoremap <Leader>vl :VimuxRunLastCommand<CR>
-nnoremap <Leader>vi :VimuxInspectRunner<CR>
-nnoremap <Leader>vq :VimuxCloseRunner<CR>
-nnoremap <Leader>x :VimuxInterruptRunner<CR>
-nnoremap <Leader>vx :VimuxInterruptRunner<CR>
 nnoremap <Leader>r :VimuxRunLastCommand<CR>
+nnoremap <Leader>vi :VimuxInspectRunner<CR>
+nnoremap <Leader>vl :VimuxRunLastCommand<CR>
+nnoremap <Leader>vp :VimuxPromptCommand<CR>
+nnoremap <Leader>vq :VimuxCloseRunner<CR>
 nnoremap <Leader>vr :VimuxRunLastCommand<CR>
+nnoremap <Leader>vx :VimuxInterruptRunner<CR>
+nnoremap <Leader>x :VimuxInterruptRunner<CR>
 " Easy Motion
 let g:EasyMotion_do_mapping=0
 nmap <Leader>f <Plug>(easymotion-bd-f)
@@ -408,6 +414,10 @@ let g:go_highlight_space_tab_error=1
 let g:go_highlight_string_spellcheck=0
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
+" }}}
+
+" FZF {{{
+set rtp+=~/.fzf
 " }}}
 
 " z Finally -- Theme setup {{{
