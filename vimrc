@@ -14,7 +14,7 @@ set encoding=utf-8 " yey! utf-8
 scriptencoding utf-8 " yey! utf-8
 " adds stuff under bundles to the path
 execute pathogen#infect()
-pathogen#helptags()
+execute pathogen#helptags()
 " }}}
 
 " DRY helpers {{{
