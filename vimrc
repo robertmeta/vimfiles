@@ -322,7 +322,7 @@ endif
 
 " GUI {{{
 if has("gui_running")
-    set guifont=Hack:h10:cANSI " My favorite font
+    set guifont=Hack:h08:cANSI " My favorite font
     set guioptions=ce
     "              ||
     "              |+-- use GUI tabs, not console style tabs
