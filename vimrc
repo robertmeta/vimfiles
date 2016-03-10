@@ -134,13 +134,13 @@ set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " nope nope nope
 set nomore " Scroll away, no pausing
-set nonumber " no line numbers
+set number " line numbers
 set norelativenumber " no thank you
 set nospell " nope nope nope
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set numberwidth=5 " We are good up to 99999 lines
+set numberwidth=10 " We are good up to 99999 lines
 set omnifunc=syntaxcomplete#Complete
 set path=.,** " Useful path!
 set report=0 " tell us when anything is changed via :
