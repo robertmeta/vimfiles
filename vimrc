@@ -347,6 +347,10 @@ if s:colorful_term
 endif
 " }}}
 
+" {{{
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['<', '>'], ['{', '}']]
+" }}}
+
 " Mousing {{{
 if has("mouse")
     set mouse=a " use mouse everywhere
