@@ -47,7 +47,7 @@ git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
 
 # Rainbow Parens Improved
-git clone https://github.com/junegunn/rainbow_parentheses.vim  bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
+git clone https://github.com/kien/rainbow_parentheses.vim  bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # Sensible
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git

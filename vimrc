@@ -317,8 +317,14 @@ if has("autocmd")
         au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
         au WinLeave * setlocal nocursorline
         " Quickfix open
-        autocmd QuickFixCmdPost [^l]* cwindow
-        autocmd QuickFixCmdPost    l* lwindow
+        au QuickFixCmdPost [^l]* cwindow
+        au QuickFixCmdPost    l* lwindow
+        " Rainbows
+        au VimEnter * RainbowParenthesesToggle
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
+        au Syntax * RainbowParenthesesLoadChevrons
     augroup END
 endif
 " }}}
@@ -351,7 +357,33 @@ endif
 " }}}
 
 " {{{
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['<', '>'], ['{', '}']]
+let g:rbpt_colorpairs=[
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkcyan', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkcyan', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkcyan', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkcyan', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkcyan', 'RoyalBlue3'],
+    \ ['darkred', 'firebrick3'],
+    \ ['darkgreen', 'Seagreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['darkcyan', 'RoyalBlue3'],
+    \ ]
+let g:rbpt_max=24
 " }}}
 
 " Mousing {{{
@@ -425,6 +457,10 @@ let g:go_highlight_trailing_whitespace_error=1
 
 " FZF {{{
 set rtp+=~/.fzf
+" }}}
+
+" Nofrils {{{
+let g:nofrils_strbackgrounds=1 " to turn highlighted string backgrounds
 " }}}
 
 " z Finally -- Theme setup {{{
