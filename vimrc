@@ -316,6 +316,9 @@ if has("autocmd")
         " Highlight current line
         au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
         au WinLeave * setlocal nocursorline
+        " Quickfix open
+        autocmd QuickFixCmdPost [^l]* cwindow
+        autocmd QuickFixCmdPost    l* lwindow
     augroup END
 endif
 " }}}
