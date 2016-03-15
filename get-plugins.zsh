@@ -114,7 +114,7 @@ git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.g
 # git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer/.git # Unstable and annoying
 
 # Better whitespace
-git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
+# git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
 
 # This plugin provides Readline (Emacs) mappings for insert and command line
 # mode that try not to overlap with built-in Vim functionality.

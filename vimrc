@@ -99,7 +99,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=longest,menuone " complete menu
 set complete=.,w,b,u,t " complete options
-set cursorline " cursor line
+set nocursorline " no cursor line
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
@@ -314,8 +314,8 @@ if has("autocmd")
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-        au WinLeave * setlocal nocursorline
+        " au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+        " au WinLeave * setlocal nocursorline
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
         au QuickFixCmdPost    l* lwindow
