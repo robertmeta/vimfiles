@@ -19,7 +19,10 @@ git clone https://github.com/AlessandroYorba/Sierra bundle/sierra && rm -rf bund
 git clone https://github.com/tpope/vim-repeat.git bundle/repeat && rm -rf bundle/repeat/.git
 
 # Easymotion
-git clone https://github.com/easymotion/vim-easymotion bundle/EasyMotion && rm -rf bundle/EasyMotion/.git
+#git clone https://github.com/easymotion/vim-easymotion bundle/EasyMotion && rm -rf bundle/EasyMotion/.git
+
+# Sneak
+git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
 
 # Lots fo better programming language support
 git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git

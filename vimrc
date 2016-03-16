@@ -82,15 +82,15 @@ nnoremap <Leader>vr :VimuxRunLastCommand<CR>
 nnoremap <Leader>vx :VimuxInterruptRunner<CR>
 nnoremap <Leader>x :VimuxInterruptRunner<CR>
 " Easy Motion
-let g:EasyMotion_do_mapping=0
-nmap <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>g <Plug>(easymotion-bd-f)
-nmap <Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader>s <Plug>(easymotion-bd-f2)
-vmap <Leader>f <Plug>(easymotion-bd-f)
-vmap <Leader>g <Plug>(easymotion-bd-f)
-vmap <Leader>l <Plug>(easymotion-bd-jk)
-vmap <Leader>s <Plug>(easymotion-bd-f2)
+" let g:EasyMotion_do_mapping=0
+" nmap <Leader>f <Plug>(easymotion-bd-f)
+" nmap <Leader>g <Plug>(easymotion-bd-f)
+" nmap <Leader>l <Plug>(easymotion-bd-jk)
+" nmap <Leader>s <Plug>(easymotion-bd-f2)
+" vmap <Leader>f <Plug>(easymotion-bd-f)
+" vmap <Leader>g <Plug>(easymotion-bd-f)
+" vmap <Leader>l <Plug>(easymotion-bd-jk)
+" vmap <Leader>s <Plug>(easymotion-bd-f2)
 " }}}
 
 " Basics Settings {{{
@@ -314,17 +314,17 @@ if has("autocmd")
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
-        " au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-        " au WinLeave * setlocal nocursorline
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
+        au WinLeave * setlocal nocursorline norelativenumber
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
         au QuickFixCmdPost    l* lwindow
         " Rainbows
-        au VimEnter * RainbowParenthesesToggle
-        au Syntax * RainbowParenthesesLoadRound
-        au Syntax * RainbowParenthesesLoadSquare
-        au Syntax * RainbowParenthesesLoadBraces
-        au Syntax * RainbowParenthesesLoadChevrons
+        " au VimEnter * RainbowParenthesesToggle
+        " au Syntax * RainbowParenthesesLoadRound
+        " au Syntax * RainbowParenthesesLoadSquare
+        " au Syntax * RainbowParenthesesLoadBraces
+        " au Syntax * RainbowParenthesesLoadChevrons
     augroup END
 endif
 " }}}
@@ -382,7 +382,7 @@ let g:rbpt_colorpairs=[
     \ ['darkgreen', 'Seagreen3'],
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['darkcyan', 'RoyalBlue3'],
-    \ ]
+\ ]
 let g:rbpt_max=24
 " }}}
 
@@ -460,7 +460,7 @@ set rtp+=~/.fzf
 " }}}
 
 " Nofrils {{{
-let g:nofrils_strbackgrounds=1 " to turn highlighted string backgrounds
+let g:nofrils_strbackgrounds=0 " to turn highlighted string backgrounds
 " }}}
 
 " z Finally -- Theme setup {{{
