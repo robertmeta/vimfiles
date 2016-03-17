@@ -93,13 +93,13 @@ git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -r
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
 
 # FZF support
-git clone https://github.com/junegunn/fzf.vim bundle/fzf && rm -rf bundle/fzf/.git
+# git clone https://github.com/junegunn/fzf.vim bundle/fzf && rm -rf bundle/fzf/.git
 
 # Full path fuzzy file, buffer, mru, tag, ... finder with an intuitive interface.
 # Written in pure Vimscript for MacVim, gVim and Vim version 7.0+. Has full
 # support for Vim's |regexp| as search pattern, built-in MRU files monitoring,
 # project's root finder, and more.
-# git clone https://github.com/ctrlpvim/ctrlp.vim bundle/ctrlp && rm -rf bundle/ctrlp/.git
+git clone https://github.com/ctrlpvim/ctrlp.vim bundle/ctrlp && rm -rf bundle/ctrlp/.git
 
 # Syntastic is a syntax checking plugin that runs files through external syntax
 # checkers. This can be done on demand, or automatically as files are saved and

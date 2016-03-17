@@ -39,8 +39,9 @@ nnoremap <leader>Z :%foldo<cr>
 nnoremap <leader>k <C-b>
 nnoremap <leader>j <C-f>
 nnoremap <leader>o <C-W>o
+nnoremap <leader>w <C-W>w
+nnoremap <leader>c <esc>:close<cr>
 nnoremap <leader>S <esc>:SyntasticCheck<cr>
-nnoremap <leader>q <esc>:close<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>% :vsplit<cr>
 " Arrow control
@@ -60,18 +61,15 @@ nnoremap gk k
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<CR>
 " FZF Mappings
-nnoremap <leader>a :Ag 
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>c :BCommit<cr>
-nnoremap <leader>C :Commit<cr>
-nnoremap <leader>h :History<cr>
-nnoremap <leader>H :History:<cr>
-nnoremap <leader>L :Lines<cr>
-nnoremap <leader>P :Files<cr>
-nnoremap <leader>p :GitFiles<cr>
-nnoremap <leader>t :BTags<cr>
-nnoremap <leader>T :Tags<cr>
-nnoremap <leader>w :Windows<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>d :CtrlPDir<cr>
+nnoremap <leader>l :CtrlPLine<cr>
+nnoremap <leader>o :CtrlPChangeAll<cr>
+nnoremap <leader>p :CtrlPMixed<cr>
+nnoremap <leader>q :CtrlPQuickfix<cr>
+nnoremap <leader>t :CtrlPBufTag<cr>
+nnoremap <leader>T :CtrlPTag<cr>
+nnoremap <leader>u :CtrlPUndo<cr>
 " Vimux
 nnoremap <Leader>r :VimuxRunLastCommand<CR>
 nnoremap <Leader>vi :VimuxInspectRunner<CR>
@@ -434,6 +432,28 @@ let g:syntastic_mode_map={ 'mode': 'passive' }
 let g:syntastic_enable_signs=0
 " }}}
 
+" CtrlP {{{
+let g:ctrlp_buftag_ctags_bin='ctags'
+let g:ctrlp_follow_symlinks=1
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_match_window_reversed=1
+let g:ctrlp_max_depth=1000
+let g:ctrlp_max_files=100000
+let g:ctrlp_max_height=30
+let g:ctrlp_open_multiple_files='ij'
+let g:ctrlp_show_hidden=1
+let g:ctrlp_use_caching=1
+let g:ctrlp_working_path_mode='ra'
+if s:running_windows
+    let g:ctrlp_cache_dir=$HOME.'/vimfiles/ctrlp_cache'
+    let g:ctrlp_user_command='dir %s /-n /b /s /a-d | findstr /v \.git | findstr /v \.hg' " Windows
+else " MacOSX/Linux
+    let g:ctrlp_cache_dir=$HOME.'/.vim/ctrlp_cache'
+    let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'
+endif
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+" }}}
+
 " Vim Go (vim-go) {{{
 let g:go_auto_type_info=0
 let g:go_bin_path=$HOME."/go/bin"
@@ -453,10 +473,6 @@ let g:go_highlight_space_tab_error=1
 let g:go_highlight_string_spellcheck=0
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
-" }}}
-
-" FZF {{{
-set rtp+=~/.fzf
 " }}}
 
 " Nofrils {{{
