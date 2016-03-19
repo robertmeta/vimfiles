@@ -65,7 +65,7 @@ nnoremap <silent> <BS> :nohlsearch<CR>
 " FZF Mappings
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>d :CtrlPDir<cr>
-nnoremap <leader>l :CtrlPLine<cr>
+nnoremap <leader>L :CtrlPLine<cr>
 nnoremap <leader>o :CtrlPChangeAll<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
 nnoremap <leader>q :CtrlPQuickfix<cr>
