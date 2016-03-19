@@ -32,27 +32,27 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 " Mappings {{{
 let mapleader="\<space>"
 " Nerdtree
-nnoremap - :NERDTreeFind<cr>
+nnoremap <silent> - :NERDTreeFind<cr>
 " folding / unfolding outer layer
-nnoremap <leader>z :%foldc<cr>
-nnoremap <leader>Z :%foldo<cr>
+nnoremap <silent> <leader>z :%foldc<cr>
+nnoremap <silent> <leader>Z :%foldo<cr>
 " Scrolling
 " Window control
 nnoremap <leader>k <C-b>
 nnoremap <leader>j <C-f>
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
-nnoremap <leader>c <esc>:close<cr>
-nnoremap <leader>S <esc>:SyntasticCheck<cr>
-nnoremap <leader>" :split<cr>
-nnoremap <leader>% :vsplit<cr>
+nnoremap <silent> <leader>c <esc>:close<cr>
+nnoremap <silent> <leader>S <esc>:SyntasticCheck<cr>
+nnoremap <silent> <leader>" :split<cr>
+nnoremap <silent> <leader>% :vsplit<cr>
 " Arrow control
-nnoremap <left> :cprev<cr>
-nnoremap <right> :cnext<cr>
-nnoremap <up> :lprev<cr>
-nnoremap <down> :lnext<cr>
+nnoremap <silent> <left> :cprev<cr>
+nnoremap <silent> <right> :cnext<cr>
+nnoremap <silent> <up> :lprev<cr>
+nnoremap <silent> <down> :lnext<cr>
 " page facing view: side-by-side view of same buffer scrollbound
-nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
+nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
 vmap <BS> x
 " Make bindings work better with new wrapping
@@ -63,24 +63,24 @@ nnoremap gk k
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<CR>
 " FZF Mappings
-nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>d :CtrlPDir<cr>
-nnoremap <leader>L :CtrlPLine<cr>
-nnoremap <leader>o :CtrlPChangeAll<cr>
-nnoremap <leader>p :CtrlPMixed<cr>
-nnoremap <leader>q :CtrlPQuickfix<cr>
-nnoremap <leader>t :CtrlPBufTag<cr>
-nnoremap <leader>T :CtrlPTag<cr>
-nnoremap <leader>u :CtrlPUndo<cr>
+nnoremap <silent> <leader>b :CtrlPBuffer<cr>
+nnoremap <silent> <leader>d :CtrlPDir<cr>
+nnoremap <silent> <leader>L :CtrlPLine<cr>
+nnoremap <silent> <leader>o :CtrlPChangeAll<cr>
+nnoremap <silent> <leader>p :CtrlPMixed<cr>
+nnoremap <silent> <leader>q :CtrlPQuickfix<cr>
+nnoremap <silent> <leader>t :CtrlPBufTag<cr>
+nnoremap <silent> <leader>T :CtrlPTag<cr>
+nnoremap <silent> <leader>u :CtrlPUndo<cr>
 " Vimux
-nnoremap <Leader>r :VimuxRunLastCommand<CR>
-nnoremap <Leader>vi :VimuxInspectRunner<CR>
-nnoremap <Leader>vl :VimuxRunLastCommand<CR>
-nnoremap <Leader>vp :VimuxPromptCommand<CR>
-nnoremap <Leader>vq :VimuxCloseRunner<CR>
-nnoremap <Leader>vr :VimuxRunLastCommand<CR>
-nnoremap <Leader>vx :VimuxInterruptRunner<CR>
-nnoremap <Leader>x :VimuxInterruptRunner<CR>
+nnoremap <silent> <Leader>r :VimuxRunLastCommand<CR>
+nnoremap <silent> <Leader>vi :VimuxInspectRunner<CR>
+nnoremap <silent> <Leader>vl :VimuxRunLastCommand<CR>
+nnoremap <silent> <Leader>vp :VimuxPromptCommand<CR>
+nnoremap <silent> <Leader>vq :VimuxCloseRunner<CR>
+nnoremap <silent> <Leader>vr :VimuxRunLastCommand<CR>
+nnoremap <silent> <Leader>vx :VimuxInterruptRunner<CR>
+nnoremap <silent> <Leader>x :VimuxInterruptRunner<CR>
 " Easy Motion
 let g:EasyMotion_do_mapping=0
 nmap <Leader>f <Plug>(easymotion-bd-f)
