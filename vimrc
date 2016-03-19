@@ -31,6 +31,8 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 
 " Mappings {{{
 let mapleader="\<space>"
+" Nerdtree
+nnoremap - :NERDTreeFind<cr>
 " folding / unfolding outer layer
 nnoremap <leader>z :%foldc<cr>
 nnoremap <leader>Z :%foldo<cr>
@@ -80,15 +82,19 @@ nnoremap <Leader>vr :VimuxRunLastCommand<CR>
 nnoremap <Leader>vx :VimuxInterruptRunner<CR>
 nnoremap <Leader>x :VimuxInterruptRunner<CR>
 " Easy Motion
-" let g:EasyMotion_do_mapping=0
-" nmap <Leader>f <Plug>(easymotion-bd-f)
-" nmap <Leader>g <Plug>(easymotion-bd-f)
-" nmap <Leader>l <Plug>(easymotion-bd-jk)
-" nmap <Leader>s <Plug>(easymotion-bd-f2)
-" vmap <Leader>f <Plug>(easymotion-bd-f)
-" vmap <Leader>g <Plug>(easymotion-bd-f)
-" vmap <Leader>l <Plug>(easymotion-bd-jk)
-" vmap <Leader>s <Plug>(easymotion-bd-f2)
+let g:EasyMotion_do_mapping=0
+nmap <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>g <Plug>(easymotion-bd-f)
+nmap <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>s <Plug>(easymotion-bd-f2)
+nmap s <Plug>(easymotion-bd-f2)
+nmap S <Plug>(easymotion-bd-f2)
+vmap <Leader>f <Plug>(easymotion-bd-f)
+vmap <Leader>g <Plug>(easymotion-bd-f)
+vmap <Leader>l <Plug>(easymotion-bd-jk)
+vmap <Leader>s <Plug>(easymotion-bd-f2)
+vmap z <Plug>(easymotion-bd-f2)
+vmap Z <Plug>(easymotion-bd-f2)
 " }}}
 
 " Basics Settings {{{
@@ -412,6 +418,17 @@ let g:vim_markdown_frontmatter=1
 " Netrw {{{
 let g:netrw_altfile=1
 " }}}
+
+" NERDTree {{{
+let NERDChristmasTree=1
+let NERDTreeCascadeOpenSingleChildDir=1
+let NERDTreeDirArrows=1
+let NERDTreeMinimalUI=1
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowLineNumbers=0
+let NERDTreeWinSize=50
+let NERDTreeAutoDeleteBuffer=1
+" " }}}
 
 " Perl Settings {{{
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
