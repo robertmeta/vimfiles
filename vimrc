@@ -238,15 +238,13 @@ set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 "               |+-- file read message overwrites subsequent
 "               +-- use every short text trick
 "
-set statusline=%F%m%r%h%w[%L]%{fugitive#statusline()}%{gutentags#statusline()}[%{&ff}]%y[%p%%][%04l,%04v]
-"                | | | | |  |  |                       |                         |      |  |     |    |
-"                | | | | |  |  |                       |                         |      |  |     |    +-- current column
-"                | | | | |  |  |                       |                         |      |  |     +-- current line
-"                | | | | |  |  |                       |                         |      |  +-- current % into file
-"                | | | | |  |  |                       |                         |      +-- current syntax in square brackets
-"                | | | | |  |  |                       |                         +-- current fileformat
-"                | | | | |  |  |                       +-- Display the gutentags current status
-"                | | | | |  |  +-- add fugitive info
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+"                | | | | |  | |      |  |     |    |
+"                | | | | |  | |      |  |     |    +-- current column
+"                | | | | |  | |      |  |     +-- current line
+"                | | | | |  | |      |  +-- current % into file
+"                | | | | |  | |      +-- current syntax in square brackets
+"                | | | | |  | +-- current fileformat
 "                | | | | |  +-- number of lines
 "                | | | | +-- preview flag in square brackets
 "                | | | +-- help flag in square brackets
