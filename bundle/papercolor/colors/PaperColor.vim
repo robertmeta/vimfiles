@@ -485,7 +485,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   end
 
   " Standard Group Highlighting:
-  call s:HL("Comment", s:comment, "", "")
+  call s:HL("Comment", s:comment, "", "italic")
 
   call s:HL("Constant", s:orange, "", "")
   call s:HL("String", s:olive, "", "")
@@ -528,7 +528,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("Error", s:foreground, s:error, "")
   call s:HL("Todo", s:todo, s:background, "bold")
 
-  call s:HL("Title", s:comment, "", "")
+  call s:HL("Title", s:comment, "", "italic")
   call s:HL("Global", s:blue, "", "")
 
 
@@ -803,9 +803,9 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("javaStorageClass", s:navy, "", "bold")
   call s:HL("javaBoolean", s:green, "", "bold")
   call s:HL("javaConstant", s:blue, "", "")
-  call s:HL("javaCommentTitle", s:wine, "", "")
+  call s:HL("javaCommentTitle", s:wine, "", "italic")
   call s:HL("javaDocTags", s:aqua, "", "")
-  call s:HL("javaDocComment", s:comment, "", "")
+  call s:HL("javaDocComment", s:comment, "", "italic")
   call s:HL("javaDocParam", s:foreground, "", "")
 
   " JavaScript Highlighting
@@ -858,7 +858,7 @@ call s:HL("cssClassName", s:pink, "", "")
 
   " Systemtap Highlighting
   " call s:HL("stapBlock", s:comment, "", "none")
-  call s:HL("stapComment", s:comment, "", "none")
+  call s:HL("stapComment", s:comment, "", "italic")
   call s:HL("stapProbe", s:aqua, "", "bold")
   call s:HL("stapStat", s:navy, "", "bold")
   call s:HL("stapFunc", s:foreground, "", "")
@@ -866,14 +866,14 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("stapTarget", s:navy, "", "")
   call s:HL("stapStatement", s:pink, "", "")
   call s:HL("stapType", s:pink, "", "bold")
-  call s:HL("stapSharpBang", s:comment, "", "")
+  call s:HL("stapSharpBang", s:comment, "", "italic")
   call s:HL("stapDeclaration", s:pink, "", "")
   call s:HL("stapCMacro", s:blue, "", "")
 
   " DTrace Highlighting
   call s:HL("dtraceProbe", s:blue, "", "")
   call s:HL("dtracePredicate", s:purple, "", "bold")
-  call s:HL("dtraceComment", s:comment, "", "")
+  call s:HL("dtraceComment", s:comment, "", "italic")
   call s:HL("dtraceFunction", s:foreground, "", "")
   call s:HL("dtraceAggregatingFunction", s:blue, "", "bold")
   call s:HL("dtraceStatement", s:navy, "", "bold")
@@ -1016,7 +1016,7 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("perlMethod", s:foreground, "", "")
   call s:HL("perlStatementFiledesc", s:orange, "", "")
   call s:HL("perlVarPlain", s:navy, "", "")
-  call s:HL("perlSharpBang", s:comment, "", "")
+  call s:HL("perlSharpBang", s:comment, "", "italic")
   call s:HL("perlStatementInclude", s:aqua, "", "bold")
   call s:HL("perlStatementScalar", s:purple, "", "")
   call s:HL("perlSubName", s:aqua, "", "bold")
