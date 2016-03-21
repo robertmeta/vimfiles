@@ -316,8 +316,8 @@ if has("autocmd")
         au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber cursorcolumn
-        au WinLeave * setlocal nocursorline norelativenumber nocursorcolumn
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
+        au WinLeave * setlocal nocursorline norelativenumber
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
         au QuickFixCmdPost    l* lwindow
