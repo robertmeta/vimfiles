@@ -62,16 +62,12 @@ nnoremap gj j
 nnoremap gk k
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<CR>
-" FZF Mappings
-nnoremap <silent> <leader>b :CtrlPBuffer<cr>
-nnoremap <silent> <leader>d :CtrlPDir<cr>
-nnoremap <silent> <leader>L :CtrlPLine<cr>
-nnoremap <silent> <leader>o :CtrlPChangeAll<cr>
-nnoremap <silent> <leader>p :CtrlPMixed<cr>
-nnoremap <silent> <leader>q :CtrlPQuickfix<cr>
-nnoremap <silent> <leader>t :CtrlPBufTag<cr>
-nnoremap <silent> <leader>T :CtrlPTag<cr>
-nnoremap <silent> <leader>u :CtrlPUndo<cr>
+" Random Mappings
+nnoremap <leader>b :b <C-d>
+nnoremap <leader>d :chdir <C-d>
+nnoremap <leader>p :find <C-d>
+nnoremap <leader>q :b#<CR>
+nnoremap <leader>t :tag <C-d>
 " Vimux
 nnoremap <silent> <Leader>r :VimuxRunLastCommand<CR>
 nnoremap <silent> <Leader>vi :VimuxInspectRunner<CR>
@@ -81,20 +77,6 @@ nnoremap <silent> <Leader>vq :VimuxCloseRunner<CR>
 nnoremap <silent> <Leader>vr :VimuxRunLastCommand<CR>
 nnoremap <silent> <Leader>vx :VimuxInterruptRunner<CR>
 nnoremap <silent> <Leader>x :VimuxInterruptRunner<CR>
-" Easy Motion
-let g:EasyMotion_do_mapping=0
-nmap <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>g <Plug>(easymotion-bd-f)
-nmap <Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader>s <Plug>(easymotion-bd-f2)
-nmap s <Plug>(easymotion-bd-f2)
-nmap S <Plug>(easymotion-bd-f2)
-vmap <Leader>f <Plug>(easymotion-bd-f)
-vmap <Leader>g <Plug>(easymotion-bd-f)
-vmap <Leader>l <Plug>(easymotion-bd-jk)
-vmap <Leader>s <Plug>(easymotion-bd-f2)
-vmap z <Plug>(easymotion-bd-f2)
-vmap Z <Plug>(easymotion-bd-f2)
 " }}}
 
 " Basics Settings {{{
@@ -103,16 +85,16 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=longest,menuone " complete menu
 set complete=.,w,b,u,t " complete options
-set nocursorline " no cursor line
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
 set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
+set foldcolumn=1 " Only need one for folding
 set foldenable " Turn on folding
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-set foldmarker={,} " use simple markers
-set foldmethod=marker " Fold on the marker
+set foldmarker={{{,}}} " use standard markers
+set foldmethod=indent " Fold on the indent
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
@@ -133,18 +115,21 @@ set noautoread " nope
 set noautowriteall " nope
 set noautowrite " nope
 set nocursorcolumn " disable global cursor column
+set nocursorline " no cursor line
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nolist " nope nope nope
 set nomore " Scroll away, no pausing
-set number " line numbers
 set norelativenumber " no thank you
 set nospell " nope nope nope
+set nosplitbelow " split above
+set nosplitright " split left
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set numberwidth=10 " We are good up to 99999 lines
+set number " line numbers
+set numberwidth=9 " We are good up to LOTS lines
 set omnifunc=syntaxcomplete#Complete
 set path=.,** " Useful path!
 set report=0 " tell us when anything is changed via :
@@ -162,8 +147,6 @@ set sidescroll=5 " If you hit edge, jump 5
 set sidescrolloff=5 " Keep 5 lines at the size
 set smartcase " Smart case enabled
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
-set splitbelow " new splits are down
-set splitright " new vsplits are to the right
 set switchbuf=useopen " when working with quickfix use new splits
 set synmaxcol=500 " Don't try to highlight lines longer than X characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
@@ -321,12 +304,6 @@ if has("autocmd")
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
         au QuickFixCmdPost    l* lwindow
-        " Rainbows
-        " au VimEnter * RainbowParenthesesToggle
-        " au Syntax * RainbowParenthesesLoadRound
-        " au Syntax * RainbowParenthesesLoadSquare
-        " au Syntax * RainbowParenthesesLoadBraces
-        " au Syntax * RainbowParenthesesLoadChevrons
     augroup END
 endif
 " }}}

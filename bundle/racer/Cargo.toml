@@ -1,0 +1,35 @@
+[package]
+
+name = "racer"
+version = "1.2.6"
+license = "MIT"
+description = "Code completion for Rust"
+authors = ["Phil Dawes <phil@phildawes.net>"]
+homepage = "https://github.com/phildawes/racer"
+repository = "https://github.com/phildawes/racer"
+
+[lib]
+name = "racer"
+path = "src/racer/lib.rs"
+
+[[bin]]
+name = "racer"
+path = "src/bin/main.rs"
+
+[profile.release]
+debug = true
+
+[dependencies]
+log = "~0.3.4"
+syntex_syntax = "~0.24.0"
+toml = "~0.1.25"
+env_logger = "~0.3.2"
+typed-arena = "~1.1.0"
+clap = "~1.5.5"
+
+[dev-dependencies]
+test_fixtures = { path = "src/test_fixtures" }
+rand = "0.3"
+
+[features]
+nightly = []
