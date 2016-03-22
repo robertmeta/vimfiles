@@ -88,7 +88,7 @@ set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
 set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
-set foldcolumn=1 " Only need one for folding
+set foldcolumn=2 " Only need one for folding
 set foldenable " Turn on folding
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldmarker={{{,}}} " use standard markers
@@ -127,7 +127,7 @@ set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " line numbers
-set numberwidth=9 " We are good up to LOTS lines
+set numberwidth=8 " We are good up to LOTS lines
 set omnifunc=syntaxcomplete#Complete
 set path=.,** " Useful path!
 set report=0 " tell us when anything is changed via :
