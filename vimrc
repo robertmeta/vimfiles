@@ -31,8 +31,6 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 
 " Mappings {{{
 let mapleader="\<space>"
-" Nerdtree
-nnoremap <silent> - :NERDTreeFind<cr>
 " folding / unfolding outer layer
 nnoremap <silent> <leader>z :%foldc<cr>
 nnoremap <silent> <leader>Z :%foldo<cr>
