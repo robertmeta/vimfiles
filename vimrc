@@ -31,13 +31,14 @@ syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 
 " Mappings {{{
 let mapleader="\<space>"
-" folding / unfolding outer layer
-nnoremap <silent> <leader>z :%foldc<cr>
-nnoremap <silent> <leader>Z :%foldo<cr>
-" Scrolling
-" Window control
-nnoremap <leader>k <C-b>
+" Scrolling/Line movement
+nnoremap gj j
+nnoremap gk k
+nnoremap j gj
+nnoremap k gk
 nnoremap <leader>j <C-f>
+nnoremap <leader>k <C-b>
+" Window control
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
 nnoremap <silent> <leader>c <esc>:close<cr>
@@ -45,36 +46,32 @@ nnoremap <silent> <leader>S <esc>:SyntasticCheck<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
 " Arrow control
+nnoremap <silent> <down> :lnext<cr>
 nnoremap <silent> <left> :cprev<cr>
 nnoremap <silent> <right> :cnext<cr>
 nnoremap <silent> <up> :lprev<cr>
-nnoremap <silent> <down> :lnext<cr>
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
 vmap <BS> x
-" Make bindings work better with new wrapping
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
 " Turn off search highlight with backspace
-nnoremap <silent> <BS> :nohlsearch<CR>
+nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>d :chdir <C-d>
 nnoremap <leader>p :find <C-d>
-nnoremap <leader>q :b#<CR>
-nnoremap <leader>t :tag <C-d>
+nnoremap <leader>q :b#<cr>
+nnoremap <leader>T :tag <C-d>
+nnoremap <silent> <leader>t :call ToggleFolds()<cr>
 " Vimux
-nnoremap <silent> <Leader>r :VimuxRunLastCommand<CR>
-nnoremap <silent> <Leader>vi :VimuxInspectRunner<CR>
-nnoremap <silent> <Leader>vl :VimuxRunLastCommand<CR>
-nnoremap <silent> <Leader>vp :VimuxPromptCommand<CR>
-nnoremap <silent> <Leader>vq :VimuxCloseRunner<CR>
-nnoremap <silent> <Leader>vr :VimuxRunLastCommand<CR>
-nnoremap <silent> <Leader>vx :VimuxInterruptRunner<CR>
-nnoremap <silent> <Leader>x :VimuxInterruptRunner<CR>
+nnoremap <silent> <Leader>r :VimuxRunLastCommand<cr>
+nnoremap <silent> <Leader>vi :VimuxInspectRunner<cr>
+nnoremap <silent> <Leader>vl :VimuxRunLastCommand<cr>
+nnoremap <silent> <Leader>vp :VimuxPromptCommand<cr>
+nnoremap <silent> <Leader>vq :VimuxCloseRunner<cr>
+nnoremap <silent> <Leader>vr :VimuxRunLastCommand<cr>
+nnoremap <silent> <Leader>vx :VimuxInterruptRunner<cr>
+nnoremap <silent> <Leader>x :VimuxInterruptRunner<cr>
 " }}}
 
 " Basics Settings {{{
@@ -277,8 +274,8 @@ if has("autocmd")
         au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go " so does make
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make " so does make
         " Some JS awesome via romainl
-        au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<CR><CR>
-        au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<CR><CR>
+        au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<cr><cr>
+        au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<cr><cr>
         " Override types
         au BufNewFile,BufRead *.ahk setlocal filetype=autohotkey " Autohotkey
         au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
@@ -291,11 +288,11 @@ if has("autocmd")
         au FileType svn setlocal spell
         " Go setlocalup assumptions: gocode, godef, gotags all in path
         au FileType go nmap gd <Plug>(go-def)
-        au FileType go nmap gr <Plug>(go-rename)
         au FileType go nmap gi <Plug>(go-info)
+        au FileType go nmap gr <Plug>(go-rename)
         " au FileType go nmap gD <Plug>(go-doc)
-        au FileType go nmap gt <Plug>(go-test-func)
         au FileType go nmap gT <Plug>(go-test)
+        au FileType go nmap gt <Plug>(go-test-func)
         " Highlight current line
         au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
         au WinLeave * setlocal nocursorline norelativenumber
@@ -333,36 +330,6 @@ if s:colorful_term
 endif
 " }}}
 
-" {{{
-let g:rbpt_colorpairs=[
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkcyan', 'RoyalBlue3'],
-\ ]
-let g:rbpt_max=24
-" }}}
-
 " Mousing {{{
 if has("mouse")
     set mouse=a " use mouse everywhere
@@ -379,69 +346,13 @@ if executable("ag")
 endif
 " }}}
 
-" HTML Settings {{{
-let html_number_lines=0
-let html_use_css=0
-let use_xhtml=0
-" }}}
-
 " Markdown {{{
-let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_folding_disabled=0
 let g:vim_markdown_frontmatter=1
 " }}}
 
 " Netrw {{{
 let g:netrw_altfile=1
-" }}}
-
-" NERDTree {{{
-let NERDChristmasTree=1
-let NERDTreeCascadeOpenSingleChildDir=1
-let NERDTreeDirArrows=1
-let NERDTreeMinimalUI=1
-let NERDTreeQuitOnOpen=1
-let NERDTreeShowLineNumbers=0
-let NERDTreeWinSize=50
-let NERDTreeAutoDeleteBuffer=1
-" " }}}
-
-" Perl Settings {{{
-let perl_extended_vars=1 " highlight advanced perl vars inside strings
-" }}}
-
-" {{{ Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_go_checkers=[ 'go', 'gometalinter' ]
-let g:syntastic_mode_map={ 'mode': 'passive' }
-let g:syntastic_enable_signs=0
-" }}}
-
-" CtrlP {{{
-let g:ctrlp_buftag_ctags_bin='ctags'
-let g:ctrlp_follow_symlinks=1
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_match_window_reversed=1
-let g:ctrlp_max_depth=1000
-let g:ctrlp_max_files=100000
-let g:ctrlp_max_height=30
-let g:ctrlp_open_multiple_files='ij'
-let g:ctrlp_show_hidden=1
-let g:ctrlp_use_caching=1
-let g:ctrlp_working_path_mode='ra'
-if s:running_windows
-    let g:ctrlp_cache_dir=$HOME.'/vimfiles/ctrlp_cache'
-    let g:ctrlp_user_command='dir %s /-n /b /s /a-d | findstr /v \.git | findstr /v \.hg' " Windows
-else " MacOSX/Linux
-    let g:ctrlp_cache_dir=$HOME.'/.vim/ctrlp_cache'
-    let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'
-endif
-let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
 " }}}
 
 " Vim Go (vim-go) {{{
@@ -466,11 +377,24 @@ let g:go_highlight_trailing_whitespace_error=1
 " }}}
 
 " Nofrils {{{
-let g:nofrils_strbackgrounds=0 " to turn highlighted string backgrounds
+let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
+colo nofrils-dark
 " }}}
 
-" z Finally -- Theme setup {{{
-colo nofrils-dark
+" Functions {{{
+function! ToggleFolds()
+    if !exists("b:myfolded") 
+        let b:myfolded = 0
+    endif
+
+    if b:myfolded ># 0
+        execute("%foldo")
+        let b:myfolded = 0
+    else
+        execute("%foldc")
+        let b:myfolded = 1
+    endif
+endfunction
 " }}}
 
 " Modeline {{{

@@ -104,7 +104,7 @@ git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/
 # Syntastic is a syntax checking plugin that runs files through external syntax
 # checkers. This can be done on demand, or automatically as files are saved and
 # opened.  If syntax errors are detected, the user is notified and is happy
-git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bundle/syntastic/.git
+# git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bundle/syntastic/.git
 
 # This plugin provides Vim syntax, indent and filetype detection for Windows
 # PowerShell scripts, modules, and XML configuration files.
