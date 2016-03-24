@@ -53,7 +53,7 @@ vmap <BS> x
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
-nnoremap - :e ./<C-d>
+nnoremap - :e <c-r>=fnameescape(expand('%:p:h'))<cr>/<C-d>
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>d :Dlist<Space>
 nnoremap <leader>f :find <C-d>
