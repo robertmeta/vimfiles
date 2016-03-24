@@ -1,19 +1,10 @@
 rm -rf bundle
 mkdir -p bundle
 
-# Themes {{{
+# Themes
 git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
-# git clone https://github.com/acarapetis/vim-colors-github bundle/githubcolor && rm -rf bundle/githubcolor/.git
-# git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
-# git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
-# git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
-# git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
-# git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bundle/apprentice/.git
-# git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/disciple/.git
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit && rm -rf bundle/summerfruit/.git
-# git clone https://github.com/AlessandroYorba/Sierra bundle/sierra && rm -rf bundle/sierra/.git
-# }}}
 
 # Make dlist / ilist far more useful
 git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git
@@ -23,9 +14,6 @@ git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
 
 # Be able to repeat many things!
 git clone https://github.com/tpope/vim-repeat.git bundle/repeat && rm -rf bundle/repeat/.git
-
-# Easymotion
-# git clone https://github.com/easymotion/vim-easymotion bundle/EasyMotion && rm -rf bundle/EasyMotion/.git
 
 # Sneak
 git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
@@ -53,10 +41,8 @@ git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/
 
 # Easily interact with tmux from vim.
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
+# Autocomplete from other windows
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
-
-# Rainbow Parens Improved
-# git clone https://github.com/kien/rainbow_parentheses.vim  bundle/rainbow_parentheses && rm -rf bundle/rainbow_parentheses/.git
 
 # Sensible
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
@@ -98,20 +84,6 @@ git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -r
 # handle all corner cases correctly.
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
 
-# FZF support
-# git clone https://github.com/junegunn/fzf.vim bundle/fzf && rm -rf bundle/fzf/.git
-
-# Full path fuzzy file, buffer, mru, tag, ... finder with an intuitive interface.
-# Written in pure Vimscript for MacVim, gVim and Vim version 7.0+. Has full
-# support for Vim's |regexp| as search pattern, built-in MRU files monitoring,
-# project's root finder, and more.
-# git clone https://github.com/ctrlpvim/ctrlp.vim bundle/ctrlp && rm -rf bundle/ctrlp/.git
-
-# Syntastic is a syntax checking plugin that runs files through external syntax
-# checkers. This can be done on demand, or automatically as files are saved and
-# opened.  If syntax errors are detected, the user is notified and is happy
-# git clone https://github.com/scrooloose/syntastic bundle/syntastic && rm -rf bundle/syntastic/.git
-
 # This plugin provides Vim syntax, indent and filetype detection for Windows
 # PowerShell scripts, modules, and XML configuration files.
 git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.git
@@ -122,13 +94,6 @@ git clone https://github.com/rust-lang/rust.vim bundle/rust && rm -rf bundle/rus
 # Racer (rust autocomplete) support
 git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer/.git # Unstable and annoying
 
-# Better whitespace
-# git clone https://github.com/ntpeters/vim-better-whitespace bundle/whitespace && rm -rf bundle/whitespace/.git
-
 # This plugin provides Readline (Emacs) mappings for insert and command line
 # mode that try not to overlap with built-in Vim functionality.
 git clone https://github.com/tpope/vim-rsi bundle/rsi && rm -rf bundle/rsi/.git
-
-# Modeline {{{
-# vim: set foldlevel=1 foldmarker={{{,}}}:
-# }}}
