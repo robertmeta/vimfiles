@@ -46,10 +46,10 @@ nnoremap <silent> <leader>S <esc>:SyntasticCheck<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
 " Arrow control
-nnoremap <silent> <down> <Plug>QfLnext<cr>
-nnoremap <silent> <left> <Plug>QfCprevious<cr>
-nnoremap <silent> <right> <Plug>QfCnext<cr>
-nnoremap <silent> <up> <Plug>QfLprevious<cr>
+nmap <up> <Plug>QfLprevious
+nmap <down> <Plug>QfLnext
+nmap <left> <Plug>QfCprevious
+nmap <right> <Plug>QfCnext
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
@@ -59,7 +59,9 @@ nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>d :chdir <C-d>
-nnoremap <leader>p :find <C-d>
+nnoremap <leader>d :Dlist<Space>
+nnoremap <leader>f :find <C-d>
+nnoremap <leader>i :Ilist<Space>
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>T :tag <C-d>
 nnoremap <silent> <leader>t :call ToggleFolds()<cr>
