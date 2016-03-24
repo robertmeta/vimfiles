@@ -58,10 +58,10 @@ vmap <BS> x
 nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
 nnoremap <leader>b :b <C-d>
-nnoremap <leader>d :chdir <C-d>
 nnoremap <leader>d :Dlist<Space>
 nnoremap <leader>f :find <C-d>
 nnoremap <leader>i :Ilist<Space>
+nnoremap <leader>s :grep<Space>
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>T :tag <C-d>
 nnoremap <silent> <leader>t :call ToggleFolds()<cr>
