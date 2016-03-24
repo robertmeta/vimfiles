@@ -1,4 +1,4 @@
-" Informational {{{
+" Informational
 "   This is my personal .vimrc, I don't recommend you copy it, just
 "   use the pieces you want (and understand!).  When you copy a
 "   .vimrc in its entirety, weird and unexpected things can happen
@@ -7,29 +7,25 @@
 "   http://robertmelton.com (many forms of communication)
 "
 "   source: https://github.com/robertmeta/vimfiles
-" }}}
 
-" Baseline {{{
+" Baseline 
 set encoding=utf-8 " yey! utf-8
 scriptencoding utf-8 " yey! utf-8
 " adds stuff under bundles to the path
 execute pathogen#infect()
 execute pathogen#helptags()
-" }}}
 
-" DRY helpers {{{
+" DRY helpers 
 let s:running_windows=has("win16") || has("win32") || has("win64")
 let s:colorful_term=(&term=~"xterm") || (&term=~"screen")
-" }}}
 
-" Loading Settings {{{
+" Loading Settings 
 let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 syntax on " syntax highlighting on
 syntax sync minlines=100 " helps to avoid syntax highlighting bugs
-" }}}
 
-" Mappings {{{
+" Mappings 
 let mapleader="\<space>"
 " Scrolling/Line movement
 nnoremap gj j
@@ -57,6 +53,7 @@ vmap <BS> x
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
+nnoremap - :e ./<C-d>
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>d :Dlist<Space>
 nnoremap <leader>f :find <C-d>
@@ -77,9 +74,8 @@ nnoremap <silent> <Leader>x :VimuxInterruptRunner<cr>
 " quick command helpers
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
-" }}}
 
-" Basics Settings {{{
+" Basics Settings 
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
@@ -93,7 +89,6 @@ set fileformats=unix,dos,mac " support all three, in this order
 set foldcolumn=2 " Only need one for folding
 set foldenable " Turn on folding
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-set foldmarker={{{,}}} " use standard markers
 set foldmethod=indent " Fold on the indent
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
@@ -115,7 +110,7 @@ set noautoread " nope
 set noautowriteall " nope
 set noautowrite " nope
 set nocursorcolumn " disable global cursor column
-set nocursorline " no cursor line
+set cursorline " cursor line
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
@@ -159,11 +154,10 @@ set ttyfast " Assume a fast terminal
 set t_vb= " seriously, shhhh, don't be noisy
 set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
-" }}}
 
 nmap <leader>F :find <C-R>=fnameescape(expand('%:p:h')).'/**/*'<CR>
 
-" Clipboard, Backup and Undo {{{
+" Clipboard, Backup and Undo 
 set backup " make backup files
 if s:running_windows
     set backupdir=~/vimfiles/backup/ " where to put backup files
@@ -177,9 +171,8 @@ endif
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
-" }}}
 
-" Wildmenu {{{
+" Wildmenu 
 set wildmenu " turn on command line completion wild style
 set wildignore=*.a,*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
@@ -199,9 +192,8 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
 endif
 set wildmode=list:longest " turn on wild mode huge list
-" }}}
 
-" Various formatting / output options {{{
+" Various formatting / output options 
 set viminfo=!,h,'500,<10000,s1000,/1000,:1000
 "             | | |    |      |     |     |
 "             | | |    |      |     |     +-- remember last 1000 commands
@@ -265,9 +257,8 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "               | | +-- "h" Normal and Visual (not recommended)
 "               | +-- <Space> Normal and Visual
 "               +-- <BS> Normal and Visual
-" }}}
 
-" Autocommands {{{
+" Autocommands 
 if has("autocmd")
     augroup general
         " Clear!
@@ -301,16 +292,15 @@ if has("autocmd")
         au FileType go nmap gT <Plug>(go-test)
         au FileType go nmap gt <Plug>(go-test-func)
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
+        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal relativenumber cursorline 
         au WinLeave * setlocal nocursorline norelativenumber
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
         au QuickFixCmdPost    l* lwindow
     augroup END
 endif
-" }}}
 
-" GUI {{{
+" GUI 
 if has("gui_running")
     set guifont=Hack:h08:cANSI " My favorite font
     set guioptions=ce
@@ -318,9 +308,8 @@ if has("gui_running")
     "              |+-- use GUI tabs, not console style tabs
     "              +-- use simple dialogs rather than pop-ups
 endif
-" }}}
 
-" 256 color term tweaks {{{
+" 256 color term tweaks 
 if s:colorful_term
     " 256 color -- this is a bad idea generally, but I use it anyway
     let &t_Co=256
@@ -335,9 +324,8 @@ if s:colorful_term
         let &t_Sf="\ESC[3%dm"
     endif
 endif
-" }}}
 
-" Mousing {{{
+" Mousing 
 if has("mouse")
     set mouse=a " use mouse everywhere
     set nomousehide " don't hide the mouse
@@ -349,9 +337,8 @@ if has("mouse")
         set ttymouse=sgr
     endif
 endif
-" }}}
 
-" Ag Grep {{{
+" Ag Grep 
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
     set grepformat=%f:%l:%c:%m,%f:%l:%m
@@ -360,18 +347,15 @@ if executable("pt")
     set grepprg=pt\ --nogroup\ --nocolor\ --ignore-case\ --column
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-" }}}
 
-" Markdown {{{
+" Markdown 
 let g:vim_markdown_folding_disabled=0
 let g:vim_markdown_frontmatter=1
-" }}}
 
-" Netrw {{{
+" Netrw 
 let g:netrw_altfile=1
-" }}}
 
-" Vim Go (vim-go) {{{
+" Vim Go (vim-go) 
 let g:go_auto_type_info=0
 let g:go_bin_path=$HOME."/go/bin"
 let g:godef_same_file_in_same_window=1
@@ -390,14 +374,12 @@ let g:go_highlight_space_tab_error=1
 let g:go_highlight_string_spellcheck=0
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
-" }}}
 
-" Nofrils {{{
+" Nofrils 
 let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
 colo nofrils-dark
-" }}}
 
-" Functions {{{
+" Functions 
 function! ToggleFolds()
     if !exists("b:myfolded") 
         let b:myfolded = 0
@@ -411,8 +393,3 @@ function! ToggleFolds()
         let b:myfolded = 1
     endif
 endfunction
-" }}}
-
-" Modeline {{{
-" vim: set foldlevel=1 foldmarker={{{,}}}:
-" }}}
