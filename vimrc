@@ -46,10 +46,10 @@ nnoremap <silent> <leader>S <esc>:SyntasticCheck<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
 " Arrow control
-nnoremap <silent> <down> :QfLnext<cr>
-nnoremap <silent> <left> :QfCprev<cr>
-nnoremap <silent> <right> :QfCnext<cr>
-nnoremap <silent> <up> :QfLprev<cr>
+nnoremap <silent> <down> <Plug>:QfLnext<cr>
+nnoremap <silent> <left> <Plug>:QfCprevious<cr>
+nnoremap <silent> <right> <Plug>:QfCnext<cr>
+nnoremap <silent> <up> <Plug>:QfLprevious<cr>
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
