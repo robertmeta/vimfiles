@@ -2,18 +2,24 @@ rm -rf bundle
 mkdir -p bundle
 
 # Themes {{{
-git clone https://github.com/acarapetis/vim-colors-github bundle/githubcolor && rm -rf bundle/githubcolor/.git
-git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
-git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
-git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
-git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
-git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
-git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bundle/apprentice/.git
-git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/disciple/.git
+# git clone https://github.com/acarapetis/vim-colors-github bundle/githubcolor && rm -rf bundle/githubcolor/.git
+# git clone https://github.com/ciaranm/inkpot bundle/inkpot && rm -rf bundle/inkpot/.git
+# git clone https://github.com/jonathanfilip/vim-lucius bundle/lucius && rm -rf bundle/lucius/.git
+# git clone https://github.com/junegunn/seoul256.vim bundle/seoul256 && rm -rf bundle/seoul256/.git
+# git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
+# git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
+# git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bundle/apprentice/.git
+# git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/disciple/.git
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit && rm -rf bundle/summerfruit/.git
-git clone https://github.com/AlessandroYorba/Sierra bundle/sierra && rm -rf bundle/sierra/.git
+# git clone https://github.com/AlessandroYorba/Sierra bundle/sierra && rm -rf bundle/sierra/.git
 # }}}
+
+# Make dlist / ilist far more useful
+git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git
+
+# Improve quickfix
+git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
 
 # Be able to repeat many things!
 git clone https://github.com/tpope/vim-repeat.git bundle/repeat && rm -rf bundle/repeat/.git

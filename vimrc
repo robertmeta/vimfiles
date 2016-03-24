@@ -72,6 +72,9 @@ nnoremap <silent> <Leader>vq :VimuxCloseRunner<cr>
 nnoremap <silent> <Leader>vr :VimuxRunLastCommand<cr>
 nnoremap <silent> <Leader>vx :VimuxInterruptRunner<cr>
 nnoremap <silent> <Leader>x :VimuxInterruptRunner<cr>
+" quick command helpers
+cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
+cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
 " }}}
 
 " Basics Settings {{{
@@ -134,7 +137,7 @@ set scrolloff=5 " Keep focus on middle of screen when possible
 set secure " but lets not go crazy
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
-set showbreak=+++\  " this is how we show breaks (this comment is broken in vim, dafaq)
+set showbreak=›››\  " this is how we show breaks (this comment is broken in vim, dafaq)
 set showcmd " Show the commands
 set showmatch " do show matching things
 set showmode " default but just in case
@@ -155,6 +158,8 @@ set t_vb= " seriously, shhhh, don't be noisy
 set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
 " }}}
+
+nmap <leader>F :find <C-R>=fnameescape(expand('%:p:h')).'/**/*'<CR>
 
 " Clipboard, Backup and Undo {{{
 set backup " make backup files
@@ -337,12 +342,21 @@ if has("mouse")
     if !has('nvim')
           set ttymouse=xterm2
     endif
+    " allows clicking after the 223rd column
+    if has('mouse_sgr')
+        set ttymouse=sgr
+    endif
 endif
 " }}}
 
 " Ag Grep {{{
 if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor
+    set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+if executable("pt")
+    set grepprg=pt\ --nogroup\ --nocolor\ --ignore-case\ --column
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 " }}}
 
