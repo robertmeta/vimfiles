@@ -53,14 +53,14 @@ vmap <BS> x
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
-nnoremap - :find <c-r>=fnameescape(expand('%:p:h'))<cr>/<C-d>
-nnoremap <leader>b :b <C-d>
-nnoremap <leader>d :Dlist<Space>
-nnoremap <leader>f :find <C-d>
-nnoremap <leader>i :Ilist<Space>
-nnoremap <leader>s :grep<Space>
+nnoremap - :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>b :b *
+nnoremap <leader>d :Dlist<space>
+nnoremap <leader>f :find *
+nnoremap <leader>i :Ilist<space>
+nnoremap <leader>s :grep<space>
 nnoremap <leader>q :b#<cr>
-nnoremap <leader>T :tag <C-d>
+nnoremap <leader>T :tag<space>*
 nnoremap <silent> <leader>t :call ToggleFolds()<cr>
 " Vimux
 nnoremap <silent> <Leader>r :VimuxRunLastCommand<cr>
