@@ -61,6 +61,7 @@ nnoremap <leader>i :Ilist<space>
 nnoremap <leader>s :grep<space>
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>T :tag<space>*
+nnoremap <leader>m :make<cr>
 nnoremap <silent> <leader>t :call ToggleFolds()<cr>
 " Vimux
 nnoremap <silent> <Leader>r :VimuxRunLastCommand<cr>
@@ -269,8 +270,8 @@ if has("autocmd")
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
         " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go " so does make
-        au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make " so does make
+        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go makeprg=gometalinter
+        au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make
         " Some JS awesome via romainl
         au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<cr><cr>
         au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<cr><cr>
