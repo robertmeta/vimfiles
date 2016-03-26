@@ -285,13 +285,6 @@ if has("autocmd")
         au FileType gitcommit setlocal spell
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
-        " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au FileType go nmap gd <Plug>(go-def)
-        au FileType go nmap gi <Plug>(go-info)
-        au FileType go nmap gr <Plug>(go-rename)
-        " au FileType go nmap gD <Plug>(go-doc)
-        au FileType go nmap gT <Plug>(go-test)
-        au FileType go nmap gt <Plug>(go-test-func)
         " Highlight current line
         au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal relativenumber cursorline 
         au WinLeave * setlocal nocursorline norelativenumber
@@ -355,26 +348,6 @@ let g:vim_markdown_frontmatter=1
 
 " Netrw 
 let g:netrw_altfile=1
-
-" Vim Go (vim-go) 
-let g:go_auto_type_info=0
-let g:go_bin_path=$HOME."/go/bin"
-let g:godef_same_file_in_same_window=1
-let g:godef_split=0
-let g:go_fmt_autosave=1
-let g:go_fmt_command="goimports"
-let g:go_fmt_fail_silently=0
-let g:go_highlight_array_whitespace_error=1
-let g:go_highlight_build_constraints=1
-let g:go_highlight_chan_whitespace_error=1
-let g:go_highlight_extra_types=1
-let g:go_highlight_functions=1
-let g:go_highlight_methods=1
-let g:go_highlight_operators=1
-let g:go_highlight_space_tab_error=1
-let g:go_highlight_string_spellcheck=0
-let g:go_highlight_structs=1
-let g:go_highlight_trailing_whitespace_error=1
 
 " Nofrils 
 let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
