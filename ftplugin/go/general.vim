@@ -1,3 +1,8 @@
+func! EatChar(pat)
+    let c = nr2char(getchar(0))
+    return (c =~ a:pat) ? '' : c
+endfunc
+
 " Vim Go (vim-go) 
 let g:go_auto_type_info=0
 let g:go_bin_path=$HOME."/go/bin"
@@ -18,25 +23,21 @@ let g:go_highlight_string_spellcheck=0
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
 
+" Vimux
+let g:VimuxLastCommand = "gb build && gb test -v"
+
 " Go setlocalup assumptions: gocode, godef, gotags all in path
-nmap <buffer> gd <Plug>(go-def)
-nmap <buffer> gi <Plug>(go-info)
-nmap <buffer> gr <Plug>(go-rename)
+nnoremap <buffer> gd <Plug>(go-def)
+nnoremap <buffer> gi <Plug>(go-info)
+nnoremap <buffer> gr <Plug>(go-rename)
 " au FileType go nmap gD <Plug>(go-doc)
-nmap <buffer> gT <Plug>(go-test)
-nmap <buffer> gt <Plug>(go-test-func)
+nnoremap <buffer> gT <Plug>(go-test)
+nnoremap <buffer> gt <Plug>(go-test-func)
 
 setlocal noexpandtab 
-setlocal sw=8 
-setlocal sts=8 
-setlocal syntax=go 
-setlocal ft=go 
+setlocal shiftwidth=8 
+setlocal softtabstop=8 
 setlocal makeprg=gometalinter
-
-func! EatChar(pat)
-    let c = nr2char(getchar(0))
-    return (c =~ a:pat) ? '' : c
-endfunc
 
 iab <buffer> xif if  {<CR> <BS><CR><BS>}<UP><UP><RIGHT><RIGHT><C-R>=EatChar('\s')<CR>
 iab <buffer> xel else {<CR> <BS><CR><BS>}<UP><END><C-R>=EatChar('\s')<CR>

@@ -53,18 +53,20 @@ vmap <BS> x
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
-nnoremap - :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>b :b *
+nnoremap <leader>B :buffers<cr>
+nnoremap <leader>b :b **/<C-d>
 nnoremap <leader>d :Dlist<space>
+nnoremap <leader>E :e **/
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>f :find *
-nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>F :find **/
+nnoremap <leader>f :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
+nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>m :make<cr>
 nnoremap <leader>q :b#<cr>
+nnoremap <leader>t :call ToggleFolds()<cr>
 nnoremap <leader>T :tag<space>*
-nnoremap <silent> <leader>t :call ToggleFolds()<cr>
 " Vimux
 nnoremap <silent> <Leader>r :VimuxRunLastCommand<cr>
 nnoremap <silent> <Leader>vi :VimuxInspectRunner<cr>
@@ -269,8 +271,7 @@ if has("autocmd")
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
-        " Go setlocalup assumptions: gocode, godef, gotags all in path
-        au BufRead,BufNewFile *.go setlocal noexpandtab sw=8 sts=8 syntax=go ft=go makeprg=gometalinter
+        au BufRead,BufNewFile *.go setlocal syntax=go ft=go
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make
         " Some JS awesome via romainl
         au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<cr><cr>
