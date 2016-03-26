@@ -56,12 +56,14 @@ nnoremap <silent> <BS> :nohlsearch<cr>
 nnoremap - :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>b :b *
 nnoremap <leader>d :Dlist<space>
+nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>f :find *
+nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>g :grep<space>
 nnoremap <leader>i :Ilist<space>
-nnoremap <leader>s :grep<space>
+nnoremap <leader>m :make<cr>
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>T :tag<space>*
-nnoremap <leader>m :make<cr>
 nnoremap <silent> <leader>t :call ToggleFolds()<cr>
 " Vimux
 nnoremap <silent> <Leader>r :VimuxRunLastCommand<cr>
@@ -155,8 +157,6 @@ set ttyfast " Assume a fast terminal
 set t_vb= " seriously, shhhh, don't be noisy
 set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
-
-nmap <leader>F :find <C-R>=fnameescape(expand('%:p:h')).'/**/*'<CR>
 
 " Clipboard, Backup and Undo 
 set backup " make backup files
