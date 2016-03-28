@@ -54,8 +54,8 @@ vmap <BS> x
 nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
 nmap - <leader>e
-nnoremap <leader>B :buffers<cr>
 nnoremap <leader>b :b **/<C-d>
+nnoremap <leader>B :buffers<cr>
 nnoremap <leader>d :Dlist<space>
 nnoremap <leader>E :e **/
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
@@ -66,8 +66,9 @@ nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>m :make<cr>
 nnoremap <leader>q :b#<cr>
-nnoremap <leader>t :call ToggleFolds()<cr>
-nnoremap <leader>T :tag<space>*
+nnoremap <leader>T :TTags<cr>
+nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
+nnoremap <leader>z :call ToggleFolds()<cr>
 " Vimux
 nnoremap <silent> <Leader>r :VimuxRunLastCommand<cr>
 nnoremap <silent> <Leader>vi :VimuxInspectRunner<cr>
