@@ -61,6 +61,10 @@ nnoremap <leader>E :e **/
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>F :find **/
 nnoremap <leader>f :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <Leader>g% :call ttags#List(0, "*", "", ".")<cr>
+nnoremap <Leader>g* :call ttags#List(0, "*", tlib#rx#Escape(expand("<cword>")) .".*")<cr>
+nnoremap <Leader>g# :call ttags#List(0, "*", tlib#rx#Escape(expand("<cword>")))<cr>
+nnoremap <Leader>g? :call ttags#List(1, "*", tlib#rx#Escape(expand("<cword>")))<cr>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
