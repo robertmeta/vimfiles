@@ -53,6 +53,7 @@ vmap <BS> x
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
+nmap - <leader>e
 nnoremap <leader>B :buffers<cr>
 nnoremap <leader>b :b **/<C-d>
 nnoremap <leader>d :Dlist<space>

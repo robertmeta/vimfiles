@@ -6,6 +6,10 @@ git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/vim-scripts/summerfruit256.vim bundle/summerfruit && rm -rf bundle/summerfruit/.git
 
+# Tags filtering
+git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
+git clone https://github.com/tomtom/ttags_vim bundle/ttags && rm -rf bundle/ttags/.git
+
 # Make dlist / ilist far more useful
 git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git
 
