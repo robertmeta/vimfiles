@@ -49,7 +49,7 @@ nmap <right> <Plug>QfCnext
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
-vmap <BS> x
+vnoremap <BS> x
 " Turn off search highlight with backspace
 nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
@@ -61,10 +61,10 @@ nnoremap <leader>E :e **/
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>F :find **/
 nnoremap <leader>f :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <Leader>g% :call ttags#List(0, "*", "", ".")<cr>
-nnoremap <Leader>g* :call ttags#List(0, "*", tlib#rx#Escape(expand("<cword>")) .".*")<cr>
-nnoremap <Leader>g# :call ttags#List(0, "*", tlib#rx#Escape(expand("<cword>")))<cr>
-nnoremap <Leader>g? :call ttags#List(1, "*", tlib#rx#Escape(expand("<cword>")))<cr>
+nnoremap <leader>g% :call ttags#List(0, "*", "", ".")<cr>
+nnoremap <leader>g* :call ttags#List(0, "*", tlib#rx#Escape(expand("<cword>")) .".*")<cr>
+nnoremap <leader>g# :call ttags#List(0, "*", tlib#rx#Escape(expand("<cword>")))<cr>
+nnoremap <leader>g? :call ttags#List(1, "*", tlib#rx#Escape(expand("<cword>")))<cr>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
@@ -73,15 +73,21 @@ nnoremap <leader>q :b#<cr>
 nnoremap <leader>T :TTags<cr>
 nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
+" Autocomplete
+inoremap ,i <C-x><C-i><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
+inoremap ,o <C-x><C-o><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
+inoremap ,f <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
+inoremap ,l <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
+inoremap ,n <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
 " Vimux
-nnoremap <silent> <Leader>r :VimuxRunLastCommand<cr>
-nnoremap <silent> <Leader>vi :VimuxInspectRunner<cr>
-nnoremap <silent> <Leader>vl :VimuxRunLastCommand<cr>
-nnoremap <silent> <Leader>vp :VimuxPromptCommand<cr>
-nnoremap <silent> <Leader>vq :VimuxCloseRunner<cr>
-nnoremap <silent> <Leader>vr :VimuxRunLastCommand<cr>
-nnoremap <silent> <Leader>vx :VimuxInterruptRunner<cr>
-nnoremap <silent> <Leader>x :VimuxInterruptRunner<cr>
+nnoremap <silent> <leader>r :VimuxRunLastCommand<cr>
+nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
+nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
+nnoremap <silent> <leader>vp :VimuxPromptCommand<cr>
+nnoremap <silent> <leader>vq :VimuxCloseRunner<cr>
+nnoremap <silent> <leader>vr :VimuxRunLastCommand<cr>
+nnoremap <silent> <leader>vx :VimuxInterruptRunner<cr>
+nnoremap <silent> <leader>x :VimuxInterruptRunner<cr>
 " quick command helpers
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/

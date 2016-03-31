@@ -19,9 +19,6 @@ git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
 # Be able to repeat many things!
 git clone https://github.com/tpope/vim-repeat.git bundle/repeat && rm -rf bundle/repeat/.git
 
-# Sneak
-git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
-
 # Lots fo better programming language support
 git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git
 
@@ -72,25 +69,12 @@ git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle
 # This plugin provides several pairs of bracket maps. [a ]a [q ]q etc
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 
-# VimCompletesMe is a vim plugin which allows you to use <Tab> for all your insert completion needs (:help ins-completion).
-git clone https://github.com/ajh17/VimCompletesMe bundle/vimcompletesme && rm -rf bundle/vimcompletesme/.git
-
 # Targets.vim adds various |text-objects| to give you more targets to operate
 # on. It expands on the idea of simple commands like `di'` (delete inside the
 # single quotes around the cursor) to give you more opportunities to craft
 # powerful commands that can be repeated reliably. Another major goal is to
 # handle all corner cases correctly.
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
-
-# This plugin provides Vim syntax, indent and filetype detection for Windows
-# PowerShell scripts, modules, and XML configuration files.
-git clone https://github.com/PProvost/vim-ps1 bundle/ps1 && rm -rf bundle/ps1/.git
-
-# This plugin provides syntax and supporting functionality for the Rust filetype.
-git clone https://github.com/rust-lang/rust.vim bundle/rust && rm -rf bundle/rust/.git
-
-# Racer (rust autocomplete) support
-git clone https://github.com/phildawes/racer bundle/racer && rm -rf bundle/racer/.git # Unstable and annoying
 
 # This plugin provides Readline (Emacs) mappings for insert and command line
 # mode that try not to overlap with built-in Vim functionality.

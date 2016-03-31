@@ -1,8 +1,0 @@
-[package]
-name = "test_fixtures"
-version = "0.1.0"
-authors = ["jaxx"]
-
-[lib]
-name = "fixtures"
-path = "src/lib.rs"
