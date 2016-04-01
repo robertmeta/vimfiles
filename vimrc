@@ -70,9 +70,9 @@ nnoremap <leader>f :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
-nnoremap <leader>j tjump /
+nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<cr>
-nnoremap <leader>p ptjump /
+nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>T :TTags<cr>
 nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
