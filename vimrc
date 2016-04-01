@@ -32,8 +32,6 @@ nnoremap gj j
 nnoremap gk k
 nnoremap j gj
 nnoremap k gk
-nnoremap <leader>j <C-f>
-nnoremap <leader>k <C-b>
 " Window control
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
@@ -62,6 +60,8 @@ nnoremap <leader>A :argadd **/
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>b :b **/<C-d>
 nnoremap <leader>B :buffers<cr>
+nnoremap <leader>C :chdir **/
+nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>d :Dlist<space>
 nnoremap <leader>E :e **/
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
@@ -70,7 +70,9 @@ nnoremap <leader>f :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
+nnoremap <leader>j tjump /
 nnoremap <leader>m :make<cr>
+nnoremap <leader>p ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>T :TTags<cr>
 nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
@@ -100,6 +102,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=longest,menuone " complete menu
 set complete=.,w,b,u,t " complete options
+set cursorline " cursor line
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
@@ -129,7 +132,6 @@ set noautoread " nope
 set noautowriteall " nope
 set noautowrite " nope
 set nocursorcolumn " disable global cursor column
-set cursorline " cursor line
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
@@ -137,8 +139,6 @@ set nolist " nope nope nope
 set nomore " Scroll away, no pausing
 set norelativenumber " no thank you
 set nospell " nope nope nope
-set nosplitbelow " split above
-set nosplitright " split left
 set nostartofline " leave my cursor where it was
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
@@ -161,6 +161,8 @@ set sidescroll=5 " If you hit edge, jump 5
 set sidescrolloff=5 " Keep 5 lines at the size
 set smartcase " Smart case enabled
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
+set splitbelow " split below
+set splitright " split right
 set switchbuf=useopen " when working with quickfix use new splits
 set synmaxcol=500 " Don't try to highlight lines longer than X characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
