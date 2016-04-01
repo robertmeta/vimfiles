@@ -8,24 +8,24 @@
 "
 "   source: https://github.com/robertmeta/vimfiles
 
-" Baseline 
+" Baseline
 set encoding=utf-8 " yey! utf-8
 scriptencoding utf-8 " yey! utf-8
 " adds stuff under bundles to the path
 execute pathogen#infect()
 execute pathogen#helptags()
 
-" DRY helpers 
+" DRY helpers
 let s:running_windows=has("win16") || has("win32") || has("win64")
 let s:colorful_term=(&term=~"xterm") || (&term=~"screen")
 
-" Loading Settings 
+" Loading Settings
 let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 syntax on " syntax highlighting on
 syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 
-" Mappings 
+" Mappings
 let mapleader="\<space>"
 " Scrolling/Line movement
 nnoremap gj j
@@ -38,14 +38,18 @@ nnoremap <leader>k <C-b>
 nnoremap <leader>o <C-W>o
 nnoremap <leader>w <C-W>w
 nnoremap <silent> <leader>c <esc>:close<cr>
-nnoremap <silent> <leader>S <esc>:SyntasticCheck<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
 " Arrow control
-nmap <up> <Plug>QfLprevious
-nmap <down> <Plug>QfLnext
-nmap <left> <Plug>QfCprevious
-nmap <right> <Plug>QfCnext
+nmap <left> <esc>:bp<cr>
+nmap <right> <esc>:bn<cr>
+nmap <up> <Plug>QfCprevious
+nmap <down> <Plug>QfCnext
+" Bind
+nmap ]l <Plug>QfLprevious
+nmap [l <Plug>QfLnext
+nmap [q <Plug>QfCprevious
+nmap ]q <Plug>QfCnext
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
@@ -54,6 +58,8 @@ vnoremap <BS> x
 nnoremap <silent> <BS> :nohlsearch<cr>
 " Random Mappings
 nmap - <leader>e
+nnoremap <leader>A :argadd **/
+nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>b :b **/<C-d>
 nnoremap <leader>B :buffers<cr>
 nnoremap <leader>d :Dlist<space>
@@ -61,10 +67,6 @@ nnoremap <leader>E :e **/
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>F :find **/
 nnoremap <leader>f :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>g% :call ttags#List(0, "*", "", ".")<cr>
-nnoremap <leader>g* :call ttags#List(0, "*", tlib#rx#Escape(expand("<cword>")) .".*")<cr>
-nnoremap <leader>g# :call ttags#List(0, "*", tlib#rx#Escape(expand("<cword>")))<cr>
-nnoremap <leader>g? :call ttags#List(1, "*", tlib#rx#Escape(expand("<cword>")))<cr>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
@@ -92,7 +94,7 @@ nnoremap <silent> <leader>x :VimuxInterruptRunner<cr>
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
 
-" Basics Settings 
+" Basics Settings
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
@@ -172,7 +174,7 @@ set t_vb= " seriously, shhhh, don't be noisy
 set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
 
-" Clipboard, Backup and Undo 
+" Clipboard, Backup and Undo
 set backup " make backup files
 if s:running_windows
     set backupdir=~/vimfiles/backup/ " where to put backup files
@@ -187,7 +189,7 @@ set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
 
-" Wildmenu 
+" Wildmenu
 set wildmenu " turn on command line completion wild style
 set wildignore=*.a,*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
@@ -208,7 +210,7 @@ else
 endif
 set wildmode=list:longest " turn on wild mode huge list
 
-" Various formatting / output options 
+" Various formatting / output options
 set viminfo=!,h,'500,<10000,s1000,/1000,:1000
 "             | | |    |      |     |     |
 "             | | |    |      |     |     +-- remember last 1000 commands
@@ -273,7 +275,7 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "               | +-- <Space> Normal and Visual
 "               +-- <BS> Normal and Visual
 
-" Autocommands 
+" Autocommands
 if has("autocmd")
     augroup general
         " Clear!
@@ -299,7 +301,7 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal relativenumber cursorline 
+        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal relativenumber cursorline
         au WinLeave * setlocal nocursorline norelativenumber
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
@@ -307,7 +309,7 @@ if has("autocmd")
     augroup END
 endif
 
-" GUI 
+" GUI
 if has("gui_running")
     set guifont=Hack:h08:cANSI " My favorite font
     set guioptions=ce
@@ -316,7 +318,7 @@ if has("gui_running")
     "              +-- use simple dialogs rather than pop-ups
 endif
 
-" 256 color term tweaks 
+" 256 color term tweaks
 if s:colorful_term
     " 256 color -- this is a bad idea generally, but I use it anyway
     let &t_Co=256
@@ -332,7 +334,7 @@ if s:colorful_term
     endif
 endif
 
-" Mousing 
+" Mousing
 if has("mouse")
     set mouse=a " use mouse everywhere
     set nomousehide " don't hide the mouse
@@ -345,7 +347,7 @@ if has("mouse")
     endif
 endif
 
-" Ag Grep 
+" Ag Grep
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
     set grepformat=%f:%l:%c:%m,%f:%l:%m
@@ -355,20 +357,20 @@ if executable("pt")
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-" Markdown 
+" Markdown
 let g:vim_markdown_folding_disabled=0
 let g:vim_markdown_frontmatter=1
 
-" Netrw 
+" Netrw
 let g:netrw_altfile=1
 
-" Nofrils 
+" Nofrils
 let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
 colo nofrils-dark
 
-" Functions 
+" Functions
 function! ToggleFolds()
-    if !exists("b:myfolded") 
+    if !exists("b:myfolded")
         let b:myfolded = 0
     endif
 
