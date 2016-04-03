@@ -87,6 +87,8 @@ inoremap <silent> ,n <C-x><C-n><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>dow
 inoremap <silent> ,o <C-x><C-o><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
 inoremap <silent> ,t <C-x><C-]><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
 inoremap <silent> ,u <C-x><C-u><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
+" Exact same as ,u -- just reminds me it is Tmux
+inoremap <silent> ,T <C-x><C-u><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
 " Vimux
 nnoremap <silent> <leader>r :VimuxRunLastCommand<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
