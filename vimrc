@@ -38,6 +38,7 @@ nnoremap <leader>w <C-W>w
 nnoremap <silent> <leader>c <esc>:close<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
+
 " Arrow control
 nmap <left> <esc>:bp<cr>
 nmap <right> <esc>:bn<cr>
@@ -51,15 +52,15 @@ nmap ]q <Plug>QfCnext
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
-vnoremap <BS> x
+vnoremap <bs> x
 " Turn off search highlight with backspace
-nnoremap <silent> <BS> :nohlsearch<cr>
+nnoremap <silent> <bs> :nohlsearch<cr>
 " Random Mappings
 nmap - <leader>e
 nnoremap <leader>A :argadd **/
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>b :b **/<C-d>
-nnoremap <leader>B :buffers<cr>
+nnoremap <silent> <leader>B :buffers<cr>
 nnoremap <leader>C :chdir **/
 nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>d :Dlist<space>
@@ -71,18 +72,21 @@ nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :tjump /
-nnoremap <leader>m :make<cr>
+nnoremap <silent> <leader>m :make<cr>
 nnoremap <leader>p :ptjump /
-nnoremap <leader>q :b#<cr>
-nnoremap <leader>T :TTags<cr>
-nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
-nnoremap <leader>z :call ToggleFolds()<cr>
+nnoremap <silent> <leader>s :call StripTrailingWhitespace()<cr>
+nnoremap <silent> <leader>q :b#<cr>
+nnoremap <silent> <leader>T :TTags<cr>
+nnoremap <silent> <leader>t :TTags<space>*<space>*<space>.<cr>
+nnoremap <silent> <leader>z :call ToggleFolds()<cr>
 " Autocomplete
-inoremap ,i <C-x><C-i><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
-inoremap ,o <C-x><C-o><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
-inoremap ,f <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
-inoremap ,l <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
-inoremap ,n <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>" : ""<CR>
+inoremap <silent> ,f <C-x><C-f><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
+inoremap <silent> ,i <C-x><C-i><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
+inoremap <silent> ,l <C-x><C-l><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
+inoremap <silent> ,n <C-x><C-n><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
+inoremap <silent> ,o <C-x><C-o><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
+inoremap <silent> ,t <C-x><C-]><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
+inoremap <silent> ,u <C-x><C-u><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
 " Vimux
 nnoremap <silent> <leader>r :VimuxRunLastCommand<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
@@ -166,6 +170,7 @@ set splitright " split right
 set switchbuf=useopen " when working with quickfix use new splits
 set synmaxcol=500 " Don't try to highlight lines longer than X characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on
+set tags=./tags;,tags; " interesting!
 set textwidth=0 " No autowrapping
 set title " mess with the title
 set titlestring= " no title string
@@ -175,7 +180,6 @@ set ttyfast " Assume a fast terminal
 set t_vb= " seriously, shhhh, don't be noisy
 set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " Going to try to love it, again
-
 " Clipboard, Backup and Undo
 set backup " make backup files
 if s:running_windows
@@ -275,7 +279,7 @@ set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "               | | | +-- "l" Normal and Visual (not recommended)
 "               | | +-- "h" Normal and Visual (not recommended)
 "               | +-- <Space> Normal and Visual
-"               +-- <BS> Normal and Visual
+"               +-- <bs> Normal and Visual
 
 " Autocommands
 if has("autocmd")
@@ -383,4 +387,14 @@ function! ToggleFolds()
         execute("%foldc")
         let b:myfolded = 1
     endif
+endfunction
+
+function! StripTrailingWhitespace()
+  if !&binary && &filetype != 'diff'
+    normal mz
+    normal Hmy
+    %s/\s\+$//e
+    normal 'yz<CR>
+    normal `z
+  endif
 endfunction
