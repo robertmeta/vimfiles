@@ -59,7 +59,7 @@ nnoremap <silent> <bs> :nohlsearch<cr>
 nmap - <leader>e
 nnoremap <leader>A :argadd **/
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>b :b **/<C-d>
+nnoremap <leader>b :b */*<C-d>
 nnoremap <silent> <leader>B :buffers<cr>
 nnoremap <leader>C :chdir **/
 nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
