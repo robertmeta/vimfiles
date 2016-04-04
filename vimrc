@@ -220,68 +220,76 @@ set wildmode=list:longest " turn on wild mode huge list
 
 " Various formatting / output options
 set viminfo=!,h,'500,<10000,s1000,/1000,:1000
-"             | | |    |      |     |     |
-"             | | |    |      |     |     +-- remember last 1000 commands
-"             | | |    |      |     +-- remember last 1000 search patterns
-"             | | |    |      +- remember up to 1MB in each register
-"             | | |    +-- remember up to 10000 lines in each register
-"             | | +-- remember marks for last 500 files
-"             | +-- disable hlsearch while loading viminfo
-"             +-- include uppercase registers
+"           | | |    |      |     |     |
+"           | | |    |      |     |     +-- remember last 1000 commands
+"           | | |    |      |     +-- remember last 1000 search patterns
+"           | | |    |      +- remember up to 1MB in each register
+"           | | |    +-- remember up to 10000 lines in each register
+"           | | +-- remember marks for last 500 files
+"           | +-- disable hlsearch while loading viminfo
+"           +-- include uppercase registers
 "
 set formatoptions=qrn1j " used to be just rq
-"                   |||||
-"                   ||||+-- remove comment when joining lines
-"                   |||+-- don't break after one letter word
-"                   ||+-- format numbered lists using 'formatlistpat'
-"                   |+-- enter extends comments
-"                   +-- allow gq to work on comment
+"                 |||||
+"                 ||||+-- remove comment when joining lines
+"                 |||+-- don't break after one letter word
+"                 ||+-- format numbered lists using 'formatlistpat'
+"                 |+-- enter extends comments
+"                 +-- allow gq to work on comment
 "
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
-"               ||||||
-"               |||||+-- no intro message
-"               ||||+-- truncate messages in the middle
-"               |||+-- truncate file message
-"               ||+-- not "Search hit bottom" crap
-"               |+-- file read message overwrites subsequent
-"               +-- use every short text trick
+"             ||||||
+"             |||||+-- no intro message
+"             ||||+-- truncate messages in the middle
+"             |||+-- truncate file message
+"             ||+-- not "Search hit bottom" crap
+"             |+-- file read message overwrites subsequent
+"             +-- use every short text trick
 "
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-"                | | | | |  | |      |  |     |    |
-"                | | | | |  | |      |  |     |    +-- current column
-"                | | | | |  | |      |  |     +-- current line
-"                | | | | |  | |      |  +-- current % into file
-"                | | | | |  | |      +-- current syntax in square brackets
-"                | | | | |  | +-- current fileformat
-"                | | | | |  +-- number of lines
-"                | | | | +-- preview flag in square brackets
-"                | | | +-- help flag in square brackets
-"                | | +-- readonly flag in square brackets
-"                | +-- rodified flag in square brackets
-"                +-- full path to file in the buffer
+"              | | | | |  |   |      |  |     |    |
+"              | | | | |  |   |      |  |     |    +-- current column
+"              | | | | |  |   |      |  |     +-- current line
+"              | | | | |  |   |      |  +-- current % into file
+"              | | | | |  |   |      +-- current syntax in square brackets
+"              | | | | |  |   +-- current fileformat
+"              | | | | |  +-- number of lines
+"              | | | | +-- preview flag in square brackets
+"              | | | +-- help flag in square brackets
+"              | | +-- readonly flag in square brackets
+"              | +-- rodified flag in square brackets
+"              +-- full path to file in the buffer
 "
 set cpoptions=aABceFsmq
-"               |||||||||
-"               ||||||||+-- When joining lines, leave the cursor between joined lines
-"               |||||||+-- When a new match is created (showmatch) pause for .5
-"               ||||||+-- Set buffer options when entering the buffer
-"               |||||+-- :write command updates current file name automatically add <cr> to the last line when using :@r
-"               |||+-- Searching continues at the end of the match at the cursor position
-"               ||+-- A backslash has no special meaning in mappings
-"               |+-- :write updates alternative file name
-"               +-- :read updates alternative file name
+"             |||||||||
+"             ||||||||+-- When joining lines, leave the cursor between joined lines
+"             |||||||+-- When a new match is created (showmatch) pause for .5
+"             ||||||+-- Set buffer options when entering the buffer
+"             |||||+-- :write command updates current file name automatically add <cr> to the last line when using :@r
+"             |||+-- Searching continues at the end of the match at the cursor position
+"             ||+-- A backslash has no special meaning in mappings
+"             |+-- :write updates alternative file name
+"             +-- :read updates alternative file name
 "
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
-"               | | | | | | | | |
-"               | | | | | | | | +-- "]" Insert and Replace
-"               | | | | | | | +-- "[" Insert and Replace
-"               | | | | | | +-- "~" Normal
-"               | | | | | +-- <Right> Normal and Visual
-"               | | | | +-- <Left> Normal and Visual
-"               | | | +-- "l" Normal and Visual (not recommended)
-"               | | +-- "h" Normal and Visual (not recommended)
-"               | +-- <Space> Normal and Visual
-"               +-- <bs> Normal and Visual
+"             | | | | | | | | |
+"             | | | | | | | | +-- "]" Insert and Replace
+"             | | | | | | | +-- "[" Insert and Replace
+"             | | | | | | +-- "~" Normal
+"             | | | | | +-- <Right> Normal and Visual
+"             | | | | +-- <Left> Normal and Visual
+"             | | | +-- "l" Normal and Visual (not recommended)
+"             | | +-- "h" Normal and Visual (not recommended)
+"             | +-- <Space> Normal and Visual
+"             +-- <bs> Normal and Visual
+
+" Additional text objects
+for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '`' ]
+    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
+    execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
+    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
+    execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
+endfor
 
 " Autocommands
 if has("autocmd")
