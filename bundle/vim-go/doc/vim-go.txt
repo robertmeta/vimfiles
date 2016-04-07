@@ -47,7 +47,7 @@ easily.
   * Automatic `GOPATH` detection based on the directory structure (i.e. `gb`
     projects, `godep` vendored projects)
   * Change or display `GOPATH` with `:GoPath`
-  * Create a coverage profile and display annotated source code in browser to see
+  * Create a coverage profile and display annotated source code in to see
     which functions are covered with `:GoCoverage`
   * Call `gometalinter` with `:GoMetaLinter`, which invokes all possible linters
     (golint, vet, errcheck, deadcode, etc..) and shows the warnings/errors
@@ -323,12 +323,21 @@ COMMANDS                                                          *go-commands*
 
     If [!] is not given the first error is jumped to.
 
-    If using neovim `:GoTestCompile` will run in a new terminal or run asynchronously
-    in the background according to |g:go_term_enabled|. You can set the mode of
-    the new terminal with |g:go_term_mode|.
+    If using neovim `:GoTestCompile` will run in a new terminal or run
+    asynchronously in the background according to |g:go_term_enabled|. You can
+    set the mode of the new terminal with |g:go_term_mode|.
 
                                                                 *:GoCoverage*
 :GoCoverage[!] [options]
+
+    Create a coverage profile and annotates the current file's source code. If
+    called again clears the annotation (works as a toggle)
+
+    If [!] is not given the first error is jumped to.
+
+
+                                                          *:GoCoverageBrowser*
+:GoCoverageBrowser[!] [options]
 
     Create a coverage profile and open a browser to display the annotated
     source code of the current package.
@@ -980,7 +989,13 @@ also enabled. By default it's enabled. >
 
 	let g:go_highlight_string_spellcheck = 1
 <
+                                        *'g:go_highlight_format_strings*
 
+Use this option to highlight printf-style operators inside string literals.
+By default it's enabled. >
+
+	let g:go_highlight_format_strings = 1
+<
                                                 *'g:go_autodetect_gopath'*
 
 Automatically modifies GOPATH for certain directory structures, such as for

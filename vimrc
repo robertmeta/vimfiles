@@ -87,8 +87,6 @@ inoremap <silent> ,n <C-x><C-n><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>dow
 inoremap <silent> ,o <C-x><C-o><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
 inoremap <silent> ,t <C-x><C-]><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
 inoremap <silent> ,u <C-x><C-u><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
-" Exact same as ,u -- just reminds me it is Tmux
-inoremap <silent> ,T <C-x><C-u><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
 " Vimux
 nnoremap <silent> <leader>r :VimuxRunLastCommand<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
@@ -216,7 +214,7 @@ if s:running_windows
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
 endif
-set wildmode=list:longest " turn on wild mode huge list
+set wildmode=full " turn on wild mode full match only
 
 " Various formatting / output options
 set viminfo=!,h,'500,<10000,s1000,/1000,:1000
