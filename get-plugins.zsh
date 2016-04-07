@@ -10,6 +10,7 @@ git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm 
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 
 # Plugins
+git clone https://github.com/ajh17/VimCompletesMe bundle/vcm && rm -rf bundle/vcm/.git
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
 git clone https://github.com/ludovicchabant/vim-gutentags bundle/gutentags && rm -rf bundle/gutentags/.git
