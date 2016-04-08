@@ -214,7 +214,7 @@ if s:running_windows
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
 endif
-set wildmode=full " turn on wild mode full match only
+set wildmode=list:longest " turn on wild mode full match only
 
 " Various formatting / output options
 set viminfo=!,h,'500,<10000,s1000,/1000,:1000
