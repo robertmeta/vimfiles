@@ -1,6 +1,5 @@
 # You want to know what plugins I use huh?  Check out: 
 # https://www.robertmelton.com/2014/05/27/vim-and-me/
-# 
 rm -rf bundle
 mkdir -p bundle
 

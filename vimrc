@@ -42,13 +42,8 @@ nnoremap <silent> <leader>% :vsplit<cr>
 " Arrow control
 nmap <left> <esc>:bp<cr>
 nmap <right> <esc>:bn<cr>
-nmap <up> <Plug>QfCprevious
-nmap <down> <Plug>QfCnext
-" Bind
-nmap ]l <Plug>QfLprevious
-nmap [l <Plug>QfLnext
-nmap [q <Plug>QfCprevious
-nmap ]q <Plug>QfCnext
+nnoremap <up> <esc>:cprev<cr>
+nnoremap <down>  <esc>:cnext<cr>
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
@@ -59,8 +54,8 @@ nnoremap <silent> <bs> :nohlsearch<cr>
 nmap - <leader>e
 nnoremap <leader>A :argadd **/
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>b :b */*<C-d>
-nnoremap <silent> <leader>B :buffers<cr>
+nnoremap <leader>b :b *<C-d>
+nnoremap <leader>B :ls<cr>:b<space>
 nnoremap <leader>C :chdir **/
 nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>d :Dlist<space>
@@ -72,13 +67,13 @@ nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :tjump /
-nnoremap <silent> <leader>m :make<cr>
+nnoremap <leader>m :make<cr>
 nnoremap <leader>p :ptjump /
-nnoremap <silent> <leader>s :call StripTrailingWhitespace()<cr>
-nnoremap <silent> <leader>q :b#<cr>
-nnoremap <silent> <leader>T :TTags<cr>
-nnoremap <silent> <leader>t :TTags<space>*<space>*<space>.<cr>
-nnoremap <silent> <leader>z :call ToggleFolds()<cr>
+nnoremap <leader>q :b#<cr>
+nnoremap <leader>s :call StripTrailingWhitespace()<cr>
+nnoremap <leader>T :TTags<cr>
+nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
+nnoremap <leader>z :call ToggleFolds()<cr>
 " Autocomplete
 inoremap <silent> ,f <C-x><C-f><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
 inoremap <silent> ,i <C-x><C-i><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
