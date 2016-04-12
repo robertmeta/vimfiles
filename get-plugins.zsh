@@ -15,6 +15,7 @@ git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/
 git clone https://github.com/ludovicchabant/vim-gutentags bundle/gutentags && rm -rf bundle/gutentags/.git
 git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
 git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git
+git clone https://github.com/romainl/vim-tinyMRU bundle/mru && rm -rf bundle/mru/.git
 git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git
 git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
 git clone https://github.com/tomtom/ttags_vim bundle/ttags && rm -rf bundle/ttags/.git

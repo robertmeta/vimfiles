@@ -1,0 +1,90 @@
+*tinymru.txt*	A tiny MRU plugin.
+
+
+    vim-tinyMRU documentation by Romain Lafourcade
+
+
+Help on using vim-tinyMRU                                 *tinymru* *vim-tinymru*
+
+    1. Introduction ............................... |tinymru-intro|
+    2. Installation ............................... |tinymru-installation|
+    3. Usage ...................................... |tinymru-usage|
+    4. Tips and tricks ............................ |tinymru-tricks|
+
+==============================================================================
+ 1. INTRODUCTION                                                *tinymru-intro*
+
+Vim-tinyMRU's only purpose is to provide an intuitive alternative to the
+built-in |:oldfile| command. Nothing more, nothing less.
+
+==============================================================================
+ 2. INSTALLATION                                         *tinymru-installation*
+
+Use your favorite plugin/runtimepath manager or dump the files in this
+repository in their standard location:
+
+on Unix-like systems... >
+
+    ~/.vim/doc/tinymru.txt
+    ~/.vim/plugin/tinymru.vim
+<
+on Windows... >
+
+    %userprofile%\vimfiles\doc\tinymru.txt
+    %userprofile%\vimfiles\plugin\tinymru.vim
+<
+and don't forget to execute the following command to make the documentation
+globally available:
+
+on Unix-like systems... >
+
+    :helptags ~/.vim/doc
+<
+on Windows... >
+
+    :helptags %userprofile%\vimfiles\doc
+<
+==============================================================================
+ 3. USAGE                                                       *tinymru-usage*
+
+*:ME* <Tab>
+*:ME* <C-d>
+
+    Functionally identical to |:edit| <Tab> or |:edit| <C-d>. Suggestions are
+    pulled from |v:oldfiles|.
+
+*:MS* <Tab>
+*:MS* <C-d>
+
+    Functionally identical to |:split| <Tab> or |:split| <C-d>. Suggestions are
+    pulled from |v:oldfiles|.
+
+*:MV* <Tab>
+*:MV* <C-d>
+
+    Functionally identical to |:vsplit| <Tab> or |:vsplit| <C-d>. Suggestions are
+    pulled from |v:oldfiles|.
+
+*:MT* <Tab>
+*:MT* <C-d>
+
+    Functionally identical to |:tabedit| <Tab> or |:tabedit| <C-d>. Suggestions
+    are pulled from |v:oldfiles|.
+
+==============================================================================
+ 4. TIPS AND TRICKS                                            *tinymru-tricks*
+
+If you find Ex commands too verbose, it's easy to use the commands above in
+custom mappings.
+
+This mapping does the same thing as |:ME| <Tab> but with only one keypress: >
+
+    set wildcharm=<C-z>
+    nnoremap <F5> :ME <C-z>
+<
+This mapping works like the previous one but only suggests files with the
+same extension as the current file: >
+
+    set wildcharm=<C-z>
+    nnoremap <F5> :ME <C-r>=expand("%:e")<CR><C-z>
+<

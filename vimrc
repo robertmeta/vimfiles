@@ -65,6 +65,8 @@ nnoremap <leader>F :find **/
 nnoremap <leader>f :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
+nnoremap <leader>h :ME <C-d>
+nnoremap <leader>H :ME *
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<cr>
