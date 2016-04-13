@@ -5,8 +5,8 @@ mkdir -p bundle
 
 # Themes
 git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
-git clone https://github.com/NLKNguyen/papercolor-theme bundle/papercolor && rm -rf bundle/papercolor/.git
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
+git clone https://github.com/endel/vim-github-colorscheme bundle/githubtheme && rm -rf bundle/githubtheme/.git
 
 # Plugins
 git clone https://github.com/ajh17/VimCompletesMe bundle/vcm && rm -rf bundle/vcm/.git

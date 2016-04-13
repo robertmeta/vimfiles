@@ -8,11 +8,11 @@
 "
 "   source: https://github.com/robertmeta/vimfiles
 
-" Baseline
-set encoding=utf-8 " yey! utf-8
+" Baseline     
+set encoding=utf-8 " yey! utf-8    
 scriptencoding utf-8 " yey! utf-8
-" adds stuff under bundles to the path
-execute pathogen#infect()
+" adds stuff under bundles to the path   
+execute pathogen#infect()    
 execute pathogen#helptags()
 
 " DRY helpers
@@ -126,7 +126,8 @@ set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
-set listchars=tab:»\ ,eol:¬,trail:‽ " if I need listchars
+set listchars=trail:¤ " if I need listchars
+set list " show trailing whitespace
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
 set noautoread " nope
@@ -136,7 +137,6 @@ set nocursorcolumn " disable global cursor column
 set noerrorbells " don't be noisy
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
-set nolist " nope nope nope
 set nomore " Scroll away, no pausing
 set norelativenumber " no thank you
 set nospell " nope nope nope
