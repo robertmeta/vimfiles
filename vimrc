@@ -129,7 +129,6 @@ set linespace=0 " don't insert any extra pixel lines betweens rows
 set list " show trailing whitespace
 set listchars=""
 set listchars=tab:\ \ 
-set listchars+=trail:.
 set listchars+=trail:¤
 set listchars+=extends:>
 set listchars+=precedes:<
