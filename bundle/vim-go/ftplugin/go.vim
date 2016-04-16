@@ -29,6 +29,8 @@ if get(g:, "go_doc_keywordprg_enabled", 1)
 endif
 
 if get(g:, "go_def_mapping_enabled", 1)
+    " these are default Vim mappings, we're overriding them to make them
+    " useful again for Go source code
     nnoremap <buffer> <silent> gd :GoDef<cr>
     nnoremap <buffer> <silent> <C-]> :GoDef<cr>
     nnoremap <buffer> <silent> <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>
