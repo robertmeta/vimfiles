@@ -14,7 +14,6 @@ scriptencoding utf-8 " yey! utf-8
 " adds stuff under bundles to the path
 execute pathogen#infect()
 execute pathogen#helptags()
-echo max(map(getbufline('%',0,'$'),'strlen(v:val)'))
 " DRY helpers
 let s:running_windows=has("win16") || has("win32") || has("win64")
 let s:colorful_term=(&term=~"xterm") || (&term=~"screen")
