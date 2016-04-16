@@ -24,6 +24,7 @@ let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
 
 " Vimux
+" TODO(rm): Why doesn't this work?
 let g:VimuxLastCommand = "gb build && gb test -v"
 
 " Go setlocalup assumptions: gocode, godef, gotags all in path
@@ -57,3 +58,6 @@ iab <buffer> xfo for i := 0; i < 100; i++ {<CR> <BS><CR><BS>}<UP><END><C-R>=EatC
 iab <buffer> xvar var (<CR> <BS><CR><BS>)<UP><END><C-R>=EatChar('\s')<CR>
 iab <buffer> xcon const (<CR> <BS><CR><BS>)<UP><END><C-R>=EatChar('\s')<CR>
 iab <buffer> xim import (<CR> <BS><CR><BS>)<UP><END><C-R>=EatChar('\s')<CR>
+
+" TODO(rm): add GOPATH/src/** to path
+
