@@ -12,6 +12,7 @@ git clone https://github.com/endel/vim-github-colorscheme bundle/githubtheme && 
 git clone https://github.com/ajh17/VimCompletesMe bundle/vcm && rm -rf bundle/vcm/.git
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
+git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
 git clone https://github.com/ludovicchabant/vim-gutentags bundle/gutentags && rm -rf bundle/gutentags/.git
 git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
 git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git

@@ -53,8 +53,8 @@ nnoremap <silent> <bs> :nohlsearch<cr>
 nmap - <leader>e
 nnoremap <leader>A :argadd **/
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>b :b *<C-d>
 nnoremap <leader>B :ls<cr>:b<space>
+nnoremap <leader>b :b *<C-d>
 nnoremap <leader>C :chdir **/
 nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>d :Dlist<space>
@@ -62,18 +62,18 @@ nnoremap <leader>E :e **/
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>F :find **/
 nnoremap <leader>f :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
-nnoremap <leader>h :ME <C-d>
+nnoremap <leader>g :grep<space>
 nnoremap <leader>H :ME *
+nnoremap <leader>h :ME <C-d>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<cr>
 nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>s :call StripTrailingWhitespace()<cr>
-nnoremap <leader>T :TTags<cr>
-nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
+nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
+nnoremap <leader>t :TTags<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 " Autocomplete
 inoremap <silent> ,f <C-x><C-f><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
@@ -95,6 +95,19 @@ nnoremap <silent> <leader>x :VimuxInterruptRunner<cr>
 " quick command helpers
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
+" Use sneak for f & t
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 
 " Basics Settings
 set backspace=indent,eol,start " make backspace a more flexible
@@ -377,6 +390,12 @@ let g:vim_markdown_frontmatter=1
 
 " Netrw
 let g:netrw_altfile=1
+
+" TTags
+let g:ttags_display='quickfix'
+
+" Sneak
+let g:sneak#streak = 1
 
 " Nofrils
 let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
