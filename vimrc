@@ -162,6 +162,7 @@ set novisualbell " don't be noisy
 set number " line numbers
 set numberwidth=8 " We are good up to LOTS lines
 set omnifunc=syntaxcomplete#Complete
+set pastetoggle=<F10> " paste toggle of course
 set path=. " Default path is local dir, make better with autocommands per language
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
@@ -257,19 +258,22 @@ set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 "             |+-- file read message overwrites subsequent
 "             +-- use every short text trick
 "
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-"              | | | | |  |   |      |  |     |    |
-"              | | | | |  |   |      |  |     |    +-- current column
-"              | | | | |  |   |      |  |     +-- current line
-"              | | | | |  |   |      |  +-- current % into file
-"              | | | | |  |   |      +-- current syntax in square brackets
-"              | | | | |  |   +-- current fileformat
-"              | | | | |  +-- number of lines
-"              | | | | +-- preview flag in square brackets
-"              | | | +-- help flag in square brackets
-"              | | +-- readonly flag in square brackets
-"              | +-- rodified flag in square brackets
-"              +-- full path to file in the buffer
+set statusline=[%F]%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]%{gutentags#statusline('[Generating\ Tags...]')}%{fugitive#statusline()}[%{getcwd()}]
+"               |  | | | |  |   |      |  |     |    |    |                                               |                        |
+"               |  | | | |  |   |      |  |     |    |    |                                               |                        + working directory
+"               |  | | | |  |   |      |  |     |    |    |                                               + fugative status
+"               |  | | | |  |   |      |  |     |    |    + gutentags status
+"               |  | | | |  |   |      |  |     |    +-- current column
+"               |  | | | |  |   |      |  |     +-- current line
+"               |  | | | |  |   |      |  +-- current % into file
+"               |  | | | |  |   |      +-- current syntax in square brackets
+"               |  | | | |  |   +-- current fileformat
+"               |  | | | |  +-- number of lines
+"               |  | | | +-- preview flag in square brackets
+"               |  | | +-- help flag in square brackets
+"               |  | +-- readonly flag in square brackets
+"               |  +-- rodified flag in square brackets
+"               +-- full path to file in the buffer
 "
 set cpoptions=aABceFsmq
 "             |||||||||
