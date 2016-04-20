@@ -3,7 +3,7 @@ func! EatChar(pat)
     return (c =~ a:pat) ? '' : c
 endfunc
 
-" Vim Go (vim-go) 
+" Vim Go (vim-go)
 let g:go_auto_type_info=0
 let g:go_bin_path=$HOME."/go/bin"
 let g:godef_same_file_in_same_window=1
@@ -35,9 +35,9 @@ nnoremap <buffer> gr <Plug>(go-rename)
 nnoremap <buffer> gT <Plug>(go-test)
 nnoremap <buffer> gt <Plug>(go-test-func)
 
-setlocal noexpandtab 
-setlocal shiftwidth=8 
-setlocal softtabstop=8 
+setlocal noexpandtab
+setlocal shiftwidth=8
+setlocal softtabstop=8
 setlocal makeprg=gometalinter
 
 iab <buffer> xif if  {<CR> <BS><CR><BS>}<UP><UP><RIGHT><RIGHT><C-R>=EatChar('\s')<CR>

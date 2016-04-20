@@ -402,7 +402,8 @@ let g:ttags_display='quickfix'
 let g:sneak#streak = 1
 
 " Nofrils
-let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
+let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
+let g:nofrils_heavycomments=0 " bright comments off
 colo nofrils-dark
 
 " Functions
