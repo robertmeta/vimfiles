@@ -1,13 +1,17 @@
-## 1.6 (unreleased)
+## 1.6 (April 25, 2016)
 
 FEATURES:
 
 * New `CHANGELOG.md` file (which you're reading now). This will make it easier
   for me to track changes and release versions
 * **`:GoCoverage`** is now highlighting the current source file for
-  covered/uncovered lines. If called again it clears the highlighting. This is
-  a pretty good addition to vim-go and I suggest to check out the gif that shows
-  it in action: https://twitter.com/fatih/status/716722650383564800 [gh-786]
+  covered/uncovered lines. If called again it runs the tests and updates the
+  annotation. Use `:GoCoverageClear` to clear the coverage annotation.
+  This is a pretty good addition to vim-go and I suggest to check out the gif
+  that shows it in action: https://twitter.com/fatih/status/716722650383564800
+  [gh-786]
+* **`:GoCoverageToggle`** just like `:GoCoverage` but acts as a toggle. If run
+  again it clears the annotation.
 * **`:GoCoverageBrowser`** opens a new annotated HTML page. This is the old
   `:GoCoverage` behavior [gh-786]
 * **`:GoDoc`** uses now [gogetdoc](https://github.com/zmb3/gogetdoc) to
@@ -37,7 +41,7 @@ IMPROVEMENTS:
 * **`:GoTestFunc`** supports now testable examples [gh-794]
 * **`:GoDef`** can jump to existing buffers instead of opening a new window
   (split, vsplit or tab). By default it's disabled to not break the old
-  behavior, can be enabled with `let g:go_def_use_buffer = 1`
+  behavior, can be enabled with `let g:go_def_reuse_buffer = 1`
 
 BUG FIXES:
 

@@ -39,8 +39,8 @@ nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
 
 " Arrow control
-nmap <left> <esc>:bp<cr>
-nmap <right> <esc>:bn<cr>
+nmap <left> <esc>:lprev<cr>
+nmap <right> <esc>:lnext<cr>
 nnoremap <up> <esc>:cprev<cr>
 nnoremap <down>  <esc>:cnext<cr>
 " page facing view: side-by-side view of same buffer scrollbound
@@ -67,6 +67,7 @@ nnoremap <leader>g :grep<space>
 nnoremap <leader>H :ME *
 nnoremap <leader>h :ME <C-d>
 nnoremap <leader>i :Ilist<space>
+nnoremap <leader>l :lgrep<space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>m :make<cr>
 nnoremap <leader>p :ptjump /
