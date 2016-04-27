@@ -76,14 +76,15 @@ nnoremap <leader>s :call StripTrailingWhitespace()<cr>
 nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>t :TTags<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
+
 " Autocomplete
-inoremap <silent> ,f <C-x><C-f><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
-inoremap <silent> ,i <C-x><C-i><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
-inoremap <silent> ,l <C-x><C-l><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
-inoremap <silent> ,n <C-x><C-n><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
-inoremap <silent> ,o <C-x><C-o><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
-inoremap <silent> ,t <C-x><C-]><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
-inoremap <silent> ,u <C-x><C-u><C-r>=pumvisible() ? "\<lt>down>\<lt>C-p>\<lt>down>" : ""<cr>
+inoremap <silent> ,f <C-x><C-f>
+inoremap <silent> ,i <C-x><C-i>
+inoremap <silent> ,l <C-x><C-l>
+inoremap <silent> ,n <C-x><C-n>
+inoremap <silent> ,o <C-x><C-o>
+inoremap <silent> ,t <C-x><C-]>
+inoremap <silent> ,u <C-x><C-u>
 " Vimux
 nnoremap <silent> <leader>r :VimuxRunLastCommand<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
@@ -114,7 +115,7 @@ omap T <Plug>Sneak_T
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
-set completeopt=longest,menuone " complete menu
+set completeopt=longest,menu,menuone,noinsert,noselect
 set complete=.,w,b,u,t " complete options
 set cursorline " cursor line
 set diffopt=filler,iwhite " filler and whitespace
