@@ -54,7 +54,7 @@ function! go#coverage#Buffer(bang, ...)
         return
     endif
 
-    if go#util#ShellError() != 0
+    if go#util#ShellError() == 0
         call go#coverage#overlay(l:tmpname)
     endif
 
@@ -63,7 +63,10 @@ endfunction
 
 " Clear clears and resets the buffer annotation matches
 function! go#coverage#Clear()
-    if exists("g:syntax_on") | syntax enable | endif
+    " only reset the syntax if the user has syntax enabled
+    if !empty(&syntax)
+        if exists("g:syntax_on") | syntax enable | endif
+    endif
 
     if exists("s:toggle") | let s:toggle = 0 | endif
 
@@ -90,7 +93,7 @@ function! go#coverage#Browser(bang, ...)
         let s:coverage_browser_handler_jobs[id] = l:tmpname
         return
     endif
-    if go#util#ShellError() != 0
+    if go#util#ShellError() == 0
         let openHTML = 'go tool cover -html='.l:tmpname
         call go#tool#ExecuteInDir(openHTML)
     endif

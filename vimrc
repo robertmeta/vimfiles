@@ -140,12 +140,13 @@ set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
-set list " show trailing whitespace
+set list " show listchars
 set listchars=""
-set listchars=tab:\ \ 
-set listchars+=trail:¤
-set listchars+=extends:>
-set listchars+=precedes:<
+set listchars=tab:│\ 
+set listchars+=trail:•
+set listchars+=nbsp:‡
+set listchars+=extends:⟩
+set listchars+=precedes:⟨
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
 set noautoread " nope
@@ -173,7 +174,7 @@ set scrolloff=5 " Keep focus on middle of screen when possible
 set secure " but lets not go crazy
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
-set showbreak=›››\  " this is how we show breaks (this comment is broken in vim, dafaq)
+set showbreak=↪\ \  " this is how we show breaks
 set showcmd " Show the commands
 set showmatch " do show matching things
 set showmode " default but just in case

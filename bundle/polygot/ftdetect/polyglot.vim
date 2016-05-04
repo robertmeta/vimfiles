@@ -1,15 +1,17 @@
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'ansible') == -1
   
-function! DetectAnsible()
+function! s:isAnsible()
   let filepath = expand("%:p")
   let filename = expand("%:t")
-  if filepath =~ '\v/(tasks|roles)/.*\.ya?ml$' || filepath =~ '\v/(group|host)_vars/' || filename =~ '\v(playbook|site)\.ya?ml$'
-    set ft=ansible
-  endif
-  unlet filepath
-  unlet filename
+  if filepath =~ '\v/(tasks|roles|handlers)/.*\.ya?ml$' | return 1 | en
+  if filepath =~ '\v/(group|host)_vars/' | return 1 | en
+  if filename =~ '\v(playbook|site|main|local)\.ya?ml$' | return 1 | en
+  let shebang = getline(1)
+  if shebang =~# '^#!.*/bin/env\s\+ansible-playbook\>' | return 1 | en
+  if shebang =~# '^#!.*/bin/ansible-playbook\>' | return 1 | en
+  return 0
 endfunction
-:au BufNewFile,BufRead *.yml,*yaml,*/{group,host}_vars/*  call DetectAnsible()
+:au BufNewFile,BufRead * if s:isAnsible() | set ft=ansible | en
 :au BufNewFile,BufRead *.j2 set ft=ansible_template
 :au BufNewFile,BufRead hosts set ft=ansible_hosts
 endif
@@ -51,6 +53,19 @@ if has("autocmd")
   au  BufNewFile,BufRead *.cql set filetype=cql
 endif
 endif
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'cryptol') == -1
+  
+au! BufRead,BufNewFile *.cry set filetype=cryptol
+au! BufRead,BufNewFile *.cyl set filetype=cryptol
+au! BufRead,BufNewFile *.lcry set filetype=cryptol
+au! BufRead,BufNewFile *.lcyl set filetype=cryptol
+endif
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'crystal') == -1
+  
+autocmd BufNewFile,BufReadPost *.cr setlocal filetype=crystal
+autocmd BufNewFile,BufReadPost Projectfile setlocal filetype=crystal
+autocmd BufNewFile,BufReadPost *.ecr setlocal filetype=eruby
+endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'cucumber') == -1
   
 autocmd BufNewFile,BufReadPost *.feature,*.story set filetype=cucumber
@@ -67,8 +82,8 @@ if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'elixir') == -1
   
 au BufRead,BufNewFile *.ex,*.exs call s:setf('elixir')
 au BufRead,BufNewFile *.eex call s:setf('eelixir')
+au BufRead,BufNewFile * call s:DetectElixir()
 au FileType elixir,eelixir setl sw=2 sts=2 et iskeyword+=!,?
-au BufNewFile,BufRead * call s:DetectElixir()
 function! s:setf(filetype) abort
   let &filetype = a:filetype
 endfunction
@@ -95,6 +110,22 @@ endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'erlang') == -1
   
 au BufNewFile,BufRead *.erl,*.hrl,rebar.config,*.app,*.app.src,*.yaws,*.xrl set ft=erlang
+endif
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'fish') == -1
+  
+autocmd BufRead,BufNewFile *.fish setfiletype fish
+autocmd BufRead *
+            \ if getline(1) =~# '\v^#!%(\f*/|/usr/bin/env\s*<)fish>' |
+            \     setlocal filetype=fish |
+            \ endif
+autocmd BufRead fish_funced_*_*.fish call search('^$')
+autocmd BufRead,BufNewFile ~/.config/fish/fish_{read_,}history setfiletype yaml
+autocmd BufRead,BufNewFile ~/.config/fish/fishd.* setlocal readonly
+autocmd BufNewFile ~/.config/fish/functions/*.fish
+            \ call append(0, ['function '.expand('%:t:r'),
+                             \'',
+                             \'end']) |
+            \ 2
 endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'git') == -1
   
@@ -157,13 +188,21 @@ if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'haxe') == -1
   
 autocmd BufNewFile,BufRead *.hx setf haxe
 endif
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'jade') == -1
-  
-autocmd BufNewFile,BufReadPost *.jade set filetype=jade
-endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'jasmine') == -1
   
 autocmd BufNewFile,BufRead *Spec.js,*_spec.js set filetype=jasmine.javascript syntax=jasmine
+endif
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'javascript') == -1
+  
+au BufNewFile,BufRead *.js setf javascript
+au BufNewFile,BufRead *.jsm setf javascript
+au BufNewFile,BufRead Jakefile setf javascript
+fun! s:SelectJavascript()
+  if getline(1) =~# '^#!.*/bin/env\s\+node\>'
+    set ft=javascript
+  endif
+endfun
+au BufNewFile,BufRead * call s:SelectJavascript()
 endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'jsx') == -1
   
@@ -188,22 +227,6 @@ autocmd BufNewFile,BufRead *.jsx let b:jsx_ext_found = 1
 autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 autocmd BufNewFile,BufRead *.js
   \ if <SID>EnableJSX() | set filetype=javascript.jsx | endif
-endif
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'jinja') == -1
-  
-fun! s:SelectHTML()
-  let n = 1
-  while n < 50 && n <= line("$")
-    " check for jinja
-    if getline(n) =~ '{{.*}}\|{%-\?\s*\(end.*\|extends\|block\|macro\|set\|if\|for\|include\|trans\)\>'
-      set ft=jinja
-      return
-    endif
-    let n = n + 1
-  endwhile
-endfun
-autocmd BufNewFile,BufRead *.html,*.htm,*.nunjucks,*.nunjs  call s:SelectHTML()
-autocmd BufNewFile,BufRead *.jinja2,*.j2,*.jinja set ft=jinja
 endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'json') == -1
   
@@ -320,6 +343,18 @@ endfunction
 autocmd BufReadPost *.pl,*.pm,*.t call s:DetectPerl6()
 autocmd BufNew,BufNewFile,BufRead *.nqp setf perl6
 endif
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'pgsql') == -1
+  
+au BufNewFile,BufRead *.pgsql           setf pgsql
+endif
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'plantuml') == -1
+  
+if did_filetype()
+	  finish
+endif
+autocmd BufRead,BufNewFile * :if getline(1) =~ '^.*startuml.*$'|  setfiletype plantuml | endif
+autocmd BufRead,BufNewFile *.pu,*.uml,*.plantuml set filetype=plantuml
+endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'protobuf') == -1
   
 autocmd BufNewFile,BufRead *.proto setfiletype proto
@@ -334,10 +369,20 @@ if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'powershell') ==
   
 au BufNewFile,BufRead   *.ps1xml   set ft=ps1xml
 endif
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'pug') == -1
+  
+autocmd BufNewFile,BufReadPost *.pug set filetype=pug
+autocmd BufNewFile,BufReadPost *.jade set filetype=pug
+endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'puppet') == -1
   
 au! BufRead,BufNewFile *.pp setfiletype puppet
 au! BufRead,BufNewFile Puppetfile setfiletype ruby
+endif
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'purescript') == -1
+  
+au BufNewFile,BufRead *.purs setf purescript
+au FileType purescript let &l:commentstring='{--%s--}'
 endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'qml') == -1
   
@@ -409,7 +454,7 @@ autocmd BufNewFile,BufReadPost *.stylus set filetype=stylus
 endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'swift') == -1
   
-autocmd BufNewFile,BufRead *.swift setfiletype swift
+autocmd BufNewFile,BufRead *.swift set filetype=swift
 autocmd BufRead * call s:Swift()
 function! s:Swift()
   if !empty(&filetype)

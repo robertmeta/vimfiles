@@ -104,6 +104,8 @@ PACKS="
   cjsx:mtscout6/vim-cjsx
   clojure:guns/vim-clojure-static
   coffee-script:kchmck/vim-coffee-script
+  cryptol:victoredwardocallaghan/cryptol.vim
+  crystal:rhysd/vim-crystal
   cql:elubow/cql-vim
   css:JulesWang/css.vim
   cucumber:tpope/vim-cucumber
@@ -114,6 +116,7 @@ PACKS="
   emberscript:heartsentwined/vim-ember-script
   emblem:heartsentwined/vim-emblem
   erlang:vim-erlang/vim-erlang-runtime
+  fish:dag/vim-fish
   git:tpope/vim-git
   glsl:tikhomirov/vim-glsl
   go:fatih/vim-go:_BASIC
@@ -123,10 +126,8 @@ PACKS="
   haskell:neovimhaskell/haskell-vim
   haxe:yaymukund/vim-haxe
   html5:othree/html5.vim
-  jade:digitaltoad/vim-jade
   jasmine:glanotte/vim-jasmine
-  javascript:sheerun/yajs.vim
-  jinja:Glench/Vim-Jinja2-Syntax
+  javascript:pangloss/vim-javascript
   json:sheerun/vim-json
   jst:briancollins/vim-jst
   jsx:mxw/vim-jsx:_ALL
@@ -144,10 +145,14 @@ PACKS="
   octave:vim-scripts/octave.vim--
   opencl:petRUShka/vim-opencl
   perl:vim-perl/vim-perl
+  pgsql:exu/pgsql.vim
   php:StanAngeloff/php.vim
+  plantuml:aklt/plantuml-syntax
   powershell:Persistent13/vim-ps1
   protobuf:uarun/vim-protobuf
-  puppet:rodjek/vim-puppet
+  pug:digitaltoad/vim-pug
+  puppet:voxpupuli/vim-puppet
+  purescript:raichoo/purescript-vim
   python:mitsuhiko/vim-python-combined
   qml:peterhoeg/vim-qml
   r-lang:vim-scripts/R.vim

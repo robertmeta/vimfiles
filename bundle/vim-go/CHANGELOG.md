@@ -2,8 +2,17 @@
 
 IMPROVEMENTS:
 
+* Enable passing the `-tags` flag to `:GoDef`. Now you can pass build tags to `:GoDef` via `:GoGuruTags` or `g:go_guru_tags`
 * Internal refactoring to use custom `system()` function that wraps both the standard `system()` call and `vimproc`. Now all system calls will take advantage and will use `vimproc` if installed. [gh-801]
-* Add new `http.HandlerFunc` snippets with `hf` and `hhf` shortcuts [gh-816]
+* Added new `http.HandlerFunc` snippets with `hf` and `hhf` shortcuts [gh-816]
+* Added new `Example` and `Benchmark` snippets with `example` and `benchmark` shortcuts [gh-836]
+
+BUG FIXES:
+* Fix `(go-freevars)` plug mapping to work as in visual mode instead of noncompatible normal mode [gh-832]
+* Commands based on guru now shows a more meaningful error message instead of just showing the exit status (-1)
+* Fix `:GoCoverage` accidently enabling syntax highlighting for users who don't use syntax (i.e syntax off) [gh-827]
+* Fix commenting out block of texts for Go templates (filetype gothtmltmpl) [gh-813]
+* Fix `:GoImplements` failing because of an empty scope definition. Now we default to current package to make it usable.
 
 
 ## 1.6 (April 25, 2016)
