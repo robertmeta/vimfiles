@@ -1,5 +1,10 @@
 ## 1.7 (unreleased)
 
+FEATURES:
+
+* New **`:GoImpl`** command that generates method stubs for implementing an interface. Checkout the [demo](https://twitter.com/fatih/status/729991365581545472) to see how it works. [gh-846]
+* New `<C-w><C-]>` and `<C-w>]>` shortcuts to split current window and jumpt to the identifier under cursor. [gh-838]
+
 IMPROVEMENTS:
 
 * Enable passing the `-tags` flag to `:GoDef`. Now you can pass build tags to `:GoDef` via `:GoGuruTags` or `g:go_guru_tags`
@@ -14,6 +19,8 @@ BUG FIXES:
 * Fix `:GoCoverage` accidently enabling syntax highlighting for users who don't use syntax (i.e syntax off) [gh-827]
 * Fix commenting out block of texts for Go templates (filetype gothtmltmpl) [gh-813]
 * Fix `:GoImplements` failing because of an empty scope definition. Now we default to current package to make it usable.
+* Fix `:GoPlay` posting to non HTTPS url. [gh-847]
+
 
 
 ## 1.6 (April 25, 2016)

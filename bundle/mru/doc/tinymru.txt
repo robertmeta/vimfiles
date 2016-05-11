@@ -69,7 +69,8 @@ on Windows... >
 *:MT* <C-d>
 
     Functionally identical to |:tabedit| <Tab> or |:tabedit| <C-d>. Suggestions
-    are pulled from |v:oldfiles|.
+    are pulled from |v:oldfiles|. The local current directory is set to the
+    directory of the chosen file.
 
 ==============================================================================
  4. TIPS AND TRICKS                                            *tinymru-tricks*
