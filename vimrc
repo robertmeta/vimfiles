@@ -48,33 +48,34 @@ nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Lj
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
 vnoremap <bs> x
 " Turn off search highlight with backspace
-nnoremap <silent> <bs> :nohlsearch<cr>
+nnoremap <silent> <bs> :nohlsearch<cr>:SearchPartyMatchDelete 1<cr>:SearchPartyMatchDelete 2<cr> :SearchPartyMatchDelete 3<cr> :SearchPartyMatchDelete 4<cr> :SearchPartyMatchDelete 5<cr> :SearchPartyMatchDelete 6<cr>
 " Random Mappings
 nmap - <leader>e
-nnoremap <leader>A :argadd **/
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>A :argadd **/*
+nnoremap <leader>b :b <C-d>
 nnoremap <leader>B :ls<cr>:b<space>
-nnoremap <leader>b :b *<C-d>
-nnoremap <leader>C :chdir **/
-nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>c :chdir **/*
+nnoremap <leader>C :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>d :Dlist<space>
-nnoremap <leader>E :e **/
-nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>F :find **/
-nnoremap <leader>f :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>G :vimgrep<space>
+nnoremap <leader>e :e **/*
+nnoremap <leader>E :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>f :find **/*
+nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
-nnoremap <leader>H :ME *
+nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>h :ME <C-d>
+nnoremap <leader>H :ME *
 nnoremap <leader>i :Ilist<space>
-nnoremap <leader>l :lgrep<space>
 nnoremap <leader>j :tjump /
-nnoremap <leader>m :make<cr>
+nnoremap <leader>l :lgrep<space>
+nnoremap <leader>m <Plug>SearchPartySetMatch<cr><cr>
+nnoremap <leader>M :make<cr>
 nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>s :call StripTrailingWhitespace()<cr>
-nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>t :TTags<cr>
+nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 
 " Autocomplete
@@ -142,7 +143,7 @@ set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
 set list " show listchars
 set listchars=""
-set listchars=tab:│\ 
+set listchars=tab:│\
 set listchars+=trail:•
 set listchars+=nbsp:‡
 set listchars+=extends:⟩
