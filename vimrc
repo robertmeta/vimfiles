@@ -55,22 +55,18 @@ nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>A :argadd **/*
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>B :ls<cr>:b<space>
-nnoremap <leader>c :chdir **/*
-nnoremap <leader>C :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>d :Dlist<space>
-nnoremap <leader>e :e **/*
-nnoremap <leader>E :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>f :find **/*
 nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
-nnoremap <leader>h :ME <C-d>
-nnoremap <leader>H :ME *
+nnoremap <leader>h :ME 
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>l :lgrep<space>
-nnoremap <leader>m <Plug>SearchPartySetMatch<cr><cr>
-nnoremap <leader>M :make<cr>
+nnoremap <leader>m :make<cr>
 nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>s :call StripTrailingWhitespace()<cr>
@@ -143,7 +139,7 @@ set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
 set list " show listchars
 set listchars=""
-set listchars=tab:│\
+set listchars=tab:\ \ 
 set listchars+=trail:•
 set listchars+=nbsp:‡
 set listchars+=extends:⟩
@@ -228,9 +224,9 @@ set wildignore+=*.spl " compiled spelling word lists
 set wildignore+=*.swp,*.bak " ignore these
 set wildignore+=*.sw? " Vim swap files
 if s:running_windows
-    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*,*\\vendor\\*,
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*,*/vendor/*
 endif
 set wildmode=list:longest " turn on wild mode full match only
 
