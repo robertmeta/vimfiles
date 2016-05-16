@@ -94,6 +94,7 @@ nnoremap <silent> <leader>x :VimuxInterruptRunner<cr>
 " quick command helpers
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
+cnoremap <C-r><C-l> <C-r>=getline('.')<cr>
 " Use sneak for f & t
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
@@ -107,6 +108,9 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
+" Extra escapes
+imap jk <esc>
+imap kj <esc>
 
 " Basics Settings
 set backspace=indent,eol,start " make backspace a more flexible
@@ -137,13 +141,13 @@ set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
-set list " show listchars
 set listchars=""
+set listchars+=extends:⟩
+set listchars+=nbsp:‡
+set listchars+=precedes:⟨
 set listchars=tab:\ \ 
 set listchars+=trail:•
-set listchars+=nbsp:‡
-set listchars+=extends:⟩
-set listchars+=precedes:⟨
+set list " show listchars
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
 set noautoread " nope
@@ -156,7 +160,6 @@ set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
 set norelativenumber " no thank you
 set nospell " nope nope nope
-set startofline " do reset to start of line on events
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set number " line numbers
@@ -181,6 +184,7 @@ set smartcase " Smart case enabled
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set splitbelow " split below
 set splitright " split right
+set startofline " do reset to start of line on events
 set switchbuf=useopen " when working with quickfix use new splits
 set synmaxcol=500 " Don't try to highlight lines longer than X characters.
 set tabstop=8 " real tabs should be 8, and they will show with set list on

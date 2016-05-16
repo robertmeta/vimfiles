@@ -9,7 +9,7 @@ git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molo
 git clone https://github.com/endel/vim-github-colorscheme bundle/githubtheme && rm -rf bundle/githubtheme/.git
 
 # Plugins
-git clone https://github.com/ajh17/VimCompletesMe bundle/vcm && rm -rf bundle/vcm/.git
+# git clone https://github.com/ajh17/VimCompletesMe bundle/vcm && rm -rf bundle/vcm/.git
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
 git clone https://github.com/dahu/SearchParty bundle/searchparty && rm -rf bundle/searchparty/.git
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
@@ -36,3 +36,6 @@ git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
+git clone https://github.com/garbas/vim-snipmate bundle/snipmate && rm -rf bundle/snipmate/.git
+git clone https://github.com/MarcWeber/vim-addon-mw-utils bundle/mwutils && rm -rf bundle/mwutils/.git
+git clone https://github.com/honza/vim-snippets bundle/snippets && rm -rf bundle/snippets/.git

@@ -136,8 +136,9 @@ PACKS="
   latex:LaTeX-Box-Team/LaTeX-Box
   less:groenewege/vim-less
   liquid:tpope/vim-liquid
+  mako:sophacles/vim-bundle-mako
   markdown:tpope/vim-markdown
-  nginx:nginx/nginx::/contrib/vim/
+  nginx:othree/nginx-contrib-vim
   nim:zah/nim.vim:_BASIC
   nix:spwhitt/vim-nix
   objc:b4winckler/vim-objc
