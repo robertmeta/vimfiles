@@ -80,6 +80,7 @@ inoremap <silent> ,i <C-x><C-i>
 inoremap <silent> ,l <C-x><C-l>
 inoremap <silent> ,n <C-x><C-n>
 inoremap <silent> ,o <C-x><C-o>
+inoremap <silent> ,p <C-x><C-p>
 inoremap <silent> ,t <C-x><C-]>
 inoremap <silent> ,u <C-x><C-u>
 " Vimux
@@ -276,7 +277,7 @@ set statusline=[%F]%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]%{gutentags#statusline
 "               |  | | | +-- preview flag in square brackets
 "               |  | | +-- help flag in square brackets
 "               |  | +-- readonly flag in square brackets
-"               |  +-- rodified flag in square brackets
+"               |  +-- modified flag in square brackets
 "               +-- full path to file in the buffer
 "
 set cpoptions=aABceFsmq

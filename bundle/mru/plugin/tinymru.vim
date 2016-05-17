@@ -1,7 +1,7 @@
 " tinymru.vim - A tiny MRU plugin
 " Maintainer:	romainl <romainlafourcade@gmail.com>
 " Version:	0.0.1
-" License:	Vim License (see :help license)
+" License:	MIT
 " Location:	plugin/tinynru.vim
 " Website:	https://github.com/romainl/vim-tinyMRU
 
