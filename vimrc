@@ -167,7 +167,7 @@ set number " line numbers
 set numberwidth=8 " We are good up to LOTS lines
 set omnifunc=syntaxcomplete#Complete
 set pastetoggle=<F10> " paste toggle of course
-set path=. " Default path is local dir, make better with autocommands per language
+set path=.,** " Default path is local dir, make better with autocommands per language
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
 set scrolljump=5 " If you hit bottom or top, jump 5
