@@ -337,8 +337,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal relativenumber cursorline
-        au WinLeave * setlocal nocursorline norelativenumber
+        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline
+        au WinLeave * setlocal nocursorline
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
         au QuickFixCmdPost    l* lwindow
@@ -400,15 +400,13 @@ let g:vim_markdown_frontmatter=1
 " Netrw
 let g:netrw_altfile=1
 
-" TTags
-let g:ttags_display='quickfix'
-
 " Sneak
 let g:sneak#streak = 1
 
 " Nofrils
 let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
+let g:nofrils_heavylinenumbers=0 " heavy line numbers off
 colo nofrils-dark
 
 " Functions

@@ -3,7 +3,7 @@
 " URL: https://github.com/robertmeta/nofrils
 " (see this url for latest release & screenshots)
 " License: OSI approved MIT license
-" Modified: 2016 Feb 26
+" Modified: 2016 May 19th
 
 hi clear
 if exists("syntax_on")
@@ -17,6 +17,9 @@ if !exists("g:nofrils_strbackgrounds")
 endif
 if !exists("g:nofrils_heavycomments")
     let g:nofrils_heavycomments = 0
+endif
+if !exists("g:nofrils_heavylinenumbers")
+    let g:nofrils_heavylinenumbers = 0
 endif
 
 " Baseline
@@ -122,9 +125,9 @@ hi Type term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg
 hi Underlined term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 
 " Sneak
-hi SneakPluginTarget term=NONE cterm=NONE ctermfg=black ctermbg=green gui=NONE guifg=black guibg=green
-hi SneakStreakTarget term=NONE cterm=NONE ctermfg=black ctermbg=green gui=NONE guifg=black guibg=green
-hi SneakStreakStatusLine term=NONE cterm=NONE ctermfg=black ctermbg=green gui=NONE guifg=black guibg=green
+hi SneakPluginTarget term=NONE cterm=NONE ctermfg=black ctermbg=yellow gui=NONE guifg=black guibg=yellow
+hi SneakStreakTarget term=NONE cterm=NONE ctermfg=black ctermbg=yellow gui=NONE guifg=black guibg=yellow
+hi SneakStreakStatusLine term=NONE cterm=NONE ctermfg=black ctermbg=yellow gui=NONE guifg=black guibg=yellow
 
 " Optional Syntax Features
 if g:nofrils_strbackgrounds
@@ -133,4 +136,7 @@ if g:nofrils_strbackgrounds
 end
 if g:nofrils_heavycomments
     hi Comment term=NONE cterm=NONE ctermfg=89 ctermbg=NONE gui=NONE guifg=#87005F guibg=NONE
+end
+if g:nofrils_heavylinenumbers
+    hi LineNr term=NONE cterm=NONE ctermfg=darkblue ctermbg=255 gui=NONE guifg=darkblue guibg=#E4E4E4
 end

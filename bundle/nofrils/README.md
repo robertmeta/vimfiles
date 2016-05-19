@@ -5,8 +5,9 @@ To use:
 - :colo nofrils-light
 
 To customize:
-- :let g:nofrils_strbackgrounds=1 to turn highlighted string backgrounds
-- :let g:nofrils_heavycomments=1 to turn on high contrast comments rather than the default faded style
+- :let g:nofrils\_strbackgrounds=1 to turn highlighted string backgrounds, for languages where strings are a major part of them
+- :let g:nofrils\_heavycomments=1 to turn on high contrast comments rather than the default faded style, for projects where the comments are not deceit and lies
+- :let g:nofrils\_heavylinenumbers=1 to turn on brighter line numbers, for people who use relative line numbers to hop around
 
 The only highlighted elements are spelling, errors, comments, vim features (diff, etc) and *optionally* string backgrounds
 
