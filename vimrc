@@ -7,6 +7,7 @@
 "   http://robertmelton.com (many forms of communication)
 "
 "   source: https://github.com/robertmeta/vimfiles
+"   source: https://github.com/robertmeta/vimfiles
 
 " Baseline
 set encoding=utf-8 " yey! utf-8
@@ -117,7 +118,7 @@ imap kj <esc>
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
-set completeopt=longest,menu,menuone,insert,select
+set completeopt=menu,noinsert
 set complete=.,w,b,u,t " complete options
 set cursorline " cursor line
 set diffopt=filler,iwhite " filler and whitespace
