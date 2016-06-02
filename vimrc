@@ -117,7 +117,7 @@ imap kj <esc>
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
-set completeopt=longest,menu,menuone,noinsert,noselect
+set completeopt=longest,menu,menuone,insert,select
 set complete=.,w,b,u,t " complete options
 set cursorline " cursor line
 set diffopt=filler,iwhite " filler and whitespace
