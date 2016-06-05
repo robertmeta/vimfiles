@@ -439,7 +439,8 @@ CTRL-t
 :GoInstallBinaries
 
     Download and Install all necessary Go tool binaries such as `godef`,
-    `goimports`, `gocode`, etc.. under `g:go_bin_path`
+    `goimports`, `gocode`, etc.. under `g:go_bin_path`. Set |g:go_get_update|
+    to disable updating dependencies.
 
                                                           *:GoUpdateBinaries*
 :GoUpdateBinaries
@@ -673,16 +674,13 @@ Calls `go build` for the current package
 
 Calls `go generate` for the current package
 
-
                                                                  *(go-info)*
 
 Shows type information for the word under the cursor
 
-
                                                               *(go-install)*
 
 Calls `go install` for the current package
-
 
                                                                  *(go-test)*
 
@@ -710,6 +708,10 @@ Clears the coverage annotation
 Calls `go test -coverprofile-temp.out` for the current package and shows the
 coverage annotation. If run agains it acts as a toggle and clears the
 annotation.
+
+                                                                *(go-imports)*
+
+Calls `goimports` for the current package
 
                                                                   *(go-vet)*
 
@@ -834,6 +836,11 @@ Alternates between the implementation and test code in a new horizontal split
                                                     *(go-alternate-vertical)*
 
 Alternates between the implementation and test code in a new vertical split
+
+                                                                *(go-import)*
+
+Calls `:GoImport` for the current package
+
 
 ===============================================================================
 TEXT OBJECTS                                                 *go-text-objects*
@@ -1027,6 +1034,14 @@ Use this option to define the default snippet engine.  By default "ultisnips"
 is used. Use "neosnippet" for neosnippet.vim: >
 
   let g:go_snippet_engine = "ultisnips"
+<
+
+                                                         *'g:go_get_update'*
+
+Use this option to disable updating dependencies with |GoInstallBinaries|. By
+default this is enabled.
+>
+  let g:go_get_update = 1
 <
 
                                                          *'g:go_guru_scope'*

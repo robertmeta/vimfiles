@@ -17,6 +17,10 @@ IMPROVEMENTS:
 * Search tool binaries first in `GOBIN` and then in `PATH` as most of vim-go users installs it to `GOBIN` mostly [gh-823]
 * Improve `guru` based commands by providing automatically detected GOPATHS, such as `gb`, `godep` to be used if possible [gh-861]
 * Add `<Plug>(go-imports)` mapping to make it assignable to other keys [gh-878]
+* Increase compatibility with tcsh [gh-869]
+* Improve `:GoInstallBinaries` for GOPATH's which don't have packages that work well with `go get -u`. We have a new `g:go_get_update` setting to disable it. By default it's enabled. [gh-883]
+
+
 
 BUG FIXES:
 * Fix `(go-freevars)` plug mapping to work as in visual mode instead of noncompatible normal mode [gh-832]
@@ -28,6 +32,7 @@ BUG FIXES:
 * Fix `:GoPlay` posting to non HTTPS url. [gh-847]
 * Fix escaping the filenames for lint and motion commands [gh-862]
 * Fix escaping the filename to `:GoDef` completely for tcsh [gh-868]
+* Fix showing SUCCESS for `go test` related commands if no test files are available [gh-859]
 
 
 

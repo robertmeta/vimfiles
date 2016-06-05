@@ -188,6 +188,11 @@ endfunction
 function! go#cmd#Test(bang, compile, ...)
     let args = ["test"]
 
+    if empty(glob("*_test.go"))
+        call go#util#EchoError("no tests files available")
+        return
+    endif
+
     " don't run the test, only compile it. Useful to capture and fix errors or
     " to create a test binary.
     if a:compile
@@ -198,6 +203,7 @@ function! go#cmd#Test(bang, compile, ...)
     if a:0
         " expand all wildcards(i.e: '%' to the current file name)
         let goargs = map(copy(a:000), "expand(v:val)")
+        let goargs = go#util#Shelllist(goargs, 1)
 
         call extend(args, goargs, 1)
     else
@@ -219,8 +225,10 @@ function! go#cmd#Test(bang, compile, ...)
             let id = go#jobcontrol#Spawn(a:bang, "test", args)
         endif
 
-        call go#jobcontrol#AddHandler(function('s:test_compile_handler'))
-        let s:test_compile_handlers[id] = compile_file
+        if a:compile
+            call go#jobcontrol#AddHandler(function('s:test_compile_handler'))
+            let s:test_compile_handlers[id] = compile_file
+        endif
         return id
     endif
 
