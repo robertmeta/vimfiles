@@ -157,7 +157,6 @@ set noautowriteall " nope
 set noautowrite " nope
 set nocursorcolumn " disable global cursor column
 set noerrorbells " don't be noisy
-set noexrc " don't use local version of .(g)vimrc, .exrc
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
 set norelativenumber " no thank you
