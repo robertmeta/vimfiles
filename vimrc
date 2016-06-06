@@ -49,7 +49,7 @@ nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Lj
 " Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
 vnoremap <bs> x
 " Turn off search highlight with backspace
-nnoremap <silent> <bs> :nohlsearch<cr>:SearchPartyMatchDelete 1<cr>:SearchPartyMatchDelete 2<cr> :SearchPartyMatchDelete 3<cr> :SearchPartyMatchDelete 4<cr> :SearchPartyMatchDelete 5<cr> :SearchPartyMatchDelete 6<cr>
+nnoremap <silent> <bs> :nohlsearch<cr>
 " Random Mappings
 nmap - <leader>e
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
@@ -67,7 +67,7 @@ nnoremap <leader>h :ME
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>l :lgrep<space>
-nnoremap <leader>m :make<cr>
+nnoremap <leader>m :make<cr><cr>
 nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>s :call StripTrailingWhitespace()<cr>
@@ -402,6 +402,12 @@ let g:netrw_altfile=1
 
 " Sneak
 let g:sneak#streak = 1
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
+
+" Vim-go
+let g:go_def_mode = 'godef'
 
 " Nofrils
 let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds

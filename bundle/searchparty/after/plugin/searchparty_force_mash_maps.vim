@@ -1,1 +1,0 @@
-call searchparty#mash#init()

@@ -11,8 +11,6 @@ git clone https://github.com/endel/vim-github-colorscheme bundle/githubtheme && 
 # Plugins
 # git clone https://github.com/ajh17/VimCompletesMe bundle/vcm && rm -rf bundle/vcm/.git
 git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/.git
-git clone https://github.com/dahu/SearchParty bundle/searchparty && rm -rf bundle/searchparty/.git
-git clone https://github.com/ervandew/supertab bundle/supertab && rm -rf bundle/supertab/.git
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
 git clone https://github.com/garbas/vim-snipmate bundle/snipmate && rm -rf bundle/snipmate/.git
 git clone https://github.com/honza/vim-snippets bundle/snippets && rm -rf bundle/snippets/.git
