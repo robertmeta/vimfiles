@@ -84,6 +84,7 @@ inoremap <silent> ,o <C-x><C-o>
 inoremap <silent> ,p <C-x><C-p>
 inoremap <silent> ,t <C-x><C-]>
 inoremap <silent> ,u <C-x><C-u>
+
 " Vimux
 nnoremap <silent> <leader>r :VimuxRunLastCommand<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
