@@ -403,9 +403,6 @@ let g:netrw_altfile=1
 " Sneak
 let g:sneak#streak = 1
 
-" Supertab
-let g:SuperTabDefaultCompletionType = "context"
-
 " Vim-go
 let g:go_def_mode = 'godef'
 
