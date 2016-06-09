@@ -135,4 +135,8 @@ describe 'snippet parser'
         Expect snip == [[[1, {}], [1, "foo", stops[1]], [1, {}]]]
     end
 
+    it 'represents empty lines as an empty string'
+        Expect Parse("foo\n\nbar") == [['foo'], [''], ['bar']]
+    end
+
 end

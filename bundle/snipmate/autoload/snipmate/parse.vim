@@ -126,13 +126,12 @@ function! s:parser_pat(...) dict abort
 endfunction
 
 function! s:parser_expr() dict abort
-    let str = join(self.string('`'))
+    let str = self.string('`')
     call self.same('`')
     return snipmate#util#eval(str)
 endfunction
 
 function! s:parser_string(till, ...) dict abort
-    let res = []
     let val = ''
     let till = '\V\[' . escape(a:till, '\') . ']'
 
@@ -154,11 +153,7 @@ function! s:parser_string(till, ...) dict abort
         endif
     endwhile
 
-    if !empty(val)
-        call add(res, val)
-    endif
-
-    return res
+    return val
 endfunction
 
 function! s:join_consecutive_strings(list) abort
@@ -177,7 +172,7 @@ endfunction
 function! s:parser_text(till) dict abort
     let ret = []
 
-    while self.pos < self.len && self.next !=# a:till
+    while self.pos < self.len
         let lines = []
 
         if self.same('$')
@@ -193,12 +188,17 @@ function! s:parser_text(till) dict abort
         elseif self.same('`')
             let lines = split(self.expr(), "\n", 1)
         else
-            let lines = self.string(a:till . s:special_chars)
+            let lines = [self.string(a:till . s:special_chars)]
         endif
 
         if !empty(lines)
             call add(ret, lines[0])
             call extend(self.stored_lines, lines[1:])
+        endif
+
+        " Empty lines are ignored if this is tested at the start of an iteration
+        if self.next ==# a:till
+            break
         endif
     endwhile
 
