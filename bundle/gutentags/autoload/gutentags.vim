@@ -100,6 +100,15 @@ function! gutentags#get_project_root(path) abort
                                 \1)
                     call gutentags#throw("Marker found at root, aborting.")
                 endif
+                for ign in g:gutentags_exclude_project_root
+                    if l:proj_dir == ign
+                        call gutentags#trace(
+                                    \"Ignoring project root '" . l:proj_dir .
+                                    \"' because it is in the list of ignored" .
+                                    \" projects.")
+                        call gutentags#throw("Ignore project: " . l:proj_dir)
+                    endif
+                endfor
                 return l:proj_dir
             endif
         endfor
@@ -119,7 +128,7 @@ function! gutentags#get_cachefile(root_dir, filename) abort
     let l:tag_path = gutentags#stripslash(a:root_dir) . '/' . a:filename
     if g:gutentags_cache_dir != ""
         " Put the tag file in the cache dir instead of inside the
-        " projet root.
+        " project root.
         let l:tag_path = g:gutentags_cache_dir . '/' .
                     \tr(l:tag_path, '\/: ', '---_')
         let l:tag_path = substitute(l:tag_path, '/\-', '/', '')
@@ -157,9 +166,11 @@ function! gutentags#setup_gutentags() abort
         if g:gutentags_resolve_symlinks
             let l:buf_dir = fnamemodify(resolve(expand('%:p', 1)), ':p:h')
         endif
-        let b:gutentags_root = gutentags#get_project_root(l:buf_dir)
+        if !exists('b:gutentags_root')
+            let b:gutentags_root = gutentags#get_project_root(l:buf_dir)
+        endif
         if filereadable(b:gutentags_root . '/.notags')
-            call gutentags#trace("'notags' file found... no gutentags support.")
+            call gutentags#trace("'.notags' file found... no gutentags support.")
             return
         endif
 
@@ -180,12 +191,12 @@ function! gutentags#setup_gutentags() abort
             call call("gutentags#".module."#init", [b:gutentags_root])
         endfor
     catch /^gutentags\:/
-        call gutentags#trace("Can't figure out what tag file to use... no gutentags support.")
+        call gutentags#trace("No gutentags support for this buffer.")
         return
     endtry
 
     " We know what tags file to manage! Now set things up.
-    call gutentags#trace("Setting gutentags for buffer '" . bufname('%'))
+    call gutentags#trace("Setting gutentags for buffer '".bufname('%')."'")
 
     " Autocommands for updating the tags on save.
     let l:bn = bufnr('%')
