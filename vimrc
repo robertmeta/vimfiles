@@ -51,7 +51,7 @@ vnoremap <bs> x
 " Turn off search highlight with backspace
 nnoremap <silent> <bs> :nohlsearch<cr>
 " Random Mappings
-nmap - <leader>e
+nmap - :Dirvish<cr>
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>A :argadd **/*
 nnoremap <leader>b :b <C-d>
