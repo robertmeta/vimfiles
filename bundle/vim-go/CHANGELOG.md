@@ -3,7 +3,7 @@
 IMPROVEMENTS:
 
 * `:GoDoc` accepts arguments now which are passed directly to `godoc`. So usages like `:GoDoc flag` works again (it was changed in previous versions [gh-894]
-
+* `:GoDef` works now for modified files as well [gh-910]
 
 BUG FIXES:
 
@@ -11,6 +11,7 @@ BUG FIXES:
 * Fix typos in `doc/vim-go.txt` about usages of syntax highglightings [gh-897]
 * Fix `:GoCoverage` not running for Neovim [gh-899]
 * Fix `:GoFmt` not picking up `-srcdir` if the command was set to use `goimports` [gh-904]
+* Fix `:GoTestCompile` to not leave behind artifacts if the cwd and the test files's directory do not match [gh-909]
 
 ## 1.7.1 (June 7, 2016)
 
