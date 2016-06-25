@@ -148,7 +148,7 @@ set listchars=""
 set listchars+=extends:⟩
 set listchars+=nbsp:‡
 set listchars+=precedes:⟨
-set listchars=tab:\ \ 
+set listchars+=tab:\ \ 
 set listchars+=trail:•
 set list " show listchars
 set modeline " I have started using modelines (risky business!)
