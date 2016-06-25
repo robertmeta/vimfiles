@@ -246,7 +246,7 @@ set viminfo=!,h,'500,<10000,s1000,/1000,:1000
 "           | | +-- remember marks for last 500 files
 "           | +-- disable hlsearch while loading viminfo
 "           +-- include uppercase registers
-"
+
 set formatoptions=qrn1j " used to be just rq
 "                 |||||
 "                 ||||+-- remove comment when joining lines
@@ -254,7 +254,7 @@ set formatoptions=qrn1j " used to be just rq
 "                 ||+-- format numbered lists using 'formatlistpat'
 "                 |+-- enter extends comments
 "                 +-- allow gq to work on comment
-"
+
 set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 "             ||||||
 "             |||||+-- no intro message
@@ -263,24 +263,19 @@ set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 "             ||+-- not "Search hit bottom" crap
 "             |+-- file read message overwrites subsequent
 "             +-- use every short text trick
-"
-set statusline=[%F]%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]%{gutentags#statusline('[Generating\ Tags...]')}%{fugitive#statusline()}[%{getcwd()}]
-"               |  | | | |  |   |      |  |     |    |    |                                               |                        |
-"               |  | | | |  |   |      |  |     |    |    |                                               |                        + working directory
-"               |  | | | |  |   |      |  |     |    |    |                                               + fugative status
-"               |  | | | |  |   |      |  |     |    |    + gutentags status
-"               |  | | | |  |   |      |  |     |    +-- current column
-"               |  | | | |  |   |      |  |     +-- current line
-"               |  | | | |  |   |      |  +-- current % into file
-"               |  | | | |  |   |      +-- current syntax in square brackets
-"               |  | | | |  |   +-- current fileformat
-"               |  | | | |  +-- number of lines
-"               |  | | | +-- preview flag in square brackets
-"               |  | | +-- help flag in square brackets
-"               |  | +-- readonly flag in square brackets
-"               |  +-- modified flag in square brackets
-"               +-- full path to file in the buffer
-"
+
+set statusline=[%{getcwd()}][%f]%=%r%y[%P][col:%c]%{gutentags#statusline('[Generating\ Tags...]')}%{fugitive#statusline()}
+"               |            |  | | |  |   |  |                                               |
+"               |            |  | | |  |   |  |                                               +-- fugative status
+"               |            |  | | |  |   |  +-- gutentags status
+"               |            |  | | |  |   +-- column number
+"               |            |  | | |  +-- percentage through file
+"               |            |  | | +-- type of file
+"               |            |  | +-- readonly status
+"               |            |  |+-- right align / left align splitter
+"               |            +-- file relative to working directory
+"               +-- working directory
+
 set cpoptions=aABceFsmq
 "             |||||||||
 "             ||||||||+-- When joining lines, leave the cursor between joined lines
@@ -291,7 +286,7 @@ set cpoptions=aABceFsmq
 "             ||+-- A backslash has no special meaning in mappings
 "             |+-- :write updates alternative file name
 "             +-- :read updates alternative file name
-"
+
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | | | | | | | | |
 "             | | | | | | | | +-- "]" Insert and Replace
