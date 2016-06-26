@@ -157,14 +157,14 @@ if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'go') == -1
 let s:current_fileformats = ''
 let s:current_fileencodings = ''
 function! s:gofiletype_pre(type)
-    let s:current_fileformats = &g:fileformats
-    let s:current_fileencodings = &g:fileencodings
-    set fileencodings=utf-8 fileformats=unix
-    let &l:filetype = a:type
+  let s:current_fileformats = &g:fileformats
+  let s:current_fileencodings = &g:fileencodings
+  set fileencodings=utf-8 fileformats=unix
+  let &l:filetype = a:type
 endfunction
 function! s:gofiletype_post()
-    let &g:fileformats = s:current_fileformats
-    let &g:fileencodings = s:current_fileencodings
+  let &g:fileformats = s:current_fileformats
+  let &g:fileencodings = s:current_fileencodings
 endfunction
 au BufNewFile *.go setfiletype go | setlocal fileencoding=utf-8 fileformat=unix
 au BufRead *.go call s:gofiletype_pre("go")
@@ -276,12 +276,8 @@ au BufRead,BufNewFile *.mako     set filetype=mako
 endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'markdown') == -1
   
-autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
-      \ if &ft =~# '^\%(conf\|modula2\)$' |
-      \   set ft=markdown |
-      \ else |
-      \   setf markdown |
-      \ endif
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}.{des3,des,bf,bfa,aes,idea,cast,rc2,rc4,rc5,desx} set filetype=markdown
 endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'perl') == -1
   
@@ -436,7 +432,7 @@ au BufNewFile,BufRead .pryrc			call s:setf('ruby')
 au BufNewFile,BufRead Puppetfile		call s:setf('ruby')
 au BufNewFile,BufRead *.rabl			call s:setf('ruby')
 au BufNewFile,BufRead [rR]outefile		call s:setf('ruby')
-au BufNewFile,BufRead .simplecov		call s:setf('ruby)
+au BufNewFile,BufRead .simplecov		call s:setf('ruby')
 au BufNewFile,BufRead [tT]horfile,*.thor	call s:setf('ruby')
 au BufNewFile,BufRead [vV]agrantfile		call s:setf('ruby')
 endif
@@ -507,8 +503,7 @@ au BufNewFile,BufRead *.thrift setlocal filetype=thrift
 endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'tmux') == -1
   
-autocmd BufNewFile,BufRead {.,}tmux.conf{.*,} setlocal filetype=tmux
-autocmd BufNewFile,BufRead {.,}tmux.conf{.*,} setlocal commentstring=#\ %s
+autocmd BufNewFile,BufRead {.,}tmux*.conf* setfiletype tmux
 endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'toml') == -1
   
