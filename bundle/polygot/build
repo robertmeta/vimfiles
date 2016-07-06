@@ -75,7 +75,7 @@ copy_dir() {
 }
 
 concat_ftdetect() {
-  cat ftdetect/* | grep -E '^[^"]' > tmp/polyglot.vim
+  for f in ftdetect/*; do (echo '" '"$f"; cat "${f}"; echo) >> tmp/polyglot.vim; done
   rm -f ftdetect/*
   mv tmp/polyglot.vim ftdetect/
 }
@@ -114,8 +114,8 @@ PACKS="
   dockerfile:honza/dockerfile.vim
   elixir:elixir-lang/vim-elixir
   elm:lambdatoast/elm.vim
-  emberscript:heartsentwined/vim-ember-script
-  emblem:heartsentwined/vim-emblem
+  emberscript:yalesov/vim-ember-script
+  emblem:yalesov/vim-emblem
   erlang:vim-erlang/vim-erlang-runtime
   fish:dag/vim-fish
   git:tpope/vim-git
