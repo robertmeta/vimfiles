@@ -23,10 +23,6 @@ let g:go_highlight_string_spellcheck=0
 let g:go_highlight_structs=1
 let g:go_highlight_trailing_whitespace_error=1
 
-" Vimux
-" TODO(rm): Why doesn't this work?
-let g:VimuxLastCommand = "gb build && gb test -v"
-
 " Go setlocalup assumptions: gocode, godef, gotags all in path
 nnoremap <buffer> gd <Plug>(go-def)
 nnoremap <buffer> gi <Plug>(go-info)
@@ -39,6 +35,11 @@ setlocal noexpandtab
 setlocal shiftwidth=8
 setlocal softtabstop=8
 setlocal makeprg=gometalinter
+setlocal errorformat =
+        \ '%f:%l:%c:%trror: %m,' .
+        \ '%f:%l:%c:%tarning: %m,' .
+        \ '%f:%l::%trror: %m,' .
+        \ '%f:%l::%tarning: %m'
 
 iab <buffer> xif if  {<CR> <BS><CR><BS>}<UP><UP><RIGHT><RIGHT><C-R>=EatChar('\s')<CR>
 iab <buffer> xel else {<CR> <BS><CR><BS>}<UP><END><C-R>=EatChar('\s')<CR>
@@ -58,6 +59,3 @@ iab <buffer> xfo for i := 0; i < 100; i++ {<CR> <BS><CR><BS>}<UP><END><C-R>=EatC
 iab <buffer> xvar var (<CR> <BS><CR><BS>)<UP><END><C-R>=EatChar('\s')<CR>
 iab <buffer> xcon const (<CR> <BS><CR><BS>)<UP><END><C-R>=EatChar('\s')<CR>
 iab <buffer> xim import (<CR> <BS><CR><BS>)<UP><END><C-R>=EatChar('\s')<CR>
-
-" TODO(rm): add GOPATH/src/** to path
-
