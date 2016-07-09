@@ -35,8 +35,7 @@ setlocal noexpandtab
 setlocal shiftwidth=8
 setlocal softtabstop=8
 setlocal makeprg=gometalinter
-setlocal errorformat =
-        \ '%f:%l:%c:%trror: %m,' .
+setlocal errorformat = '%f:%l:%c:%trror: %m,' .
         \ '%f:%l:%c:%tarning: %m,' .
         \ '%f:%l::%trror: %m,' .
         \ '%f:%l::%tarning: %m'
