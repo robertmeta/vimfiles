@@ -35,10 +35,10 @@ setlocal noexpandtab
 setlocal shiftwidth=8
 setlocal softtabstop=8
 setlocal makeprg=gometalinter
-setlocal errorformat = '%f:%l:%c:%trror: %m,' .
-        \ '%f:%l:%c:%tarning: %m,' .
-        \ '%f:%l::%trror: %m,' .
-        \ '%f:%l::%tarning: %m'
+setlocal errorformat=%f:%l:%c:%trror:\ %m
+setlocal errorformat+=%f:%l:%c:%tarning:\ %m
+setlocal errorformat+=%f:%l::%trror:\ %m
+setlocal errorformat+=%f:%l::%tarning:\ %m
 
 iab <buffer> xif if  {<CR> <BS><CR><BS>}<UP><UP><RIGHT><RIGHT><C-R>=EatChar('\s')<CR>
 iab <buffer> xel else {<CR> <BS><CR><BS>}<UP><END><C-R>=EatChar('\s')<CR>
