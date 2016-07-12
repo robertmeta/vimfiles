@@ -22,7 +22,7 @@ if !exists("g:nofrils_heavylinenumbers")
 endif
 
 " Baseline
-hi Normal term=NONE cterm=NONE ctermfg=white ctermbg=235 gui=NONE guifg=white guibg=#262626
+hi Normal term=NONE cterm=NONE ctermfg=255 ctermbg=235 gui=NONE guifg=#eeeeee guibg=#262626
 
 " Faded
 hi ColorColumn term=NONE cterm=NONE ctermfg=NONE ctermbg=236 gui=NONE guifg=NONE guibg=#303030
@@ -33,7 +33,7 @@ hi LineNr term=NONE cterm=NONE ctermfg=8 ctermbg=bg gui=NONE guifg=#808080 guibg
 hi NonText term=NONE cterm=NONE ctermfg=242 ctermbg=NONE gui=NONE guifg=#6C6C6C guibg=NONE
 hi SignColumn term=NONE cterm=NONE ctermfg=242 ctermbg=NONE gui=NONE guifg=#6C6C6C guibg=NONE
 hi SpecialKey term=NONE cterm=NONE ctermfg=242 ctermbg=NONE gui=NONE guifg=#6C6C6C guibg=NONE
-hi StatusLineNC term=NONE cterm=NONE ctermfg=white ctermbg=242 gui=NONE guifg=fg guibg=#6C6C6C
+hi StatusLineNC term=NONE cterm=NONE ctermfg=fg ctermbg=242 gui=NONE guifg=fg guibg=#6C6C6C
 hi VertSplit term=NONE cterm=NONE ctermfg=black ctermbg=242 gui=NONE guifg=black guibg=#6C6C6C
 
 " Highlighted
@@ -43,8 +43,8 @@ hi CursorLineNr term=NONE cterm=NONE ctermfg=NONE ctermbg=black gui=NONE guifg=N
 hi CursorLine term=NONE cterm=NONE ctermfg=NONE ctermbg=black gui=NONE guifg=NONE guibg=black
 hi Cursor term=NONE cterm=NONE ctermfg=black ctermbg=4 gui=NONE guifg=black guibg=#00FFFF
 hi Directory term=NONE cterm=NONE ctermfg=69 ctermbg=NONE gui=NONE guifg=#5F87FF guibg=NONE
-hi ErrorMsg term=NONE cterm=NONE ctermfg=fg ctermbg=52 gui=NONE guifg=NONE guibg=#5F0000
-hi Error term=NONE cterm=NONE ctermfg=fg ctermbg=52 gui=NONE guifg=NONE guibg=#5F0000
+hi ErrorMsg term=NONE cterm=NONE ctermfg=fg ctermbg=52 gui=NONE guifg=fg guibg=#5F0000
+hi Error term=NONE cterm=NONE ctermfg=fg ctermbg=52 gui=NONE guifg=fg guibg=#5F0000
 hi IncSearch term=NONE cterm=NONE ctermfg=black ctermbg=green gui=NONE guifg=black guibg=green
 hi MatchParen term=NONE cterm=NONE ctermfg=15 ctermbg=4 gui=NONE guifg=#ffffff guibg=#000080
 hi ModeMsg term=NONE cterm=NONE ctermfg=69 ctermbg=NONE gui=NONE guifg=#5F87FF guibg=NONE
@@ -55,7 +55,7 @@ hi Search term=NONE cterm=NONE ctermfg=black ctermbg=6 gui=NONE guifg=black guib
 hi StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=fg gui=NONE guifg=black guibg=fg
 hi Todo term=NONE cterm=NONE ctermfg=10 ctermbg=NONE gui=NONE guifg=#00FF00 guibg=black
 hi VisualNOS term=NONE cterm=NONE ctermfg=NONE ctermbg=69 gui=NONE guifg=NONE guibg=#5F87FF
-hi WarningMsg term=NONE cterm=NONE ctermfg=fg ctermbg=52 gui=NONE guifg=NONE guibg=#5F0000
+hi WarningMsg term=NONE cterm=NONE ctermfg=fg ctermbg=52 gui=NONE guifg=fg guibg=#5F0000
 
 " Reversed
 hi PmenuSbar term=reverse cterm=reverse ctermfg=NONE ctermbg=NONE gui=reverse guifg=NONE guibg=NONE
@@ -80,7 +80,7 @@ hi SpellRare term=underline cterm=underline ctermfg=13 ctermbg=NONE gui=underlin
 " Vim Features
 hi Menu term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 hi Scrollbar term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
-hi TabLineFill term=NONE cterm=NONE ctermfg=white ctermbg=242 gui=NONE guifg=fg guibg=#6C6C6C
+hi TabLineFill term=NONE cterm=NONE ctermfg=fg ctermbg=242 gui=NONE guifg=fg guibg=#6C6C6C
 hi TabLine term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 hi Tooltip term=NONE cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 
