@@ -46,10 +46,6 @@ nnoremap <up> <esc>:cprev<cr>
 nnoremap <down>  <esc>:cnext<cr>
 " page facing view: side-by-side view of same buffer scrollbound
 nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
-" Make BS/DEL work as expected in visual modes (i.e. delete the selected text)...
-vnoremap <bs> x
-" Turn off search highlight with backspace
-nnoremap <silent> <bs> :nohlsearch<cr>
 " Random Mappings
 nmap - :Dirvish<cr>
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
@@ -70,6 +66,7 @@ nnoremap <leader>j :tjump /
 nnoremap <leader>l :lgrep<space>
 nnoremap <leader>m :Make<cr>
 nnoremap <leader>M :make<cr>
+nnoremap <leader>n :nohlsearch<cr>
 nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>s :call StripTrailingWhitespace()<cr>
@@ -113,9 +110,6 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
-" Extra escapes
-imap jk <esc>
-imap kj <esc>
 
 " Basics Settings
 set backspace=indent,eol,start " make backspace a more flexible
