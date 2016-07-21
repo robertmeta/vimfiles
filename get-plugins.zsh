@@ -23,7 +23,7 @@ git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
 git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git
 #git clone https://github.com/romainl/vim-tinyMRU bundle/mru && rm -rf bundle/mru/.git
 git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git
-git clone https://github.com/tommcdo/vim-lion bundle/lion && rm -rf bundle/lion/.git
+#git clone https://github.com/tommcdo/vim-lion bundle/lion && rm -rf bundle/lion/.git
 git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
 git clone https://github.com/tomtom/ttags_vim bundle/ttags && rm -rf bundle/ttags/.git
 git clone https://github.com/tpope/vim-abolish bundle/abolish && rm -rf bundle/abolish/.git

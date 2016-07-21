@@ -43,26 +43,25 @@ function! go#util#IsWin()
   return 0
 endfunction
 
-function! go#util#GOARCH()
+function! go#util#goarch()
   return substitute(go#util#System('go env GOARCH'), '\n', '', 'g')
 endfunction
 
-function! go#util#GOOS()
+function! go#util#goos()
   return substitute(go#util#System('go env GOOS'), '\n', '', 'g')
 endfunction
 
-function! go#util#GOROOT()
+function! go#util#goroot()
   return substitute(go#util#System('go env GOROOT'), '\n', '', 'g')
 endfunction
 
-function! go#util#GOPATH()
+function! go#util#gopath()
   return substitute(go#util#System('go env GOPATH'), '\n', '', 'g')
 endfunction
 
-function! go#util#OSARCH()
-  return go#util#GOOS() . '_' . go#util#GOARCH()
+function! go#util#osarch()
+  return go#util#goos() . '_' . go#util#goarch()
 endfunction
-
 
 "Check if has vimproc
 function! s:has_vimproc()
@@ -233,19 +232,19 @@ endfunction
 " simplify the following functions
 
 function! go#util#EchoSuccess(msg)
-  redraws! | echon "vim-go: " | echohl Function | echon a:msg | echohl None
+  redraw! | echon "vim-go: " | echohl Function | echon a:msg | echohl None
 endfunction
 
 function! go#util#EchoError(msg)
-  redraws! | echon "vim-go: " | echohl ErrorMsg | echon a:msg | echohl None
+  redraw! | echon "vim-go: " | echohl ErrorMsg | echon a:msg | echohl None
 endfunction
 
 function! go#util#EchoWarning(msg)
-  redraws! | echon "vim-go: " | echohl WarningMsg | echon a:msg | echohl None
+  redraw! | echon "vim-go: " | echohl WarningMsg | echon a:msg | echohl None
 endfunction
 
 function! go#util#EchoProgress(msg)
-  redraws! | echon "vim-go: " | echohl Identifier | echon a:msg | echohl None
+  redraw! | echon "vim-go: " | echohl Identifier | echon a:msg | echohl None
 endfunction
 
 " vim: sw=2 ts=2 et
