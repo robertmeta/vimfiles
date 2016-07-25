@@ -124,7 +124,7 @@ function! go#fmt#Format(withGoimport)
     if exists('b:goimports_vendor_compatible') && b:goimports_vendor_compatible
       let ssl_save = &shellslash
       set noshellslash
-      let command  = command . '-srcdir ' . shellescape(expand("%:p:h"))
+      let command  = command . '-srcdir ' . shellescape(expand("%:p"))
       let &shellslash = ssl_save
     endif
   endif
@@ -155,7 +155,7 @@ function! go#fmt#Format(withGoimport)
     endif
     call rename(l:tmpname, expand('%'))
     " restore old file permissions
-    if exists("*setfperm")
+    if exists("*setfperm") && original_fperm != ''
       call setfperm(expand('%'), original_fperm)
     endif
     silent edit!

@@ -7,7 +7,6 @@
 "   http://robertmelton.com (many forms of communication)
 "
 "   source: https://github.com/robertmeta/vimfiles
-"   source: https://github.com/robertmeta/vimfiles
 
 " Baseline
 set encoding=utf-8 " yey! utf-8
@@ -74,16 +73,6 @@ nnoremap <leader>t :TTags<cr>
 nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 
-" Autocomplete
-inoremap <silent> ,f <C-x><C-f>
-inoremap <silent> ,i <C-x><C-i>
-inoremap <silent> ,l <C-x><C-l>
-inoremap <silent> ,n <C-x><C-n>
-inoremap <silent> ,o <C-x><C-o>
-inoremap <silent> ,p <C-x><C-p>
-inoremap <silent> ,t <C-x><C-]>
-inoremap <silent> ,u <C-x><C-u>
-
 " Vimux
 nnoremap <silent> <leader>r :VimuxRunLastCommand<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
@@ -115,8 +104,8 @@ omap T <Plug>Sneak_T
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
-set completeopt=menu,noinsert
-set complete=.,w,b,u,t " complete options
+set completeopt=menu,noinsert,menuone,preview
+set complete=.,w,b,u,U,i,t " complete options
 set cursorline " cursor line
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
