@@ -115,7 +115,7 @@ omap T <Plug>Sneak_T
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
-set completeopt=menu,menuone,preview
+set completeopt=menu,menuone,preview,noinsert
 set complete=.,w,b,u,U,i,t " complete options
 set cursorline " cursor line
 set diffopt=filler,iwhite " filler and whitespace
