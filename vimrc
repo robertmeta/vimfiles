@@ -40,6 +40,16 @@ nnoremap <silent> <leader>% :vsplit<cr>
 " Clear highlight
 nnoremap <silent> <backspace> :noh<CR>
 
+" Autocomplete
+inoremap <silent> ;f <C-x><C-f>
+inoremap <silent> ;i <C-x><C-i>
+inoremap <silent> ;l <C-x><C-l>
+inoremap <silent> ;n <C-x><C-n>
+inoremap <silent> ;o <C-x><C-o>
+inoremap <silent> ;p <C-x><C-p>
+inoremap <silent> ;t <C-x><C-]>
+inoremap <silent> ;u <C-x><C-u>
+
 " Arrow control
 nmap <left> <esc>:lprev<cr>
 nmap <right> <esc>:lnext<cr>
@@ -105,7 +115,7 @@ omap T <Plug>Sneak_T
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
-set completeopt=menu,noinsert,menuone,preview
+set completeopt=menu,menuone,preview
 set complete=.,w,b,u,U,i,t " complete options
 set cursorline " cursor line
 set diffopt=filler,iwhite " filler and whitespace

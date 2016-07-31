@@ -7,6 +7,13 @@ FEATURES:
 * **`:GoSameIds`** support. When called highlights all same identifiers in the current file. Can be also enabled to highlight identifiers automatically (with `:GoSameIdsAutoToggle` or `g:go_auto_sameids`). Checkout the demo to see it in action: https://twitter.com/fatih/status/753673709278339072. [gh-936]
 * **`:GoWhicherrs`** support. It hows all possible values of the selected error variable. [gh-948]
 * Add new `errp` snippet to expand an `if err != nil { panic() }` clause [gh-926] 
+* Added new toggle commands to enable/disable feature that run for your
+  automatic. For example if you have `let g:go_auto_type_info = 1` enabled, you
+  can now easily enable/disable it on the fly. Support added with the following
+  commands: `:GoAutoTypeInfoToggle`, `:GoFmtAutoSaveToggle`,
+  `:GoAsmFmtAutoSaveToggle`, `:GoMetalinterAutoSaveToggle`,
+  `:GoTemplateAutoCreateToggle` [gh-945]
+
 
 IMPROVEMENTS:
 * `:GoDoc` accepts arguments now which are passed directly to `godoc`. So usages like `:GoDoc flag` works again (it was changed in previous versions [gh-894]
@@ -15,6 +22,7 @@ IMPROVEMENTS:
 * Internal: fix indentations on all files to **2-spaces/no tabs**. This is now the default vim-go style across all VimL files [gh-915]
 * Internal: autocmd settings can be now dynamically enabled/disabled [gh-939]
 * Internal: automatically detect `GOPATH`  for :GoInstall [gh-980]
+* Internal: shell executions uses now by default `sh` and then resets it back to the user preference. [gh-967]
 * Syntax: improved syntax highglighting performance for methods, fields, structs and interface type declarations [gh-917]
 * Syntax: moved `:GoCoverage` highlight definition into go's syntax file for more customizability [gh-962]
 
