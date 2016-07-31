@@ -6,6 +6,7 @@ DIRS="syntax indent compiler autoload ftplugin ftdetect after/syntax after/inden
 DIRS_BASIC="syntax compiler indent ftdetect after/syntax after/indent after/ftdetect"
 DIRS_ALL="syntax indent compiler autoload ftplugin ftdetect after"
 DIRS_SYNTAX="syntax ftdetect after/syntax after/ftdetect"
+DIRS_JAVASCRIPT="${DIRS} extras"
 
 OUTPUT=""
 
@@ -75,6 +76,7 @@ copy_dir() {
 }
 
 concat_ftdetect() {
+  cat config.vim >> tmp/polyglot.vim
   for f in ftdetect/*; do (echo '" '"$f"; cat "${f}"; echo) >> tmp/polyglot.vim; done
   rm -f ftdetect/*
   mv tmp/polyglot.vim ftdetect/
@@ -97,6 +99,7 @@ EOF
 }
 
 PACKS="
+  applescript:vim-scripts/applescript.vim
   ansible:pearofducks/ansible-vim
   arduino:sudar/vim-arduino-syntax
   blade:jwalton512/vim-blade
@@ -128,8 +131,8 @@ PACKS="
   haxe:yaymukund/vim-haxe
   html5:othree/html5.vim
   jasmine:glanotte/vim-jasmine
-  javascript:pangloss/vim-javascript
-  json:sheerun/vim-json
+  javascript:pangloss/vim-javascript:_JAVASCRIPT
+  json:elzr/vim-json
   jst:briancollins/vim-jst
   jsx:mxw/vim-jsx:_ALL
   julia:dcjones/julia-minimalist-vim
@@ -137,6 +140,8 @@ PACKS="
   latex:LaTeX-Box-Team/LaTeX-Box
   less:groenewege/vim-less
   liquid:tpope/vim-liquid
+  livescript:gkz/vim-ls
+  lua:tbastos/vim-lua
   mako:sophacles/vim-bundle-mako
   markdown:plasticboy/vim-markdown:_SYNTAX
   nginx:othree/nginx-contrib-vim

@@ -23,8 +23,13 @@ A collection of language packs for Vim.
 
 Optionally download one of the [releases](https://github.com/sheerun/vim-polyglot/releases) and unpack it directly under `~/.vim` directory.
 
+NOTE: Not all features of listed language packs are available. We strip them from functionality slowing vim startup in general (for example we ignore `plugins` folder that is loaded regardless of file type, use `ftplugin` instead).
+
+If you need full functionality of any plugin, please use it directly with your plugin manager.
+
 ## Language packs
 
+- [applescript](https://github.com/vim-scripts/applescript.vim) (syntax)
 - [ansible](https://github.com/pearofducks/ansible-vim) (syntax, indent, ftplugin, ftdetect)
 - [arduino](https://github.com/sudar/vim-arduino-syntax) (syntax, indent, ftdetect)
 - [blade](https://github.com/jwalton512/vim-blade) (syntax, indent, ftplugin, ftdetect)
@@ -56,8 +61,8 @@ Optionally download one of the [releases](https://github.com/sheerun/vim-polyglo
 - [haxe](https://github.com/yaymukund/vim-haxe) (syntax, ftdetect)
 - [html5](https://github.com/othree/html5.vim) (syntax, indent, autoload, ftplugin)
 - [jasmine](https://github.com/glanotte/vim-jasmine) (syntax, ftdetect)
-- [javascript](https://github.com/pangloss/vim-javascript) (syntax, indent, ftplugin, ftdetect)
-- [json](https://github.com/sheerun/vim-json) (syntax, indent, ftdetect)
+- [javascript](https://github.com/pangloss/vim-javascript) (syntax, indent, ftdetect, ftplugin, extras)
+- [json](https://github.com/elzr/vim-json) (syntax, indent, ftplugin, ftdetect)
 - [jst](https://github.com/briancollins/vim-jst) (syntax, indent, ftdetect)
 - [jsx](https://github.com/mxw/vim-jsx) (ftdetect, after)
 - [julia](https://github.com/dcjones/julia-minimalist-vim) (syntax, indent, ftdetect)
@@ -65,6 +70,8 @@ Optionally download one of the [releases](https://github.com/sheerun/vim-polyglo
 - [latex](https://github.com/LaTeX-Box-Team/LaTeX-Box) (syntax, indent, ftplugin)
 - [less](https://github.com/groenewege/vim-less) (syntax, indent, ftplugin, ftdetect)
 - [liquid](https://github.com/tpope/vim-liquid) (syntax, indent, ftplugin, ftdetect)
+- [livescript](https://github.com/gkz/vim-ls) (syntax, indent, compiler, ftplugin, ftdetect)
+- [lua](https://github.com/tbastos/vim-lua) (syntax, indent)
 - [mako](https://github.com/sophacles/vim-bundle-mako) (syntax, indent, ftplugin, ftdetect)
 - [markdown](https://github.com/plasticboy/vim-markdown) (syntax, ftdetect)
 - [nginx](https://github.com/othree/nginx-contrib-vim) (syntax, indent, ftdetect)

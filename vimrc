@@ -37,6 +37,8 @@ nnoremap <leader>w <C-W>w
 nnoremap <silent> <leader>c <esc>:close<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
+" Clear highlight
+nnoremap <silent> <backspace> :noh<CR>
 
 " Arrow control
 nmap <left> <esc>:lprev<cr>
@@ -65,7 +67,6 @@ nnoremap <leader>j :tjump /
 nnoremap <leader>l :lgrep<space>
 nnoremap <leader>m :Make<cr>
 nnoremap <leader>M :make<cr>
-nnoremap <leader>n :nohlsearch<cr>
 nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>s :call StripTrailingWhitespace()<cr>
