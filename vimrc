@@ -83,6 +83,8 @@ nnoremap <leader>s :call StripTrailingWhitespace()<cr>
 nnoremap <leader>t :TTags<cr>
 nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
+nnoremap <leader>@ :norm@<cr>
+nnoremap <leader>. :norm.<cr>
 
 " Vimux
 nnoremap <silent> <leader>r :VimuxRunLastCommand<cr>
@@ -303,6 +305,16 @@ for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', 
     execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
 endfor
 
+" line text-objects
+xnoremap il g_o0
+omap il :<C-u>normal vil<CR>
+xnoremap al $o0
+omap al :<C-u>normal val<CR>
+
+" buffer text-object
+xnoremap i% GoggV
+omap i% :<C-u>normal vi%<CR>
+
 " Autocommands
 if has("autocmd")
     augroup general
@@ -428,3 +440,19 @@ function! StripTrailingWhitespace()
     normal `z
   endif
 endfunction
+
+function! <SID>AutoMkdir() abort
+    let l:dir = expand('<afile>:p:h')
+    let l:file = expand('<afile>:t')
+    if !isdirectory(l:dir)
+        call mkdir(l:dir, 'p')
+        silent execute 'bw ' . l:dir . '/' . l:file
+        silent execute 'e ' . l:dir . '/' . l:file
+    endif
+endfunction
+
+augroup AutoMkdir
+    autocmd!
+    autocmd BufWritePre,FileWritePre,BufNewFile *
+        \ call <SID>AutoMkdir()
+augroup END

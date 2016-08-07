@@ -39,3 +39,5 @@ git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
+#git clone https://github.com/kana/vim-textobj-line bundle/textobj-line && rm -rf bundle/textobj-line/.git
+git clone https://github.com/jiangmiao/auto-pairs bundle/autopairs && rm -rf bundle/autopairs/.git
