@@ -1,6 +1,6 @@
 " vim-qf - Tame the quickfix window
 " Maintainer:	romainl <romainlafourcade@gmail.com>
-" Version:	0.0.7
+" Version:	0.0.8
 " License:	MIT
 " Location:	plugin/qf.vim
 " Website:	https://github.com/romainl/vim-qf
@@ -18,11 +18,11 @@ let g:loaded_qf = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-" <Home> and <End> go up and down the quickfix list and wrap around
+" <Plug>QfCprevious and <Plug>QfCnext go up and down the quickfix list and wrap around
 nnoremap <silent> <Plug>QfCprevious :call qf#WrapCommand('up', 'c')<CR>
 nnoremap <silent> <Plug>QfCnext     :call qf#WrapCommand('down', 'c')<CR>
 
-" <C-Home> and <C-End> go up and down the location list and wrap around
+" <Plug>QfLprevious and <Plug>QfLnext go up and down the location list and wrap around
 nnoremap <silent> <Plug>QfLprevious :call qf#WrapCommand('down', 'l')<CR>
 nnoremap <silent> <Plug>QfLnext     :call qf#WrapCommand('up', 'l')<CR>
 

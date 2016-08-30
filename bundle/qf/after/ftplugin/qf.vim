@@ -1,6 +1,6 @@
 " vim-qf - Tame the quickfix window
 " Maintainer:	romainl <romainlafourcade@gmail.com>
-" Version:	0.0.7
+" Version:	0.0.8
 " License:	MIT
 " Location:	after/ftplugin/qf.vim
 " Website:	https://github.com/romainl/vim-qf
@@ -19,7 +19,7 @@ let b:undo_ftplugin = "setl fo< com< ofu<"
 setlocal nowrap
 
 " relative line numbers don't make much sense either
-" but absolute numbers do
+" but absolute numbers definitely do
 setlocal norelativenumber
 setlocal number
 

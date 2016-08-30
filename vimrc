@@ -49,6 +49,11 @@ inoremap <silent> ;o <C-x><C-o>
 inoremap <silent> ;p <C-x><C-p>
 inoremap <silent> ;t <C-x><C-]>
 inoremap <silent> ;u <C-x><C-u>
+inoremap <F5> <C-R>=strftime("%c")<CR>
+
+" Abbreviations
+iab <expr> dts strftime("%c")
+iab rrm Robert R. Melton
 
 " Arrow control
 nmap <left> <esc>:lprev<cr>
@@ -85,6 +90,7 @@ nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap <leader>@ :norm@<cr>
 nnoremap <leader>. :norm.<cr>
+nnoremap <F5> "=strftime("%c")<CR>P
 
 " Vimux
 nnoremap <silent> <leader>r :VimuxRunLastCommand<cr>
