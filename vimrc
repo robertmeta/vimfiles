@@ -418,7 +418,7 @@ let g:go_def_mode = 'godef'
 let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
-colo nofrils-sepia
+colo nofrils-dark
 
 " Functions
 function! ToggleFolds()
