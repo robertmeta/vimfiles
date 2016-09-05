@@ -14,8 +14,10 @@ git clone https://github.com/benmills/vimux bundle/vimux && rm -rf bundle/vimux/
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
 #git clone https://github.com/garbas/vim-snipmate bundle/snipmate && rm -rf bundle/snipmate/.git
 #git clone https://github.com/honza/vim-snippets bundle/snippets && rm -rf bundle/snippets/.git
+#git clone https://github.com/jiangmiao/auto-pairs bundle/autopairs && rm -rf bundle/autopairs/.git
 git clone https://github.com/justinmk/vim-dirvish bundle/dirvish && rm -rf bundle/dirvish/.git
 git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
+#git clone https://github.com/kana/vim-textobj-line bundle/textobj-line && rm -rf bundle/textobj-line/.git
 git clone https://github.com/ludovicchabant/vim-gutentags bundle/gutentags && rm -rf bundle/gutentags/.git
 git clone https://github.com/MarcWeber/vim-addon-mw-utils bundle/mwutils && rm -rf bundle/mwutils/.git
 git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/undotree/.git
@@ -37,7 +39,6 @@ git clone https://github.com/tpope/vim-rsi bundle/rsi && rm -rf bundle/rsi/.git
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
 git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
+git clone https://github.com/vim-scripts/MPage bundle/mpage && rm -rf bundle/mpage/.git
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
-#git clone https://github.com/kana/vim-textobj-line bundle/textobj-line && rm -rf bundle/textobj-line/.git
-git clone https://github.com/jiangmiao/auto-pairs bundle/autopairs && rm -rf bundle/autopairs/.git

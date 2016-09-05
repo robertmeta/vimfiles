@@ -60,8 +60,6 @@ nmap <left> <esc>:lprev<cr>
 nmap <right> <esc>:lnext<cr>
 nnoremap <up> <esc>:cprev<cr>
 nnoremap <down>  <esc>:cnext<cr>
-" page facing view: side-by-side view of same buffer scrollbound
-nnoremap <silent> <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 " Random Mappings
 nmap - :Dirvish<cr>
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>

@@ -1,0 +1,133 @@
+*mpage.txt*	MultiPager        			Apr 24, 2013
+
+Author:    Charles E. Campbell  <NdrOchip@ScampbellPfamily.AbizM>
+           (remove NOSPAM from Campbell's email first)
+Copyright: (c) 2008-2013 by Charles E. Campbell		*mpage-copyright*
+           The VIM LICENSE applies to mpage.vim and mpage.txt
+           (see |copyright|) except use "mpage" instead of "Vim"
+           NO WARRANTY, EXPRESS OR IMPLIED.  USE AT-YOUR-OWN-RISK.
+
+==============================================================================
+1. Contents				*MultiPager* *mpage* *mpage-contents* {{{1
+
+	1. Contents............................................: |mpage-contents|
+	2. Manual..............................................: |mpage-manual|
+	3. History.............................................: |mpage-history|
+
+
+==============================================================================
+2. MultiPager Manual					*mpage-manual* {{{1
+
+							*:MPage*
+  The purpose of MultiPager is to provide multiple views of a buffer, with
+  each sequential window showing sequential lines of text, rather like
+  a book.  One may invoke the MPage viewing with either >
+
+	:MPage [splits]
+	:[splits]MPage
+<
+  The "splits" parameter tells MultiPager to split the window into that
+  many subwindows.  If "splits" is 1, then the window joins those windows
+  that are under MultiPage control.  Without the [splits] option, a >
+
+  	:MPage
+<
+  command will turn multipaging off in all the windows holding the current
+  buffer in the tab.  Note that this does not "quit" those windows; they are
+  simply no longer multi-page synchronized.
+
+  A trailing exclamation point, >
+
+  	:MPage!
+<
+  will turn multipaging off in all windows in the current tab.  If you've only
+  done multipaging for one buffer, then :MPage and MPage! will have the same
+  effect.
+
+  The command >
+
+	:MPT
+<
+  command will toggle just the current window's participation in multi-paging.
+  Multipage, however, defines several maps; user settings will not be restored
+  until no more windows displaying the buffer are under MultiPage control.
+
+  As an example, ctrl-f is mapped by MultiPager to do a full page scroll on
+  MultiPage-controlled windows, not a full page less two lines as is
+  customary.
+
+					*:MPN* *:MPP*
+  To advance to the next mpage-controlled window, or to go back to the
+  previous mpage-controlled window, use >
+
+  	:MPN
+	:MPP
+<
+  respectively.  These commands also accept counts; as in >
+
+  	:MPN 2
+	:2MPP
+<
+  These two commands are also optionally followed by a "bang": >
+
+  	:MPN!
+	:MPN! 2
+<
+
+   Without the bang, wrapping is permitted; with the bang, wrapping from the
+   first/last window (:MPP and :MPN, respectively) is not permitted.
+
+					*:mpage-pageup*  *:mpage-pagedown*
+  MPage provides the following two maps: >
+
+	<PageDown> scroll multi-paging windows forward
+	<PageUp>   scroll multi-paging windows backward
+<
+  by the number of lines displayed in all the windows under multi-paging
+  control.  If one had three windows displaying a buffer under MultiPager
+  control, a <PageDown> would scroll to the next three pages (irrespective
+  of within which of the three pages the <PageDown> command was issued).
+
+  OPTIONS:
+
+  *g:mpage_autonxtwin* if this variable exists (not the default), then
+                     when in insert mode and the line number advances
+		     past the end of a mpage-controlled window, then
+		     the cursor will be placed at the top of the next
+		     mpage controlled window.
+
+==============================================================================
+3. MultiPager History					*mpage-history* {{{1
+   v1	Feb 24, 2009	* in visual mode, RestoreWinPosn causes problems.
+   			  Bypassed by returning early from ReSync().
+	May 04, 2009	* :MPage turns off resync for all windows in a tab
+			* :MPage splits  keeps first window as it was,
+			  instead of moving it to the last MPage'd window
+	May 20, 2009	* cecutil bugfix
+	May 21, 2009	* Using SaveUserMaps()-RestoreUserMaps() to do a
+			  s:ReSync() call when using ctrl-y or ctrl-e
+	Jun 22, 2009    * Added :MPage! support for toggling a window's
+			  participation in MPage synchronization.
+	May 03, 2010	* removed <c-o>s from maps
+	Nov 05, 2010	* added V and v to list of modes that causes s:ReSync()
+			  to skip re-synchronization.  Removed m and M; I'm not
+			  sure why they were there.
+	Jun 01, 2011	* mpage will synchronize in insert mode when the line
+			  number changes.
+			* when mpage is active, windows are |'nospr'| and |'nosb'|.
+			* |g:mpage_autonxtwin| implemented
+	Nov 02, 2012	* protected all |:windo| calls by preceding them with
+			  |:noautocmd|
+	Jan 14, 2013	* ctrl-f and ctrl-b now move up and down exactly one
+			  full page (for MPage windows)
+	Jan 15, 2013	* |:MPT| introduced; :MPage! and :MPage (with no
+			  splits specified) have been changed.  All maps are
+			  now buffer local.
+	Apr 24, 2013	* (David Kotchan) provided a patch permitting MPage
+			  to work with a non-zero |'scrolloff'|
+			  (version 1 released)
+
+==============================================================================
+Modelines: {{{1
+vim:tw=78:ts=8:ft=help:fdm=marker:
+
