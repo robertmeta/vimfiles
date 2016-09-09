@@ -1,0 +1,36 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=479
+
+MultipleSearch allows you to have the results of multiple searches displayed
+on the screen at the same time.  Each search highlights its results in a
+different color, and all searches are displayed at once.  After the maximum
+number of colors is used, the script starts over with the first color.
+ 
+The command syntax is: 
+:Search <pattern1> 
+which will highlight all occurrences of <pattern1> in the current buffer.  A
+subsequent :Search <pattern2> will highlight all occurrences of <pattern2>
+in the current buffer, retaining the highlighting of <pattern1> as well.
+<pattern1> and <pattern2> are any search pattern like you would use in a
+normal /<pattern> search.
+
+The :Search command honors Vim's 'ignorecase' and 'smartcase' settings for
+its own search.  You can use the \c and \C flags in the search pattern to
+force case matching no matter the setting of 'ignorecase' and 'smartcase'.
+
+The :SearchBuffers command works just like :Search, but the search occurs in all currently listed buffers (i.e., appear in the output of :ls).  The match in all buffers will have the same color.  This is different than  :bufdo Search <pattern> because in that case, each buffer will highlight the match in a different color.  Thanks to Jeff Mei for the suggestion!
+
+To clear the highlighting, issue the command
+:SearchReset (for the current buffer) or :SearchBuffersReset (for all buffers).
+ 
+You can specify the maximum number of different colors to use by setting the
+g:MultipleSearchMaxColors variable in your .vimrc.  The default setting is
+four, but the script should handle as much as your terminal / GUI can
+display.  The g:MultipleSearchColorSequence variable lets you list the
+colors you want displayed, and in what order.  To make the text more
+readable, you can set the g:MultipleSearchTextColorSequence variable to a
+list of colors for the text, each position corresponding to the color in the
+same position in g:MultipleSearchColorSequence.
+
+If you change one of the preference variables, you can issue the command
+:SearchReinit
+to update the script with your new selections.
