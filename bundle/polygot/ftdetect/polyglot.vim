@@ -1,3 +1,4 @@
+augroup filetypedetect
 " Enable jsx syntax by default
 if !exists('g:jsx_ext_required')
   let g:jsx_ext_required = 0
@@ -615,7 +616,7 @@ if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'plantuml') == -
 " Version:      0.1
 
 if did_filetype()
-	  finish
+  finish
 endif
 
 autocmd BufRead,BufNewFile * :if getline(1) =~ '^.*startuml.*$'| setfiletype plantuml | set filetype=plantuml | endif
@@ -688,10 +689,29 @@ au FileType purescript let &l:commentstring='{--%s--}'
 
 endif
 
+" ftdetect/python.vim
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'python-compiler') == -1
+  
+" Vim compiler file
+" Compiler:	Unit testing tool for Python
+" Maintainer:	Ali Aliev <ali@aliev.me>
+" Last Change: 2015 Nov 2
+
+autocmd FileType python compiler python
+
+endif
+
 " ftdetect/qml.vim
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'qml') == -1
   
 autocmd BufRead,BufNewFile *.qml setfiletype qml
+
+endif
+
+" ftdetect/raml.vim
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'raml') == -1
+  
+au BufRead,BufNewFile *.raml set ft=raml
 
 endif
 
@@ -736,7 +756,6 @@ au BufNewFile,BufRead *.builder,*.rxml,*.rjs,*.ruby		call s:setf('ruby')
 au BufNewFile,BufRead [rR]akefile,*.rake			call s:setf('ruby')
 au BufNewFile,BufRead [rR]akefile*				call s:StarSetf('ruby')
 
-" TODO: does anyone still use Rantfiles? Remove for Vim 8?
 " Rantfile
 au BufNewFile,BufRead [rR]antfile,*.rant			call s:setf('ruby')
 
@@ -972,3 +991,4 @@ au BufRead,BufNewFile *.vm set ft=velocity syntax=velocity
 
 endif
 
+augroup END

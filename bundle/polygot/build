@@ -7,6 +7,7 @@ DIRS_BASIC="syntax compiler indent ftdetect after/syntax after/indent after/ftde
 DIRS_ALL="syntax indent compiler autoload ftplugin ftdetect after"
 DIRS_SYNTAX="syntax ftdetect after/syntax after/ftdetect"
 DIRS_JAVASCRIPT="${DIRS} extras"
+DIRS_RM="$DIRS_JAVASCRIPT"
 
 OUTPUT=""
 
@@ -76,8 +77,10 @@ copy_dir() {
 }
 
 concat_ftdetect() {
+  echo "augroup filetypedetect" > tmp/polyglot.vim
   cat config.vim >> tmp/polyglot.vim
   for f in ftdetect/*; do (echo '" '"$f"; cat "${f}"; echo) >> tmp/polyglot.vim; done
+  echo "augroup END" >> tmp/polyglot.vim
   rm -f ftdetect/*
   mv tmp/polyglot.vim ftdetect/
 }
@@ -161,8 +164,10 @@ PACKS="
   puppet:voxpupuli/vim-puppet
   purescript:raichoo/purescript-vim
   python:mitsuhiko/vim-python-combined
+  python-compiler:aliev/vim-compiler-python
   qml:peterhoeg/vim-qml
   r-lang:vim-scripts/R.vim
+  raml:IN3D/vim-raml
   ragel:jneen/ragel.vim
   rspec:sheerun/rspec.vim
   ruby:vim-ruby/vim-ruby
@@ -179,7 +184,7 @@ PACKS="
   tmux:keith/tmux.vim
   tomdoc:wellbredgrapefruit/tomdoc.vim
   toml:cespare/vim-toml
-  twig:evidens/vim-twig
+  twig:lumiliet/vim-twig
   typescript:leafgarland/typescript-vim
   vala:tkztmk/vim-vala
   vbnet:vim-scripts/vbnet.vim
@@ -191,7 +196,7 @@ PACKS="
 "
 
 rm -rf tmp
-rm -rf $DIRS_ALL
+rm -rf $DIRS_RM
 mkdir tmp
 
 printf "Downloading packs..."

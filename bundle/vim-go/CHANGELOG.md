@@ -1,5 +1,11 @@
 ## Unplanned
 
+BUG FIXES:
+
+* Change back nil and iota highlighting color to the old type [gh-1049]
+
+## 1.9 (September 13, 2016)
+
 IMPROVEMENTS:
 
 * **guru** uses now the `-modified` flag, which allows us use guru on modified
@@ -23,6 +29,7 @@ BUG FIXES:
 * Fix updating the jumplist if `:GoDef` is used [gh-1029]
 * Fix highlighting literal percent sign (`%%`) in strings [gh-1011]
 * Fix highlighting of nested fields [gh-1007]
+* Fix checking for `exepath` feature for the upcoming vim 8.0 release [gh-1046]
 
 BACKWARDS INCOMPATIBILITIES:
 

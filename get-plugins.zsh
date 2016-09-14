@@ -39,7 +39,7 @@ git clone https://github.com/tpope/vim-rsi bundle/rsi && rm -rf bundle/rsi/.git
 git clone https://github.com/tpope/vim-sensible bundle/sensible && rm -rf bundle/sensible/.git
 git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle/surround/.git
 git clone https://github.com/tpope/vim-unimpaired bundle/unimpaired && rm -rf bundle/unimpaired/.git
-git clone https://github.com/vim-scripts/MPage bundle/mpage && rm -rf bundle/mpage/.git
+#git clone https://github.com/vim-scripts/MPage bundle/mpage && rm -rf bundle/mpage/.git
 git clone https://github.com/vim-scripts/MultipleSearch bundle/multiplesearch && rm -rf bundle/multiplesearch/.git
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
 git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
