@@ -7,6 +7,8 @@ mkdir -p bundle
 git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
 git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/endel/vim-github-colorscheme bundle/githubtheme && rm -rf bundle/githubtheme/.git
+git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bundle/apprentice/.git
+git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/disciple/.git
 
 # Plugins
 git clone https://github.com/ajh17/VimCompletesMe bundle/vcm && rm -rf bundle/vcm/.git

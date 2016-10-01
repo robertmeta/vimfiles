@@ -1,8 +1,11 @@
 ## Unplanned
 
+* We have now a [logo for vim-go](https://github.com/fatih/vim-go/blob/master/assets/vim-go.png)! Thanks to @egonelbre for his work on this. 
+
 BUG FIXES:
 
 * Change back nil and iota highlighting color to the old type [gh-1049]
+* Fix passing arguments to `:GoBuild` while using NeoVim [gh-1062]
 
 ## 1.9 (September 13, 2016)
 
