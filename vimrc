@@ -82,7 +82,8 @@ nnoremap <leader>m :Make<cr>
 nnoremap <leader>M :make<cr>
 nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
-nnoremap <leader>s :call StripTrailingWhitespace()<cr>
+nnoremap <leader>s :Search 
+nnoremap <leader>S :call StripTrailingWhitespace()<cr>
 nnoremap <leader>t :TTags<cr>
 nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
