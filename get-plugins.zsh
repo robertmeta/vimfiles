@@ -4,11 +4,11 @@ rm -rf bundle
 mkdir -p bundle
 
 # Themes
-git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
-git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 git clone https://github.com/endel/vim-github-colorscheme bundle/githubtheme && rm -rf bundle/githubtheme/.git
+git clone https://github.com/robertmeta/nofrils bundle/nofrils && rm -rf bundle/nofrils/.git
 git clone https://github.com/romainl/Apprentice bundle/apprentice && rm -rf bundle/apprentice/.git
 git clone https://github.com/romainl/Disciple bundle/disciple && rm -rf bundle/disciple/.git
+git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molokai/.git
 
 # Plugins
 git clone https://github.com/ajh17/VimCompletesMe bundle/vcm && rm -rf bundle/vcm/.git
@@ -22,7 +22,6 @@ git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/un
 git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
 git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git
 git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git
-git clone https://github.com/skywind3000/asyncrun.vim bundle/asyncrun && rm -rf bundle/asyncrun/.git
 git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
 git clone https://github.com/tomtom/ttags_vim bundle/ttags && rm -rf bundle/ttags/.git
 git clone https://github.com/tpope/vim-abolish bundle/abolish && rm -rf bundle/abolish/.git
