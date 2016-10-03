@@ -47,7 +47,7 @@ function! s:vim_completes_me(shift_tab)
   " operator
   let test_pattern = get(b:, 'vcm_omni_pattern', get(g:, 'vcm_omni_pattern'))
   let omni_pattern = match(substr, test_pattern) != -1
-  let file_path = (has('win32') || has('win64')) ? '\\' : '\/'
+  let file_path = (has('win32') || has('win64')) ? '\\\|\/' : '\/'
   let file_pattern = match(substr, file_path) != -1
 
   if file_pattern
