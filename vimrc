@@ -38,7 +38,7 @@ nnoremap <silent> <leader>c <esc>:close<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
 " Clear highlight
-nnoremap <silent> <backspace> :noh<CR>
+nnoremap <silent> <backspace> :noh<CR>:SearchReset<CR>
 
 " Autocomplete
 inoremap <silent> ;f <C-x><C-f>
@@ -62,7 +62,7 @@ nnoremap <up> <esc>:cprev<cr>
 nnoremap <down>  <esc>:cnext<cr>
 " Random Mappings
 nmap - :Dirvish<cr>
-nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+no nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>A :argadd **/*
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>B :ls<cr>:b<space>
@@ -124,7 +124,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,preview,noinsert
 set complete=.,w,b,u,U,i,t " complete options
-set cursorline " cursor line
+set nocursorline " no cursor line
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
@@ -346,8 +346,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline
-        au WinLeave * setlocal nocursorline
+        " au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline
+        " au WinLeave * setlocal nocursorline
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
         au QuickFixCmdPost    l* lwindow
