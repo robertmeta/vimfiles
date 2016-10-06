@@ -345,8 +345,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Highlight current line
-        " au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline
-        " au WinLeave * setlocal nocursorline
+        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline cursorcolumn
+        au WinLeave * setlocal nocursorline nocursorcolumn
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
         au QuickFixCmdPost    l* lwindow
