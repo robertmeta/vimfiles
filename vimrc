@@ -74,7 +74,6 @@ nnoremap <leader>f :find *
 nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
-nnoremap <leader>h :ME 
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :tjump /
 nnoremap <leader>l :lgrep<space>
@@ -178,7 +177,7 @@ set scrolljump=5 " If you hit bottom or top, jump 5
 set scrolloff=5 " Keep focus on middle of screen when possible
 set secure " but lets not go crazy
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
-set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
+set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that, also does softtabstop when negative
 set showbreak=›››\  " this is how we show breaks (this comment is broken in vim, dafaq)
 set showcmd " Show the commands
 set showmatch " do show matching things
@@ -186,7 +185,7 @@ set showmode " default but just in case
 set sidescroll=5 " If you hit edge, jump 5
 set sidescrolloff=5 " Keep 5 lines at the size
 set smartcase " Smart case enabled
-set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
+set softtabstop=-1 " when hitting tab or backspace, use shiftwidth chars
 set splitbelow " split below
 set splitright " split right
 set startofline " do reset to start of line on events
@@ -419,7 +418,7 @@ let g:go_def_mode = 'godef'
 let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
-colo nofrils-dark
+colo nofrils-sepia
 
 " Functions
 function! ToggleFolds()

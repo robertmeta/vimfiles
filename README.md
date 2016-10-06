@@ -2,4 +2,4 @@
 
 Don't copy this wholesale, pick and choose the pieces you want, I try to keep it well commented.
 
-... seriously, don't fork this.  
+... Seriously, don't fork this.
