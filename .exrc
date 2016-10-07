@@ -1,2 +1,2 @@
 set makeprg=./get-plugins.zsh
-set path=.,**
+set path=.
