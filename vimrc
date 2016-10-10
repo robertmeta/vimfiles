@@ -355,7 +355,7 @@ endif
 
 " GUI
 if has("gui_running")
-    set guifont=Hack:h10:cANSI " My favorite font
+    set guifont=Hack:h11:cANSI " My favorite font
     set guioptions=ce
     "              ||
     "              |+-- use GUI tabs, not console style tabs
@@ -409,29 +409,29 @@ let g:vim_markdown_frontmatter=1
 let g:netrw_altfile=1
 
 " Sneak
-let g:sneak#streak = 1
+let g:sneak#streak=1
 
 " Vim-go
-let g:go_def_mode = 'godef'
+let g:go_def_mode='godef'
 
 " Nofrils
-let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
+let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
-colo nofrils-sepia
+colo nofrils-dark
 
 " Functions
 function! ToggleFolds()
     if !exists("b:myfolded")
-        let b:myfolded = 0
+        let b:myfolded=0
     endif
 
     if b:myfolded ># 0
         execute("%foldo")
-        let b:myfolded = 0
+        let b:myfolded=0
     else
         execute("%foldc")
-        let b:myfolded = 1
+        let b:myfolded=1
     endif
 endfunction
 
@@ -446,8 +446,8 @@ function! StripTrailingWhitespace()
 endfunction
 
 function! <SID>AutoMkdir() abort
-    let l:dir = expand('<afile>:p:h')
-    let l:file = expand('<afile>:t')
+    let l:dir=expand('<afile>:p:h')
+    let l:file=expand('<afile>:t')
     if !isdirectory(l:dir)
         call mkdir(l:dir, 'p')
         silent execute 'bw ' . l:dir . '/' . l:file
