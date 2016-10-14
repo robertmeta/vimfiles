@@ -40,7 +40,7 @@ nnoremap <silent> <leader>% :vsplit<cr>
 " Clear highlight
 nnoremap <silent> <backspace> :noh<CR>:SearchReset<CR>
 
-" Autocomplete
+" Mappings
 inoremap <silent> ;f <C-x><C-f>
 inoremap <silent> ;i <C-x><C-i>
 inoremap <silent> ;l <C-x><C-l>
@@ -345,8 +345,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline cursorcolumn
-        au WinLeave * setlocal nocursorline nocursorcolumn
+        "au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline cursorcolumn
+        "au WinLeave * setlocal nocursorline nocursorcolumn
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
         au QuickFixCmdPost    l* lwindow
