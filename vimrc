@@ -262,15 +262,15 @@ set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 "             |||||+-- no intro message
 "             ||||+-- truncate messages in the middle
 "             |||+-- truncate file message
-"             ||+-- not "Search hit bottom" crap
+"             ||+-- no Search hit bottom crap
 "             |+-- file read message overwrites subsequent
 "             +-- use every short text trick
 
 set statusline=[%{getcwd()}][%f]%=%r%y[%P][col:%c]%{gutentags#statusline('[Generating\ Tags...]')}%{fugitive#statusline()}
-"               |            |  | | |  |   |  |                                               |
-"               |            |  | | |  |   |  |                                               +-- fugative status
-"               |            |  | | |  |   |  +-- gutentags status
-"               |            |  | | |  |   +-- column number
+"               |            |  | | |  |       |  |                                               |
+"               |            |  | | |  |       |  |                                               +-- fugative status
+"               |            |  | | |  |       |  +-- gutentags status
+"               |            |  | | |  |       +-- column number
 "               |            |  | | |  +-- percentage through file
 "               |            |  | | +-- type of file
 "               |            |  | +-- readonly status
@@ -291,13 +291,13 @@ set cpoptions=aABceFsmq
 
 set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
 "             | | | | | | | | |
-"             | | | | | | | | +-- "]" Insert and Replace
-"             | | | | | | | +-- "[" Insert and Replace
-"             | | | | | | +-- "~" Normal
+"             | | | | | | | | +-- Insert and Replace
+"             | | | | | | | +-- Insert and Replace
+"             | | | | | | +-- Normal
 "             | | | | | +-- <Right> Normal and Visual
 "             | | | | +-- <Left> Normal and Visual
-"             | | | +-- "l" Normal and Visual (not recommended)
-"             | | +-- "h" Normal and Visual (not recommended)
+"             | | | +-- Normal and Visual (not recommended)
+"             | | +-- Normal and Visual (not recommended)
 "             | +-- <Space> Normal and Visual
 "             +-- <bs> Normal and Visual
 
