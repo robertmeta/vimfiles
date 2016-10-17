@@ -345,11 +345,17 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Highlight current line
-        "au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline cursorcolumn
-        "au WinLeave * setlocal nocursorline nocursorcolumn
+        "au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal relativenumber number
+        "au WinLeave * setlocal norelativenumber number
         " Quickfix open
         au QuickFixCmdPost [^l]* cwindow
         au QuickFixCmdPost    l* lwindow
+        " Rainbow Parnes
+        au VimEnter * RainbowParenthesesToggle
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
+        au Syntax * RainbowParenthesesLoadChevrons
     augroup END
 endif
 
@@ -408,6 +414,28 @@ let g:vim_markdown_frontmatter=1
 " Netrw
 let g:netrw_altfile=1
 
+" Rainbow parens
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+\ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
 " Sneak
 let g:sneak#streak=1
 
@@ -415,7 +443,7 @@ let g:sneak#streak=1
 let g:go_def_mode='godef'
 
 " Nofrils
-let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
+let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
 colo nofrils-dark
