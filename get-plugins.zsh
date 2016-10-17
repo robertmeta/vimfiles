@@ -23,12 +23,13 @@ git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/un
 git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
 git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git
 git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git
+git clone https://github.com/skywind3000/asyncrun.vim bundle/asyncrun && rm -rf bundle/asyncrun/.git
 git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
 git clone https://github.com/tomtom/ttags_vim bundle/ttags && rm -rf bundle/ttags/.git
 git clone https://github.com/tpope/vim-abolish bundle/abolish && rm -rf bundle/abolish/.git
 git clone https://github.com/tpope/vim-characterize bundle/characterize && rm -rf bundle/characterize/.git
 git clone https://github.com/tpope/vim-commentary bundle/commentary && rm -rf bundle/commentary/.git
-git clone https://github.com/tpope/vim-dispatch bundle/dispatch && rm -rf bundle/dispatch/.git
+#git clone https://github.com/tpope/vim-dispatch bundle/dispatch && rm -rf bundle/dispatch/.git
 git clone https://github.com/tpope/vim-eunuch bundle/eunuch && rm -rf bundle/eunuch/.git
 git clone https://github.com/tpope/vim-fugitive bundle/fugitive && rm -rf bundle/fugitive/.git
 git clone https://github.com/tpope/vim-repeat.git bundle/repeat && rm -rf bundle/repeat/.git
