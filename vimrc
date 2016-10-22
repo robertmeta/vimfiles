@@ -203,7 +203,7 @@ set ttimeout " time out on key codes
 set ttyfast " Assume a fast terminal
 set t_vb= " seriously, shhhh, don't be noisy
 set virtualedit=block " block mode, yey (onemore is evil)
-set nowrap " nowrap is easier for dealing with other devs
+set wrap " wrap forever!
 " Clipboard, Backup and Undo
 set backup " make backup files
 if s:running_windows
