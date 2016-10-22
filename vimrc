@@ -268,9 +268,7 @@ set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
 "             |+-- file read message overwrites subsequent
 "             +-- use every short text trick
 
-set statusline=[%{getcwd()}][%f]%=%r%y[%P][col:%c]%{gutentags#statusline('[Generating\ Tags...]')}%{fugitive#statusline()}
-"               |            |  | | |  |       |  |                                               |
-"               |            |  | | |  |       |  |                                               +-- fugative status
+set statusline=[%{getcwd()}][%f]%=%r%y[%P][col:%c]%{gutentags#statusline('[Generating\ Tags...]')}
 "               |            |  | | |  |       |  +-- gutentags status
 "               |            |  | | |  |       +-- column number
 "               |            |  | | |  +-- percentage through file
