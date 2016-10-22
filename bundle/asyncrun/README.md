@@ -1,5 +1,5 @@
 ## Preface
-This plugin takes the advantage of new apis in Vim 8 to enable you to run shell commands in background and read output in the quickfix window in realtime:
+This plugin takes the advantage of new apis in Vim 8 (and NeoVim) to enable you to run shell commands in background and read output in the quickfix window in realtime:
 
 - Easy to use, just start your background command by `:AsyncRun` (just like old "!" cmd).
 - Command is done in the background, no need to wait for the entire process to finish.
@@ -7,21 +7,27 @@ This plugin takes the advantage of new apis in Vim 8 to enable you to run shell 
 - You can explore the error output immediately or keep working in vim while executing.
 - Ring the bell or play a sound to notify you job finished while you're focusing on editing.
 - Fast and lightweight, just a single self-contained `asyncrun.vim` source file.  
+- Provide corresponding user experience vim, neovim, gvim and macvim.
 
 If that doesn't excite you, then perhaps this GIF screen capture below will change your mind.
+
+## News
+
+- 2016/10/17 Glad to announce that `asyncrun.vim` supports NeoVim now.
+- 2016/10/15 `asyncrun.vim` can cooperate with `vim-fugitive`, see the bottom of the README.
 
 ## Install
 Copy `asyncrun.vim` to your `~/.vim/plugin` or use Vundle to install it from `skywind3000/asyncrun.vim` .
 
 ## Example
 
-![](https://raw.githubusercontent.com/skywind3000/asyncrun.vim/master/screenshot.gif)
+![](https://raw.githubusercontent.com/skywind3000/asyncrun.vim/master/doc/screenshot.gif)
 
 ## Tutorials
 
 #### Async run gcc to compile current file
 	:AsyncRun gcc % -o %<
-	:AsyncRun g++ -O3 % -o %< -lpthread 
+	:AsyncRun g++ -O3 "%" -o "%<" -lpthread 
 This command will run gcc in the background and output to the quickfix window in realtime. Macro '`%`' stands for filename and '`%>`' represents filename without extension.
 
 #### Async run make
@@ -34,7 +40,7 @@ This command will run gcc in the background and output to the quickfix window in
 when `!` is included, auto-scroll in quickfix will be disabled. `<cword>` represents current word under cursor.
 
 #### Compile go project
-    :AsyncRun go build %:p:h
+    :AsyncRun go build "%:p:h"
 Macro '`%:p:h`' stands for current file dir. 
 
 #### Lookup man page
@@ -44,7 +50,9 @@ Macro '`%:p:h`' stands for current file dir.
     :AsyncRun git push origin master
 
 #### Setup `<F7>` to compile file
-    :noremap <F7> :AsyncRun gcc % -o %< <cr> 
+    :noremap <F7> :AsyncRun gcc "%" -o "%<" <cr> 
+
+File name may contain spaces, therefore, it's safe to quote them.
 
 ## Manual
 
@@ -53,10 +61,11 @@ There are two vim commands: `:AsyncRun` and `:AsyncStop` to control async jobs.
 #### AsyncRun - Run shell command
 
 ```VimL
-:AsyncRun{!} [cmd] ...
+:AsyncRun[!] [options] {cmd} ...
 ```
 
-run shell command in background and output to quickfix. when `!` is included, auto-scroll in quickfix will be disabled. Parameters are splited by space, if a parameter contains space, it should be escaped as backslash + space (just like ex commands).
+run shell command in background and output to quickfix. when `!` is included, auto-scroll in quickfix will be disabled. Parameters are splited by space, if a parameter contains space, it should be **quoted** or escaped as backslash + space (unix only).
+
 
 Parameters accept macros start with '`%`', '`#`' or '`<`' :
 
@@ -91,10 +100,23 @@ Environment variables are set before executing:
 
 These environment variables wrapped by `$(...)` (eg. `$(VIM_FILENAME)`) will also be expanded in the parameters.
 
+There can be some options before your `[cmd]`:
+
+    -mode=0/1/2 - start mode: 0(async, default), 1(:make), 2(:!)
+    -cwd=?      - initial directory, (use current directory if unset)
+    -save=0/1   - non-zero to save unsaved files before executing
+    -program=?  - set to `make` to use `&makeprg`, `grep` to use `&grepprg` 
+	-post=?     - vimscript to exec after this job finished, spaces **must** be escaped to '\ '
+
+All options must start with a minus and position **before** `[cmd]`. Since no shell command  string starts with a minus. So they can be distinguished from shell command easily without any ambiguity. 
+
+Don't worry if you do have a shell command starting with '-', Just put a placeholder `@` before your command to tell asyncrun explicitly: "stop parsing options now, the following string is all my command".
+
+
 #### AsyncStop - Stop the running job
 
 ```VimL
-:AsyncStop{!}
+:AsyncStop[!]
 ```
 
 stop the running job, when "!" is included, job will be stopped by signal KILL
@@ -104,25 +126,44 @@ stop the running job, when "!" is included, job will be stopped by signal KILL
 - g:asyncrun_exit - script will be executed after finished
 - g:asyncrun_bell - non-zero to ring a bell after finished
 - g:asyncrun_mode - 0:async(require vim 7.4.1829) 1:sync 2:shell
+- g:asyncrun_encs - set shell encoding if it's different from `&encoding`, see [here](https://github.com/skywind3000/asyncrun.vim/wiki/Quickfix-encoding-problem-when-using-Chinese-or-Japanese)
 
 #### Variables:
 - g:asyncrun_code - exit code
 - g:asyncrun_status - 'running', 'success' or 'failure'
 
 #### Requirements:
-vim 7.4.1829 is minimal version to support async mode. If you are use older versions, `g:asyncrun_mode` will fall back from `0/async` to `1/sync`.
+Vim 7.4.1829 is minimal version to support async mode. If you are use older versions, `g:asyncrun_mode` will fall back from `0/async` to `1/sync`. NeoVim 0.1.4 or later is also supported. 
+
+Recommend to use Vim 8.0 or later. 
+
+#### Cooperate with vim-fugitive:
+
+asyncrun.vim can cooperate with `vim-fugitive`, see [here](https://github.com/skywind3000/asyncrun.vim/wiki/Cooperate-with-vim-fugitive).
+
+![](https://raw.githubusercontent.com/skywind3000/asyncrun.vim/master/doc/cooperate_with_fugitive.gif)
+
+
 
 ## More
 
 - [Additional examples (background ctags updating, pdf conversion, ...)](https://github.com/skywind3000/asyncrun.vim/wiki/Additional-Examples)
 - [Notify user job finished by playing a sound](https://github.com/skywind3000/asyncrun.vim/wiki/Playing-Sound)
-- [View progress in status line](https://github.com/skywind3000/asyncrun.vim/wiki/View-Progress-in-Status-Line)
+- [View progress in status line or vim airline](https://github.com/skywind3000/asyncrun.vim/wiki/Display-Progress-in-Status-Line-or-Airline)
 - [Best practice with quickfix windows](https://github.com/skywind3000/asyncrun.vim/wiki/Quickfix-Best-Practice)
 - [Scroll the quickfix window only if the cursor is on the last line](https://github.com/skywind3000/asyncrun.vim/wiki/Scroll-the-quickfix-window-only-if-cursor-is-on-the-last-line)
-- [Open quickfix window automatically when something adds to it](https://github.com/skywind3000/asyncrun.vim/wiki/Open-quickfix-window-when-text-adds-to-it)
+- [Cooperate with vim-fugitive](https://github.com/skywind3000/asyncrun.vim/wiki/Cooperate-with-vim-fugitive)
+- [Replace old ':make' command with asyncrun](https://github.com/skywind3000/asyncrun.vim/wiki/Replace-old-make-command-with-AsyncRun)
+- [Quickfix encoding problem when using Chinese or Japanese](https://github.com/skywind3000/asyncrun.vim/wiki/Quickfix-encoding-problem-when-using-Chinese-or-Japanese)
+
 
 ## History
 
+- 1.3.3 (2016-10-21): prevent job who reads stdin getting hanging, fixed an issue in fast exiting jobs.
+- 1.3.2 (2016-10-19): new "-post" option to run a vimscript after the job finished
+- 1.3.1 (2016-10-18): fixed few issues of arguments passing in different modes
+- 1.3.0 (2016-10-17): add support to neovim, better CJK characters handling.
+- 1.2.0 (2016-10-16): refactor, correct arguments parsing, cmd options and &makeprg supports
 - 1.1.1 (2016-10-13): use the vim native &shell and &shellcmdflag config to execute commands.
 - 1.1.0 (2016-10-12): quickfix window scroll only if cursor is on the last line
 - 1.0.3 (2016-10-10): reduce quickfix output latency.

@@ -83,8 +83,10 @@ nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>s :Search 
 nnoremap <leader>S :call StripTrailingWhitespace()<cr>
-nnoremap <leader>t :TTags<cr>
-nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
+nnoremap <leader>t :tag<space>
+nnoremap <leader>T :tag<space><C-d>
+" nnoremap <leader>t :TTags<cr>
+" nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap <leader>@ :norm@<cr>
 nnoremap <leader>. :norm.<cr>
