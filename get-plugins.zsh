@@ -16,7 +16,8 @@ git clone https://github.com/tomasr/molokai bundle/molokai && rm -rf bundle/molo
 git clone https://github.com/fatih/vim-go bundle/vim-go && rm -rf bundle/vim-go/.git
 git clone https://github.com/justinmk/vim-dirvish bundle/dirvish && rm -rf bundle/dirvish/.git
 git clone https://github.com/justinmk/vim-sneak bundle/sneak && rm -rf bundle/sneak/.git
-git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbowparens && rm -rf bundle/rainbowparens/.git
+#git clone https://github.com/kien/rainbow_parentheses.vim bundle/rainbowparens && rm -rf bundle/rainbowparens/.git
+git clone https://github.com/lifepillar/vim-mucomplete bundle/mucomplete && rm -rf bundle/mucomplete/.git
 git clone https://github.com/ludovicchabant/vim-gutentags bundle/gutentags && rm -rf bundle/gutentags/.git
 #git clone https://github.com/MarcWeber/vim-addon-mw-utils bundle/mwutils && rm -rf bundle/mwutils/.git
 #git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/undotree/.git
