@@ -259,8 +259,9 @@ set formatoptions=qrn1j " used to be just rq
 "                 |+-- enter extends comments
 "                 +-- allow gq to work on comment
 
-set shortmess=aOstTI " shortens messages to avoid 'press a key' prompt
-"             ||||||
+set shortmess=aOstTIc " shortens messages to avoid 'press a key' prompt
+"             |||||||
+"             ||||||+ no ins-completion messages
 "             |||||+-- no intro message
 "             ||||+-- truncate messages in the middle
 "             |||+-- truncate file message
