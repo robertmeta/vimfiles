@@ -4,8 +4,8 @@ Can't stand the dozen of MB of YouCompleteMe? Can't figure out the
 correct settings to tame NeoComplete? D'you think AutoComplPop is an
 old fashioned fusion group and Supertab a movie hero for children?
 
-Well below 200 LoC, µcomplete may be the minimalistic autocompletion
-plugin you were looking for!
+With a core well below 200 lines of code, µcomplete may be the
+minimalistic autocompletion plugin you were looking for!
 
 MUcomplete is an implementation of *chained (fallback) completion*,
 whereby several completion methods are attempted one after another
@@ -21,6 +21,13 @@ features.
 
 
 # Getting Started
+
+MUcomplete requires Vim compiled with `+insert_expand` and `+menu`.
+Vim 8 or later is recommended.
+
+Installation does not require anything special. If you need help,
+please read [How to Install]
+(https://github.com/lifepillar/vim-mucomplete/wiki/How-to-Install).
 
 No configuration is required, just start pressing `<tab>` or `<s-tab>`
 to complete a word. If you want to enable automatic completion, put
@@ -56,7 +63,7 @@ setl infercase
 setl completeopt-=preview
 setl completeopt+=longest,menu,menuone
 let g:jedi#popup_on_dot = 0  " It may be 1 as well
-MUcompleteAutoOn *.py
+let g:mucomplete#enable_auto_at_startup = 1
 ```
 
 The example on the right shows how different completion methods (omni
@@ -67,7 +74,9 @@ selected in different contexts. Used settings:
 set showmode shortmess-=c
 setl completeopt+=menu,menuone
 setl infercase
-let g:mucomplete#user_mappings = { 'sql' : ["\<c-c>a", "\<c-c>a\<c-p>"] }
-let g:mucomplete#chains = { 'sql' : ['file', 'sql', 'keyn'] }
-MUcompleteAutoOn *.sql
+let g:mucomplete#user_mappings = { 'sqla' : "\<c-c>a" }
+let g:mucomplete#chains = { 'sql' : ['file', 'sqla', 'keyn'] }
+let g:mucomplete#enable_auto_at_startup = 1
 ```
+
+

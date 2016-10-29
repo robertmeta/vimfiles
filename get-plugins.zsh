@@ -21,6 +21,7 @@ git clone https://github.com/lifepillar/vim-mucomplete bundle/mucomplete && rm -
 git clone https://github.com/ludovicchabant/vim-gutentags bundle/gutentags && rm -rf bundle/gutentags/.git
 #git clone https://github.com/MarcWeber/vim-addon-mw-utils bundle/mwutils && rm -rf bundle/mwutils/.git
 #git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/undotree/.git
+git clone https://github.com/mhinz/vim-tmuxify bundle/tmuxify && rm -rf bundle/tmuxify/.git
 #git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
 #git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git
 git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git
@@ -41,3 +42,4 @@ git clone https://github.com/tpope/vim-surround bundle/surround && rm -rf bundle
 git clone https://github.com/vim-scripts/MultipleSearch bundle/multiplesearch && rm -rf bundle/multiplesearch/.git
 git clone https://github.com/wellle/targets.vim bundle/targets && rm -rf bundle/targets/.git
 #git clone https://github.com/wellle/tmux-complete.vim bundle/tmuxcomplete && rm -rf bundle/tmuxcomplete/.git
+

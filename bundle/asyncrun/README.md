@@ -7,7 +7,7 @@ This plugin takes the advantage of new apis in Vim 8 (and NeoVim) to enable you 
 - You can explore the error output immediately or keep working in vim while executing.
 - Ring the bell or play a sound to notify you job finished while you're focusing on editing.
 - Fast and lightweight, just a single self-contained `asyncrun.vim` source file.  
-- Provide corresponding user experience vim, neovim, gvim and macvim.
+- Provide corresponding user experience in vim, neovim, gvim and macvim.
 
 If that doesn't excite you, then perhaps this GIF screen capture below will change your mind.
 
@@ -127,6 +127,7 @@ stop the running job, when "!" is included, job will be stopped by signal KILL
 - g:asyncrun_bell - non-zero to ring a bell after finished
 - g:asyncrun_mode - 0:async(require vim 7.4.1829) 1:sync 2:shell
 - g:asyncrun_encs - set shell encoding if it's different from `&encoding`, see [here](https://github.com/skywind3000/asyncrun.vim/wiki/Quickfix-encoding-problem-when-using-Chinese-or-Japanese)
+- g:asyncrun_trim - non-zero to trim the empty lines in the quickfix window.
 
 #### Variables:
 - g:asyncrun_code - exit code
@@ -150,16 +151,22 @@ asyncrun.vim can cooperate with `vim-fugitive`, see [here](https://github.com/sk
 - [Additional examples (background ctags updating, pdf conversion, ...)](https://github.com/skywind3000/asyncrun.vim/wiki/Additional-Examples)
 - [Notify user job finished by playing a sound](https://github.com/skywind3000/asyncrun.vim/wiki/Playing-Sound)
 - [View progress in status line or vim airline](https://github.com/skywind3000/asyncrun.vim/wiki/Display-Progress-in-Status-Line-or-Airline)
-- [Best practice with quickfix windows](https://github.com/skywind3000/asyncrun.vim/wiki/Quickfix-Best-Practice)
+- [Best practice with quickfix window](https://github.com/skywind3000/asyncrun.vim/wiki/Quickfix-Best-Practice)
 - [Scroll the quickfix window only if the cursor is on the last line](https://github.com/skywind3000/asyncrun.vim/wiki/Scroll-the-quickfix-window-only-if-cursor-is-on-the-last-line)
 - [Cooperate with vim-fugitive](https://github.com/skywind3000/asyncrun.vim/wiki/Cooperate-with-vim-fugitive)
 - [Replace old ':make' command with asyncrun](https://github.com/skywind3000/asyncrun.vim/wiki/Replace-old-make-command-with-AsyncRun)
 - [Quickfix encoding problem when using Chinese or Japanese](https://github.com/skywind3000/asyncrun.vim/wiki/Quickfix-encoding-problem-when-using-Chinese-or-Japanese)
+- [Example for updating and adding cscope files](https://github.com/skywind3000/asyncrun.vim/wiki/Example-for-updating-and-adding-cscope)
+
+Don't forget to read the [Frequently Asked Questions](https://github.com/skywind3000/asyncrun.vim/wiki/FAQ).
+
+## Further
+- [Experiment: get netrw using asyncrun to save remote files](https://github.com/skywind3000/asyncrun.vim/wiki/Get-netrw-using-asyncrun-to-save-remote-files)
 
 
 ## History
 
-- 1.3.3 (2016-10-21): prevent job who reads stdin getting hanging, fixed an issue in fast exiting jobs.
+- 1.3.3 (2016-10-28): prevent job who reads stdin from getting hanging, fixed an issue in fast exiting jobs.
 - 1.3.2 (2016-10-19): new "-post" option to run a vimscript after the job finished
 - 1.3.1 (2016-10-18): fixed few issues of arguments passing in different modes
 - 1.3.0 (2016-10-17): add support to neovim, better CJK characters handling.
@@ -176,6 +183,8 @@ asyncrun.vim can cooperate with `vim-fugitive`, see [here](https://github.com/sk
 - 0.0.0 (2016-08-24): initial version
 
 ## Credits
+Trying best to provide the most simply and convenience experience in the asynchronous-jobs. 
+
 Author: skywind3000
 Please vote it if you like it: 
 http://www.vim.org/scripts/script.php?script_id=5431
