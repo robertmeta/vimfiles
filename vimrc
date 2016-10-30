@@ -347,15 +347,6 @@ if has("autocmd")
         " Highlight current line
         au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal relativenumber number
         au WinLeave * setlocal norelativenumber number
-        " Quickfix open
-        au QuickFixCmdPost [^l]* cwindow
-        au QuickFixCmdPost    l* lwindow
-        " Rainbow Parnes
-        " au VimEnter * RainbowParenthesesToggle
-        " au Syntax * RainbowParenthesesLoadRound
-        " au Syntax * RainbowParenthesesLoadSquare
-        " au Syntax * RainbowParenthesesLoadBraces
-        " au Syntax * RainbowParenthesesLoadChevrons
     augroup END
 endif
 
@@ -414,44 +405,11 @@ let g:vim_markdown_frontmatter=1
 " Netrw
 let g:netrw_altfile=1
 
-" Rainbow parens (leave in in case I turn on later)
-let g:rbpt_colorpairs = [
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-    \ ['blue', 'RoyalBlue3'],
-    \ ['darkred', 'firebrick3'],
-    \ ['darkgreen', 'Seagreen3'],
-    \ ['brown', 'DarkOrchid3'],
-    \ ['darkcyan', 'Seagreen3'],
-    \ ['darkmagenta', 'RoyalBlue3'],
-\ ]
-let g:rbpt_max = 24
-let g:rbpt_loadcmd_toggle = 0
-
 " Sneak
 let g:sneak#streak=1
 
 " Mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
-
-" Vim-go
-let g:go_def_mode='godef'
 
 " Nofrils
 let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
@@ -496,6 +454,5 @@ endfunction
 
 augroup AutoMkdir
     autocmd!
-    autocmd BufWritePre,FileWritePre,BufNewFile *
-        \ call <SID>AutoMkdir()
+    autocmd BufWritePre,FileWritePre,BufNewFile * call <SID>AutoMkdir()
 augroup END

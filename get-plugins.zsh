@@ -22,8 +22,8 @@ git clone https://github.com/ludovicchabant/vim-gutentags bundle/gutentags && rm
 #git clone https://github.com/MarcWeber/vim-addon-mw-utils bundle/mwutils && rm -rf bundle/mwutils/.git
 #git clone https://github.com/mbbill/undotree bundle/undotree && rm -rf bundle/undotree/.git
 git clone https://github.com/mhinz/vim-tmuxify bundle/tmuxify && rm -rf bundle/tmuxify/.git
-#git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
-#git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git
+git clone https://github.com/romainl/vim-qf bundle/qf && rm -rf bundle/qf/.git
+git clone https://github.com/romainl/vim-qlist bundle/qlist && rm -rf bundle/qlist/.git
 git clone https://github.com/sheerun/vim-polyglot bundle/polygot && rm -rf bundle/polygot/.git
 git clone https://github.com/skywind3000/asyncrun.vim bundle/asyncrun && rm -rf bundle/asyncrun/.git
 #git clone https://github.com/tomtom/tlib_vim bundle/tlib && rm -rf bundle/tlib/.git
