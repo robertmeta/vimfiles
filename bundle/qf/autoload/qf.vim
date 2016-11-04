@@ -128,6 +128,8 @@ function qf#JumpToFirstItemOfFileChunk() abort
     while line('.') - 1 != 0 && l:chunk_file_path == qf#GetFilePath(getline(line('.') - 1))
         normal! k
     endwhile
+
+    normal zz
 endfunction
 
 function qf#JumpFileChunk(down) abort
@@ -510,6 +512,20 @@ function qf#CompleteList(ArgLead, CmdLine, CursorPos)
     endfor
 
     return completions
+endfunction
+
+" open the quickfix window if there are valid errors
+function qf#OpenQuickfix()
+    if get(g:, 'qf_auto_open_quickfix', 1)
+        cwindow
+    endif
+endfunction
+
+" open a location window if there are valid locations
+function qf#OpenLoclist()
+    if get(g:, 'qf_auto_open_loclist', 1)
+        lwindow
+    endif
 endfunction
 
 " template
