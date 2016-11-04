@@ -24,6 +24,16 @@ if exists('##TextChangedI') && exists('##CompleteDone')
       unlet s:completedone
     endif
   endf
+
+  fun! mucomplete#toggle_auto()
+    if exists('#MUcompleteAuto')
+      call mucomplete#disable_auto()
+      echomsg '[MUcomplete] Auto off'
+    else
+      call mucomplete#enable_auto()
+      echomsg '[MUcomplete] Auto on'
+    endif
+  endf
 endif
 
 " Patterns to decide when automatic completion should be triggered.
@@ -84,63 +94,74 @@ unlet s:cnp
 let s:compl_methods = []
 let s:compl_text = ''
 let s:auto = 0
-let s:i = -1
+let s:dir = 1
+let s:cycle = 0
+let s:i = 0
 let s:pumvisible = 0
+let s:select_entry = { 'c-p' : "\<c-p>\<down>", 'keyp': "\<c-p>\<down>" }
+
+fun! s:act_on_pumvisible()
+  let s:pumvisible = 0
+  return s:auto ? '' : (stridx(&l:completeopt, 'noselect') == -1
+        \               ? (stridx(&l:completeopt, 'noinsert') == - 1 ? '' : "\<up>\<c-n>")
+        \               : get(s:select_entry, s:compl_methods[s:i], "\<c-n>\<up>")
+        \              )
+endf
+
+fun! s:can_complete()
+  return get(get(g:mucomplete#can_complete, getbufvar("%","&ft"), {}),
+        \          s:compl_methods[s:i],
+        \          get(g:mucomplete#can_complete['default'], s:compl_methods[s:i], s:yes_you_can)
+        \ )(s:compl_text)
+endf
 
 fun! mucomplete#yup()
   let s:pumvisible = 1
   return ''
 endf
 
-let s:deselect_entry = extend({ 'c-p' : "\<c-n>", 'keyp': "\<c-n>" },
-      \ get(g:, 'mucomplete#user_mappings_deselect', {}), 'error')
-
-fun! s:act_on_pumvisible()
-  return s:auto
-        \ ? (get(s:deselect_entry, s:compl_methods[s:i], "\<c-p>")
-        \ . (get(g:, 'mucomplete#auto_select', 0) ? "\<down>" : ''))
-        \ : ''
-endf
-
-" Workhorse function for chained completion. Do not call directly.
-fun! mucomplete#complete_chain()
-  if s:pumvisible
-    let s:pumvisible = 0
-    return s:act_on_pumvisible()
-  endif
-  let s:i += 1
-  while s:i < len(s:compl_methods) &&
-        \ !get(get(g:mucomplete#can_complete, getbufvar("%","&ft"), {}),
-        \          s:compl_methods[s:i],
-        \          get(g:mucomplete#can_complete['default'], s:compl_methods[s:i], s:yes_you_can)
-        \ )(s:compl_text)
-    let s:i += 1
+" Precondition: pumvisible() is false.
+fun! s:next_method()
+  let s:i = (s:cycle ? (s:i + s:dir + s:N) % s:N : s:i + s:dir)
+  while (s:i+1) % (s:N+1) != 0  && !s:can_complete()
+    let s:i = (s:cycle ? (s:i + s:dir + s:N) % s:N : s:i + s:dir)
   endwhile
-  if s:i < len(s:compl_methods)
+  if (s:i+1) % (s:N+1) != 0
     return s:compl_mappings[s:compl_methods[s:i]] . "\<c-r>=pumvisible()?mucomplete#yup():''\<cr>\<plug>(MUcompleteNxt)"
   endif
   return ''
 endf
 
-fun! s:complete(rev)
-  let s:compl_methods = get(b:, 'mucomplete_chain',
-        \ get(g:mucomplete#chains, getbufvar("%", "&ft"), g:mucomplete#chains['default']))
-  if a:rev
-    let s:compl_methods = reverse(copy(s:compl_methods))
-  endif
-  return mucomplete#complete_chain()
+fun! mucomplete#verify_completion()
+  return s:pumvisible ? s:act_on_pumvisible() : s:next_method()
 endf
 
-fun! mucomplete#complete(rev)
-  if pumvisible()
-    return a:rev ? "\<c-p>" : "\<c-n>"
-  endif
-  let s:i = -1
-  let s:auto = exists('#MUcompleteAuto')
+" Precondition: pumvisible() is true.
+fun! mucomplete#cycle(dir)
+  let [s:dir, s:cycle] = [a:dir, 1]
+  return "\<c-e>" . s:next_method()
+endf
+
+" Precondition: pumvisible() is true.
+fun! mucomplete#cycle_or_select(dir)
+  return get(g:, 'mucomplete#cycle_with_trigger', 0)
+        \ ? mucomplete#cycle(a:dir)
+        \ : (a:dir > 0 ? "\<c-n>" : "\<c-p>")
+endf
+
+" Precondition: pumvisible() is false.
+fun! mucomplete#complete(dir)
   let s:compl_text = matchstr(strpart(getline('.'), 0, col('.') - 1), '\S\+$')
-  return strlen(s:compl_text) == 0
-        \ ? (a:rev ? "\<plug>(MUcompleteCtd)" : "\<plug>(MUcompleteTab)")
-        \ : s:complete(a:rev)
+  if strlen(s:compl_text) == 0
+    return (a:dir > 0 ? "\<plug>(MUcompleteTab)" : "\<plug>(MUcompleteCtd)")
+  endif
+  let s:auto = exists('#MUcompleteAuto')
+  let [s:dir, s:cycle] = [a:dir, 0]
+  let s:compl_methods = get(b:, 'mucomplete_chain',
+        \ get(g:mucomplete#chains, getbufvar("%", "&ft"), g:mucomplete#chains['default']))
+  let s:N = len(s:compl_methods)
+  let s:i = s:dir > 0 ? -1 : s:N
+  return s:next_method()
 endf
 
 fun! mucomplete#autocomplete()

@@ -35,21 +35,29 @@ guessing. It just makes use of built-in Vim features.
 ====================================================================
 Section 2: Requirements                    *mucomplete-requirements*
 
-MUcomplete requires Vim compiled with |+insert_expand| and |+menu|.
+MUcomplete requires Vim 7.3 compiled with |+insert_expand| and
+|+menu|. Automatic completion is available in Vim 7.4 or later.
+MUcomplete is developed and tested on Vim 8.
 
-MUcomplete has been tested with Vim 8 only.
-
-Note: |<c-b>| should not be mapped in Insert mode (see
-|i_ctrl-b-gone| and |g:mucomplete#exit_ctrlx_keys|).
+If you have mapped |<c-b>| in Insert mode, you need to set
+|g:mucomplete#exit_ctrlx_keys|.
 
 ====================================================================
 Section 3: Getting started                        *mucomplete-howto*
 
 Recommended Vim settings:
-
-  `set completeopt+=menu,menuone`
-  `set shortmess+=c`
-
+>
+  set completeopt+=menu,menuone
+  set shortmess+=c
+<
+Besides, for automatic completion, you most likely will want one of:
+>
+  set completeopt+=noinsert
+<
+or
+>
+  set completeopt+=noinsert,noselect
+<
 Press <tab> in Insert mode to complete a word. This will
 sequentially trigger the methods specified in |g:mucomplete#chains|,
 until some results are found. You may use <s-tab> to try the same
@@ -61,11 +69,16 @@ defined or the omni completion function returns no results, then
 µcomplete will fallback to local keyword completion (|'keyn'|).
 Pressing <s-tab> will trigger the same methods in reverse order. You
 may define arbitrarily long completion chains, and even
-filetype-specific completion chains.
+filetype-specific or buffer-specific completion chains.
+
+Sometimes, the first method returning results is not the one you
+want. With the pop-up menu visible, you may type <c-h> and <c-l> to
+cycle back and forth, respectively, through your completion chain.
 
 In detail, this is the algorithm used by µcomplete:
 
-1. Retrieve the current completion chain from |g:mucomplete#chains|.
+1. Retrieve the current completion chain from |b:mucomplete_chain|,
+   if defined, otherwise from |g:mucomplete#chains|.
 
 2. For each method listed in the completion chain:
 
@@ -73,7 +86,7 @@ In detail, this is the algorithm used by µcomplete:
          corresponding function defined for the current filetype in
          |g:mucomplete#can_complete|.
 
-   2(b). If the method can be applied, invoke the corresponding
+   2(b). If the method can be applied, type the corresponding
          mapping.
 
    2(c). If some results are returned, show them in a pop-up menu
@@ -119,6 +132,9 @@ Section 5: Commands                            *mucomplete-commands*
 :MUcompleteAutoOff
   Disable automatic completion.
 
+:MUcompleteAutoToggle
+  Toggle automatic completion.
+
 ====================================================================
 Section 6: Mappings                            *mucomplete-mappings*
 
@@ -126,34 +142,52 @@ The following mappings are enabled by default. If you do not want
 that, see |g:mucomplete#no_mappings|.
 
 <tab>
-  Trigger forward chained completion.
+  Trigger forward chained completion. When the pop-up menu is
+  visible, select the next menu entry or try the next completion
+  method depending on the value of
+  |g:mucomplete#cycle_with_trigger|.
 
 <s-tab>
-  Trigger backward chained completion.
+  Trigger backward chained completion. When the pop-up menu is
+  visible, select the previous menu entry or try the previous
+  completion method depending on the value of
+  |g:mucomplete#cycle_with_trigger|.
+
+<c-l>
+  When the pop-up menu is visible, try the next completion method
+  that can be applied.
+
+<c-h>
+  When the pop-up menu is visible, try the previous completion
+  method that can be applied.
 
 In your |.vimrc|, you may override such mappings. For example, to
-use <c-j> and <c-k> instead of <tab> and <s-tab>, use: >
+use <c-j> and <c-k> instead of <tab> and <s-tab>, use:
+>
   imap <c-j> <plug>(MUcompleteFwd)
   imap <c-k> <plug>(MUcompleteBwd)
 <
+To use, say, <left> and <right> as cycling keys, use the following:
+>
+  inoremap <silent> <plug>(MUcompleteFwdKey) <right>
+  imap <right> <plug>(MUcompleteCycFwd)
+  inoremap <silent> <plug>(MUcompleteBwdKey) <left>
+  imap <left> <plug>(MUcompleteCycBwd)
+<
+You may also use <tab> and <s-tab> (or whatever mappings you have
+defined to trigger manual completion) for cycling through the
+completion methods instead of selecting menu entries: see
+|g:mucomplete#cycle_with_trigger|.
 
 ====================================================================
 Section 7: Customization                  *mucomplete-customization*
 
-                                        *'g:mucomplete#auto_select'*
-Set to 1 to have the first entry in the pop-up menu automatically
-selected, but not inserted. Only relevant when automatic completion
-is on (see |g:mucomplete#enable_auto_at_startup| and
-|:MUcompleteAutoOn|).
->
-  let g:mucomplete#auto_select = 0
-<
-
                                        *'g:mucomplete#can_complete'*
 A Dictionary defining the conditions to be verified for a given
-method to be applied. Each condition is a function with one argument
-(the text to be completed), which returns either 1 or 0, according
-to whether the corresponding method can be applied or not.
+method to be applied. Each condition is a |lambda|, |function()| or
+|funcref()| with one argument (the text to be completed), which
+returns either 1 or 0, according to whether the corresponding method
+can be applied or not.
 >
   let g:mucomplete#can_complete = {
       \   'default' : {
@@ -168,9 +202,8 @@ to whether the corresponding method can be applied or not.
       \   }
       \ }
 <
-
-If there is no key in |g:mucomplete#can_complete.default| for the
-current method, such method will be tried unconditionally.
+If no key is found in |g:mucomplete#can_complete| for the current
+method, such method will be tried unconditionally.
 
 In your |.vimrc|, you may override some or all the default
 conditions or add filetype-specific conditions. For example:
@@ -183,7 +216,6 @@ conditions or add filetype-specific conditions. For example:
       \ 'omni': { t -> t =~# '::$' }
       \ }
 <
-
 This will perform a custom check for |'spel'| completion, and
 a custom check for |'omni'| completion in cpp buffers. In all other
 cases, the default conditions will be checked.
@@ -202,7 +234,6 @@ completion chains may be added by the user.
       \ 'default' : ['file', 'omni', 'keyn', 'dict']
       \ }
 <
-
 In your |.vimrc|, you may override the default completion chain or
 add filetype-specific completion chains. For example:
 >
@@ -210,13 +241,21 @@ add filetype-specific completion chains. For example:
   let g:mucomplete#chains.default = ['omni', 'c-p']
   let g:mucomplete#chains.markdown = ['keyn', 'spel', 'dict']
 <
+                                 *'g:mucomplete#cycle_with_trigger'*
+Set to 1 to use <tab> and <s-tab> (or whatever your manual completion
+triggers are) to move back and forth, respectively, through the
+current completion chain.
+>
+  let g:mucomplete#cycle_with_trigger = 0
+<
+Note: if you set this to 1, you have to use the standard CTRL-N and
+CTRL-P to select the entries in the pop-up menu.
 
                              *'g:mucomplete#enable_auto_at_startup'*
 Set to 1 to enable automatic completion at startup.
 >
   let g:mucomplete#enable_auto_at_startup = 0
 <
-
                                     *'g:mucomplete#exit_ctrlx_keys'*
 
 The key combo to exit ctrl-x submode. You should never need to
@@ -224,19 +263,17 @@ change this value, unless you have remapped <c-b> in Insert mode.
 >
   let g:mucomplete#exit_ctrlx_keys = "\<c-b>\<bs>"
 <
-
                                         *'g:mucomplete#no_mappings'*
 Set to 1 to prevent µcomplete to define any mapping.
 >
   let g:mucomplete#no_mappings = 0
 <
-
                                             *'g:mucomplete#pathsep'*
-The regular expression defining a path separator.
+The regular expression defining a path separator. Used for file name
+completion.
 >
   let g:mucomplete#pathsep = '/'  " '\' on Windows
 <
-
                                *'g:mucomplete#trigger_auto_pattern'*
 A Dictionary of patterns to decide when automatic completion should
 be fired. Only relevant when automatic completion is on (see
@@ -244,7 +281,6 @@ be fired. Only relevant when automatic completion is on (see
 >
   let g:mucomplete#trigger_auto_pattern = { 'default' : '\k\k$' }
 <
-
 In your |.vimrc|, you may override the default pattern or add
 filetype-specific patterns. For example:
 >
@@ -263,7 +299,6 @@ snippets that contain the current word.
 >
   let g:mucomplete#ultisnips#match_at_start = 1
 <
-
                                       *'g:mucomplete#user_mappings'*
 User-defined completion methods. For example:
 >
@@ -271,31 +306,12 @@ User-defined completion methods. For example:
       \ 'sqla' : "\<c-c>a"
       \ }
 <
-
 User-defined completion methods may be used as predefined methods,
 e.g.:
 >
   let g:mucomplete#chains = {}
   let g:mucomplete#chains.sql = ['sqla', 'keyp', 'tags']
 <
-
-                             *'g:mucomplete#user_mappings_deselect'*
-Used to specify, for a user completion method, a non-default key to
-switch to state 3 when the pop-up menu becomes visible (see
-|ins-completion-menu|). The default key is CTRL-P. This option is
-only relevant if automatic completion is on (see |:MUcompleteAutoOn|
-and |g:mucomplete#enable_auto_at_startup|).
-
-You do not need to set this variable, unless the completion method
-you are using selects by default an entry different from the first
-one.
->
-  let g:mucomplete#user_mappings_deselect = {
-    \ 'c-p' : "\<c-n>",
-    \ 'keyp': "\<c-n>"
-    \ }
-<
-
 ====================================================================
 Section 8: Troubleshooting              *mucomplete-troubleshooting*
 
@@ -304,8 +320,7 @@ Before reporting a bug, please do the following:
 1. Use the following |vimrc_mucomplete| to rule out conflicts with
    other plugins: >
      set runtimepath+=/path/to/mucomplete/
-     set completeopt-=longest
-     set completeopt+=menu,menuone
+     set completeopt=menu,menuone,noinsert
      set showmode shortmess-=c
 <
    Add other µcomplete options as you see fit. Run with: >
@@ -317,8 +332,9 @@ Before reporting a bug, please do the following:
 2. Double-check your completion chain: >
      echo g:mucomplete#chains
 <
-   Are the methods you expect to be used defined and in the correct
-   order?
+   Also, check whether |b:mucomplete_chain| is defined, because its
+   value shadows the global chains. Are the methods you expect to be
+   used defined and in the correct order?
 
 3. Some completion methods are enabled conditionally. For example,
    dictionary completion may be triggered only if |'dictionary'| is
