@@ -41,7 +41,6 @@ func main() {
 		"wellle/tmux-complete.vim",
 	}
 
-	log.Println("start")
 	clearPack()
 
 	for _, v := range plugins {
@@ -55,7 +54,6 @@ func main() {
 
 	wg.Done()
 	wg.Wait()
-	log.Println("end")
 }
 
 func clearPack() {
@@ -63,16 +61,28 @@ func clearPack() {
 	mustNotError(os.MkdirAll("pack/", 0777))
 }
 
+// TODO: use os.PathSeperator
 func updatePlugin(wg *sync.WaitGroup, org, plugin string) {
 	fullUrl := "https://github.com/" + plugin
 	localPath := "pack/" + org + "/start/" + strings.Replace(strings.Replace(strings.ToLower(plugin), `/`, `-`, -1), `.vim`, ``, 1)
-	log.Println(fullUrl)
-	log.Println(localPath)
+
 	mustNotError(os.MkdirAll(localPath, 0777))
+
 	_, err := exec.Command("git", "clone", fullUrl, localPath).CombinedOutput()
 	mustNotError(err)
+
 	mustNotError(os.RemoveAll(localPath + "/.git"))
 
+	docsPath := localPath + "/doc"
+	docsExist, err := exists(docsPath)
+	mustNotError(err)
+	if docsExist {
+		_, err := exec.Command("vim", "-c", "helptags "+docsPath+" | q").CombinedOutput()
+		mustNotError(err)
+
+	}
+
+	log.Println(localPath, "done")
 	wg.Done()
 }
 
@@ -80,4 +90,15 @@ func mustNotError(err error) {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func exists(path string) (bool, error) {
+	_, err := os.Stat(path)
+	if err == nil {
+		return true, nil
+	}
+	if os.IsNotExist(err) {
+		return false, nil
+	}
+	return true, err
 }
