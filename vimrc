@@ -84,19 +84,8 @@ nnoremap <leader>T :tag<space><C-d>
 " nnoremap <leader>t :TTags<cr>
 " nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
-nnoremap <leader>@ :norm@<cr>
-nnoremap <leader>. :norm.<cr>
 nnoremap <F5> "=strftime("%c")<CR>P
 
-" Vimux
-nnoremap <silent> <leader>r :VimuxRunLastCommand<cr>
-nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
-nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
-nnoremap <silent> <leader>vp :VimuxPromptCommand<cr>
-nnoremap <silent> <leader>vq :VimuxCloseRunner<cr>
-nnoremap <silent> <leader>vr :VimuxRunLastCommand<cr>
-nnoremap <silent> <leader>vx :VimuxInterruptRunner<cr>
-nnoremap <silent> <leader>x :VimuxInterruptRunner<cr>
 " quick command helpers
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
