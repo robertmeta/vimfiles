@@ -1,0 +1,10 @@
+:Search	MultipleSearch.txt	/*:Search*
+:SearchBuffers	MultipleSearch.txt	/*:SearchBuffers*
+MultipleSearch	MultipleSearch.txt	/*MultipleSearch*
+MultipleSearch-commands	MultipleSearch.txt	/*MultipleSearch-commands*
+MultipleSearch-mappings	MultipleSearch.txt	/*MultipleSearch-mappings*
+MultipleSearch-settings	MultipleSearch.txt	/*MultipleSearch-settings*
+MultipleSearch.txt	MultipleSearch.txt	/*MultipleSearch.txt*
+g:MultipleSearchColorSequence	MultipleSearch.txt	/*g:MultipleSearchColorSequence*
+g:MultipleSearchMaxColors	MultipleSearch.txt	/*g:MultipleSearchMaxColors*
+g:MultipleSearchTextColorSequence	MultipleSearch.txt	/*g:MultipleSearchTextColorSequence*
