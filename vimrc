@@ -374,7 +374,7 @@ if has("mouse")
     endif
 endif
 
-" Ag Grep
+" Adapt for executables
 if executable("ag")
     set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
     set grepformat=%f:%l:%c:%m,%f:%l:%m
@@ -382,6 +382,9 @@ endif
 if executable("pt")
     set grepprg=pt\ --nogroup\ --nocolor\ --ignore-case\ --column
     set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+if executable("ctags-exuberant")
+    let g:gutentags_ctags_executable="ctags-exuberant"
 endif
 
 " Markdown
