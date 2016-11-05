@@ -1,9 +1,0 @@
-*
-!*/
-
-!.gitignore
-!CONTRIBUTING.md
-!README.md
-!autoload/tmuxify.vim
-!doc/tmuxify.txt
-!plugin/tmuxify.vim

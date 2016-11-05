@@ -72,6 +72,7 @@ func updatePlugin(wg *sync.WaitGroup, org, plugin string) {
 	mustNotError(err)
 
 	mustNotError(os.RemoveAll(localPath + "/.git"))
+	os.RemoveAll(localPath + "/.gitignore")
 
 	docsPath := localPath + "/doc"
 	docsExist, err := exists(docsPath)
