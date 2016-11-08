@@ -3,7 +3,7 @@
 " Maintainer: skywind3000 (at) gmail.com
 " Homepage: http://www.vim.org/scripts/script.php?script_id=5431
 "
-" Last change: 2016.11.2
+" Last change: 2016.11.8
 "
 " Run shell command in background and output to quickfix:
 "     :AsyncRun[!] [options] {cmd} ...
@@ -102,6 +102,10 @@ endif
 
 if !exists('g:asyncrun_mode')
 	let g:asyncrun_mode = 0
+endif
+
+if !exists('g:asyncrun_hook')
+	let g:asyncrun_hook = ''
 endif
 
 if !exists('g:asyncrun_last')
@@ -840,6 +844,15 @@ function! asyncrun#run(bang, opts, args)
 		return
 	endif
 
+	if l:mode >= 10 
+		let l:opts.cmd = l:command
+		let l:opts.mode = l:mode
+		if g:asyncrun_hook != ''
+			exec 'call '. g:asyncrun_hook .'(l:opts)'
+		endif
+		return
+	endif
+
 	if l:opts.cwd != ''
 		let l:opts.savecwd = getcwd()
 		try
@@ -985,22 +998,26 @@ command! -bang -nargs=0 AsyncStop call asyncrun#stop('<bang>')
 function! asyncrun#quickfix_toggle(size, ...)
 	let l:mode = (a:0 == 0)? 2 : (a:1)
 	function! s:WindowCheck(mode)
-		if getbufvar('%', '&buftype') == 'quickfix'
+		if &buftype == 'quickfix'
 			let s:quickfix_open = 1
 			return
 		endif
 		if a:mode == 0
 			let w:quickfix_save = winsaveview()
 		else
-			call winrestview(w:quickfix_save)
+			if exists('w:quickfix_save')
+				call winrestview(w:quickfix_save)
+				unlet w:quickfix_save
+			endif
 		endif
 	endfunc
 	let s:quickfix_open = 0
 	let l:winnr = winnr()			
-	windo call s:WindowCheck(0)
+	noautocmd windo call s:WindowCheck(0)
+	noautocmd silent! exec ''.l:winnr.'wincmd w'
 	if l:mode == 0
 		if s:quickfix_open != 0
-			cclose
+			silent! cclose
 		endif
 	elseif l:mode == 1
 		if s:quickfix_open == 0
@@ -1012,14 +1029,11 @@ function! asyncrun#quickfix_toggle(size, ...)
 			exec 'botright copen '. ((a:size > 0)? a:size : ' ')
 			wincmd k
 		else
-			cclose
+			silent! cclose
 		endif
 	endif
-	windo call s:WindowCheck(1)
-	try
-		silent exec ''.l:winnr.'wincmd w'
-	catch /.*/
-	endtry
+	noautocmd windo call s:WindowCheck(1)
+	noautocmd silent! exec ''.l:winnr.'wincmd w'
 endfunc
 
 
