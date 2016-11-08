@@ -2182,6 +2182,7 @@ g:asyncrun_bell	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	l
 g:asyncrun_code	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	let g:asyncrun_code = ''$/;"	v
 g:asyncrun_encs	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	let g:asyncrun_encs = ''$/;"	v
 g:asyncrun_exit	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	let g:asyncrun_exit = ''$/;"	v
+g:asyncrun_hook	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	let g:asyncrun_hook = ''$/;"	v
 g:asyncrun_last	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	let g:asyncrun_last = 0$/;"	v
 g:asyncrun_local	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	let g:asyncrun_local = 1$/;"	v
 g:asyncrun_mode	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	let g:asyncrun_mode = 0$/;"	v
@@ -3974,6 +3975,7 @@ shift	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.
 shouldGrow	pack/plugins/start/wellle-targets/autoload/targets.vim	/^function! s:shouldGrow(trigger)$/;"	f
 should_reload	pack/plugins/start/justinmk-vim-dirvish/autoload/dirvish.vim	/^function! s:should_reload() abort$/;"	f
 shrink	pack/plugins/start/wellle-targets/autoload/targets.vim	/^function! s:shrink(target)$/;"	f
+silent!	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	noautocmd silent! exec ''.l:winnr.'wincmd w'$/;"	m
 sl	pack/plugins/start/justinmk-vim-dirvish/autoload/dirvish.vim	/^function! s:sl(path) abort$/;"	f
 smart_execute_command	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:smart_execute_command(action, word) abort$/;"	f
 snakecase	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:snakecase(word)$/;"	f
@@ -4486,6 +4488,8 @@ widget_attributes	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	
 widget_role	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let widget_role = ['alert', 'alertdialog', 'button', 'checkbox', 'combobox', 'dialog', 'gridcell', 'link', 'log', 'marquee', 'menuitem', 'menuitemcheckbox', 'menuitemradio', 'option', 'progressbar', 'radio', 'radiogroup', 'scrollbar', 'slider', 'spinbutton', 'status', 'tab', 'tabpanel', 'textbox', 'timer', 'tooltip', 'treeitem', 'combobox', 'grid', 'listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid']$/;"	v
 widget_role	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let widget_role = ['alert', 'alertdialog', 'button', 'checkbox', 'combobox', 'dialog', 'gridcell', 'link', 'log', 'marquee', 'menuitem', 'menuitemcheckbox', 'menuitemradio', 'option', 'progressbar', 'radio', 'radiogroup', 'scrollbar', 'slider', 'spinbutton', 'status', 'tab', 'tabpanel', 'textbox', 'timer', 'tooltip', 'treeitem', 'combobox', 'grid', 'listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid']$/;"	v
 win_init	pack/plugins/start/justinmk-vim-dirvish/autoload/dirvish.vim	/^function! s:win_init() abort$/;"	f
+windo	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	noautocmd windo call s:WindowCheck(0)$/;"	m
+windo	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^	noautocmd windo call s:WindowCheck(1)$/;"	m
 with_index	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:with_index(list, ...) abort$/;"	f
 words	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:words()$/;"	f
 words.gather_candidates	pack/plugins/start/wellle-tmux-complete/autoload/unite/sources/tmuxcomplete.vim	/^function! s:words.gather_candidates(args, context)$/;"	f
