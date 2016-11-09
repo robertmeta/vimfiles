@@ -22,7 +22,7 @@ func main() {
 	}
 	plugins := []string{
 		"fatih/vim-go",
-		"justinmk/vim-dirvish",
+		//"justinmk/vim-dirvish",
 		"justinmk/vim-sneak",
 		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
@@ -38,6 +38,7 @@ func main() {
 		"tpope/vim-eunuch",
 		"tpope/vim-repeat.git",
 		"tpope/vim-surround",
+		"tpope/vim-vinegar",
 		"vim-scripts/MultipleSearch",
 		"wellle/targets.vim",
 		"wellle/tmux-complete.vim",

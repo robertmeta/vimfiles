@@ -58,7 +58,7 @@ nmap <right> <esc>:lnext<cr>
 nnoremap <up> <esc>:cprev<cr>
 nnoremap <down>  <esc>:cnext<cr>
 " Random Mappings
-nmap - :Dirvish<cr>
+"nmap - :Dirvish<cr>
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>A :argadd **/*
 nnoremap <leader>b :b <C-d>
