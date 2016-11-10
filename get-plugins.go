@@ -56,6 +56,7 @@ func main() {
 
 	wg.Done()
 	wg.Wait()
+	
 }
 
 func clearPack() {
