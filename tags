@@ -2382,7 +2382,6 @@ g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/
 g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = mucomplete#compat#can_complete()$/;"	v
 g:mucomplete#chains	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let g:mucomplete#chains = extend({$/;"	v
 g:mucomplete#enable_auto_at_startup	vimrc	/^let g:mucomplete#enable_auto_at_startup = 1$/;"	v
-g:mucomplete#pathsep	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let g:mucomplete#pathsep = (has('win32') || has('win64') || has('win16') || has('win95')) ? '\\' : '\/'$/;"	v
 g:mucomplete#trigger_auto_pattern	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let g:mucomplete#trigger_auto_pattern = extend({$/;"	v
 g:mustache_operators	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^  let g:mustache_operators = 1$/;"	v
 g:netrw_altfile	vimrc	/^let g:netrw_altfile=1$/;"	v
@@ -3688,6 +3687,8 @@ s:palette	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^ 
 s:palette	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^    let s:palette = s:selected_theme['light'].palette$/;"	v
 s:pat	pack/plugins/start/sheerun-vim-polyglot/compiler/coffee.vim	/^let s:pat = '^' . current_compiler$/;"	v
 s:pat	pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^let s:pat = '^' . current_compiler$/;"	v
+s:pathsep	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let s:pathsep = exists('+shellslash') && !&shellslash ? '\\' : '\/'$/;"	v
+s:pathsep	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/compat.vim	/^let s:pathsep = exists('+shellslash') && !&shellslash ? '\\' : '\/'$/;"	v
 s:phpindent	pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^let s:phpindent = &indentexpr$/;"	v
 s:pre_less_cur_syn	pack/plugins/start/sheerun-vim-polyglot/after/syntax/html.vim	/^   let s:pre_less_cur_syn = b:current_syntax$/;"	v
 s:property	pack/plugins/start/sheerun-vim-polyglot/indent/sass.vim	/^let s:property = '^\\s*:\\|^\\s*[[:alnum:]#{}-]\\+\\%(:\\|\\s*=\\)'$/;"	v
