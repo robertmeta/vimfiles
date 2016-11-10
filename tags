@@ -2227,6 +2227,7 @@ g:go_auto_type_info	ftplugin/go/general.vim	/^let g:go_auto_type_info=0$/;"	v
 g:go_autodetect_gopath	ftplugin/go/general.vim	/^let g:go_autodetect_gopath=1$/;"	v
 g:go_bin_path	ftplugin/go/general.vim	/^let g:go_bin_path=$HOME."\/go\/bin"$/;"	v
 g:go_decls_includes	ftplugin/go/general.vim	/^let g:go_decls_includes='func,type'$/;"	v
+g:go_def_mapping_enabled	ftplugin/go/general.vim	/^let g:go_def_mapping_enabled=0$/;"	v
 g:go_def_mode	ftplugin/go/general.vim	/^let g:go_def_mode='guru'$/;"	v
 g:go_def_reuse_buffer	ftplugin/go/general.vim	/^let g:go_def_reuse_buffer=1$/;"	v
 g:go_dispatch_enabled	ftplugin/go/general.vim	/^let g:go_dispatch_enabled=0$/;"	v
@@ -2562,6 +2563,7 @@ gc	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^  nmap gc  <P
 gc	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^  omap gc  <Plug>Commentary$/;"	m
 gcc	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^  nmap gcc <Plug>CommentaryLine$/;"	m
 gcu	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^  nmap gcu <Plug>Commentary<Plug>Commentary$/;"	m
+gd	ftplugin/go/general.vim	/^nnoremap <buffer> gd :GoDef<CR>$/;"	m
 gd	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> gd :GoDef<cr>$/;"	m
 gd	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^  nmap <buffer>gd <Plug>(crystal-jump-to-definition)$/;"	m
 general	vimrc	/^    augroup general$/;"	a
