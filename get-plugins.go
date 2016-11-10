@@ -24,7 +24,7 @@ func main() {
 		"fatih/vim-go",
 		//"justinmk/vim-dirvish",
 		"justinmk/vim-sneak",
-		"lifepillar/vim-mucomplete",
+		//"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
 		"mhinz/vim-tmuxify",
 		"romainl/vim-qf",
