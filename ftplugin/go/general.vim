@@ -6,7 +6,6 @@ let g:go_auto_sameids=0
 let g:go_auto_type_info=0
 let g:go_bin_path=$HOME."/go/bin"
 let g:go_decls_includes='func,type'
-let g:go_def_mapping_enabled=1
 let g:go_def_mode='guru'
 let g:go_def_reuse_buffer=1
 let g:godef_same_file_in_same_window=1
@@ -61,6 +60,7 @@ let g:go_textobj_enabled=1
 let g:go_textobj_include_function_doc=1
 
 " Go setlocalup assumptions: gocode, godef, gotags all in path
+"nnoremap <buffer> gd :GoDef<CR>
 nnoremap <buffer> gD :GoDoc<CR>
 nnoremap <buffer> gi :GoInfo<CR>
 nnoremap <buffer> gr :GoRename<CR>
