@@ -29,8 +29,9 @@ nnoremap gk k
 nnoremap j gj
 nnoremap k gk
 " Window control
-nnoremap <leader>o <C-W>o
-nnoremap <leader>w <C-W>w
+nnoremap <leader>o <C-w>o
+nnoremap <leader>w <C-w>w
+nnoremap <leader>W <C-w>W
 nnoremap <silent> <leader>c <esc>:close<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
@@ -397,12 +398,8 @@ let g:netrw_altfile=1
 " Sneak
 let g:sneak#streak=1
 
-" Vim-Go
-let g:go_def_mode='godef'
-let g:go_def_mapping_enabled = 0
-
 " Mucomplete
-let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#enable_auto_at_startup = 0
 
 " Nofrils
 let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
