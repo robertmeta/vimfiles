@@ -397,6 +397,10 @@ let g:netrw_altfile=1
 " Sneak
 let g:sneak#streak=1
 
+" Vim-Go
+let g:go_def_mode='godef'
+let g:go_def_mapping_enabled = 0
+
 " Mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
 
