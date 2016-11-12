@@ -317,6 +317,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete
+        au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gr :GoRename<CR>

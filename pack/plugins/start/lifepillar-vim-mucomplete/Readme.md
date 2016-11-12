@@ -12,12 +12,11 @@ whereby several completion methods are attempted one after another
 until a result is returned.
 
 Under the hood, µcomplete does nothing more than typing some
-completion mappings for you (see `:h ins-completion`), either when you
-press `<tab>`/`<s-tab>` or automatically while you are typing. You
-choose which completion methods to use and in which order, and
-µcomplete does the rest. It does no caching, no asynchronous
-computation, no intelligent guessing. It just makes use of core Vim
-features.
+completion mappings for you, either when you press `<tab>`/`<s-tab>`
+or automatically while you are typing. You choose which completion
+methods to use and in which order, and µcomplete does the rest. It
+does no caching, no asynchronous computation, no intelligent guessing.
+It just makes use of core Vim features.
 
 
 # Getting Started
@@ -94,7 +93,7 @@ let g:mucomplete#chains = { 'sql' : ['file', 'sqla', 'keyn'] }
 let g:mucomplete#enable_auto_at_startup = 1
 ```
 
-# Known Issues
+# Compatibility
 
 See [Compatibility with Other Plugins]
 (https://github.com/lifepillar/vim-mucomplete/wiki/Compatibility-with-Other-Plugins).
