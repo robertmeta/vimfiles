@@ -397,6 +397,10 @@ endif
 let g:vim_markdown_folding_disabled=0
 let g:vim_markdown_frontmatter=1
 
+" Vim-go
+let g:go_fmt_autosave=1
+let g:go_fmt_command="goimports"
+
 " Netrw
 let g:netrw_altfile=1
 

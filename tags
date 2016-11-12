@@ -2225,7 +2225,9 @@ g:go_dispatch_enabled	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^  le
 g:go_doc_command	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^  let g:go_doc_command = "godoc"$/;"	v
 g:go_doc_options	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^  let g:go_doc_options = ""$/;"	v
 g:go_errcheck_bin	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let g:go_errcheck_bin = "errcheck"$/;"	v
+g:go_fmt_autosave	vimrc	/^let g:go_fmt_autosave=1$/;"	v
 g:go_fmt_command	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_command = "gofmt"$/;"	v
+g:go_fmt_command	vimrc	/^let g:go_fmt_command="goimports"$/;"	v
 g:go_fmt_experimental	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_experimental = 0$/;"	v
 g:go_fmt_fail_silently	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_fail_silently = 0$/;"	v
 g:go_fmt_options	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_options = ''$/;"	v
