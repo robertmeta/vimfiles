@@ -26,7 +26,8 @@ let s:compl_mappings = extend({
       \ 'omni': "\<c-x>\<c-o>", 'spel': "\<c-x>s"     ,
       \ 'tags': "\<c-x>\<c-]>", 'thes': "\<c-x>\<c-t>",
       \ 'user': "\<c-x>\<c-u>", 'ulti': "\<c-r>=mucomplete#ultisnips#complete()\<cr>",
-      \ 'path': "\<c-r>=mucomplete#path#complete()\<cr>"
+      \ 'path': "\<c-r>=mucomplete#path#complete()\<cr>",
+      \ 'uspl': "\<c-o>:call mucomplete#spel#gather()\<cr>\<c-r>=mucomplete#spel#complete()\<cr>"
       \ }, get(g:, 'mucomplete#user_mappings', {}), 'error')
 unlet s:cnp
 let s:compl_methods = []
@@ -43,7 +44,7 @@ if exists('##TextChangedI') && exists('##CompleteDone')
   fun! s:act_on_textchanged()
     if s:completedone
       let s:completedone = 0
-      if index(['file','path'], get(s:compl_methods, s:i, '')) > -1 && getline('.')[col('.')-2] =~ '\f'
+      if index(['file','path'], get(s:compl_methods, s:i, '')) > -1 && getline('.')[col('.')-2] =~# '\m\f'
         if s:compl_methods[s:i] ==# 'path'
           silent call mucomplete#path#complete()
         else " 'file'
@@ -62,6 +63,7 @@ if exists('##TextChangedI') && exists('##CompleteDone')
       autocmd TextChangedI * noautocmd call s:act_on_textchanged()
       autocmd CompleteDone * noautocmd let s:completedone = 1
     augroup END
+    let s:auto = 1
   endf
 
   fun! mucomplete#disable_auto()
@@ -72,6 +74,7 @@ if exists('##TextChangedI') && exists('##CompleteDone')
     if exists('s:completedone')
       unlet s:completedone
     endif
+    let s:auto = 0
   endf
 
   fun! mucomplete#toggle_auto()
@@ -101,13 +104,14 @@ if has('lambda')
   let g:mucomplete#can_complete = extend({
         \ 'default' : extend({
         \     'dict':  { t -> strlen(&l:dictionary) > 0 },
-        \     'file':  { t -> t =~# s:pathsep . '\f*$' },
+        \     'file':  { t -> t =~# '\m\%('.s:pathsep.'\|\~\)\f*$' },
         \     'omni':  { t -> strlen(&l:omnifunc) > 0 },
         \     'spel':  { t -> &l:spell && !empty(&l:spelllang) },
         \     'tags':  { t -> !empty(tagfiles()) },
         \     'thes':  { t -> strlen(&l:thesaurus) > 0 },
         \     'user':  { t -> strlen(&l:completefunc) > 0 },
-        \     'path':  { t -> t =~# s:pathsep . '\f*$' },
+        \     'path':  { t -> t =~# '\m\%('.s:pathsep.'\|\~\)\f*$' },
+        \     'uspl':  { t -> &l:spell && !empty(&l:spelllang) },
         \     'ulti':  { t -> get(g:, 'did_plugin_ultisnips', 0) }
         \   }, get(get(g:, 'mucomplete#can_complete', {}), 'default', {}))
         \ }, get(g:, 'mucomplete#can_complete', {}), 'keep')
@@ -118,10 +122,12 @@ endif
 
 fun! s:act_on_pumvisible()
   let s:pumvisible = 0
-  return s:auto ? '' : (stridx(&l:completeopt, 'noselect') == -1
-        \               ? (stridx(&l:completeopt, 'noinsert') == - 1 ? '' : "\<up>\<c-n>")
-        \               : get(s:select_entry, s:compl_methods[s:i], "\<c-n>\<up>")
-        \              )
+  return s:auto || index(['spel','uspl'], get(s:compl_methods, s:i, '')) > - 1
+        \ ? ''
+        \ : (stridx(&l:completeopt, 'noselect') == -1
+        \     ? (stridx(&l:completeopt, 'noinsert') == - 1 ? '' : "\<up>\<c-n>")
+        \     : get(s:select_entry, s:compl_methods[s:i], "\<c-n>\<up>")
+        \   )
 endf
 
 fun! s:can_complete()
@@ -171,7 +177,6 @@ fun! mucomplete#complete(dir)
   if strlen(s:compl_text) == 0
     return (a:dir > 0 ? "\<plug>(MUcompleteTab)" : "\<plug>(MUcompleteCtd)")
   endif
-  let s:auto = exists('#MUcompleteAuto')
   let [s:dir, s:cycle] = [a:dir, 0]
   let s:compl_methods = get(b:, 'mucomplete_chain',
         \ get(g:mucomplete#chains, getbufvar("%", "&ft"), g:mucomplete#chains['default']))

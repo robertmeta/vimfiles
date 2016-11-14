@@ -16,15 +16,11 @@ fun! mucomplete#compat#dict(t)
 endf
 
 fun! mucomplete#compat#file(t)
-  return a:t =~# s:pathsep . '\f*$'
+  return a:t =~# '\m\%('.s:pathsep.'\|\~\)\f*$'
 endf
 
 fun! mucomplete#compat#omni(t)
   return strlen(&l:omnifunc) > 0
-endf
-
-fun! mucomplete#compat#path(t)
-  return a:t =~# s:pathsep . '\f*$'
 endf
 
 fun! mucomplete#compat#spel(t)
@@ -43,8 +39,16 @@ fun! mucomplete#compat#user(t)
   return strlen(&l:completefunc) > 0
 endf
 
+fun! mucomplete#compat#path(t)
+  return a:t =~# '\m\%('.s:pathsep.'\|\~\)\f*$'
+endf
+
 fun! mucomplete#compat#ulti(t)
   return get(g:, 'did_plugin_ultisnips', 0)
+endf
+
+fun! mucomplete#compat#uspl(t)
+  return &l:spell && !empty(&l:spelllang)
 endf
 
 fun! mucomplete#compat#can_complete()
@@ -58,6 +62,7 @@ fun! mucomplete#compat#can_complete()
         \     'thes':  function('mucomplete#compat#thes'),
         \     'user':  function('mucomplete#compat#user'),
         \     'path':  function('mucomplete#compat#path'),
+        \     'uspl':  function('mucomplete#compat#uspl'),
         \     'ulti':  function('mucomplete#compat#ulti')
         \   }, get(get(g:, 'mucomplete#can_complete', {}), 'default', {}))
         \ }, get(g:, 'mucomplete#can_complete', {}), 'keep')
