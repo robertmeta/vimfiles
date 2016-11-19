@@ -15,14 +15,13 @@ set cpo&vim
 " current mode is the ctrl-x submode. (pressing <c-p>, say, immediately after
 " <c-x><c-o> would do a different thing).
 
-" Internal status
 let s:cnp = "\<c-x>" . get(g:, 'mucomplete#exit_ctrlx_keys', "\<c-b>\<bs>")
 let s:compl_mappings = extend({
       \ 'c-n' : s:cnp."\<c-n>", 'c-p' : s:cnp."\<c-p>",
       \ 'cmd' : "\<c-x>\<c-v>", 'defs': "\<c-x>\<c-d>",
       \ 'dict': "\<c-x>\<c-k>", 'file': "\<c-x>\<c-f>",
       \ 'incl': "\<c-x>\<c-i>", 'keyn': "\<c-x>\<c-n>",
-      \ 'keyp': "\<c-x>\<c-p>", 'line': "\<c-x>\<c-l>",
+      \ 'keyp': "\<c-x>\<c-p>", 'line': s:cnp."\<c-x>\<c-l>",
       \ 'omni': "\<c-x>\<c-o>", 'spel': "\<c-x>s"     ,
       \ 'tags': "\<c-x>\<c-]>", 'thes': "\<c-x>\<c-t>",
       \ 'user': "\<c-x>\<c-u>", 'ulti': "\<c-r>=mucomplete#ultisnips#complete()\<cr>",
@@ -30,6 +29,9 @@ let s:compl_mappings = extend({
       \ 'uspl': "\<c-o>:call mucomplete#spel#gather()\<cr>\<c-r>=mucomplete#spel#complete()\<cr>"
       \ }, get(g:, 'mucomplete#user_mappings', {}), 'error')
 unlet s:cnp
+let s:select_entry = { 'c-p' : "\<c-p>\<down>", 'keyp': "\<c-p>\<down>" }
+let s:pathsep = exists('+shellslash') && !&shellslash ? '\\' : '/'
+" Internal state
 let s:compl_methods = []
 let s:compl_text = ''
 let s:auto = 0
@@ -37,27 +39,27 @@ let s:dir = 1
 let s:cycle = 0
 let s:i = 0
 let s:pumvisible = 0
-let s:select_entry = { 'c-p' : "\<c-p>\<down>", 'keyp': "\<c-p>\<down>" }
-let s:pathsep = exists('+shellslash') && !&shellslash ? '\\' : '/'
 
 if exists('##TextChangedI') && exists('##CompleteDone')
   fun! s:act_on_textchanged()
     if s:completedone
       let s:completedone = 0
-      if index(['file','path'], get(s:compl_methods, s:i, '')) > -1 && getline('.')[col('.')-2] =~# '\m\f'
-        if s:compl_methods[s:i] ==# 'path'
-          silent call mucomplete#path#complete()
-        else " 'file'
-          silent call feedkeys("\<c-x>\<c-f>", 'i')
-        endif
+      let g:mucomplete_with_key = 0
+      if get(s:compl_methods, s:i, '') ==# 'path' && getline('.')[col('.')-2] =~# '\m\f'
+        silent call mucomplete#path#complete()
+      elseif get(s:compl_methods, s:i, '') ==# 'file' && getline('.')[col('.')-2] =~# '\m\f'
+        silent call feedkeys("\<c-x>\<c-f>", 'i')
       endif
-    else
-      silent call mucomplete#autocomplete()
+    elseif !&g:paste && match(strpart(getline('.'), 0, col('.') - 1),
+          \  get(g:mucomplete#trigger_auto_pattern, getbufvar("%", "&ft"),
+          \      g:mucomplete#trigger_auto_pattern['default'])) > -1
+      silent call feedkeys("\<plug>(MUcompleteAuto)", 'i')
     endif
   endf
 
   fun! mucomplete#enable_auto()
     let s:completedone = 0
+    let g:mucomplete_with_key = 0
     augroup MUcompleteAuto
       autocmd!
       autocmd TextChangedI * noautocmd call s:act_on_textchanged()
@@ -70,9 +72,6 @@ if exists('##TextChangedI') && exists('##CompleteDone')
     if exists('#MUcompleteAuto')
       autocmd! MUcompleteAuto
       augroup! MUcompleteAuto
-    endif
-    if exists('s:completedone')
-      unlet s:completedone
     endif
     let s:auto = 0
   endf
@@ -149,7 +148,7 @@ fun! s:next_method()
     let s:i = (s:cycle ? (s:i + s:dir + s:N) % s:N : s:i + s:dir)
   endwhile
   if (s:i+1) % (s:N+1) != 0
-    return s:compl_mappings[s:compl_methods[s:i]] . "\<c-r>=pumvisible()?mucomplete#yup():''\<cr>\<plug>(MUcompleteNxt)"
+    return s:compl_mappings[s:compl_methods[s:i]] . "\<c-r>\<c-r>=pumvisible()?mucomplete#yup():''\<cr>\<plug>(MUcompleteNxt)"
   endif
   return ''
 endf
@@ -185,11 +184,12 @@ fun! mucomplete#complete(dir)
   return s:next_method()
 endf
 
-fun! mucomplete#autocomplete()
-  if match(strpart(getline('.'), 0, col('.') - 1),
-        \  get(g:mucomplete#trigger_auto_pattern, getbufvar("%", "&ft"),
-        \      g:mucomplete#trigger_auto_pattern['default'])) > -1
-    silent call feedkeys("\<plug>(MUcompleteFwd)", 'i')
+fun! mucomplete#tab_complete(dir)
+  if pumvisible()
+    return mucomplete#cycle_or_select(a:dir)
+  else
+    let g:mucomplete_with_key = 1
+    return mucomplete#complete(a:dir)
   endif
 endf
 

@@ -276,12 +276,13 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
 <left>	vimrc	/^nmap <left> <esc>:lprev<cr>$/;"	m
 <leftrelease>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <leftrelease> :call <SID>TOCActivate(0)<cr>$/;"	m
-<plug>(MUcompleteBwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteBwd) pumvisible()?mucomplete#cycle_or_select(-1):mucomplete#complete(-1)$/;"	m
+<plug>(MUcompleteAuto)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteAuto) mucomplete#complete(1)$/;"	m
+<plug>(MUcompleteBwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteBwd) mucomplete#tab_complete(-1)$/;"	m
 <plug>(MUcompleteBwdKey)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    inoremap <silent> <plug>(MUcompleteBwdKey) <c-h>$/;"	m
 <plug>(MUcompleteCtd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^inoremap    <silent> <plug>(MUcompleteCtd) <c-d>$/;"	m
 <plug>(MUcompleteCycBwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteCycBwd) pumvisible()?mucomplete#cycle(-1):"\\<plug>(MUcompleteBwdKey)"$/;"	m
 <plug>(MUcompleteCycFwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteCycFwd) pumvisible()?mucomplete#cycle( 1):"\\<plug>(MUcompleteFwdKey)"$/;"	m
-<plug>(MUcompleteFwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteFwd) pumvisible()?mucomplete#cycle_or_select( 1):mucomplete#complete( 1)$/;"	m
+<plug>(MUcompleteFwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteFwd) mucomplete#tab_complete( 1)$/;"	m
 <plug>(MUcompleteFwdKey)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    inoremap <silent> <plug>(MUcompleteFwdKey) <c-l>$/;"	m
 <plug>(MUcompleteNxt)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteNxt) mucomplete#verify_completion()$/;"	m
 <plug>(MUcompleteTab)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^inoremap    <silent> <plug>(MUcompleteTab) <tab>$/;"	m
@@ -323,6 +324,7 @@ AsyncRun_Job_Update	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	
 AsyncRun_Job_ViewReset	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_ViewReset()$/;"	f
 AsyncStop	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^command! -bang -nargs=0 AsyncStop call asyncrun#stop('<bang>')$/;"	c
 Author	pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Author$/;"	i
+AutoCmd	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^function! s:AutoCmd(name)$/;"	f
 AutoMkdir	vimrc	/^augroup AutoMkdir$/;"	a
 AutoMkdir	vimrc	/^function! <SID>AutoMkdir() abort$/;"	f
 BMRU_Push	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/buffer.vim	/^function! s:BMRU_Push(bnr) "{{{3$/;"	f
@@ -2888,7 +2890,6 @@ min_by	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List
 mixedcase	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:mixedcase(word)$/;"	f
 modifyDelimiter	pack/plugins/start/wellle-targets/autoload/targets.vim	/^function! s:modifyDelimiter(kind, delimiter)$/;"	f
 modifyTarget	pack/plugins/start/wellle-targets/autoload/targets.vim	/^function! s:modifyTarget(target, kind, modifier)$/;"	f
-mucomplete#autocomplete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^fun! mucomplete#autocomplete()$/;"	f
 mucomplete#compat#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/compat.vim	/^fun! mucomplete#compat#can_complete()$/;"	f
 mucomplete#compat#dict	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/compat.vim	/^fun! mucomplete#compat#dict(t)$/;"	f
 mucomplete#compat#file	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/compat.vim	/^fun! mucomplete#compat#file(t)$/;"	f
@@ -2906,9 +2907,10 @@ mucomplete#cycle	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplet
 mucomplete#cycle_or_select	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^fun! mucomplete#cycle_or_select(dir)$/;"	f
 mucomplete#disable_auto	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  fun! mucomplete#disable_auto()$/;"	f
 mucomplete#enable_auto	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  fun! mucomplete#enable_auto()$/;"	f
-mucomplete#path#complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/path.vim	/^fun! mucomplete#path#complete() abort$/;"	f
+mucomplete#path#complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/path.vim	/^  fun! mucomplete#path#complete() abort$/;"	f
 mucomplete#spel#complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/spel.vim	/^fun! mucomplete#spel#complete() abort$/;"	f
 mucomplete#spel#gather	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/spel.vim	/^fun! mucomplete#spel#gather() abort$/;"	f
+mucomplete#tab_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^fun! mucomplete#tab_complete(dir)$/;"	f
 mucomplete#toggle_auto	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  fun! mucomplete#toggle_auto()$/;"	f
 mucomplete#ultisnips#complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/ultisnips.vim	/^fun! mucomplete#ultisnips#complete() abort$/;"	f
 mucomplete#verify_completion	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^fun! mucomplete#verify_completion()$/;"	f

@@ -1,3 +1,9 @@
+>We're coming down to the ground
+>
+>There's no better place to go
+>
+>(Peter Gabriel)
+
 # MUcomplete
 
 Can't stand the dozen of MB of YouCompleteMe? Can't figure out the
@@ -9,7 +15,8 @@ autocompletion plugin you were looking for!
 
 MUcomplete is an implementation of *chained (fallback) completion*,
 whereby several completion methods are attempted one after another
-until a result is returned.
+until a result is returned. MUcomplete brings Vim completion down to
+earth again.
 
 Under the hood, µcomplete does nothing more than typing some
 completion mappings for you, either when you press `<tab>`/`<s-tab>`
@@ -21,7 +28,7 @@ It just makes use of core Vim features.
 
 # Getting Started
 
-MUcomplete requires Vim 7.3 compiled with `+insert_expand` and
+MUcomplete requires Vim 7.2 compiled with `+insert_expand` and
 `+menu`. Automatic completion is available in Vim 7.4 or later.
 MUcomplete is developed and tested on Vim 8.
 
@@ -73,9 +80,8 @@ which provides semantic completion for Python. Used settings:
 
 ```vim
 set noshowmode shortmess+=c
-setl infercase
-setl completeopt-=preview
-setl completeopt+=longest,menu,menuone,noinsert,noselect
+set completeopt-=preview
+set completeopt+=longest,menu,menuone,noinsert,noselect
 let g:jedi#popup_on_dot = 0  " It may be 1 as well
 let g:mucomplete#enable_auto_at_startup = 1
 ```
@@ -86,8 +92,7 @@ selected in different contexts. Used settings:
 
 ```vim
 set showmode shortmess-=c
-setl completeopt+=menu,menuone,noinsert,noselect
-setl infercase
+set completeopt+=menu,menuone,noinsert,noselect
 let g:mucomplete#user_mappings = { 'sqla' : "\<c-c>a" }
 let g:mucomplete#chains = { 'sql' : ['file', 'sqla', 'keyn'] }
 let g:mucomplete#enable_auto_at_startup = 1
@@ -95,7 +100,4 @@ let g:mucomplete#enable_auto_at_startup = 1
 
 # Compatibility
 
-See [Compatibility with Other Plugins]
-(https://github.com/lifepillar/vim-mucomplete/wiki/Compatibility-with-Other-Plugins).
-
-
+See `:help mucomplete-compatibility`.
