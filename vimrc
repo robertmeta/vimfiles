@@ -117,7 +117,7 @@ set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
 set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
-set foldcolumn=0 " I can see fold fine thank you
+set foldcolumn=1 " I can see fold fine thank you
 set foldenable " Turn on folding
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldmethod=indent " Fold on the indent
@@ -150,11 +150,11 @@ set nocursorcolumn " disable global cursor column
 set noerrorbells " don't be noisy
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
-set relativenumber " thank you
+set norelativenumber " no thank you
 set nospell " nope nope nope
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set number " line numbers
+set nonumber " no line numbers
 set numberwidth=8 " We are good up to LOTS lines
 set omnifunc=syntaxcomplete#Complete
 set pastetoggle=<F10> " paste toggle of course
@@ -337,8 +337,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal relativenumber number
-        au WinLeave * setlocal norelativenumber number
+        " au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal relativenumber number
+        " au WinLeave * setlocal norelativenumber number
     augroup END
 endif
 

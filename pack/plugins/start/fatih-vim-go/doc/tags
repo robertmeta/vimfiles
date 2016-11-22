@@ -8,10 +8,11 @@
 'g:go_def_mapping_enabled'	vim-go.txt	/*'g:go_def_mapping_enabled'*
 'g:go_def_mode'	vim-go.txt	/*'g:go_def_mode'*
 'g:go_def_reuse_buffer'	vim-go.txt	/*'g:go_def_reuse_buffer'*
-'g:go_dispatch_enabled'	vim-go.txt	/*'g:go_dispatch_enabled'*
 'g:go_doc_command'	vim-go.txt	/*'g:go_doc_command'*
 'g:go_doc_keywordprg_enabled'	vim-go.txt	/*'g:go_doc_keywordprg_enabled'*
 'g:go_doc_options'	vim-go.txt	/*'g:go_doc_options'*
+'g:go_echo_command_info'	vim-go.txt	/*'g:go_echo_command_info'*
+'g:go_echo_go_info'	vim-go.txt	/*'g:go_echo_go_info'*
 'g:go_fmt_autosave'	vim-go.txt	/*'g:go_fmt_autosave'*
 'g:go_fmt_command'	vim-go.txt	/*'g:go_fmt_command'*
 'g:go_fmt_experimental'	vim-go.txt	/*'g:go_fmt_experimental'*
@@ -51,6 +52,7 @@
 'g:go_play_open_browser'	vim-go.txt	/*'g:go_play_open_browser'*
 'g:go_snippet_case_type'	vim-go.txt	/*'g:go_snippet_case_type'*
 'g:go_snippet_engine'	vim-go.txt	/*'g:go_snippet_engine'*
+'g:go_statusline_duration'	vim-go.txt	/*'g:go_statusline_duration'*
 'g:go_template_autocreate'	vim-go.txt	/*'g:go_template_autocreate'*
 'g:go_template_file'	vim-go.txt	/*'g:go_template_file'*
 'g:go_term_enabled'	vim-go.txt	/*'g:go_term_enabled'*
@@ -165,7 +167,7 @@
 :GoVet	vim-go.txt	/*:GoVet*
 :GoWhicherrs	vim-go.txt	/*:GoWhicherrs*
 go#complete#GetInfo()	vim-go.txt	/*go#complete#GetInfo()*
-go#jobcontrol#Statusline()	vim-go.txt	/*go#jobcontrol#Statusline()*
+go#statusline#Show()	vim-go.txt	/*go#statusline#Show()*
 go-[[	vim-go.txt	/*go-[[*
 go-]]	vim-go.txt	/*go-]]*
 go-af	vim-go.txt	/*go-af*
