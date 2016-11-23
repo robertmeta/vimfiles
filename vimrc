@@ -261,10 +261,10 @@ set shortmess=aOstTIc " shortens messages to avoid 'press a key' prompt
 "             +-- use every short text trick
 
 set statusline=[%{getcwd()}][%f]%m%r%{fugitive#statusline()}%=%y[%P][%l:%c]%{gutentags#statusline('[Generating\ Tags...]')}
-"               |            |  | | |                       | |  |     |    |   |
-"               |            |  | | |                       | |  |     |    |   +-- gutentags status
-"               |            |  | | |                       | |  |     |    +-- column number
-"               |            |  | | |                       | |  |     +-- line number
+"               |            |  | | |                       | |  |   |  |  |
+"               |            |  | | |                       | |  |   |  |  +-- gutentags status
+"               |            |  | | |                       | |  |   |  +-- column number
+"               |            |  | | |                       | |  |   +-- line number
 "               |            |  | | |                       | |  +-- percentage through file
 "               |            |  | | |                       | +-- file type
 "               |            |  | | |                       +-- right align / left align splitter
@@ -325,7 +325,7 @@ if has("autocmd")
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
-        au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete
+        au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete foldmethod=syntax
         au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<CR>
