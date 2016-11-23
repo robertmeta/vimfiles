@@ -255,14 +255,18 @@ set shortmess=aOstTIc " shortens messages to avoid 'press a key' prompt
 "             |+-- file read message overwrites subsequent
 "             +-- use every short text trick
 
-set statusline=[%{getcwd()}][%f]%=%r%y[%P][col:%c]%{gutentags#statusline('[Generating\ Tags...]')}
-"               |            |  | | |  |       |  +-- gutentags status
-"               |            |  | | |  |       +-- column number
-"               |            |  | | |  +-- percentage through file
-"               |            |  | | +-- type of file
+set statusline=[%{getcwd()}][%f]%m%r%{fugitive#statusline()}%=%y[%P][%l:%c]%{gutentags#statusline('[Generating\ Tags...]')}
+"               |            |  | | |                       | |  |     |    |   |
+"               |            |  | | |                       | |  |     |    |   +-- gutentags status
+"               |            |  | | |                       | |  |     |    +-- column number
+"               |            |  | | |                       | |  |     +-- line number
+"               |            |  | | |                       | |  +-- percentage through file
+"               |            |  | | |                       | +-- file type
+"               |            |  | | |                       +-- right align / left align splitter
+"               |            |  | | +-- fugitive status
 "               |            |  | +-- readonly status
-"               |            |  |+-- right align / left align splitter
-"               |            +-- file relative to working directory
+"               |            |  +-- modified?
+"               |            +-- full path to file
 "               +-- working directory
 
 set cpoptions=aABceFsmq

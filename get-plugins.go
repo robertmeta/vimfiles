@@ -35,6 +35,7 @@ func main() {
 		"tpope/vim-abolish",
 		"tpope/vim-commentary",
 		"tpope/vim-eunuch",
+		"tpope/vim-fugitive",
 		"tpope/vim-repeat.git",
 		"tpope/vim-surround",
 		"tpope/vim-vinegar",
@@ -56,7 +57,7 @@ func main() {
 
 	wg.Done()
 	wg.Wait()
-	
+
 }
 
 func clearPack() {
