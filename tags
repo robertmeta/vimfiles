@@ -253,9 +253,11 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <backspace>	vimrc	/^nnoremap <silent> <backspace> :noh<CR>:SearchReset<CR>$/;"	m
 <c-h>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <c-h> <plug>(MUcompleteCycBwd)$/;"	m
 <c-l>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <c-l> <plug>(MUcompleteCycFwd)$/;"	m
-<down>	vimrc	/^nnoremap <down>  <esc>:cnext<cr>$/;"	m
+<down>	vimrc	/^nmap <silent> <down>  <esc>:cnext<cr>$/;"	m
 <leader>"	vimrc	/^nnoremap <silent> <leader>" :split<cr>$/;"	m
 <leader>%	vimrc	/^nnoremap <silent> <leader>% :vsplit<cr>$/;"	m
+<leader>.	vimrc	/^vnoremap <leader>. :norm! .<cr>$/;"	m
+<leader>@	vimrc	/^vnoremap <leader>@ :norm! @<cr>$/;"	m
 <leader>A	vimrc	/^nnoremap <leader>A :argadd **\/*$/;"	m
 <leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>F	vimrc	/^nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
@@ -282,7 +284,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>t	vimrc	/^nnoremap <leader>t :TTags<cr>$/;"	m
 <leader>w	vimrc	/^nnoremap <leader>w <C-w>w$/;"	m
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
-<left>	vimrc	/^nmap <left> <esc>:lprev<cr>$/;"	m
+<left>	vimrc	/^nmap <silent> <left> <esc>:lprev<cr>$/;"	m
 <leftrelease>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <leftrelease> :call <SID>TOCActivate(0)<cr>$/;"	m
 <plug>(MUcompleteAuto)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteAuto) mucomplete#complete(1)$/;"	m
 <plug>(MUcompleteBwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteBwd) mucomplete#tab_complete(-1)$/;"	m
@@ -294,10 +296,10 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <plug>(MUcompleteFwdKey)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    inoremap <silent> <plug>(MUcompleteFwdKey) <c-l>$/;"	m
 <plug>(MUcompleteNxt)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteNxt) mucomplete#verify_completion()$/;"	m
 <plug>(MUcompleteTab)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^inoremap    <silent> <plug>(MUcompleteTab) <tab>$/;"	m
-<right>	vimrc	/^nmap <right> <esc>:lnext<cr>$/;"	m
+<right>	vimrc	/^nmap <silent> <right> <esc>:lnext<cr>$/;"	m
 <s-tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <s-tab> <plug>(MUcompleteBwd)$/;"	m
 <tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <tab>   <plug>(MUcompleteFwd)$/;"	m
-<up>	vimrc	/^nnoremap <up> <esc>:cprev<cr>$/;"	m
+<up>	vimrc	/^nmap <silent> <up> <esc>:cprev<cr>$/;"	m
 =	pack/plugins/start/sheerun-vim-polyglot/compiler/cryptol.vim	/^   command = -nargs =* CompilerSet setlocal <args>$/;"	c
 >	pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/puppet.vim	/^    inoremap <buffer> <silent> > ><Esc>:call <SID>puppetalign()<CR>a$/;"	m
 Abolish	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  let Abolish = {}$/;"	v

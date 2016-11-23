@@ -54,10 +54,10 @@ iab <expr> dts strftime("%c")
 iab rrm Robert R. Melton
 
 " Arrow control
-nmap <left> <esc>:lprev<cr>
-nmap <right> <esc>:lnext<cr>
-nnoremap <up> <esc>:cprev<cr>
-nnoremap <down>  <esc>:cnext<cr>
+nmap <silent> <left> <esc>:lprev<cr>
+nmap <silent> <right> <esc>:lnext<cr>
+nmap <silent> <up> <esc>:cprev<cr>
+nmap <silent> <down>  <esc>:cnext<cr>
 " Random Mappings
 "nmap - :Dirvish<cr>
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
@@ -91,6 +91,7 @@ nnoremap <F5> "=strftime("%c")<CR>P
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
 cnoremap <C-r><C-l> <C-r>=getline('.')<cr>
+
 " Use sneak for f & t
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
@@ -104,6 +105,10 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
+
+"Visual mode maps
+vnoremap <leader>@ :norm! @<cr>
+vnoremap <leader>. :norm! .<cr>
 
 " Basics Settings
 set backspace=indent,eol,start " make backspace a more flexible
