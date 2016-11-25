@@ -224,7 +224,7 @@ function! go#coverage#overlay(file) abort
     let cnt += 1
   endwhile
 
-  let fname = expand('%:t')
+  let fname = expand('%')
 
   " when called for a _test.go file, run the coverage for the actuall file
   " file
@@ -240,6 +240,9 @@ function! go#coverage#overlay(file) abort
     " open the alternate file to show the coverage
     exe ":edit ". fnamemodify(fname, ":p")
   endif
+
+  " cov.file includes only the filename itself, without full path
+  let fname = fnamemodify(fname, ":t")
 
   for line in lines[1:]
     let cov = go#coverage#parsegocoverline(line)
@@ -272,7 +275,7 @@ function s:coverage_job(args)
   " autowrite is not enabled for jobs
   call go#cmd#autowrite()
 
-  let import_path =  go#package#ImportPath(expand('%:p:h'))
+  let status_dir =  expand('%:p:h')
   function! s:error_info_cb(job, exit_status, data) closure
     let status = {
           \ 'desc': 'last status',
@@ -284,7 +287,7 @@ function s:coverage_job(args)
       let status.state = "failed"
     endif
 
-    call go#statusline#Update(import_path, status)
+    call go#statusline#Update(status_dir, status)
   endfunction
 
   let a:args.error_info_cb = function('s:error_info_cb')
@@ -305,7 +308,7 @@ function s:coverage_job(args)
   let jobdir = fnameescape(expand("%:p:h"))
   execute cd . jobdir
 
-  call go#statusline#Update(import_path, {
+  call go#statusline#Update(status_dir, {
         \ 'desc': "current status",
         \ 'type': "coverage",
         \ 'state': "started",
