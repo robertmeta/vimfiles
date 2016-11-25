@@ -4,12 +4,15 @@ IMPROVEMENTS:
 
 * Add `statusline` support for `:GoMetaLinter` [gh-1120]
 * Add new `g:go_updatetime` setting to change the default updatetime (which was hardcoded previously) [gh-1055]
+* Quickfix and Location lists contain now a descriptive title [gh-1004]
 
 BUG FIXES:
 
 * Always use full path to detect packages to be shown in statusline [gh-1121]
 * Use `echom` to persist errors in case of multiple echos [gh-1122]
-* Fix a race condition where a quickfix window was not closeed if a job has succeeded [gh-1123]
+* Fix a race condition where a quickfix window was not closed if a job has succeeded [gh-1123]
+* Do not expand coverage arguments for non job execution of `:GoCoverage` [gh-1127]
+* `:GoCoverage` doesn't mess up custom syntax anymore [gh-1128]
 
 
 ## 1.10 (November 24, 2016)

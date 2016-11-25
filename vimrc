@@ -116,7 +116,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,preview,noinsert
 set complete=.,w,b,u,U,i,t " complete options
-set nocursorline " no cursor line
+set cursorline " no cursor line
 set diffopt=filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
@@ -346,8 +346,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Highlight current line
-        " au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal relativenumber number
-        " au WinLeave * setlocal norelativenumber number
+        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline
+        au WinLeave * setlocal nocursorline
     augroup END
 endif
 
@@ -437,7 +437,7 @@ let g:mucomplete#enable_auto_at_startup = 0
 let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
-colo nofrils-dark
+colo nofrils-light
 
 " Functions
 function! ToggleFolds()

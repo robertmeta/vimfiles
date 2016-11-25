@@ -22,7 +22,8 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 -	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^  nmap - <Plug>VinegarUp$/;"	m
 .	pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^    nmap . <Plug>(RepeatDot)$/;"	m
 1.0 Release Candidate	pack/colors/start/nlknguyen-papercolor-theme/ROADMAP.md	/^# 1.0 Release Candidate$/;"	h
-1.10 - Unplanned	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.10 - Unplanned$/;"	i
+1.10 (November 24, 2016)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.10 (November 24, 2016)$/;"	i
+1.11 - Unplanned	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.11 - Unplanned$/;"	i
 1.6 (April 25, 2016)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.6 (April 25, 2016)$/;"	i
 1.7 (June 7, 2016)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.7 (June 7, 2016)$/;"	i
 1.7.1 (June 7, 2016)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.7.1 (June 7, 2016)$/;"	i
@@ -157,8 +158,9 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Plug>(go-implements)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-implements) :<C-u>call go#guru#Implements(-1)<CR>$/;"	m
 <Plug>(go-import)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-import) :<C-u>call go#import#SwitchImport(1, '', expand('<cword>'), '')<CR>$/;"	m
 <Plug>(go-imports)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-imports) :<C-u>call go#fmt#Format(1)<CR>$/;"	m
-<Plug>(go-info)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-info) :<C-u>call go#guru#DescribeInfo()<CR>$/;"	m
+<Plug>(go-info)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-info) :<C-u>call go#tool#Info(0)<CR>$/;"	m
 <Plug>(go-install)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-install) :<C-u>call go#cmd#Install(!g:go_jump_to_error)<CR>$/;"	m
+<Plug>(go-lint)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-lint) :<C-u>call go#lint#Golint()<CR>$/;"	m
 <Plug>(go-metalinter)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-metalinter) :<C-u>call go#lint#Gometa(0)<CR>$/;"	m
 <Plug>(go-referrers)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-referrers) :<C-u>call go#guru#Referrers(-1)<CR>$/;"	m
 <Plug>(go-rename)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-rename) :<C-u>call go#rename#Rename(!g:go_jump_to_error)<CR>$/;"	m
@@ -305,7 +307,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 Abolish	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  let Abolish = {}$/;"	v
 Abolish	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^command! -nargs=+ -bang -bar -range=0 -complete=custom,s:Complete Abolish$/;"	c
 Abolished	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! Abolished()$/;"	f
-Actual behavior	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### Actual behavior$/;"	k
 Add	pack/plugins/start/sheerun-vim-polyglot/syntax/cucumber.vim	/^function! s:Add(name)$/;"	f
 Add	pack/plugins/start/tomtom-tlib-vim/spec/tlib/list.vim	/^fun! Add(a,b)$/;"	f
 Add	pack/plugins/start/tomtom-tlib-vim/test/tlib.vim	/^fun! Add(a,b)$/;"	f
@@ -342,6 +343,7 @@ Balanced	pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^functio
 BeginElementFound	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:BeginElementFound(stack, token, curr_vcol, stored_vcol, end_token, sw)$/;"	f
 BeginElementFoundIfEmpty	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:BeginElementFoundIfEmpty(stack, token, curr_vcol, stored_vcol, sw)$/;"	f
 BeginningOfClauseFound	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:BeginningOfClauseFound(stack, token, stored_vcol, lnum, i)$/;"	f
+Behavior	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### Behavior$/;"	k
 BitwiseComparison	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/bitwise.vim	/^function! s:BitwiseComparison(num1, num2, rtype, expr) "{{{3$/;"	f
 Blame	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Blame(bang,line1,line2,count,args) abort$/;"	f
 BlameCommit	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BlameCommit(cmd) abort$/;"	f
@@ -520,7 +522,6 @@ ExecuteInTree	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^functi
 ExitingOneLineScope	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:ExitingOneLineScope(lnum)$/;"	f
 ExitingOneLineScope	pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:ExitingOneLineScope(lnum)$/;"	f
 Expand	pack/plugins/start/sheerun-vim-polyglot/autoload/rust.vim	/^function! s:Expand(dict, pretty, args)$/;"	f
-Expected behavior	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### Expected behavior$/;"	k
 ExtendKeyMap	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/input.vim	/^function! s:ExtendKeyMap(world, key_mode, key_handlers) "{{{3$/;"	f
 ExtraBrackets	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:ExtraBrackets(lnum)$/;"	f
 ExtraBrackets	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function s:ExtraBrackets(lnum)$/;"	f
@@ -694,7 +695,7 @@ GoImportAs	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -
 GoImports	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 GoImports call go#fmt#Format(1)$/;"	c
 GoIndent	pack/plugins/start/fatih-vim-go/indent/go.vim	/^function! GoIndent(lnum)$/;"	f
 GoIndent	pack/plugins/start/sheerun-vim-polyglot/indent/go.vim	/^function! GoIndent(lnum)$/;"	f
-GoInfo	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 GoInfo call go#guru#DescribeInfo()$/;"	c
+GoInfo	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* GoInfo call go#tool#Info(0)$/;"	c
 GoInstall	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -bang GoInstall call go#cmd#Install(<bang>0, <f-args>)$/;"	c
 GoInstallBinaries	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^command! GoInstallBinaries call s:GoInstallBinaries(-1)$/;"	c
 GoInstallBinaries	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:GoInstallBinaries(updateBinaries)$/;"	f
@@ -1970,7 +1971,7 @@ cargo	pack/plugins/start/sheerun-vim-polyglot/compiler/cargo.vim	/^    augroup c
 cbs	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^    let cbs.callback = a:args.callback$/;"	v
 cbs	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^    let cbs.close_cb = a:args.close_cb$/;"	v
 cbs.close_cb	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function cbs.close_cb(chan) dict$/;"	f
-cbs.show_errors	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function cbs.show_errors() dict$/;"	f
+cbs.show_errors	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function cbs.show_errors(listtype) dict$/;"	f
 cd	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd ' : 'cd '$/;"	v
 cd	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd ' : 'cd '$/;"	v
 cexpr	pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! s:cexpr(errorformat, joined_lines) abort$/;"	f
@@ -2753,8 +2754,8 @@ go#list#Clean	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! g
 go#list#Get	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Get(listtype) abort$/;"	f
 go#list#JumpToFirst	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#JumpToFirst(listtype) abort$/;"	f
 go#list#Parse	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Parse(listtype, items) abort$/;"	f
-go#list#ParseFormat	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#ParseFormat(listtype, errformat, items) abort$/;"	f
-go#list#Populate	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Populate(listtype, items) abort$/;"	f
+go#list#ParseFormat	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#ParseFormat(listtype, errformat, items, title) abort$/;"	f
+go#list#Populate	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Populate(listtype, items, title) abort$/;"	f
 go#list#PopulateWin	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#PopulateWin(winnr, items) abort$/;"	f
 go#list#Type	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Type(listtype) abort$/;"	f
 go#list#Window	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Window(listtype, ...) abort$/;"	f
@@ -2786,6 +2787,7 @@ go#tool#Exists	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! 
 go#tool#Files	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Files() abort$/;"	f
 go#tool#FilterValids	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#FilterValids(items) abort$/;"	f
 go#tool#Imports	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Imports() abort$/;"	f
+go#tool#Info	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Info(auto) abort$/;"	f
 go#tool#OpenBrowser	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#OpenBrowser(url) abort$/;"	f
 go#tool#PackageName	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#PackageName() abort$/;"	f
 go#tool#ParseErrors	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#ParseErrors(lines) abort$/;"	f
@@ -2908,7 +2910,6 @@ ignored_region	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	fun
 il	vimrc	/^omap il :<C-u>normal vil<CR>$/;"	m
 im	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^    onoremap <silent> <buffer> im :<C-U>call <SID>wrap_i('[m',']M')<CR>$/;"	m
 import	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^function! s:import(name, ...) abort$/;"	f
-import_path	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let import_path =  go#package#ImportPath(expand('%:p:h'))$/;"	v
 indentGuard	pack/plugins/start/sheerun-vim-polyglot/indent/haskell.vim	/^function! s:indentGuard(pos, prevline)$/;"	f
 indentMatching	pack/plugins/start/sheerun-vim-polyglot/indent/haskell.vim	/^function! s:indentMatching(char)$/;"	f
 indent_after_pipeline	pack/plugins/start/sheerun-vim-polyglot/indent/elixir.vim	/^function! s:indent_after_pipeline(ind)$/;"	f
@@ -3114,7 +3115,7 @@ pad_right	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/S
 padding_by_displaywidth	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:padding_by_displaywidth(expr, width, float) abort$/;"	f
 palettes_should_have_color00_to_color15	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:palettes_should_have_color00_to_color15()$/;"	f
 parse_errors	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^function s:parse_errors(exit_val, bang, out)$/;"	f
-parse_guru_output	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:parse_guru_output(exit_val, output) abort$/;"	f
+parse_guru_output	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:parse_guru_output(exit_val, output, title) abort$/;"	f
 parse_substitute	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:parse_substitute(bang,line1,line2,count,args)$/;"	f
 parse_subvert	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:parse_subvert(bang,line1,line2,count,args)$/;"	f
 partition	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:partition(f, xs) abort$/;"	f
@@ -4194,6 +4195,7 @@ start_options	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  let start
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let start_options = {$/;"	v
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let start_options = {$/;"	v
 starts_with	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:starts_with(str, prefix) abort$/;"	f
+status_dir	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let status_dir =  expand('%:p:h')$/;"	v
 stepmatch	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^function! s:stepmatch(receiver,target)$/;"	f
 steps	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^function! s:steps(lnum)$/;"	f
 strchars	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^  function! s:strchars(str) abort$/;"	f

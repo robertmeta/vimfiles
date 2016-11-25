@@ -133,7 +133,7 @@ function! go#cmd#Run(bang, ...) abort
   let items = go#list#Get(l:listtype)
   let errors = go#tool#FilterValids(items)
 
-  call go#list#Populate(l:listtype, errors)
+  call go#list#Populate(l:listtype, errors, &makeprg)
   call go#list#Window(l:listtype, len(errors))
   if !empty(errors) && !a:bang
     call go#list#JumpToFirst(l:listtype)
@@ -216,8 +216,14 @@ function! go#cmd#Test(bang, compile, ...) abort
   endif
 
   if a:0
-    " expand all wildcards(i.e: '%' to the current file name)
-    let goargs = map(copy(a:000), "expand(v:val)")
+    let goargs = a:000
+
+    " do not expand for coverage mode as we're passing the arg ourself
+    if a:1 != '-coverprofile'
+      " expand all wildcards(i.e: '%' to the current file name)
+      let goargs = map(copy(a:000), "expand(v:val)")
+    endif
+
     if !(has('nvim') || go#util#has_job())
       let goargs = go#util#Shelllist(goargs, 1)
     endif
@@ -285,7 +291,7 @@ function! go#cmd#Test(bang, compile, ...) abort
     let errors = go#tool#ParseErrors(split(out, '\n'))
     let errors = go#tool#FilterValids(errors)
 
-    call go#list#Populate(l:listtype, errors)
+    call go#list#Populate(l:listtype, errors, command)
     call go#list#Window(l:listtype, len(errors))
     if !empty(errors) && !a:bang
       call go#list#JumpToFirst(l:listtype)
