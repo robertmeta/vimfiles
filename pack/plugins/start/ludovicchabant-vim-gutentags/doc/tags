@@ -23,13 +23,13 @@ gutentags_ctags_executable	gutentags.txt	/*gutentags_ctags_executable*
 gutentags_ctags_executable_{filetype}	gutentags.txt	/*gutentags_ctags_executable_{filetype}*
 gutentags_define_advanced_commands	gutentags.txt	/*gutentags_define_advanced_commands*
 gutentags_enabled	gutentags.txt	/*gutentags_enabled*
-gutentags_enabled_user_func	gutentags.txt	/*gutentags_enabled_user_func*
 gutentags_exclude	gutentags.txt	/*gutentags_exclude*
 gutentags_exclude_project_root	gutentags.txt	/*gutentags_exclude_project_root*
 gutentags_file_list_command	gutentags.txt	/*gutentags_file_list_command*
 gutentags_generate_on_missing	gutentags.txt	/*gutentags_generate_on_missing*
 gutentags_generate_on_new	gutentags.txt	/*gutentags_generate_on_new*
 gutentags_generate_on_write	gutentags.txt	/*gutentags_generate_on_write*
+gutentags_init_user_func	gutentags.txt	/*gutentags_init_user_func*
 gutentags_project_info	gutentags.txt	/*gutentags_project_info*
 gutentags_project_root	gutentags.txt	/*gutentags_project_root*
 gutentags_project_root_finder	gutentags.txt	/*gutentags_project_root_finder*

@@ -104,7 +104,7 @@ endfunction
 " Finds the first directory with a project marker by walking up from the given
 " file path.
 function! gutentags#get_project_root(path) abort
-    if g:gutentags_project_root_finder
+    if g:gutentags_project_root_finder != ''
         return call(g:gutentags_project_root_finder, [a:path])
     endif
 
@@ -183,8 +183,8 @@ function! gutentags#setup_gutentags() abort
     endif
 
     " Let the user specify custom ways to disable Gutentags.
-    if g:gutentags_enabled_user_func != '' &&
-                \!call(g:gutentags_enabled_user_func, [expand('%:p')])
+    if g:gutentags_init_user_func != '' &&
+                \!call(g:gutentags_init_user_func, [expand('%:p')])
         call gutentags#trace("Ignoring '" . bufname('%') . "' because of " .
                     \"custom user function.")
         return
