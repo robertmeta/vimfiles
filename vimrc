@@ -82,8 +82,8 @@ nnoremap <leader>s :Search
 nnoremap <leader>S :call StripTrailingWhitespace()<cr>
 "nnoremap <leader>t :tag<space>
 "nnoremap <leader>T :tag<space><C-d>
-nnoremap <leader>t :TTags<cr>
-nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>
+nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
+nnoremap <leader>T :TTags<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap <F5> "=strftime("%c")<CR>P
 

@@ -266,7 +266,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>G	vimrc	/^nnoremap <leader>G :vimgrep<space>$/;"	m
 <leader>M	vimrc	/^nnoremap <leader>M :make<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :call StripTrailingWhitespace()<cr>$/;"	m
-<leader>T	vimrc	/^nnoremap <leader>T :TTags<space>*<space>*<space>.<cr>$/;"	m
+<leader>T	vimrc	/^nnoremap <leader>T :TTags<cr>$/;"	m
 <leader>W	vimrc	/^nnoremap <leader>W <C-w>W$/;"	m
 <leader>a	vimrc	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>b	vimrc	/^nnoremap <leader>b :b <C-d>$/;"	m
@@ -283,7 +283,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>p	vimrc	/^nnoremap <leader>p :ptjump \/$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
 <leader>s	vimrc	/^nnoremap <leader>s :Search $/;"	m
-<leader>t	vimrc	/^nnoremap <leader>t :TTags<cr>$/;"	m
+<leader>t	vimrc	/^nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>$/;"	m
 <leader>w	vimrc	/^nnoremap <leader>w <C-w>w$/;"	m
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
 <left>	vimrc	/^nmap <silent> <left> <esc>:lprev<cr>$/;"	m
@@ -2439,7 +2439,6 @@ g:gutentags_ctags_options_file	pack/plugins/start/ludovicchabant-vim-gutentags/a
 g:gutentags_debug	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_debug = get(g:, 'gutentags_debug', 0)$/;"	v
 g:gutentags_define_advanced_commands	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_define_advanced_commands = get(g:, 'gutentags_define_advanced_commands', 0)$/;"	v
 g:gutentags_enabled	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_enabled = get(g:, 'gutentags_enabled', 1)$/;"	v
-g:gutentags_enabled_user_func	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_enabled_user_func = get(g:, 'gutentags_enabled_user_func', '')$/;"	v
 g:gutentags_exclude	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_exclude = get(g:, 'gutentags_exclude', [])$/;"	v
 g:gutentags_exclude_project_root	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_exclude_project_root = get(g:, 'gutentags_exclude_project_root', ['\/usr\/local'])$/;"	v
 g:gutentags_fake	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_fake = get(g:, 'gutentags_fake', 0)$/;"	v
@@ -2447,6 +2446,7 @@ g:gutentags_file_list_command	pack/plugins/start/ludovicchabant-vim-gutentags/pl
 g:gutentags_generate_on_missing	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_generate_on_missing = get(g:, 'gutentags_generate_on_missing', 1)$/;"	v
 g:gutentags_generate_on_new	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_generate_on_new = get(g:, 'gutentags_generate_on_new', 1)$/;"	v
 g:gutentags_generate_on_write	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_generate_on_write = get(g:, 'gutentags_generate_on_write', 1)$/;"	v
+g:gutentags_init_user_func	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_init_user_func = get(g:, 'gutentags_init_user_func', $/;"	v
 g:gutentags_modules	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_modules = get(g:, 'gutentags_modules', ['ctags'])$/;"	v
 g:gutentags_pause_after_update	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_pause_after_update = get(g:, 'gutentags_pause_after_update', 0)$/;"	v
 g:gutentags_plat_dir	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^    let g:gutentags_plat_dir = expand('<sfile>:h:h:p') . "\\\\plat\\\\win32\\\\"$/;"	v
@@ -2454,7 +2454,7 @@ g:gutentags_plat_dir	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gute
 g:gutentags_project_info	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_project_info = get(g:, 'gutentags_project_info', [])$/;"	v
 g:gutentags_project_root	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^    let g:gutentags_project_root += ['.git', '.hg', '.svn', '.bzr', '_darcs', '_FOSSIL_', '.fslckout']$/;"	v
 g:gutentags_project_root	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_project_root = get(g:, 'gutentags_project_root', [])$/;"	v
-g:gutentags_project_root_finder	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_project_root_finder = ''$/;"	v
+g:gutentags_project_root_finder	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_project_root_finder = get(g:, 'gutentags_project_root_finder', '')$/;"	v
 g:gutentags_res_dir	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^    let g:gutentags_res_dir = expand('<sfile>:h:h:p') . "\\\\res\\\\"$/;"	v
 g:gutentags_res_dir	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^    let g:gutentags_res_dir = expand('<sfile>:h:h:p') . '\/res\/'$/;"	v
 g:gutentags_resolve_symlinks	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_resolve_symlinks = get(g:, 'gutentags_resolve_symlinks', 0)$/;"	v
