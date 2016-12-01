@@ -434,10 +434,10 @@ let g:sneak#streak=1
 let g:mucomplete#enable_auto_at_startup = 0
 
 " Nofrils
-let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
+let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
-colo nofrils-light
+colo nofrils-acme
 
 " Functions
 function! ToggleFolds()
