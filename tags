@@ -17,8 +17,8 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 %	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^	omap <buffer> % <Plug>LatexBox_JumpToMatch$/;"	m
 %	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^	vmap <buffer> % <Plug>LatexBox_JumpToMatch$/;"	m
 %%	vimrc	/^cnoremap %% <c-r>=fnameescape(expand('%'))<cr>$/;"	m
-,	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    nmap , <Plug>SneakPrevious$/;"	m
-,	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    omap , <Plug>SneakPrevious$/;"	m
+,	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    nmap , <Plug>Sneak_,$/;"	m
+,	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    omap , <Plug>Sneak_,$/;"	m
 -	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^  nmap - <Plug>VinegarUp$/;"	m
 .	pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^    nmap . <Plug>(RepeatDot)$/;"	m
 1.0 Release Candidate	pack/colors/start/nlknguyen-papercolor-theme/ROADMAP.md	/^# 1.0 Release Candidate$/;"	h
@@ -31,8 +31,8 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 1.9 (September 13, 2016)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.9 (September 13, 2016)$/;"	i
 256color-ready Terminal emulators	pack/colors/start/romainl-apprentice/README.md	/^### 256color-ready Terminal emulators$/;"	k
 ::	vimrc	/^cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>\/$/;"	m
-;	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^  nmap ; <Plug>SneakNext$/;"	m
-;	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^  omap ; <Plug>SneakNext$/;"	m
+;	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^  nmap ; <Plug>Sneak_;$/;"	m
+;	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^  omap ; <Plug>Sneak_;$/;"	m
 ;f	vimrc	/^inoremap <silent> ;f <C-x><C-f>$/;"	m
 ;i	vimrc	/^inoremap <silent> ;i <C-x><C-i>$/;"	m
 ;l	vimrc	/^inoremap <silent> ;l <C-x><C-l>$/;"	m
@@ -117,10 +117,10 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Plug>(RepeatRedo)	pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^nnoremap <silent> <Plug>(RepeatRedo)     :<C-U>call repeat#wrap("\\<Lt>C-R>",v:count)<CR>$/;"	m
 <Plug>(RepeatUndo)	pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^nnoremap <silent> <Plug>(RepeatUndo)     :<C-U>call repeat#wrap('u',v:count)<CR>$/;"	m
 <Plug>(RepeatUndoLine)	pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^nnoremap <silent> <Plug>(RepeatUndoLine) :<C-U>call repeat#wrap('U',v:count)<CR>$/;"	m
-<Plug>(SneakStreak)	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>(SneakStreak)         :<c-u>call sneak#wrap('', 2, 0, 2, 2)<cr>$/;"	m
-<Plug>(SneakStreak)	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>(SneakStreak)         :<c-u>call sneak#wrap(v:operator, 2, 0, 2, 2)<cr>$/;"	m
-<Plug>(SneakStreakBackward)	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>(SneakStreakBackward) :<c-u>call sneak#wrap('', 2, 1, 2, 2)<cr>$/;"	m
-<Plug>(SneakStreakBackward)	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>(SneakStreakBackward) :<c-u>call sneak#wrap(v:operator, 2, 1, 2, 2)<cr>$/;"	m
+<Plug>(SneakStreak)	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nmap <Plug>(SneakStreak)         <Plug>SneakLabel_s$/;"	m
+<Plug>(SneakStreak)	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^omap <Plug>(SneakStreak)         <Plug>SneakLabel_s$/;"	m
+<Plug>(SneakStreakBackward)	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nmap <Plug>(SneakStreakBackward) <Plug>SneakLabel_S$/;"	m
+<Plug>(SneakStreakBackward)	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^omap <Plug>(SneakStreakBackward) <Plug>SneakLabel_S$/;"	m
 <Plug>(crystal-format)	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^nnoremap <Plug>(crystal-format) :<C-u>CrystalFormat<CR>$/;"	m
 <Plug>(crystal-jump-to-definition)	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^nnoremap <Plug>(crystal-jump-to-definition) :<C-u>CrystalDef<CR>$/;"	m
 <Plug>(crystal-show-context)	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^nnoremap <Plug>(crystal-show-context) :<C-u>CrystalContext<CR>$/;"	m
@@ -218,11 +218,19 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Plug>QlistIncludefromtop	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^nnoremap <silent> <Plug>QlistIncludefromtop        :call <sid>Qlist("i", 0, 0, 0)<CR>$/;"	m
 <Plug>SneakBackward	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nmap <Plug>SneakBackward  <Plug>Sneak_S$/;"	m
 <Plug>SneakForward	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nmap <Plug>SneakForward   <Plug>Sneak_s$/;"	m
-<Plug>SneakNext	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>SneakNext     :<c-u>call sneak#rpt('', 0)<cr>$/;"	m
-<Plug>SneakNext	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>SneakNext     :<c-u>call sneak#rpt(v:operator, 0)<cr>$/;"	m
-<Plug>SneakPrevious	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>SneakPrevious :<c-u>call sneak#rpt('', 1)<cr>$/;"	m
-<Plug>SneakPrevious	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>SneakPrevious :<c-u>call sneak#rpt(v:operator, 1)<cr>$/;"	m
+<Plug>SneakLabel_S	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>SneakLabel_S :<c-u>call sneak#wrap('', 2, 1, 2, 2)<cr>$/;"	m
+<Plug>SneakLabel_S	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>SneakLabel_S :<c-u>call sneak#wrap(v:operator, 2, 1, 2, 2)<cr>$/;"	m
+<Plug>SneakLabel_s	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>SneakLabel_s :<c-u>call sneak#wrap('', 2, 0, 2, 2)<cr>$/;"	m
+<Plug>SneakLabel_s	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>SneakLabel_s :<c-u>call sneak#wrap(v:operator, 2, 0, 2, 2)<cr>$/;"	m
+<Plug>SneakNext	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nmap <Plug>SneakNext     <Plug>Sneak_;$/;"	m
+<Plug>SneakNext	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^omap <Plug>SneakNext     <Plug>Sneak_;$/;"	m
+<Plug>SneakPrevious	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nmap <Plug>SneakPrevious <Plug>Sneak_,$/;"	m
+<Plug>SneakPrevious	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^omap <Plug>SneakPrevious <Plug>Sneak_,$/;"	m
 <Plug>SneakRepeat	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>SneakRepeat :<c-u>call sneak#wrap(v:operator, sneak#util#getc(), sneak#util#getc(), sneak#util#getc(), sneak#util#getc())<cr>$/;"	m
+<Plug>Sneak_,	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>Sneak_, :<c-u>call sneak#rpt('', 1)<cr>$/;"	m
+<Plug>Sneak_,	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>Sneak_, :<c-u>call sneak#rpt(v:operator, 1)<cr>$/;"	m
+<Plug>Sneak_;	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>Sneak_; :<c-u>call sneak#rpt('', 0)<cr>$/;"	m
+<Plug>Sneak_;	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>Sneak_; :<c-u>call sneak#rpt(v:operator, 0)<cr>$/;"	m
 <Plug>Sneak_F	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>Sneak_F :<c-u>call sneak#wrap('', 1, 1, 1, 0)<cr>$/;"	m
 <Plug>Sneak_F	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^onoremap <silent> <Plug>Sneak_F :<c-u>call sneak#wrap(v:operator, 1, 1, 1, 0)<cr>$/;"	m
 <Plug>Sneak_S	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nnoremap <silent> <Plug>Sneak_S :<c-u>call sneak#wrap('', 2, 1, 2, 1)<cr>$/;"	m
@@ -355,7 +363,6 @@ BufReadIndex	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^functio
 BufReadIndexFile	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BufReadIndexFile() abort$/;"	f
 BufReadObject	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BufReadObject() abort$/;"	f
 BufWriteIndexFile	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BufWriteIndexFile() abort$/;"	f
-Bugs	pack/plugins/start/justinmk-vim-sneak/README.md	/^### Bugs$/;"	k
 BuildItem	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/input.vim	/^function! s:BuildItem(menu, def) "{{{3$/;"	f
 BuildMenu	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/input.vim	/^function! s:BuildMenu(world) "{{{3$/;"	f
 BuildStructures	pack/plugins/start/sheerun-vim-polyglot/indent/twig.vim	/^fun! s:BuildStructures()$/;"	f
@@ -530,7 +537,6 @@ ExtractLabels	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complet
 ExtractOpt	pack/plugins/start/skywind3000-asyncrun/plugin/asyncrun.vim	/^function! s:ExtractOpt(command) $/;"	f
 F	vimrc	/^nmap F <Plug>Sneak_F$/;"	m
 F	vimrc	/^omap F <Plug>Sneak_F$/;"	m
-FAQ	pack/plugins/start/justinmk-vim-sneak/README.md	/^### FAQ$/;"	k
 FILE_LIST_CMD	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^    set FILE_LIST_CMD=%~2$/;"	v
 FILE_LIST_CMD	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^set FILE_LIST_CMD=$/;"	v
 FILE_LIST_CMD	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^    set FILE_LIST_CMD=%~2$/;"	v
@@ -839,7 +845,6 @@ Install	pack/plugins/start/fatih-vim-go/README.md	/^## Install$/;"	i
 Install	pack/plugins/start/skywind3000-asyncrun/README.md	/^## Install$/;"	i
 Installation	pack/colors/start/nlknguyen-papercolor-theme/README.md	/^## Installation$/;"	i
 Installation	pack/colors/start/tomasr-molokai/README.md	/^## Installation$/;"	i
-Installation	pack/plugins/start/justinmk-vim-sneak/README.md	/^### Installation$/;"	k
 Installation	pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Installation$/;"	i
 Installation	pack/plugins/start/romainl-vim-qf/README.md	/^## Installation$/;"	i
 Installation	pack/plugins/start/romainl-vim-qlist/README.md	/^## Installation$/;"	i
@@ -948,7 +953,6 @@ LatexmkSetPID	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk
 LatexmkStatus	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^command! -bang	LatexmkStatus	call LatexBox_LatexmkStatus(<q-bang> == "!")$/;"	c
 LatexmkStop	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^command! LatexmkStop			call LatexBox_LatexmkStop(0)$/;"	c
 License	pack/plugins/start/fatih-vim-go/README.md	/^## License$/;"	i
-License	pack/plugins/start/justinmk-vim-sneak/README.md	/^### License$/;"	k
 License	pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## License$/;"	i
 License	pack/plugins/start/sheerun-vim-polyglot/README.md	/^## License$/;"	i
 Lightline and Airline themes	pack/colors/start/romainl-apprentice/README.md	/^## Lightline and Airline themes$/;"	i
@@ -1021,30 +1025,39 @@ NextIndToken	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^functio
 NextNonBlankLine	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cryptol/folding.vim	/^function! NextNonBlankLine(lnum)$/;"	f
 NextSection	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^function! s:NextSection(backwards)$/;"	f
 NoTags	pack/plugins/start/tomtom-ttags-vim/autoload/ttags.vim	/^function! s:NoTags() "{{{3$/;"	f
+NofrilsDark	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^command! NofrilsDark :colo nofrils-dark$/;"	c
 NofrilsDark	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^command! NofrilsDark :colo nofrils-dark$/;"	c
 NofrilsDark	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^command! NofrilsDark :colo nofrils-dark$/;"	c
 NofrilsDark	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^command! NofrilsDark :colo nofrils-dark$/;"	c
+NofrilsFocusCode	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^command! NofrilsFocusCode :call NofrilsFocusCode()$/;"	c
+NofrilsFocusCode	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^function! NofrilsFocusCode()$/;"	f
 NofrilsFocusCode	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^command! NofrilsFocusCode :call NofrilsFocusCode()$/;"	c
 NofrilsFocusCode	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^function! NofrilsFocusCode()$/;"	f
 NofrilsFocusCode	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^command! NofrilsFocusCode :call NofrilsFocusCode()$/;"	c
 NofrilsFocusCode	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^function! NofrilsFocusCode()$/;"	f
 NofrilsFocusCode	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^command! NofrilsFocusCode :call NofrilsFocusCode()$/;"	c
 NofrilsFocusCode	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^function! NofrilsFocusCode()$/;"	f
+NofrilsFocusComments	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^command! NofrilsFocusComments :call NofrilsFocusComments()$/;"	c
+NofrilsFocusComments	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^function! NofrilsFocusComments()$/;"	f
 NofrilsFocusComments	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^command! NofrilsFocusComments :call NofrilsFocusComments()$/;"	c
 NofrilsFocusComments	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^function! NofrilsFocusComments()$/;"	f
 NofrilsFocusComments	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^command! NofrilsFocusComments :call NofrilsFocusComments()$/;"	c
 NofrilsFocusComments	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^function! NofrilsFocusComments()$/;"	f
 NofrilsFocusComments	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^command! NofrilsFocusComments :call NofrilsFocusComments()$/;"	c
 NofrilsFocusComments	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^function! NofrilsFocusComments()$/;"	f
+NofrilsFocusNormal	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^command! NofrilsFocusNormal :call NofrilsNormal()$/;"	c
 NofrilsFocusNormal	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^command! NofrilsFocusNormal :call NofrilsNormal()$/;"	c
 NofrilsFocusNormal	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^command! NofrilsFocusNormal :call NofrilsNormal()$/;"	c
 NofrilsFocusNormal	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^command! NofrilsFocusNormal :call NofrilsNormal()$/;"	c
+NofrilsLight	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^command! NofrilsLight :colo nofrils-light$/;"	c
 NofrilsLight	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^command! NofrilsLight :colo nofrils-light$/;"	c
 NofrilsLight	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^command! NofrilsLight :colo nofrils-light$/;"	c
 NofrilsLight	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^command! NofrilsLight :colo nofrils-light$/;"	c
+NofrilsNormal	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^function! NofrilsNormal()$/;"	f
 NofrilsNormal	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^function! NofrilsNormal()$/;"	f
 NofrilsNormal	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^function! NofrilsNormal()$/;"	f
 NofrilsNormal	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^function! NofrilsNormal()$/;"	f
+NofrilsSepia	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^command! NofrilsSepia :colo nofrils-sepia$/;"	c
 NofrilsSepia	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^command! NofrilsSepia :colo nofrils-sepia$/;"	c
 NofrilsSepia	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^command! NofrilsSepia :colo nofrils-sepia$/;"	c
 NofrilsSepia	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^command! NofrilsSepia :colo nofrils-sepia$/;"	c
@@ -1109,7 +1122,6 @@ ReadOnPath	pack/plugins/start/sheerun-vim-polyglot/syntax/ragel.vim	/^fun! <SID>
 ReadTOC	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:ReadTOC(auxfile, texfile, ...)$/;"	f
 RehighlightBlame	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:RehighlightBlame() abort$/;"	f
 Reject	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=1 Reject call qf#FilterList(<q-args>, 1)$/;"	c
-Related	pack/plugins/start/justinmk-vim-sneak/README.md	/^### Related$/;"	k
 Related Projects Based On PaperColor	pack/colors/start/nlknguyen-papercolor-theme/README.md	/^# Related Projects Based On PaperColor$/;"	h
 RemoteComplete	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:RemoteComplete(A, L, P) abort$/;"	f
 Remove	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -bang Remove$/;"	c
@@ -1332,7 +1344,6 @@ Updating	pack/plugins/start/sheerun-vim-polyglot/README.md	/^## Updating$/;"	i
 Usage	pack/plugins/start/fatih-vim-go/README.md	/^## Usage$/;"	i
 Usage	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^:Usage$/;"	l
 Usage	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:Usage$/;"	l
-Usage (Default)	pack/plugins/start/justinmk-vim-sneak/README.md	/^### Usage (Default)$/;"	k
 Using with Neovim (beta)	pack/plugins/start/fatih-vim-go/README.md	/^### Using with Neovim (beta)$/;"	k
 Using with Syntastic	pack/plugins/start/fatih-vim-go/README.md	/^### Using with Syntastic$/;"	k
 VADER_OUTPUT_FILE	pack/plugins/start/justinmk-vim-sneak/Makefile	/^	VADER_OUTPUT_FILE=\/dev\/stderr n$(VIM) --headless '+Vader! tests\/*.vader'$/;"	m
@@ -1368,8 +1379,8 @@ Z	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^  omap Z  <Plug>Sneak
 []	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  nnoremap <silent> <buffer> [] :<C-U>call <SID>searchsyn('\\<end\\>','rubyModule\\<Bar>rubyClass','b','n')<CR>$/;"	m
 [d	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  nnoremap <silent> <script> <buffer> [d          :<C-U>exe <SID>jump('pedit',v:count)<CR>$/;"	m
 [m	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  nnoremap <silent> <buffer> [m :<C-U>call <SID>searchsyn('\\<def\\>','rubyDefine','b','n')<CR>$/;"	m
-\	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    nmap \\ <Plug>SneakPrevious$/;"	m
-\	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    omap \\ <Plug>SneakPrevious$/;"	m
+\	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    nmap \\ <Plug>Sneak_,$/;"	m
+\	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    omap \\ <Plug>Sneak_,$/;"	m
 ]<C-D>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  nnoremap <silent> <script> <buffer> ]<C-D>      :<C-U>exe <SID>jump('edit',v:count)<SID>foldopen<CR>$/;"	m
 ]D	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^    nmap <silent> ]D <Plug>QlistDefinefromhere$/;"	m
 ]I	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^    nmap <silent> ]I <Plug>QlistIncludefromhere$/;"	m
@@ -1459,7 +1470,7 @@ ae	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^ono
 ae	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^vmap <buffer> ae <Plug>LatexBox_SelectCurrentEnvOuter$/;"	m
 ae	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^  onoremap <silent> <buffer> ae :<C-U>call <SID>wrap_around()<CR>$/;"	m
 af	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  onoremap <buffer> <silent> af :<c-u>call go#textobj#Function('a')<cr>$/;"	m
-after	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^func! s:after()$/;"	f
+after	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^func! s:after()$/;"	f
 airline#themes#PaperColor#refresh	pack/colors/start/nlknguyen-papercolor-theme/autoload/airline/themes/PaperColor.vim	/^function! airline#themes#PaperColor#refresh()$/;"	f
 al	vimrc	/^omap al :<C-u>normal val<CR>$/;"	m
 all	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:all(f, xs) abort$/;"	f
@@ -1932,7 +1943,7 @@ b:vala_minlines	pack/plugins/start/sheerun-vim-polyglot/syntax/vala.vim	/^  let 
 b:vala_minlines	pack/plugins/start/sheerun-vim-polyglot/syntax/vala.vim	/^  let b:vala_minlines = vala_minlines$/;"	v
 badgood	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:badgood(args)$/;"	f
 beep	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:beep()$/;"	f
-before	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^func! s:before()$/;"	f
+before	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^func! s:before()$/;"	f
 bestSeekTarget	pack/plugins/start/wellle-targets/autoload/targets.vim	/^function! s:bestSeekTarget(targets, oldpos, min, max, message)$/;"	f
 binary_search	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:binary_search(list, value, ...) abort$/;"	f
 body_attributes	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let body_attributes = {'onafterprint': [], 'onbeforeprint': [], 'onbeforeunload': [], 'onblur': [], 'onerror': [], 'onfocus': [], 'onhashchange': [], 'onload': [], 'onmessage': [], 'onoffline': [], 'ononline': [], 'onpopstate': [], 'onredo': [], 'onresize': [], 'onstorage': [], 'onundo': [], 'onunload': []}$/;"	v
@@ -2146,9 +2157,9 @@ diffoff_all	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function
 diffthis	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:diffthis() abort$/;"	f
 dir	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^  let dir = getcwd()$/;"	v
 dir	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^  let dir = getcwd()$/;"	v
-disable_conceal_in_other_windows	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^func! s:disable_conceal_in_other_windows()$/;"	f
+disable_conceal_in_other_windows	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^func! s:disable_conceal_in_other_windows()$/;"	f
 dispatcher	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:dispatcher(bang,line1,line2,count,args)$/;"	f
-do_streak	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^func! s:do_streak(s, v, reverse) "{{{$/;"	f
+do_label	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^func! s:do_label(s, v, reverse) "{{{$/;"	f
 document_structure	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let document_structure = ['article', 'columnheader', 'definition', 'directory', 'document', 'group', 'heading', 'img', 'list', 'listitem', 'math', 'note', 'presentation', 'region', 'row', 'rowheader', 'separator']$/;"	v
 document_structure	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let document_structure = ['article', 'columnheader', 'definition', 'directory', 'document', 'group', 'heading', 'img', 'list', 'listitem', 'math', 'note', 'presentation', 'region', 'row', 'rowheader', 'separator']$/;"	v
 dosurround	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:dosurround(...) " {{{1$/;"	f
@@ -2326,6 +2337,7 @@ g:clojure_fuzzy_indent_patterns	pack/plugins/start/sheerun-vim-polyglot/indent/c
 g:clojure_maxlines	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^		let g:clojure_maxlines = 100$/;"	v
 g:clojure_special_indent_words	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^		let g:clojure_special_indent_words = 'deftype,defrecord,reify,proxy,extend-type,extend-protocol,letfn'$/;"	v
 g:colors_name	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let g:colors_name = "PaperColor"$/;"	v
+g:colors_name	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^let g:colors_name = "nofrils-sepia"$/;"	v
 g:colors_name	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^let g:colors_name = "nofrils-dark"$/;"	v
 g:colors_name	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^let g:colors_name = "nofrils-light"$/;"	v
 g:colors_name	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^let g:colors_name = "nofrils-sepia"$/;"	v
@@ -2520,14 +2532,17 @@ g:netrw_altfile	vimrc	/^let g:netrw_altfile=1$/;"	v
 g:netrw_banner	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^  let g:netrw_banner = 0$/;"	v
 g:netrw_list_hide	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:netrw_list_hide =$/;"	v
 g:netrw_sort_sequence	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:netrw_sort_sequence = '[\\\/]$,*,\\%(' . join(map(split(&suffixes, ','), 'escape(v:val, ".*$~")'), '\\|') . '\\)[*@]\\=$'$/;"	v
+g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	vimrc	/^let g:nofrils_heavycomments=0 " bright comments off$/;"	v
+g:nofrils_heavylinenumbers	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^    let g:nofrils_heavylinenumbers = 0$/;"	v
 g:nofrils_heavylinenumbers	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_heavylinenumbers = 0$/;"	v
 g:nofrils_heavylinenumbers	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_heavylinenumbers = 0$/;"	v
 g:nofrils_heavylinenumbers	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^    let g:nofrils_heavylinenumbers = 0$/;"	v
 g:nofrils_heavylinenumbers	vimrc	/^let g:nofrils_heavylinenumbers=0 " heavy line numbers off$/;"	v
+g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
@@ -2575,7 +2590,7 @@ g:sampletest	pack/plugins/start/fatih-vim-go/t/coverlay.vim	/^	let g:sampletest 
 g:skip_loading_mswin	vimrc	/^let g:skip_loading_mswin=1 " Just in case :)$/;"	v
 g:sneak#search#instance	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/search.vim	/^let g:sneak#search#instance = sneak#search#new()$/;"	v
 g:sneak#streak	vimrc	/^let g:sneak#streak=1$/;"	v
-g:sneak#target_labels	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^let g:sneak#target_labels = get(g:, 'sneak#target_labels', "asdfghjkl;qwertyuiopzxcvbnm\/ASDFGHJKL:QWERTYUIOPZXCVBNM?")$/;"	v
+g:sneak#target_labels	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^let g:sneak#target_labels = get(g:, 'sneak#target_labels', "asdfghjkl;qwertyuiopzxcvbnm\/ASDFGHJKL:QWERTYUIOPZXCVBNM?")$/;"	v
 g:spec_tlib_list	pack/plugins/start/tomtom-tlib-vim/spec/tlib/input.vim	/^let g:spec_tlib_list = [10, 20, 30, 40, 'a50', 'aa60', 'b70', 'ba80', 90]$/;"	v
 g:srcpath	pack/plugins/start/fatih-vim-go/t/coverlay.vim	/^	let g:srcpath = 't\/fixtures\/src\/'$/;"	v
 g:tagbar_type_scala	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala/tagbar.vim	/^  let g:tagbar_type_scala.deffile = expand('<sfile>:p:h:h:h') . '\/ctags\/scala.ctags'$/;"	v
@@ -2951,7 +2966,7 @@ is_number	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelud
 is_numeric	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_numeric(Value) abort$/;"	f
 is_paren	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:is_paren()$/;"	f
 is_reader_conditional_special_case	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:is_reader_conditional_special_case(position)$/;"	f
-is_special_key	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^func! s:is_special_key(key)$/;"	f
+is_special_key	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^func! s:is_special_key(key)$/;"	f
 is_string	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_string(Value) abort$/;"	f
 is_string_comment	pack/plugins/start/sheerun-vim-polyglot/indent/rust.vim	/^function! s:is_string_comment(lnum, col)$/;"	f
 is_unix	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_unix() abort$/;"	f
@@ -3148,7 +3163,7 @@ pkg	pack/plugins/start/fatih-vim-go/t/fixtures/src/parsefail/sample.go	/^package
 pkg	pack/plugins/start/fatih-vim-go/t/fixtures/src/parsefail/sample_test.go	/^package pkg$/;"	p
 pkg1	pack/plugins/start/fatih-vim-go/t/fixtures/src/pkg1/sample.go	/^package pkg1$/;"	p
 pkg1	pack/plugins/start/fatih-vim-go/t/fixtures/src/pkg1/sample_test.go	/^package pkg1$/;"	p
-placematch	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^func! s:placematch(c, pos)$/;"	f
+placematch	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^func! s:placematch(c, pos)$/;"	f
 plugin	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^augroup plugin-ft-crystal$/;"	a
 pop	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:pop(list) abort$/;"	f
 position	pack/plugins/start/wellle-targets/autoload/targets/target.vim	/^function! s:position(line, column, cursor, min, max, tie)$/;"	f
@@ -3340,7 +3355,7 @@ repo_superglob	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^funct
 repo_translate	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:repo_translate(spec) dict abort$/;"	f
 repo_tree	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:repo_tree(...) dict abort$/;"	f
 repo_user	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:repo_user() dict abort$/;"	f
-restore_conceal_in_other_windows	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^func! s:restore_conceal_in_other_windows()$/;"	f
+restore_conceal_in_other_windows	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^func! s:restore_conceal_in_other_windows()$/;"	f
 reverse	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:reverse(str) abort$/;"	f
 rgb_colour	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:rgb_colour(x, y, z)$/;"	f
 rgb_level	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:rgb_level(n)$/;"	f
@@ -3828,7 +3843,7 @@ s:match_words	pack/plugins/start/sheerun-vim-polyglot/ftplugin/pug.vim	/^let s:m
 s:match_words	pack/plugins/start/sheerun-vim-polyglot/ftplugin/stylus.vim	/^  let s:match_words = b:match_words$/;"	v
 s:match_words	pack/plugins/start/sheerun-vim-polyglot/ftplugin/stylus.vim	/^let s:match_words = ""$/;"	v
 s:max	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/progressbar.vim	/^let s:max = []$/;"	v
-s:maxmarks	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^let s:maxmarks = sneak#util#strlen(g:sneak#target_labels)$/;"	v
+s:maxmarks	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^let s:maxmarks = sneak#util#strlen(g:sneak#target_labels)$/;"	v
 s:maxoff	pack/plugins/start/sheerun-vim-polyglot/indent/python.vim	/^let s:maxoff = 50$/;"	v
 s:maybe_in_progress	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^    let s:maybe_in_progress[module] = {}$/;"	v
 s:maybe_in_progress	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^let s:maybe_in_progress = {}$/;"	v
@@ -4155,14 +4170,14 @@ sneak#hl#links_to	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/hl.vim	/^
 sneak#hl#removehl	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/hl.vim	/^func! sneak#hl#removehl() "remove highlighting$/;"	f
 sneak#init	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^func! sneak#init()$/;"	f
 sneak#is_sneaking	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^func! sneak#is_sneaking()$/;"	f
+sneak#label#sanitize_target_labels	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^func! sneak#label#sanitize_target_labels()$/;"	f
+sneak#label#to	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^func! sneak#label#to(s, v, reverse)$/;"	f
 sneak#reset	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^func! sneak#reset(key)$/;"	f
 sneak#rpt	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^func! sneak#rpt(op, reverse) abort$/;"	f
 sneak#search#get_cs	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/search.vim	/^func! sneak#search#get_cs(input, use_ic_scs)$/;"	f
 sneak#search#new	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/search.vim	/^func! sneak#search#new()$/;"	f
 sneak#state	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^func! sneak#state()$/;"	f
-sneak#streak#sanitize_target_labels	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^func! sneak#streak#sanitize_target_labels()$/;"	f
-sneak#streak#to	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/streak.vim	/^func! sneak#streak#to(s, v, reverse)$/;"	f
-sneak#to	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^func! sneak#to(op, input, inputlen, count, repeatmotion, reverse, inclusive, streak) abort "{{{$/;"	f
+sneak#to	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^func! sneak#to(op, input, inputlen, count, repeatmotion, reverse, inclusive, label) abort "{{{$/;"	f
 sneak#util#echo	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/util.vim	/^func! sneak#util#echo(msg)$/;"	f
 sneak#util#getc	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/util.vim	/^func! sneak#util#getc()$/;"	f
 sneak#util#getchar	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/util.vim	/^func! sneak#util#getchar()$/;"	f
@@ -4172,8 +4187,7 @@ sneak#util#nudge	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/util.vim	/
 sneak#util#skipfold	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/util.vim	/^func! sneak#util#skipfold(current_line, reverse)$/;"	f
 sneak#util#strlen	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/util.vim	/^  func! sneak#util#strlen(s)$/;"	f
 sneak#util#wincol1	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/util.vim	/^func! sneak#util#wincol1()$/;"	f
-sneak#wrap	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^func! sneak#wrap(op, inputlen, reverse, inclusive, streak) abort$/;"	f
-sneak.vim :shoe:	pack/plugins/start/justinmk-vim-sneak/README.md	/^# sneak.vim :shoe:$/;"	h
+sneak#wrap	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^func! sneak#wrap(op, inputlen, reverse, inclusive, label) abort$/;"	f
 sneak_colorscheme	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/hl.vim	/^augroup sneak_colorscheme " re-init if :colorscheme is changed at runtime. #108$/;"	a
 sort	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:sort(list, expr) abort$/;"	f
 sort	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:sort(a,b)$/;"	f
