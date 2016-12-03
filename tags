@@ -1025,6 +1025,7 @@ NextIndToken	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^functio
 NextNonBlankLine	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cryptol/folding.vim	/^function! NextNonBlankLine(lnum)$/;"	f
 NextSection	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^function! s:NextSection(backwards)$/;"	f
 NoTags	pack/plugins/start/tomtom-ttags-vim/autoload/ttags.vim	/^function! s:NoTags() "{{{3$/;"	f
+NofrilsAcme	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^command! NofrilsAcme :colo nofrils-acme$/;"	c
 NofrilsDark	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^command! NofrilsDark :colo nofrils-dark$/;"	c
 NofrilsDark	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^command! NofrilsDark :colo nofrils-dark$/;"	c
 NofrilsDark	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^command! NofrilsDark :colo nofrils-dark$/;"	c
@@ -2337,7 +2338,7 @@ g:clojure_fuzzy_indent_patterns	pack/plugins/start/sheerun-vim-polyglot/indent/c
 g:clojure_maxlines	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^		let g:clojure_maxlines = 100$/;"	v
 g:clojure_special_indent_words	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^		let g:clojure_special_indent_words = 'deftype,defrecord,reify,proxy,extend-type,extend-protocol,letfn'$/;"	v
 g:colors_name	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let g:colors_name = "PaperColor"$/;"	v
-g:colors_name	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^let g:colors_name = "nofrils-sepia"$/;"	v
+g:colors_name	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^let g:colors_name = "nofrils-acme"$/;"	v
 g:colors_name	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^let g:colors_name = "nofrils-dark"$/;"	v
 g:colors_name	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^let g:colors_name = "nofrils-light"$/;"	v
 g:colors_name	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^let g:colors_name = "nofrils-sepia"$/;"	v
