@@ -2525,7 +2525,7 @@ g:main_syntax	pack/plugins/start/sheerun-vim-polyglot/syntax/dart.vim	/^  let g:
 g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = extend({$/;"	v
 g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = mucomplete#compat#can_complete()$/;"	v
 g:mucomplete#chains	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let g:mucomplete#chains = extend({$/;"	v
-g:mucomplete#enable_auto_at_startup	vimrc	/^let g:mucomplete#enable_auto_at_startup = 0$/;"	v
+g:mucomplete#enable_auto_at_startup	vimrc	/^let g:mucomplete#enable_auto_at_startup=0$/;"	v
 g:mucomplete#trigger_auto_pattern	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let g:mucomplete#trigger_auto_pattern = extend({$/;"	v
 g:mustache_operators	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^  let g:mustache_operators = 1$/;"	v
 g:netrw_altfile	vimrc	/^let g:netrw_altfile=1$/;"	v
@@ -2588,8 +2588,8 @@ g:sampleabs2	pack/plugins/start/fatih-vim-go/t/coverlay.vim	/^	let g:sampleabs2 
 g:samplecover	pack/plugins/start/fatih-vim-go/t/coverlay.vim	/^	let g:samplecover = g:curdir . g:srcpath . 'pkg1\/sample.out'$/;"	v
 g:sampletest	pack/plugins/start/fatih-vim-go/t/coverlay.vim	/^	let g:sampletest = 'failtest\/sample_test.go'$/;"	v
 g:skip_loading_mswin	vimrc	/^let g:skip_loading_mswin=1 " Just in case :)$/;"	v
+g:sneak#label	vimrc	/^let g:sneak#label=1$/;"	v
 g:sneak#search#instance	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/search.vim	/^let g:sneak#search#instance = sneak#search#new()$/;"	v
-g:sneak#streak	vimrc	/^let g:sneak#streak=1$/;"	v
 g:sneak#target_labels	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^let g:sneak#target_labels = get(g:, 'sneak#target_labels', "asdfghjkl;qwertyuiopzxcvbnm\/ASDFGHJKL:QWERTYUIOPZXCVBNM?")$/;"	v
 g:spec_tlib_list	pack/plugins/start/tomtom-tlib-vim/spec/tlib/input.vim	/^let g:spec_tlib_list = [10, 20, 30, 40, 'a50', 'aa60', 'b70', 'ba80', 90]$/;"	v
 g:srcpath	pack/plugins/start/fatih-vim-go/t/coverlay.vim	/^	let g:srcpath = 't\/fixtures\/src\/'$/;"	v
@@ -2647,7 +2647,7 @@ g:tlib#vim#use_vimtweak	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/vim.vim
 g:tlib#vim#use_wmctrl	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/vim.vim	/^        let g:tlib#vim#use_wmctrl = executable('wmctrl')  "{{{2$/;"	v
 g:tlib_hash_use_crc32	pack/plugins/start/tomtom-tlib-vim/spec/tlib/hash.vim	/^let g:tlib_hash_use_crc32 = g:tlib#hash#use_crc32$/;"	v
 g:tmuxcomplete#loaded	pack/plugins/start/wellle-tmux-complete/plugin/tmuxcomplete.vim	/^let g:tmuxcomplete#loaded = '0.1.1' " version number$/;"	v
-g:tmuxify_custom_command	vimrc	/^let g:tmuxify_custom_command = 'tmux split-window -d -l 10'$/;"	v
+g:tmuxify_custom_command	vimrc	/^let g:tmuxify_custom_command='tmux split-window -d -l 10'$/;"	v
 g:typescript_compiler_binary	pack/plugins/start/sheerun-vim-polyglot/compiler/typescript.vim	/^  let g:typescript_compiler_binary = "tsc"$/;"	v
 g:typescript_compiler_options	pack/plugins/start/sheerun-vim-polyglot/compiler/typescript.vim	/^  let g:typescript_compiler_options = ""$/;"	v
 g:vim_ember_script	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^  let g:vim_ember_script = 1$/;"	v

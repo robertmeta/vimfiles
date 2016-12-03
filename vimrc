@@ -422,16 +422,16 @@ let g:go_highlight_generate_tags=1
 let g:go_highlight_string_spellcheck=0
 
 " Tmuxify
-let g:tmuxify_custom_command = 'tmux split-window -d -l 10'
+let g:tmuxify_custom_command='tmux split-window -d -l 10'
 
 " Netrw
 let g:netrw_altfile=1
 
 " Sneak
-let g:sneak#streak=1
+let g:sneak#label=1
 
 " Mucomplete
-let g:mucomplete#enable_auto_at_startup = 0
+let g:mucomplete#enable_auto_at_startup=0
 
 " Nofrils
 let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
