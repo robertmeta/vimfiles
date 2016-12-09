@@ -73,7 +73,6 @@ nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :tjump /
-nnoremap <leader>l :lgrep<space>
 "nnoremap <leader>m saved for tmuxify
 nnoremap <leader>M :make<cr>
 nnoremap <leader>p :ptjump /
@@ -442,6 +441,30 @@ colo nofrils-acme
 
 " FZF
 if executable("fzf")
+    nnoremap <leader>b :Buffers<cr>
+    nnoremap <leader>c :Commits<cr>
+    nnoremap <leader>C :BCommits<cr>
+    nnoremap <leader>f :Files<cr>
+    nnoremap <leader>F :GFiles<cr>
+    nnoremap <leader>g :Ag<space>
+    nnoremap <leader>h :History/<cr>
+    nnoremap <leader>H :History:<cr>
+    nnoremap <leader>l :Lines<cr>
+    nnoremap <leader>L :BLines<cr>
+    "nnoremap <leader>m saved for tmuxify
+    nnoremap <leader>M :make<cr>
+    nnoremap <leader>p :ptjump /
+    nnoremap <leader>q :b#<cr>
+    nnoremap <leader>s :Search 
+    nnoremap <leader>S :call StripTrailingWhitespace()<cr>
+    "nnoremap <leader>t :tag<space>
+    "nnoremap <leader>T :tag<space><C-d>
+    nnoremap <leader>t :Tags<cr>
+    nnoremap <leader>T :BTags<cr>
+    nnoremap <leader>w :Windows<cr>
+    nnoremap <leader>z :call ToggleFolds()<cr>
+    nnoremap <F5> "=strftime("%c")<CR>P
+    nnoremap Y y$
 endif
 
 " Functions
