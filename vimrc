@@ -451,14 +451,6 @@ if executable("fzf")
     nnoremap <leader>H :History:<cr>
     nnoremap <leader>l :Lines<cr>
     nnoremap <leader>L :BLines<cr>
-    "nnoremap <leader>m saved for tmuxify
-    nnoremap <leader>M :make<cr>
-    nnoremap <leader>p :ptjump /
-    nnoremap <leader>q :b#<cr>
-    nnoremap <leader>s :Search 
-    nnoremap <leader>S :call StripTrailingWhitespace()<cr>
-    "nnoremap <leader>t :tag<space>
-    "nnoremap <leader>T :tag<space><C-d>
     nnoremap <leader>t :Tags<cr>
     nnoremap <leader>T :BTags<cr>
     nnoremap <leader>w :Windows<cr>

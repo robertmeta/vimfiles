@@ -284,9 +284,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>G	vimrc	/^nnoremap <leader>G :vimgrep<space>$/;"	m
 <leader>H	vimrc	/^    nnoremap <leader>H :History:<cr>$/;"	m
 <leader>L	vimrc	/^    nnoremap <leader>L :BLines<cr>$/;"	m
-<leader>M	vimrc	/^    nnoremap <leader>M :make<cr>$/;"	m
 <leader>M	vimrc	/^nnoremap <leader>M :make<cr>$/;"	m
-<leader>S	vimrc	/^    nnoremap <leader>S :call StripTrailingWhitespace()<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :call StripTrailingWhitespace()<cr>$/;"	m
 <leader>T	vimrc	/^    nnoremap <leader>T :BTags<cr>$/;"	m
 <leader>T	vimrc	/^nnoremap <leader>T :TTags<cr>$/;"	m
@@ -308,11 +306,8 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>j	vimrc	/^nnoremap <leader>j :tjump \/$/;"	m
 <leader>l	vimrc	/^    nnoremap <leader>l :Lines<cr>$/;"	m
 <leader>o	vimrc	/^nnoremap <leader>o <C-w>o$/;"	m
-<leader>p	vimrc	/^    nnoremap <leader>p :ptjump \/$/;"	m
 <leader>p	vimrc	/^nnoremap <leader>p :ptjump \/$/;"	m
-<leader>q	vimrc	/^    nnoremap <leader>q :b#<cr>$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
-<leader>s	vimrc	/^    nnoremap <leader>s :Search $/;"	m
 <leader>s	vimrc	/^nnoremap <leader>s :Search $/;"	m
 <leader>t	vimrc	/^    nnoremap <leader>t :Tags<cr>$/;"	m
 <leader>t	vimrc	/^nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>$/;"	m
