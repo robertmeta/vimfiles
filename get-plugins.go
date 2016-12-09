@@ -22,6 +22,7 @@ func main() {
 	}
 	plugins := []string{
 		"fatih/vim-go",
+		"junegunn/fzf.vim",
 		"justinmk/vim-sneak",
 		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",

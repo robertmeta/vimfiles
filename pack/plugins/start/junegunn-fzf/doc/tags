@@ -1,0 +1,17 @@
+fzf-vim	fzf-vim.txt	/*fzf-vim*
+fzf-vim-commands	fzf-vim.txt	/*fzf-vim-commands*
+fzf-vim-completion-helper	fzf-vim.txt	/*fzf-vim-completion-helper*
+fzf-vim-customization	fzf-vim.txt	/*fzf-vim-customization*
+fzf-vim-fzf-heart-vim	fzf-vim.txt	/*fzf-vim-fzf-heart-vim*
+fzf-vim-installation	fzf-vim.txt	/*fzf-vim-installation*
+fzf-vim-license	fzf-vim.txt	/*fzf-vim-license*
+fzf-vim-mappings	fzf-vim.txt	/*fzf-vim-mappings*
+fzf-vim-rationale	fzf-vim.txt	/*fzf-vim-rationale*
+fzf-vim-reducer-example	fzf-vim.txt	/*fzf-vim-reducer-example*
+fzf-vim-toc	fzf-vim.txt	/*fzf-vim-toc*
+fzf-vim-usage	fzf-vim.txt	/*fzf-vim-usage*
+fzf-vim-why-you-should-use-fzf-on-vim	fzf-vim.txt	/*fzf-vim-why-you-should-use-fzf-on-vim*
+g:fzf_action	fzf-vim.txt	/*g:fzf_action*
+g:fzf_colors	fzf-vim.txt	/*g:fzf_colors*
+g:fzf_commits_log_options	fzf-vim.txt	/*g:fzf_commits_log_options*
+g:fzf_layout	fzf-vim.txt	/*g:fzf_layout*

@@ -22,6 +22,7 @@ gutentags_cache_dir	gutentags.txt	/*gutentags_cache_dir*
 gutentags_ctags_executable	gutentags.txt	/*gutentags_ctags_executable*
 gutentags_ctags_executable_{filetype}	gutentags.txt	/*gutentags_ctags_executable_{filetype}*
 gutentags_define_advanced_commands	gutentags.txt	/*gutentags_define_advanced_commands*
+gutentags_dont_load	gutentags.txt	/*gutentags_dont_load*
 gutentags_enabled	gutentags.txt	/*gutentags_enabled*
 gutentags_exclude	gutentags.txt	/*gutentags_exclude*
 gutentags_exclude_project_root	gutentags.txt	/*gutentags_exclude_project_root*

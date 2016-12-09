@@ -1,6 +1,6 @@
 " sneak.vim - The missing motion
 " Author:       Justin M. Keyes
-" Version:      1.7.4
+" Version:      1.8
 " License:      MIT
 
 if exists('g:loaded_sneak_plugin') || &compatible || v:version < 700
@@ -21,11 +21,10 @@ func! sneak#init()
       \ ,'t_reset'      : get(g:, 'sneak#nextprev_t', get(g:, 'sneak#t_reset', 1))
       \ ,'s_next'       : get(g:, 'sneak#s_next', 0)
       \ ,'absolute_dir' : get(g:, 'sneak#absolute_dir', 0)
-      \ ,'textobject_z' : get(g:, 'sneak#textobject_z', 1)
       \ ,'use_ic_scs'   : get(g:, 'sneak#use_ic_scs', 0)
       \ ,'map_netrw'    : get(g:, 'sneak#map_netrw', 1)
-      \ ,'streak'       : get(g:, 'sneak#streak', 0) && (v:version >= 703) && has("conceal")
-      \ ,'streak_esc'   : get(g:, 'sneak#streak_esc', "\<space>")
+      \ ,'label'        : get(g:, 'sneak#label', get(g:, 'sneak#streak', 0)) && (v:version >= 703) && has("conceal")
+      \ ,'label_esc'    : get(g:, 'sneak#label_esc', get(g:, 'sneak#streak_esc', "\<space>"))
       \ ,'prompt'       : get(g:, 'sneak#prompt', '>')
       \ }
 
@@ -59,7 +58,7 @@ func! sneak#cancel()
 endf
 
 " convenience wrapper for key bindings/mappings
-func! sneak#wrap(op, inputlen, reverse, inclusive, streak) abort
+func! sneak#wrap(op, inputlen, reverse, inclusive, label) abort
   let cnt = v:count1 "get count before doing _anything_, else it gets overwritten.
   " don't clever-repeat the last 's' search if this is an 'f' search, etc.
   let is_similar_invocation = a:inputlen == s:st.inputlen && a:inclusive == s:st.inclusive
@@ -67,7 +66,7 @@ func! sneak#wrap(op, inputlen, reverse, inclusive, streak) abort
   if g:sneak#opt.s_next && is_similar_invocation && (sneak#util#isvisualop(a:op) || empty(a:op)) && sneak#is_sneaking()
     call sneak#rpt(a:op, a:reverse) " s goes to next match
   else " s invokes new search
-    call sneak#to(a:op, s:getnchars(a:inputlen, a:op), a:inputlen, cnt, 0, a:reverse, a:inclusive, a:streak)
+    call sneak#to(a:op, s:getnchars(a:inputlen, a:op), a:inputlen, cnt, 0, a:reverse, a:inclusive, a:label)
   endif
 endf
 
@@ -85,7 +84,7 @@ endf
 
 " input:      may be shorter than inputlen if the user pressed <enter> at the prompt.
 " inclusive:  0: t-like, 1: f-like, 2: /-like
-func! sneak#to(op, input, inputlen, count, repeatmotion, reverse, inclusive, streak) abort "{{{
+func! sneak#to(op, input, inputlen, count, repeatmotion, reverse, inclusive, label) abort "{{{
   if empty(a:input) "user canceled
     if a:op ==# 'c'  " user <esc> during change-operation should return to previous mode.
       call feedkeys((col('.') > 1 && col('.') < col('$') ? "\<RIGHT>" : '') . "\<C-\>\<C-G>", 'n')
@@ -187,14 +186,14 @@ func! sneak#to(op, input, inputlen, count, repeatmotion, reverse, inclusive, str
 
   "highlight the vertical 'tunnel' that the search is scoped-to
   if max(bounds) "perform the scoped highlight...
-    let w:sneak_sc_hl = matchadd('SneakPluginScope', l:scope_pattern)
+    let w:sneak_sc_hl = matchadd('SneakScope', l:scope_pattern)
   endif
 
   call s:attach_autocmds()
 
   "highlight actual matches at or below the cursor position
   "  - store in w: because matchadd() highlight is per-window.
-  let w:sneak_hl_id = matchadd('SneakPluginTarget',
+  let w:sneak_hl_id = matchadd('Sneak',
         \ (s.prefix).(s.match_pattern).(s.search).'\|'.curln_pattern.(s.search))
 
   "Let user deactivate with <esc>
@@ -202,9 +201,9 @@ func! sneak#to(op, input, inputlen, count, repeatmotion, reverse, inclusive, str
     nmap <expr> <silent> <esc> sneak#cancel() . "\<esc>"
   endif
 
-  " Operators always invoke streak-mode; also for 3+ on-screen matches.
-  let target = (2 == a:streak || (a:streak && g:sneak#opt.streak && (is_op || s.hasmatches(2)))) && !max(bounds)
-        \ ? sneak#streak#to(s, is_v, a:reverse) : ""
+  " Operators always invoke label-mode; also for 2+ on-screen matches.
+  let target = (2 == a:label || (a:label && g:sneak#opt.label && (is_op || s.hasmatches(2)))) && !max(bounds)
+        \ ? sneak#label#to(s, is_v, a:reverse) : ""
 
   if is_op && 2 != a:inclusive && !a:reverse
     " f/t operations do not apply to the current character; nudge the cursor.
@@ -276,7 +275,7 @@ func! s:getnchars(n, mode)
     if c == "\<CR>"
       if i > 1 "special case: accept the current input (#15)
         break
-      else "special case: repeat the last search (useful for streak-mode).
+      else "special case: repeat the last search (useful for label-mode).
         return s:st.input
       endif
     else
@@ -305,18 +304,13 @@ onoremap <silent> <Plug>Sneak_S :<c-u>call sneak#wrap(v:operator, 2, 1, 2, 1)<cr
 
 onoremap <silent> <Plug>SneakRepeat :<c-u>call sneak#wrap(v:operator, sneak#util#getc(), sneak#util#getc(), sneak#util#getc(), sneak#util#getc())<cr>
 
-" explicit repeat (as opposed to 'clever-s' implicit repeat)
-nnoremap <silent> <Plug>SneakNext     :<c-u>call sneak#rpt('', 0)<cr>
-nnoremap <silent> <Plug>SneakPrevious :<c-u>call sneak#rpt('', 1)<cr>
-xnoremap <silent> <Plug>SneakNext     :<c-u>call sneak#rpt(visualmode(), 0)<cr>
-xnoremap <silent> <Plug>SneakPrevious :<c-u>call sneak#rpt(visualmode(), 1)<cr>
-onoremap <silent> <Plug>SneakNext     :<c-u>call sneak#rpt(v:operator, 0)<cr>
-onoremap <silent> <Plug>SneakPrevious :<c-u>call sneak#rpt(v:operator, 1)<cr>
-
-if g:sneak#opt.textobject_z
-  omap z  <Plug>Sneak_s
-  omap Z  <Plug>Sneak_S
-endif
+" repeat motion (explicit--as opposed to implicit 'clever-s')
+nnoremap <silent> <Plug>Sneak_; :<c-u>call sneak#rpt('', 0)<cr>
+nnoremap <silent> <Plug>Sneak_, :<c-u>call sneak#rpt('', 1)<cr>
+xnoremap <silent> <Plug>Sneak_; :<c-u>call sneak#rpt(visualmode(), 0)<cr>
+xnoremap <silent> <Plug>Sneak_, :<c-u>call sneak#rpt(visualmode(), 1)<cr>
+onoremap <silent> <Plug>Sneak_; :<c-u>call sneak#rpt(v:operator, 0)<cr>
+onoremap <silent> <Plug>Sneak_, :<c-u>call sneak#rpt(v:operator, 1)<cr>
 
 " 1-char 'enhanced f' sneak
 nnoremap <silent> <Plug>Sneak_f :<c-u>call sneak#wrap('', 1, 0, 1, 0)<cr>
@@ -334,12 +328,12 @@ xnoremap <silent> <Plug>Sneak_T :<c-u>call sneak#wrap(visualmode(), 1, 1, 0, 0)<
 onoremap <silent> <Plug>Sneak_t :<c-u>call sneak#wrap(v:operator, 1, 0, 0, 0)<cr>
 onoremap <silent> <Plug>Sneak_T :<c-u>call sneak#wrap(v:operator, 1, 1, 0, 0)<cr>
 
-nnoremap <silent> <Plug>(SneakStreak)         :<c-u>call sneak#wrap('', 2, 0, 2, 2)<cr>
-nnoremap <silent> <Plug>(SneakStreakBackward) :<c-u>call sneak#wrap('', 2, 1, 2, 2)<cr>
-xnoremap <silent> <Plug>(SneakStreak)         :<c-u>call sneak#wrap(visualmode(), 2, 0, 2, 2)<cr>
-xnoremap <silent> <Plug>(SneakStreakBackward) :<c-u>call sneak#wrap(visualmode(), 2, 1, 2, 2)<cr>
-onoremap <silent> <Plug>(SneakStreak)         :<c-u>call sneak#wrap(v:operator, 2, 0, 2, 2)<cr>
-onoremap <silent> <Plug>(SneakStreakBackward) :<c-u>call sneak#wrap(v:operator, 2, 1, 2, 2)<cr>
+nnoremap <silent> <Plug>SneakLabel_s :<c-u>call sneak#wrap('', 2, 0, 2, 2)<cr>
+nnoremap <silent> <Plug>SneakLabel_S :<c-u>call sneak#wrap('', 2, 1, 2, 2)<cr>
+xnoremap <silent> <Plug>SneakLabel_s :<c-u>call sneak#wrap(visualmode(), 2, 0, 2, 2)<cr>
+xnoremap <silent> <Plug>SneakLabel_S :<c-u>call sneak#wrap(visualmode(), 2, 1, 2, 2)<cr>
+onoremap <silent> <Plug>SneakLabel_s :<c-u>call sneak#wrap(v:operator, 2, 0, 2, 2)<cr>
+onoremap <silent> <Plug>SneakLabel_S :<c-u>call sneak#wrap(v:operator, 2, 1, 2, 2)<cr>
 
 if !hasmapto('<Plug>SneakForward') && !hasmapto('<Plug>Sneak_s', 'n') && mapcheck('s', 'n') ==# ''
   nmap s <Plug>Sneak_s
@@ -347,21 +341,27 @@ endif
 if !hasmapto('<Plug>SneakBackward') && !hasmapto('<Plug>Sneak_S', 'n') && mapcheck('S', 'n') ==# ''
   nmap S <Plug>Sneak_S
 endif
-
-if !hasmapto('<Plug>SneakNext', 'n') && mapcheck(';', 'n') ==# ''
-  nmap ; <Plug>SneakNext
-  omap ; <Plug>SneakNext
-  xmap ; <Plug>SneakNext
+if !hasmapto('<Plug>Sneak_s', 'o') && mapcheck('z', 'o') ==# ''
+  omap z <Plug>Sneak_s
 endif
-if !hasmapto('<Plug>SneakPrevious', 'n')
+if !hasmapto('<Plug>Sneak_S', 'o') && mapcheck('Z', 'o') ==# ''
+  omap Z <Plug>Sneak_S
+endif
+
+if !hasmapto('<Plug>Sneak_;', 'n') && !hasmapto('<Plug>SneakNext', 'n') && mapcheck(';', 'n') ==# ''
+  nmap ; <Plug>Sneak_;
+  omap ; <Plug>Sneak_;
+  xmap ; <Plug>Sneak_;
+endif
+if !hasmapto('<Plug>Sneak_,', 'n') && !hasmapto('<Plug>SneakPrevious', 'n')
   if mapcheck(',', 'n') ==# ''
-    nmap , <Plug>SneakPrevious
-    omap , <Plug>SneakPrevious
-    xmap , <Plug>SneakPrevious
+    nmap , <Plug>Sneak_,
+    omap , <Plug>Sneak_,
+    xmap , <Plug>Sneak_,
   elseif mapcheck('\', 'n') ==# '' || mapcheck('\', 'n') ==# ','
-    nmap \ <Plug>SneakPrevious
-    omap \ <Plug>SneakPrevious
-    xmap \ <Plug>SneakPrevious
+    nmap \ <Plug>Sneak_,
+    omap \ <Plug>Sneak_,
+    xmap \ <Plug>Sneak_,
   endif
 endif
 
@@ -377,8 +377,20 @@ nmap <Plug>SneakForward   <Plug>Sneak_s
 nmap <Plug>SneakBackward  <Plug>Sneak_S
 xmap <Plug>VSneakForward  <Plug>Sneak_s
 xmap <Plug>VSneakBackward <Plug>Sneak_S
-xmap <Plug>VSneakNext     <Plug>SneakNext
-xmap <Plug>VSneakPrevious <Plug>SneakPrevious
+xmap <Plug>VSneakNext     <Plug>Sneak_;
+xmap <Plug>VSneakPrevious <Plug>Sneak_,
+nmap <Plug>(SneakStreak)         <Plug>SneakLabel_s
+nmap <Plug>(SneakStreakBackward) <Plug>SneakLabel_S
+xmap <Plug>(SneakStreak)         <Plug>SneakLabel_s
+xmap <Plug>(SneakStreakBackward) <Plug>SneakLabel_S
+omap <Plug>(SneakStreak)         <Plug>SneakLabel_s
+omap <Plug>(SneakStreakBackward) <Plug>SneakLabel_S
+nmap <Plug>SneakNext     <Plug>Sneak_;
+nmap <Plug>SneakPrevious <Plug>Sneak_,
+xmap <Plug>SneakNext     <Plug>Sneak_;
+xmap <Plug>SneakPrevious <Plug>Sneak_,
+omap <Plug>SneakNext     <Plug>Sneak_;
+omap <Plug>SneakPrevious <Plug>Sneak_,
 
 if g:sneak#opt.map_netrw && -1 != stridx(maparg("s", "n"), "Sneak")
   func! s:map_netrw_key(key)

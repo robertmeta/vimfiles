@@ -86,6 +86,7 @@ nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
 nnoremap <leader>T :TTags<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap <F5> "=strftime("%c")<CR>P
+nnoremap Y y$
 
 " quick command helpers
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
@@ -438,6 +439,10 @@ let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
 colo nofrils-light
+
+" FZF
+if executable("fzf")
+endif
 
 " Functions
 function! ToggleFolds()
