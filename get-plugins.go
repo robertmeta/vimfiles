@@ -22,6 +22,7 @@ func main() {
 	}
 	plugins := []string{
 		"fatih/vim-go",
+		"junegunn/fzf",
 		"junegunn/fzf.vim",
 		"justinmk/vim-sneak",
 		"lifepillar/vim-mucomplete",
@@ -69,7 +70,7 @@ func clearPack() {
 // TODO: use os.PathSeperator
 func updatePlugin(wg *sync.WaitGroup, org, plugin string) {
 	fullURL := "https://github.com/" + plugin
-	localPath := "pack/" + org + "/start/" + strings.Replace(strings.Replace(strings.Replace(strings.ToLower(plugin), `/`, `-`, -1), `.vim`, ``, 1), `_`, `-`, -1)
+	localPath := "pack/" + org + "/start/" + strings.Replace(strings.Replace(strings.Replace(strings.ToLower(plugin), `/`, `-`, -1), `.vim`, `-vim`, 1), `_`, `-`, -1)
 
 	mustNotError(os.MkdirAll(localPath, 0777))
 

@@ -1,29 +1,30 @@
 <!-- Check all that apply [x] -->
 - Category
-    - [ ] Question
-    - [ ] Bug
-    - [ ] Suggestion
+    - [ ] fzf binary
+    - [ ] fzf-tmux script
+    - [ ] Key bindings
+    - [ ] Completion
+    - [ ] Vim
+    - [ ] Neovim
+    - [ ] Etc.
 - OS
     - [ ] Linux
     - [ ] Mac OS X
     - [ ] Windows
+    - [ ] Windows Subsystem for Linux
     - [ ] Etc.
-- Vim
-    - [ ] Vim
-    - [ ] Neovim
+- Shell
+    - [ ] bash
+    - [ ] zsh
+    - [ ] fish
 
 <!--
+### Before submitting
 
-Before submitting
-=================
+- Make sure that you have the latest version of fzf
+- If you use tmux, make sure $TERM is set to screen or screen-256color
+- For more Vim stuff, check out https://github.com/junegunn/fzf.vim
 
-- Make sure that you have the latest version of fzf and fzf.vim
-- Check if your problem is reproducible with a minimal configuration
-
-Start Vim with a minimal configuration
-======================================
-
-vim -Nu <(curl https://gist.githubusercontent.com/junegunn/6936bf79fedd3a079aeb1dd2f3c81ef5/raw/vimrc)
-
+Describe your problem or suggestion from here ...
 -->
 
