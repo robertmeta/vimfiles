@@ -326,6 +326,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gr :GoRename<CR>
+        au BufRead,BufNewFile *.go nnoremap <buffer> gt :GoTest<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> ga :GoAlternate!<CR>
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make
         " Some JS awesome via romainl
