@@ -75,7 +75,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <F3>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/r.vim	/^noremap <buffer> <F3> :!xterm -T 'R' -e funnel.pl ~\/.r-pipe "R-devel && echo 'Interpreter has finished. Exiting. Goodbye.'"&<CR><CR>$/;"	m
 <F4>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/r.vim	/^noremap <buffer> <F4> :!xterm -T 'R' -e funnel.pl ~\/.r-pipe "R -vanilla && echo 'Interpreter has finished. Exiting. Goodbye.'"&<CR><CR>$/;"	m
 <F5>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/r.vim	/^noremap <buffer> <F5> :execute '1 ,' line("$") 'w >> ~\/.r-pipe' <CR><CR>$/;"	m
-<F5>	vimrc	/^    nnoremap <F5> "=strftime("%c")<CR>P$/;"	m
 <F5>	vimrc	/^inoremap <F5> <C-R>=strftime("%c")<CR>$/;"	m
 <F5>	vimrc	/^nnoremap <F5> "=strftime("%c")<CR>P$/;"	m
 <F9>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/r.vim	/^inoremap <buffer> <F9> <Esc> :execute line(".") 'w >> ~\/.r-pipe'<CR>$/;"	m
@@ -277,43 +276,35 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>.	vimrc	/^vnoremap <leader>. :norm! .<cr>$/;"	m
 <leader>@	vimrc	/^vnoremap <leader>@ :norm! @<cr>$/;"	m
 <leader>A	vimrc	/^nnoremap <leader>A :argadd **\/*$/;"	m
+<leader>B	vimrc	/^    nnoremap <leader>B :Buffers<cr>$/;"	m
 <leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>C	vimrc	/^    nnoremap <leader>C :BCommits<cr>$/;"	m
 <leader>F	vimrc	/^    nnoremap <leader>F :GFiles<cr>$/;"	m
 <leader>F	vimrc	/^nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :vimgrep<space>$/;"	m
 <leader>H	vimrc	/^    nnoremap <leader>H :History:<cr>$/;"	m
-<leader>L	vimrc	/^    nnoremap <leader>L :BLines<cr>$/;"	m
 <leader>M	vimrc	/^nnoremap <leader>M :make<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :call StripTrailingWhitespace()<cr>$/;"	m
 <leader>T	vimrc	/^    nnoremap <leader>T :BTags<cr>$/;"	m
 <leader>T	vimrc	/^nnoremap <leader>T :TTags<cr>$/;"	m
 <leader>W	vimrc	/^nnoremap <leader>W <C-w>W$/;"	m
 <leader>a	vimrc	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
-<leader>b	vimrc	/^    nnoremap <leader>b :Buffers<cr>$/;"	m
 <leader>b	vimrc	/^nnoremap <leader>b :b <C-d>$/;"	m
 <leader>c	vimrc	/^    nnoremap <leader>c :Commits<cr>$/;"	m
-<leader>c	vimrc	/^nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>c	vimrc	/^nnoremap <silent> <leader>c <esc>:close<cr>$/;"	m
-<leader>d	vimrc	/^nnoremap <leader>d :Dlist<space>$/;"	m
 <leader>e	vimrc	/^nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>f	vimrc	/^    nnoremap <leader>f :Files<cr>$/;"	m
 <leader>f	vimrc	/^nnoremap <leader>f :find *$/;"	m
-<leader>g	vimrc	/^    nnoremap <leader>g :Ag<space>$/;"	m
+<leader>g	vimrc	/^        nnoremap <leader>g :Ag<space>$/;"	m
 <leader>g	vimrc	/^nnoremap <leader>g :grep<space>$/;"	m
 <leader>h	vimrc	/^    nnoremap <leader>h :History\/<cr>$/;"	m
 <leader>i	vimrc	/^nnoremap <leader>i :Ilist<space>$/;"	m
-<leader>j	vimrc	/^nnoremap <leader>j :tjump \/$/;"	m
-<leader>l	vimrc	/^    nnoremap <leader>l :Lines<cr>$/;"	m
 <leader>o	vimrc	/^nnoremap <leader>o <C-w>o$/;"	m
-<leader>p	vimrc	/^nnoremap <leader>p :ptjump \/$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
 <leader>s	vimrc	/^nnoremap <leader>s :Search $/;"	m
 <leader>t	vimrc	/^    nnoremap <leader>t :Tags<cr>$/;"	m
 <leader>t	vimrc	/^nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>$/;"	m
-<leader>w	vimrc	/^    nnoremap <leader>w :Windows<cr>$/;"	m
 <leader>w	vimrc	/^nnoremap <leader>w <C-w>w$/;"	m
-<leader>z	vimrc	/^    nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
 <left>	vimrc	/^nmap <silent> <left> <esc>:lprev<cr>$/;"	m
 <leftrelease>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <leftrelease> :call <SID>TOCActivate(0)<cr>$/;"	m
@@ -1260,9 +1251,9 @@ LoopParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_
 LoopParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:LoopParseArgs$/;"	l
 MUcomplete	pack/plugins/start/lifepillar-vim-mucomplete/Readme.md	/^# MUcomplete$/;"	h
 MUcomplete in action	pack/plugins/start/lifepillar-vim-mucomplete/Readme.md	/^# MUcomplete in action$/;"	h
-MUcompleteAutoOff	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -nargs=0 MUcompleteAutoOff :call mucomplete#disable_auto()$/;"	c
-MUcompleteAutoOn	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -nargs=0 MUcompleteAutoOn :call mucomplete#enable_auto()$/;"	c
-MUcompleteAutoToggle	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -nargs=0 MUcompleteAutoToggle :call mucomplete#toggle_auto()$/;"	c
+MUcompleteAutoOff	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -bar -nargs=0 MUcompleteAutoOff :call mucomplete#disable_auto()$/;"	c
+MUcompleteAutoOn	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -bar -nargs=0 MUcompleteAutoOn :call mucomplete#enable_auto()$/;"	c
+MUcompleteAutoToggle	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -bar -nargs=0 MUcompleteAutoToggle :call mucomplete#toggle_auto()$/;"	c
 MakeQFE	pack/plugins/start/tomtom-ttags-vim/autoload/ttags.vim	/^function! s:MakeQFE(tag) "{{{3$/;"	f
 MakeQFL	pack/plugins/start/tomtom-ttags-vim/autoload/ttags.vim	/^function! s:MakeQFL(tags) "{{{3$/;"	f
 MakeSlab	pack/plugins/start/junegunn-fzf/src/util/slab.go	/^func MakeSlab(size16 int, size32 int) *Slab {$/;"	f
@@ -1860,7 +1851,6 @@ WrapSelection	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complet
 Write	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Write(force,...) abort$/;"	f
 X	pack/plugins/start/junegunn-fzf/src/tui/ncurses.go	/^func (w *Window) X() int {$/;"	f
 X	pack/plugins/start/junegunn-fzf/src/tui/tcell.go	/^func (w *Window) X() int {$/;"	f
-Y	vimrc	/^    nnoremap Y y\$$/;"	m
 Y	vimrc	/^nnoremap Y y\$$/;"	m
 Z	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^  omap Z <Plug>Sneak_S$/;"	m
 [<C-D>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  nnoremap <silent> <script> <buffer> [<C-D>      :<C-U>exe <SID>jump('edit',v:count)<SID>foldopen<CR>$/;"	m

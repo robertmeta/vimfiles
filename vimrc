@@ -64,18 +64,14 @@ nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>A :argadd **/*
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>B :ls<cr>:b<space>
-nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>d :Dlist<space>
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>f :find *
 nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
-nnoremap <leader>j :tjump /
 "nnoremap <leader>m saved for tmuxify
 nnoremap <leader>M :make<cr>
-nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>s :Search 
 nnoremap <leader>S :call StripTrailingWhitespace()<cr>
@@ -117,7 +113,7 @@ set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,preview,noinsert
 set complete=.,w,b,u,U,i,t " complete options
 set cursorline " no cursor line
-set diffopt=filler,iwhite " filler and whitespace
+set diffopt=vertical,filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
 set fileencoding=utf-8 " UTF-8
@@ -325,7 +321,7 @@ if has("autocmd")
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
-        au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete foldmethod=syntax
+        au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete
         au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<CR>
@@ -440,23 +436,20 @@ let g:nofrils_heavylinenumbers=0 " heavy line numbers off
 colo nofrils-acme
 
 " FZF
+" selectly override some defaults
 if executable("fzf")
-    nnoremap <leader>b :Buffers<cr>
+    nnoremap <leader>B :Buffers<cr>
     nnoremap <leader>c :Commits<cr>
     nnoremap <leader>C :BCommits<cr>
     nnoremap <leader>f :Files<cr>
     nnoremap <leader>F :GFiles<cr>
-    nnoremap <leader>g :Ag<space>
+    if executable("ag")
+        nnoremap <leader>g :Ag<space>
+    endif
     nnoremap <leader>h :History/<cr>
     nnoremap <leader>H :History:<cr>
-    nnoremap <leader>l :Lines<cr>
-    nnoremap <leader>L :BLines<cr>
     nnoremap <leader>t :Tags<cr>
     nnoremap <leader>T :BTags<cr>
-    nnoremap <leader>w :Windows<cr>
-    nnoremap <leader>z :call ToggleFolds()<cr>
-    nnoremap <F5> "=strftime("%c")<CR>P
-    nnoremap Y y$
 endif
 
 " Functions
