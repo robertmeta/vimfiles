@@ -1,10 +1,10 @@
 # Key bindings
 # ------------
 __fzf_select__() {
-  local cmd="${FZF_CTRL_T_COMMAND:-"command find -L . \\( -path '*/\\.*' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
+  local cmd="${FZF_CTRL_T_COMMAND:-"command find -L . -mindepth 1 \\( -path '*/\\.*' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
     -o -type f -print \
     -o -type d -print \
-    -o -type l -print 2> /dev/null | sed 1d | cut -b3-"}"
+    -o -type l -print 2> /dev/null | cut -b3-"}"
   eval "$cmd | fzf -m $FZF_CTRL_T_OPTS" | while read -r item; do
     printf '%q ' "$item"
   done
@@ -76,9 +76,9 @@ if [[ ! -o vi ]]; then
   if [ $__use_bind_x -eq 1 ]; then
     bind -x '"\C-t": "fzf-file-widget"'
   elif [ $__use_tmux -eq 1 ]; then
-    bind '"\C-t": " \C-u \C-a\C-k$(__fzf_select_tmux__)\e\C-e\C-y\C-a\C-d\C-y\ey\C-h"'
+    bind '"\C-t": " \C-u \C-a\C-k`__fzf_select_tmux__`\e\C-e\C-y\C-a\C-d\C-y\ey\C-h"'
   else
-    bind '"\C-t": " \C-u \C-a\C-k$(__fzf_select__)\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er \C-h"'
+    bind '"\C-t": " \C-u \C-a\C-k`__fzf_select__`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er \C-h"'
   fi
 
   # CTRL-R - Paste the selected command from history into the command line
@@ -105,19 +105,19 @@ else
   if [ $__use_bind_x -eq 1 ]; then
     bind -x '"\C-t": "fzf-file-widget"'
   elif [ $__use_tmux -eq 1 ]; then
-    bind '"\C-t": "\C-x\C-a$a \C-x\C-addi$(__fzf_select_tmux__)\C-x\C-e\C-x\C-a0P$xa"'
+    bind '"\C-t": "\C-x\C-a$a \C-x\C-addi`__fzf_select_tmux__`\C-x\C-e\C-x\C-a0P$xa"'
   else
-    bind '"\C-t": "\C-x\C-a$a \C-x\C-addi$(__fzf_select__)\C-x\C-e\C-x\C-a0Px$a \C-x\C-r\C-x\C-axa "'
+    bind '"\C-t": "\C-x\C-a$a \C-x\C-addi`__fzf_select__`\C-x\C-e\C-x\C-a0Px$a \C-x\C-r\C-x\C-axa "'
   fi
   bind -m vi-command '"\C-t": "i\C-t"'
 
   # CTRL-R - Paste the selected command from history into the command line
-  bind '"\C-r": "\C-x\C-addi$(__fzf_history__)\C-x\C-e\C-x^\C-x\C-a$a\C-x\C-r"'
+  bind '"\C-r": "\C-x\C-addi`__fzf_history__`\C-x\C-e\C-x^\C-x\C-a$a\C-x\C-r"'
   bind -m vi-command '"\C-r": "i\C-r"'
 
   # ALT-C - cd into the selected directory
-  bind '"\ec": "\C-x\C-addi$(__fzf_cd__)\C-x\C-e\C-x\C-r\C-m"'
-  bind -m vi-command '"\ec": "ddi$(__fzf_cd__)\C-x\C-e\C-x\C-r\C-m"'
+  bind '"\ec": "\C-x\C-addi`__fzf_cd__`\C-x\C-e\C-x\C-r\C-m"'
+  bind -m vi-command '"\ec": "ddi`__fzf_cd__`\C-x\C-e\C-x\C-r\C-m"'
 fi
 
 unset -v __use_tmux __use_bind_x
