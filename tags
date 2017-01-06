@@ -48,6 +48,10 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 ;t	vimrc	/^inoremap <silent> ;t <C-x><C-]>$/;"	m
 ;u	vimrc	/^inoremap <silent> ;u <C-x><C-u>$/;"	m
 <2-leftmouse>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <2-leftmouse> :call <SID>TOCActivate(1)<cr>$/;"	m
+<A-h>	vimrc	/^nnoremap <A-h> <C-w>h$/;"	m
+<A-j>	vimrc	/^nnoremap <A-j> <C-w>j$/;"	m
+<A-k>	vimrc	/^nnoremap <A-k> <C-w>k$/;"	m
+<A-l>	vimrc	/^nnoremap <A-l> <C-w>l$/;"	m
 <BS>	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^    inoremap <silent> <BS> <C-R>=<SID>HaskellDedent(1)<CR>$/;"	m
 <C-D>	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^    inoremap <silent> <C-D> <C-R>=<SID>HaskellDedent(0)<CR>$/;"	m
 <C-G>S	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^    imap      <C-G>S <Plug>ISurround$/;"	m
@@ -279,6 +283,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>B	vimrc	/^    nnoremap <leader>B :Buffers<cr>$/;"	m
 <leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>C	vimrc	/^    nnoremap <leader>C :BCommits<cr>$/;"	m
+<leader>E	vimrc	/^    nnoremap <leader>E :terminal $/;"	m
 <leader>F	vimrc	/^    nnoremap <leader>F :GFiles<cr>$/;"	m
 <leader>F	vimrc	/^nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :vimgrep<space>$/;"	m
@@ -292,7 +297,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>b	vimrc	/^nnoremap <leader>b :b <C-d>$/;"	m
 <leader>c	vimrc	/^    nnoremap <leader>c :Commits<cr>$/;"	m
 <leader>c	vimrc	/^nnoremap <silent> <leader>c <esc>:close<cr>$/;"	m
-<leader>e	vimrc	/^nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
+<leader>e	vimrc	/^    nnoremap <leader>e :terminal<cr>$/;"	m
 <leader>f	vimrc	/^    nnoremap <leader>f :Files<cr>$/;"	m
 <leader>f	vimrc	/^nnoremap <leader>f :find *$/;"	m
 <leader>g	vimrc	/^        nnoremap <leader>g :Ag<space>$/;"	m
@@ -330,7 +335,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <plug>(fzf-maps-o)	pack/plugins/start/junegunn-fzf-vim/plugin/fzf.vim	/^onoremap <silent> <plug>(fzf-maps-o) <c-c>:<c-u>call fzf#vim#maps('o', 0)<cr>$/;"	m
 <right>	vimrc	/^nmap <silent> <right> <esc>:lnext<cr>$/;"	m
 <s-tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <s-tab> <plug>(MUcompleteBwd)$/;"	m
-<tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <tab>   <plug>(MUcompleteFwd)$/;"	m
+<tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <tab> <plug>(MUcompleteFwd)$/;"	m
 <up>	vimrc	/^nmap <silent> <up> <esc>:cprev<cr>$/;"	m
 =	pack/plugins/start/sheerun-vim-polyglot/compiler/cryptol.vim	/^   command = -nargs =* CompilerSet setlocal <args>$/;"	c
 >	pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/puppet.vim	/^    inoremap <buffer> <silent> > ><Esc>:call <SID>puppetalign()<CR>a$/;"	m

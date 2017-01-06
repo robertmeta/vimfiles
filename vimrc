@@ -49,6 +49,23 @@ inoremap <silent> ;t <C-x><C-]>
 inoremap <silent> ;u <C-x><C-u>
 inoremap <F5> <C-R>=strftime("%c")<CR>
 
+" Extra window movement
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+" Terminal stuff
+if has('nvim')
+    tnoremap <A-h> <C-\><C-n><C-w>h
+    tnoremap <A-j> <C-\><C-n><C-w>j
+    tnoremap <A-k> <C-\><C-n><C-w>k
+    tnoremap <A-l> <C-\><C-n><C-w>l
+    tnoremap <Esc> <C-\><C-n>
+    nnoremap <leader>e :terminal<cr>
+    nnoremap <leader>E :terminal 
+endif
+
 " Abbreviations
 iab <expr> dts strftime("%c")
 iab rrm Robert R. Melton
@@ -64,7 +81,6 @@ nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>A :argadd **/*
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>B :ls<cr>:b<space>
-nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>f :find *
 nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
@@ -112,7 +128,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,preview,noinsert
 set complete=.,w,b,u,U,i,t " complete options
-set cursorline " no cursor line
+set cursorline " cursor line
 set diffopt=vertical,filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
@@ -147,7 +163,7 @@ set modelines=5 " Search for 5 lines for modelines
 set noautoread " nope
 set noautowriteall " nope
 set noautowrite " nope
-set nocursorcolumn " disable global cursor column
+set cursorcolumn " cursor column
 set noerrorbells " don't be noisy
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
@@ -343,8 +359,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline
-        au WinLeave * setlocal nocursorline
+        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline cursorcolumn
+        au WinLeave * setlocal nocursorline nocursorcolumn
     augroup END
 endif
 
