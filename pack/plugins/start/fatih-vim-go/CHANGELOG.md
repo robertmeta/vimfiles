@@ -1,4 +1,4 @@
-## 1.11 - Unplanned
+## 1.11 - (January 9, 2017)
 
 FEATURES:
 
@@ -10,6 +10,8 @@ IMPROVEMENTS:
 
 * Add `statusline` support for `:GoMetaLinter` [gh-1120]
 * Quickfix and Location lists contain now a descriptive title (requires at least Vim `7.4.2200`)[gh-1004]
+* Check `go env GOPATH` as well for `:GoInstallBinaries` as Go has now a default path for GOPATH ("~/go")starting with 1.8 [gh-1152]
+* `:GoDocBrowser` now also works on import paths [gh-1174]
 
 BUG FIXES:
 
@@ -26,6 +28,21 @@ BUG FIXES:
 * Fix `:GoDef` failing for a modified buffer if `hidden` was not set [gh-1132]
 * Fix `:GoDefStack` to allow popping from jump list when buffer is modified [gh-1133]
 * Improve internal defining of functions and referencing them for async operations [gh-1155]
+* Fix `:GoMetaLinter` failing if `go_metalinter_command` is set. [gh-1160]
+* Fix `:GoMetaLinter`'s `go_metalinter_deadline` setting for async mode [gh-1146]
+
+BACKWARDS INCOMPATIBILITIES:
+
+* The following syntax options are now disabled by default. If you're using them be sure to set them in your .vimrc [gh-1167]
+
+```viml
+g:go_highlight_array_whitespace_error
+g:go_highlight_chan_whitespace_error
+g:go_highlight_extra_types
+g:go_highlight_space_tab_error
+g:go_highlight_trailing_whitespace_error
+```
+
 
 
 ## 1.10 (November 24, 2016)
