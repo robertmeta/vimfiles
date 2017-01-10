@@ -128,7 +128,6 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,preview,noinsert
 set complete=.,w,b,u,U,i,t " complete options
-set cursorline " cursor line
 set diffopt=vertical,filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
@@ -163,15 +162,16 @@ set modelines=5 " Search for 5 lines for modelines
 set noautoread " nope
 set noautowriteall " nope
 set noautowrite " nope
-set cursorcolumn " cursor column
+set nocursorcolumn " no cursor column
+set nocursorline " no cursor line
 set noerrorbells " don't be noisy
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
+set nonumber " no line numbers
 set norelativenumber " no thank you
 set nospell " nope nope nope
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set nonumber " no line numbers
 set numberwidth=8 " We are good up to LOTS lines
 set omnifunc=syntaxcomplete#Complete
 set pastetoggle=<F10> " paste toggle of course
@@ -236,6 +236,7 @@ set wildignore+=*.pyc,*.pyo " Python byte code
 set wildignore+=*.spl " compiled spelling word lists
 set wildignore+=*.swp,*.bak " ignore these
 set wildignore+=*.sw? " Vim swap files
+set wildignore+=**/vendor " Ignore vendor directory
 if s:running_windows
     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*,*\\vendor\\*,
 else
@@ -358,9 +359,6 @@ if has("autocmd")
         au FileType gitcommit setlocal spell
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
-        " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline cursorcolumn
-        au WinLeave * setlocal nocursorline nocursorcolumn
     augroup END
 endif
 
