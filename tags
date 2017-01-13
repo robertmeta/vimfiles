@@ -278,7 +278,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <SID>foldopen	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  cnoremap <SID>foldopen <Bar>if &foldopen =~# 'tag'<Bar>exe 'norm! zv'<Bar>endif$/;"	m
 <SID>tagzv	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  cmap <buffer><script><expr> <SID>tagzv &foldopen =~# 'tag' ? '<Bar>norm! zv' : ''$/;"	m
 <Space>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <Space> :call <SID>TOCActivate(0)<CR>$/;"	m
-<backspace>	vimrc	/^nnoremap <silent> <backspace> :noh<CR>:SearchReset<CR>$/;"	m
+<backspace>	vimrc	/^nnoremap <silent> <backspace> :noh<CR>:QuickhlManualReset<CR>$/;"	m
 <c-h>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <c-h> <plug>(MUcompleteCycBwd)$/;"	m
 <c-j>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <c-j> <plug>(MUcompleteCycFwd)$/;"	m
 <down>	vimrc	/^nmap <silent> <down>  <esc>:cnext<cr>$/;"	m
@@ -290,13 +290,13 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>B	vimrc	/^    nnoremap <leader>B :Buffers<cr>$/;"	m
 <leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>C	vimrc	/^    nnoremap <leader>C :BCommits<cr>$/;"	m
-<leader>E	vimrc	/^    nnoremap <leader>E :terminal $/;"	m
+<leader>E	vimrc	/^    nnoremap <leader>E :terminal<space>$/;"	m
 <leader>F	vimrc	/^    nnoremap <leader>F :GFiles<cr>$/;"	m
 <leader>F	vimrc	/^nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :vimgrep<space>$/;"	m
 <leader>H	vimrc	/^    nnoremap <leader>H :History:<cr>$/;"	m
 <leader>M	vimrc	/^nnoremap <leader>M :make<cr>$/;"	m
-<leader>S	vimrc	/^nnoremap <leader>S :call StripTrailingWhitespace()<cr>$/;"	m
+<leader>S	vimrc	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
 <leader>T	vimrc	/^    nnoremap <leader>T :BTags<cr>$/;"	m
 <leader>T	vimrc	/^nnoremap <leader>T :TTags<cr>$/;"	m
 <leader>W	vimrc	/^nnoremap <leader>W <C-w>W$/;"	m
@@ -311,9 +311,10 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>g	vimrc	/^nnoremap <leader>g :grep<space>$/;"	m
 <leader>h	vimrc	/^    nnoremap <leader>h :History\/<cr>$/;"	m
 <leader>i	vimrc	/^nnoremap <leader>i :Ilist<space>$/;"	m
+<leader>j	vimrc	/^nnoremap <leader>j :QuickhlCwordToggle<cr>$/;"	m
 <leader>o	vimrc	/^nnoremap <leader>o <C-w>o$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
-<leader>s	vimrc	/^nnoremap <leader>s :Search $/;"	m
+<leader>s	vimrc	/^nmap <leader>s <Plug>(quickhl-manual-this)$/;"	m
 <leader>t	vimrc	/^    nnoremap <leader>t :Tags<cr>$/;"	m
 <leader>t	vimrc	/^nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>$/;"	m
 <leader>w	vimrc	/^nnoremap <leader>w <C-w>w$/;"	m
@@ -3477,6 +3478,7 @@ g:purescript_indent_let	pack/plugins/start/sheerun-vim-polyglot/indent/purescrip
 g:purescript_indent_where	pack/plugins/start/sheerun-vim-polyglot/indent/purescript.vim	/^  let g:purescript_indent_where = 6$/;"	v
 g:quickhl_debug	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_debug = 0$/;"	v
 g:quickhl_manual_colors	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_manual_colors = [$/;"	v
+g:quickhl_manual_colors	vimrc	/^let g:quickhl_manual_colors = ['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=7 ctermbg=1 guibg=#a07040 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=2 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black' ] $/;"	v
 g:ragel_default_subtype	pack/plugins/start/sheerun-vim-polyglot/syntax/ragel.vim	/^  let g:ragel_default_subtype = 'c'$/;"	v
 g:repeat_reg	pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^let g:repeat_reg = ['', '']$/;"	v
 g:repeat_tick	pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^let g:repeat_tick = -1$/;"	v

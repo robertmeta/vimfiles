@@ -36,7 +36,7 @@ nnoremap <silent> <leader>c <esc>:close<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
 " Clear highlight
-nnoremap <silent> <backspace> :noh<CR>:SearchReset<CR>
+nnoremap <silent> <backspace> :noh<CR>:QuickhlManualReset<CR>
 
 " Mappings
 inoremap <silent> ;f <C-x><C-f>
@@ -63,12 +63,18 @@ if has('nvim')
     tnoremap <A-l> <C-\><C-n><C-w>l
     tnoremap <Esc> <C-\><C-n>
     nnoremap <leader>e :terminal<cr>
-    nnoremap <leader>E :terminal 
+    nnoremap <leader>E :terminal<space>
 endif
 
 " Abbreviations
 iab <expr> dts strftime("%c")
 iab rrm Robert R. Melton
+
+" Search
+nmap <leader>s <Plug>(quickhl-manual-this)
+xmap <leader>s <Plug>(quickhl-manual-this)
+nnoremap <leader>S :QuickhlManualAdd<space>
+let g:quickhl_manual_colors = ['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=7 ctermbg=1 guibg=#a07040 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=2 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black' ] 
 
 " Arrow control
 nmap <silent> <left> <esc>:lprev<cr>
@@ -86,11 +92,10 @@ nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
+nnoremap <leader>j :QuickhlCwordToggle<cr>
 "nnoremap <leader>m saved for tmuxify
 nnoremap <leader>M :make<cr>
 nnoremap <leader>q :b#<cr>
-nnoremap <leader>s :Search 
-nnoremap <leader>S :call StripTrailingWhitespace()<cr>
 "nnoremap <leader>t :tag<space>
 "nnoremap <leader>T :tag<space><C-d>
 nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
