@@ -87,14 +87,9 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <F9>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rhelp.vim	/^noremap <buffer> <F9> :execute line(".") 'w >> ~\/.r-pipe'<CR>$/;"	m
 <F9>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rnoweb.vim	/^inoremap <buffer> <F9> <Esc> :execute line(".") 'w >> ~\/.r-pipe'<CR>$/;"	m
 <F9>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rnoweb.vim	/^noremap <buffer> <F9> :execute line(".") 'w >> ~\/.r-pipe'<CR>$/;"	m
-<Leader>*	pack/plugins/start/vim-scripts-multiplesearch/plugin/MultipleSearch.vim	/^    vnoremap <silent> <Leader>* y:call MultipleSearch#MultipleSearch(0,'\\V'.substitute(escape(@@,"\\\\\/\\"'"),"\\n",'\\\\n','ge'))<CR>$/;"	m
-<Leader>*	pack/plugins/start/vim-scripts-multiplesearch/plugin/MultipleSearch.vim	/^    vnoremap <silent> <Leader>* y:call MultipleSearch(0,'\\V'.substitute(escape(@@,"\\\\\/\\"'"),"\\n",'\\\\n','ge'))<CR>$/;"	m
-<Leader>*	pack/plugins/start/vim-scripts-multiplesearch/plugin/MultipleSearch.vim	/^nnoremap <silent> <Leader>* :execute ':Search \\<' . expand('<cword>') . '\\>'<cr>$/;"	m
-<Leader>N	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^nnoremap <silent> <Leader>N :call <SID>SearchNext(1)<CR>$/;"	m
 <Leader>fr	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>fr :FufFile <c-r>=scala#GetRootDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
 <Leader>fs	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>fs :FufFile <c-r>=scala#GetMainDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
 <Leader>ft	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>ft :FufFile <c-r>=scala#GetTestDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
-<Leader>n	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^nnoremap <silent> <Leader>n :call <SID>SearchNext(0)<CR>$/;"	m
 <Leader>rf	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rf :TextileRenderFile<CR>$/;"	m
 <Leader>rp	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rp :TextilePreview<CR>$/;"	m
 <Leader>rt	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rt :TextileRenderTab<CR>$/;"	m
@@ -186,6 +181,18 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Plug>(go-test-func)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-test-func) :<C-u>call go#cmd#TestFunc(!g:go_jump_to_error)<CR>$/;"	m
 <Plug>(go-vet)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-vet) :<C-u>call go#lint#Vet(!g:go_jump_to_error)<CR>$/;"	m
 <Plug>(go-whicherrs)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-whicherrs) :<C-u>call go#guru#Whicherrs(-1)<CR>$/;"	m
+<Plug>(quickhl-cword-disable)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-cword-disable) :call quickhl#cword#disable()<CR>$/;"	m
+<Plug>(quickhl-cword-enable)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-cword-enable)  :call quickhl#cword#enable()<CR>$/;"	m
+<Plug>(quickhl-cword-toggle)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-cword-toggle)  :call quickhl#cword#toggle()<CR>$/;"	m
+<Plug>(quickhl-manual-reset)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-manual-reset)  :call quickhl#manual#reset()<CR>$/;"	m
+<Plug>(quickhl-manual-reset)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^vnoremap <silent> <Plug>(quickhl-manual-reset)  :call quickhl#manual#reset()<CR>$/;"	m
+<Plug>(quickhl-manual-this)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-manual-this) :call quickhl#manual#this('n')<CR>$/;"	m
+<Plug>(quickhl-manual-this)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^vnoremap <silent> <Plug>(quickhl-manual-this) :call quickhl#manual#this('v')<CR>$/;"	m
+<Plug>(quickhl-manual-toggle)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-manual-toggle) :call quickhl#manual#lock_toggle()<CR>$/;"	m
+<Plug>(quickhl-manual-toggle)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^vnoremap <silent> <Plug>(quickhl-manual-toggle) :call quickhl#manual#lock_toggle()<CR>$/;"	m
+<Plug>(quickhl-tag-disable)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-tag-disable)    :call quickhl#tag#disable()<CR>$/;"	m
+<Plug>(quickhl-tag-enable)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-tag-enable)     :call quickhl#tag#enable()<CR>$/;"	m
+<Plug>(quickhl-tag-toggle)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-tag-toggle)     :call quickhl#tag#toggle()<CR>$/;"	m
 <Plug><cfile>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^cmap <buffer><script><expr> <Plug><cfile> substitute(RubyCursorFile(),'^$',"\\022\\006",'')$/;"	m
 <Plug><cword>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^cmap <buffer><script><expr> <Plug><cword> substitute(RubyCursorIdentifier(),'^$',"\\022\\027",'')$/;"	m
 <Plug>BUncomOff	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  vnoremap <buffer> <Plug>BUncomOff <ESC>:'<,'><CR>`<dd`>dd`<$/;"	m
@@ -572,6 +579,7 @@ Complete	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:C
 CompleteLabels	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:CompleteLabels(regex)$/;"	f
 Completion helper	pack/plugins/start/junegunn-fzf-vim/README.md	/^### Completion helper$/;"	k
 CompletionTest	pack/plugins/start/junegunn-fzf/test/test_go.rb	/^module CompletionTest$/;"	m
+Config	pack/plugins/start/t9md-vim-quickhl/README.md	/^# Config$/;"	h
 Configuration	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### Configuration$/;"	k
 Constrain	pack/plugins/start/junegunn-fzf/src/util/util.go	/^func Constrain(val int, min int, max int) int {$/;"	f
 Constrain32	pack/plugins/start/junegunn-fzf/src/util/util.go	/^func Constrain32(val int32, min int32, max int32) int32 {$/;"	f
@@ -652,8 +660,6 @@ Directories under ~/github that match `fzf`	pack/plugins/start/junegunn-fzf/READ
 Disciple	pack/colors/start/romainl-disciple/README.md	/^# Disciple$/;"	h
 Dispatch	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Dispatch(bang, args)$/;"	f
 Dlist	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^command! -nargs=1 -bar -bang Dlist call <sid>Qlist("d", 1, 0, '<bang>' == '!', <f-args>)$/;"	c
-DoReset	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^function! s:DoReset()$/;"	f
-DoSearch	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^function! s:DoSearch(useSearch, forwhat)$/;"	f
 Documentation	pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Documentation$/;"	i
 Documentation	pack/plugins/start/romainl-vim-qf/README.md	/^## Documentation$/;"	i
 DoesAutoWrap	pack/plugins/start/junegunn-fzf/src/tui/ncurses.go	/^func DoesAutoWrap() bool {$/;"	f
@@ -867,7 +873,6 @@ GetMakePrg	pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^function! s
 GetMakoIndent	pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^function GetMakoIndent()$/;"	f
 GetMatch	pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:GetMatch(curline)$/;"	f
 GetModdedChar	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/input.vim	/^function! s:GetModdedChar(world) "{{{3$/;"	f
-GetNextSequenceNumber	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^function! s:GetNextSequenceNumber()$/;"	f
 GetNimIndent	pack/plugins/start/sheerun-vim-polyglot/indent/nim.vim	/^function! GetNimIndent(lnum)$/;"	f
 GetNthElement	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/list.vim	/^function! s:GetNthElement(n, lists, default) "{{{3$/;"	f
 GetOCamlIndent	pack/plugins/start/sheerun-vim-polyglot/indent/ocaml.vim	/^function! GetOCamlIndent()$/;"	f
@@ -1049,6 +1054,7 @@ HiLink	pack/plugins/start/sheerun-vim-polyglot/syntax/velocity.vim	/^    command
 HiLink	pack/plugins/start/sheerun-vim-polyglot/syntax/velocity.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
 HiLink	pack/plugins/start/sheerun-vim-polyglot/syntax/xs.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
 HiLink	pack/plugins/start/sheerun-vim-polyglot/syntax/xs.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
+Highlight on the fly.	pack/plugins/start/t9md-vim-quickhl/README.md	/^# Highlight on the fly.$/;"	h
 Highlighting Customization	pack/colors/start/nlknguyen-papercolor-theme/README.md	/^## Highlighting Customization$/;"	i
 History	pack/plugins/start/junegunn-fzf/src/history.go	/^type History struct {$/;"	t
 History	pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## History$/;"	i
@@ -1153,7 +1159,6 @@ Italic	pack/plugins/start/junegunn-fzf/src/tui/ncurses.go	/^var Italic Attr = C.
 Italic	pack/plugins/start/junegunn-fzf/src/tui/tcell.go	/^	Italic         = Attr(tcell.AttrNone) \/\/ Not supported$/;"	c
 Item	pack/plugins/start/junegunn-fzf/src/item.go	/^type Item struct {$/;"	t
 ItemBuilder	pack/plugins/start/junegunn-fzf/src/chunklist.go	/^type ItemBuilder func([]byte, int) *Item$/;"	t
-ItemCount	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^function! s:ItemCount(string)$/;"	f
 JuliaMatch	pack/plugins/start/sheerun-vim-polyglot/indent/julia.vim	/^function JuliaMatch(lnum, str, regex, st)$/;"	f
 JumpFileChunk	pack/plugins/start/romainl-vim-qf/autoload/qf/filegroup.vim	/^function! s:JumpFileChunk(down) abort$/;"	f
 JumpInit	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:JumpInit(...) abort$/;"	f
@@ -1296,7 +1301,6 @@ Merge	pack/plugins/start/junegunn-fzf/src/tui/tcell.go	/^func (a Attr) Merge(b A
 Merge	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Merge(cmd, bang, args) abort$/;"	f
 Merger	pack/plugins/start/junegunn-fzf/src/merger.go	/^type Merger struct {$/;"	t
 Min	pack/plugins/start/junegunn-fzf/src/util/util.go	/^func Min(first int, second int) int {$/;"	f
-Min	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^function! s:Min(...)$/;"	f
 Min32	pack/plugins/start/junegunn-fzf/src/util/util.go	/^func Min32(first int32, second int32) int32 {$/;"	f
 Minor improvements/fixes	pack/plugins/start/junegunn-fzf/CHANGELOG.md	/^### Minor improvements\/fixes$/;"	k
 Mkdir	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -bang -nargs=? -complete=dir Mkdir$/;"	c
@@ -1314,11 +1318,6 @@ Move	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Mov
 MoveAndClear	pack/plugins/start/junegunn-fzf/src/tui/ncurses.go	/^func (w *Window) MoveAndClear(y int, x int) {$/;"	f
 MoveAndClear	pack/plugins/start/junegunn-fzf/src/tui/tcell.go	/^func (w *Window) MoveAndClear(y int, x int) {$/;"	f
 MoveComplete	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:MoveComplete(A,L,P) abort$/;"	f
-MultipleSearch	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^    function! MultipleSearch(allBuffers, forwhat)$/;"	f
-MultipleSearch#MultipleSearch	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^    function! MultipleSearch#MultipleSearch(allBuffers, forwhat)$/;"	f
-MultipleSearchCommon	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^function! s:MultipleSearchCommon(allBuffers, forwhat)$/;"	f
-MultipleSearchInit	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^function! s:MultipleSearchInit()$/;"	f
-MultipleSearchReset	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^function! s:MultipleSearchReset(allBuffers)$/;"	f
 Neovim terminal theme	pack/colors/start/romainl-apprentice/README.md	/^## Neovim terminal theme$/;"	i
 New features	pack/plugins/start/junegunn-fzf/CHANGELOG.md	/^### New features$/;"	k
 NewAtomicBool	pack/plugins/start/junegunn-fzf/src/util/atomicbool.go	/^func NewAtomicBool(initialState bool) *AtomicBool {$/;"	f
@@ -1459,6 +1458,25 @@ PurgeTimestamp	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/cache.vim	/^func
 Push	pack/plugins/start/junegunn-fzf/src/chunklist.go	/^func (cl *ChunkList) Push(data []byte) bool {$/;"	f
 Push	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:Push(stack, token)$/;"	f
 Qlist	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^function! s:Qlist(command, selection, start_at_cursor, force, ...)$/;"	f
+QuickhlCwordDisable	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlCwordDisable :call quickhl#cword#disable()$/;"	c
+QuickhlCwordEnable	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlCwordEnable  :call quickhl#cword#enable()$/;"	c
+QuickhlCwordToggle	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlCwordToggle  :call quickhl#cword#toggle()$/;"	c
+QuickhlManualAdd	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! -bang -nargs=1 QuickhlManualAdd     :call quickhl#manual#add(<q-args>,<bang>0)$/;"	c
+QuickhlManualColors	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command!                QuickhlManualColors  :call quickhl#manual#colors()$/;"	c
+QuickhlManualDelete	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! -bang -nargs=* QuickhlManualDelete  :call quickhl#manual#del(<q-args>,<bang>0)$/;"	c
+QuickhlManualDisable	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command!                QuickhlManualDisable       :call quickhl#manual#disable()$/;"	c
+QuickhlManualEnable	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command!                QuickhlManualEnable       :call quickhl#manual#enable()$/;"	c
+QuickhlManualList	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command!                QuickhlManualList    :call quickhl#manual#list()$/;"	c
+QuickhlManualLock	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command!                QuickhlManualLock    :call quickhl#manual#lock()$/;"	c
+QuickhlManualLockToggle	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlManualLockToggle        :call quickhl#manual#lock_toggle()$/;"	c
+QuickhlManualLockWindow	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlManualLockWindow        :call quickhl#manual#lock_window()$/;"	c
+QuickhlManualLockWindowToggle	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlManualLockWindowToggle  :call quickhl#manual#lock_window_toggle()$/;"	c
+QuickhlManualReset	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command!                QuickhlManualReset   :call quickhl#manual#reset()$/;"	c
+QuickhlManualUnlock	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlManualUnlock            :call quickhl#manual#unlock()$/;"	c
+QuickhlManualUnlockWindow	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlManualUnlockWindow      :call quickhl#manual#unlock_window()$/;"	c
+QuickhlTagDisable	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlTagDisable  :call quickhl#tag#disable()$/;"	c
+QuickhlTagEnable	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlTagEnable   :call quickhl#tag#enable()$/;"	c
+QuickhlTagToggle	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlTagToggle   :call quickhl#tag#toggle()$/;"	c
 Quote Seek	pack/plugins/start/wellle-targets-vim/README.md	/^### Quote Seek$/;"	k
 Quote Text Objects	pack/plugins/start/wellle-targets-vim/README.md	/^## Quote Text Objects$/;"	i
 Quote mappings	pack/plugins/start/wellle-targets-vim/cheatsheet.md	/^## Quote mappings$/;"	i
@@ -1538,22 +1556,14 @@ ScratchBufBuild	pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^fu
 ScratchBufUpdate	pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^function! s:ScratchBufUpdate(buf, text)$/;"	f
 Screenshots	pack/colors/start/nlknguyen-papercolor-theme/README.md	/^## Screenshots$/;"	i
 ScriptWrite	pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:ScriptWrite(command, pause)$/;"	f
-Search	pack/plugins/start/vim-scripts-multiplesearch/plugin/MultipleSearch.vim	/^        command -nargs=* Search :silent call MultipleSearch#MultipleSearch(0, <q-args>)$/;"	c
-Search	pack/plugins/start/vim-scripts-multiplesearch/plugin/MultipleSearch.vim	/^        command -nargs=* Search :silent call MultipleSearch(0, <q-args>)$/;"	c
 SearchAndSkipComments	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:SearchAndSkipComments(pat, ...)$/;"	f
-SearchBuffers	pack/plugins/start/vim-scripts-multiplesearch/plugin/MultipleSearch.vim	/^        command -nargs=* SearchBuffers :silent call MultipleSearch#MultipleSearch(1, <q-args>)$/;"	c
-SearchBuffers	pack/plugins/start/vim-scripts-multiplesearch/plugin/MultipleSearch.vim	/^        command -nargs=* SearchBuffers :silent call MultipleSearch(1, <q-args>)$/;"	c
-SearchBuffersReset	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^    command -nargs=0 SearchBuffersReset :silent call <SID>MultipleSearchReset(1) $/;"	c
 SearchCode	pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function! s:SearchCode(lnum, regex)$/;"	f
 SearchEndPair	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:SearchEndPair(lnum, curr_col)$/;"	f
 SearchMatchingKeyword	pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function! s:SearchMatchingKeyword(startlnum, open, close)$/;"	f
-SearchNext	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^function! s:SearchNext(direction)$/;"	f
 SearchPair	pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function! s:SearchPair(startlnum, lookback, skip, open, close)$/;"	f
 SearchPair	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:SearchPair(lnum, curr_col, start, middle, end)$/;"	f
 SearchPair	pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:SearchPair(start, end)$/;"	f
 SearchParensPair	pack/plugins/start/sheerun-vim-polyglot/indent/python.vim	/^function! s:SearchParensPair()$/;"	f
-SearchReinit	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^    command -nargs=0 SearchReinit :silent call <SID>MultipleSearchInit() $/;"	c
-SearchReset	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^    command -nargs=0 SearchReset :silent call <SID>MultipleSearchReset(0) $/;"	c
 SelectCurrentEnv	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:SelectCurrentEnv(seltype)$/;"	f
 SelectInlineMath	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:SelectInlineMath(seltype)$/;"	f
 SelectJavascript	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^fun! s:SelectJavascript()$/;"	f
@@ -1617,7 +1627,6 @@ String	pack/plugins/start/junegunn-fzf/fzf	/^class String$/;"	c
 StringReplace	pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:StringReplace(text, old, new)$/;"	f
 StringStrip	pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:StringStrip(text)$/;"	f
 StripTrailingWhitespace	vimrc	/^function! StripTrailingWhitespace()$/;"	f
-Strntok	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^function! s:Strntok( s, tok, n)$/;"	f
 Style	pack/plugins/start/junegunn-fzf/src/tui/tcell.go	/^func (c Color) Style() tcell.Color {$/;"	f
 Stylus	pack/plugins/start/sheerun-vim-polyglot/ftplugin/stylus.vim	/^command! Stylus !clear; cat % | stylus$/;"	c
 SubComplete	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:SubComplete(A,L,P)$/;"	f
@@ -2070,6 +2079,7 @@ addMapping1	pack/plugins/start/wellle-targets-vim/plugin/targets.vim	/^function!
 addMapping2	pack/plugins/start/wellle-targets-vim/plugin/targets.vim	/^function! s:addMapping2(mapType, mapping, aiAI, nlNL)$/;"	f
 addToJumplist	pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:addToJumplist(target)$/;"	f
 addVisualMappings	pack/plugins/start/wellle-targets-vim/plugin/targets.vim	/^function! s:addVisualMappings()$/;"	f
+add_db	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^function! s:add_db(db_file) abort$/;"	f
 add_methods	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:add_methods(namespace, method_names) abort$/;"	f
 addstr_safe	pack/plugins/start/junegunn-fzf/fzf	/^  def addstr_safe str$/;"	f	class:usage
 ae	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^onoremap <buffer> ae :normal vae<CR>$/;"	m
@@ -2821,6 +2831,11 @@ current_compiler	pack/plugins/start/sheerun-vim-polyglot/compiler/sbt.vim	/^let 
 current_compiler	pack/plugins/start/sheerun-vim-polyglot/compiler/typescript.vim	/^let current_compiler = "typescript"$/;"	v
 current_word	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:current_word()$/;"	f
 cursor_y	pack/plugins/start/junegunn-fzf/fzf	/^  def cursor_y offset = 0$/;"	f	class:usage
+cword.clear	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! s:cword.clear() "{{{$/;"	f
+cword.init	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! s:cword.init() "{{{$/;"	f
+cword.init_highlight	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! s:cword.init_highlight() "{{{$/;"	f
+cword.refresh	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! s:cword.refresh() "{{{$/;"	f
+cword.set	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! s:cword.set() "{{{$/;"	f
 cycle	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^function! s:cycle()$/;"	f
 dart#analyzer	pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! dart#analyzer(q_args) abort$/;"	f
 dart#fmt	pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! dart#fmt(q_args) abort$/;"	f
@@ -2830,6 +2845,7 @@ dbgfeat	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/debug.vim	/^func! s
 dbgflag	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/debug.vim	/^func! s:dbgflag(settingname)$/;"	f
 dbgfunc	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/debug.vim	/^func! s:dbgfunc(funcname)$/;"	f
 debug	pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:debug(message)$/;"	f
+decho	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:decho(msg) "{{{1$/;"	f
 decode	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Web/JSON.vim	/^function! s:decode(json, ...) abort$/;"	f
 def_job	pack/plugins/start/fatih-vim-go/autoload/go/def.vim	/^function s:def_job(args) abort$/;"	f
 defaultCommand	pack/plugins/start/junegunn-fzf/src/constants_unix.go	/^	defaultCommand = `find . -path '*\/\\.*' -prune -o -type f -print -o -type l -print 2> \/dev\/null | sed s\/^..\/\/`$/;"	c
@@ -2969,6 +2985,7 @@ event_attributes_value	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html
 event_handler_attributes	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let event_handler_attributes = {'onabort': [], 'onblur': [], 'oncanplay': [], 'oncanplaythrough': [], 'onchange': [], 'onclick': [], 'oncontextmenu': [], 'ondblclick': [], 'ondrag': [], 'ondragend': [], 'ondragenter': [], 'ondragleave': [], 'ondragover': [], 'ondragstart': [], 'ondrop': [], 'ondurationchange': [], 'onemptied': [], 'onended': [], 'onerror': [], 'onfocus': [], 'onformchange': [], 'onforminput': [], 'oninput': [], 'oninvalid': [], 'onkeydown': [], 'onkeypress': [], 'onkeyup': [], 'onload': [], 'onloadeddata': [], 'onloadedmetadata': [], 'onloadstart': [], 'onmousedown': [], 'onmousemove': [], 'onmouseout': [], 'onmouseover': [], 'onmouseup': [], 'onmousewheel': [], 'onpause': [], 'onplay': [], 'onplaying': [], 'onprogress': [], 'onratechange': [], 'onreadystatechange': [], 'onscroll': [], 'onseeked': [], 'onseeking': [], 'onselect': [], 'onshow': [], 'onstalled': [], 'onsubmit': [], 'onsuspend': [], 'ontimeupdate': [], 'onvolumechange': [], 'onwaiting': []}$/;"	v
 exact_regex	pack/plugins/start/junegunn-fzf/fzf	/^    def exact_regex w$/;"	f	class:start_search.ExtendedFuzzyMatcher.parse
 excmds	pack/plugins/start/junegunn-fzf-vim/autoload/fzf/vim.vim	/^function! s:excmds()$/;"	f
+exe	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:exe(cmd) "{{{1$/;"	f
 execute	pack/plugins/start/junegunn-fzf/plugin/fzf.vim	/^function! s:execute(dict, command, temps) abort$/;"	f
 execute	pack/plugins/start/wellle-targets-vim/test/test.vim	/^function! s:execute(operation, motions)$/;"	f
 executeCommand	pack/plugins/start/junegunn-fzf/src/terminal.go	/^func (t *Terminal) executeCommand(template string, items []*Item) {$/;"	f
@@ -3334,6 +3351,7 @@ g:go_textobj_enabled	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^ 
 g:go_textobj_include_function_doc	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^  let g:go_textobj_include_function_doc = 1$/;"	v
 g:gutentags_add_default_project_roots	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_add_default_project_roots = get(g:, 'gutentags_add_default_project_roots', 1)$/;"	v
 g:gutentags_auto_add_cscope	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/cscope.vim	/^    let g:gutentags_auto_add_cscope = 1$/;"	v
+g:gutentags_auto_add_gtags_cscope	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^	let g:gutentags_auto_add_gtags_cscope = 1$/;"	v
 g:gutentags_auto_set_tags	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_auto_set_tags = get(g:, 'gutentags_auto_set_tags', 1)$/;"	v
 g:gutentags_background_update	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_background_update = get(g:, 'gutentags_background_update', 1)$/;"	v
 g:gutentags_cache_dir	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^    let g:gutentags_cache_dir = ''$/;"	v
@@ -3354,6 +3372,10 @@ g:gutentags_file_list_command	pack/plugins/start/ludovicchabant-vim-gutentags/pl
 g:gutentags_generate_on_missing	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_generate_on_missing = get(g:, 'gutentags_generate_on_missing', 1)$/;"	v
 g:gutentags_generate_on_new	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_generate_on_new = get(g:, 'gutentags_generate_on_new', 1)$/;"	v
 g:gutentags_generate_on_write	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_generate_on_write = get(g:, 'gutentags_generate_on_write', 1)$/;"	v
+g:gutentags_gtags_cscope_executable	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^	let g:gutentags_gtags_cscope_executable = 'gtags-cscope'$/;"	v
+g:gutentags_gtags_dbpath	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^	let g:gutentags_gtags_dbpath = ''$/;"	v
+g:gutentags_gtags_executable	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^	let g:gutentags_gtags_executable = 'gtags'$/;"	v
+g:gutentags_gtags_options_file	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^	let g:gutentags_gtags_options_file = '.gutgtags'$/;"	v
 g:gutentags_init_user_func	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_init_user_func = get(g:, 'gutentags_init_user_func', $/;"	v
 g:gutentags_modules	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_modules = get(g:, 'gutentags_modules', ['ctags'])$/;"	v
 g:gutentags_pause_after_update	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_pause_after_update = get(g:, 'gutentags_pause_after_update', 0)$/;"	v
@@ -3409,6 +3431,7 @@ g:loaded_mucomplete	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomple
 g:loaded_mustache_handlebars	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^let g:loaded_mustache_handlebars = 1$/;"	v
 g:loaded_qf	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^let g:loaded_qf = 1$/;"	v
 g:loaded_qlist	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^let g:loaded_qlist = 1$/;"	v
+g:loaded_quickhl	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^let g:loaded_quickhl = 1$/;"	v
 g:loaded_repeat	pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^let g:loaded_repeat = 1$/;"	v
 g:loaded_sneak_plugin	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^let g:loaded_sneak_plugin = 1$/;"	v
 g:loaded_surround	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^let g:loaded_surround = 1$/;"	v
@@ -3452,6 +3475,8 @@ g:purescript_indent_do	pack/plugins/start/sheerun-vim-polyglot/indent/purescript
 g:purescript_indent_if	pack/plugins/start/sheerun-vim-polyglot/indent/purescript.vim	/^  let g:purescript_indent_if = 3$/;"	v
 g:purescript_indent_let	pack/plugins/start/sheerun-vim-polyglot/indent/purescript.vim	/^  let g:purescript_indent_let = 4$/;"	v
 g:purescript_indent_where	pack/plugins/start/sheerun-vim-polyglot/indent/purescript.vim	/^  let g:purescript_indent_where = 6$/;"	v
+g:quickhl_debug	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_debug = 0$/;"	v
+g:quickhl_manual_colors	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_manual_colors = [$/;"	v
 g:ragel_default_subtype	pack/plugins/start/sheerun-vim-polyglot/syntax/ragel.vim	/^  let g:ragel_default_subtype = 'c'$/;"	v
 g:repeat_reg	pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^let g:repeat_reg = ['', '']$/;"	v
 g:repeat_tick	pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^let g:repeat_tick = -1$/;"	v
@@ -3573,8 +3598,10 @@ get_line_trimmed	pack/plugins/start/sheerun-vim-polyglot/indent/rust.vim	/^funct
 get_mouse	pack/plugins/start/junegunn-fzf/fzf	/^  def get_mouse$/;"	f	class:start_search
 get_pane_descriptor_from_id	pack/plugins/start/mhinz-vim-tmuxify/autoload/tmuxify.vim	/^function! s:get_pane_descriptor_from_id(pane_id) abort$/;"	f
 get_saved_states	pack/plugins/start/sheerun-vim-polyglot/autoload/crystal_lang.vim	/^function! s:get_saved_states() abort$/;"	f
+get_unix_cmd	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^function! s:get_unix_cmd(for_job, proj_options, db_path) abort$/;"	f
 get_visual_content	pack/plugins/start/fatih-vim-go/autoload/go/play.vim	/^function! s:get_visual_content() abort$/;"	f
 get_visual_selection	pack/plugins/start/fatih-vim-go/autoload/go/play.vim	/^function! s:get_visual_selection() abort$/;"	f
+get_win32_cmd	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^function! s:get_win32_cmd(for_job, proj_options, db_path) abort$/;"	f
 geta	pack/plugins/start/junegunn-fzf/fzf	/^  def geta(*names)$/;"	f	class:FZF
 getchar	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:getchar(...) abort$/;"	f
 getchar	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:getchar()$/;"	f
@@ -3779,6 +3806,10 @@ gutentags#get_project_file_list_cmd	pack/plugins/start/ludovicchabant-vim-gutent
 gutentags#get_project_info	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#get_project_info(path) abort$/;"	f
 gutentags#get_project_root	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#get_project_root(path) abort$/;"	f
 gutentags#get_res_file	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#get_res_file(filename) abort$/;"	f
+gutentags#gtags_cscope#generate	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^function! gutentags#gtags_cscope#generate(proj_dir, db_file, write_mode) abort$/;"	f
+gutentags#gtags_cscope#init	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^function! gutentags#gtags_cscope#init(project_root) abort$/;"	f
+gutentags#gtags_cscope#on_job_exit	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^function! gutentags#gtags_cscope#on_job_exit(job, exit_val) abort$/;"	f
+gutentags#gtags_cscope#on_job_out	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^function! gutentags#gtags_cscope#on_job_out(job, data) abort$/;"	f
 gutentags#inprogress	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#inprogress()$/;"	f
 gutentags#normalizepath	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#normalizepath(path)$/;"	f
 gutentags#rescan	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#rescan(...)$/;"	f
@@ -3882,6 +3913,7 @@ isPreviewEnabled	pack/plugins/start/junegunn-fzf/src/terminal.go	/^func (t *Term
 isSYN	pack/plugins/start/sheerun-vim-polyglot/indent/haskell.vim	/^function! s:isSYN(grp, line, col)$/;"	f
 is_available	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/ColorEcho.vim	/^function! s:is_available() abort$/;"	f
 is_beginning_of_file	pack/plugins/start/sheerun-vim-polyglot/indent/elixir.vim	/^function! s:is_beginning_of_file(line)$/;"	f
+is_cmdwin	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:is_cmdwin() "{{{1$/;"	f
 is_cygwin	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_cygwin() abort$/;"	f
 is_dict	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_dict(Value) abort$/;"	f
 is_float	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_float(Value) abort$/;"	f
@@ -3950,7 +3982,6 @@ livescript_compiler	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ls.vim	/^  
 livescript_make_options	pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^  let livescript_make_options = ''$/;"	v
 load	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^function! s:load(...) dict abort$/;"	f
 loadSettings	pack/plugins/start/wellle-targets-vim/plugin/targets.vim	/^function! s:loadSettings()$/;"	f
-loaded_multiplesearch	pack/plugins/start/vim-scripts-multiplesearch/plugin/MultipleSearch.vim	/^let loaded_multiplesearch = 1$/;"	v
 loaded_tlib_macros	pack/plugins/start/tomtom-tlib-vim/macros/tlib.vim	/^let loaded_tlib_macros = 1$/;"	v
 loaded_ttags	pack/plugins/start/tomtom-ttags-vim/plugin/ttags.vim	/^let loaded_ttags = 6$/;"	v
 log_contains_error	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^function! s:log_contains_error(file)$/;"	f
@@ -3997,6 +4028,24 @@ main_syntax	pack/plugins/start/sheerun-vim-polyglot/syntax/slim.vim	/^  let main
 main_syntax	pack/plugins/start/sheerun-vim-polyglot/syntax/stylus.vim	/^  let main_syntax = 'css'$/;"	v
 main_syntax	pack/plugins/start/sheerun-vim-polyglot/syntax/typescript.vim	/^  let main_syntax = "typescript"$/;"	v
 main_syntax	pack/plugins/start/sheerun-vim-polyglot/syntax/velocity.vim	/^  let main_syntax = 'html'$/;"	v
+manual._inject_keywords	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual._inject_keywords(keywords) "{{{$/;"	f
+manual.add	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.add(pattern, escaped) "{{{$/;"	f
+manual.clear	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.clear() "{{{$/;"	f
+manual.del	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.del(pattern, escaped) "{{{$/;"	f
+manual.del_by_index	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.del_by_index(idx) "{{{$/;"	f
+manual.dump	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.dump() "{{{$/;"	f
+manual.index_of	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.index_of(pattern) "{{{$/;"	f
+manual.init	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.init() "{{{$/;"	f
+manual.init_highlight	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.init_highlight() "{{{$/;"	f
+manual.inject_keywords	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.inject_keywords() "{{{$/;"	f
+manual.is_locked	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.is_locked() "{{{$/;"	f
+manual.list	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.list() "{{{$/;"	f
+manual.next_index	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.next_index() "{{{$/;"	f
+manual.read_colors	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.read_colors(list) "{{{$/;"	f
+manual.refresh	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.refresh() "{{{$/;"	f
+manual.reset	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.reset() "{{{$/;"	f
+manual.set	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.set() "{{{$/;"	f
+manual.show_colors	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.show_colors() "{{{$/;"	f
 manual_update_tags	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! s:manual_update_tags(bang) abort$/;"	f
 map	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^function! s:map(mode, flags, map) abort$/;"	f
 map_accum	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:map_accum(expr, xs, init) abort$/;"	f
@@ -4356,6 +4405,41 @@ qf#wrap#WrapCommand	pack/plugins/start/romainl-vim-qf/autoload/qf/wrap.vim	/^fun
 queryCache	pack/plugins/start/junegunn-fzf/src/cache.go	/^type queryCache map[string][]*Result$/;"	t
 queryCacheMax	pack/plugins/start/junegunn-fzf/src/constants.go	/^	queryCacheMax int = chunkSize \/ 5$/;"	c
 query_path	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^function! s:query_path(root) abort$/;"	f
+quickhl#cword#disable	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! quickhl#cword#disable() "{{{$/;"	f
+quickhl#cword#enable	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! quickhl#cword#enable() "{{{$/;"	f
+quickhl#cword#init_highlight	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! quickhl#cword#init_highlight() "{{{$/;"	f
+quickhl#cword#refresh	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! quickhl#cword#refresh() "{{{$/;"	f
+quickhl#cword#toggle	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! quickhl#cword#toggle() "{{{$/;"	f
+quickhl#escape	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl.vim	/^function! quickhl#escape(pattern) "{{{$/;"	f
+quickhl#get_selected_text	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl.vim	/^function! quickhl#get_selected_text() "{{{$/;"	f
+quickhl#manual#add	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#add(pattern, escaped) "{{{$/;"	f
+quickhl#manual#add_or_del	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#add_or_del(pattern) "{{{$/;"	f
+quickhl#manual#colors	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#colors() "{{{$/;"	f
+quickhl#manual#del	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#del(pattern, escaped) "{{{$/;"	f
+quickhl#manual#disable	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#disable() "{{{$/;"	f
+quickhl#manual#dump	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#dump() "{{{$/;"	f
+quickhl#manual#enable	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#enable() "{{{$/;"	f
+quickhl#manual#init_highlight	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#init_highlight() "{{{$/;"	f
+quickhl#manual#list	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#list() "{{{$/;"	f
+quickhl#manual#lock	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#lock() "{{{$/;"	f
+quickhl#manual#lock_toggle	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#lock_toggle() "{{{$/;"	f
+quickhl#manual#lock_window	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#lock_window() "{{{$/;"	f
+quickhl#manual#lock_window_toggle	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#lock_window_toggle() "{{{$/;"	f
+quickhl#manual#refresh	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#refresh() "{{{$/;"	f
+quickhl#manual#reset	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#reset() "{{{$/;"	f
+quickhl#manual#status	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#status() "{{{$/;"	f
+quickhl#manual#this	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#this(mode) "{{{$/;"	f
+quickhl#manual#this_motion	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#this_motion(motion_wise) " {{{$/;"	f
+quickhl#manual#unlock	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#unlock() "{{{$/;"	f
+quickhl#manual#unlock_window	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#unlock_window() "{{{$/;"	f
+quickhl#our_match	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl.vim	/^function! quickhl#our_match(pattern) "{{{$/;"	f
+quickhl#tag#disable	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^function! quickhl#tag#disable() "{{{$/;"	f
+quickhl#tag#enable	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^function! quickhl#tag#enable() "{{{$/;"	f
+quickhl#tag#init_highlight	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^function! quickhl#tag#init_highlight() "{{{$/;"	f
+quickhl#tag#refresh	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^function! quickhl#tag#refresh() "{{{$/;"	f
+quickhl#tag#toggle	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^function! quickhl#tag#toggle() "{{{$/;"	f
+quickhl#warn	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl.vim	/^function! quickhl#warn(error) "{{{$/;"	f
+quickhl#windo	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl.vim	/^function! quickhl#windo(func, obj) "{{{$/;"	f
 quoteDir	pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:quoteDir()$/;"	f
 quoteDirInternal	pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:quoteDirInternal(oldcolumn)$/;"	f
 quoteEntry	pack/plugins/start/junegunn-fzf/src/terminal.go	/^func quoteEntry(entry string) string {$/;"	f
@@ -4617,6 +4701,7 @@ s:_vital_files_cache_runtimepath	pack/plugins/start/sheerun-vim-polyglot/autoloa
 s:abstract_prototype	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:abstract_prototype = {}$/;"	v
 s:access_modifier_regex	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:access_modifier_regex = '\\C^\\s*\\%(public\\|protected\\|private\\)\\s*\\%(#.*\\)\\=$'$/;"	v
 s:access_modifier_regex	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:access_modifier_regex = '\\C^\\s*\\%(public\\|protected\\|private\\)\\s*\\%(#.*\\)\\=$'$/;"	v
+s:added_db_files	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^let s:added_db_files = {}$/;"	v
 s:added_dbs	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/cscope.vim	/^let s:added_dbs = []$/;"	v
 s:align_map	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^let s:align_map = {$/;"	v
 s:all_tokens	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^let s:all_tokens = {}$/;"	v
@@ -4800,6 +4885,7 @@ s:current_syntax	pack/plugins/start/sheerun-vim-polyglot/after/syntax/coffee.vim
 s:current_syntax	pack/plugins/start/sheerun-vim-polyglot/after/syntax/jsx.vim	/^  let s:current_syntax=b:current_syntax$/;"	v
 s:current_syntax_save	pack/plugins/start/sheerun-vim-polyglot/after/syntax/haml.vim	/^  let s:current_syntax_save = b:current_syntax$/;"	v
 s:current_syntax_save	pack/plugins/start/sheerun-vim-polyglot/after/syntax/html.vim	/^  let s:current_syntax_save = b:current_syntax$/;"	v
+s:cword	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^let s:cword = {$/;"	v
 s:cycle	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:cycle = 0          " Should µcomplete treat the completion chain as cyclic?$/;"	v
 s:cygwin	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/sys.vim	/^let s:cygwin = {}$/;"	v
 s:decIndent	pack/plugins/start/sheerun-vim-polyglot/indent/plantuml.vim	/^let s:decIndent = '^\\s*\\%(end\\|else\\|}\\)'$/;"	v
@@ -4808,6 +4894,7 @@ s:defMatcher	pack/plugins/start/sheerun-vim-polyglot/indent/scala.vim	/^let s:de
 s:default_action	pack/plugins/start/junegunn-fzf-vim/autoload/fzf/vim.vim	/^let s:default_action = {$/;"	v
 s:default_action	pack/plugins/start/junegunn-fzf/plugin/fzf.vim	/^let s:default_action = {$/;"	v
 s:default_layout	pack/plugins/start/junegunn-fzf/plugin/fzf.vim	/^let s:default_layout = { 'down': '~40%' }$/;"	v
+s:default_settings	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^let s:default_settings = {$/;"	v
 s:delimitMate_extra_excluded_regions	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rust.vim	/^	let s:delimitMate_extra_excluded_regions = ',rustLifetimeCandidate,rustGenericLifetimeCandidate'$/;"	v
 s:delims	pack/plugins/start/sheerun-vim-polyglot/ftplugin/toml.vim	/^let s:delims = { 'left': '#' }$/;"	v
 s:dictionary_entry	pack/plugins/start/sheerun-vim-polyglot/indent/ansible.vim	/^let s:dictionary_entry = '\\v^\\s*[^:-]+:\\s*$' " with_items:$/;"	v
@@ -4906,6 +4993,7 @@ s:is_unix	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Proces
 s:is_windows	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^let s:is_windows = has('win16') || has('win32') || has('win64') || has('win95')$/;"	v
 s:is_windows	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Process.vim	/^let s:is_windows = has('win16') || has('win32') || has('win64') || has('win95')$/;"	v
 s:iskeyword_save	pack/plugins/start/sheerun-vim-polyglot/syntax/php.vim	/^let s:iskeyword_save = &iskeyword$/;"	v
+s:job_db_files	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^let s:job_db_files = []$/;"	v
 s:jobs	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^let s:jobs = {}$/;"	v
 s:jobs	pack/plugins/start/fatih-vim-go/autoload/go/term.vim	/^let s:jobs = {}$/;"	v
 s:js_keywords	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:js_keywords = '^\\s*\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|in\\|instanceof\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\)'$/;"	v
@@ -4950,6 +5038,7 @@ s:loaded	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^l
 s:logs	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let s:logs = []$/;"	v
 s:m	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^let s:m = matchstr(s:modeline,'default\\s*=\\s*\\d\\+')$/;"	v
 s:m	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^let s:m = matchstr(s:modeline,'struct\\s*=\\s*\\d\\+')$/;"	v
+s:manual	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^let s:manual = {$/;"	v
 s:map_prefix	pack/plugins/start/mhinz-vim-tmuxify/plugin/tmuxify.vim	/^let s:map_prefix = get(g:, 'tmuxify_map_prefix', '<leader>m')$/;"	v
 s:match_words	pack/plugins/start/sheerun-vim-polyglot/ftplugin/eelixir.vim	/^  let s:match_words = b:match_words . ',' . s:match_words$/;"	v
 s:match_words	pack/plugins/start/sheerun-vim-polyglot/ftplugin/eelixir.vim	/^  let s:match_words = b:match_words$/;"	v
@@ -4969,6 +5058,7 @@ s:maxmarks	pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^let 
 s:maxoff	pack/plugins/start/sheerun-vim-polyglot/indent/python.vim	/^let s:maxoff = 50$/;"	v
 s:maybe_in_progress	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^    let s:maybe_in_progress[module] = {}$/;"	v
 s:maybe_in_progress	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^let s:maybe_in_progress = {}$/;"	v
+s:metachar	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl.vim	/^let s:metachar = '\\\/~ .*^[''$'$/;"	v
 s:middle_patt	pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let s:middle_patt = '\\<\\%(else\\|elseif\\)\\>'$/;"	v
 s:mode	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let s:mode = s:MODE_16_COLOR$/;"	v
 s:mode	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let s:mode = s:MODE_256_COLOR$/;"	v
@@ -4994,6 +5084,7 @@ s:notbslash	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.v
 s:notcomment	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:notcomment = '\\%(\\%(\\\\\\@<!\\%(\\\\\\\\\\)*\\)\\@<=%.*\\)\\@<!'$/;"	v
 s:obj	pack/plugins/start/sheerun-vim-polyglot/indent/ocaml.vim	/^let s:obj = '^\\s*\\(constraint\\|inherit\\|initializer\\|method\\|val\\)\\>\\|\\<\\(object\\|object\\s*(.*)\\)\\s*$'$/;"	v
 s:object	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^let s:object = {}$/;"	v
+s:old_cpo	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^let s:old_cpo = &cpo$/;"	v
 s:old_style	pack/plugins/start/sheerun-vim-polyglot/syntax/erlang.vim	/^let s:old_style = (exists("g:erlang_old_style_highlight") &&$/;"	v
 s:omittable	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:omittable = [ $/;"	v
 s:one_line_scope_regex	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:one_line_scope_regex = '\\<\\%(if\\|else\\|for\\|while\\)\\>[^{;]*' . s:line_term$/;"	v
@@ -5105,7 +5196,6 @@ s:save_cpo	pack/plugins/start/tomtom-tlib-vim/spec/tlib/string.vim	/^let s:save_
 s:save_cpo	pack/plugins/start/tomtom-tlib-vim/spec/tlib/url.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	pack/plugins/start/tomtom-tlib-vim/spec/tlib/var.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	pack/plugins/start/tomtom-ttags-vim/plugin/ttags.vim	/^let s:save_cpo = &cpo$/;"	v
-s:save_cpo	pack/plugins/start/vim-scripts-multiplesearch/autoload/MultipleSearch.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	pack/plugins/start/wellle-tmux-complete-vim/autoload/neocomplcache/sources/tmuxcomplete.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	pack/plugins/start/wellle-tmux-complete-vim/autoload/neocomplete/sources/tmuxcomplete.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	pack/plugins/start/wellle-tmux-complete-vim/autoload/unite/sources/tmuxcomplete.vim	/^let s:save_cpo = &cpo$/;"	v
@@ -5165,6 +5255,7 @@ s:syng_stringdoc	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s
 s:tag	pack/plugins/start/sheerun-vim-polyglot/indent/haml.vim	/^let s:tag = '\\%([%.#][[:alnum:]_-]\\+\\|'.s:attributes.'\\)*[<>]*'$/;"	v
 s:tag	pack/plugins/start/sheerun-vim-polyglot/indent/pug.vim	/^let s:tag = '\\([%.#][[:alnum:]_-]\\+\\|'.s:attributes.'\\)*[<>]*'$/;"	v
 s:tag	pack/plugins/start/sheerun-vim-polyglot/indent/slim.vim	/^let s:tag = '\\%([%.#][[:alnum:]_-]\\+\\|'.s:attributes.'\\)*[<>]*'$/;"	v
+s:tag	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^let s:tag = {$/;"	v
 s:tags	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:tags = []$/;"	v
 s:tags	pack/plugins/start/tomtom-ttags-vim/autoload/ttags.vim	/^let s:tags = {}$/;"	v
 s:temp_files	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^  let s:temp_files = {}$/;"	v
@@ -5282,6 +5373,7 @@ separator	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! s:se
 set	pack/plugins/start/junegunn-fzf/fzf	/^  def set name, value = nil$/;"	f	class:FZF
 set_color_variables	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:set_color_variables()$/;"	f
 set_default	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:set_default(var, val) abort$/;"	f
+set_default	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^function! s:set_default(dict) "{{{$/;"	f
 set_highlightings_variable	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:set_highlightings_variable()$/;"	f
 set_var	pack/plugins/start/junegunn-fzf/test/test_go.rb	/^  def set_var name, val$/;"	f	class:TestFish
 set_var	pack/plugins/start/junegunn-fzf/test/test_go.rb	/^  def set_var name, val$/;"	f	class:TestShell
@@ -5415,6 +5507,11 @@ system	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Process.v
 t	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^    nnoremap <buffer> t <C-w><CR><C-w>T$/;"	m
 t	vimrc	/^nmap t <Plug>Sneak_t$/;"	m
 t	vimrc	/^omap t <Plug>Sneak_t$/;"	m
+tag.clear	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^function! s:tag.clear() "{{{$/;"	f
+tag.init	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^function! s:tag.init() "{{{$/;"	f
+tag.init_highlight	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^function! s:tag.init_highlight() "{{{$/;"	f
+tag.refresh	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^function! s:tag.refresh() "{{{$/;"	f
+tag.set	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^function! s:tag.set() "{{{$/;"	f
 tags_sink	pack/plugins/start/junegunn-fzf-vim/autoload/fzf/vim.vim	/^function! s:tags_sink(lines)$/;"	f
 take_while	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:take_while(f, xs) abort$/;"	f
 targets#e	pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! targets#e(modifier)$/;"	f
