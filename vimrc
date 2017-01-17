@@ -348,7 +348,7 @@ endif
 
 " GUI
 if has("gui_running")
-    set guifont=Go\ Mono:h10:cANSI " My favorite font
+    set guifont=Consolas:h10:cANSI:qDRAFT " Favorite font for rare times in GUI
     set guioptions=ce
     "              ||
     "              |+-- use GUI tabs, not console style tabs
