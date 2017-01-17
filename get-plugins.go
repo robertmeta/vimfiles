@@ -23,6 +23,8 @@ func main() {
 	plugins := []string{
 		"ctrlpvim/ctrlp.vim",
 		"fatih/vim-go",
+		"junegunn/fzf",
+		"junegunn/fzf.vim",
 		"justinmk/vim-sneak",
 		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
@@ -31,6 +33,7 @@ func main() {
 		"romainl/vim-qlist",
 		"sheerun/vim-polyglot",
 		"skywind3000/asyncrun.vim",
+		"t9md/vim-quickhl",
 		"tomtom/tlib_vim",
 		"tomtom/ttags_vim",
 		"tpope/vim-abolish",
@@ -40,7 +43,6 @@ func main() {
 		"tpope/vim-repeat.git",
 		"tpope/vim-surround",
 		"tpope/vim-vinegar",
-		"vim-scripts/MultipleSearch",
 		"wellle/targets.vim",
 		"wellle/tmux-complete.vim",
 	}
@@ -69,7 +71,7 @@ func clearPack() {
 // TODO: use os.PathSeperator
 func updatePlugin(wg *sync.WaitGroup, org, plugin string) {
 	fullURL := "https://github.com/" + plugin
-	localPath := "pack/" + org + "/start/" + strings.Replace(strings.Replace(strings.Replace(strings.ToLower(plugin), `/`, `-`, -1), `.vim`, ``, 1), `_`, `-`, -1)
+	localPath := "pack/" + org + "/start/" + strings.Replace(strings.Replace(strings.Replace(strings.ToLower(plugin), `/`, `-`, -1), `.vim`, `-vim`, 1), `_`, `-`, -1)
 
 	mustNotError(os.MkdirAll(localPath, 0777))
 

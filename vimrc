@@ -36,7 +36,7 @@ nnoremap <silent> <leader>c <esc>:close<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
 " Clear highlight
-nnoremap <silent> <backspace> :noh<CR>:SearchReset<CR>
+nnoremap <silent> <backspace> :noh<CR>:QuickhlManualReset<CR>
 
 " Mappings
 inoremap <silent> ;f <C-x><C-f>
@@ -49,9 +49,32 @@ inoremap <silent> ;t <C-x><C-]>
 inoremap <silent> ;u <C-x><C-u>
 inoremap <F5> <C-R>=strftime("%c")<CR>
 
+" Extra window movement
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+" Terminal stuff
+if has('nvim')
+    tnoremap <A-h> <C-\><C-n><C-w>h
+    tnoremap <A-j> <C-\><C-n><C-w>j
+    tnoremap <A-k> <C-\><C-n><C-w>k
+    tnoremap <A-l> <C-\><C-n><C-w>l
+    tnoremap <Esc> <C-\><C-n>
+    nnoremap <leader>e :terminal<cr>
+    nnoremap <leader>E :terminal<space>
+endif
+
 " Abbreviations
 iab <expr> dts strftime("%c")
 iab rrm Robert R. Melton
+
+" Search
+nmap <leader>s <Plug>(quickhl-manual-this)
+xmap <leader>s <Plug>(quickhl-manual-this)
+nnoremap <leader>S :QuickhlManualAdd<space>
+let g:quickhl_manual_colors = ['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=black ctermbg=1 guibg=#a07040 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=2 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black' ] 
 
 " Arrow control
 nmap <silent> <left> <esc>:lprev<cr>
@@ -67,30 +90,36 @@ nnoremap <leader>t :CtrlPTag<cr>
 nnoremap <leader>T :CtrlPBufTag<cr>
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>A :argadd **/*
+<<<<<<< HEAD
 "nnoremap <leader>b :b <C-d>
 "nnoremap <leader>B :ls<cr>:b<space>
 nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>d :Dlist<space>
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+=======
+nnoremap <leader>b :b <C-d>
+nnoremap <leader>B :ls<cr>:b<space>
+>>>>>>> 82db0e15027cd3cb32a01f1a85727205217aed21
 nnoremap <leader>f :find *
 nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
-nnoremap <leader>j :tjump /
-nnoremap <leader>l :lgrep<space>
+nnoremap <leader>j :QuickhlCwordToggle<cr>
 "nnoremap <leader>m saved for tmuxify
 nnoremap <leader>M :make<cr>
+<<<<<<< HEAD
 "nnoremap <leader>p :ptjump /
+=======
+>>>>>>> 82db0e15027cd3cb32a01f1a85727205217aed21
 nnoremap <leader>q :b#<cr>
-nnoremap <leader>s :Search 
-nnoremap <leader>S :call StripTrailingWhitespace()<cr>
 "nnoremap <leader>t :tag<space>
 "nnoremap <leader>T :tag<space><C-d>
 "nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
 "nnoremap <leader>T :TTags<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap <F5> "=strftime("%c")<CR>P
+nnoremap Y y$
 
 " quick command helpers
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
@@ -121,8 +150,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,preview,noinsert
 set complete=.,w,b,u,U,i,t " complete options
-set cursorline " no cursor line
-set diffopt=filler,iwhite " filler and whitespace
+set diffopt=vertical,filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
 set fileencoding=utf-8 " UTF-8
@@ -156,15 +184,16 @@ set modelines=5 " Search for 5 lines for modelines
 set noautoread " nope
 set noautowriteall " nope
 set noautowrite " nope
-set nocursorcolumn " disable global cursor column
+set nocursorcolumn " no cursor column
+set nocursorline " no cursor line
 set noerrorbells " don't be noisy
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
+set nonumber " no line numbers
 set norelativenumber " no thank you
 set nospell " nope nope nope
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set nonumber " no line numbers
 set numberwidth=8 " We are good up to LOTS lines
 set omnifunc=syntaxcomplete#Complete
 set pastetoggle=<F10> " paste toggle of course
@@ -229,6 +258,7 @@ set wildignore+=*.pyc,*.pyo " Python byte code
 set wildignore+=*.spl " compiled spelling word lists
 set wildignore+=*.swp,*.bak " ignore these
 set wildignore+=*.sw? " Vim swap files
+set wildignore+=**/vendor " Ignore vendor directory
 if s:running_windows
     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*,*\\vendor\\*,
 else
@@ -330,11 +360,12 @@ if has("autocmd")
         " Things that use two spaces rather than four
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
-        au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete foldmethod=syntax
+        au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete
         au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> gr :GoRename<CR>
+        au BufRead,BufNewFile *.go nnoremap <buffer> gt :GoTest<CR>
         au BufRead,BufNewFile *.go nnoremap <buffer> ga :GoAlternate!<CR>
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make
         " Some JS awesome via romainl
@@ -350,9 +381,6 @@ if has("autocmd")
         au FileType gitcommit setlocal spell
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
-        " Highlight current line
-        au VimEnter,WinEnter,BufWinEnter,BufRead * setlocal cursorline
-        au WinLeave * setlocal nocursorline
     augroup END
 endif
 
@@ -464,6 +492,23 @@ let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
 colo nofrils-acme
+
+" FZF
+" selectly override some defaults
+if executable("fzf")
+    nnoremap <leader>B :Buffers<cr>
+    nnoremap <leader>c :Commits<cr>
+    nnoremap <leader>C :BCommits<cr>
+    nnoremap <leader>f :Files<cr>
+    nnoremap <leader>F :GFiles<cr>
+    if executable("ag")
+        nnoremap <leader>g :Ag<space>
+    endif
+    nnoremap <leader>h :History/<cr>
+    nnoremap <leader>H :History:<cr>
+    nnoremap <leader>t :Tags<cr>
+    nnoremap <leader>T :BTags<cr>
+endif
 
 " Functions
 function! ToggleFolds()
