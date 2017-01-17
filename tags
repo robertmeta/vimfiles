@@ -22,6 +22,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 ,	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    nmap , <Plug>Sneak_,$/;"	m
 ,	pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    omap , <Plug>Sneak_,$/;"	m
 -	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^  nmap - <Plug>VinegarUp$/;"	m
+-	vimrc	/^nmap - :NERDTreeToggle<CR>$/;"	m
 - Note that ag only lists files not directories	pack/plugins/start/junegunn-fzf/README.md	/^# - Note that ag only lists files not directories$/;"	h
 - See the source code (completion.{bash,zsh}) for the details.	pack/plugins/start/junegunn-fzf/README.md	/^# - See the source code (completion.{bash,zsh}) for the details.$/;"	h
 - The first argument to the function is the base path to start traversal	pack/plugins/start/junegunn-fzf/README.md	/^# - The first argument to the function is the base path to start traversal$/;"	h
@@ -48,10 +49,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 ;t	vimrc	/^inoremap <silent> ;t <C-x><C-]>$/;"	m
 ;u	vimrc	/^inoremap <silent> ;u <C-x><C-u>$/;"	m
 <2-leftmouse>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <2-leftmouse> :call <SID>TOCActivate(1)<cr>$/;"	m
-<A-h>	vimrc	/^nnoremap <A-h> <C-w>h$/;"	m
-<A-j>	vimrc	/^nnoremap <A-j> <C-w>j$/;"	m
-<A-k>	vimrc	/^nnoremap <A-k> <C-w>k$/;"	m
-<A-l>	vimrc	/^nnoremap <A-l> <C-w>l$/;"	m
 <BS>	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^    inoremap <silent> <BS> <C-R>=<SID>HaskellDedent(1)<CR>$/;"	m
 <C-D>	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^    inoremap <silent> <C-D> <C-R>=<SID>HaskellDedent(0)<CR>$/;"	m
 <C-G>S	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^    imap      <C-G>S <Plug>ISurround$/;"	m
@@ -287,38 +284,21 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>.	vimrc	/^vnoremap <leader>. :norm! .<cr>$/;"	m
 <leader>@	vimrc	/^vnoremap <leader>@ :norm! @<cr>$/;"	m
 <leader>A	vimrc	/^nnoremap <leader>A :argadd **\/*$/;"	m
-<leader>B	vimrc	/^    nnoremap <leader>B :Buffers<cr>$/;"	m
-<leader>C	vimrc	/^    nnoremap <leader>C :BCommits<cr>$/;"	m
-<leader>E	vimrc	/^    nnoremap <leader>E :terminal<space>$/;"	m
-<leader>F	vimrc	/^    nnoremap <leader>F :GFiles<cr>$/;"	m
-<leader>F	vimrc	/^nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :vimgrep<space>$/;"	m
-<leader>H	vimrc	/^    nnoremap <leader>H :History:<cr>$/;"	m
 <leader>M	vimrc	/^nnoremap <leader>M :make<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
-<leader>T	vimrc	/^    nnoremap <leader>T :BTags<cr>$/;"	m
 <leader>T	vimrc	/^nnoremap <leader>T :CtrlPBufTag<cr>$/;"	m
 <leader>W	vimrc	/^nnoremap <leader>W <C-w>W$/;"	m
 <leader>a	vimrc	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>b	vimrc	/^nnoremap <leader>b :CtrlPBuffer<cr>$/;"	m
-<leader>c	vimrc	/^    nnoremap <leader>c :Commits<cr>$/;"	m
-<leader>c	vimrc	/^nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>c	vimrc	/^nnoremap <silent> <leader>c <esc>:close<cr>$/;"	m
-<leader>d	vimrc	/^nnoremap <leader>d :Dlist<space>$/;"	m
-<leader>e	vimrc	/^    nnoremap <leader>e :terminal<cr>$/;"	m
-<leader>e	vimrc	/^nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
-<leader>f	vimrc	/^    nnoremap <leader>f :Files<cr>$/;"	m
-<leader>f	vimrc	/^nnoremap <leader>f :find *$/;"	m
-<leader>g	vimrc	/^        nnoremap <leader>g :Ag<space>$/;"	m
 <leader>g	vimrc	/^nnoremap <leader>g :grep<space>$/;"	m
-<leader>h	vimrc	/^    nnoremap <leader>h :History\/<cr>$/;"	m
 <leader>i	vimrc	/^nnoremap <leader>i :Ilist<space>$/;"	m
 <leader>j	vimrc	/^nnoremap <leader>j :QuickhlCwordToggle<cr>$/;"	m
 <leader>o	vimrc	/^nnoremap <leader>o <C-w>o$/;"	m
 <leader>p	vimrc	/^nnoremap <leader>p :CtrlPMixed<cr>$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
 <leader>s	vimrc	/^nmap <leader>s <Plug>(quickhl-manual-this)$/;"	m
-<leader>t	vimrc	/^    nnoremap <leader>t :Tags<cr>$/;"	m
 <leader>t	vimrc	/^nnoremap <leader>t :CtrlPTag<cr>$/;"	m
 <leader>w	vimrc	/^nnoremap <leader>w <C-w>w$/;"	m
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
@@ -1386,6 +1366,10 @@ MoveAndClear	pack/plugins/start/junegunn-fzf/src/tui/light.go	/^func (w *LightWi
 MoveAndClear	pack/plugins/start/junegunn-fzf/src/tui/ncurses.go	/^func (w *CursesWindow) MoveAndClear(y int, x int) {$/;"	f
 MoveAndClear	pack/plugins/start/junegunn-fzf/src/tui/tcell.go	/^func (w *TcellWindow) MoveAndClear(y int, x int) {$/;"	f
 MoveComplete	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:MoveComplete(A,L,P) abort$/;"	f
+NERDChristmasTree	vimrc	/^let NERDChristmasTree = 1$/;"	v
+NERDTreeDirArrows	vimrc	/^let NERDTreeDirArrows = 0$/;"	v
+NERDTreeHijackNetrw	vimrc	/^let NERDTreeHijackNetrw = 1 " I use vim-vinegar most of the time, don't mess with -$/;"	v
+NERDTreeMinimalUI	vimrc	/^let NERDTreeMinimalUI = 1$/;"	v
 Neovim terminal theme	pack/colors/start/romainl-apprentice/README.md	/^## Neovim terminal theme$/;"	i
 New features	pack/plugins/start/junegunn-fzf/CHANGELOG.md	/^### New features$/;"	k
 NewAtomicBool	pack/plugins/start/junegunn-fzf/src/util/atomicbool.go	/^func NewAtomicBool(initialState bool) *AtomicBool {$/;"	f
@@ -3887,6 +3871,7 @@ g:tlib#vim#use_wmctrl	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/vim.vim	/
 g:tlib_hash_use_crc32	pack/plugins/start/tomtom-tlib-vim/spec/tlib/hash.vim	/^let g:tlib_hash_use_crc32 = g:tlib#hash#use_crc32$/;"	v
 g:tmuxcomplete#loaded	pack/plugins/start/wellle-tmux-complete-vim/plugin/tmuxcomplete.vim	/^let g:tmuxcomplete#loaded = '0.1.1' " version number$/;"	v
 g:tmuxify_custom_command	vimrc	/^let g:tmuxify_custom_command='tmux split-window -d -l 10'$/;"	v
+g:tmuxify_map_prefix	vimrc	/^let g:tmuxify_map_prefix = ''$/;"	v
 g:typescript_compiler_binary	pack/plugins/start/sheerun-vim-polyglot/compiler/typescript.vim	/^  let g:typescript_compiler_binary = "tsc"$/;"	v
 g:typescript_compiler_options	pack/plugins/start/sheerun-vim-polyglot/compiler/typescript.vim	/^  let g:typescript_compiler_options = ""$/;"	v
 g:vim_ember_script	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^  let g:vim_ember_script = 1$/;"	v

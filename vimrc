@@ -49,23 +49,6 @@ inoremap <silent> ;t <C-x><C-]>
 inoremap <silent> ;u <C-x><C-u>
 inoremap <F5> <C-R>=strftime("%c")<CR>
 
-" Extra window movement
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-
-" Terminal stuff
-if has('nvim')
-    tnoremap <A-h> <C-\><C-n><C-w>h
-    tnoremap <A-j> <C-\><C-n><C-w>j
-    tnoremap <A-k> <C-\><C-n><C-w>k
-    tnoremap <A-l> <C-\><C-n><C-w>l
-    tnoremap <Esc> <C-\><C-n>
-    nnoremap <leader>e :terminal<cr>
-    nnoremap <leader>E :terminal<space>
-endif
-
 " Abbreviations
 iab <expr> dts strftime("%c")
 iab rrm Robert R. Melton
@@ -82,7 +65,7 @@ nmap <silent> <right> <esc>:lnext<cr>
 nmap <silent> <up> <esc>:cprev<cr>
 nmap <silent> <down>  <esc>:cnext<cr>
 " Random Mappings
-"nmap - :Dirvish<cr>
+nmap - :NERDTreeToggle<CR>
 " CtrlP Mappings
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
@@ -90,25 +73,12 @@ nnoremap <leader>t :CtrlPTag<cr>
 nnoremap <leader>T :CtrlPBufTag<cr>
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>A :argadd **/*
-"nnoremap <leader>b :b <C-d>
-"nnoremap <leader>B :ls<cr>:b<space>
-nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>d :Dlist<space>
-nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>f :find *
-nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :QuickhlCwordToggle<cr>
-"nnoremap <leader>m saved for tmuxify
 nnoremap <leader>M :make<cr>
-"nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
-"nnoremap <leader>t :tag<space>
-"nnoremap <leader>T :tag<space><C-d>
-"nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
-"nnoremap <leader>T :TTags<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap <F5> "=strftime("%c")<CR>P
 nnoremap Y y$
@@ -469,6 +439,7 @@ endif
 
 " Tmuxify
 let g:tmuxify_custom_command='tmux split-window -d -l 10'
+let g:tmuxify_map_prefix = ''
 
 " Netrw
 let g:netrw_altfile=1
@@ -479,28 +450,17 @@ let g:sneak#label=1
 " Mucomplete
 let g:mucomplete#enable_auto_at_startup=0
 
+" NERDTree
+let NERDTreeHijackNetrw = 1 " I use vim-vinegar most of the time, don't mess with -
+let NERDChristmasTree = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 0
+
 " Nofrils
 let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
 colo nofrils-acme
-
-" FZF
-" selectly override some defaults
-if executable("fzf")
-    nnoremap <leader>B :Buffers<cr>
-    nnoremap <leader>c :Commits<cr>
-    nnoremap <leader>C :BCommits<cr>
-    nnoremap <leader>f :Files<cr>
-    nnoremap <leader>F :GFiles<cr>
-    if executable("ag")
-        nnoremap <leader>g :Ag<space>
-    endif
-    nnoremap <leader>h :History/<cr>
-    nnoremap <leader>H :History:<cr>
-    nnoremap <leader>t :Tags<cr>
-    nnoremap <leader>T :BTags<cr>
-endif
 
 " Functions
 function! ToggleFolds()
