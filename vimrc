@@ -76,6 +76,8 @@ nnoremap <leader>A :argadd **/*
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
+nnoremap <leader>r :TxRun<cr>
+nnoremap <leader>R :TxSetRunCmd<cr>
 nnoremap <leader>j :QuickhlCwordToggle<cr>
 nnoremap <leader>M :make<cr>
 nnoremap <leader>q :b#<cr>
@@ -440,6 +442,7 @@ endif
 " Tmuxify
 let g:tmuxify_custom_command='tmux split-window -d -l 10'
 let g:tmuxify_map_prefix = ''
+let g:tmuxify_global_maps = 1
 
 " Netrw
 let g:netrw_altfile=1
