@@ -2,6 +2,7 @@ PaperColor Theme
 ===================
 [![license](https://img.shields.io/github/license/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/blob/master/LICENSE) [![](https://img.shields.io/github/issues-raw/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/issues) [![](https://img.shields.io/github/issues-closed-raw/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/issues) [![GitHub release](https://img.shields.io/github/release/NLKNguyen/papercolor-theme.svg)](https://github.com/NLKNguyen/papercolor-theme/releases) [![Travis CI Build Status](https://travis-ci.org/NLKNguyen/papercolor-theme.svg?branch=master)](https://travis-ci.org/NLKNguyen/papercolor-theme)
 
+*Note*: The current document has not been updated for the current stage of the project. Some information apply only for version 0.7 and earlier.
 
 Light & Dark color schemes for **Vim** terminal editor and **gVim**
 
@@ -135,5 +136,9 @@ Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://gi
 [Airline PaperColor Theme for Vim Lightline](https://github.com/itchyny/lightline.vim)
 
 [Ninrod's `vim + tmux + zsh` dotfiles](https://github.com/ninrod/dotfiles.git) by [Filipe Silva](https://github.com/ninrod)
+
+[PaperColor for Vscode](https://github.com/Rozbo/papercolor-vscode) by [rozbo](https://github.com/rozbo)
+
+[PaperColor theme for Hyper](https://github.com/rafaelrinaldi/hyper-papercolor) by [Rafael Rinaldi](https://github.com/rafaelrinaldi)
 
 Feel free to add related projects here!

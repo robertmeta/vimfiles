@@ -5,40 +5,37 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-" Note: In 'c-n' and 'c-p' below we use the fact that pressing <c-x> while in
-" ctrl-x submode doesn't do anything and any key that is not valid in ctrl-x
-" submode silently ends that mode (:h complete_CTRL-Y) and inserts the key.
-" Hence, after <c-x><c-b>, we are surely out of ctrl-x submode. The subsequent
-" <bs> is used to delete the inserted <c-b>. We use <c-b> because it is not
-" mapped (:h i_CTRL-B-gone). This trick is needed to have <c-p> (and <c-n>)
-" trigger keyword completion under all circumstances, in particular when the
-" current mode is the ctrl-x submode. (pressing <c-p>, say, immediately after
-" <c-x><c-o> would do a different thing).
+if !empty(mapcheck("\<c-g>\<c-g>", 'i'))
+  echohl WarningMsg
+  echomsg '[MUcomplete] Warning: <c-g><c-g> is mapped. See :h mucomplete#ctrlx_mode_out'
+  echohl none
+endif
 
-let s:cnp = "\<c-x>" . get(g:, 'mucomplete#exit_ctrlx_keys', "\<c-b>\<bs>")
+let s:ctrlx_out = get(g:, 'mucomplete#ctrlx_mode_out', "\<c-g>\<c-g>")
 let s:compl_mappings = extend({
-      \ 'c-n' : s:cnp."\<c-n>", 'c-p' : s:cnp."\<c-p>",
+      \ 'c-n' : s:ctrlx_out."\<c-n>", 'c-p' : s:ctrlx_out."\<c-p>",
       \ 'cmd' : "\<c-x>\<c-v>", 'defs': "\<c-x>\<c-d>",
       \ 'dict': "\<c-x>\<c-k>", 'file': "\<c-x>\<c-f>",
       \ 'incl': "\<c-x>\<c-i>", 'keyn': "\<c-x>\<c-n>",
-      \ 'keyp': "\<c-x>\<c-p>", 'line': s:cnp."\<c-x>\<c-l>",
+      \ 'keyp': "\<c-x>\<c-p>", 'line': s:ctrlx_out."\<c-x>\<c-l>",
       \ 'omni': "\<c-x>\<c-o>", 'spel': "\<c-x>s"     ,
       \ 'tags': "\<c-x>\<c-]>", 'thes': "\<c-x>\<c-t>",
       \ 'user': "\<c-x>\<c-u>", 'ulti': "\<c-r>=mucomplete#ultisnips#complete()\<cr>",
       \ 'path': "\<c-r>=mucomplete#path#complete()\<cr>",
-      \ 'uspl': "\<c-o>:call mucomplete#spel#gather()\<cr>\<c-r>=mucomplete#spel#complete()\<cr>"
+      \ 'uspl': "\<c-r>=mucomplete#spel#complete()\<cr>"
       \ }, get(g:, 'mucomplete#user_mappings', {}), 'error')
-unlet s:cnp
-let s:select_entry = { 'c-p' : "\<c-p>\<down>", 'keyp': "\<c-p>\<down>" }
+let s:select_entry = { 'c-p' : "\<c-p>", 'keyp': "\<c-p>" }
 let s:pathsep = exists('+shellslash') && !&shellslash ? '\\' : '/'
 " Internal state
-let s:compl_methods = []
-let s:compl_text = ''
-let s:auto = 0
-let s:dir = 1
-let s:cycle = 0
-let s:i = 0
-let s:pumvisible = 0
+let s:compl_methods = [] " Current completion chain
+let s:N = 0              " Length of the current completion chain
+let s:i = 0              " Index of the current completion method in the completion chain
+let s:compl_text = ''    " Text to be completed
+let s:auto = 0           " Is autocompletion enabled?
+let s:dir = 1            " Direction to search for the next completion method (1=fwd, -1=bwd)
+let s:cycle = 0          " Should µcomplete treat the completion chain as cyclic?
+let s:i_history = []     " To detect loops when using <c-h>/<c-l>
+let s:pumvisible = 0     " Has the pop-up menu become visible?
 
 if exists('##TextChangedI') && exists('##CompleteDone')
   fun! s:act_on_textchanged()
@@ -94,7 +91,8 @@ let g:mucomplete#trigger_auto_pattern = extend({
 
 " Completion chains
 let g:mucomplete#chains = extend({
-      \ 'default' : ['file', 'omni', 'keyn', 'dict']
+      \ 'default' : ['file', 'omni', 'keyn', 'dict'],
+      \ 'vim' : ['file', 'cmd', 'keyn']
       \ }, get(g:, 'mucomplete#chains', {}))
 
 " Conditions to be verified for a given method to be applied.
@@ -121,11 +119,11 @@ endif
 
 fun! s:act_on_pumvisible()
   let s:pumvisible = 0
-  return s:auto || index(['spel','uspl'], get(s:compl_methods, s:i, '')) > - 1
+  return s:auto || (index(['spel','uspl'], get(s:compl_methods, s:i, '')) > - 1)
         \ ? ''
         \ : (stridx(&l:completeopt, 'noselect') == -1
         \     ? (stridx(&l:completeopt, 'noinsert') == - 1 ? '' : "\<up>\<c-n>")
-        \     : get(s:select_entry, s:compl_methods[s:i], "\<c-n>\<up>")
+        \     : get(s:select_entry, s:compl_methods[s:i], "\<c-n>")
         \   )
 endf
 
@@ -141,26 +139,45 @@ fun! mucomplete#yup()
   return ''
 endf
 
+fun! s:next_completion()
+  return s:compl_mappings[s:compl_methods[s:i]] . "\<c-r>\<c-r>=pumvisible()?mucomplete#yup():''\<cr>\<plug>(MUcompleteNxt)"
+endf
+
 " Precondition: pumvisible() is false.
 fun! s:next_method()
-  let s:i = (s:cycle ? (s:i + s:dir + s:N) % s:N : s:i + s:dir)
-  while (s:i+1) % (s:N+1) != 0  && !s:can_complete()
-    let s:i = (s:cycle ? (s:i + s:dir + s:N) % s:N : s:i + s:dir)
+  let s:i += s:dir
+  while (s:i+1) % (s:N+1) != 0 && !s:can_complete()
+    let s:i += s:dir
   endwhile
-  if (s:i+1) % (s:N+1) != 0
-    return s:compl_mappings[s:compl_methods[s:i]] . "\<c-r>\<c-r>=pumvisible()?mucomplete#yup():''\<cr>\<plug>(MUcompleteNxt)"
-  endif
-  return ''
+  return (s:i+1) % (s:N+1) != 0 ? s:next_completion() : ''
+endf
+
+" Precondition: pumvisible() is false.
+fun! s:next_method_cyclic()
+  while 1
+    let s:i = (s:i + s:dir + s:N) % s:N
+    if index(s:i_history, s:i) > -1
+      return ''
+    endif
+    call add(s:i_history, s:i)
+    if s:can_complete()
+      break
+    endif
+  endwhile
+  return s:next_completion()
 endf
 
 fun! mucomplete#verify_completion()
-  return s:pumvisible ? s:act_on_pumvisible() : s:next_method()
+  return s:pumvisible
+            \ ? s:act_on_pumvisible()
+            \ : (s:compl_methods[s:i] ==# 'cmd' ? s:ctrlx_out : '')
+            \ . (s:cycle ? s:next_method_cyclic() : s:next_method())
 endf
 
 " Precondition: pumvisible() is true.
 fun! mucomplete#cycle(dir)
-  let [s:dir, s:cycle] = [a:dir, 1]
-  return "\<c-e>" . s:next_method()
+  let [s:dir, s:cycle, s:i_history] = [a:dir, 1, []]
+  return "\<c-e>" . s:next_method_cyclic()
 endf
 
 " Precondition: pumvisible() is true.
@@ -172,7 +189,7 @@ endf
 
 " Precondition: pumvisible() is false.
 fun! mucomplete#complete(dir)
-  let s:compl_text = matchstr(strpart(getline('.'), 0, col('.') - 1), '\S\+$')
+  let s:compl_text = matchstr(getline('.'), '\S\+\%'.col('.').'c')
   if strlen(s:compl_text) == 0
     return (a:dir > 0 ? "\<plug>(MUcompleteTab)" : "\<plug>(MUcompleteCtd)")
   endif

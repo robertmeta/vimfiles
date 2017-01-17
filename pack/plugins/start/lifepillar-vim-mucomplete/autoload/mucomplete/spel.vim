@@ -5,19 +5,25 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-let s:suggestions = ''
-
-fun! mucomplete#spel#gather() abort
-  redir => s:suggestions
-  silent normal! z=
-  redir END
-endf
+if exists('*matchstrpos')
+  fun! s:getword()
+    return matchstrpos(getline('.'), '\S\+\%'.col('.').'c')
+  endf
+else
+  fun! s:getword()
+    return [matchstr(getline('.'), '\S\+\%'.col('.').'c'), match(getline('.'), '\S\+\%'.col('.').'c'), 0]
+  endf
+endif
 
 fun! mucomplete#spel#complete() abort
-  let l:col = 1 + match(strpart(getline('.'), 0, col('.') - 1), '\S\+$')
-  let l:suggestions = map(filter(split(s:suggestions, "\n"), 'v:val =~# "\\m^\\s*\\d"'), "matchstr(v:val, '\"\\zs.\\+\\ze\"')")
+  let [l:word, l:col, l:_] = s:getword()
+  let l:suggestions = spellsuggest(
+        \               get(g:, 'mucomplete#spel#good_words', 0)
+        \               ? l:word
+        \               : spellbadword(l:word)[0]
+        \               , get(g:, 'mucomplete#spel#max', 25))
   if !empty(l:suggestions)
-    call complete(l:col, l:suggestions)
+    call complete(1 + l:col, l:suggestions)
   endif
   return ''
 endf

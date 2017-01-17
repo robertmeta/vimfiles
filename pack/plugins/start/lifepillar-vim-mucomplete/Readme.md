@@ -29,18 +29,23 @@ It just makes use of core Vim features.
 # Getting Started
 
 MUcomplete requires Vim 7.2 compiled with `+insert_expand` and
-`+menu`. Automatic completion is available in Vim 7.4 or later.
-MUcomplete is developed and tested on Vim 8. It works in NeoVim as
-well.
+`+menu`. Automatic completion works in Vim 7.4.775 or later (Vim
+7.4.784 or later recommended). MUcomplete is developed and tested on
+Vim 8. NeoVim is supported, too.
 
 Installation does not require anything special. If you need help,
 please read [How to Install]
 (https://github.com/lifepillar/vim-mucomplete/wiki/How-to-Install).
 
-Recommended Vim settings:
+Mandatory Vim settings:
 
 ```vim
-  set completeopt+=menu,menuone
+  set completeopt+=menuone
+```
+
+Other recommended settings:
+
+```vim
   set shortmess+=c
   " For automatic completion, you most likely want one of:
   set completeopt+=noinsert " or
@@ -59,7 +64,7 @@ in your `.vimrc`.
 
 When the pop-up menu is visible, you may cycle back and forth through
 the completion methods in the current completion chain by pressing
-`<c-h>` and `<c-l>`, respectively.
+`<c-h>` and `<c-j>`, respectively.
 
 MUcomplete is fully customizable. See `:help mucomplete.txt` for
 detailed documentation.
@@ -82,7 +87,7 @@ which provides semantic completion for Python. Used settings:
 ```vim
 set noshowmode shortmess+=c
 set completeopt-=preview
-set completeopt+=longest,menu,menuone,noinsert,noselect
+set completeopt+=longest,menuone,noinsert,noselect
 let g:jedi#popup_on_dot = 0  " It may be 1 as well
 let g:mucomplete#enable_auto_at_startup = 1
 ```
@@ -93,11 +98,32 @@ selected in different contexts. Used settings:
 
 ```vim
 set showmode shortmess-=c
-set completeopt+=menu,menuone,noinsert,noselect
+set completeopt+=menuone,noinsert,noselect
 let g:mucomplete#user_mappings = { 'sqla' : "\<c-c>a" }
 let g:mucomplete#chains = { 'sql' : ['file', 'sqla', 'keyn'] }
 let g:mucomplete#enable_auto_at_startup = 1
 ```
+
+![µcomplete with clang-complete](https://raw.github.com/lifepillar/Resources/master/mucomplete/cpp.gif)
+
+The example above shows µcomplete used with
+[clang-complete](https://github.com/Rip-Rip/clang_complete). You may also see
+how it is possible to switch between different completion methods (omni
+completion and keyword completion in this case) when the pop-up menu is visible,
+using `<c-j>` and `<c-h>` (pay attention when `lo` is completed). Relevant
+settings:
+
+```vim
+set noshowmode shortmess+=c
+set noinfercase
+set completeopt-=preview
+set completeopt+=menuone,noinsert,noselect
+let g:clang_library_path = '/usr/local/opt/llvm/lib/libclang.dylib'
+let g:clang_user_options = '-std=c++14'
+let g:clang_complete_auto = 1
+let g:mucomplete#enable_auto_at_startup = 1
+```
+
 
 # Compatibility
 

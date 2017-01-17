@@ -21,6 +21,7 @@ func main() {
 		"tomasr/molokai",
 	}
 	plugins := []string{
+		"ctrlpvim/ctrlp.vim",
 		"fatih/vim-go",
 		"justinmk/vim-sneak",
 		"lifepillar/vim-mucomplete",

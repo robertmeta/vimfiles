@@ -19,16 +19,16 @@ imap <expr> <silent> <plug>(MUcompleteBwd) mucomplete#tab_complete(-1)
 inoremap    <silent> <plug>(MUcompleteTab) <tab>
 inoremap    <silent> <plug>(MUcompleteCtd) <c-d>
 
-if !get(g:, 'mucomplete#no_mappings', 0)
+if !get(g:, 'mucomplete#no_mappings', get(g:, 'no_plugin_maps', 0))
   if !hasmapto('<plug>(MUcompleteFwd)', 'i')
-    imap <tab>   <plug>(MUcompleteFwd)
+    imap <tab> <plug>(MUcompleteFwd)
   endif
   if !hasmapto('<plug>(MUcompleteBwd)', 'i')
     imap <s-tab> <plug>(MUcompleteBwd)
   endif
   if !hasmapto('<plug>(MUcompleteCycFwd)', 'i')
-    inoremap <silent> <plug>(MUcompleteFwdKey) <c-l>
-    imap <c-l> <plug>(MUcompleteCycFwd)
+    inoremap <silent> <plug>(MUcompleteFwdKey) <c-j>
+    imap <c-j> <plug>(MUcompleteCycFwd)
   endif
   if !hasmapto('<plug>(MUcompleteCycBwd)', 'i')
     inoremap <silent> <plug>(MUcompleteBwdKey) <c-h>
@@ -38,15 +38,15 @@ endif
 
 if exists('##TextChangedI') && exists('##CompleteDone')
   if !exists(":MUcompleteAutoOn")
-    command -nargs=0 MUcompleteAutoOn :call mucomplete#enable_auto()
+    command -bar -nargs=0 MUcompleteAutoOn :call mucomplete#enable_auto()
   endif
 
   if !exists(":MUcompleteAutoOff")
-    command -nargs=0 MUcompleteAutoOff :call mucomplete#disable_auto()
+    command -bar -nargs=0 MUcompleteAutoOff :call mucomplete#disable_auto()
   endif
 
   if !exists(":MUcompleteAutoToggle")
-    command -nargs=0 MUcompleteAutoToggle :call mucomplete#toggle_auto()
+    command -bar -nargs=0 MUcompleteAutoToggle :call mucomplete#toggle_auto()
   endif
 
   if get(g:, 'mucomplete#enable_auto_at_startup', 0)

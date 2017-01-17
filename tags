@@ -269,15 +269,14 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>.	vimrc	/^vnoremap <leader>. :norm! .<cr>$/;"	m
 <leader>@	vimrc	/^vnoremap <leader>@ :norm! @<cr>$/;"	m
 <leader>A	vimrc	/^nnoremap <leader>A :argadd **\/*$/;"	m
-<leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>F	vimrc	/^nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :vimgrep<space>$/;"	m
 <leader>M	vimrc	/^nnoremap <leader>M :make<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :call StripTrailingWhitespace()<cr>$/;"	m
-<leader>T	vimrc	/^nnoremap <leader>T :TTags<cr>$/;"	m
+<leader>T	vimrc	/^nnoremap <leader>T :CtrlPBufTag<cr>$/;"	m
 <leader>W	vimrc	/^nnoremap <leader>W <C-w>W$/;"	m
 <leader>a	vimrc	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
-<leader>b	vimrc	/^nnoremap <leader>b :b <C-d>$/;"	m
+<leader>b	vimrc	/^nnoremap <leader>b :CtrlPBuffer<cr>$/;"	m
 <leader>c	vimrc	/^nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>c	vimrc	/^nnoremap <silent> <leader>c <esc>:close<cr>$/;"	m
 <leader>d	vimrc	/^nnoremap <leader>d :Dlist<space>$/;"	m
@@ -288,10 +287,10 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>j	vimrc	/^nnoremap <leader>j :tjump \/$/;"	m
 <leader>l	vimrc	/^nnoremap <leader>l :lgrep<space>$/;"	m
 <leader>o	vimrc	/^nnoremap <leader>o <C-w>o$/;"	m
-<leader>p	vimrc	/^nnoremap <leader>p :ptjump \/$/;"	m
+<leader>p	vimrc	/^nnoremap <leader>p :CtrlPMixed<cr>$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
 <leader>s	vimrc	/^nnoremap <leader>s :Search $/;"	m
-<leader>t	vimrc	/^nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>$/;"	m
+<leader>t	vimrc	/^nnoremap <leader>t :CtrlPTag<cr>$/;"	m
 <leader>w	vimrc	/^nnoremap <leader>w <C-w>w$/;"	m
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
 <left>	vimrc	/^nmap <silent> <left> <esc>:lprev<cr>$/;"	m
@@ -1026,6 +1025,9 @@ NextNonBlankLine	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cryptol/foldin
 NextSection	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^function! s:NextSection(backwards)$/;"	f
 NoTags	pack/plugins/start/tomtom-ttags-vim/autoload/ttags.vim	/^function! s:NoTags() "{{{3$/;"	f
 NofrilsAcme	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^command! NofrilsAcme :colo nofrils-acme$/;"	c
+NofrilsAcme	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^command! NofrilsAcme :colo nofrils-acme$/;"	c
+NofrilsAcme	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^command! NofrilsAcme :colo nofrils-acme$/;"	c
+NofrilsAcme	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^command! NofrilsAcme :colo nofrils-acme$/;"	c
 NofrilsDark	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^command! NofrilsDark :colo nofrils-dark$/;"	c
 NofrilsDark	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^command! NofrilsDark :colo nofrils-dark$/;"	c
 NofrilsDark	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^command! NofrilsDark :colo nofrils-dark$/;"	c
@@ -2346,8 +2348,23 @@ g:colors_name	pack/colors/start/tomasr-molokai/colors/molokai.vim	/^let g:colors
 g:crystal_auto_format	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^let g:crystal_auto_format = get(g:, 'crystal_auto_format', 0)$/;"	v
 g:crystal_compiler_command	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^let g:crystal_compiler_command = get(g:, 'crystal_compiler_command', 'crystal')$/;"	v
 g:crystal_indent_access_modifier_style	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^  let g:crystal_indent_access_modifier_style = 'normal'$/;"	v
+g:ctrlp_buftag_ctags_bin	vimrc	/^let g:ctrlp_buftag_ctags_bin='ctags'$/;"	v
+g:ctrlp_cache_dir	vimrc	/^    let g:ctrlp_cache_dir=$HOME.'\/.vim\/ctrlp_cache'$/;"	v
+g:ctrlp_cache_dir	vimrc	/^    let g:ctrlp_cache_dir=$HOME.'\/vimfiles\/ctrlp_cache'$/;"	v
 g:ctrlp_ext_vars	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^  let g:ctrlp_ext_vars = [s:go_decls_var]$/;"	v
 g:ctrlp_ext_vars	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^  let g:ctrlp_ext_vars = add(g:ctrlp_ext_vars, s:go_decls_var)$/;"	v
+g:ctrlp_follow_symlinks	vimrc	/^let g:ctrlp_follow_symlinks=1$/;"	v
+g:ctrlp_match_window_bottom	vimrc	/^let g:ctrlp_match_window_bottom=1$/;"	v
+g:ctrlp_match_window_reversed	vimrc	/^let g:ctrlp_match_window_reversed=1$/;"	v
+g:ctrlp_max_depth	vimrc	/^let g:ctrlp_max_depth=1000$/;"	v
+g:ctrlp_max_files	vimrc	/^let g:ctrlp_max_files=100000$/;"	v
+g:ctrlp_max_height	vimrc	/^let g:ctrlp_max_height=30$/;"	v
+g:ctrlp_open_multiple_files	vimrc	/^let g:ctrlp_open_multiple_files='ij'$/;"	v
+g:ctrlp_show_hidden	vimrc	/^let g:ctrlp_show_hidden=1$/;"	v
+g:ctrlp_use_caching	vimrc	/^let g:ctrlp_use_caching=1$/;"	v
+g:ctrlp_user_command	vimrc	/^    let g:ctrlp_user_command='dir %s \/-n \/b \/s \/a-d | findstr \/v \\.git | findstr \/v \\.hg' " Windows$/;"	v
+g:ctrlp_user_command	vimrc	/^    let g:ctrlp_user_command='find %s -type f \\( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \\)'$/;"	v
+g:ctrlp_working_path_mode	vimrc	/^let g:ctrlp_working_path_mode='ra'$/;"	v
 g:cucumber_languages	pack/plugins/start/sheerun-vim-polyglot/syntax/cucumber.vim	/^let g:cucumber_languages = {$/;"	v
 g:curdir	pack/plugins/start/fatih-vim-go/t/coverlay.vim	/^	let g:curdir = expand('<sfile>:p:h') . '\/'$/;"	v
 g:did_ocaml_switch	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  let g:did_ocaml_switch = 1$/;"	v
