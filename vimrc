@@ -90,16 +90,11 @@ nnoremap <leader>t :CtrlPTag<cr>
 nnoremap <leader>T :CtrlPBufTag<cr>
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>A :argadd **/*
-<<<<<<< HEAD
 "nnoremap <leader>b :b <C-d>
 "nnoremap <leader>B :ls<cr>:b<space>
 nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>d :Dlist<space>
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-=======
-nnoremap <leader>b :b <C-d>
-nnoremap <leader>B :ls<cr>:b<space>
->>>>>>> 82db0e15027cd3cb32a01f1a85727205217aed21
 nnoremap <leader>f :find *
 nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
@@ -108,10 +103,7 @@ nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :QuickhlCwordToggle<cr>
 "nnoremap <leader>m saved for tmuxify
 nnoremap <leader>M :make<cr>
-<<<<<<< HEAD
 "nnoremap <leader>p :ptjump /
-=======
->>>>>>> 82db0e15027cd3cb32a01f1a85727205217aed21
 nnoremap <leader>q :b#<cr>
 "nnoremap <leader>t :tag<space>
 "nnoremap <leader>T :tag<space><C-d>

@@ -288,7 +288,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>@	vimrc	/^vnoremap <leader>@ :norm! @<cr>$/;"	m
 <leader>A	vimrc	/^nnoremap <leader>A :argadd **\/*$/;"	m
 <leader>B	vimrc	/^    nnoremap <leader>B :Buffers<cr>$/;"	m
-<leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>C	vimrc	/^    nnoremap <leader>C :BCommits<cr>$/;"	m
 <leader>E	vimrc	/^    nnoremap <leader>E :terminal<space>$/;"	m
 <leader>F	vimrc	/^    nnoremap <leader>F :GFiles<cr>$/;"	m
@@ -302,7 +301,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>W	vimrc	/^nnoremap <leader>W <C-w>W$/;"	m
 <leader>a	vimrc	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>b	vimrc	/^nnoremap <leader>b :CtrlPBuffer<cr>$/;"	m
-<leader>b	vimrc	/^nnoremap <leader>b :b <C-d>$/;"	m
 <leader>c	vimrc	/^    nnoremap <leader>c :Commits<cr>$/;"	m
 <leader>c	vimrc	/^nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>c	vimrc	/^nnoremap <silent> <leader>c <esc>:close<cr>$/;"	m
