@@ -286,11 +286,14 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <plug>(MUcompleteAuto)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteAuto) mucomplete#complete(1)$/;"	m
 <plug>(MUcompleteBwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteBwd) mucomplete#tab_complete(-1)$/;"	m
 <plug>(MUcompleteBwdKey)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    inoremap <silent> <plug>(MUcompleteBwdKey) <c-h>$/;"	m
+<plug>(MUcompleteCtd)	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^inoremap <silent> <plug>(MUcompleteCtd) <c-d>$/;"	m
 <plug>(MUcompleteCycBwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteCycBwd) pumvisible()?mucomplete#cycle(-1):"\\<plug>(MUcompleteBwdKey)"$/;"	m
 <plug>(MUcompleteCycFwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteCycFwd) pumvisible()?mucomplete#cycle( 1):"\\<plug>(MUcompleteFwdKey)"$/;"	m
 <plug>(MUcompleteFwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteFwd) mucomplete#tab_complete( 1)$/;"	m
 <plug>(MUcompleteFwdKey)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    inoremap <silent> <plug>(MUcompleteFwdKey) <c-j>$/;"	m
 <plug>(MUcompleteNxt)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteNxt) mucomplete#verify_completion()$/;"	m
+<plug>(MUcompleteOut)	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^inoremap <silent> <plug>(MUcompleteOut) <c-g><c-g>$/;"	m
+<plug>(MUcompleteTab)	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^inoremap <silent> <plug>(MUcompleteTab) <tab>$/;"	m
 <right>	vimrc	/^nmap <silent> <right> <esc>:lnext<cr>$/;"	m
 <s-tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <s-tab> <plug>(MUcompleteBwd)$/;"	m
 <tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <tab> <plug>(MUcompleteFwd)$/;"	m
@@ -2196,6 +2199,7 @@ bufnrfilpath	pack/plugins/start/ctrlpvim-ctrlp-vim/autoload/ctrlp.vim	/^fu! s:bu
 bufparts	pack/plugins/start/ctrlpvim-ctrlp-vim/autoload/ctrlp.vim	/^fu! s:bufparts(bufnr)$/;"	f
 buftab	pack/plugins/start/ctrlpvim-ctrlp-vim/autoload/ctrlp.vim	/^fu! s:buftab(bufnr, md)$/;"	f
 bufwins	pack/plugins/start/ctrlpvim-ctrlp-vim/autoload/ctrlp.vim	/^fu! s:bufwins(bufnr)$/;"	f
+build_command	pack/plugins/start/wellle-tmux-complete-vim/autoload/tmuxcomplete.vim	/^function! s:build_command(base, capture_args, splitmode)$/;"	f
 build_line	pack/plugins/start/sheerun-vim-polyglot/indent/elixir.vim	/^function! s:build_line(line)$/;"	f
 build_path	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^function! s:build_path(path) abort$/;"	f
 buildpat	pack/plugins/start/ctrlpvim-ctrlp-vim/autoload/ctrlp.vim	/^fu! s:buildpat(lst)$/;"	f
@@ -4114,7 +4118,7 @@ s:cposet	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^let s:cpos
 s:crystal_deindent_keywords	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:crystal_deindent_keywords =$/;"	v
 s:crystal_indent_keywords	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:crystal_indent_keywords =$/;"	v
 s:cssindent	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:cssindent = &indentexpr$/;"	v
-s:ctrlx_out	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:ctrlx_out = "\\<c-r>=\\"\\<c-g>\\<c-g>\\"\\<cr>"$/;"	v
+s:ctrlx_out	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:ctrlx_out = "\\<plug>(MUcompleteOut)"$/;"	v
 s:current_file	pack/plugins/start/fatih-vim-go/autoload/go/template.vim	/^let s:current_file = expand("<sfile>")$/;"	v
 s:current_fileencodings	pack/plugins/start/fatih-vim-go/ftdetect/gofiletype.vim	/^let s:current_fileencodings = ''$/;"	v
 s:current_fileencodings	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^let s:current_fileencodings = ''$/;"	v
@@ -4727,6 +4731,7 @@ tmuxcomplete#completions	pack/plugins/start/wellle-tmux-complete-vim/autoload/tm
 tmuxcomplete#findstartWORD	pack/plugins/start/wellle-tmux-complete-vim/autoload/tmuxcomplete.vim	/^function! tmuxcomplete#findstartWORD(line, max)$/;"	f
 tmuxcomplete#findstartword	pack/plugins/start/wellle-tmux-complete-vim/autoload/tmuxcomplete.vim	/^function! tmuxcomplete#findstartword(line, max)$/;"	f
 tmuxcomplete#gather_candidates	pack/plugins/start/wellle-tmux-complete-vim/autoload/tmuxcomplete.vim	/^function! tmuxcomplete#gather_candidates()$/;"	f
+tmuxcomplete#getcommand	pack/plugins/start/wellle-tmux-complete-vim/autoload/tmuxcomplete.vim	/^function! tmuxcomplete#getcommand(base, splitmode)$/;"	f
 tmuxcomplete#grepargs	pack/plugins/start/wellle-tmux-complete-vim/autoload/tmuxcomplete.vim	/^function! tmuxcomplete#grepargs(base)$/;"	f
 tmuxcomplete#init	pack/plugins/start/wellle-tmux-complete-vim/autoload/tmuxcomplete.vim	/^function! tmuxcomplete#init()$/;"	f
 tmuxcomplete#list	pack/plugins/start/wellle-tmux-complete-vim/autoload/tmuxcomplete.vim	/^function! tmuxcomplete#list(splitmode, scrollback)$/;"	f
