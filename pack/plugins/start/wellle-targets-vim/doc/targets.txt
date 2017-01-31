@@ -44,7 +44,7 @@ leave a proper comma separated list behind.
 ==============================================================================
 OVERVIEW                                                    *targets-overview*
 
-We distinguish between three kinds of text objects that behave slightly
+We distinguish between four kinds of text objects that behave slightly
 differently:
 
     Pair text objects           |targets-pair-text-objects|
@@ -698,6 +698,9 @@ cursor line, but the next or last target are, then prefer those. Targets
 beginning or ending on the cursor are preferred over everything else.
 
 Some other useful example settings (or build your own!):
+
+Prefer multiline targets around cursor over distant targets within cursor line:
+    let g:targets_seekRanges = 'cr cb cB lc ac Ac lr lb ar ab lB Ar aB Ab AB rr ll rb al rB Al bb aa bB Aa BB AA' ~
 
 Never seek backwards:
     let g:targets_seekRanges = 'cr cb cB lc ac Ac lr rr lb ar ab lB Ar aB Ab AB rb rB bb bB BB' ~

@@ -286,13 +286,11 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <plug>(MUcompleteAuto)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteAuto) mucomplete#complete(1)$/;"	m
 <plug>(MUcompleteBwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteBwd) mucomplete#tab_complete(-1)$/;"	m
 <plug>(MUcompleteBwdKey)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    inoremap <silent> <plug>(MUcompleteBwdKey) <c-h>$/;"	m
-<plug>(MUcompleteCtd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^inoremap    <silent> <plug>(MUcompleteCtd) <c-d>$/;"	m
 <plug>(MUcompleteCycBwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteCycBwd) pumvisible()?mucomplete#cycle(-1):"\\<plug>(MUcompleteBwdKey)"$/;"	m
 <plug>(MUcompleteCycFwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteCycFwd) pumvisible()?mucomplete#cycle( 1):"\\<plug>(MUcompleteFwdKey)"$/;"	m
 <plug>(MUcompleteFwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteFwd) mucomplete#tab_complete( 1)$/;"	m
 <plug>(MUcompleteFwdKey)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    inoremap <silent> <plug>(MUcompleteFwdKey) <c-j>$/;"	m
 <plug>(MUcompleteNxt)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteNxt) mucomplete#verify_completion()$/;"	m
-<plug>(MUcompleteTab)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^inoremap    <silent> <plug>(MUcompleteTab) <tab>$/;"	m
 <right>	vimrc	/^nmap <silent> <right> <esc>:lnext<cr>$/;"	m
 <s-tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <s-tab> <plug>(MUcompleteBwd)$/;"	m
 <tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <tab> <plug>(MUcompleteFwd)$/;"	m
@@ -4116,7 +4114,7 @@ s:cposet	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^let s:cpos
 s:crystal_deindent_keywords	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:crystal_deindent_keywords =$/;"	v
 s:crystal_indent_keywords	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:crystal_indent_keywords =$/;"	v
 s:cssindent	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:cssindent = &indentexpr$/;"	v
-s:ctrlx_out	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:ctrlx_out = get(g:, 'mucomplete#ctrlx_mode_out', "\\<c-g>\\<c-g>")$/;"	v
+s:ctrlx_out	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:ctrlx_out = "\\<c-r>=\\"\\<c-g>\\<c-g>\\"\\<cr>"$/;"	v
 s:current_file	pack/plugins/start/fatih-vim-go/autoload/go/template.vim	/^let s:current_file = expand("<sfile>")$/;"	v
 s:current_fileencodings	pack/plugins/start/fatih-vim-go/ftdetect/gofiletype.vim	/^let s:current_fileencodings = ''$/;"	v
 s:current_fileencodings	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^let s:current_fileencodings = ''$/;"	v
@@ -4207,7 +4205,7 @@ s:i	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s
 s:i	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  let s:i = g:omlet_indent_struct$/;"	v
 s:i	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  let s:i = matchstr(s:m,'\\d\\+')$/;"	v
 s:i	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  let s:i = s:idef$/;"	v
-s:i_history	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:i_history = []     " To detect loops when using <c-h>\/<c-l>$/;"	v
+s:i_history	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:i_history = []     " To detect loops when using <c-h>\/<c-j>$/;"	v
 s:id	pack/plugins/start/ctrlpvim-ctrlp-vim/autoload/ctrlp/bookmarkdir.vim	/^let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)$/;"	v
 s:id	pack/plugins/start/ctrlpvim-ctrlp-vim/autoload/ctrlp/buffertag.vim	/^let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)$/;"	v
 s:id	pack/plugins/start/ctrlpvim-ctrlp-vim/autoload/ctrlp/changes.vim	/^let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)$/;"	v
