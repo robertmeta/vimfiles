@@ -49,23 +49,6 @@ inoremap <silent> ;t <C-x><C-]>
 inoremap <silent> ;u <C-x><C-u>
 inoremap <F5> <C-R>=strftime("%c")<CR>
 
-" Extra window movement
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-
-" Terminal stuff
-if has('nvim')
-    tnoremap <A-h> <C-\><C-n><C-w>h
-    tnoremap <A-j> <C-\><C-n><C-w>j
-    tnoremap <A-k> <C-\><C-n><C-w>k
-    tnoremap <A-l> <C-\><C-n><C-w>l
-    tnoremap <Esc> <C-\><C-n>
-    nnoremap <leader>e :terminal<cr>
-    nnoremap <leader>E :terminal<space>
-endif
-
 " Abbreviations
 iab <expr> dts strftime("%c")
 iab rrm Robert R. Melton
@@ -82,24 +65,22 @@ nmap <silent> <right> <esc>:lnext<cr>
 nmap <silent> <up> <esc>:cprev<cr>
 nmap <silent> <down>  <esc>:cnext<cr>
 " Random Mappings
-"nmap - :Dirvish<cr>
+nmap - :NERDTreeToggle<CR>
+" CtrlP Mappings
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>p :CtrlPMixed<cr>
+nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <leader>T :CtrlPBufTag<cr>
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>A :argadd **/*
-nnoremap <leader>b :b <C-d>
-nnoremap <leader>B :ls<cr>:b<space>
-nnoremap <leader>f :find *
-nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
+nnoremap <leader>r :TxRun<cr>
+nnoremap <leader>R :TxSetRunCmd<cr>
 nnoremap <leader>j :QuickhlCwordToggle<cr>
-"nnoremap <leader>m saved for tmuxify
 nnoremap <leader>M :make<cr>
 nnoremap <leader>q :b#<cr>
-"nnoremap <leader>t :tag<space>
-"nnoremap <leader>T :tag<space><C-d>
-nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
-nnoremap <leader>T :TTags<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap <F5> "=strftime("%c")<CR>P
 nnoremap Y y$
@@ -369,7 +350,7 @@ endif
 
 " GUI
 if has("gui_running")
-    set guifont=Go\ Mono:h10:cANSI " My favorite font
+    set guifont=Consolas:h10:cANSI:qDRAFT " Favorite font for rare times in GUI
     set guioptions=ce
     "              ||
     "              |+-- use GUI tabs, not console style tabs
@@ -437,8 +418,31 @@ let g:go_highlight_build_constraints=1
 let g:go_highlight_generate_tags=1
 let g:go_highlight_string_spellcheck=0
 
+" CtrlP
+let g:ctrlp_buftag_ctags_bin='ctags'
+"let g:ctrlp_buftag_types={'go': '--language-force=go --golang-types=ftv', 'javascript': '--langauge-force=js'}
+let g:ctrlp_follow_symlinks=1
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_match_window_reversed=1
+let g:ctrlp_max_depth=1000
+let g:ctrlp_max_files=100000
+let g:ctrlp_max_height=30
+let g:ctrlp_open_multiple_files='ij'
+let g:ctrlp_show_hidden=1
+let g:ctrlp_use_caching=1
+let g:ctrlp_working_path_mode='ra'
+if s:running_windows
+    let g:ctrlp_cache_dir=$HOME.'/vimfiles/ctrlp_cache'
+    let g:ctrlp_user_command='dir %s /-n /b /s /a-d | findstr /v \.git | findstr /v \.hg' " Windows
+else " MacOSX/Linux
+    let g:ctrlp_cache_dir=$HOME.'/.vim/ctrlp_cache'
+    let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'
+endif
+
 " Tmuxify
 let g:tmuxify_custom_command='tmux split-window -d -l 10'
+let g:tmuxify_map_prefix = ''
+let g:tmuxify_global_maps = 1
 
 " Netrw
 let g:netrw_altfile=1
@@ -449,28 +453,17 @@ let g:sneak#label=1
 " Mucomplete
 let g:mucomplete#enable_auto_at_startup=0
 
+" NERDTree
+let NERDTreeHijackNetrw = 1 " I use vim-vinegar most of the time, don't mess with -
+let NERDChristmasTree = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 0
+
 " Nofrils
 let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
 colo nofrils-acme
-
-" FZF
-" selectly override some defaults
-if executable("fzf")
-    nnoremap <leader>B :Buffers<cr>
-    nnoremap <leader>c :Commits<cr>
-    nnoremap <leader>C :BCommits<cr>
-    nnoremap <leader>f :Files<cr>
-    nnoremap <leader>F :GFiles<cr>
-    if executable("ag")
-        nnoremap <leader>g :Ag<space>
-    endif
-    nnoremap <leader>h :History/<cr>
-    nnoremap <leader>H :History:<cr>
-    nnoremap <leader>t :Tags<cr>
-    nnoremap <leader>T :BTags<cr>
-endif
 
 " Functions
 function! ToggleFolds()
