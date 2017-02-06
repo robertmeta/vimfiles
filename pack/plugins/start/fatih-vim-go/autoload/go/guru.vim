@@ -35,8 +35,7 @@ function! s:guru_cmd(args) range abort
 
   let filename = fnamemodify(expand("%"), ':p:gs?\\?/?')
   if &modified
-    let sep = go#util#LineEnding()
-    let content  = join(getline(1, '$'), sep )
+    let content  = join(go#util#GetLines(), "\n")
     let result.stdin_content = filename . "\n" . strlen(content) . "\n" . content
     call add(cmd, "-modified")
   endif
@@ -634,7 +633,7 @@ function! go#guru#Tags(...) abort
   if !exists('g:go_guru_tags')
     call go#util#EchoSuccess("guru tags is not set")
   else
-    call go#util#EchoSuccess("current guru tags: ". a:1)
+    call go#util#EchoSuccess("current guru tags: ". g:go_guru_tags)
   endif
 endfunction
 

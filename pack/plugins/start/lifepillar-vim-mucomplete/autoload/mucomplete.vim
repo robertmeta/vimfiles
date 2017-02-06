@@ -5,13 +5,11 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-if !empty(mapcheck("\<c-g>\<c-g>", 'i'))
-  echohl WarningMsg
-  echomsg '[MUcomplete] Warning: <c-g><c-g> is mapped. See :h mucomplete#ctrlx_mode_out'
-  echohl none
-endif
+inoremap <silent> <plug>(MUcompleteOut) <c-g><c-g>
+inoremap <silent> <plug>(MUcompleteTab) <tab>
+inoremap <silent> <plug>(MUcompleteCtd) <c-d>
 
-let s:ctrlx_out = get(g:, 'mucomplete#ctrlx_mode_out', "\<c-g>\<c-g>")
+let s:ctrlx_out = "\<plug>(MUcompleteOut)"
 let s:compl_mappings = extend({
       \ 'c-n' : s:ctrlx_out."\<c-n>", 'c-p' : s:ctrlx_out."\<c-p>",
       \ 'cmd' : "\<c-x>\<c-v>", 'defs': "\<c-x>\<c-d>",
@@ -34,7 +32,7 @@ let s:compl_text = ''    " Text to be completed
 let s:auto = 0           " Is autocompletion enabled?
 let s:dir = 1            " Direction to search for the next completion method (1=fwd, -1=bwd)
 let s:cycle = 0          " Should µcomplete treat the completion chain as cyclic?
-let s:i_history = []     " To detect loops when using <c-h>/<c-l>
+let s:i_history = []     " To detect loops when using <c-h>/<c-j>
 let s:pumvisible = 0     " Has the pop-up menu become visible?
 
 if exists('##TextChangedI') && exists('##CompleteDone')

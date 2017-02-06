@@ -72,16 +72,6 @@ But it's recommended that you use a plugin manager like
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 ```
 
-### Upgrading fzf
-
-fzf is being actively developed and you might want to upgrade it once in a
-while. Please follow the instruction below depending on the installation
-method used.
-
-- git: `cd ~/.fzf && git pull && ./install`
-- brew: `brew update; brew reinstall fzf`
-- vim-plug: `:PlugUpdate fzf`
-
 ### Windows
 
 Pre-built binaries for Windows can be downloaded [here][bin]. However, other
@@ -90,6 +80,17 @@ installing fzf on [Windows Subsystem for Linux][wsl] where everything runs
 flawlessly.
 
 [wsl]: https://blogs.msdn.microsoft.com/wsl/
+
+Upgrading fzf
+-------------
+
+fzf is being actively developed and you might want to upgrade it once in a
+while. Please follow the instruction below depending on the installation
+method used.
+
+- git: `cd ~/.fzf && git pull && ./install`
+- brew: `brew update; brew reinstall fzf`
+- vim-plug: `:PlugUpdate fzf`
 
 Building fzf
 ------------
@@ -122,6 +123,29 @@ vim $(fzf)
 - Emacs style key bindings
 - Mouse: scroll, click, double-click; shift-click and shift-scroll on
   multi-select mode
+
+#### Layout
+
+fzf by default starts in fullscreen mode, but you can make it start below the
+cursor with `--height` option.
+
+```sh
+vim $(fzf --height 40%)
+```
+
+Also check out `--reverse` option if you prefer "top-down" layout instead of
+the default "bottom-up" layout.
+
+```sh
+vim $(fzf --height 40% --reverse)
+```
+
+You can add these options to `$FZF_DEFAULT_OPTS` so that they're applied by
+default. For example,
+
+```sh
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+```
 
 #### Search syntax
 
@@ -189,6 +213,13 @@ cat /usr/share/dict/words | fzf-tmux -l 20% --multi --reverse
 It will still work even when you're not on tmux, silently ignoring `-[udlr]`
 options, so you can invariably use `fzf-tmux` in your scripts.
 
+Alternatively, you can use `--height HEIGHT[%]` option not to start fzf in
+fullscreen mode.
+
+```sh
+fzf --height 40%
+```
+
 Key bindings for command line
 -----------------------------
 
@@ -206,9 +237,9 @@ fish.
     - Set `FZF_ALT_C_COMMAND` to override the default command
     - Set `FZF_ALT_C_OPTS` to pass additional options
 
-If you're on a tmux session, fzf will start in a split pane. You may disable
-this tmux integration by setting `FZF_TMUX` to 0, or change the height of the
-pane with `FZF_TMUX_HEIGHT` (e.g. `20`, `50%`).
+If you're on a tmux session, you can start fzf in a split pane by setting
+`FZF_TMUX` to 1, and change the height of the pane with `FZF_TMUX_HEIGHT`
+(e.g. `20`, `50%`).
 
 If you use vi mode on bash, you need to add `set -o vi` *before* `source
 ~/.fzf.bash` in your .bashrc, so that it correctly sets up key bindings for vi
@@ -327,7 +358,7 @@ If you have set up fzf for Vim, `:FZF` command will be added.
 " With options
 :FZF --no-sort --reverse --inline-info /tmp
 
-" Bang version starts in fullscreen instead of using tmux pane or Neovim split
+" Bang version starts fzf in fullscreen mode
 :FZF!
 ```
 
@@ -377,20 +408,6 @@ command! -bang MyStuff
 
 Tips
 ----
-
-#### Rendering issues
-
-If you have any rendering issues, check the following:
-
-1. Make sure `$TERM` is correctly set. fzf will use 256-color only if it
-   contains `256` (e.g. `xterm-256color`)
-2. If you're on screen or tmux, `$TERM` should be either `screen` or
-   `screen-256color`
-3. Some terminal emulators (e.g. mintty) have problem displaying default
-   background color and make some text unable to read. In that case, try
-   `--black` option. And if it solves your problem, I recommend including it
-   in `FZF_DEFAULT_OPTS` for further convenience.
-4. If you still have problem, try `--no-256` option or even `--no-color`.
 
 #### Respecting `.gitignore`, `.hgignore`, and `svn:ignore`
 
@@ -466,12 +483,9 @@ valid directory. Example:
 set -l FZF_CTRL_T_COMMAND "command find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
 ```
 
-License
--------
+[License](LICENSE)
+------------------
 
-[MIT](LICENSE)
+The MIT License (MIT)
 
-Author
-------
-
-Junegunn Choi
+Copyright (c) 2017 Junegunn Choi

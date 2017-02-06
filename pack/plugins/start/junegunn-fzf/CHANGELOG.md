@@ -1,6 +1,55 @@
 CHANGELOG
 =========
 
+0.16.4
+------
+- Added `--border` option to draw border above and below the finder
+- Bug fixes and improvements
+
+0.16.3
+------
+- Fixed a bug where fzf incorrectly display the lines when straddling tab
+  characters are trimmed
+- Placeholder expression used in `--preview` and `execute` action can
+  optionally take `+` flag to be used with multiple selections
+    - e.g. `git log --oneline | fzf --multi --preview 'git show {+1}'`
+- Added `execute-silent` action for executing a command silently without
+  switching to the alternate screen. This is useful when the process is
+  short-lived and you're not interested in its output.
+    - e.g. `fzf --bind 'ctrl-y:execute!(echo -n {} | pbcopy)'`
+- `ctrl-space` is allowed in `--bind`
+
+0.16.2
+------
+- Dropped ncurses dependency
+- Binaries for freebsd, openbsd, arm5, arm6, arm7, and arm8
+- Official 24-bit color support
+- Added support for composite actions in `--bind`. Multiple actions can be
+  chained using `+` separator.
+    - e.g. `fzf --bind 'ctrl-y:execute(echo -n {} | pbcopy)+abort'`
+- `--preview-window` with size 0 is allowed. This is used to make fzf execute
+  preview command in the background without displaying the result.
+- Minor bug fixes and improvements
+
+0.16.1
+------
+- Fixed `--height` option to properly fill the window with the background
+  color
+- Added `half-page-up` and `half-page-down` actions
+- Added `-L` flag to the default find command
+
+0.16.0
+------
+- *Added `--height HEIGHT[%]` option*
+    - fzf can now display finder without occupying the full screen
+- Preview window will truncate long lines by default. Line wrap can be enabled
+  by `:wrap` flag in `--preview-window`.
+- Latin script letters will be normalized before matching so that it's easier
+  to match against accented letters. e.g. `sodanco` can match `Só Danço Samba`.
+    - Normalization can be disabled via `--literal`
+- Added `--filepath-word` to make word-wise movements/actions (`alt-b`,
+  `alt-f`, `alt-bs`, `alt-d`) respect path separators
+
 0.15.9
 ------
 - Fixed rendering glitches introduced in 0.15.8

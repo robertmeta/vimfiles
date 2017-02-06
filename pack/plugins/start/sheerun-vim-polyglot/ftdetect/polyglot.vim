@@ -8,6 +8,8 @@ endif
 if !exists('g:vim_json_syntax_conceal')
   let g:vim_json_syntax_conceal = 0
 endif
+
+let g:filetype_euphoria = 'elixir'
 " ftdetect/ansible.vim
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'ansible') == -1
   
@@ -324,7 +326,6 @@ endif
 " ftdetect/haml.vim
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'haml') == -1
   
-autocmd BufNewFile,BufRead *.haml,*.hamlbars,*.hamlc setf haml
 autocmd BufNewFile,BufRead *.sass setf sass
 autocmd BufNewFile,BufRead *.scss setf scss
 
@@ -334,6 +335,8 @@ endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'haskell') == -1
   
 au BufRead,BufNewFile *.hsc set filetype=haskell
+au BufRead,BufNewFile *.bpk set filetype=haskell
+au BufRead,BufNewFile *.hsig set filetype=haskell
 
 endif
 
@@ -341,6 +344,16 @@ endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'haxe') == -1
   
 autocmd BufNewFile,BufRead *.hx setf haxe
+
+endif
+
+" ftdetect/i3.vim
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'i3') == -1
+  
+augroup i3_ftdetect
+  au!
+  au BufRead,BufNewFile *i3/config set ft=i3
+augroup END
 
 endif
 
@@ -613,7 +626,6 @@ if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'plantuml') == -
 " Vim ftdetect file
 " Language:     PlantUML
 " Maintainer:   Aaron C. Meadows < language name at shadowguarddev dot com>
-" Last Change:  19-Jun-2012
 " Version:      0.1
 
 if did_filetype()
@@ -645,6 +657,7 @@ if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'powershell') ==
 au BufNewFile,BufRead   *.ps1   set ft=ps1
 au BufNewFile,BufRead   *.psd1  set ft=ps1
 au BufNewFile,BufRead   *.psm1  set ft=ps1
+au BufNewFile,BufRead   *.pssc  set ft=ps1
 
 endif
 
@@ -659,7 +672,6 @@ if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'powershell') ==
 " Vim Script Page:    http://www.vim.org/scripts/script.php?script_id=1327
 
 au BufNewFile,BufRead   *.ps1xml   set ft=ps1xml
-
 
 endif
 
@@ -869,6 +881,14 @@ au BufRead,BufNewFile *.sbt setfiletype sbt.scala
 
 endif
 
+" ftdetect/scss.vim
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'scss') == -1
+  
+au BufRead,BufNewFile *.scss setfiletype scss
+au BufEnter *.scss :syntax sync fromstart
+
+endif
+
 " ftdetect/slim.vim
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'slim') == -1
   
@@ -924,6 +944,15 @@ au BufNewFile,BufRead *.timer     set filetype=systemd
 
 endif
 
+" ftdetect/terraform.vim
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'terraform') == -1
+  
+au BufRead,BufNewFile *.tf setlocal filetype=terraform
+au BufRead,BufNewFile *.tfvars setlocal filetype=terraform
+au BufRead,BufNewFile *.tfstate setlocal filetype=javascript
+
+endif
+
 " ftdetect/textile.vim
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'textile') == -1
   
@@ -955,10 +984,8 @@ endif
 " ftdetect/toml.vim
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'toml') == -1
   
-autocmd BufNewFile,BufRead *.toml set filetype=toml
-
-" Rust uses Cargo.toml and Cargo.lock (both are toml files).
-autocmd BufNewFile,BufRead Cargo.lock set filetype=toml
+" Rust uses several TOML config files that are not named with .toml.
+autocmd BufNewFile,BufRead *.toml,Cargo.lock,.cargo/config set filetype=toml
 
 endif
 
@@ -973,8 +1000,7 @@ endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'vala') == -1
   
 autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala,*.vapi setfiletype vala
-
+au BufRead,BufNewFile *.vala,*.vapi,*.valadoc setfiletype vala
 
 endif
 
@@ -989,6 +1015,28 @@ endif
 if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'vm') == -1
   
 au BufRead,BufNewFile *.vm set ft=velocity syntax=velocity
+
+endif
+
+" ftdetect/vue.vim
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'vue') == -1
+  
+au BufNewFile,BufRead *.vue setf vue.html.javascript.css
+
+endif
+
+" ftdetect/xml.vim
+if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'powershell') == -1
+  
+" Vim ftdetect plugin file
+" Language:           Windows PowerShell
+" Maintainer:         Peter Provost <peter@provost.org>
+" Version:            2.10
+" Project Repository: https://github.com/PProvost/vim-ps1
+" Vim Script Page:    http://www.vim.org/scripts/script.php?script_id=1327
+
+au BufNewFile,BufRead   *.cdxml    set ft=xml
+au BufNewFile,BufRead   *.psc1     set ft=xml
 
 endif
 

@@ -42,6 +42,7 @@ func main() {
 		"tpope/vim-repeat.git",
 		"tpope/vim-surround",
 		"tpope/vim-vinegar",
+		"w0rp/ale",
 		"wellle/targets.vim",
 		"wellle/tmux-complete.vim",
 	}

@@ -1,3 +1,28 @@
+## unplanned
+
+FEATURES:
+
+* Add new `errl` snippet that expands to [gh-1185]:
+
+```
+if err != nil {
+	log.Fatal(err)
+}
+```
+
+IMPROVEMENTS:
+
+* Lowercase `<Leader>` in mappings examples for consisten documentation across the README [gh-1192]
+* All of files should be written in utf-8 if the file will be passed to external command. [gh-1184]
+
+BUG FIXES:
+
+* Honor `g:go_echo_command_info` when dispatching builds in neovim [gh-1176]
+* Fix `:GoBuild` error in neovim due to invalid jobcontrol handler function signatures (`s:on_stdout`, `s:on_stderr`)[gh-1176]
+* Update statusline before and after `go#jobcontrol#Spawn` command is executed [gh-1176]
+* Correctly report the value of the 'g:go_guru_tags' variable [gh-1177]
+* Ensure no trailing `:` exist in GOPATH detection if initial GOPATH is not set [gh-1194]
+
 ## 1.11 - (January 9, 2017)
 
 FEATURES:

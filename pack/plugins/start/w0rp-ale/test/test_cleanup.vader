@@ -1,0 +1,15 @@
+Before:
+    let g:buffer = bufnr('%')
+
+    let g:ale_buffer_info = {
+    \  g:buffer : {},
+    \  10347: {},
+    \}
+
+After:
+    unlet! g:buffer
+    let g:ale_buffer_info = {}
+
+Execute('ALE globals should be cleared when the buffer is closed.'):
+    :q!
+    AssertEqual {10347: {}}, g:ale_buffer_info
