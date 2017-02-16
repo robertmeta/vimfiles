@@ -157,6 +157,7 @@
 :GoPath	vim-go.txt	/*:GoPath*
 :GoPlay	vim-go.txt	/*:GoPlay*
 :GoReferrers	vim-go.txt	/*:GoReferrers*
+:GoRemoveTags	vim-go.txt	/*:GoRemoveTags*
 :GoRename	vim-go.txt	/*:GoRename*
 :GoRun	vim-go.txt	/*:GoRun*
 :GoSameIds	vim-go.txt	/*:GoSameIds*

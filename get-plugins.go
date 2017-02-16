@@ -27,6 +27,8 @@ func main() {
 		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
 		"mhinz/vim-tmuxify",
+		"romainl/vim-qf",
+		"romainl/vim-qlist",
 		"roxma/vim-paste-easy",
 		"scrooloose/nerdtree",
 		"sheerun/vim-polyglot",
