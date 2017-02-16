@@ -460,10 +460,25 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
 
 " Nofrils
-let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
+let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
-colo nofrils-acme
+if s:running_windows
+    colo nofrils-acme
+else " MacOSX/Linux
+    if executable("date")
+        " EST is -5 from UTC so
+        " EST 19:00 to 7:00 is 01:00 to 
+        let curhour=system('date -u +%H')
+        if curhour <# 12
+            colo nofrils-dark
+        else
+            colo nofrils-acme
+        endif
+    else
+        colo nofrils-acme
+    endif
+endif
 
 " Functions
 function! ToggleFolds()
