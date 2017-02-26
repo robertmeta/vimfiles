@@ -350,7 +350,6 @@ endif
 
 " GUI
 if has("gui_running")
-    set guifont=Consolas:h10:cANSI:qDRAFT " Favorite font for rare times in GUI
     set guioptions=ce
     "              ||
     "              |+-- use GUI tabs, not console style tabs
