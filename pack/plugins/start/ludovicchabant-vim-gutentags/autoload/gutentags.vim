@@ -2,6 +2,23 @@
 
 " Utilities {{{
 
+function! gutentags#pwd()
+  if has('nvim')
+    return haslocaldir() ? getcwd(0, 0) : haslocaldir(-1, 0) ? getcwd(-1, 0) : getcwd()
+  else
+    return haslocaldir() ? getcwd(0, 0) : getcwd()
+  endif
+endfunction
+
+function! gutentags#chdir(path)
+  if has('nvim')
+    let chdir = haslocaldir() ? 'lcd' : haslocaldir(-1, 0) ? 'tcd' : 'cd'
+  else
+    let chdir = haslocaldir() ? 'lcd' : 'cd'
+  endif
+  execute chdir a:path
+endfunction
+
 " Throw an exception message.
 function! gutentags#throw(message)
     throw "gutentags: " . a:message
@@ -55,6 +72,18 @@ endfunction
 function! gutentags#get_res_file(filename) abort
     return g:gutentags_res_dir . a:filename
 endfunction
+
+" Returns whether a path is rooted.
+if has('win32') || has('win64')
+function! gutentags#is_path_rooted(path) abort
+  return len(a:path) >= 2 && (
+        \a:path[0] == '/' || a:path[0] == '\' || a:path[1] == ':')
+endfunction
+else
+function! gutentags#is_path_rooted(path) abort
+  return !empty(a:path) && a:path[0] == '/'
+endfunction
+endif
 
 " }}}
 
@@ -162,6 +191,9 @@ endfunction
 
 " Generate a path for a given filename in the cache directory.
 function! gutentags#get_cachefile(root_dir, filename) abort
+    if gutentags#is_path_rooted(a:filename)
+        return a:filename
+    endif
     let l:tag_path = gutentags#stripslash(a:root_dir) . '/' . a:filename
     if g:gutentags_cache_dir != ""
         " Put the tag file in the cache dir instead of inside the
@@ -184,7 +216,9 @@ function! gutentags#setup_gutentags() abort
     " Don't setup gutentags for anything that's not a normal buffer
     " (so don't do anything for help buffers and quickfix windows and
     "  other such things)
-    if &buftype != ''
+    " Also don't do anything for the default `[No Name]` buffer you get
+    " after starting Vim.
+    if &buftype != '' || bufname('%') == ''
         return
     endif
 
@@ -368,8 +402,8 @@ function! s:update_tags(bufno, module, write_mode, queue_mode) abort
     " Switch to the project root to make the command line smaller, and make
     " it possible to get the relative path of the filename to parse if we're
     " doing an incremental update.
-    let l:prev_cwd = getcwd()
-    execute "chdir " . fnameescape(l:proj_dir)
+    let l:prev_cwd = gutentags#pwd()
+    call gutentags#chdir(fnameescape(l:proj_dir))
     try
         call call("gutentags#".a:module."#generate",
                     \[l:proj_dir, l:tags_file, a:write_mode])
@@ -378,7 +412,7 @@ function! s:update_tags(bufno, module, write_mode, queue_mode) abort
         echom v:exception
     finally
         " Restore the current directory...
-        execute "chdir " . fnameescape(l:prev_cwd)
+        call gutentags#chdir(fnameescape(l:prev_cwd))
     endtry
 endfunction
 

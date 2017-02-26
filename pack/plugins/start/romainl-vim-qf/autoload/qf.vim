@@ -52,6 +52,27 @@ function! qf#IsLocWindow(nmbr)
     return getbufvar(winbufnr(a:nmbr), "qf_isLoc") == 1
 endfunction
 
+" returns bool: Is quickfix window open?
+function! qf#IsQfWindowOpen() abort
+    for winnum in range(1, winnr('$'))
+        if qf#IsQfWindow(winnum)
+            return 1
+        endif
+    endfor
+    return 0
+endfunction
+
+" returns bool: Is location window for window with given number open?
+function! qf#IsLocWindowOpen(nmbr) abort
+    let loclist = getloclist(a:nmbr)
+    for winnum in range(1, winnr('$'))
+        if qf#IsLocWindow(winnum) && loclist ==# getloclist(winnum)
+            return 1
+        endif
+    endfor
+    return 0
+endfunction
+
 " returns location list of the current loclist if isLoc is set
 "         qf list otherwise
 function! qf#GetList()
@@ -69,15 +90,16 @@ function! qf#SetList(newlist, ...)
                 \ ? function('setloclist', [0, a:newlist])
                 \ : function('setqflist', [a:newlist])
 
+    " get user-defined maximum height
+    let max_height = get(g:, 'qf_max_height', 10) < 1 ? 10 : get(g:, 'qf_max_height', 10)
+
     " call partial with optional arguments
     call call(Func, a:000)
 
     if get(b:, 'qf_isLoc', 0)
-        lclose
-        execute min([ 10, len(getloclist(0)) ]) 'lwindow'
+        execute get(g:, "qf_auto_resize", 1) ? 'lclose|' . min([ max_height, len(getloclist(0)) ]) . 'lwindow' : 'lwindow'
     else
-        cclose
-        execute min([ 10, len(getqflist()) ]) 'cwindow'
+        execute get(g:, "qf_auto_resize", 1) ? 'cclose|' . min([ max_height, len(getqflist()) ]) . 'cwindow' : 'cwindow'
     endif
 endfunction
 
@@ -92,14 +114,18 @@ endfunction
 " open the quickfix window if there are valid errors
 function! qf#OpenQuickfix()
     if get(g:, 'qf_auto_open_quickfix', 1)
-        execute min([ 10, len(getqflist()) ]) 'cwindow'
+        " get user-defined maximum height
+        let max_height = get(g:, 'qf_max_height', 10) < 1 ? 10 : get(g:, 'qf_max_height', 10)
+        execute get(g:, "qf_auto_resize", 1) ? 'cclose|' . min([ max_height, len(getqflist()) ]) . 'cwindow' : 'cwindow'
     endif
 endfunction
 
 " open a location window if there are valid locations
 function! qf#OpenLoclist()
     if get(g:, 'qf_auto_open_loclist', 1)
-        execute min([ 10, len(getloclist(0)) ]) 'lwindow'
+        " get user-defined maximum height
+        let max_height = get(g:, 'qf_max_height', 10) < 1 ? 10 : get(g:, 'qf_max_height', 10)
+        execute get(g:, "qf_auto_resize", 1) ? 'lclose|' . min([ max_height, len(getloclist(0)) ]) . 'lwindow' : 'lwindow'
     endif
 endfunction
 
