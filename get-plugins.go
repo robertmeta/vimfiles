@@ -21,7 +21,7 @@ func main() {
 		"tomasr/molokai",
 	}
 	plugins := []string{
-		"ctrlpvim/ctrlp.vim",
+		//"ctrlpvim/ctrlp.vim",
 		"fatih/vim-go",
 		"justinmk/vim-sneak",
 		"lifepillar/vim-mucomplete",
@@ -30,8 +30,9 @@ func main() {
 		"romainl/vim-qf",
 		"romainl/vim-qlist",
 		"roxma/vim-paste-easy",
-		"scrooloose/nerdtree",
+		//"scrooloose/nerdtree",
 		"sheerun/vim-polyglot",
+		"skywind3000/asyncrun.vim",
 		"t9md/vim-quickhl",
 		"tpope/vim-abolish",
 		"tpope/vim-commentary",
@@ -40,7 +41,7 @@ func main() {
 		"tpope/vim-repeat.git",
 		"tpope/vim-surround",
 		"tpope/vim-vinegar",
-		//"w0rp/ale",
+		"w0rp/ale",
 		"wellle/targets.vim",
 		"wellle/tmux-complete.vim",
 	}

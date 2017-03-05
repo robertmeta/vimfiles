@@ -64,8 +64,6 @@ nmap <silent> <left> <esc>:lprev<cr>
 nmap <silent> <right> <esc>:lnext<cr>
 nmap <silent> <up> <esc>:cprev<cr>
 nmap <silent> <down>  <esc>:cnext<cr>
-" Random Mappings
-nmap - :NERDTreeToggle<CR>
 " CtrlP Mappings
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>p :CtrlPMixed<cr>
@@ -452,12 +450,6 @@ let g:sneak#label=1
 
 " Mucomplete
 let g:mucomplete#enable_auto_at_startup=0
-
-" NERDTree
-let NERDTreeHijackNetrw = 1 " I use vim-vinegar most of the time, don't mess with -
-let NERDChristmasTree = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 0
 
 " Nofrils
 let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds

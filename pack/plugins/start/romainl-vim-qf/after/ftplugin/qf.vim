@@ -33,7 +33,7 @@ setlocal number
 set nobuflisted
 
 " are we in a location list or a quickfix list?
-let b:qf_isLoc = len(getloclist(0)) > 0 ? 1 : 0
+let b:qf_isLoc = !empty(getloclist(0))
 
 " customize the statusline
 if exists("g:qf_statusline")
@@ -119,8 +119,9 @@ nnoremap <silent> <buffer> } :call qf#filegroup#NextFile()<CR>
 nnoremap <silent> <buffer> { :call qf#filegroup#PreviousFile()<CR>
 
 " quit Vim if the last window is a quickfix window
-autocmd qf BufEnter    <buffer> if winnr('$') < 2 | q | endif
-autocmd qf BufWinEnter <buffer> call qf#filter#ReuseTitle()
+
+autocmd qf BufEnter    <buffer> if get(g:, 'qf_auto_quit', 1) | if winnr('$') < 2 | q | endif | endif
+autocmd qf BufWinEnter <buffer> if get(g:, 'qf_auto_quit', 1) | call qf#filter#ReuseTitle() | endif
 
 " decide where to open the location/quickfix window
 if (b:qf_isLoc == 1 && get(g:, 'qf_loclist_window_bottom', 1))

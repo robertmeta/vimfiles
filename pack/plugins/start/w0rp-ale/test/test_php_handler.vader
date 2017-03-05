@@ -1,0 +1,66 @@
+Given (Some invalid lines of PHP):
+  [foo;]
+  class Foo { / }
+  $foo)
+  ['foo' 'bar']
+
+Execute(The php handler should parse lines correctly):
+  runtime ale_linters/php/php.vim
+
+  AssertEqual
+  \ [
+  \   {
+  \     'bufnr': 347,
+  \     'lnum': 1,
+  \     'col': 5,
+  \     'text': "syntax error, unexpected ';', expecting ']'",
+  \     'type': 'E',
+  \   },
+  \   {
+  \     'bufnr': 347,
+  \     'lnum': 2,
+  \     'col': 13,
+  \     'text': "syntax error, unexpected '/', expecting function (T_FUNCTION) or const (T_CONST)",
+  \     'type': 'E',
+  \   },
+  \   {
+  \     'bufnr': 347,
+  \     'lnum': 3,
+  \     'col': 5,
+  \     'text': "syntax error, unexpected ')'",
+  \     'type': 'E',
+  \   },
+  \   {
+  \     'bufnr': 347,
+  \     'lnum': 4,
+  \     'col': 8,
+  \     'text': "syntax error, unexpected ''bar'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'",
+  \     'type': 'E',
+  \   },
+  \   {
+  \     'bufnr': 347,
+  \     'lnum': 21,
+  \     'col': 0,
+  \     'text': "syntax error, unexpected end of file",
+  \     'type': 'E',
+  \   },
+  \   {
+  \     'bufnr': 347,
+  \     'lnum': 47,
+  \     'col': 0,
+  \     'text': "Invalid numeric literal",
+  \     'type': 'E',
+  \   },
+  \ ],
+  \ ale_linters#php#php#Handle(347, [
+  \   'This line should be ignored completely',
+  \   "PHP Parse error:  syntax error, unexpected ';', expecting ']' in - on line 1",
+  \   "PHP Parse error:  syntax error, unexpected '/', expecting function (T_FUNCTION) or const (T_CONST) in - on line 2",
+  \   "PHP Parse error:  syntax error, unexpected ')' in - on line 3",
+  \   "PHP Parse error:  syntax error, unexpected ''bar'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in - on line 4",
+  \   'PHP Parse error:  syntax error, unexpected end of file in - on line 21',
+  \   'PHP Parse error: Invalid numeric literal in - on line 47',
+  \ ])
+
+After:
+  call ale#linter#Reset()
