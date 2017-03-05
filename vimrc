@@ -65,22 +65,32 @@ nmap <silent> <right> <esc>:lnext<cr>
 nmap <silent> <up> <esc>:cprev<cr>
 nmap <silent> <down>  <esc>:cnext<cr>
 " CtrlP Mappings
-nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>p :CtrlPMixed<cr>
-nnoremap <leader>t :CtrlPTag<cr>
-nnoremap <leader>T :CtrlPBufTag<cr>
-nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <F5> "=strftime("%c")<CR>P
 nnoremap <leader>A :argadd **/*
+nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>b :b <C-d>
+nnoremap <leader>B :ls<cr>:b<space>
+nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>d :Dlist<space>
+nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
+nnoremap <leader>f :find *
+nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
+nnoremap <leader>j :QuickhlCwordToggle<cr>
+nnoremap <leader>J :tjump /
+nnoremap <leader>M :make<cr>
+"nnoremap <leader>m saved for tmuxify
+nnoremap <leader>p :ptjump /
+nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun<cr>
 nnoremap <leader>R :TxSetRunCmd<cr>
-nnoremap <leader>j :QuickhlCwordToggle<cr>
-nnoremap <leader>M :make<cr>
-nnoremap <leader>q :b#<cr>
+nnoremap <leader>S :call StripTrailingWhitespace()<cr>
+nnoremap <leader>s :Search 
+nnoremap <leader>t :tag<space>
+nnoremap <leader>T :tag<space><C-d>
 nnoremap <leader>z :call ToggleFolds()<cr>
-nnoremap <F5> "=strftime("%c")<CR>P
 nnoremap Y y$
 
 " quick command helpers
