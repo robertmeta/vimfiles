@@ -473,6 +473,8 @@ else " MacOSX/Linux
         let curhour=system('date -u +%H')
         if curhour <# 12
             colo nofrils-dark
+        elseif curhour ># 22
+            colo nofrils-dark
         else
             colo nofrils-acme
         endif
