@@ -86,8 +86,6 @@ nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun<cr>
 nnoremap <leader>R :TxSetRunCmd<cr>
-nnoremap <leader>S :call StripTrailingWhitespace()<cr>
-nnoremap <leader>s :Search 
 nnoremap <leader>t :tag<space>
 nnoremap <leader>T :tag<space><C-d>
 nnoremap <leader>z :call ToggleFolds()<cr>
