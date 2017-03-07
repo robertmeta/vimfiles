@@ -101,6 +101,7 @@ The following languages and tools are supported.
 * Lua: 'luacheck'
 * Markdown: 'mdl', 'proselint'
 * MATLAB: 'mlint'
+* nix: 'nix-instantiate'
 * nroff: 'proselint'
 * OCaml: 'merlin' (see |ale-linter-integration-ocaml-merlin|)
 * Perl: 'perl' (-c flag), 'perlcritic'
@@ -184,6 +185,15 @@ g:ale_echo_msg_warning_str                         *g:ale_echo_msg_warning_str*
   The string used for warning severity in the echoed message.
   Note |`g:ale_echo_cursor`| should be set to 1
   Note |`g:ale_echo_msg_format`| should contain the `%severity%` handler
+
+
+g:ale_emit_conflict_warnings                     *g:ale_emit_conflict_warnings*
+
+  Type: |Number|
+  Default: `1`
+
+  When set to `0`, ALE will not emit any warnings on startup about conflicting
+  plugins. ALE will probably not work if other linting plugins are installed.
 
 
 g:ale_enabled                                                   *g:ale_enabled*

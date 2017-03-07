@@ -22,7 +22,7 @@ func main() {
 	}
 	plugins := []string{
 		//"ctrlpvim/ctrlp.vim",
-		"dodie/vim-disapprove-deep-indentation",
+		//"dodie/vim-disapprove-deep-indentation",
 		"fatih/vim-go",
 		"justinmk/vim-sneak",
 		"lifepillar/vim-mucomplete",

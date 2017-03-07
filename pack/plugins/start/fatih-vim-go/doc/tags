@@ -51,6 +51,7 @@
 'g:go_metalinter_enabled'	vim-go.txt	/*'g:go_metalinter_enabled'*
 'g:go_play_browser_command'	vim-go.txt	/*'g:go_play_browser_command'*
 'g:go_play_open_browser'	vim-go.txt	/*'g:go_play_open_browser'*
+'g:go_rename_tags'	vim-go.txt	/*'g:go_rename_tags'*
 'g:go_snippet_case_type'	vim-go.txt	/*'g:go_snippet_case_type'*
 'g:go_snippet_engine'	vim-go.txt	/*'g:go_snippet_engine'*
 'g:go_statusline_duration'	vim-go.txt	/*'g:go_statusline_duration'*
@@ -159,6 +160,7 @@
 :GoReferrers	vim-go.txt	/*:GoReferrers*
 :GoRemoveTags	vim-go.txt	/*:GoRemoveTags*
 :GoRename	vim-go.txt	/*:GoRename*
+:GoRenameTags	vim-go.txt	/*:GoRenameTags*
 :GoRun	vim-go.txt	/*:GoRun*
 :GoSameIds	vim-go.txt	/*:GoSameIds*
 :GoSameIdsAutoToggle	vim-go.txt	/*:GoSameIdsAutoToggle*
