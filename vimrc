@@ -64,7 +64,7 @@ nmap <silent> <left> <esc>:lprev<cr>
 nmap <silent> <right> <esc>:lnext<cr>
 nmap <silent> <up> <esc>:cprev<cr>
 nmap <silent> <down>  <esc>:cnext<cr>
-" CtrlP Mappings
+" Mappings
 nnoremap <F5> "=strftime("%c")<CR>P
 nnoremap <leader>A :argadd **/*
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
@@ -86,8 +86,6 @@ nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun<cr>
 nnoremap <leader>R :TxSetRunCmd<cr>
-nnoremap <leader>S :call StripTrailingWhitespace()<cr>
-nnoremap <leader>s :Search 
 nnoremap <leader>t :tag<space>
 nnoremap <leader>T :tag<space><C-d>
 nnoremap <leader>z :call ToggleFolds()<cr>
@@ -425,27 +423,6 @@ let g:go_highlight_build_constraints=1
 let g:go_highlight_generate_tags=1
 let g:go_highlight_string_spellcheck=0
 
-" CtrlP
-let g:ctrlp_buftag_ctags_bin='ctags'
-"let g:ctrlp_buftag_types={'go': '--language-force=go --golang-types=ftv', 'javascript': '--langauge-force=js'}
-let g:ctrlp_follow_symlinks=1
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_match_window_reversed=1
-let g:ctrlp_max_depth=1000
-let g:ctrlp_max_files=100000
-let g:ctrlp_max_height=30
-let g:ctrlp_open_multiple_files='ij'
-let g:ctrlp_show_hidden=1
-let g:ctrlp_use_caching=1
-let g:ctrlp_working_path_mode='ra'
-if s:running_windows
-    let g:ctrlp_cache_dir=$HOME.'/vimfiles/ctrlp_cache'
-    let g:ctrlp_user_command='dir %s /-n /b /s /a-d | findstr /v \.git | findstr /v \.hg' " Windows
-else " MacOSX/Linux
-    let g:ctrlp_cache_dir=$HOME.'/.vim/ctrlp_cache'
-    let g:ctrlp_user_command='find %s -type f \( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \)'
-endif
-
 " Tmuxify
 let g:tmuxify_custom_command='tmux split-window -d -l 10'
 let g:tmuxify_map_prefix = ''
@@ -472,6 +449,8 @@ else " MacOSX/Linux
         " EST 19:00 to 7:00 is 01:00 to 
         let curhour=system('date -u +%H')
         if curhour <# 12
+            colo nofrils-dark
+        elseif curhour ># 22
             colo nofrils-dark
         else
             colo nofrils-acme
