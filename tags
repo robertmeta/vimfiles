@@ -13,8 +13,6 @@ $GOPATH	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload
 $GOPATH	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let $GOPATH = go#path#Detect()$/;"	v
 $GOPATH	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let $GOPATH = old_gopath$/;"	v
 $PYTHONWARNINGS	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  let $PYTHONWARNINGS="ignore"$/;"	v
-$TMPDIR	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^    let $TMPDIR = '\/tmp'$/;"	v
-$TMPDIR	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 %	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^	nmap <buffer> % <Plug>LatexBox_JumpToMatch$/;"	m
 %	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^	omap <buffer> % <Plug>LatexBox_JumpToMatch$/;"	m
 %	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^	vmap <buffer> % <Plug>LatexBox_JumpToMatch$/;"	m
@@ -23,9 +21,6 @@ $TMPDIR	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/test/vimrc	/
 ,	/home/rmelton/projects/vimfiles/pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^    omap , <Plug>Sneak_,$/;"	m
 -	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^  nmap - <Plug>VinegarUp$/;"	m
 .	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^    nmap . <Plug>(RepeatDot)$/;"	m
-.DEFAULT_GOAL	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/Makefile	/^.DEFAULT_GOAL := test$/;"	m
-1. Guidelines	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# 1. Guidelines$/;"	h
-1. Supported Languages and Tools	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^## 1. Supported Languages and Tools$/;"	i
 1.0 Release Candidate	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/ROADMAP.md	/^# 1.0 Release Candidate$/;"	h
 1.10 (November 24, 2016)	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.10 (November 24, 2016)$/;"	i
 1.11 - (January 9, 2017)	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.11 - (January 9, 2017)$/;"	i
@@ -34,34 +29,7 @@ $TMPDIR	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/test/vimrc	/
 1.7.1 (June 7, 2016)	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.7.1 (June 7, 2016)$/;"	i
 1.8 (July 31, 2016)	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.8 (July 31, 2016)$/;"	i
 1.9 (September 13, 2016)	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.9 (September 13, 2016)$/;"	i
-2. Creating Issues	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# 2. Creating Issues$/;"	h
-2. Usage	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^## 2. Usage$/;"	i
 256color-ready terminal emulators	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^### 256color-ready terminal emulators$/;"	k
-3. Creating Pull Requests	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# 3. Creating Pull Requests$/;"	h
-3. Installation	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^## 3. Installation$/;"	i
-3.i. Adding a New Linter	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# 3.i. Adding a New Linter$/;"	h
-3.i. Installation with Pathogen	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 3.i. Installation with Pathogen$/;"	k
-3.ii. Adding New Options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# 3.ii. Adding New Options$/;"	h
-3.ii. Installation with Vundle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 3.ii. Installation with Vundle$/;"	k
-3.iii. Manual Installation	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 3.iii. Manual Installation$/;"	k
-4. Contributing	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^## 4. Contributing$/;"	i
-4. Writing Documentation	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# 4. Writing Documentation$/;"	h
-4.i Documenting New Linters	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# 4.i Documenting New Linters$/;"	h
-4.ii Editing the Online Documentation	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# 4.ii Editing the Online Documentation$/;"	h
-4.iii Documenting Linter Options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# 4.iii Documenting Linter Options$/;"	h
-5. FAQ	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^## 5. FAQ$/;"	i
-5. In Case of Busses	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# 5. In Case of Busses$/;"	h
-5.i. How do I disable particular linters?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.i. How do I disable particular linters?$/;"	k
-5.ii. How can I keep the sign gutter open?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.ii. How can I keep the sign gutter open?$/;"	k
-5.iii. How can I change the signs ALE uses?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.iii. How can I change the signs ALE uses?$/;"	k
-5.iv. How can I show errors or warnings in my statusline?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.iv. How can I show errors or warnings in my statusline?$/;"	k
-5.ix. How can I use the quickfix list instead of the loclist?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.ix. How can I use the quickfix list instead of the loclist?$/;"	k
-5.v. How can I change the format for echo messages?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.v. How can I change the format for echo messages?$/;"	k
-5.vi. How can I execute some code when ALE stops linting?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.vi. How can I execute some code when ALE stops linting?$/;"	k
-5.vii. How can I navigate between errors quickly?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.vii. How can I navigate between errors quickly?$/;"	k
-5.viii. How can I run linters only when I save files?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.viii. How can I run linters only when I save files?$/;"	k
-5.x. How can I check JSX files with both stylelint and eslint?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.x. How can I check JSX files with both stylelint and eslint?$/;"	k
-5.xi. Will this plugin eat all of my laptop battery power?	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^### 5.xi. Will this plugin eat all of my laptop battery power?$/;"	k
 ::	/home/rmelton/projects/vimfiles/vimrc	/^cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>\/$/;"	m
 ;	/home/rmelton/projects/vimfiles/pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^  nmap ; <Plug>Sneak_;$/;"	m
 ;	/home/rmelton/projects/vimfiles/pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^  omap ; <Plug>Sneak_;$/;"	m
@@ -148,13 +116,6 @@ $TMPDIR	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/test/vimrc	/
 <Plug>(SneakStreak)	/home/rmelton/projects/vimfiles/pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^omap <Plug>(SneakStreak)         <Plug>SneakLabel_s$/;"	m
 <Plug>(SneakStreakBackward)	/home/rmelton/projects/vimfiles/pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^nmap <Plug>(SneakStreakBackward) <Plug>SneakLabel_S$/;"	m
 <Plug>(SneakStreakBackward)	/home/rmelton/projects/vimfiles/pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^omap <Plug>(SneakStreakBackward) <Plug>SneakLabel_S$/;"	m
-<Plug>(ale_detail)	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^nnoremap <silent> <Plug>(ale_detail) :ALEDetail<Return>$/;"	m
-<Plug>(ale_lint)	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^nnoremap <silent> <Plug>(ale_lint) :ALELint<Return>$/;"	m
-<Plug>(ale_next)	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^nnoremap <silent> <Plug>(ale_next) :ALENext<Return>$/;"	m
-<Plug>(ale_next_wrap)	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^nnoremap <silent> <Plug>(ale_next_wrap) :ALENextWrap<Return>$/;"	m
-<Plug>(ale_previous)	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^nnoremap <silent> <Plug>(ale_previous) :ALEPrevious<Return>$/;"	m
-<Plug>(ale_previous_wrap)	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^nnoremap <silent> <Plug>(ale_previous_wrap) :ALEPreviousWrap<Return>$/;"	m
-<Plug>(ale_toggle)	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^nnoremap <silent> <Plug>(ale_toggle) :ALEToggle<Return>$/;"	m
 <Plug>(crystal-format)	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^nnoremap <Plug>(crystal-format) :<C-u>CrystalFormat<CR>$/;"	m
 <Plug>(crystal-jump-to-definition)	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^nnoremap <Plug>(crystal-jump-to-definition) :<C-u>CrystalDef<CR>$/;"	m
 <Plug>(crystal-show-context)	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^nnoremap <Plug>(crystal-show-context) :<C-u>CrystalContext<CR>$/;"	m
@@ -373,21 +334,6 @@ $TMPDIR	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/test/vimrc	/
 =	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/terraform.vim	/^  inoremap <buffer> <silent> = =<Esc>:call <SID>terraformalign()<CR>a$/;"	m
 =	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/cryptol.vim	/^   command = -nargs =* CompilerSet setlocal <args>$/;"	c
 >	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/puppet.vim	/^    inoremap <buffer> <silent> > ><Esc>:call <SID>puppetalign()<CR>a$/;"	m
-ALECleanupGroup	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^augroup ALECleanupGroup$/;"	a
-ALEDetail	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! ALEDetail :call ale#cursor#ShowCursorDetail()$/;"	c
-ALEGetStatusLine	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^function! ALEGetStatusLine() abort$/;"	f
-ALEHighlightBufferGroup	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/highlight.vim	/^augroup ALEHighlightBufferGroup$/;"	a
-ALEInfo	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! ALEInfo :call ale#debugging#Info()$/;"	c
-ALEInfoToClipboard	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! ALEInfoToClipboard :call ale#debugging#InfoToClipboard()$/;"	c
-ALEInitAuGroups	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^function! s:ALEInitAuGroups() abort$/;"	f
-ALELint	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! ALELint :call ale#Queue(0)$/;"	c
-ALELint	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^function! ALELint(delay) abort$/;"	f
-ALENext	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! ALENext :call ale#loclist_jumping#Jump('after', 0)$/;"	c
-ALENextWrap	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! ALENextWrap :call ale#loclist_jumping#Jump('after', 1)$/;"	c
-ALEPrevious	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! ALEPrevious :call ale#loclist_jumping#Jump('before', 0)$/;"	c
-ALEPreviousWrap	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! ALEPreviousWrap :call ale#loclist_jumping#Jump('before', 1)$/;"	c
-ALEToggle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! ALEToggle :call s:ALEToggle()$/;"	c
-ALEToggle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^function! s:ALEToggle() abort$/;"	f
 Abolish	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  let Abolish = {}$/;"	v
 Abolish	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^command! -nargs=+ -bang -bar -range=0 -complete=custom,s:Complete Abolish$/;"	c
 Abolished	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! Abolished()$/;"	f
@@ -399,28 +345,7 @@ Argument Seek	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-
 Argument Text Objects	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Argument Text Objects$/;"	i
 Argument mappings	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/cheatsheet.md	/^## Argument mappings$/;"	i
 AsmFmt	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/asm.vim	/^command! -nargs=0 AsmFmt call go#asmfmt#Format()$/;"	c
-AsyncRun	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^command! -bang -nargs=+ -complete=file AsyncRun $/;"	c
-AsyncRun_Job_AutoCmd	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_AutoCmd(mode, auto)$/;"	f
-AsyncRun_Job_AutoScroll	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_AutoScroll()$/;"	f
-AsyncRun_Job_CheckScroll	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_CheckScroll()$/;"	f
-AsyncRun_Job_Cursor	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_Cursor()$/;"	f
-AsyncRun_Job_NeoVim	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_NeoVim(job_id, data, event)$/;"	f
-AsyncRun_Job_OnCallback	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_OnCallback(channel, text)$/;"	f
-AsyncRun_Job_OnClose	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_OnClose(channel)$/;"	f
-AsyncRun_Job_OnExit	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_OnExit(job, message)$/;"	f
-AsyncRun_Job_OnFinish	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_OnFinish()$/;"	f
-AsyncRun_Job_OnTimer	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! g:AsyncRun_Job_OnTimer(id)$/;"	f
-AsyncRun_Job_QuickReset	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_QuickReset()$/;"	f
-AsyncRun_Job_Scroll	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_Scroll()$/;"	f
-AsyncRun_Job_Start	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_Start(cmd)$/;"	f
-AsyncRun_Job_Status	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_Status()$/;"	f
-AsyncRun_Job_Stop	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_Stop(how)$/;"	f
-AsyncRun_Job_Update	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_Update(count)$/;"	f
-AsyncRun_Job_ViewReset	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AsyncRun_Job_ViewReset()$/;"	f
-AsyncStop	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^command! -bang -nargs=0 AsyncStop call asyncrun#stop('<bang>')$/;"	c
-Asynchronous Lint Engine [![Build Status](https://travis-ci.org/w0rp/ale.svg?branch=master)](https://travis-ci.org/w0rp/ale)	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^# Asynchronous Lint Engine [![Build Status](https:\/\/travis-ci.org\/w0rp\/ale.svg?branch=master)](https:\/\/travis-ci.org\/w0rp\/ale)$/;"	h
 Author	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Author$/;"	i
-AutoCmd	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:AutoCmd(name)$/;"	f
 AutoMkdir	/home/rmelton/projects/vimfiles/vimrc	/^augroup AutoMkdir$/;"	a
 AutoMkdir	/home/rmelton/projects/vimfiles/vimrc	/^function! <SID>AutoMkdir() abort$/;"	f
 Balanced	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:Balanced(lnum)$/;"	f
@@ -455,7 +380,6 @@ CTAGS_ARGS	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim
 CTAGS_ARGS	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^set CTAGS_ARGS=$/;"	v
 CTAGS_EXE	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^    set CTAGS_EXE=%~2$/;"	v
 CTAGS_EXE	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^set CTAGS_EXE=ctags$/;"	v
-CURRENT_IMAGE_ID	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/Makefile	/^CURRENT_IMAGE_ID = 107e4efc4267$/;"	m
 CalcVCol	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:CalcVCol(line, first_index, last_index, vcol, tabstop)$/;"	f
 CallBaseIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/twig.vim	/^function! s:CallBaseIndent()$/;"	f
 CaptionEnv	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^function! s:CaptionEnv()$/;"	f
@@ -518,14 +442,10 @@ Configuration	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/.g
 ContainedGroup	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/scala.vim	/^function! s:ContainedGroup()$/;"	f
 Contributing	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/CONTRIBUTING.md	/^# Contributing$/;"	h
 Contributing	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/README.md	/^## Contributing$/;"	i
-Contributing to ALE	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# Contributing to ALE$/;"	h
 ConvertBack	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:ConvertBack(line)$/;"	f
-Cooperate with other Plugins	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## Cooperate with other Plugins$/;"	i
 CountMatches	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^function! s:CountMatches(str, pat)$/;"	f
 CreateOrExpression	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^function! s:CreateOrExpression(keywords)$/;"	f
-CreateTemporaryFileForJob	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:CreateTemporaryFileForJob(buffer, temporary_file) abort$/;"	f
 Credits	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/README.md	/^## Credits$/;"	i
-Credits	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## Credits$/;"	i
 CrystalContext	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^command! -buffer -nargs=* CrystalContext echo crystal_lang#context(expand('%'), getpos('.'), <q-args>).output$/;"	c
 CrystalDef	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^command! -buffer -nargs=0 CrystalDef call crystal_lang#jump_to_definition(expand('%'), getpos('.'))$/;"	c
 CrystalFormat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^command! -buffer -nargs=* -bar CrystalFormat call crystal_lang#format(<q-args>)$/;"	c
@@ -539,7 +459,6 @@ Customize seeking	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targ
 Cycle	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Cycle  :call s:cycle()$/;"	c
 DB_FILE	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^    set DB_FILE=%~2$/;"	v
 DB_FILE	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^set DB_FILE=cscope.out$/;"	v
-DOCKER_FLAGS	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/Makefile	/^DOCKER_FLAGS = --rm -v $(PWD):\/testplugin -v $(PWD)\/test:\/home "$(IMAGE)"$/;"	m
 DONE	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/README.md	/^## DONE$/;"	i
 DONE	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qlist/README.md	/^## DONE$/;"	i
 DartIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/dart.vim	/^function! DartIndent()$/;"	f
@@ -563,10 +482,6 @@ Doline	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/after/f
 Donation	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/README.md	/^## Donation$/;"	i
 DoneParseArgs	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^:DoneParseArgs$/;"	l
 DoneParseArgs	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:DoneParseArgs$/;"	l
-EchoCommandHistory	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! s:EchoCommandHistory() abort$/;"	f
-EchoGlobalVariables	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! s:EchoGlobalVariables() abort$/;"	f
-EchoLinterVariables	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! s:EchoLinterVariables(variable_list) abort$/;"	f
-EchoWithShortMess	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! s:EchoWithShortMess(setting, message) abort$/;"	f
 Edit	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Edit   :call s:choose('edit')$/;"	c
 Edit	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Edit(cmd,bang,...) abort$/;"	f
 EditComplete	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:EditComplete(A,L,P) abort$/;"	f
@@ -597,9 +512,7 @@ ErlangShowTokensInCurrentLine	/home/rmelton/projects/vimfiles/pack/plugins/start
 ErlangShowTokensInLine	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! ErlangShowTokensInLine(line)$/;"	f
 ErrMsg	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! s:ErrMsg(msg)$/;"	f
 Error	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/import.vim	/^function! s:Error(s) abort$/;"	f
-ErrorMsg	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:ErrorMsg(msg)$/;"	f
 EscapeTitle	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^function! s:EscapeTitle(titlestr)$/;"	f
-Example	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## Example$/;"	i
 Example Mappings	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/README.md	/^## Example Mappings$/;"	i
 Examples	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Examples$/;"	i
 ExecuteInTree	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:ExecuteInTree(cmd) abort$/;"	f
@@ -610,7 +523,6 @@ ExtraBrackets	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-pol
 ExtraBrackets	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function s:ExtraBrackets(lnum)$/;"	f
 ExtractInputs	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:ExtractInputs()$/;"	f
 ExtractLabels	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:ExtractLabels()$/;"	f
-ExtractOpt	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:ExtractOpt(command) $/;"	f
 F	/home/rmelton/projects/vimfiles/vimrc	/^nmap F <Plug>Sneak_F$/;"	m
 F	/home/rmelton/projects/vimfiles/vimrc	/^omap F <Plug>Sneak_F$/;"	m
 FILE_LIST_CMD	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^    set FILE_LIST_CMD=%~2$/;"	v
@@ -629,15 +541,10 @@ Filter	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/after/f
 Filtered	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/elm.vim	/^function! s:Filtered(fn, l)$/;"	f
 Find	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -bang -complete=file -nargs=+ Find   exe s:Grep(<q-bang>, <q-args>, 'find')$/;"	c
 FindBibData	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:FindBibData(...)$/;"	f
-FindBuffer	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^function! s:FindBuffer(file) abort$/;"	f
 FindClosestSection	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:FindClosestSection(toc, fileindices)$/;"	f
 FindContainingClass	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function! s:FindContainingClass()$/;"	f
 FindContainingClass	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:FindContainingClass()$/;"	f
-FindDUBConfig	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/d/dmd.vim	/^function! s:FindDUBConfig(buffer) abort$/;"	f
-FindErrorInExpansion	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers/rust.vim	/^function! s:FindErrorInExpansion(span, file_name) abort$/;"	f
-FindHistoryItem	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/history.vim	/^function! s:FindHistoryItem(buffer, job_id) abort$/;"	f
 FindIndToken	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:FindIndToken(lnum, dir)$/;"	f
-FindItemAtCursor	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! s:FindItemAtCursor() abort$/;"	f
 FindLet	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ocaml.vim	/^function! s:FindLet(pstart, pmid, pend)$/;"	f
 FindMatchingPair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:FindMatchingPair(mode)$/;"	f
 FindPair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ocaml.vim	/^function! s:FindPair(pstart, pmid, pend)$/;"	f
@@ -653,8 +560,6 @@ GF	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/
 GFInit	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:GFInit(...) abort$/;"	f
 GVim/MacVim	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^### GVim\/MacVim$/;"	k
 GVim/MacVim	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-disciple/README.md	/^### GVim\/MacVim$/;"	k
-GatherOutputNeoVim	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:GatherOutputNeoVim(job, data, event) abort$/;"	f
-GatherOutputVim	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:GatherOutputVim(channel, data) abort$/;"	f
 General Options	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/README.md	/^### General Options $/;"	k
 GetAnsibleIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ansible.vim	/^function GetAnsibleIndent(lnum)$/;"	f
 GetBladeIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^function! GetBladeIndent()$/;"	f
@@ -663,16 +568,13 @@ GetBufferRubyEntity	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-v
 GetBufferRubyModule	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! s:GetBufferRubyModule(name, ...)$/;"	f
 GetBufferRubySingletonMethods	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! s:GetBufferRubySingletonMethods(name)$/;"	f
 GetCabalIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/cabal.vim	/^function! GetCabalIndent()$/;"	f
-GetCachedExtensionMap	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/filetypes.vim	/^function! s:GetCachedExtensionMap() abort$/;"	f
 GetClojureIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! GetClojureIndent()$/;"	f
 GetCoffeeHtmlIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/indent/html.vim	/^function! GetCoffeeHtmlIndent(curlinenum)$/;"	f
 GetCoffeeIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function! GetCoffeeIndent(curlnum)$/;"	f
 GetContents	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^function s:GetContents(lnum)$/;"	f
 GetCrystalIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function GetCrystalIndent(...)$/;"	f
 GetCucumberIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/cucumber.vim	/^function! GetCucumberIndent()$/;"	f
-GetCurrentList	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/loclist_jumping.vim	/^function! s:GetCurrentList()  abort$/;"	f
 GetDefaultPolicy	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function! s:GetDefaultPolicy(curlnum)$/;"	f
-GetDialectArgument	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sh/shellcheck.vim	/^function! s:GetDialectArgument() abort$/;"	f
 GetEelixirIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/eelixir.vim	/^function! GetEelixirIndent(...)$/;"	f
 GetElixirFilename	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/elixir.vim	/^function! GetElixirFilename(word)$/;"	f
 GetEnvironmentList	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:GetEnvironmentList(lead, cmdline, pos)$/;"	f
@@ -687,7 +589,6 @@ GetInd	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/i
 GetIndtokenAtCol	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:GetIndtokenAtCol(indtokens, col)$/;"	f
 GetJSONIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/json.vim	/^function GetJSONIndent()$/;"	f
 GetJavascriptIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function GetJavascriptIndent()$/;"	f
-GetJobID	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:GetJobID(job) abort$/;"	f
 GetJsIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/qml.vim	/^function! GetJsIndent()$/;"	f
 GetJstIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/jst.vim	/^function! GetJstIndent(...)$/;"	f
 GetJsxIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/indent/jsx.vim	/^fu! GetJsxIndent()$/;"	f
@@ -696,7 +597,6 @@ GetJuliaNestingStruct	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun
 GetKotlinIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/kotlin.vim	/^function! GetKotlinIndent()$/;"	f
 GetLabelCache	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:GetLabelCache(file)$/;"	f
 GetLineWithoutFullComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ocaml.vim	/^function! s:GetLineWithoutFullComment(lnum)$/;"	f
-GetLinterVariables	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! s:GetLinterVariables(filetype, linter_names) abort$/;"	f
 GetLiquidIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/liquid.vim	/^function! GetLiquidIndent(...)$/;"	f
 GetLiveScriptIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! GetLiveScriptIndent(curlinenum)$/;"	f
 GetLiveScriptIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:GetLiveScriptIndent(curlinenum)$/;"	f
@@ -709,7 +609,6 @@ GetMakePrg	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polygl
 GetMakePrg	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^function! s:GetMakePrg()$/;"	f
 GetMakoIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^function GetMakoIndent()$/;"	f
 GetMatch	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:GetMatch(curline)$/;"	f
-GetMessage	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! s:GetMessage(linter, type, text) abort$/;"	f
 GetNimIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/nim.vim	/^function! GetNimIndent(lnum)$/;"	f
 GetOCamlIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ocaml.vim	/^function! GetOCamlIndent()$/;"	f
 GetObjCIndentImproved	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/indent/objc.vim	/^function! GetObjCIndentImproved()$/;"	f
@@ -740,7 +639,6 @@ GetTypescriptIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-v
 GetValaIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/vala.vim	/^function GetValaIndent(lnum)$/;"	f
 GetVarIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:GetVarIndent(lnum)$/;"	f
 GetVarIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:GetVarIndent(lnum)$/;"	f
-GetVersion	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/flake8.vim	/^function! s:GetVersion(buffer, version_output) abort$/;"	f
 GetVueIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/vue.vim	/^function! GetVueIndent()$/;"	f
 Getting Started	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/Readme.md	/^# Getting Started$/;"	h
 Git	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Git(bang, args) abort$/;"	f
@@ -751,6 +649,7 @@ GoAlternate	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftpl
 GoAsmFmtAutoSaveToggle	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 GoAsmFmtAutoSaveToggle call go#asmfmt#ToggleAsmFmtAutoSave()$/;"	c
 GoAutoTypeInfoToggle	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 GoAutoTypeInfoToggle call go#complete#ToggleAutoTypeInfo()$/;"	c
 GoBuild	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -bang GoBuild call go#cmd#Build(<bang>0,<f-args>)$/;"	c
+GoBuildTags	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=? -bang GoBuildTags call go#cmd#BuildTags(<bang>0, <f-args>)$/;"	c
 GoCallees	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -range=% GoCallees call go#guru#Callees(<count>)$/;"	c
 GoCallers	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -range=% GoCallers call go#guru#Callers(<count>)$/;"	c
 GoCallstack	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -range=% GoCallstack call go#guru#Callstack(<count>)$/;"	c
@@ -777,7 +676,6 @@ GoFmtAutoSaveToggle	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim
 GoFreevars	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -range=% GoFreevars call go#guru#Freevars(<count>)$/;"	c
 GoGenerate	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -bang GoGenerate call go#cmd#Generate(<bang>0,<f-args>)$/;"	c
 GoGuruScope	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -complete=customlist,go#package#Complete GoGuruScope call go#guru#Scope(<f-args>)$/;"	c
-GoGuruTags	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=? GoGuruTags call go#guru#Tags(<f-args>)$/;"	c
 GoImpl	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -buffer -complete=customlist,go#impl#Complete GoImpl call go#impl#Impl(<f-args>)$/;"	c
 GoImplements	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -range=% GoImplements call go#guru#Implements(<count>)$/;"	c
 GoImport	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=1 -bang -complete=customlist,go#package#Complete GoImport call go#import#SwitchImport(1, '', <f-args>, '<bang>')$/;"	c
@@ -822,11 +720,6 @@ GutentagsToggleFake	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicch
 GutentagsToggleTrace	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^    command! GutentagsToggleTrace   :call gutentags#toggletrace()$/;"	c
 GutentagsUnlock	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^command! GutentagsUnlock :call gutentags#delete_lock_files()$/;"	c
 HL	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:HL(group, fg, bg, attr)$/;"	f
-HandleExit	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:HandleExit(job) abort$/;"	f
-HandleExitNeoVim	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:HandleExitNeoVim(job, exit_code, event) abort$/;"	f
-HandleExitStatusVim	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:HandleExitStatusVim(job, exit_code) abort$/;"	f
-HandleExitVim	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:HandleExitVim(channel) abort$/;"	f
-HandleUnixFormat	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers.vim	/^function! s:HandleUnixFormat(buffer, lines, type) abort$/;"	f
 HasSyntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:HasSyntax(syntaxName, ...)$/;"	f
 HaskellDedent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^function s:HaskellDedent(isbs)$/;"	f
 HaskellFormatImport	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/haskell.vim	/^command! -buffer -range HaskellFormatImport call haskell#formatImport(<line1>, <line2>)$/;"	c
@@ -898,7 +791,6 @@ HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/s
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/xs.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
 Highlight on the fly.	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-quickhl/README.md	/^# Highlight on the fly.$/;"	h
 Highlighting Customization	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/README.md	/^## Highlighting Customization$/;"	i
-History	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## History$/;"	i
 How?	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/README.md	/^## How?$/;"	i
 HtmlHiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/markdown.vim	/^  command! -nargs=+ HtmlHiLink hi def link <args>$/;"	c
 HtmlHiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/markdown.vim	/^  command! -nargs=+ HtmlHiLink hi link <args>$/;"	c
@@ -916,7 +808,6 @@ HtmlIndentOpenAlt	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim
 HtmlIndentPush	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^fun! <SID>HtmlIndentPush(tag)$/;"	f
 HtmlIndentSum	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^fun! <SID>HtmlIndentSum(lnum, style)$/;"	f
 HtmlIndentSum	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^fun! <SID>HtmlIndentSum(lnum, style)$/;"	f
-IMAGE	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/Makefile	/^IMAGE ?= w0rp\/ale$/;"	m
 INDEX_WHOLE_PROJECT	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^        set INDEX_WHOLE_PROJECT=0$/;"	v
 INDEX_WHOLE_PROJECT	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^set INDEX_WHOLE_PROJECT=1$/;"	v
 Ilist	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^command! -nargs=1 -bar -bang Ilist call <sid>Qlist("i", 1, 0, '<bang>' == '!', <f-args>)$/;"	c
@@ -929,7 +820,6 @@ IndentLevel	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyg
 IndentWithContinuation	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:IndentWithContinuation(lnum, ind, width)$/;"	f
 IndentWithContinuation	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:IndentWithContinuation(lnum, ind, width)$/;"	f
 Install	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/README.md	/^## Install$/;"	i
-Install	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## Install$/;"	i
 Installation	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/README.md	/^## Installation$/;"	i
 Installation	/home/rmelton/projects/vimfiles/pack/colors/start/tomasr-molokai/README.md	/^## Installation$/;"	i
 Installation	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Installation$/;"	i
@@ -941,10 +831,7 @@ Installation	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-comp
 Installing Apprentice.	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^## Installing Apprentice.$/;"	i
 Installing Disciple.	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-disciple/README.md	/^## Installing Disciple.$/;"	i
 Introduction	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Introduction$/;"	i
-InvokeChain	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:InvokeChain(buffer, linter, chain_index, input) abort$/;"	f
 IsBlock	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:IsBlock()$/;"	f
-IsBoolean	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^function! s:IsBoolean(value) abort$/;"	f
-IsCallback	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^function! s:IsCallback(value) abort$/;"	f
 IsCatchStandalone	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:IsCatchStandalone(lnum, i)$/;"	f
 IsComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function! s:IsComment(lnum, col)$/;"	f
 IsComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:IsComment(linenum, col)$/;"	f
@@ -990,7 +877,6 @@ Jump_Forward	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-poly
 K	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> K :GoDoc<cr>$/;"	m
 K	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^nnoremap <buffer> <expr> K col('.') < 7 && expand('<Lt>cword>') =~ '\\X' && getline('.') =~ '^\\w\\+\\s\\+\\x\\+\\>' ? 'wK' : 'K'$/;"	m
 Keep	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=1 Keep call qf#filter#FilterList(<q-args>, 0)$/;"	c
-KillHandler	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:KillHandler(timer) abort$/;"	f
 Known issues	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste-easy/README.md	/^## Known issues$/;"	i
 LOG_FILE	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^    set LOG_FILE=%~2$/;"	v
 LOG_FILE	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^if [%LOG_FILE%]==[] set LOG_FILE=CON$/;"	v
@@ -1082,7 +968,6 @@ MUcompleteAutoToggle	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepill
 MakoIndentClose	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^fun! <SID>MakoIndentClose(lnum)$/;"	f
 MakoIndentOpen	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^fun! <SID>MakoIndentOpen(lnum)$/;"	f
 MakoIndentPush	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^fun! <SID>MakoIndentPush(tag)$/;"	f
-Manual	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## Manual$/;"	i
 Map	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/twig.vim	/^function! s:Map(Fun, list)$/;"	f
 Mappings	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Mappings$/;"	i
 Match	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:Match(lnum, regex)$/;"	f
@@ -1095,7 +980,6 @@ MaxLookback	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyg
 Merge	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Merge(cmd, bang, args) abort$/;"	f
 Mkdir	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -bang -nargs=? -complete=dir Mkdir$/;"	c
 Molokai Color Scheme for Vim	/home/rmelton/projects/vimfiles/pack/colors/start/tomasr-molokai/README.md	/^# Molokai Color Scheme for Vim$/;"	h
-More	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## More$/;"	i
 More info	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/README.md	/^## More info$/;"	i
 Motivation	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste-easy/README.md	/^## Motivation$/;"	i
 Motivation	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/README.md	/^## Motivation$/;"	i
@@ -1103,7 +987,6 @@ Move	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/
 Move	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Move(force,destination) abort$/;"	f
 MoveComplete	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:MoveComplete(A,L,P) abort$/;"	f
 Neovim terminal theme	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^## Neovim terminal theme$/;"	i
-News	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## News$/;"	i
 Next and Last Argument	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^### Next and Last Argument$/;"	k
 Next and Last Pair	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^### Next and Last Pair$/;"	k
 Next and Last Quote	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^### Next and Last Quote$/;"	k
@@ -1152,7 +1035,6 @@ NofrilsSepia	/home/rmelton/projects/vimfiles/pack/colors/start/robertmeta-nofril
 NofrilsSepia	/home/rmelton/projects/vimfiles/pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^command! NofrilsSepia :colo nofrils-sepia$/;"	c
 NofrilsSepia	/home/rmelton/projects/vimfiles/pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^command! NofrilsSepia :colo nofrils-sepia$/;"	c
 NofrilsSepia	/home/rmelton/projects/vimfiles/pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^command! NofrilsSepia :colo nofrils-sepia$/;"	c
-NotSupport	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:NotSupport()$/;"	f
 Notes	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Notes$/;"	i
 NumberOfMatches	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/swift.vim	/^function! s:NumberOfMatches(char, string, index)$/;"	f
 O	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^        nnoremap <buffer> O <CR>:cclose<CR>$/;"	m
@@ -1174,7 +1056,6 @@ POST_PROCESS_CMD	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchaba
 PROJECT_ROOT	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^    set PROJECT_ROOT=%~2$/;"	v
 PROJECT_ROOT	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^set PROJECT_ROOT=$/;"	v
 PROJ_ROOT	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^    set PROJ_ROOT=%~2$/;"	v
-PackageImportPath	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^function! s:PackageImportPath(buffer) abort$/;"	f
 Pair Seek	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^### Pair Seek$/;"	k
 Pair Text Objects	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Pair Text Objects$/;"	i
 Pair mappings	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/cheatsheet.md	/^## Pair mappings$/;"	i
@@ -1187,10 +1068,7 @@ PartOfInclude	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-pol
 PasteEasyDisable	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste-easy/plugin/paste-easy.vim	/^command! PasteEasyDisable let g:paste_easy_enable=0$/;"	c
 PasteEasyEnable	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste-easy/plugin/paste-easy.vim	/^command! PasteEasyEnable let g:paste_easy_enable=1$/;"	c
 Pick	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Pick   :call s:choose('pick')$/;"	c
-PkgFile	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^function! s:PkgFile(buffer) abort$/;"	f
-PkgFiles	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^function! s:PkgFiles(pkginfo) abort$/;"	f
 Pop	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:Pop(stack)$/;"	f
-Preface	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## Preface$/;"	i
 Preparing your environment.	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^## Preparing your environment.$/;"	i
 Preparing your environment.	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-disciple/README.md	/^## Preparing your environment.$/;"	i
 PrevCodeLine	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:PrevCodeLine(lnum)$/;"	f
@@ -1239,7 +1117,6 @@ RemoteComplete	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugi
 Remove	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -bang Remove$/;"	c
 Remove	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Remove(force) abort$/;"	f
 RemoveList	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=* -bang -complete=customlist,qf#namedlist#CompleteList RemoveList call qf#namedlist#RemoveList(expand("<bang>") == "!" ? 1 : 0, <q-args>)$/;"	c
-RemoveOldHighlights	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/highlight.vim	/^function! s:RemoveOldHighlights() abort$/;"	f
 RemoveTrailingComments	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:RemoveTrailingComments(content)$/;"	f
 RemoveTrailingComments	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:RemoveTrailingComments(content)$/;"	f
 Rename	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -nargs=1 -bang -complete=custom,s:Rename_complete Rename$/;"	c
@@ -1255,7 +1132,6 @@ RubyBalloonexpr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 RubyCursorFile	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^function! RubyCursorFile() abort$/;"	f
 RubyCursorIdentifier	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^function! RubyCursorIdentifier() abort$/;"	f
 Run	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rust.vim	/^function! s:Run(dict, rustc_args, args)$/;"	f
-RunJob	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:RunJob(options) abort$/;"	f
 RunRustfmt	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rustfmt.vim	/^function! s:RunRustfmt(command, curw, tmpname)$/;"	f
 RustEmitAsm	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/rust.vim	/^command! -nargs=* -buffer RustEmitAsm call rust#Emit("asm", <q-args>)$/;"	c
 RustEmitIr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/rust.vim	/^command! -nargs=* -buffer RustEmitIr call rust#Emit("llvm-ir", <q-args>)$/;"	c
@@ -1268,7 +1144,6 @@ RustfmtCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-po
 RustfmtCommandRange	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rustfmt.vim	/^function! s:RustfmtCommandRange(filename, line1, line2)$/;"	f
 S	/home/rmelton/projects/vimfiles/pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^  nmap S <Plug>Sneak_S$/;"	m
 S	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  command -nargs=1 -bang -bar -range=0 -complete=custom,s:SubComplete S$/;"	c
-SHELL	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/Makefile	/^SHELL := \/usr\/bin\/env bash$/;"	m
 SID	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/autoload/tmuxify.vim	/^function s:SID() abort$/;"	f
 SIDWrap	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:SIDWrap(func)$/;"	f
 SIDWrap	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^function! s:SIDWrap(func)$/;"	f
@@ -1277,7 +1152,6 @@ SaveListAdd	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/af
 ScratchBufBuild	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^function! s:ScratchBufBuild(src, vert, size)$/;"	f
 ScratchBufUpdate	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^function! s:ScratchBufUpdate(buf, text)$/;"	f
 Screenshots	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/README.md	/^## Screenshots$/;"	i
-ScriptWrite	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:ScriptWrite(command, pause)$/;"	f
 SearchAndSkipComments	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:SearchAndSkipComments(pat, ...)$/;"	f
 SearchCode	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function! s:SearchCode(lnum, regex)$/;"	f
 SearchEndPair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:SearchEndPair(lnum, curr_col)$/;"	f
@@ -1292,7 +1166,6 @@ SelectJavascript	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-
 Separator Seek	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^### Separator Seek$/;"	k
 Separator Text Objects	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Separator Text Objects$/;"	i
 Separator mappings	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/cheatsheet.md	/^## Separator mappings$/;"	i
-SetExitCode	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:SetExitCode(job, exit_code) abort$/;"	f
 SetList	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/autoload/qf/filter.vim	/^function! s:SetList(pat, reject)$/;"	f
 SetMakePrg	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/coffee.vim	/^function! s:SetMakePrg()$/;"	f
 SetMakePrg	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^function! s:SetMakePrg()$/;"	f
@@ -1301,7 +1174,6 @@ SetTitle	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/autol
 Settings	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/README.md	/^## Settings$/;"	i
 Settings	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Settings$/;"	i
 Settings	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/README.md	/^## Settings$/;"	i
-SetupCount	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/statusline.vim	/^function! s:SetupCount(buffer) abort$/;"	f
 ShellTokenize	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rust.vim	/^function! s:ShellTokenize(text)$/;"	f
 ShiftWidth	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^  function! s:ShiftWidth()$/;"	f
 ShouldSkip	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function! s:ShouldSkip(startlnum, lnum, col)$/;"	f
@@ -1314,7 +1186,6 @@ SneakPluginNetrw	/home/rmelton/projects/vimfiles/pack/plugins/start/justinmk-vim
 Source	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/rplugin/python3/deoplete/sources/tmuxcomplete.py	/^class Source(Base):$/;"	c
 Split	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ragel.vim	/^function! <SID>Split(path) abort " {{{1$/;"	f
 Squash	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Squash :call s:choose('squash')$/;"	c
-SrcDirs	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^function! s:SrcDirs() abort$/;"	f
 StageDiff	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:StageDiff(diff) abort$/;"	f
 StageDiffEdit	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:StageDiffEdit() abort$/;"	f
 StageNext	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:StageNext(count) abort$/;"	f
@@ -1328,10 +1199,6 @@ StartStructure	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-po
 StatementStart	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/python.vim	/^function! s:StatementStart(lnum)$/;"	f
 Status	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Status() abort$/;"	f
 Steps to reproduce:	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### Steps to reproduce:$/;"	k
-StopCursorTimer	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! s:StopCursorTimer() abort$/;"	f
-StopPreviousJobs	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:StopPreviousJobs(buffer, linter) abort$/;"	f
-StringReplace	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:StringReplace(text, old, new)$/;"	f
-StringStrip	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! s:StringStrip(text)$/;"	f
 StripTrailingWhitespace	/home/rmelton/projects/vimfiles/vimrc	/^function! StripTrailingWhitespace()$/;"	f
 Stylus	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/stylus.vim	/^command! Stylus !clear; cat % | stylus$/;"	c
 SubComplete	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:SubComplete(A,L,P)$/;"	f
@@ -1342,7 +1209,6 @@ SudoReadCmd	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/
 SudoSetup	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! s:SudoSetup(file) abort$/;"	f
 SudoWrite	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar SudoWrite$/;"	c
 SudoWriteCmd	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! s:SudoWriteCmd() abort$/;"	f
-SupportsDisplayName	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/flake8.vim	/^function! s:SupportsDisplayName(version) abort$/;"	f
 Swift	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^function! s:Swift()$/;"	f
 SwiftIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/swift.vim	/^function! SwiftIndent(...)$/;"	f
 SwitchWindow	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^function! s:SwitchWindow(buf)$/;"	f
@@ -1376,8 +1242,6 @@ TOCOpenBuf	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polygl
 TOCToggleNumbers	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^function! s:TOCToggleNumbers()$/;"	f
 TODO	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/README.md	/^## TODO$/;"	i
 TODO	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qlist/README.md	/^## TODO$/;"	i
-Table of Contents	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/README.md	/^## Table of Contents$/;"	i
-TemporaryFilename	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:TemporaryFilename(buffer) abort$/;"	f
 Terminal emulators	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-disciple/README.md	/^### Terminal emulators$/;"	k
 Terminal multiplexers	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-disciple/README.md	/^### Terminal multiplexers$/;"	k
 TerraformIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/terraform.vim	/^function! TerraformIndent(lnum)$/;"	f
@@ -1403,7 +1267,6 @@ TokenizeLine	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-poly
 Trim	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:Trim(ln)$/;"	f
 Trim	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/qml.vim	/^function! Trim(line)$/;"	f
 Troubleshooting	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/README.md	/^## Troubleshooting$/;"	i
-Tutorials	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/README.md	/^## Tutorials$/;"	i
 TxClear	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/plugin/tmuxify.vim	/^command! -nargs=0 -bar -bang TxClear     call tmuxify#pane_send_raw('C-l', <q-bang>)$/;"	c
 TxCreate	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/plugin/tmuxify.vim	/^command! -nargs=? -bar -bang TxCreate    call tmuxify#pane_create(<q-bang>, <args>)$/;"	c
 TxKill	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/plugin/tmuxify.vim	/^command! -nargs=0 -bar -bang TxKill      call tmuxify#pane_kill(<q-bang>)$/;"	c
@@ -1556,179 +1419,6 @@ ae	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplu
 af	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  onoremap <buffer> <silent> af :<c-u>call go#textobj#Function('a')<cr>$/;"	m
 after	/home/rmelton/projects/vimfiles/pack/plugins/start/justinmk-vim-sneak/autoload/sneak/label.vim	/^func! s:after()$/;"	f
 al	/home/rmelton/projects/vimfiles/vimrc	/^omap al :<C-u>normal val<CR>$/;"	m
-ale#Lint	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale.vim	/^function! ale#Lint(...) abort$/;"	f
-ale#Queue	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale.vim	/^function! ale#Queue(delay) abort$/;"	f
-ale#ShouldDoNothing	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale.vim	/^function! ale#ShouldDoNothing() abort$/;"	f
-ale#cleanup#Buffer	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cleanup.vim	/^function! ale#cleanup#Buffer(buffer) abort$/;"	f
-ale#cursor#EchoCursorWarning	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! ale#cursor#EchoCursorWarning(...) abort$/;"	f
-ale#cursor#EchoCursorWarningWithDelay	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! ale#cursor#EchoCursorWarningWithDelay() abort$/;"	f
-ale#cursor#ShowCursorDetail	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! ale#cursor#ShowCursorDetail() abort$/;"	f
-ale#cursor#TruncatedEcho	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! ale#cursor#TruncatedEcho(message) abort$/;"	f
-ale#debugging#Info	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! ale#debugging#Info() abort$/;"	f
-ale#debugging#InfoToClipboard	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! ale#debugging#InfoToClipboard() abort$/;"	f
-ale#engine#ClearJob	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#ClearJob(job) abort$/;"	f
-ale#engine#EscapeCommandPart	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#EscapeCommandPart(command_part) abort$/;"	f
-ale#engine#FixLocList	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#FixLocList(buffer, linter, loclist) abort$/;"	f
-ale#engine#FormatCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#FormatCommand(buffer, command) abort$/;"	f
-ale#engine#GetLoclist	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#GetLoclist(buffer) abort$/;"	f
-ale#engine#InitBufferInfo	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#InitBufferInfo(buffer) abort$/;"	f
-ale#engine#Invoke	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#Invoke(buffer, linter) abort$/;"	f
-ale#engine#JoinNeovimOutput	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#JoinNeovimOutput(output, data) abort$/;"	f
-ale#engine#ManageDirectory	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#ManageDirectory(buffer, directory) abort$/;"	f
-ale#engine#ManageFile	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#ManageFile(buffer, filename) abort$/;"	f
-ale#engine#ParseVim8ProcessID	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#ParseVim8ProcessID(job_string) abort$/;"	f
-ale#engine#ProcessChain	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#ProcessChain(buffer, linter, chain_index, input) abort$/;"	f
-ale#engine#RemoveManagedFiles	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#RemoveManagedFiles(buffer) abort$/;"	f
-ale#engine#SetResults	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#SetResults(buffer, loclist) abort$/;"	f
-ale#engine#WaitForJobs	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#WaitForJobs(deadline) abort$/;"	f
-ale#filetypes#GuessExtension	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/filetypes.vim	/^function! ale#filetypes#GuessExtension(filetype) abort$/;"	f
-ale#filetypes#LoadExtensionMap	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/filetypes.vim	/^function! ale#filetypes#LoadExtensionMap() abort$/;"	f
-ale#handlers#HandleCSSLintFormat	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers.vim	/^function! ale#handlers#HandleCSSLintFormat(buffer, lines) abort$/;"	f
-ale#handlers#HandleCppCheckFormat	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers.vim	/^function! ale#handlers#HandleCppCheckFormat(buffer, lines) abort$/;"	f
-ale#handlers#HandleGCCFormat	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers.vim	/^function! ale#handlers#HandleGCCFormat(buffer, lines) abort$/;"	f
-ale#handlers#HandleGhcFormat	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers.vim	/^function! ale#handlers#HandleGhcFormat(buffer, lines) abort$/;"	f
-ale#handlers#HandlePEP8Format	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers.vim	/^function! ale#handlers#HandlePEP8Format(buffer, lines) abort$/;"	f
-ale#handlers#HandleStyleLintFormat	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers.vim	/^function! ale#handlers#HandleStyleLintFormat(buffer, lines) abort$/;"	f
-ale#handlers#HandleUnixFormatAsError	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers.vim	/^function! ale#handlers#HandleUnixFormatAsError(buffer, lines) abort$/;"	f
-ale#handlers#HandleUnixFormatAsWarning	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers.vim	/^function! ale#handlers#HandleUnixFormatAsWarning(buffer, lines) abort$/;"	f
-ale#handlers#rust#HandleRustErrors	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers/rust.vim	/^function! ale#handlers#rust#HandleRustErrors(buffer, lines) abort$/;"	f
-ale#handlers#rust#HandleRustErrorsForFile	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers/rust.vim	/^function! ale#handlers#rust#HandleRustErrorsForFile(buffer, full_filename, lines) abort$/;"	f
-ale#highlight#SetHighlights	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/highlight.vim	/^function! ale#highlight#SetHighlights(buffer, loclist) abort$/;"	f
-ale#highlight#UnqueueHighlights	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/highlight.vim	/^function! ale#highlight#UnqueueHighlights(buffer) abort$/;"	f
-ale#highlight#UpdateHighlights	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/highlight.vim	/^function! ale#highlight#UpdateHighlights() abort$/;"	f
-ale#history#Add	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/history.vim	/^function! ale#history#Add(buffer, status, job_id, command) abort$/;"	f
-ale#history#RememberOutput	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/history.vim	/^function! ale#history#RememberOutput(buffer, job_id, output) abort$/;"	f
-ale#history#SetExitCode	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/history.vim	/^function! ale#history#SetExitCode(buffer, job_id, exit_code) abort$/;"	f
-ale#linter#Define	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^function! ale#linter#Define(filetype, linter) abort$/;"	f
-ale#linter#Get	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^function! ale#linter#Get(original_filetypes) abort$/;"	f
-ale#linter#GetAll	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^function! ale#linter#GetAll(filetype) abort$/;"	f
-ale#linter#PreProcess	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^function! ale#linter#PreProcess(linter) abort$/;"	f
-ale#linter#Reset	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^function! ale#linter#Reset() abort$/;"	f
-ale#linter#ResolveFiletype	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^function! ale#linter#ResolveFiletype(original_filetype) abort$/;"	f
-ale#list#IsQuickfixOpen	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/list.vim	/^function! ale#list#IsQuickfixOpen() abort$/;"	f
-ale#list#SetLists	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/list.vim	/^function! ale#list#SetLists(loclist) abort$/;"	f
-ale#loclist_jumping#FindNearest	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/loclist_jumping.vim	/^function! ale#loclist_jumping#FindNearest(direction, wrap) abort$/;"	f
-ale#loclist_jumping#GetSortedList	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/loclist_jumping.vim	/^function! ale#loclist_jumping#GetSortedList() abort$/;"	f
-ale#loclist_jumping#Jump	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/loclist_jumping.vim	/^function! ale#loclist_jumping#Jump(direction, wrap) abort$/;"	f
-ale#semver#GreaterOrEqual	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/semver.vim	/^function! ale#semver#GreaterOrEqual(lhs, rhs) abort$/;"	f
-ale#semver#Parse	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/semver.vim	/^function! ale#semver#Parse(text) abort$/;"	f
-ale#sign#CombineSigns	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^function! ale#sign#CombineSigns(loclist) abort$/;"	f
-ale#sign#FindCurrentSigns	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^function! ale#sign#FindCurrentSigns(buffer) abort$/;"	f
-ale#sign#ParseSigns	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^function! ale#sign#ParseSigns(line_list) abort$/;"	f
-ale#sign#ReadSigns	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^function! ale#sign#ReadSigns(buffer) abort$/;"	f
-ale#sign#SetSigns	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^function! ale#sign#SetSigns(buffer, loclist) abort$/;"	f
-ale#statusline#Count	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/statusline.vim	/^function! ale#statusline#Count(buffer) abort$/;"	f
-ale#statusline#Status	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/statusline.vim	/^function! ale#statusline#Status() abort$/;"	f
-ale#statusline#Update	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/statusline.vim	/^function! ale#statusline#Update(buffer, loclist) abort$/;"	f
-ale#util#BinarySearch	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/util.vim	/^function! ale#util#BinarySearch(loclist, line, column) abort$/;"	f
-ale#util#FindNearestDirectory	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/util.vim	/^function! ale#util#FindNearestDirectory(buffer, directory_name) abort$/;"	f
-ale#util#FindNearestFile	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/util.vim	/^function! ale#util#FindNearestFile(buffer, filename) abort$/;"	f
-ale#util#GetFunction	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/util.vim	/^function! ale#util#GetFunction(string_or_ref) abort$/;"	f
-ale#util#GetLineCount	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/util.vim	/^function! ale#util#GetLineCount(buffer) abort$/;"	f
-ale#util#InSandbox	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/util.vim	/^function! ale#util#InSandbox() abort$/;"	f
-ale#util#LocItemCompare	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/util.vim	/^function! ale#util#LocItemCompare(left, right) abort$/;"	f
-ale#util#ResolveLocalPath	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/util.vim	/^function! ale#util#ResolveLocalPath(buffer, search_string, global_fallback) abort$/;"	f
-ale_linters#c#gcc#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/c/gcc.vim	/^function! ale_linters#c#gcc#GetCommand(buffer) abort$/;"	f
-ale_linters#chef#foodcritic#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/chef/foodcritic.vim	/^function! ale_linters#chef#foodcritic#Handle(buffer, lines) abort$/;"	f
-ale_linters#cmake#cmakelint#Command	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cmake/cmakelint.vim	/^function! ale_linters#cmake#cmakelint#Command(buffer) abort$/;"	f
-ale_linters#cmake#cmakelint#Executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cmake/cmakelint.vim	/^function! ale_linters#cmake#cmakelint#Executable(buffer) abort$/;"	f
-ale_linters#coffee#coffee#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/coffee/coffee.vim	/^function! ale_linters#coffee#coffee#GetCommand(buffer) abort$/;"	f
-ale_linters#coffee#coffee#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/coffee/coffee.vim	/^function! ale_linters#coffee#coffee#GetExecutable(buffer) abort$/;"	f
-ale_linters#coffee#coffeelint#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/coffee/coffeelint.vim	/^function! ale_linters#coffee#coffeelint#GetCommand(buffer) abort$/;"	f
-ale_linters#coffee#coffeelint#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/coffee/coffeelint.vim	/^function! ale_linters#coffee#coffeelint#GetExecutable(buffer) abort$/;"	f
-ale_linters#coffee#coffeelint#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/coffee/coffeelint.vim	/^function! ale_linters#coffee#coffeelint#Handle(buffer, lines) abort$/;"	f
-ale_linters#cpp#clangtidy#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cpp/clangtidy.vim	/^function! ale_linters#cpp#clangtidy#GetCommand(buffer) abort$/;"	f
-ale_linters#cpp#gcc#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cpp/gcc.vim	/^function! ale_linters#cpp#gcc#GetCommand(buffer) abort$/;"	f
-ale_linters#cs#mcs#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cs/mcs.vim	/^function! ale_linters#cs#mcs#GetCommand(buffer) abort$/;"	f
-ale_linters#cs#mcs#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cs/mcs.vim	/^function! ale_linters#cs#mcs#Handle(buffer, lines) abort$/;"	f
-ale_linters#css#stylelint#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/css/stylelint.vim	/^function! ale_linters#css#stylelint#GetCommand(buffer) abort$/;"	f
-ale_linters#css#stylelint#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/css/stylelint.vim	/^function! ale_linters#css#stylelint#GetExecutable(buffer) abort$/;"	f
-ale_linters#d#dmd#DMDCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/d/dmd.vim	/^function! ale_linters#d#dmd#DMDCommand(buffer, dub_output) abort$/;"	f
-ale_linters#d#dmd#DUBCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/d/dmd.vim	/^function! ale_linters#d#dmd#DUBCommand(buffer) abort$/;"	f
-ale_linters#d#dmd#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/d/dmd.vim	/^function! ale_linters#d#dmd#Handle(buffer, lines) abort$/;"	f
-ale_linters#dockerfile#hadolint#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/dockerfile/hadolint.vim	/^function! ale_linters#dockerfile#hadolint#Handle(buffer, lines) abort$/;"	f
-ale_linters#elixir#credo#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/elixir/credo.vim	/^function! ale_linters#elixir#credo#Handle(buffer, lines) abort$/;"	f
-ale_linters#elm#make#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/elm/make.vim	/^function! ale_linters#elm#make#GetCommand(buffer) abort$/;"	f
-ale_linters#elm#make#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/elm/make.vim	/^function! ale_linters#elm#make#Handle(buffer, lines) abort$/;"	f
-ale_linters#erlang#erlc#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/erlang/erlc.vim	/^function! ale_linters#erlang#erlc#GetCommand(buffer) abort$/;"	f
-ale_linters#erlang#erlc#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/erlang/erlc.vim	/^function! ale_linters#erlang#erlc#Handle(buffer, lines) abort$/;"	f
-ale_linters#fortran#gcc#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/fortran/gcc.vim	/^function! ale_linters#fortran#gcc#Handle(buffer, lines) abort$/;"	f
-ale_linters#go#gobuild#CopyFiles	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^function! ale_linters#go#gobuild#CopyFiles(buffer, golist_output) abort$/;"	f
-ale_linters#go#gobuild#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^function! ale_linters#go#gobuild#GetCommand(buffer, copy_output) abort$/;"	f
-ale_linters#go#gobuild#GoEnv	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^function! ale_linters#go#gobuild#GoEnv(buffer) abort$/;"	f
-ale_linters#go#gobuild#GoList	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^function! ale_linters#go#gobuild#GoList(buffer, goenv_output) abort$/;"	f
-ale_linters#go#gobuild#Handler	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^function! ale_linters#go#gobuild#Handler(buffer, lines) abort$/;"	f
-ale_linters#haml#hamllint#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/haml/hamllint.vim	/^function! ale_linters#haml#hamllint#Handle(buffer, lines) abort$/;"	f
-ale_linters#haskell#hlint#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/haskell/hlint.vim	/^function! ale_linters#haskell#hlint#Handle(buffer, lines) abort$/;"	f
-ale_linters#html#htmlhint#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/html/htmlhint.vim	/^function! ale_linters#html#htmlhint#GetCommand(buffer) abort$/;"	f
-ale_linters#html#htmlhint#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/html/htmlhint.vim	/^function! ale_linters#html#htmlhint#GetExecutable(buffer) abort$/;"	f
-ale_linters#html#tidy#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/html/tidy.vim	/^function! ale_linters#html#tidy#GetCommand(buffer) abort$/;"	f
-ale_linters#html#tidy#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/html/tidy.vim	/^function! ale_linters#html#tidy#Handle(buffer, lines) abort$/;"	f
-ale_linters#java#javac#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/java/javac.vim	/^function! ale_linters#java#javac#GetCommand(buffer) abort$/;"	f
-ale_linters#java#javac#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/java/javac.vim	/^function! ale_linters#java#javac#Handle(buffer, lines) abort$/;"	f
-ale_linters#javascript#eslint#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/eslint.vim	/^function! ale_linters#javascript#eslint#GetCommand(buffer) abort$/;"	f
-ale_linters#javascript#eslint#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/eslint.vim	/^function! ale_linters#javascript#eslint#GetExecutable(buffer) abort$/;"	f
-ale_linters#javascript#eslint#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/eslint.vim	/^function! ale_linters#javascript#eslint#Handle(buffer, lines) abort$/;"	f
-ale_linters#javascript#flow#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/flow.vim	/^function! ale_linters#javascript#flow#GetCommand(buffer) abort$/;"	f
-ale_linters#javascript#flow#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/flow.vim	/^function! ale_linters#javascript#flow#GetExecutable(buffer) abort$/;"	f
-ale_linters#javascript#flow#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/flow.vim	/^function! ale_linters#javascript#flow#Handle(buffer, lines) abort$/;"	f
-ale_linters#javascript#jshint#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/jshint.vim	/^function! ale_linters#javascript#jshint#GetCommand(buffer) abort$/;"	f
-ale_linters#javascript#jshint#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/jshint.vim	/^function! ale_linters#javascript#jshint#GetExecutable(buffer) abort$/;"	f
-ale_linters#javascript#standard#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/standard.vim	/^function! ale_linters#javascript#standard#GetCommand(buffer) abort$/;"	f
-ale_linters#javascript#standard#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/standard.vim	/^function! ale_linters#javascript#standard#GetExecutable(buffer) abort$/;"	f
-ale_linters#javascript#standard#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/standard.vim	/^function! ale_linters#javascript#standard#Handle(buffer, lines) abort$/;"	f
-ale_linters#javascript#xo#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/xo.vim	/^function! ale_linters#javascript#xo#GetCommand(buffer) abort$/;"	f
-ale_linters#javascript#xo#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/xo.vim	/^function! ale_linters#javascript#xo#GetExecutable(buffer) abort$/;"	f
-ale_linters#javascript#xo#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/xo.vim	/^function! ale_linters#javascript#xo#Handle(buffer, lines) abort$/;"	f
-ale_linters#json#jsonlint#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/json/jsonlint.vim	/^function! ale_linters#json#jsonlint#Handle(buffer, lines) abort$/;"	f
-ale_linters#lua#luacheck#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/lua/luacheck.vim	/^function! ale_linters#lua#luacheck#Handle(buffer, lines) abort$/;"	f
-ale_linters#markdown#mdl#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/markdown/mdl.vim	/^function! ale_linters#markdown#mdl#Handle(buffer, lines) abort$/;"	f
-ale_linters#matlab#mlint#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^function! ale_linters#matlab#mlint#GetCommand(buffer) abort$/;"	f
-ale_linters#matlab#mlint#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^function! ale_linters#matlab#mlint#GetExecutable(buffer) abort$/;"	f
-ale_linters#matlab#mlint#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^function! ale_linters#matlab#mlint#Handle(buffer, lines) abort$/;"	f
-ale_linters#ocaml#merlin#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/ocaml/merlin.vim	/^function! ale_linters#ocaml#merlin#Handle(buffer, lines) abort$/;"	f
-ale_linters#perl#perl#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/perl/perl.vim	/^function! ale_linters#perl#perl#Handle(buffer, lines) abort$/;"	f
-ale_linters#perl#perlcritic#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/perl/perlcritic.vim	/^function! ale_linters#perl#perlcritic#Handle(buffer, lines) abort$/;"	f
-ale_linters#php#hack#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/php/hack.vim	/^function! ale_linters#php#hack#Handle(buffer, lines) abort$/;"	f
-ale_linters#php#php#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/php/php.vim	/^function! ale_linters#php#php#Handle(buffer, lines) abort$/;"	f
-ale_linters#php#phpcs#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/php/phpcs.vim	/^function! ale_linters#php#phpcs#GetCommand(buffer) abort$/;"	f
-ale_linters#php#phpcs#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/php/phpcs.vim	/^function! ale_linters#php#phpcs#Handle(buffer, lines) abort$/;"	f
-ale_linters#php#phpmd#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/php/phpmd.vim	/^function! ale_linters#php#phpmd#Handle(buffer, lines) abort$/;"	f
-ale_linters#puppet#puppet#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/puppet/puppet.vim	/^function! ale_linters#puppet#puppet#Handle(buffer, lines) abort$/;"	f
-ale_linters#python#flake8#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/flake8.vim	/^function! ale_linters#python#flake8#GetCommand(buffer, version_output) abort$/;"	f
-ale_linters#python#flake8#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/flake8.vim	/^function! ale_linters#python#flake8#GetExecutable(buffer) abort$/;"	f
-ale_linters#python#flake8#VersionCheck	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/flake8.vim	/^function! ale_linters#python#flake8#VersionCheck(buffer) abort$/;"	f
-ale_linters#python#pylint#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/pylint.vim	/^function! ale_linters#python#pylint#GetCommand(buffer) abort$/;"	f
-ale_linters#python#pylint#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/pylint.vim	/^function! ale_linters#python#pylint#GetExecutable(buffer) abort$/;"	f
-ale_linters#ruby#rubocop#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/ruby/rubocop.vim	/^function! ale_linters#ruby#rubocop#GetCommand(buffer) abort$/;"	f
-ale_linters#ruby#rubocop#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/ruby/rubocop.vim	/^function! ale_linters#ruby#rubocop#Handle(buffer, lines) abort$/;"	f
-ale_linters#rust#cargo#GetCargoExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/rust/cargo.vim	/^function! ale_linters#rust#cargo#GetCargoExecutable(bufnr) abort$/;"	f
-ale_linters#rust#rustc#RustcCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/rust/rustc.vim	/^function! ale_linters#rust#rustc#RustcCommand(buffer_number) abort$/;"	f
-ale_linters#sass#stylelint#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sass/stylelint.vim	/^function! ale_linters#sass#stylelint#GetCommand(buffer) abort$/;"	f
-ale_linters#sass#stylelint#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sass/stylelint.vim	/^function! ale_linters#sass#stylelint#GetExecutable(buffer) abort$/;"	f
-ale_linters#scala#scalac#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/scala/scalac.vim	/^function! ale_linters#scala#scalac#Handle(buffer, lines) abort$/;"	f
-ale_linters#scss#scsslint#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/scss/scsslint.vim	/^function! ale_linters#scss#scsslint#Handle(buffer, lines) abort$/;"	f
-ale_linters#scss#stylelint#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/scss/stylelint.vim	/^function! ale_linters#scss#stylelint#GetCommand(buffer) abort$/;"	f
-ale_linters#scss#stylelint#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/scss/stylelint.vim	/^function! ale_linters#scss#stylelint#GetExecutable(buffer) abort$/;"	f
-ale_linters#sh#shell#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sh/shell.vim	/^function! ale_linters#sh#shell#GetCommand(buffer) abort$/;"	f
-ale_linters#sh#shell#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sh/shell.vim	/^function! ale_linters#sh#shell#GetExecutable(buffer) abort$/;"	f
-ale_linters#sh#shell#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sh/shell.vim	/^function! ale_linters#sh#shell#Handle(buffer, lines) abort$/;"	f
-ale_linters#sh#shellcheck#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sh/shellcheck.vim	/^function! ale_linters#sh#shellcheck#GetCommand(buffer) abort$/;"	f
-ale_linters#sml#smlnj#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sml/smlnj.vim	/^function! ale_linters#sml#smlnj#Handle(buffer, lines) abort$/;"	f
-ale_linters#tex#chktex#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/tex/chktex.vim	/^function! ale_linters#tex#chktex#GetCommand(buffer) abort$/;"	f
-ale_linters#tex#chktex#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/tex/chktex.vim	/^function! ale_linters#tex#chktex#Handle(buffer, lines) abort$/;"	f
-ale_linters#tex#lacheck#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/tex/lacheck.vim	/^function! ale_linters#tex#lacheck#GetCommand(buffer) abort$/;"	f
-ale_linters#tex#lacheck#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/tex/lacheck.vim	/^function! ale_linters#tex#lacheck#GetExecutable(buffer) abort$/;"	f
-ale_linters#tex#lacheck#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/tex/lacheck.vim	/^function! ale_linters#tex#lacheck#Handle(buffer, lines) abort$/;"	f
-ale_linters#typescript#tslint#BuildLintCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/typescript/tslint.vim	/^function! ale_linters#typescript#tslint#BuildLintCommand(buffer) abort$/;"	f
-ale_linters#typescript#tslint#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/typescript/tslint.vim	/^function! ale_linters#typescript#tslint#Handle(buffer, lines) abort$/;"	f
-ale_linters#typescript#typecheck#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/typescript/typecheck.vim	/^function! ale_linters#typescript#typecheck#Handle(buffer, lines) abort$/;"	f
-ale_linters#verilog#iverilog#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/verilog/iverilog.vim	/^function! ale_linters#verilog#iverilog#Handle(buffer, lines) abort$/;"	f
-ale_linters#verilog#verilator#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/verilog/verilator.vim	/^function! ale_linters#verilog#verilator#GetCommand(buffer) abort$/;"	f
-ale_linters#verilog#verilator#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/verilog/verilator.vim	/^function! ale_linters#verilog#verilator#Handle(buffer, lines) abort$/;"	f
-ale_linters#yaml#yamllint#GetCommand	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/yaml/yamllint.vim	/^function! ale_linters#yaml#yamllint#GetCommand(buffer) abort$/;"	f
-ale_linters#yaml#yamllint#GetExecutable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/yaml/yamllint.vim	/^function! ale_linters#yaml#yamllint#GetExecutable(buffer) abort$/;"	f
-ale_linters#yaml#yamllint#Handle	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/yaml/yamllint.vim	/^function! ale_linters#yaml#yamllint#Handle(buffer, lines) abort$/;"	f
 all	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:all(f, xs) abort$/;"	f
 allsteps	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^function! s:allsteps()$/;"	f
 alternatePair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:alternatePair(stop)$/;"	f
@@ -1744,11 +1434,6 @@ aria_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 aria_attributes_value	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let aria_attributes_value = {$/;"	v
 asmfmt_autosave	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:asmfmt_autosave()$/;"	f
 async_guru	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:async_guru(args) abort$/;"	f
-asyncrun#quickfix_toggle	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! asyncrun#quickfix_toggle(size, ...)$/;"	f
-asyncrun#run	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! asyncrun#run(bang, opts, args)$/;"	f
-asyncrun#status	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! asyncrun#status()$/;"	f
-asyncrun#stop	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! asyncrun#stop(bang)$/;"	f
-asyncrun#version	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^function! asyncrun#version()$/;"	f
 attach_autocmds	/home/rmelton/projects/vimfiles/pack/plugins/start/justinmk-vim-sneak/plugin/sneak.vim	/^func! s:attach_autocmds()$/;"	f
 attribute_highlight	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ansible.vim	/^fun! s:attribute_highlight(attributes)$/;"	f
 attributes_value	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let attributes_value = extend(attributes_value, event_attributes_value)$/;"	v
@@ -1994,7 +1679,6 @@ b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-poly
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/vala.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/vue.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent_hbs	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/handlebars.vim	/^let b:did_indent_hbs = 1$/;"	v
-b:dummy_sign_set_map	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^let b:dummy_sign_set_map = {}$/;"	v
 b:eelixir_subtype	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/eelixir.vim	/^    let b:eelixir_subtype = 'elixir'$/;"	v
 b:eelixir_subtype	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/eelixir.vim	/^    let b:eelixir_subtype = 'javascript'$/;"	v
 b:eelixir_subtype	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/eelixir.vim	/^    let b:eelixir_subtype = 'text'$/;"	v
@@ -2256,7 +1940,6 @@ char_inserted	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste
 char_range	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:char_range(from, to) abort$/;"	f
 charset	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let charset = [$/;"	v
 check_for_string	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:check_for_string()$/;"	f
-check_line	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/custom-checks	/^check_line() {$/;"	f
 chomp	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:chomp(str) abort "{{{$/;"	f
 choose	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^function! s:choose(word)$/;"	f
 chop	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:chop(str) abort "{{{$/;"	f
@@ -2454,7 +2137,6 @@ echo_go_info	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/plu
 echorizer.eat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/ColorEcho.vim	/^function s:echorizer.eat() abort$/;"	f
 echorizer.echo	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/ColorEcho.vim	/^function s:echorizer.echo() abort$/;"	f
 echorizer.echo_ansi	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/ColorEcho.vim	/^function s:echorizer.echo_ansi(code) abort$/;"	f
-ecmaVersion	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/.eslintrc.js	/^        ecmaVersion: 6,$/;"	p
 egrep_pattern	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:egrep_pattern(dict,boundaries)$/;"	f
 elapsed_time	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^  let elapsed_time = reltimestr(reltime(started))$/;"	v
 elapsed_time	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^  let elapsed_time = substitute(elapsed_time, '^\\s*\\(.\\{-}\\)\\s*$', '\\1', '')$/;"	v
@@ -2603,116 +2285,7 @@ g:NERDCustomDelimiters	/home/rmelton/projects/vimfiles/pack/plugins/start/sheeru
 g:NERDDelimiterMap	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/toml.vim	/^        let g:NERDDelimiterMap.toml = s:delims$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/.vim\/after\/plugin\/abolish.vim")$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/vimfiles\/after\/plugin\/abolish.vim")$/;"	v
-g:ale#util#nul_file	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/util.vim	/^    let g:ale#util#nul_file = 'nul'$/;"	v
-g:ale#util#nul_file	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/util.vim	/^let g:ale#util#nul_file = '\/dev\/null'$/;"	v
-g:ale_buffer_info	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_buffer_info = {}$/;"	v
-g:ale_c_clang_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/c/clang.vim	/^    let g:ale_c_clang_options = '-std=c11 -Wall'$/;"	v
-g:ale_c_cppcheck_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/c/cppcheck.vim	/^let g:ale_c_cppcheck_options = get(g:, 'ale_c_cppcheck_options', '--enable=style')$/;"	v
-g:ale_c_gcc_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/c/gcc.vim	/^    let g:ale_c_gcc_options = '-std=c11 -Wall'$/;"	v
-g:ale_cmake_cmakelint_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cmake/cmakelint.vim	/^let g:ale_cmake_cmakelint_executable =$/;"	v
-g:ale_cmake_cmakelint_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cmake/cmakelint.vim	/^let g:ale_cmake_cmakelint_options =$/;"	v
-g:ale_cpp_clang_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cpp/clang.vim	/^    let g:ale_cpp_clang_options = '-std=c++14 -Wall'$/;"	v
-g:ale_cpp_clangtidy_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cpp/clangtidy.vim	/^let g:ale_cpp_clangtidy_options =$/;"	v
-g:ale_cpp_cppcheck_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cpp/cppcheck.vim	/^let g:ale_cpp_cppcheck_options = get(g:, 'ale_cpp_cppcheck_options', '--enable=style')$/;"	v
-g:ale_cpp_gcc_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cpp/gcc.vim	/^    let g:ale_cpp_gcc_options = '-std=c++14 -Wall'$/;"	v
-g:ale_cs_mcs_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/cs/mcs.vim	/^let g:ale_cs_mcs_options = get(g:, 'ale_cs_mcs_options', '')$/;"	v
-g:ale_css_stylelint_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/css/stylelint.vim	/^let g:ale_css_stylelint_executable =$/;"	v
-g:ale_css_stylelint_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/css/stylelint.vim	/^let g:ale_css_stylelint_options =$/;"	v
-g:ale_css_stylelint_use_global	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/css/stylelint.vim	/^let g:ale_css_stylelint_use_global =$/;"	v
-g:ale_echo_cursor	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_echo_cursor = get(g:, 'ale_echo_cursor', 1)$/;"	v
-g:ale_echo_msg_error_str	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_echo_msg_error_str = get(g:, 'ale_echo_msg_error_str', 'Error')$/;"	v
-g:ale_echo_msg_format	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_echo_msg_format = get(g:, 'ale_echo_msg_format', '%s')$/;"	v
-g:ale_echo_msg_warning_str	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_echo_msg_warning_str = get(g:, 'ale_echo_msg_warning_str', 'Warning')$/;"	v
-g:ale_enabled	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_enabled = get(g:, 'ale_enabled', 1)$/;"	v
-g:ale_erlang_erlc_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/erlang/erlc.vim	/^let g:ale_erlang_erlc_options = get(g:, 'ale_erlang_erlc_options', '')$/;"	v
-g:ale_filetype_blacklist	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_filetype_blacklist = ['nerdtree', 'unite', 'tags']$/;"	v
-g:ale_fortran_gcc_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/fortran/gcc.vim	/^    let g:ale_fortran_gcc_options = '-Wall'$/;"	v
-g:ale_history_enabled	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_history_enabled = get(g:, 'ale_history_enabled', 1)$/;"	v
-g:ale_history_log_output	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_history_log_output = get(g:, 'ale_history_log_output', 0)$/;"	v
-g:ale_html_htmlhint_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/html/htmlhint.vim	/^let g:ale_html_htmlhint_executable =$/;"	v
-g:ale_html_htmlhint_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/html/htmlhint.vim	/^let g:ale_html_htmlhint_options = get(g:, 'ale_html_htmlhint_options', '--format=unix')$/;"	v
-g:ale_html_htmlhint_use_global	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/html/htmlhint.vim	/^let g:ale_html_htmlhint_use_global =$/;"	v
-g:ale_html_tidy_args	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/html/tidy.vim	/^let g:ale_html_tidy_args = get(g:, 'ale_html_tidy_args', '-q -e -language en')$/;"	v
-g:ale_html_tidy_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/html/tidy.vim	/^let g:ale_html_tidy_executable = get(g:, 'ale_html_tidy_executable', 'tidy')$/;"	v
-g:ale_java_javac_classpath	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/java/javac.vim	/^let g:ale_java_javac_classpath = get(g:, 'ale_java_javac_classpath', '')$/;"	v
-g:ale_java_javac_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/java/javac.vim	/^let g:ale_java_javac_options = get(g:, 'ale_java_javac_options', '')$/;"	v
-g:ale_javascript_eslint_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/eslint.vim	/^let g:ale_javascript_eslint_executable =$/;"	v
-g:ale_javascript_eslint_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/eslint.vim	/^let g:ale_javascript_eslint_options =$/;"	v
-g:ale_javascript_eslint_use_global	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/eslint.vim	/^let g:ale_javascript_eslint_use_global =$/;"	v
-g:ale_javascript_flow_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/flow.vim	/^let g:ale_javascript_flow_executable =$/;"	v
-g:ale_javascript_flow_use_global	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/flow.vim	/^let g:ale_javascript_flow_use_global =$/;"	v
-g:ale_javascript_jshint_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/jshint.vim	/^let g:ale_javascript_jshint_executable =$/;"	v
-g:ale_javascript_jshint_use_global	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/jshint.vim	/^let g:ale_javascript_jshint_use_global =$/;"	v
-g:ale_javascript_standard_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/standard.vim	/^let g:ale_javascript_standard_executable =$/;"	v
-g:ale_javascript_standard_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/standard.vim	/^let g:ale_javascript_standard_options =$/;"	v
-g:ale_javascript_standard_use_global	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/standard.vim	/^let g:ale_javascript_standard_use_global =$/;"	v
-g:ale_javascript_xo_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/xo.vim	/^let g:ale_javascript_xo_executable =$/;"	v
-g:ale_javascript_xo_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/xo.vim	/^let g:ale_javascript_xo_options =$/;"	v
-g:ale_javascript_xo_use_global	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/javascript/xo.vim	/^let g:ale_javascript_xo_use_global =$/;"	v
-g:ale_keep_list_window_open	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_keep_list_window_open = get(g:, 'ale_keep_list_window_open', 0)$/;"	v
-g:ale_lint_delay	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_lint_delay = get(g:, 'ale_lint_delay', 200)$/;"	v
-g:ale_lint_on_enter	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_lint_on_enter = get(g:, 'ale_lint_on_enter', 1)$/;"	v
-g:ale_lint_on_save	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_lint_on_save = get(g:, 'ale_lint_on_save', 0)$/;"	v
-g:ale_lint_on_text_changed	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_lint_on_text_changed = get(g:, 'ale_lint_on_text_changed', 1)$/;"	v
-g:ale_linter_aliases	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_linter_aliases = get(g:, 'ale_linter_aliases', {})$/;"	v
-g:ale_linters	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_linters = get(g:, 'ale_linters', {})$/;"	v
-g:ale_linters_sh_shell_default_shell	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sh/shell.vim	/^        let g:ale_linters_sh_shell_default_shell = 'bash'$/;"	v
-g:ale_linters_sh_shell_default_shell	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sh/shell.vim	/^    let g:ale_linters_sh_shell_default_shell = fnamemodify($SHELL, ':t')$/;"	v
-g:ale_linters_sh_shellcheck_exclusions	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sh/shellcheck.vim	/^    let g:ale_linters_sh_shellcheck_exclusions = ''$/;"	v
-g:ale_lua_luacheck_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/lua/luacheck.vim	/^let g:ale_lua_luacheck_executable =$/;"	v
-g:ale_matlab_mlint_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^let g:ale_matlab_mlint_executable =$/;"	v
-g:ale_max_buffer_history_size	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_max_buffer_history_size = get(g:, 'ale_max_buffer_history_size', 20)$/;"	v
-g:ale_open_list	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_open_list = get(g:, 'ale_open_list', 0)$/;"	v
-g:ale_php_phpmd_ruleset	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/php/phpmd.vim	/^let g:ale_php_phpmd_ruleset = get(g:, 'ale_php_phpmd_ruleset', 'cleancode,codesize,controversial,design,naming,unusedcode')$/;"	v
-g:ale_python_flake8_args	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/flake8.vim	/^let g:ale_python_flake8_args =$/;"	v
-g:ale_python_flake8_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/flake8.vim	/^let g:ale_python_flake8_executable =$/;"	v
-g:ale_python_mypy_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/mypy.vim	/^let g:ale_python_mypy_options = get(g:, 'ale_python_mypy_options', '')$/;"	v
-g:ale_python_pylint_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/pylint.vim	/^let g:ale_python_pylint_executable =$/;"	v
-g:ale_python_pylint_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/pylint.vim	/^let g:ale_python_pylint_options =$/;"	v
-g:ale_ruby_rubocop_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/ruby/rubocop.vim	/^    let g:ale_ruby_rubocop_options = ''$/;"	v
-g:ale_rust_ignore_error_codes	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers/rust.vim	/^    let g:ale_rust_ignore_error_codes = []$/;"	v
-g:ale_sass_stylelint_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sass/stylelint.vim	/^let g:ale_sass_stylelint_executable =$/;"	v
-g:ale_sass_stylelint_use_global	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sass/stylelint.vim	/^let g:ale_sass_stylelint_use_global =$/;"	v
-g:ale_scss_stylelint_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/scss/stylelint.vim	/^let g:ale_scss_stylelint_executable =$/;"	v
-g:ale_scss_stylelint_use_global	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/scss/stylelint.vim	/^let g:ale_scss_stylelint_use_global =$/;"	v
-g:ale_set_highlights	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_set_highlights = get(g:, 'ale_set_highlights', has('syntax'))$/;"	v
-g:ale_set_loclist	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_set_loclist = get(g:, 'ale_set_loclist', 1)$/;"	v
-g:ale_set_quickfix	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_set_quickfix = get(g:, 'ale_set_quickfix', 0)$/;"	v
-g:ale_set_signs	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_set_signs = get(g:, 'ale_set_signs', has('signs'))$/;"	v
-g:ale_sign_column_always	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_sign_column_always = get(g:, 'ale_sign_column_always', 0)$/;"	v
-g:ale_sign_error	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_sign_error = get(g:, 'ale_sign_error', '>>')$/;"	v
-g:ale_sign_offset	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_sign_offset = get(g:, 'ale_sign_offset', 1000000)$/;"	v
-g:ale_sign_warning	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_sign_warning = get(g:, 'ale_sign_warning', '--')$/;"	v
-g:ale_statusline_format	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_statusline_format = get(g:, 'ale_statusline_format',$/;"	v
-g:ale_tex_chktex_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/tex/chktex.vim	/^let g:ale_tex_chktex_executable =$/;"	v
-g:ale_tex_chktex_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/tex/chktex.vim	/^let g:ale_tex_chktex_options =$/;"	v
-g:ale_tex_lacheck_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/tex/lacheck.vim	/^let g:ale_tex_lacheck_executable =$/;"	v
-g:ale_vim_vint_show_style_issues	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/vim/vint.vim	/^let g:ale_vim_vint_show_style_issues =$/;"	v
-g:ale_warn_about_trailing_whitespace	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_warn_about_trailing_whitespace =$/;"	v
-g:ale_yaml_yamllint_executable	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/yaml/yamllint.vim	/^let g:ale_yaml_yamllint_executable =$/;"	v
-g:ale_yaml_yamllint_options	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/yaml/yamllint.vim	/^let g:ale_yaml_yamllint_options =$/;"	v
 g:aria_attributes_complete	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/htmlcomplete.vim	/^  let g:aria_attributes_complete = 1$/;"	v
-g:asyncrun_auto	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_auto = ''$/;"	v
-g:asyncrun_bell	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_bell = 0$/;"	v
-g:asyncrun_code	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_code = ''$/;"	v
-g:asyncrun_encs	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_encs = ''$/;"	v
-g:asyncrun_exit	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_exit = ''$/;"	v
-g:asyncrun_hook	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_hook = ''$/;"	v
-g:asyncrun_last	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_last = 0$/;"	v
-g:asyncrun_local	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_local = 1$/;"	v
-g:asyncrun_mode	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_mode = 0$/;"	v
-g:asyncrun_shell	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_shell = ''$/;"	v
-g:asyncrun_shellflag	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_shellflag = ''$/;"	v
-g:asyncrun_status	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_status = ''$/;"	v
-g:asyncrun_stop	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_stop = ''$/;"	v
-g:asyncrun_support	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^		let g:asyncrun_support = 1$/;"	v
-g:asyncrun_support	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_support = 1$/;"	v
-g:asyncrun_support	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let g:asyncrun_support = 0$/;"	v
-g:asyncrun_text	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_text = ''$/;"	v
-g:asyncrun_timer	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_timer = 25$/;"	v
-g:asyncrun_trim	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_trim = 0$/;"	v
-g:asyncrun_windows	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let g:asyncrun_windows = 1$/;"	v
-g:asyncrun_windows	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let g:asyncrun_windows = 0$/;"	v
 g:autoloaded_tmuxify	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/autoload/tmuxify.vim	/^let g:autoloaded_tmuxify = 1$/;"	v
 g:cabal_indent_section	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/cabal.vim	/^  let g:cabal_indent_section = 2$/;"	v
 g:cabal_indent_section	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/cabal.vim	/^  let g:cabal_indent_section = 4$/;"	v
@@ -2905,9 +2478,6 @@ g:liquid_default_subtype	/home/rmelton/projects/vimfiles/pack/plugins/start/shee
 g:liquid_default_subtype	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/liquid.vim	/^  let g:liquid_default_subtype = 'html'$/;"	v
 g:liquid_highlight_types	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/liquid.vim	/^  let g:liquid_highlight_types = []$/;"	v
 g:loaded_abolish	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^let g:loaded_abolish = 1$/;"	v
-g:loaded_ale	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:loaded_ale = 1$/;"	v
-g:loaded_ale_dont_use_this_in_other_plugins_please	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:loaded_ale_dont_use_this_in_other_plugins_please = 1$/;"	v
-g:loaded_ale_sml_smlnj_checker	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sml/smlnj.vim	/^let g:loaded_ale_sml_smlnj_checker = 1$/;"	v
 g:loaded_commentary	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^let g:loaded_commentary = 1$/;"	v
 g:loaded_eunuch	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^let g:loaded_eunuch = 1$/;"	v
 g:loaded_fugitive	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let g:loaded_fugitive = 1$/;"	v
@@ -2926,7 +2496,6 @@ g:loaded_targets	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targe
 g:loaded_tmuxify	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/plugin/tmuxify.vim	/^let g:loaded_tmuxify = 1$/;"	v
 g:loaded_vinegar	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:loaded_vinegar = 1$/;"	v
 g:main_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/dart.vim	/^  let g:main_syntax = 'dart'$/;"	v
-g:mapleader	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/test/vimrc	/^let g:mapleader=','$/;"	v
 g:mucomplete#can_complete	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = extend({$/;"	v
 g:mucomplete#can_complete	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = mucomplete#compat#can_complete()$/;"	v
 g:mucomplete#chains	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let g:mucomplete#chains = extend({$/;"	v
@@ -2966,7 +2535,7 @@ g:purescript_indent_let	/home/rmelton/projects/vimfiles/pack/plugins/start/sheer
 g:purescript_indent_where	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/purescript.vim	/^  let g:purescript_indent_where = 6$/;"	v
 g:quickhl_debug	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_debug = 0$/;"	v
 g:quickhl_manual_colors	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_manual_colors = [$/;"	v
-g:quickhl_manual_colors	/home/rmelton/projects/vimfiles/vimrc	/^let g:quickhl_manual_colors = ['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=black ctermbg=1 guibg=#a07040 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=2 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black' ] $/;"	v
+g:quickhl_manual_colors	/home/rmelton/projects/vimfiles/vimrc	/^let g:quickhl_manual_colors = ['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=black ctermbg=1 guibg=#a07040 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=1 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black' ] $/;"	v
 g:ragel_default_subtype	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ragel.vim	/^  let g:ragel_default_subtype = 'c'$/;"	v
 g:repeat_reg	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^let g:repeat_reg = ['', '']$/;"	v
 g:repeat_tick	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^let g:repeat_tick = -1$/;"	v
@@ -3072,6 +2641,7 @@ go#alternate#Switch	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim
 go#asmfmt#Format	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/asmfmt.vim	/^function! go#asmfmt#Format() abort$/;"	f
 go#asmfmt#ToggleAsmFmtAutoSave	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/asmfmt.vim	/^function! go#asmfmt#ToggleAsmFmtAutoSave() abort$/;"	f
 go#cmd#Build	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^function! go#cmd#Build(bang, ...) abort$/;"	f
+go#cmd#BuildTags	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^function! go#cmd#BuildTags(bang, ...) abort$/;"	f
 go#cmd#Generate	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^function! go#cmd#Generate(bang, ...) abort$/;"	f
 go#cmd#Install	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^function! go#cmd#Install(bang, ...) abort$/;"	f
 go#cmd#Run	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^function! go#cmd#Run(bang, ...) abort$/;"	f
@@ -3117,7 +2687,6 @@ go#guru#Referrers	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-g
 go#guru#SameIds	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#SameIds() abort$/;"	f
 go#guru#SameIdsTimer	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#SameIdsTimer() abort$/;"	f
 go#guru#Scope	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#Scope(...) abort$/;"	f
-go#guru#Tags	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#Tags(...) abort$/;"	f
 go#guru#ToggleSameIds	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#ToggleSameIds() abort$/;"	f
 go#guru#Whicherrs	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#Whicherrs(selected) abort$/;"	f
 go#impl#Complete	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/impl.vim	/^function! go#impl#Complete(arglead, cmdline, cursorpos) abort$/;"	f
@@ -3363,7 +2932,6 @@ l:start_options	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/
 l:start_options	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^    let l:start_options.in_name = l:tmpname$/;"	v
 l:tmpname	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/def.vim	/^    let l:tmpname = tempname()$/;"	v
 l:tmpname	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^    let l:tmpname = tempname()$/;"	v
-l:winnr	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let l:winnr = winnr()			$/;"	v
 label_col	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:label_col()$/;"	f
 landmark_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let landmark_role = ['application', 'banner', 'complementary', 'contentinfo', 'form', 'main', 'navigation', 'search']$/;"	v
 landmark_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let landmark_role = ['application', 'banner', 'complementary', 'contentinfo', 'form', 'main', 'navigation', 'search']$/;"	v
@@ -3463,7 +3031,6 @@ min_by	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/a
 mixedcase	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:mixedcase(word)$/;"	f
 modifyDelimiter	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:modifyDelimiter(kind, delimiter)$/;"	f
 modifyTarget	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:modifyTarget(target, kind, modifier)$/;"	f
-module.exports	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/.eslintrc.js	/^module.exports = {$/;"	r
 mucomplete#compat#can_complete	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/compat.vim	/^fun! mucomplete#compat#can_complete()$/;"	f
 mucomplete#compat#dict	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/compat.vim	/^fun! mucomplete#compat#dict(t)$/;"	f
 mucomplete#compat#file	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/compat.vim	/^fun! mucomplete#compat#file(t)$/;"	f
@@ -3531,7 +3098,6 @@ os	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplu
 os.path	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^import os.path$/;"	m
 others	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:others(p)$/;"	f
 output	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/build	/^output() {$/;"	f
-output_error	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/custom-checks	/^output_error() {$/;"	f
 p	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^    nnoremap <buffer> p :call qf#preview#PreviewFileUnderCursor()<CR>$/;"	m
 pad_between_letters	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:pad_between_letters(str, width, ...) abort$/;"	f
 pad_both_sides	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:pad_both_sides(str, width, ...) abort$/;"	f
@@ -3544,8 +3110,6 @@ parse_errors	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/aut
 parse_guru_output	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:parse_guru_output(exit_val, output, title) abort$/;"	f
 parse_substitute	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:parse_substitute(bang,line1,line2,count,args)$/;"	f
 parse_subvert	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:parse_subvert(bang,line1,line2,count,args)$/;"	f
-parserOptions	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/.eslintrc.js	/^    parserOptions: {$/;"	p
-parserOptions	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/.eslintrc.js	/^module.exports = {$/;"	p	class:module.exports
 partition	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:partition(f, xs) abort$/;"	f
 paste_easy	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste-easy/plugin/paste-easy.vim	/^augroup paste_easy$/;"	a
 path2directory	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:path2directory(path) abort$/;"	f
@@ -3579,7 +3143,6 @@ prepareRepeat	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-
 prepareReselect	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:prepareReselect()$/;"	f
 previous_token	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:previous_token()$/;"	f
 prevnonblanknoncomment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/stylus.vim	/^function s:prevnonblanknoncomment(lnum)$/;"	f
-print_help	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/custom-checks	/^function print_help() {$/;"	f
 process	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:process(string)$/;"	f
 process_options_file	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^function! s:process_options_file(proj_dir, path) abort$/;"	f
 product	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:product(lists) abort$/;"	f
@@ -3661,7 +3224,6 @@ quoteDirInternal	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targe
 r	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/r.vim	/^vnoremap <buffer> r :w >> ~\/.r-pipe<CR>$/;"	m
 r	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/rhelp.vim	/^vnoremap <buffer> r :w >> ~\/.r-pipe<CR>$/;"	m
 r	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/rnoweb.vim	/^vnoremap <buffer> r :w >> ~\/.r-pipe<CR>$/;"	m
-radix	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/.eslintrc.js	/^        radix: 'error',$/;"	p
 rdfa_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let rdfa_attributes = {'about': [], 'content': [], 'datatype': [], 'prefix': [], 'profile': [], 'property': [], 'resource': [], 'rel': relrev, 'rev': relrev, 'typeof': [], 'vocab': []}$/;"	v
 rdfa_attributes_value	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let rdfa_attributes_value = {$/;"	v
 re	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^import re$/;"	m
@@ -3775,7 +3337,6 @@ root_dirs	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autolo
 ruby_minlines	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ruby.vim	/^    let ruby_minlines = 500$/;"	v
 rubycomplete#Complete	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! rubycomplete#Complete(findstart, base)$/;"	f
 rubycomplete#Init	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! rubycomplete#Init()$/;"	f
-rules	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/.eslintrc.js	/^    rules: {$/;"	p
 run_cmd	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/crystal_lang.vim	/^function! s:run_cmd(cmd) abort$/;"	f
 run_guru	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:run_guru(args) abort$/;"	f
 run_spec	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/crystal_lang.vim	/^function! s:run_spec(root, path, ...) abort$/;"	f
@@ -3867,7 +3428,6 @@ s:SYNTAX_COMMENT	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-
 s:SYNTAX_STRING	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^let s:SYNTAX_STRING = 'coffee\\%(String\\|AssignString\\|Embed\\|Regex\\|Heregex\\|'$/;"	v
 s:SYNTAX_STRING_COMMENT	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^let s:SYNTAX_STRING_COMMENT = s:SYNTAX_STRING . '\\|' . s:SYNTAX_COMMENT$/;"	v
 s:ShiftWidth	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^  let s:ShiftWidth = function('shiftwidth')$/;"	v
-s:SplitChar	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^let s:SplitChar = has('unix') ? ':' : ':'$/;"	v
 s:TRANSPARENT_BACKGROUND	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let s:TRANSPARENT_BACKGROUND = s:theme_options['transparent_background']$/;"	v
 s:TRANSPARENT_BACKGROUND	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let s:TRANSPARENT_BACKGROUND = 0$/;"	v
 s:TYPE_DICT	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Process.vim	/^let s:TYPE_DICT = type({})$/;"	v
@@ -3887,31 +3447,6 @@ s:all_tokens	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-poly
 s:anon_func_end	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let s:anon_func_end = '\\<end\\%(\\s*[)}]\\)\\+'$/;"	v
 s:anon_func_start	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let s:anon_func_start = '\\S\\+\\s*[({].*\\<function\\s*(.*)\\s*$'$/;"	v
 s:array_entry	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ansible.vim	/^let s:array_entry = '\\v^\\s*-\\s' " - foo$/;"	v
-s:async_code	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_code = 0$/;"	v
-s:async_congest	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let s:async_congest = 0$/;"	v
-s:async_congest	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let s:async_congest = has('patch-8.0.100')? 1 : 0$/;"	v
-s:async_congest	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_congest = 0$/;"	v
-s:async_debug	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_debug = 0$/;"	v
-s:async_efm	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_efm = &errorformat$/;"	v
-s:async_head	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_head = 0$/;"	v
-s:async_hold	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let s:async_hold = (v:version >= 800 || has('patch-7.4.2100'))? 0 : 1$/;"	v
-s:async_hold	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let s:async_hold = 1$/;"	v
-s:async_hold	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_hold = 0$/;"	v
-s:async_info	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_info = { 'text':"", 'post':'', 'postsave':'' }$/;"	v
-s:async_nvim	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_nvim = has('nvim')? 1 : 0$/;"	v
-s:async_output	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_output = {}$/;"	v
-s:async_quick	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let s:async_quick = (v:version >= 800 || has('patch-7.4.1997'))? 1 : 0$/;"	v
-s:async_quick	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let s:async_quick = 0$/;"	v
-s:async_quick	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_quick = 0$/;"	v
-s:async_scroll	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_scroll = 0$/;"	v
-s:async_start	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_start = 0.0$/;"	v
-s:async_state	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_state = 0$/;"	v
-s:async_tail	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:async_tail = 0$/;"	v
-s:asyncrun_support	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^		let s:asyncrun_support = 1$/;"	v
-s:asyncrun_support	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let s:asyncrun_support = 1$/;"	v
-s:asyncrun_support	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:asyncrun_support = 0$/;"	v
-s:asyncrun_windows	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let s:asyncrun_windows = 1$/;"	v
-s:asyncrun_windows	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^let s:asyncrun_windows = 0$/;"	v
 s:attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/haml.vim	/^let s:attributes = '\\%({.\\{-\\}}\\|\\[.\\{-\\}\\]\\)'$/;"	v
 s:attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/pug.vim	/^let s:attributes = '\\%((.\\{-\\})\\)'$/;"	v
 s:attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/slim.vim	/^let s:attributes = '\\%({.\\{-\\}}\\|\\[.\\{-\\}\\]\\)'$/;"	v
@@ -3946,11 +3481,9 @@ s:browsefilter	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-po
 s:bstfile	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^let s:bstfile = expand('<sfile>:p:h') . '\/vimcomplete'$/;"	v
 s:buf_nr	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^let s:buf_nr = -1$/;"	v
 s:buf_nr	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/ui.vim	/^let s:buf_nr = -1$/;"	v
-s:buffer_highlights	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/highlight.vim	/^let s:buffer_highlights = {}$/;"	v
 s:buffer_prototype	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:buffer_prototype = {}$/;"	v
 s:cache_module_path	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^let s:cache_module_path = {}$/;"	v
 s:cache_sid	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^let s:cache_sid = {}$/;"	v
-s:cached_map	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/filetypes.vim	/^let s:cached_map = {}$/;"	v
 s:clojure_syntax_keywords	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/clojure.vim	/^let s:clojure_syntax_keywords = {$/;"	v
 s:close_pat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^let s:close_pat = '\\\\\\@<!\\%(\\\\end\\|\\\\right\\a\\@!\\|\\\\)\\|\\\\\\]\\|}\\)'$/;"	v
 s:close_patt	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let s:close_patt = '\\%(\\<\\%(end\\|until\\)\\>\\|)\\|}\\)'$/;"	v
@@ -4053,14 +3586,11 @@ s:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-
 s:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/syntax/jsx.vim	/^  let s:current_syntax=b:current_syntax$/;"	v
 s:current_syntax_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/syntax/haml.vim	/^  let s:current_syntax_save = b:current_syntax$/;"	v
 s:current_syntax_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/syntax/html.vim	/^  let s:current_syntax_save = b:current_syntax$/;"	v
-s:cursor_timer	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^let s:cursor_timer = -1$/;"	v
 s:cword	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^let s:cword = {$/;"	v
 s:cycle	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:cycle = 0          " Should µcomplete treat the completion chain as cyclic?$/;"	v
 s:decIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/plantuml.vim	/^let s:decIndent = '^\\s*\\%(end\\|else\\|}\\)'$/;"	v
 s:defArgMatcher	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/scala.vim	/^let s:defArgMatcher = '\\%((\\_.\\{-})\\)'$/;"	v
 s:defMatcher	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/scala.vim	/^let s:defMatcher = '\\%(\\%(private\\|protected\\)\\%(\\[[^\\]]*\\]\\)\\?\\s\\+\\|abstract\\s\\+\\|override\\s\\+\\)*\\<def\\>'$/;"	v
-s:default_ale_linter_aliases	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^let s:default_ale_linter_aliases = {$/;"	v
-s:default_ale_linters	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^let s:default_ale_linters = {$/;"	v
 s:default_settings	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^let s:default_settings = {$/;"	v
 s:delimitMate_extra_excluded_regions	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/rust.vim	/^	let s:delimitMate_extra_excluded_regions = ',rustLifetimeCandidate,rustGenericLifetimeCandidate'$/;"	v
 s:delims	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/toml.vim	/^let s:delims = { 'left': '#' }$/;"	v
@@ -4082,7 +3612,6 @@ s:dotfiles	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-vinegar/
 s:echorizer	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/ColorEcho.vim	/^let s:echorizer = {$/;"	v
 s:ed	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/tt2.vim	/^        let s:ed = strpart(s:str,0,stridx(s:str,' '))$/;"	v
 s:empty	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets/state.vim	/^let s:empty = 1$/;"	v
-s:enable_neovim	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/vim/vint.vim	/^let s:enable_neovim = has('nvim') ? ' --enable-neovim ' : ''$/;"	v
 s:end_end_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:end_end_regex = '\\%(^\\|[^.:@$]\\)\\@<=\\<end:\\@!\\>\\|{%\\s*\\<\\%(end\\)\\>'$/;"	v
 s:end_end_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:end_end_regex = '\\%(^\\|[^.:@$]\\)\\@<=\\<end:\\@!\\>'$/;"	v
 s:end_middle_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:end_middle_regex =$/;"	v
@@ -4096,21 +3625,16 @@ s:env_cache	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/auto
 s:envbeginpattern	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:envbeginpattern = s:notcomment . s:notbslash . '\\\\begin\\s*{.\\{-}}'$/;"	v
 s:envendpattern	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:envendpattern = s:notcomment . s:notbslash . '\\\\end\\s*{.\\{-}}'$/;"	v
 s:escape	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let s:escape = 'substitute(escape(v:val, ".$~"), "*", ".*", "g")'$/;"	v
-s:exclude_option	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sh/shellcheck.vim	/^    let s:exclude_option = ''$/;"	v
-s:exclude_option	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/sh/shellcheck.vim	/^    let s:exclude_option = '-e ' .  g:ale_linters_sh_shellcheck_exclusions$/;"	v
 s:extra_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ansible_template.vim	/^  let s:extra_syntax = split(g:ansible_extra_syntaxes)$/;"	v
 s:fail	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^    let s:fail += 1$/;"	v
 s:fail	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let s:fail = 0$/;"	v
 s:file_name	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^let s:file_name = ''$/;"	v
-s:filekeys	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^let s:filekeys = [$/;"	v
 s:foldable_groups	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ruby.vim	/^let s:foldable_groups = split($/;"	v
 s:folded	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:folded = '\\(% Fake\\|\\\\\\(document\\|begin\\|end\\|paragraph\\|'$/;"	v
 s:foldparts	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:foldparts = '^\\s*\\\\\\%(' . join(g:LatexBox_fold_parts, '\\|') . '\\)'$/;"	v
-s:format	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/vim/vint.vim	/^let s:format = '-f "{file_path}:{line_number}:{column_number}: {severity}: {description} (see {reference})"'$/;"	v
 s:ft	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/c.vim	/^let s:ft = matchstr(&ft, '^\\([^.]\\)\\+')$/;"	v
 s:funcNameMatcher	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/scala.vim	/^let s:funcNameMatcher = '\\w\\+'$/;"	v
 s:git_versions	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:git_versions = {}$/;"	v
-s:global_variable_list	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^let s:global_variable_list = [$/;"	v
 s:globpath_third_arg	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^let s:globpath_third_arg = v:version > 702 || v:version == 702 && has('patch51')$/;"	v
 s:go_decls_var	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^let s:go_decls_var = {$/;"	v
 s:go_stack	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/def.vim	/^let s:go_stack = []$/;"	v
@@ -4125,10 +3649,7 @@ s:goos	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/
 s:goos	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/package.vim	/^let s:goos = $GOOS$/;"	v
 s:got_fmt_error	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/asmfmt.vim	/^let s:got_fmt_error = 0$/;"	v
 s:got_fmt_error	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rustfmt.vim	/^let s:got_fmt_error = 0$/;"	v
-s:handler_pattern	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^let s:handler_pattern = '^\\(' . s:path_pattern . '\\):\\(\\d\\+\\):\\?\\(\\d\\+\\)\\?: \\(.\\+\\)$'$/;"	v
 s:handlers	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^let s:handlers = {}$/;"	v
-s:has_features	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^    let s:has_features = has('timers') && exists('*job_start') && exists('*ch_close_in')$/;"	v
-s:has_features	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/plugin/ale.vim	/^    let s:has_features = has('timers')$/;"	v
 s:hash_colors	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:hash_colors = {}$/;"	v
 s:htmlIndentExpr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/indent/html.vim	/^let s:htmlIndentExpr = &l:indentexpr$/;"	v
 s:html_indent_tags	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:html_indent_tags = '[a-z_][a-z0-9_.-]*'$/;"	v
@@ -4160,8 +3681,6 @@ s:is_windows	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-poly
 s:is_windows	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Process.vim	/^let s:is_windows = has('win16') || has('win32') || has('win64') || has('win95')$/;"	v
 s:iskeyword_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/php.vim	/^let s:iskeyword_save = &iskeyword$/;"	v
 s:job_db_files	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^let s:job_db_files = []$/;"	v
-s:job_info_map	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^let s:job_info_map = {}$/;"	v
-s:job_kill_timers	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^let s:job_kill_timers = {}$/;"	v
 s:jobs	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^let s:jobs = {}$/;"	v
 s:jobs	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/term.vim	/^let s:jobs = {}$/;"	v
 s:js_keywords	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:js_keywords = '^\\s*\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|in\\|instanceof\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\)'$/;"	v
@@ -4175,7 +3694,6 @@ s:known_projects	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchaba
 s:language_options	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let s:language_options = s:theme_options['language']$/;"	v
 s:language_options	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let s:language_options = {}$/;"	v
 s:last_changedtick	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^let s:last_changedtick = -1$/;"	v
-s:last_pos	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^let s:last_pos = [0, 0, 0]$/;"	v
 s:last_saved_list	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/autoload/qf/namedlist.vim	/^let s:last_saved_list = ''$/;"	v
 s:last_status	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/statusline.vim	/^let s:last_status = ""$/;"	v
 s:leading_operator_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:leading_operator_regex = '^\\s*[.]'$/;"	v
@@ -4197,8 +3715,6 @@ s:lines	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/
 s:lines	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/autoload/unite/sources/tmuxcomplete.vim	/^let s:lines = deepcopy(s:words)$/;"	v
 s:lines	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/autoload/unite/sources/tmuxcomplete.vim	/^let s:lines.description = 'lines in the current tmux session'$/;"	v
 s:lines	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/autoload/unite/sources/tmuxcomplete.vim	/^let s:lines.name = 'tmuxcomplete\/lines'$/;"	v
-s:lint_timer	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale.vim	/^let s:lint_timer = -1$/;"	v
-s:linters	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/linter.vim	/^let s:linters = {}$/;"	v
 s:list_close_pat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^let s:list_close_pat	= '\\\\\\@<!\\\\end{\\%(' . join(s:list_envs, '\\|') . '\\)}'$/;"	v
 s:list_envs	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^let s:list_envs = ['itemize', 'enumerate', 'description']$/;"	v
 s:list_open_pat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^let s:list_open_pat = '\\\\\\@<!\\\\begin{\\%(' . join(s:list_envs, '\\|') . '\\)}'$/;"	v
@@ -4237,7 +3753,6 @@ s:molokai_original	/home/rmelton/projects/vimfiles/pack/colors/start/tomasr-molo
 s:molokai_original	/home/rmelton/projects/vimfiles/pack/colors/start/tomasr-molokai/colors/molokai.vim	/^    let s:molokai_original = g:molokai_original$/;"	v
 s:msl_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:msl_regex = '\\%([\\\\*+\/.:([]\\|\\%(<%\\)\\@<![=-]\\|\\W[|&?]\\|||\\|&&\\)' . s:line_term$/;"	v
 s:msl_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:msl_regex = s:continuation_regex$/;"	v
-s:multibuffer	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^let s:multibuffer = 0$/;"	v
 s:named_lists	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/autoload/qf/namedlist.vim	/^let s:named_lists = {}$/;"	v
 s:named_module_entry	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ansible.vim	/^let s:named_module_entry = '\\v^\\s*-\\s*(name|hosts|role):\\s*\\S' " - name: 'do stuff'$/;"	v
 s:need_trans	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Process.vim	/^let s:need_trans = v:version < 704 || (v:version == 704 && !has('patch122'))$/;"	v
@@ -4268,16 +3783,12 @@ s:past_easy_mode	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-pa
 s:paste_char_count	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste-easy/plugin/paste-easy.vim	/^let s:paste_char_count = 0$/;"	v
 s:pat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/coffee.vim	/^let s:pat = '^' . current_compiler$/;"	v
 s:pat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^let s:pat = '^' . current_compiler$/;"	v
-s:path_pattern	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/go/gobuild.vim	/^let s:path_pattern = '[a-zA-Z]\\?\\\\\\?:\\?[[:alnum:]\/\\.\\-_]\\+'$/;"	v
-s:path_pattern	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/mypy.vim	/^let s:path_pattern = '[a-zA-Z]\\?\\\\\\?:\\?[[:alnum:]\/\\.\\-_]\\+'$/;"	v
-s:path_pattern	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/autoload/ale/handlers.vim	/^let s:path_pattern = '[a-zA-Z]\\?\\\\\\?:\\?[[:alnum:]\/\\.\\-_]\\+'$/;"	v
 s:pathsep	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:pathsep = exists('+shellslash') && !&shellslash ? '\\\\' : '\/'$/;"	v
 s:pathsep	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/compat.vim	/^let s:pathsep = exists('+shellslash') && !&shellslash ? '\\\\' : '\/'$/;"	v
 s:phpindent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^let s:phpindent = &indentexpr$/;"	v
 s:pre_less_cur_syn	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/syntax/html.vim	/^   let s:pre_less_cur_syn = b:current_syntax$/;"	v
 s:ps1xml_cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ps1xml.vim	/^let s:ps1xml_cpo_save = &cpo$/;"	v
 s:pumvisible	/home/rmelton/projects/vimfiles/pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:pumvisible = 0     " Has the pop-up menu become visible?$/;"	v
-s:quickfix_open	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	let s:quickfix_open = 0$/;"	v
 s:radix_chars	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/clojure.vim	/^let s:radix_chars = "0123456789abcdefghijklmnopqrstuvwxyz"$/;"	v
 s:repo_prototype	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:repo_prototype = {}$/;"	v
 s:repos	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:repos = {}$/;"	v
@@ -4432,12 +3943,10 @@ s:update_queue	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant
 s:vala_cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/vala.vim	/^let s:vala_cpo_save = &cpo$/;"	v
 s:var_stmt	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:var_stmt = '^\\s*var'$/;"	v
 s:var_stmt	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:var_stmt = '^\\s*var'$/;"	v
-s:version_cache	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/python/flake8.vim	/^let s:version_cache = {}$/;"	v
 s:version_file	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  let s:version_file = findfile('.ruby-version', '.;')$/;"	v
 s:viewer	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^		  let s:viewer = 'open'$/;"	v
 s:viewer	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^		  let s:viewer = 'xdg-open'$/;"	v
 s:viewer	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^	let s:viewer = ''$/;"	v
-s:warning_flag	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/ale_linters/vim/vint.vim	/^let s:warning_flag = g:ale_vim_vint_show_style_issues ? '-s' : '-w'$/;"	v
 s:win_sep	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/dart.vim	/^let s:win_sep = (has('win32') || has('win64')) ? '\/' : ''$/;"	v
 s:words	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/clojurecomplete.vim	/^let s:words = ["*","*'","*1","*2","*3","*agent*","*allow-unresolved-vars*","*assert*","*clojure-version*","*command-line-args*","*compile-files*","*compile-path*","*compiler-options*","*data-readers*","*default-data-reader-fn*","*e","*err*","*file*","*flush-on-newline*","*fn-loader*","*in*","*math-context*","*ns*","*out*","*print-dup*","*print-length*","*print-level*","*print-meta*","*print-readably*","*read-eval*","*source-path*","*suppress-read*","*unchecked-math*","*use-context-classloader*","*verbose-defrecords*","*warn-on-reflection*","+","+'","-","-'","->","->>","->ArrayChunk","->Eduction","->Vec","->VecNode","->VecSeq","-cache-protocol-fn","-reset-methods",".","..","\/","<","<=","=","==",">",">=","EMPTY-NODE","Throwable->map","accessor","aclone","add-classpath","add-watch","agent","agent-error","agent-errors","aget","alength","alias","all-ns","alter","alter-meta!","alter-var-root","amap","ancestors","and","apply","areduce","array-map","as->","aset","aset-boolean","aset-byte","aset-char","aset-double","aset-float","aset-int","aset-long","aset-short","assert","assoc!","assoc","assoc-in","associative?","atom","await","await-for","await1","bases","bean","bigdec","bigint","biginteger","binding","bit-and","bit-and-not","bit-clear","bit-flip","bit-not","bit-or","bit-set","bit-shift-left","bit-shift-right","bit-test","bit-xor","boolean","boolean-array","booleans","bound-fn","bound-fn*","bound?","butlast","byte","byte-array","bytes","case","cast","cat","catch","char","char-array","char-escape-string","char-name-string","char?","chars","chunk","chunk-append","chunk-buffer","chunk-cons","chunk-first","chunk-next","chunk-rest","chunked-seq?","class","class?","clear-agent-errors","clojure-version","coll?","comment","commute","comp","comparator","compare","compare-and-set!","compile","complement","completing","concat","cond","cond->","cond->>","condp","conj!","conj","cons","constantly","construct-proxy","contains?","count","counted?","create-ns","create-struct","cycle","dec","dec'","decimal?","declare","dedupe","def","default-data-readers","definline","definterface","defmacro","defmethod","defmulti","defn","defn-","defonce","defprotocol","defrecord","defstruct","deftype","delay","delay?","deliver","denominator","deref","derive","descendants","destructure","disj!","disj","dissoc!","dissoc","distinct","distinct?","do","doall","dorun","doseq","dosync","dotimes","doto","double","double-array","doubles","drop","drop-last","drop-while","eduction","empty","empty?","ensure","ensure-reduced","enumeration-seq","error-handler","error-mode","eval","even?","every-pred","every?","ex-data","ex-info","extend","extend-protocol","extend-type","extenders","extends?","false?","ffirst","file-seq","filter","filterv","finally","find","find-keyword","find-ns","find-protocol-impl","find-protocol-method","find-var","first","flatten","float","float-array","float?","floats","flush","fn","fn","fn?","fnext","fnil","for","force","format","frequencies","future","future-call","future-cancel","future-cancelled?","future-done?","future?","gen-class","gen-interface","gensym","get","get-in","get-method","get-proxy-class","get-thread-bindings","get-validator","group-by","hash","hash-combine","hash-map","hash-ordered-coll","hash-set","hash-unordered-coll","identical?","identity","if","if-let","if-not","if-some","ifn?","import","in-ns","inc","inc'","init-proxy","instance?","int","int-array","integer?","interleave","intern","interpose","into","into-array","ints","io!","isa?","iterate","iterator-seq","juxt","keep","keep-indexed","key","keys","keyword","keyword?","last","lazy-cat","lazy-seq","let","let","letfn","line-seq","list","list*","list?","load","load-file","load-reader","load-string","loaded-libs","locking","long","long-array","longs","loop","loop","macroexpand","macroexpand-1","make-array","make-hierarchy","map","map-entry?","map-indexed","map?","mapcat","mapv","max","max-key","memfn","memoize","merge","merge-with","meta","method-sig","methods","min","min-key","mix-collection-hash","mod","monitor-enter","monitor-exit","munge","name","namespace","namespace-munge","neg?","new","newline","next","nfirst","nil?","nnext","not","not-any?","not-empty","not-every?","not=","ns","ns-aliases","ns-imports","ns-interns","ns-map","ns-name","ns-publics","ns-refers","ns-resolve","ns-unalias","ns-unmap","nth","nthnext","nthrest","num","number?","numerator","object-array","odd?","or","parents","partial","partition","partition-all","partition-by","pcalls","peek","persistent!","pmap","pop!","pop","pop-thread-bindings","pos?","pr","pr-str","prefer-method","prefers","primitives-classnames","print","print-ctor","print-dup","print-method","print-simple","print-str","printf","println","println-str","prn","prn-str","promise","proxy","proxy-call-with-super","proxy-mappings","proxy-name","proxy-super","push-thread-bindings","pvalues","quot","quote","rand","rand-int","rand-nth","random-sample","range","ratio?","rational?","rationalize","re-find","re-groups","re-matcher","re-matches","re-pattern","re-seq","read","read-line","read-string","reader-conditional","reader-conditional?","realized?","record?","recur","reduce","reduce-kv","reduced","reduced?","reductions","ref","ref-history-count","ref-max-history","ref-min-history","ref-set","refer","refer-clojure","reify","release-pending-sends","rem","remove","remove-all-methods","remove-method","remove-ns","remove-watch","repeat","repeatedly","replace","replicate","require","reset!","reset-meta!","resolve","rest","restart-agent","resultset-seq","reverse","reversible?","rseq","rsubseq","run!","satisfies?","second","select-keys","send","send-off","send-via","seq","seq?","seque","sequence","sequential?","set!","set","set-agent-send-executor!","set-agent-send-off-executor!","set-error-handler!","set-error-mode!","set-validator!","set?","short","short-array","shorts","shuffle","shutdown-agents","slurp","some","some->","some->>","some-fn","some?","sort","sort-by","sorted-map","sorted-map-by","sorted-set","sorted-set-by","sorted?","special-symbol?","spit","split-at","split-with","str","string?","struct","struct-map","subs","subseq","subvec","supers","swap!","symbol","symbol?","sync","tagged-literal","tagged-literal?","take","take-last","take-nth","take-while","test","the-ns","thread-bound?","throw","time","to-array","to-array-2d","trampoline","transduce","transient","tree-seq","true?","try","type","unchecked-add","unchecked-add-int","unchecked-byte","unchecked-char","unchecked-dec","unchecked-dec-int","unchecked-divide-int","unchecked-double","unchecked-float","unchecked-inc","unchecked-inc-int","unchecked-int","unchecked-long","unchecked-multiply","unchecked-multiply-int","unchecked-negate","unchecked-negate-int","unchecked-remainder-int","unchecked-short","unchecked-subtract","unchecked-subtract-int","underive","unquote","unquote-splicing","unreduced","unsigned-bit-shift-right","update","update-in","update-proxy","use","val","vals","var","var-get","var-set","var?","vary-meta","vec","vector","vector-of","vector?","volatile!","volatile?","vreset!","vswap!","when","when-first","when-let","when-not","when-some","while","with-bindings","with-bindings*","with-in-str","with-loading-context","with-local-vars","with-meta","with-open","with-out-str","with-precision","with-redefs","with-redefs-fn","xml-seq","zero?","zipmap"]$/;"	v
 s:words	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/autoload/unite/sources/tmuxcomplete.vim	/^let s:words = {$/;"	v
@@ -4494,7 +4003,6 @@ selectRegion	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-v
 selectTarget	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:selectTarget(target, rawTarget)$/;"	f
 selecta	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:selecta(direction)$/;"	f
 selectp	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:selectp(...)$/;"	f
-semi	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/.eslintrc.js	/^        semi: 'error',$/;"	p
 send	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:send(self,func,...)$/;"	f
 separator	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! s:separator()$/;"	f
 set_color_variables	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:set_color_variables()$/;"	f
@@ -4513,7 +4021,6 @@ shift	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/au
 shouldGrow	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:shouldGrow(trigger)$/;"	f
 show_errors	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^function! s:show_errors(errors) abort$/;"	f
 shrink	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:shrink(target)$/;"	f
-silent!	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	noautocmd silent! exec ''.l:winnr.'wincmd w'$/;"	m
 skip_func	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:skip_func()$/;"	f
 smart_execute_command	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:smart_execute_command(action, word) abort$/;"	f
 snakecase	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:snakecase(word)$/;"	f
@@ -4549,7 +4056,6 @@ sort	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin
 sort_by	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:sort_by(list, expr) abort$/;"	f
 source.gather_candidates	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/autoload/neocomplcache/sources/tmuxcomplete.vim	/^function! s:source.gather_candidates(context)$/;"	f
 source.gather_candidates	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/autoload/neocomplete/sources/tmuxcomplete.vim	/^function! s:source.gather_candidates(context)$/;"	f
-sourceType	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/.eslintrc.js	/^        sourceType: "module",$/;"	p
 spacecase	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:spacecase(word)$/;"	f
 span	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:span(f, xs) abort$/;"	f
 spawn	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^function! s:spawn(bang, desc, args) abort$/;"	f
@@ -4656,7 +4162,6 @@ testVisual	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim
 test_compile	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^function! s:test_compile(test_file, job, exit_status, data) abort$/;"	f
 test_compile_handler	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^function! s:test_compile_handler(job, exit_status, data) abort$/;"	f
 test_report	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:test_report(test, verbose)$/;"	f
-tests	/home/rmelton/projects/vimfiles/pack/plugins/start/w0rp-ale/Makefile	/^tests = test\/*$/;"	m
 textobject	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^function! s:textobject(inner) abort$/;"	f
 throw	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:throw(msg)$/;"	f
 throw	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:throw(string) abort$/;"	f
@@ -4736,8 +4241,6 @@ wcswidth	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot
 widget_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let widget_attributes = {'aria-autocomplete': ['inline', 'list', 'both', 'none'], 'aria-checked': ['true', 'false', 'mixed', 'undefined'], 'aria-disabled': ['true', 'false'], 'aria-expanded': ['true', 'false', 'undefined'], 'aria-haspopup': ['true', 'false'], 'aria-hidden': ['true', 'false'], 'aria-invalid': ['grammar', 'spelling', 'true', 'false'], 'aria-label': [], 'aria-level': [], 'aria-multiline': ['true', 'false'], 'aria-multiselectable': ['true', 'false'], 'aria-orientation': ['horizontal', 'vertical'], 'aria-pressed': ['true', 'false', 'mixed', 'undefined'], 'aria-readonly': ['true', 'false'], 'aria-required': ['true', 'false'], 'aria-selected': ['true', 'false', 'undefined'], 'aria-sort': ['ascending', 'descending', 'none', 'other'], 'aria-valuemax': [], 'aria-valuemin': [], 'aria-valuenow': [], 'aria-valuetext': []}$/;"	v
 widget_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let widget_role = ['alert', 'alertdialog', 'button', 'checkbox', 'combobox', 'dialog', 'gridcell', 'link', 'log', 'marquee', 'menuitem', 'menuitemcheckbox', 'menuitemradio', 'option', 'progressbar', 'radio', 'radiogroup', 'scrollbar', 'slider', 'spinbutton', 'status', 'tab', 'tabpanel', 'textbox', 'timer', 'tooltip', 'treeitem', 'combobox', 'grid', 'listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid']$/;"	v
 widget_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let widget_role = ['alert', 'alertdialog', 'button', 'checkbox', 'combobox', 'dialog', 'gridcell', 'link', 'log', 'marquee', 'menuitem', 'menuitemcheckbox', 'menuitemradio', 'option', 'progressbar', 'radio', 'radiogroup', 'scrollbar', 'slider', 'spinbutton', 'status', 'tab', 'tabpanel', 'textbox', 'timer', 'tooltip', 'treeitem', 'combobox', 'grid', 'listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid']$/;"	v
-windo	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	noautocmd windo call s:WindowCheck(0)$/;"	m
-windo	/home/rmelton/projects/vimfiles/pack/plugins/start/skywind3000-asyncrun-vim/plugin/asyncrun.vim	/^	noautocmd windo call s:WindowCheck(1)$/;"	m
 winshell	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:winshell() abort$/;"	f
 withName	/home/rmelton/projects/vimfiles/pack/colors/start/robertmeta-nofrils/generate_colors.go	/^func withName(name string, vcr vimColorRow) vimColorRow {$/;"	f
 with_index	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:with_index(list, ...) abort$/;"	f

@@ -32,7 +32,7 @@ func main() {
 		"roxma/vim-paste-easy",
 		//"scrooloose/nerdtree",
 		"sheerun/vim-polyglot",
-		"skywind3000/asyncrun.vim",
+		//"skywind3000/asyncrun.vim",
 		"t9md/vim-quickhl",
 		"tpope/vim-abolish",
 		"tpope/vim-commentary",
@@ -41,7 +41,7 @@ func main() {
 		"tpope/vim-repeat.git",
 		"tpope/vim-surround",
 		"tpope/vim-vinegar",
-		"w0rp/ale",
+		//"w0rp/ale",
 		"wellle/targets.vim",
 		"wellle/tmux-complete.vim",
 	}
