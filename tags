@@ -292,7 +292,6 @@ $PYTHONWARNINGS	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 <leader>M	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>M :make<cr>$/;"	m
 <leader>R	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>R :TxSetRunCmd<cr>$/;"	m
 <leader>S	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
-<leader>S	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>S :call StripTrailingWhitespace()<cr>$/;"	m
 <leader>T	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>T :tag<space><C-d>$/;"	m
 <leader>W	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>W <C-w>W$/;"	m
 <leader>a	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
@@ -310,7 +309,6 @@ $PYTHONWARNINGS	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 <leader>q	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
 <leader>r	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>r :TxRun<cr>$/;"	m
 <leader>s	/home/rmelton/projects/vimfiles/vimrc	/^nmap <leader>s <Plug>(quickhl-manual-this)$/;"	m
-<leader>s	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>s :Search $/;"	m
 <leader>t	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>t :tag<space>$/;"	m
 <leader>w	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>w <C-w>w$/;"	m
 <leader>z	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
@@ -2305,23 +2303,8 @@ g:colors_name	/home/rmelton/projects/vimfiles/pack/colors/start/tomasr-molokai/c
 g:crystal_auto_format	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^let g:crystal_auto_format = get(g:, 'crystal_auto_format', 0)$/;"	v
 g:crystal_compiler_command	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^let g:crystal_compiler_command = get(g:, 'crystal_compiler_command', 'crystal')$/;"	v
 g:crystal_indent_access_modifier_style	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^  let g:crystal_indent_access_modifier_style = 'normal'$/;"	v
-g:ctrlp_buftag_ctags_bin	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_buftag_ctags_bin='ctags'$/;"	v
-g:ctrlp_cache_dir	/home/rmelton/projects/vimfiles/vimrc	/^    let g:ctrlp_cache_dir=$HOME.'\/.vim\/ctrlp_cache'$/;"	v
-g:ctrlp_cache_dir	/home/rmelton/projects/vimfiles/vimrc	/^    let g:ctrlp_cache_dir=$HOME.'\/vimfiles\/ctrlp_cache'$/;"	v
 g:ctrlp_ext_vars	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^  let g:ctrlp_ext_vars = [s:go_decls_var]$/;"	v
 g:ctrlp_ext_vars	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^  let g:ctrlp_ext_vars = add(g:ctrlp_ext_vars, s:go_decls_var)$/;"	v
-g:ctrlp_follow_symlinks	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_follow_symlinks=1$/;"	v
-g:ctrlp_match_window_bottom	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_match_window_bottom=1$/;"	v
-g:ctrlp_match_window_reversed	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_match_window_reversed=1$/;"	v
-g:ctrlp_max_depth	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_max_depth=1000$/;"	v
-g:ctrlp_max_files	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_max_files=100000$/;"	v
-g:ctrlp_max_height	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_max_height=30$/;"	v
-g:ctrlp_open_multiple_files	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_open_multiple_files='ij'$/;"	v
-g:ctrlp_show_hidden	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_show_hidden=1$/;"	v
-g:ctrlp_use_caching	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_use_caching=1$/;"	v
-g:ctrlp_user_command	/home/rmelton/projects/vimfiles/vimrc	/^    let g:ctrlp_user_command='dir %s \/-n \/b \/s \/a-d | findstr \/v \\.git | findstr \/v \\.hg' " Windows$/;"	v
-g:ctrlp_user_command	/home/rmelton/projects/vimfiles/vimrc	/^    let g:ctrlp_user_command='find %s -type f \\( -iname "*" ! -iname "*.a" ! -iname "*.o" ! -iwholename "*.hg*"  ! -iwholename "*.git*" \\)'$/;"	v
-g:ctrlp_working_path_mode	/home/rmelton/projects/vimfiles/vimrc	/^let g:ctrlp_working_path_mode='ra'$/;"	v
 g:cucumber_languages	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/cucumber.vim	/^let g:cucumber_languages = {$/;"	v
 g:did_ocaml_switch	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  let g:did_ocaml_switch = 1$/;"	v
 g:did_ruby_ftplugin_functions	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^let g:did_ruby_ftplugin_functions = 1$/;"	v
