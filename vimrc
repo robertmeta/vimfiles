@@ -400,6 +400,10 @@ if executable("pt")
     set grepprg=pt\ --nogroup\ --nocolor\ --ignore-case\ --column
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 if executable("ctags-exuberant")
     let g:gutentags_ctags_executable="ctags-exuberant"
 endif
