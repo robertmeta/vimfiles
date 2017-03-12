@@ -96,20 +96,6 @@ cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
 cnoremap <C-r><C-l> <C-r>=getline('.')<cr>
 
-" Use sneak for f & t
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
-
 "Visual mode maps
 vnoremap <leader>@ :norm! @<cr>
 vnoremap <leader>. :norm! .<cr>
@@ -434,9 +420,6 @@ let g:tmuxify_global_maps = 1
 
 " Netrw
 let g:netrw_altfile=1
-
-" Sneak
-let g:sneak#label=1
 
 " Mucomplete
 let g:mucomplete#enable_auto_at_startup=0
