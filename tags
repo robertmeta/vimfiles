@@ -1884,7 +1884,7 @@ cd	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/c
 cd	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd ' : 'cd '$/;"	v
 cexpr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! s:cexpr(errorformat, joined_lines) abort$/;"	f
 cfile	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:cfile() abort$/;"	f
-cgc	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^  nmap cgc <Plug>ChangeCommentary$/;"	m
+cgc	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^    nmap cgc <Plug>ChangeCommentary$/;"	m
 changesurround	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:changesurround(...) " {{{1$/;"	f
 char_inserted	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste-easy/plugin/paste-easy.vim	/^func! s:char_inserted()$/;"	f
 char_range	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:char_range(from, to) abort$/;"	f
