@@ -47,6 +47,7 @@ inoremap <silent> ;o <C-x><C-o>
 inoremap <silent> ;p <C-x><C-p>
 inoremap <silent> ;t <C-x><C-]>
 inoremap <silent> ;u <C-x><C-u>
+imap <silent> ;s <Plug>snipMateNextOrTrigger
 inoremap <F5> <C-R>=strftime("%c")<CR>
 
 " Abbreviations

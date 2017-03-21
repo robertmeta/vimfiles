@@ -38,6 +38,7 @@ $PYTHONWARNINGS	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 ;n	/home/rmelton/projects/vimfiles/vimrc	/^inoremap <silent> ;n <C-x><C-n>$/;"	m
 ;o	/home/rmelton/projects/vimfiles/vimrc	/^inoremap <silent> ;o <C-x><C-o>$/;"	m
 ;p	/home/rmelton/projects/vimfiles/vimrc	/^inoremap <silent> ;p <C-x><C-p>$/;"	m
+;s	/home/rmelton/projects/vimfiles/vimrc	/^imap <silent> ;s <Plug>snipMateNextOrTrigger$/;"	m
 ;t	/home/rmelton/projects/vimfiles/vimrc	/^inoremap <silent> ;t <C-x><C-]>$/;"	m
 ;u	/home/rmelton/projects/vimfiles/vimrc	/^inoremap <silent> ;u <C-x><C-u>$/;"	m
 <2-leftmouse>	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <2-leftmouse> :call <SID>TOCActivate(1)<cr>$/;"	m
