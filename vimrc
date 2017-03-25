@@ -100,21 +100,6 @@ cnoremap <C-r><C-l> <C-r>=getline('.')<cr>
 vnoremap <leader>@ :norm! @<cr>
 vnoremap <leader>. :norm! .<cr>
 
-" replace 'f' with 1-char Sneak
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
-" replace 't' with 1-char Sneak
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
-
 " Basics Settings
 set backspace=indent,eol,start " make backspace a more flexible
 set breakindent " this is just awesome (best patch in a long time)
@@ -430,9 +415,6 @@ let g:go_highlight_fields=1
 let g:go_highlight_build_constraints=1
 let g:go_highlight_generate_tags=1
 let g:go_highlight_string_spellcheck=0
-
-" Sneaky
-let g:sneak#label = 1
 
 " Tmuxify
 let g:tmuxify_custom_command='tmux split-window -d -l 10'
