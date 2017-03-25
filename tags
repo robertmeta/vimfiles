@@ -294,6 +294,7 @@ ALWAYS	/home/rmelton/projects/vimfiles/pack/plugins/start/honza-vim-snippets/pyt
 Abolish	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  let Abolish = {}$/;"	v
 Abolish	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^command! -nargs=+ -bang -bar -range=0 -complete=custom,s:Complete Abolish$/;"	c
 Abolished	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! Abolished()$/;"	f
+AccessModifier	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AccessModifier(cline_info)$/;"	f
 Add	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/autoload/snipMate_python_demo.vim	/^fun! s:Add(dict, line, source, trigger) abort$/;"	f
 Add	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/cucumber.vim	/^function! s:Add(name)$/;"	f
 Add	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/spec/tlib/list.vim	/^fun! Add(a,b)$/;"	f
@@ -301,6 +302,13 @@ Add	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/test/tlib
 AddList	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/autoload/qf/filter.vim	/^function! s:AddList()$/;"	f
 AddScopeAliases	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/autoload/snipMate.vim	/^fun! s:AddScopeAliases(list) abort$/;"	f
 AddTitle	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/autoload/qf/filter.vim	/^function! s:AddTitle(title)$/;"	f
+AfterAccessModifier	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AfterAccessModifier(pline_info)$/;"	f
+AfterBlockOpening	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AfterBlockOpening(pline_info)$/;"	f
+AfterEndKeyword	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AfterEndKeyword(pline_info)$/;"	f
+AfterHangingSplat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AfterHangingSplat(pline_info)$/;"	f
+AfterIndentKeyword	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AfterIndentKeyword(pline_info)$/;"	f
+AfterLeadingOperator	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AfterLeadingOperator(pline_info)$/;"	f
+AfterUnbalancedBracket	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AfterUnbalancedBracket(pline_info)$/;"	f
 All terminal emulators	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^### All terminal emulators$/;"	k
 Anti-features	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/README.md	/^### Anti-features$/;"	k
 Argument Seek	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^### Argument Seek$/;"	k
@@ -312,6 +320,7 @@ AutoMkdir	/home/rmelton/projects/vimfiles/vimrc	/^augroup AutoMkdir$/;"	a
 AutoMkdir	/home/rmelton/projects/vimfiles/vimrc	/^function! <SID>AutoMkdir() abort$/;"	f
 BMRU_Push	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/buffer.vim	/^function! s:BMRU_Push(bnr) "{{{3$/;"	f
 Balanced	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:Balanced(lnum)$/;"	f
+Balanced	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:Balanced(lnum)$/;"	f
 BeginElementFound	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:BeginElementFound(stack, token, curr_vcol, stored_vcol, end_token, sw)$/;"	f
 BeginElementFoundIfEmpty	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:BeginElementFoundIfEmpty(stack, token, curr_vcol, stored_vcol, sw)$/;"	f
 BeginningOfClauseFound	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:BeginningOfClauseFound(stack, token, stored_vcol, lnum, i)$/;"	f
@@ -321,6 +330,7 @@ Blame	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plug
 BlameCommit	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BlameCommit(cmd) abort$/;"	f
 BlameJump	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BlameJump(suffix) abort$/;"	f
 BlameSyntax	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BlameSyntax() abort$/;"	f
+BlockComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:BlockComment(cline_info)$/;"	f
 BlockStarter	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/python.vim	/^function! s:BlockStarter(lnum, block_start_re)$/;"	f
 Browse	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Browse(bang,line1,count,...) abort$/;"	f
 BufReadIndex	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BufReadIndex() abort$/;"	f
@@ -363,6 +373,8 @@ ChooseSnippet	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snip
 ClearTokenCacheIfNeeded	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:ClearTokenCacheIfNeeded()$/;"	f
 Close	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/ftplugin/html_snip_helper.vim	/^fun! Close() abort$/;"	f
 CloseCurEnv	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:CloseCurEnv()$/;"	f
+ClosingBracketOnEmptyLine	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:ClosingBracketOnEmptyLine(cline_info)$/;"	f
+ClosingHeredocDelimiter	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:ClosingHeredocDelimiter(cline_info)$/;"	f
 CoffeeBufNew	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^augroup CoffeeBufNew | augroup END$/;"	a
 CoffeeBufUpdate	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^augroup CoffeeBufUpdate | augroup END$/;"	a
 CoffeeCompile	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^\\        CoffeeCompile call s:CoffeeCompile(<line1>, <line2>, <q-args>)$/;"	c
@@ -414,6 +426,8 @@ CompleteLabels	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-po
 Config	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-quickhl/README.md	/^# Config$/;"	h
 Configuration	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### Configuration$/;"	k
 ContainedGroup	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/scala.vim	/^function! s:ContainedGroup()$/;"	f
+ContinuedHangingOperator	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:ContinuedHangingOperator(msl_info)$/;"	f
+ContinuedLine	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:ContinuedLine(pline_info)$/;"	f
 Contributing	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/CONTRIBUTING.md	/^# Contributing$/;"	h
 Contributing	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/README.md	/^## Contributing$/;"	i
 Contributors #	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/Contributors.md	/^# Contributors #$/;"	h
@@ -439,6 +453,7 @@ DONE	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/README.md
 DONE	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qlist/README.md	/^## DONE$/;"	i
 DartIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/dart.vim	/^function! DartIndent()$/;"	f
 DefRuby	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! s:DefRuby()$/;"	f
+DeindentingKeyword	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:DeindentingKeyword(cline_info)$/;"	f
 Delete	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/cache.vim	/^function! s:Delete(msg, file, flags) abort "{{{3$/;"	f
 Derivative works	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^## Derivative works$/;"	i
 DetectCoffee	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^function! s:DetectCoffee()$/;"	f
@@ -459,6 +474,7 @@ Doline	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/after/f
 Donation	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/README.md	/^## Donation$/;"	i
 DoneParseArgs	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^:DoneParseArgs$/;"	l
 DoneParseArgs	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:DoneParseArgs$/;"	l
+DotPackagesFile	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! s:DotPackagesFile() abort$/;"	f
 Edit	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Edit   :call s:choose('edit')$/;"	c
 Edit	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Edit(cmd,bang,...) abort$/;"	f
 EditCallback	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/input.vim	/^function! s:EditCallback(...) "{{{3$/;"	f
@@ -479,6 +495,7 @@ ElmMakeMain	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyg
 ElmRepl	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/elm.vim	/^command -buffer ElmRepl              call ElmRepl()$/;"	c
 ElmRepl	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/elm.vim	/^function! ElmRepl()$/;"	f
 Emit	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rust.vim	/^function! s:Emit(dict, type, args)$/;"	f
+EmptyInsideString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:EmptyInsideString(pline_info)$/;"	f
 EnableJSX	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^fu! <SID>EnableJSX()$/;"	f
 Enabling Apprentice.	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^## Enabling Apprentice.$/;"	i
 Enabling Disciple.	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-disciple/README.md	/^## Enabling Disciple.$/;"	i
@@ -495,7 +512,6 @@ Example Mappings	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go
 Examples	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Examples$/;"	i
 ExecuteInTree	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:ExecuteInTree(cmd) abort$/;"	f
 ExitingOneLineScope	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:ExitingOneLineScope(lnum)$/;"	f
-ExitingOneLineScope	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:ExitingOneLineScope(lnum)$/;"	f
 Expand	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rust.vim	/^function! s:Expand(dict, pretty, args)$/;"	f
 ExtendKeyMap	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/input.vim	/^function! s:ExtendKeyMap(world, key_mode, key_handlers) "{{{3$/;"	f
 ExtraBrackets	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:ExtraBrackets(lnum)$/;"	f
@@ -530,7 +546,6 @@ FindPair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot
 FindPreviousOpenStructure	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/twig.vim	/^function! s:FindPreviousOpenStructure(lineNumber)$/;"	f
 FindStartLine	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/nim.vim	/^function! s:FindStartLine(fromln, pattern)$/;"	f
 FinishCommit	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:FinishCommit() abort$/;"	f
-Fixedgq	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function! Fixedgq(lnum, count)$/;"	f
 Fixup	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Fixup  :call s:choose('fixup')$/;"	c
 FoldSectionLevels	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^function! s:FoldSectionLevels()$/;"	f
 FoldableRegion	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/lua.vim	/^function! s:FoldableRegion(tag, name, expr)$/;"	f
@@ -549,6 +564,7 @@ GetBufferRubyModule	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-v
 GetBufferRubySingletonMethods	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! s:GetBufferRubySingletonMethods(name)$/;"	f
 GetCabalIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/cabal.vim	/^function! GetCabalIndent()$/;"	f
 GetCacheTime	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/cache.vim	/^function! s:GetCacheTime(cfile) abort "{{{3$/;"	f
+GetCaddyfileIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/caddyfile.vim	/^function! GetCaddyfileIndent(lnum)$/;"	f
 GetClojureIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! GetClojureIndent()$/;"	f
 GetCmd	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/vcs.vim	/^function! s:GetCmd(vcstype, cmd)$/;"	f
 GetCoffeeHtmlIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/indent/html.vim	/^function! GetCoffeeHtmlIndent(curlinenum)$/;"	f
@@ -580,13 +596,13 @@ GetKotlinIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 GetLabelCache	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:GetLabelCache(file)$/;"	f
 GetLineWithoutFullComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ocaml.vim	/^function! s:GetLineWithoutFullComment(lnum)$/;"	f
 GetLiquidIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/liquid.vim	/^function! GetLiquidIndent(...)$/;"	f
+GetLitCoffeeIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/litcoffee.vim	/^function GetLitCoffeeIndent()$/;"	f
 GetLiveScriptIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! GetLiveScriptIndent(curlinenum)$/;"	f
 GetLiveScriptIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:GetLiveScriptIndent(curlinenum)$/;"	f
 GetLuaIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^function GetLuaIndent()$/;"	f
 GetMSL	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:GetMSL(lnum)$/;"	f
 GetMSL	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function s:GetMSL(lnum)$/;"	f
 GetMSL	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:GetMSL(lnum, in_one_line_scope)$/;"	f
-GetMSL	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:GetMSL(lnum, in_one_line_scope)$/;"	f
 GetMakePrg	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/coffee.vim	/^function! s:GetMakePrg()$/;"	f
 GetMakePrg	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^function! s:GetMakePrg()$/;"	f
 GetMakoIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^function GetMakoIndent()$/;"	f
@@ -598,6 +614,8 @@ GetOCamlIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-po
 GetObjCIndentImproved	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/indent/objc.vim	/^function! GetObjCIndentImproved()$/;"	f
 GetPair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^  function s:GetPair(start,end,flags,skip,...)$/;"	f
 GetPair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^  function s:GetPair(start,end,flags,skip,time,...)$/;"	f
+GetPair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^  function s:GetPair(start,end,flags,skip,...)$/;"	f
+GetPair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^  function s:GetPair(start,end,flags,skip,time,...)$/;"	f
 GetPerlIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/perl.vim	/^function! GetPerlIndent()$/;"	f
 GetPlantUMLIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/plantuml.vim	/^function! GetPlantUMLIndent(...) abort$/;"	f
 GetPotionFold	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/cryptol/folding.vim	/^function! GetPotionFold(lnum)$/;"	f
@@ -626,7 +644,6 @@ GetValaIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-pol
 GetValue	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/cache.vim	/^function! s:GetValue(cfile, default) abort "{{{3$/;"	f
 GetValueType	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/arg.vim	/^function! s:GetValueType(def) abort "{{{3$/;"	f
 GetVarIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:GetVarIndent(lnum)$/;"	f
-GetVarIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:GetVarIndent(lnum)$/;"	f
 GetVueIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/vue.vim	/^function! GetVueIndent()$/;"	f
 Git	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Git(bang, args) abort$/;"	f
 GitComplete	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:GitComplete(A, L, P) abort$/;"	f
@@ -727,8 +744,8 @@ HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/s
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/cryptol.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/css.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/css.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
-HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/erlang.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
-HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/erlang.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
+HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/gnuplot.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
+HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/gnuplot.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/javascript.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/javascript.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/jinja2.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
@@ -739,6 +756,8 @@ HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/s
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mako.vim	/^    com -nargs=+ HiLink hi link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mason.vim	/^		com -nargs=+ HiLink hi def link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mason.vim	/^		com -nargs=+ HiLink hi link <args>$/;"	c
+HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mma.vim	/^		command -nargs=+ HiLink hi def link <args>$/;"	c
+HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mma.vim	/^		command -nargs=+ HiLink hi link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/nim.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/nim.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
 HiLink	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ocaml.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
@@ -799,13 +818,11 @@ INDEX_WHOLE_PROJECT	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicch
 INDEX_WHOLE_PROJECT	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^set INDEX_WHOLE_PROJECT=1$/;"	v
 Ilist	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^command! -nargs=1 -bar -bang Ilist call <sid>Qlist("i", 1, 0, '<bang>' == '!', <f-args>)$/;"	c
 InMultiVarStatement	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:InMultiVarStatement(lnum)$/;"	f
-InMultiVarStatement	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:InMultiVarStatement(lnum)$/;"	f
 InOneLineScope	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:InOneLineScope(lnum)$/;"	f
-InOneLineScope	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:InOneLineScope(lnum)$/;"	f
 IndentError	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:IndentError(msg, token, stack)$/;"	f
 IndentLevel	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/cryptol/folding.vim	/^function! IndentLevel(lnum)$/;"	f
 IndentWithContinuation	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:IndentWithContinuation(lnum, ind, width)$/;"	f
-IndentWithContinuation	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:IndentWithContinuation(lnum, ind, width)$/;"	f
+IndentingKeywordInMSL	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:IndentingKeywordInMSL(msl_info)$/;"	f
 Init	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/input.vim	/^function! s:Init(world, cmd) "{{{3$/;"	f
 InsertSelectedItems	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/World.vim	/^function! s:InsertSelectedItems(rv, current) abort "{{{3$/;"	f
 Install	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/README.md	/^## Install$/;"	i
@@ -823,7 +840,9 @@ Installing SnipMate ##	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas
 InstanceFound	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/t/parser.vim	/^        function! InstanceFound(list)$/;"	f
 Intersection	/home/rmelton/projects/vimfiles/pack/plugins/start/marcweber-vim-addon-mw-utils/autoload/tovl/ui/filter_list.vim	/^fun! s:Intersection(a, b)$/;"	f
 Introduction	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Introduction$/;"	i
+IsAssignment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function s:IsAssignment(str, pos)$/;"	f
 IsBlock	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:IsBlock()$/;"	f
+IsBlock	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:IsBlock()$/;"	f
 IsCatchStandalone	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:IsCatchStandalone(lnum, i)$/;"	f
 IsComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function! s:IsComment(lnum, col)$/;"	f
 IsComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:IsComment(linenum, col)$/;"	f
@@ -836,26 +855,23 @@ IsExcludedFromIndentAtPosition	/home/rmelton/projects/vimfiles/pack/plugins/star
 IsInClassDef	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! s:IsInClassDef()$/;"	f
 IsInCommentOrString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^function s:IsInCommentOrString(lnum, col)$/;"	f
 IsInMultilineComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:IsInMultilineComment(lnum, col)$/;"	f
-IsInMultilineComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:IsInMultilineComment(lnum, col)$/;"	f
 IsInString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:IsInString(lnum, col)$/;"	f
 IsInString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/json.vim	/^function s:IsInString(lnum, col)$/;"	f
 IsInString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function s:IsInString(lnum, col)$/;"	f
 IsInString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:IsInString(lnum, col)$/;"	f
-IsInString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:IsInString(lnum, col)$/;"	f
 IsInStringDelimiter	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:IsInStringDelimiter(lnum, col)$/;"	f
 IsInStringDelimiter	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function s:IsInStringDelimiter(lnum, col)$/;"	f
 IsInStringOrComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:IsInStringOrComment(lnum, col)$/;"	f
 IsInStringOrComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function s:IsInStringOrComment(lnum, col)$/;"	f
 IsInStringOrComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:IsInStringOrComment(lnum, col)$/;"	f
-IsInStringOrComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:IsInStringOrComment(lnum, col)$/;"	f
 IsInStringOrDocumentation	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:IsInStringOrDocumentation(lnum, col)$/;"	f
 IsInStringOrDocumentation	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function s:IsInStringOrDocumentation(lnum, col)$/;"	f
 IsInsidePythonBlock	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^function IsInsidePythonBlock(startline)$/;"	f
 IsLineAtomContinuation	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:IsLineAtomContinuation(lnum)$/;"	f
 IsLineComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:IsLineComment(lnum, col)$/;"	f
-IsLineComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:IsLineComment(lnum, col)$/;"	f
 IsLineStringContinuation	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:IsLineStringContinuation(lnum)$/;"	f
 IsPosInClassDef	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! s:IsPosInClassDef(pos)$/;"	f
+IsStartingDelimiter	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^function! s:IsStartingDelimiter(lnum)$/;"	f
 IsString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function! s:IsString(lnum, col)$/;"	f
 IsString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:IsString(linenum, col)$/;"	f
 IsUsefulReplOutput	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/elm.vim	/^function! s:IsUsefulReplOutput(str)$/;"	f
@@ -925,13 +941,13 @@ LatexmkClean	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-poly
 LatexmkSetPID	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^function! s:LatexmkSetPID(basename, pid)$/;"	f
 LatexmkStatus	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^command! -bang	LatexmkStatus	call LatexBox_LatexmkStatus(<q-bang> == "!")$/;"	c
 LatexmkStop	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^command! LatexmkStop			call LatexBox_LatexmkStop(0)$/;"	c
+LeadingOperator	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:LeadingOperator(cline_info)$/;"	f
 License	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/README.md	/^## License$/;"	i
 License	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## License$/;"	i
 License	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/README.md	/^## License$/;"	i
 Lightline and Airline themes	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^## Lightline and Airline themes$/;"	i
 LineHasOpeningBrackets	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/json.vim	/^function s:LineHasOpeningBrackets(lnum)$/;"	f
 LineHasOpeningBrackets	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:LineHasOpeningBrackets(lnum)$/;"	f
-LineHasOpeningBrackets	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:LineHasOpeningBrackets(lnum)$/;"	f
 ListLists	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer ListLists call qf#namedlist#ListLists()$/;"	c
 LiveScriptCompile	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ls.vim	/^\\        LiveScriptCompile call s:LiveScriptCompile(<line1>, <line2>, <q-args>)$/;"	c
 LiveScriptCompile	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ls.vim	/^function! s:LiveScriptCompile(startline, endline, args)$/;"	f
@@ -961,7 +977,6 @@ Match	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/in
 Match	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/json.vim	/^function s:Match(lnum, regex)$/;"	f
 Match	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function s:Match(lnum, regex)$/;"	f
 Match	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:Match(lnum, regex)$/;"	f
-Match	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:Match(lnum, regex)$/;"	f
 MatchCount	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^fun! <SID>MatchCount(expr, pat)$/;"	f
 MaxLookback	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:MaxLookback(startlinenum)$/;"	f
 Merge	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Merge(cmd, bang, args) abort$/;"	f
@@ -973,6 +988,7 @@ Motivation	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-comple
 Move	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -nargs=1 -bang -complete=file Move :$/;"	c
 Move	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Move(force,destination) abort$/;"	f
 MoveComplete	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:MoveComplete(A,L,P) abort$/;"	f
+MultilineStringOrLineComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:MultilineStringOrLineComment(cline_info)$/;"	f
 NEVER	/home/rmelton/projects/vimfiles/pack/plugins/start/honza-vim-snippets/pythonx/javascript_snippets.py	/^NEVER = 'never'$/;"	v
 Neovim terminal theme	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^## Neovim terminal theme$/;"	i
 Next and Last Argument	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^### Next and Last Argument$/;"	k
@@ -1033,6 +1049,7 @@ OCamlPrintType	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-po
 OCaml_switch	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  fun OCaml_switch(newwin)$/;"	f
 OMLetFoldLevel	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^function OMLetFoldLevel(l)$/;"	f
 OneScope	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:OneScope(lnum)$/;"	f
+OneScope	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:OneScope(lnum)$/;"	f
 OpenBrace	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/puppet.vim	/^function! s:OpenBrace(lnum)$/;"	f
 Optional	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/README.md	/^### Optional$/;"	k
 Options	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Options$/;"	i
@@ -1044,6 +1061,7 @@ POST_PROCESS_CMD	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchaba
 PROJECT_ROOT	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^    set PROJECT_ROOT=%~2$/;"	v
 PROJECT_ROOT	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^set PROJECT_ROOT=$/;"	v
 PROJ_ROOT	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^    set PROJ_ROOT=%~2$/;"	v
+PackageMap	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! s:PackageMap() abort$/;"	f
 Pair Seek	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^### Pair Seek$/;"	k
 Pair Text Objects	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Pair Text Objects$/;"	i
 Pair mappings	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/cheatsheet.md	/^## Pair mappings$/;"	i
@@ -1062,14 +1080,15 @@ PopupmenuExists	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-v
 Preparing your environment.	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-apprentice/README.md	/^## Preparing your environment.$/;"	i
 Preparing your environment.	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-disciple/README.md	/^## Preparing your environment.$/;"	i
 PrevCodeLine	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:PrevCodeLine(lnum)$/;"	f
+PrevCodeLine	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:PrevCodeLine(lnum)$/;"	f
 PrevIndToken	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:PrevIndToken(lnum, i)$/;"	f
 PrevLineOfCode	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^function s:PrevLineOfCode(lnum)$/;"	f
 PrevNonBlankNonString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:PrevNonBlankNonString(lnum)$/;"	f
 PrevNonBlankNonString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/json.vim	/^function s:PrevNonBlankNonString(lnum)$/;"	f
 PrevNonBlankNonString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function s:PrevNonBlankNonString(lnum)$/;"	f
 PrevNonBlankNonString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:PrevNonBlankNonString(lnum)$/;"	f
-PrevNonBlankNonString	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:PrevNonBlankNonString(lnum)$/;"	f
 Previous releases	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## Previous releases$/;"	i
+PreviousNotMSL	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:PreviousNotMSL(msl_info)$/;"	f
 PrintFormat	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/string.vim	/^function! s:PrintFormat(format, string) "{{{3$/;"	f
 PrintMe	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/samples/tlib/input/tlib_input_list.vim	/^function! PrintMe(state, items) "{{{3$/;"	f
 PromptEnvWrapSelection	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:PromptEnvWrapSelection(...)$/;"	f
@@ -1102,6 +1121,7 @@ QuickhlTagToggle	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-qui
 Quote Seek	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^### Quote Seek$/;"	k
 Quote Text Objects	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/README.md	/^## Quote Text Objects$/;"	i
 Quote mappings	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/cheatsheet.md	/^## Quote mappings$/;"	i
+RandomID	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/mma.vim	/^	function! RandomID()$/;"	f
 ReadAutocmds	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/t/jumping.vim	/^            function! ReadAutocmds()$/;"	f
 ReadOnPath	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ragel.vim	/^fun! <SID>ReadOnPath(script)$/;"	f
 ReadTOC	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:ReadTOC(auxfile, texfile, ...)$/;"	f
@@ -1114,7 +1134,6 @@ Remove	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugi
 Remove	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Remove(force) abort$/;"	f
 RemoveList	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=* -bang -complete=customlist,qf#namedlist#CompleteList RemoveList call qf#namedlist#RemoveList(expand("<bang>") == "!" ? 1 : 0, <q-args>)$/;"	c
 RemoveTrailingComments	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:RemoveTrailingComments(content)$/;"	f
-RemoveTrailingComments	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:RemoveTrailingComments(content)$/;"	f
 Rename	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -nargs=1 -bang -complete=custom,s:Rename_complete Rename$/;"	c
 Rename_complete	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! s:Rename_complete(A, L, P) abort$/;"	f
 ReplaceCmd	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:ReplaceCmd(cmd,...) abort$/;"	f
@@ -1209,6 +1228,7 @@ StageReloadSeek	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fug
 StageToggle	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:StageToggle(lnum1,lnum2) abort$/;"	f
 StageUndo	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:StageUndo() abort$/;"	f
 StarSetf	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^func! s:StarSetf(ft)$/;"	f
+StartOfFile	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:StartOfFile(pline_info)$/;"	f
 StartStructure	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/twig.vim	/^function! s:StartStructure(name)$/;"	f
 StatementStart	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/python.vim	/^function! s:StatementStart(lnum)$/;"	f
 Status	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Status() abort$/;"	f
@@ -1265,6 +1285,7 @@ TVarArg	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/plugi
 Terminal emulators	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-disciple/README.md	/^### Terminal emulators$/;"	k
 Terminal multiplexers	/home/rmelton/projects/vimfiles/pack/colors/start/romainl-disciple/README.md	/^### Terminal multiplexers$/;"	k
 TerraformIndent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/terraform.vim	/^function! TerraformIndent(lnum)$/;"	f
+Test	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/mma.vim	/^	function! Test()$/;"	f
 TestArgs	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/spec/tlib/arg.vim	/^function! TestArgs(...) "{{{3$/;"	f
 TestArgs	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/test/tlib.vim	/^function! TestArgs(...) "{{{3$/;"	f
 TestArgs1	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/spec/tlib/arg.vim	/^function! TestArgs1(...) "{{{3$/;"	f
@@ -1304,6 +1325,7 @@ ToggleFolds	/home/rmelton/projects/vimfiles/vimrc	/^function! ToggleFolds()$/;"	
 TokenizeLine	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:TokenizeLine(lnum, direction)$/;"	f
 Trim	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:Trim(ln)$/;"	f
 Trim	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/qml.vim	/^function! Trim(line)$/;"	f
+Trim	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:Trim(ln)$/;"	f
 Troubleshooting	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/README.md	/^## Troubleshooting$/;"	i
 Ttimecommand	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/macros/tlib.vim	/^command! -nargs=1 -complete=command Ttimecommand call tlib#cmd#Time(<q-args>)$/;"	c
 TxClear	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/plugin/tmuxify.vim	/^command! -nargs=0 -bar -bang TxClear     call tmuxify#pane_send_raw('C-l', <q-bang>)$/;"	c
@@ -1458,6 +1480,7 @@ al	/home/rmelton/projects/vimfiles/vimrc	/^omap al :<C-u>normal val<CR>$/;"	m
 all	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:all(f, xs) abort$/;"	f
 allsteps	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^function! s:allsteps()$/;"	f
 alternatePair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:alternatePair(stop)$/;"	f
+alternatePair	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:alternatePair(stop)$/;"	f
 am	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^    onoremap <silent> <buffer> am :<C-U>call <SID>wrap_a('[m',']M')<CR>$/;"	m
 and	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:and(xs) abort$/;"	f
 any	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:any(f, xs) abort$/;"	f
@@ -1466,7 +1489,8 @@ args	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go
 aria_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let aria_attributes = extend(aria_attributes, drag_and_drop_attributes)$/;"	v
 aria_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let aria_attributes = extend(aria_attributes, live_region_attributes)$/;"	v
 aria_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let aria_attributes = extend(aria_attributes, relationship_attributes)$/;"	v
-aria_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let aria_attributes = widget_attributes$/;"	v
+aria_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let aria_attributes = extend(aria_attributes, widget_attributes)$/;"	v
+aria_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let aria_attributes = global_states_and_properties$/;"	v
 aria_attributes_value	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let aria_attributes_value = {$/;"	v
 asmfmt_autosave	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:asmfmt_autosave()$/;"	f
 async_guru	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:async_guru(args) abort$/;"	f
@@ -1520,10 +1544,12 @@ b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ansible_template.vim	/^    let b:current_syntax = ''$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ansible_template.vim	/^let b:current_syntax = "ansible_template"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ansible_template.vim	/^let b:current_syntax = ''$/;"	v
+b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/apiblueprint.vim	/^let b:current_syntax = 'apiblueprint'$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/applescript.vim	/^let b:current_syntax = "applescript"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/blade.vim	/^let b:current_syntax = 'blade'$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/c.vim	/^let b:current_syntax = "c"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/cabal.vim	/^let b:current_syntax = "cabal"$/;"	v
+b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/caddyfile.vim	/^let b:current_syntax = "caddyfile"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/clojure.vim	/^let b:current_syntax = "clojure"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/coffee.vim	/^  let b:current_syntax = 'coffee'$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/cpp.vim	/^let b:current_syntax = "cpp"$/;"	v
@@ -1534,6 +1560,7 @@ b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/cucumber.vim	/^let b:current_syntax = "cucumber"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/dart.vim	/^let b:current_syntax = "dart"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/dockerfile.vim	/^let b:current_syntax = "dockerfile"$/;"	v
+b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/dockerfile.vim	/^let b:current_syntax = s:current_syntax$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/eelixir.vim	/^let b:current_syntax = 'eelixir'$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/elixir.vim	/^let b:current_syntax = "elixir"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/elm.vim	/^let b:current_syntax = "elm"$/;"	v
@@ -1548,6 +1575,7 @@ b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/gitrebase.vim	/^let b:current_syntax = "gitrebase"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/gitsendemail.vim	/^let b:current_syntax = "gitsendemail"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/glsl.vim	/^  let b:current_syntax = "glsl"$/;"	v
+b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/gnuplot.vim	/^let b:current_syntax = "gnuplot"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/go.vim	/^let b:current_syntax = "go"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/godefstack.vim	/^let b:current_syntax = "godefstack"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/gohtmltmpl.vim	/^let b:current_syntax = "gohtmltmpl"$/;"	v
@@ -1566,12 +1594,14 @@ b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/layout/nginx.vim	/^let b:current_syntax = "nginx"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/less.vim	/^let b:current_syntax = "less"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/liquid.vim	/^let b:current_syntax = 'liquid'$/;"	v
+b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/litcoffee.vim	/^let b:current_syntax = "litcoffee"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ls.vim	/^  let b:current_syntax = 'livescript'$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ls.vim	/^let b:current_syntax = "ls"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/lua.vim	/^let b:current_syntax = "lua"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mako.vim	/^let b:current_syntax = "html"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/markdown.vim	/^let b:current_syntax = "mkd"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mason.vim	/^let b:current_syntax = "mason"$/;"	v
+b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mma.vim	/^let b:current_syntax = "mma"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mustache.vim	/^let b:current_syntax = "mustache"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/nginx.vim	/^let b:current_syntax = "nginx"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/nim.vim	/^let b:current_syntax = "nim"$/;"	v
@@ -1604,6 +1634,7 @@ b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/slim.vim	/^let b:current_syntax = "slim"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/stylus.vim	/^let b:current_syntax = "stylus"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/swift.vim	/^let b:current_syntax = "swift"$/;"	v
+b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/sxhkdrc.vim	/^let b:current_syntax = "sxhkdrc"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/systemd.vim	/^let b:current_syntax = "systemd"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/tap.vim	/^let b:current_syntax="tapVerboseOutput"$/;"	v
 b:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/terraform.vim	/^let b:current_syntax = "terraform"$/;"	v
@@ -1627,6 +1658,7 @@ b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/f
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/ftplugin/snippets.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ansible_hosts.vim	/^  let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/blade.vim	/^let b:did_ftplugin = 1$/;"	v
+b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/caddyfile.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/clojure.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^let b:did_ftplugin = 1$/;"	v
@@ -1645,6 +1677,7 @@ b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-po
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/liquid.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ls.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/mako.vim	/^let b:did_ftplugin = 1$/;"	v
+b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/mma.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/nix.vim	/^let b:did_ftplugin=1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^let b:did_ftplugin=1$/;"	v
 b:did_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/opencl.vim	/^let b:did_ftplugin = 1$/;"	v
@@ -1667,6 +1700,7 @@ b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-poly
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/arduino.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/cabal.vim	/^let b:did_indent = 1$/;"	v
+b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/caddyfile.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let b:did_indent = 1$/;"	v
@@ -1689,6 +1723,7 @@ b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-poly
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/jst.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/kotlin.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/liquid.vim	/^let b:did_indent = 1$/;"	v
+b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/litcoffee.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let b:did_indent = 1$/;"	v
 b:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^let b:did_indent = 1$/;"	v
@@ -1899,7 +1934,7 @@ b:undo_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 b:undo_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/clojure.vim	/^let b:undo_ftplugin = 'setlocal iskeyword< define< formatoptions< comments< commentstring< lispwords<'$/;"	v
 b:undo_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  let b:undo_ftplugin .=$/;"	v
 b:undo_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^let b:undo_ftplugin = "setl fo< com< cms< ofu<"$/;"	v
-b:undo_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/dart.vim	/^let b:undo_ftplugin = 'setl et< fo< sw< sts< com< cms<'$/;"	v
+b:undo_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/dart.vim	/^let b:undo_ftplugin = 'setl et< fo< sw< sts< com< cms< inex< isf<'$/;"	v
 b:undo_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/eelixir.vim	/^let b:undo_ftplugin = "setl cms< "$/;"	v
 b:undo_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/eruby.vim	/^let b:undo_ftplugin = "setl cms< "$/;"	v
 b:undo_ftplugin	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/git.vim	/^let b:undo_ftplugin = "setl keywordprg< path< includeexpr<"$/;"	v
@@ -1939,6 +1974,7 @@ b:undo_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-pol
 b:undo_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^let b:undo_indent = 'setlocal indentexpr< smartindent< autoindent< indentkeys<'$/;"	v
 b:undo_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/proto.vim	/^let b:undo_indent = "setl cin<"$/;"	v
 b:undo_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ps1.vim	/^let b:undo_indent = "setl si<"$/;"	v
+b:undo_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let b:undo_indent = 'setlocal indentexpr< smartindent< autoindent< indentkeys<'$/;"	v
 b:vala_minlines	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/vala.vim	/^  let b:vala_minlines = 50$/;"	v
 b:vala_minlines	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/vala.vim	/^  let b:vala_minlines = vala_minlines$/;"	v
 badgood	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:badgood(args)$/;"	f
@@ -2038,12 +2074,12 @@ complete_panes	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmux
 complete_sessions	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/autoload/tmuxify.vim	/^function! s:complete_sessions(...) abort$/;"	f
 complete_windows	/home/rmelton/projects/vimfiles/pack/plugins/start/mhinz-vim-tmuxify/autoload/tmuxify.vim	/^function! s:complete_windows(...) abort$/;"	f
 concat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:concat(list) abort$/;"	f
-concat_ftdetect	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/build	/^concat_ftdetect() {$/;"	f
 configured_tree	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:configured_tree(git_dir) abort$/;"	f
 conj	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:conj(xs, x) abort$/;"	f
 cons	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:cons(x, xs) abort$/;"	f
 contains_multibyte	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:contains_multibyte(str) abort "{{{$/;"	f
 continues	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:continues(ln,con)$/;"	f
+continues	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:continues(ln,con)$/;"	f
 copy_dir	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/build	/^copy_dir() {$/;"	f
 core_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let core_attributes = {'accesskey': [], 'class': [], 'contenteditable': ['true', 'false', ''], 'contextmenu': [], 'dir': ['ltr', 'rtl'], 'draggable': ['true', 'false'], 'hidden': ['hidden', ''], 'id': [], 'is': [], 'lang': lang_tag, 'spellcheck': ['true', 'false', ''], 'style': [], 'tabindex': [], 'title': []}$/;"	v
 count	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/autoload/snipmate/legacy.vim	/^function! s:count(haystack, needle) abort$/;"	f
@@ -2132,6 +2168,7 @@ d.ToggleAlignment	/home/rmelton/projects/vimfiles/pack/plugins/start/marcweber-v
 d.UpdateDisplay	/home/rmelton/projects/vimfiles/pack/plugins/start/marcweber-vim-addon-mw-utils/autoload/tovl/ui/filter_list.vim	/^  fun d.UpdateDisplay()$/;"	f
 dart#analyzer	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! dart#analyzer(q_args) abort$/;"	f
 dart#fmt	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! dart#fmt(q_args) abort$/;"	f
+dart#resolveUri	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! dart#resolveUri(uri) abort$/;"	f
 dart#tojs	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! dart#tojs(q_args) abort$/;"	f
 dashcase	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:dashcase(word)$/;"	f
 debug	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/elixir.vim	/^function s:debug(message)$/;"	f
@@ -2147,7 +2184,7 @@ did_cql_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim
 did_cry_syntax_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/cryptol.vim	/^    let did_cry_syntax_inits = 1$/;"	v
 did_css_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/css.vim	/^    let did_css_syn_inits = 1$/;"	v
 did_css_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/stylus.vim	/^    let did_css_syn_inits = 1$/;"	v
-did_erlang_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/erlang.vim	/^    let did_erlang_inits = 1$/;"	v
+did_gnuplot_syntax_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/gnuplot.vim	/^    let did_gnuplot_syntax_inits = 1$/;"	v
 did_groovy_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/groovy.vim	/^    let did_groovy_syn_inits = 1$/;"	v
 did_haxe_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/haxe.vim	/^    let did_haxe_syn_inits = 1$/;"	v
 did_javascript_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/extras/flow.vim	/^    let did_javascript_syn_inits = 1$/;"	v
@@ -2157,6 +2194,7 @@ did_jinja_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-v
 did_lua_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/lua.vim	/^    let did_lua_syn_inits = 1$/;"	v
 did_mako_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mako.vim	/^    let did_mako_syn_inits = 1$/;"	v
 did_mason_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mason.vim	/^		let did_mason_syn_inits = 1$/;"	v
+did_mma_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mma.vim	/^		let did_mma_syn_inits = 1$/;"	v
 did_nim_syn_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/nim.vim	/^    let did_nim_syn_inits = 1$/;"	v
 did_ocaml_syntax_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/ocaml.vim	/^    let did_ocaml_syntax_inits = 1$/;"	v
 did_octave_syntax_inits	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/octave.vim	/^    let did_octave_syntax_inits = 1$/;"	v
@@ -2187,15 +2225,15 @@ dir	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/
 dir	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^  let dir = getcwd()$/;"	v
 dir	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let dir = getcwd()$/;"	v
 dispatcher	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:dispatcher(bang,line1,line2,count,args)$/;"	f
-document_structure	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let document_structure = ['article', 'columnheader', 'definition', 'directory', 'document', 'group', 'heading', 'img', 'list', 'listitem', 'math', 'note', 'presentation', 'region', 'row', 'rowheader', 'separator']$/;"	v
-document_structure	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let document_structure = ['article', 'columnheader', 'definition', 'directory', 'document', 'group', 'heading', 'img', 'list', 'listitem', 'math', 'note', 'presentation', 'region', 'row', 'rowheader', 'separator']$/;"	v
+document_structure	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let document_structure = [$/;"	v
+document_structure	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let document_structure = ['article', 'cell', 'columnheader', 'definition', 'directory', 'document', 'feed', 'figure', 'group', 'heading', 'img', 'list', 'listitem', 'math', 'none', 'note', 'presentation', 'region', 'row', 'rowheader', 'separator', 'table', 'term']$/;"	v
 dosurround	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:dosurround(...) " {{{1$/;"	f
 dotcase	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:dotcase(word)$/;"	f
 download	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/build	/^download() {$/;"	f
 dprint	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! s:dprint(msg)$/;"	f
-dpub_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let dpub_role = ['dpub-abstract', 'dpub-afterword', 'dpub-appendix', 'dpub-biblioentry', 'dpub-bibliography', 'dpub-biblioref', 'dpub-chapter', 'dpub-cover', 'dpub-epilogue', 'dpub-footnote', 'dpub-footnotes', 'dpub-foreword', 'dpub-glossary', 'dpub-glossdef', 'dpub-glossref', 'dpub-glossterm', 'dpub-index', 'dpub-locator', 'dpub-noteref', 'dpub-notice', 'dpub-pagebreak', 'dpub-pagelist', 'dpub-part', 'dpub-preface', 'dpub-prologue', 'dpub-pullquote', 'dpub-qna', 'dpub-subtitle', 'dpub-tip', 'dpub-title', 'dpub-toc']$/;"	v
+dpub_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let dpub_role = [$/;"	v
 dpub_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let dpub_role = ['dpub-abstract', 'dpub-afterword', 'dpub-appendix', 'dpub-biblioentry', 'dpub-bibliography', 'dpub-biblioref', 'dpub-chapter', 'dpub-cover', 'dpub-epilogue', 'dpub-footnote', 'dpub-footnotes', 'dpub-foreword', 'dpub-glossary', 'dpub-glossdef', 'dpub-glossref', 'dpub-glossterm', 'dpub-index', 'dpub-locator', 'dpub-noteref', 'dpub-notice', 'dpub-pagebreak', 'dpub-pagelist', 'dpub-part', 'dpub-preface', 'dpub-prologue', 'dpub-pullquote', 'dpub-qna', 'dpub-subtitle', 'dpub-tip', 'dpub-title', 'dpub-toc']$/;"	v
-drag_and_drop_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let drag_and_drop_attributes = {'aria-dropeffect': ['copy', 'move', 'link', 'execute', 'popup', 'none'], 'aria-grabbed': ['true', 'false', 'undefined']}$/;"	v
+drag_and_drop_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let drag_and_drop_attributes = {$/;"	v
 drop	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:drop(target)$/;"	f
 dropa	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:dropa(target)$/;"	f
 dropr	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:dropr(target)$/;"	f
@@ -2254,6 +2292,7 @@ expect	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/t/
 expect	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/t/parser.vim	/^        let expect[0][0][1].flags = ''$/;"	v
 expect	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/t/parser.vim	/^        let expect[0][0][1].flags = 'g'$/;"	v
 expected_256_only_colors_should_be_consistent	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:expected_256_only_colors_should_be_consistent()$/;"	f
+expr_col	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:expr_col()$/;"	f
 extract	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/build	/^extract() {$/;"	f
 extractafter	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:extractafter(str)$/;"	f
 extractbefore	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:extractbefore(str)$/;"	f
@@ -2356,8 +2395,10 @@ g:LatexBox_split_type	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun
 g:LatexBox_split_width	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^	let g:LatexBox_split_width = 30$/;"	v
 g:LatexBox_toc_hidehelp	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^	let g:LatexBox_toc_hidehelp = 0$/;"	v
 g:LatexBox_viewer	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^	let g:LatexBox_viewer = s:viewer$/;"	v
+g:NERDCustomDelimiters	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/caddyfile.vim	/^	let g:NERDCustomDelimiters = {'caddyfile': s:delimiters}$/;"	v
 g:NERDCustomDelimiters	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/toml.vim	/^        let g:NERDCustomDelimiters.toml = s:delims$/;"	v
 g:NERDCustomDelimiters	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/toml.vim	/^    let g:NERDCustomDelimiters = { 'toml': s:delims }$/;"	v
+g:NERDDelimiterMap	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/caddyfile.vim	/^		let g:NERDDelimiterMap.caddyfile = s:delimiters$/;"	v
 g:NERDDelimiterMap	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/toml.vim	/^        let g:NERDDelimiterMap.toml = s:delims$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/.vim\/after\/plugin\/abolish.vim")$/;"	v
 g:abolish_save_file	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^    let g:abolish_save_file = expand("~\/vimfiles\/after\/plugin\/abolish.vim")$/;"	v
@@ -2586,7 +2627,7 @@ g:nofrils_strbackgrounds	/home/rmelton/projects/vimfiles/pack/colors/start/rober
 g:nofrils_strbackgrounds	/home/rmelton/projects/vimfiles/pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	/home/rmelton/projects/vimfiles/pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	/home/rmelton/projects/vimfiles/pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
-g:nofrils_strbackgrounds	/home/rmelton/projects/vimfiles/vimrc	/^let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds$/;"	v
+g:nofrils_strbackgrounds	/home/rmelton/projects/vimfiles/vimrc	/^let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds$/;"	v
 g:paste_char_threshold	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste-easy/plugin/paste-easy.vim	/^let g:paste_char_threshold = get(g:,'paste_char_threshold', 1)$/;"	v
 g:paste_easy_enable	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste-easy/plugin/paste-easy.vim	/^let g:paste_easy_enable = get(g:,'paste_easy_enable',1)$/;"	v
 g:php_syntax_extensions_disabled	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/php.vim	/^    let g:php_syntax_extensions_disabled = []$/;"	v
@@ -2608,6 +2649,7 @@ g:repeat_tick	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-repea
 g:ruby_default_path	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^      let g:ruby_default_path = map(split($RUBYLIB,':'), 'v:val ==# "." ? "" : v:val')$/;"	v
 g:ruby_default_path	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^      let g:ruby_default_path = s:query_path($HOME)$/;"	v
 g:ruby_indent_access_modifier_style	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^  let g:ruby_indent_access_modifier_style = 'normal'$/;"	v
+g:ruby_indent_assignment_style	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^  let g:ruby_indent_assignment_style = 'hanging'$/;"	v
 g:ruby_indent_block_style	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^  let g:ruby_indent_block_style = 'expression'$/;"	v
 g:ruby_version_paths	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^      let g:ruby_version_paths[b:ruby_version] = s:query_path(fnamemodify(s:version_file, ':p:h'))$/;"	v
 g:ruby_version_paths	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  let g:ruby_version_paths = {}$/;"	v
@@ -2768,6 +2810,7 @@ global_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim
 global_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let global_attributes = extend(global_attributes, rdfa_attributes)$/;"	v
 global_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let global_attributes = extend(global_attributes, {'role': role})$/;"	v
 global_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let global_attributes = extend(core_attributes, xml_attributes)$/;"	v
+global_states_and_properties	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let global_states_and_properties = {$/;"	v
 globpath	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:globpath(path, expr) abort$/;"	f
 go	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^function! s:go(type,...) abort$/;"	f
 go#alternate#Switch	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/alternate.vim	/^function! go#alternate#Switch(bang, cmd) abort$/;"	f
@@ -2964,7 +3007,6 @@ gutentags#gtags_cscope#on_job_out	/home/rmelton/projects/vimfiles/pack/plugins/s
 gutentags#inprogress	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#inprogress()$/;"	f
 gutentags#is_path_rooted	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#is_path_rooted(path) abort$/;"	f
 gutentags#normalizepath	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#normalizepath(path)$/;"	f
-gutentags#pwd	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#pwd()$/;"	f
 gutentags#rescan	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#rescan(...)$/;"	f
 gutentags#setup_gutentags	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#setup_gutentags() abort$/;"	f
 gutentags#shellslash	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#shellslash(path)$/;"	f
@@ -3051,6 +3093,7 @@ is_string_comment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim
 is_unix	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_unix() abort$/;"	f
 is_windows	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_windows() abort$/;"	f
 iscontOne	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:iscontOne(i,num,cont)$/;"	f
+iscontOne	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:iscontOne(i,num,cont)$/;"	f
 j	/home/rmelton/projects/vimfiles/vimrc	/^nnoremap j gj$/;"	m
 jobdir	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^  let jobdir = fnameescape(expand("%:p:h"))$/;"	v
 jobdir	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^  let jobdir = fnameescape(expand("%:p:h"))$/;"	v
@@ -3069,8 +3112,8 @@ l:start_options	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/
 l:start_options	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^    let l:start_options.in_name = l:tmpname$/;"	v
 l:tmpname	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/def.vim	/^    let l:tmpname = tempname()$/;"	v
 l:tmpname	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^    let l:tmpname = tempname()$/;"	v
-label_col	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:label_col()$/;"	f
-landmark_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let landmark_role = ['application', 'banner', 'complementary', 'contentinfo', 'form', 'main', 'navigation', 'search']$/;"	v
+label_col	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:label_col()$/;"	f
+landmark_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let landmark_role = [$/;"	v
 landmark_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let landmark_role = ['application', 'banner', 'complementary', 'contentinfo', 'form', 'main', 'navigation', 'search']$/;"	v
 lang_tag	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let lang_tag = [$/;"	v
 lastselect	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:lastselect(count)$/;"	f
@@ -3079,11 +3122,22 @@ levenshtein_distance	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-
 linechars	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:linechars(pattern) abort$/;"	f
 lines	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:lines(str) abort$/;"	f
 lines.gather_candidates	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/autoload/unite/sources/tmuxcomplete.vim	/^function! s:lines.gather_candidates(args, context)$/;"	f
-linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linktypes + ['canonical', 'import']$/;"	v
-linktypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linktypes = ['alternate', 'author', 'bookmark', 'external', 'help', 'icon', 'license', 'next', 'nofollow', 'noreferrer', 'pingback', 'prefetch', 'prev', 'search', 'stylesheet', 'sidebar', 'tag']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['amphtml']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['apple-touch-icon', 'apple-touch-icon-precomposed', 'apple-touch-startup-image']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['canonical']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['chrome-webstore-item']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['hub']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['import']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['manifest']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['pgpkey']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['search']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['sitemap']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linkreltypes + ['webmention']$/;"	v
+linkreltypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linkreltypes = linktypes$/;"	v
+linktypes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let linktypes = ['alternate', 'author', 'bookmark', 'dns-prefetch', 'external', 'help', 'icon', 'license', 'next', 'nofollow', 'noreferrer', 'noopener', 'pingback', 'preconnect', 'prefetch', 'preload', 'prerender', 'prev', 'search', 'stylesheet', 'tag']$/;"	v
 lint_job	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^function s:lint_job(args)$/;"	f
 listize_mirror	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/autoload/snipmate/jumping.vim	/^function! s:listize_mirror(mirrors) abort$/;"	f
-live_region_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let live_region_attributes = {'aria-atomic': ['true', 'false'], 'aria-busy': ['true', 'false'], 'aria-live': ['off', 'polite', 'assertive'], 'aria-relevant': ['additions', 'removals', 'text', 'all', 'additions text']}$/;"	v
+live_region_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let live_region_attributes = {$/;"	v
 livescript_compiler	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^  let livescript_compiler = 'lsc'$/;"	v
 livescript_compiler	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ls.vim	/^  let livescript_compiler = 'lsc'$/;"	v
 livescript_make_options	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^  let livescript_make_options = ''$/;"	v
@@ -3094,6 +3148,7 @@ loaded_snips	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipm
 loaded_tlib_macros	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/macros/tlib.vim	/^let loaded_tlib_macros = 1$/;"	v
 log_contains_error	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^function! s:log_contains_error(file)$/;"	f
 looking_at	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:looking_at()$/;"	f
+looking_at	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:looking_at()$/;"	f
 main	/home/rmelton/projects/vimfiles/get-plugins.go	/^func main() {$/;"	f
 main	/home/rmelton/projects/vimfiles/get-plugins.go	/^package main$/;"	p
 main	/home/rmelton/projects/vimfiles/pack/colors/start/robertmeta-nofrils/generate_colors.go	/^func main() {$/;"	f
@@ -3212,7 +3267,7 @@ opfunc2	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-surround/pl
 or	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:or(xs) abort$/;"	f
 os	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^import os$/;"	m
 os.path	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^import os.path$/;"	m
-others	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:others(p)$/;"	f
+others	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:others(p)$/;"	f
 output	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/build	/^output() {$/;"	f
 p	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^    nnoremap <buffer> p :call qf#preview#PreviewFileUnderCursor()<CR>$/;"	m
 pad_between_letters	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:pad_between_letters(str, width, ...) abort$/;"	f
@@ -3221,6 +3276,7 @@ pad_left	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot
 pad_right	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:pad_right(str, width, ...) abort$/;"	f
 padding_by_displaywidth	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:padding_by_displaywidth(expr, width, float) abort$/;"	f
 palettes_should_have_color00_to_color15	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:palettes_should_have_color00_to_color15()$/;"	f
+parse_cino	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:parse_cino(f) abort$/;"	f
 parse_errors	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^function! s:parse_errors(filename, content) abort$/;"	f
 parse_errors	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^function s:parse_errors(exit_val, bang, out)$/;"	f
 parse_guru_output	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:parse_guru_output(exit_val, output, title) abort$/;"	f
@@ -3272,6 +3328,7 @@ prefix	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/f
 prepareRepeat	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:prepareRepeat(delimiter, which, modifier)$/;"	f
 prepareReselect	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:prepareReselect()$/;"	f
 previous_token	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:previous_token()$/;"	f
+previous_token	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:previous_token()$/;"	f
 prevnonblanknoncomment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/stylus.vim	/^function s:prevnonblanknoncomment(lnum)$/;"	f
 process	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:process(string)$/;"	f
 process_options_file	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^function! s:process_options_file(proj_dir, path) abort$/;"	f
@@ -3462,7 +3519,7 @@ re	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplu
 recall	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:recall() abort$/;"	f
 redraw	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:redraw()$/;"	f
 reindent	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:reindent() " {{{1$/;"	f
-relationship_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let relationship_attributes = {'aria-activedescendant': [], 'aria-controls': [], 'aria-describedby': [], 'aria-flowto': [], 'aria-labelledby': [], 'aria-owns': [], 'aria-posinset': [], 'aria-setsize': []}$/;"	v
+relationship_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let relationship_attributes = {$/;"	v
 relrev	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let relrev = ['chapter', 'contents', 'copyright', 'first', 'glossary', 'help', 'icon', 'index', 'last', 'license', 'meta', 'next', 'p3pv1', 'prev', 'role', 'section', 'stylesheet', 'subsection', 'start', 'top', 'up']$/;"	v
 rename_job	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^function s:rename_job(args)$/;"	f
 repeat#invalidate	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-repeat.git/autoload/repeat.vim	/^function! repeat#invalidate()$/;"	f
@@ -3509,6 +3566,7 @@ role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['article'] = role_attributes['document'] + role_attributes['region'] $/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['banner'] = abstract_role['landmark'] $/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['button'] = role_attributes['region'] + role_attributes['menuitemcheckbox']$/;"	v
+role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['cell'] = abstract_role['section'] + ['aria-colindex', 'aria-colspan', 'aria-rowindex', 'aria-rowspan']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['checkbox'] = abstract_role['input'] + ['aria-checked'] $/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['columnheader'] = role_attributes['gridcell'] + abstract_role['sectionhead'] + ['aria-sort']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['combobox'] = abstract_role['select'] + ['aria-expanded', 'aria-required'] $/;"	v
@@ -3519,6 +3577,8 @@ role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['dialog'] = abstract_role['window']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['directory'] = role_attributes['list'] $/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['document'] = abstract_role['structure'] + ['aria-expanded'] $/;"	v
+role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['feed'] = role_attributes['list']$/;"	v
+role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['figure'] = abstract_role['section'] $/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['form'] = abstract_role['landmark'] $/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['grid'] = abstract_role['composite'] + role_attributes['region'] + ['aria-level', 'aria-multiselectable', 'aria-readonly']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['gridcell'] = abstract_role['section'] + abstract_role['widget']$/;"	v
@@ -3539,6 +3599,7 @@ role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['menuitemcheckbox'] = role_attributes['menuitem'] + role_attributes['checkbox']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['menuitemradio'] = role_attributes['menuitemcheckbox'] + role_attributes['radio']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['navigation'] = abstract_role['landmark'] $/;"	v
+role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['none'] = role_attributes['presentation']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['note'] = abstract_role['section'] $/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['option'] = abstract_role['input'] + ['aria-checked', 'aria-posinset', 'aria-selected', 'aria-setsize']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['presentation'] = abstract_role['structure']$/;"	v
@@ -3550,13 +3611,17 @@ role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-p
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['rowheader'] = role_attributes['gridcell'] + abstract_role['sectionhead']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['scrollbar'] = abstract_role['range'] + ['aria-controls', 'aria-orientation', 'aria-valuemax', 'aria-valuemin', 'aria-valuenow']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['search'] = abstract_role['landmark']$/;"	v
+role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['searchbox'] = role_attributes['textbox']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['separator'] = abstract_role['structure'] + ['aria-expanded'] $/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['slider'] = abstract_role['range'] + ['aria-valuemax', 'aria-valuemin', 'aria-valuenow']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['spinbutton'] = abstract_role['composite'] + abstract_role['range'] + ['aria-required'] $/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['status'] = abstract_role['composite'] + role_attributes['region']$/;"	v
+role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['switch'] = role_attributes['checkbox']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['tab'] = abstract_role['sectionhead'] + abstract_role['widget'] + ['aria-selected']$/;"	v
+role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['table'] = abstract_role['section'] + ['aria-colcount', 'aria-rowcount']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['tablist'] = abstract_role['composite'] + role_attributes['directory']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['tabpanel'] = role_attributes['region']$/;"	v
+role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['term'] = abstract_role['section']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['textbox'] = abstract_role['input'] + ['aria-autocomplete', 'aria-multiline', 'aria-readonly', 'aria-required']$/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['timer'] = role_attributes['status'] $/;"	v
 role_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let role_attributes['toolbar'] = role_attributes['group'] $/;"	v
@@ -3691,7 +3756,6 @@ s:block_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-pol
 s:block_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/json.vim	/^let s:block_regex = '\\%({\\)\\s*\\%(|\\%([*@]\\=\\h\\w*,\\=\\s*\\)\\%(,\\s*[*@]\\=\\h\\w*\\)*|\\)\\=' . s:line_term$/;"	v
 s:block_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:block_regex =$/;"	v
 s:block_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:block_regex = '\\%([{[]\\)\\s*\\%(|\\%([*@]\\=\\h\\w*,\\=\\s*\\)\\%(,\\s*[*@]\\=\\h\\w*\\)*|\\)\\=' . s:line_term$/;"	v
-s:block_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:block_regex = '\\%([{[]\\)\\s*\\%(|\\%([*@]\\=\\h\\w*,\\=\\s*\\)\\%(,\\s*[*@]\\=\\h\\w*\\)*|\\)\\=' . s:line_term$/;"	v
 s:bmru	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/buffer.vim	/^let s:bmru = []$/;"	v
 s:bracket_continuation_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:bracket_continuation_regex = '%\\@<!\\%([({[]\\)\\s*\\%(#.*\\)\\=$'$/;"	v
 s:bracket_continuation_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:bracket_continuation_regex = '%\\@<!\\%([({[]\\)\\s*\\%(#.*\\)\\=$'$/;"	v
@@ -3729,9 +3793,7 @@ s:cmd1	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autolo
 s:coffeeIndentExpr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/indent/html.vim	/^let s:coffeeIndentExpr = &l:indentexpr$/;"	v
 s:colorful_term	/home/rmelton/projects/vimfiles/vimrc	/^let s:colorful_term=(&term=~"xterm") || (&term=~"screen")$/;"	v
 s:comma_first	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:comma_first = '^\\s*,'$/;"	v
-s:comma_first	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:comma_first = '^\\s*,'$/;"	v
 s:comma_last	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:comma_last = ',\\s*$'$/;"	v
-s:comma_last	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:comma_last = ',\\s*$'$/;"	v
 s:commands	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^let s:commands = {}$/;"	v
 s:commands	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^let s:commands.abbrev     = s:commands.abstract.clone()$/;"	v
 s:commands	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^let s:commands.abbrev.options = {"buffer":0,"cmdline":0,"delete":0}$/;"	v
@@ -3757,10 +3819,10 @@ s:const	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/
 s:continuable_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:continuable_regex =$/;"	v
 s:continuable_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:continuable_regex =$/;"	v
 s:continuation	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^let s:continuation = get(g:,'javascript_continuation',$/;"	v
+s:continuation	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:continuation = get(g:,'typescript_continuation',$/;"	v
 s:continuation_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:continuation_regex =$/;"	v
 s:continuation_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:continuation_regex =$/;"	v
 s:continuation_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:continuation_regex = '\\%([\\\\*+\/.:]\\|\\%(<%\\)\\@<![=-]\\|\\W[|&?]\\|||\\|&&\\)' . s:line_term$/;"	v
-s:continuation_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:continuation_regex = '\\%([\\\\*+\/.:]\\|\\%(<%\\)\\@<![=-]\\|\\W[|&?]\\|||\\|&&\\|[^=]=[^=].*,\\)' . s:line_term$/;"	v
 s:coverage_browser_handler_jobs	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^let s:coverage_browser_handler_jobs = {}$/;"	v
 s:coverage_handler_jobs	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^let s:coverage_handler_jobs = {}$/;"	v
 s:cpo_orig	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/plantuml.vim	/^let s:cpo_orig=&cpo$/;"	v
@@ -3780,6 +3842,7 @@ s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polygl
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/rustc.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/compiler/sbt.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/clojure.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/mma.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/plantuml.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^let s:cpo_save = &cpo$/;"	v
@@ -3801,6 +3864,7 @@ s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polygl
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/eelixir.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/elixir.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/erlang.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/mma.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/perl.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/pod.vim	/^let s:cpo_save = &cpo$/;"	v
 s:cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/raml.vim	/^let s:cpo_save = &cpo$/;"	v
@@ -3817,6 +3881,7 @@ s:current_fileformats	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-v
 s:current_fileformats	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^let s:current_fileformats = ''$/;"	v
 s:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/syntax/coffee.vim	/^  let s:current_syntax=b:current_syntax$/;"	v
 s:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/syntax/jsx.vim	/^  let s:current_syntax=b:current_syntax$/;"	v
+s:current_syntax	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/dockerfile.vim	/^let s:current_syntax = b:current_syntax$/;"	v
 s:current_syntax_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/syntax/haml.vim	/^  let s:current_syntax_save = b:current_syntax$/;"	v
 s:current_syntax_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/syntax/html.vim	/^  let s:current_syntax_save = b:current_syntax$/;"	v
 s:cword	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^let s:cword = {$/;"	v
@@ -3827,6 +3892,7 @@ s:defMatcher	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-poly
 s:default_settings	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^let s:default_settings = {$/;"	v
 s:define_cache_file	/home/rmelton/projects/vimfiles/pack/plugins/start/marcweber-vim-addon-mw-utils/autoload/cached_file_contents.vim	/^let s:define_cache_file = "let this_dir = s:c['cache_dir'].'\/cached-file-contents' | let cache_file = expand(this_dir.'\/'.substitute(string([func_as_string, a:file]),'[[\\\\]{}:\/\\\\,''\\"# ]\\\\+','_','g'))"$/;"	v
 s:delimitMate_extra_excluded_regions	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/rust.vim	/^	let s:delimitMate_extra_excluded_regions = ',rustLifetimeCandidate,rustGenericLifetimeCandidate'$/;"	v
+s:delimiters	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/caddyfile.vim	/^let s:delimiters = {'left': '#'}$/;"	v
 s:delims	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/toml.vim	/^let s:delims = { 'left': '#' }$/;"	v
 s:dictionary_entry	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ansible.vim	/^let s:dictionary_entry = '\\v^\\s*[^:-]+:\\s*$' " with_items:$/;"	v
 s:did_indent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/indent/jsx.vim	/^  let s:did_indent=b:did_indent$/;"	v
@@ -3839,7 +3905,7 @@ s:dir_stack	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/a
 s:directives_end	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^    let s:directives_end .= '\\|' . join(values(g:blade_custom_directives_pairs), '\\|')$/;"	v
 s:directives_end	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^let s:directives_end = 'else\\|end\\|empty\\|show\\|stop\\|append\\|overwrite'$/;"	v
 s:directives_start	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^    let s:directives_start .= '\\|' . join(keys(g:blade_custom_directives_pairs), '\\|')$/;"	v
-s:directives_start	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^let s:directives_start = 'if\\|else\\|unless\\|for\\|while\\|empty\\|push\\|section\\|can\\|hasSection\\|verbatim'$/;"	v
+s:directives_start	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^let s:directives_start = 'if\\|else\\|unless\\|for\\|while\\|empty\\|push\\|section\\|can\\|hasSection\\|verbatim\\|php\\|' .$/;"	v
 s:done	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^  let s:done += 1$/;"	v
 s:done	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let s:done = 0$/;"	v
 s:dot_continuation_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:dot_continuation_regex = '%\\@<!\\.\\s*\\%(#.*\\)\\=$'$/;"	v
@@ -3944,7 +4010,6 @@ s:letpat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot
 s:lim	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ocaml.vim	/^let s:lim = '^\\s*\\(exception\\|external\\|include\\|let\\|module\\|open\\|type\\|val\\)\\>'$/;"	v
 s:line_term	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/json.vim	/^let s:line_term = '\\s*\\%(\\%(\\\/\\\/\\).*\\)\\=$'$/;"	v
 s:line_term	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:line_term = '\\s*\\%(\\%(\\\/\\\/\\).*\\)\\=$'$/;"	v
-s:line_term	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:line_term = '\\s*\\%(\\%(\\\/\\\/\\).*\\)\\=$'$/;"	v
 s:lines	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/eelixir.vim	/^  let s:lines = getline(1)."\\n".getline(2)."\\n".getline(3)."\\n".getline(4)."\\n".getline(5)."\\n".getline("$")$/;"	v
 s:lines	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/eruby.vim	/^  let s:lines = getline(1)."\\n".getline(2)."\\n".getline(3)."\\n".getline(4)."\\n".getline(5)."\\n".getline("$")$/;"	v
 s:lines	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/liquid.vim	/^  let s:lines = getline(1)."\\n".getline(2)."\\n".getline(3)."\\n".getline(4)."\\n".getline(5)."\\n".getline("$")$/;"	v
@@ -3993,7 +4058,6 @@ s:module	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot
 s:molokai_original	/home/rmelton/projects/vimfiles/pack/colors/start/tomasr-molokai/colors/molokai.vim	/^    let s:molokai_original = 0$/;"	v
 s:molokai_original	/home/rmelton/projects/vimfiles/pack/colors/start/tomasr-molokai/colors/molokai.vim	/^    let s:molokai_original = g:molokai_original$/;"	v
 s:msl_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:msl_regex = '\\%([\\\\*+\/.:([]\\|\\%(<%\\)\\@<![=-]\\|\\W[|&?]\\|||\\|&&\\)' . s:line_term$/;"	v
-s:msl_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:msl_regex = s:continuation_regex$/;"	v
 s:named_lists	/home/rmelton/projects/vimfiles/pack/plugins/start/romainl-vim-qf/autoload/qf/namedlist.vim	/^let s:named_lists = {}$/;"	v
 s:named_module_entry	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ansible.vim	/^let s:named_module_entry = '\\v^\\s*-\\s*(name|hosts|role):\\s*\\S' " - name: 'do stuff'$/;"	v
 s:native_filenames	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/sys.vim	/^let s:native_filenames = {}$/;"	v
@@ -4011,12 +4075,12 @@ s:old_cpo	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-quickhl/pl
 s:old_style	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/erlang.vim	/^let s:old_style = (exists("g:erlang_old_style_highlight") &&$/;"	v
 s:omittable	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:omittable = [ $/;"	v
 s:one_line_scope_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:one_line_scope_regex = '\\<\\%(if\\|else\\|for\\|while\\)\\>[^{;]*' . s:line_term$/;"	v
-s:one_line_scope_regex	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:one_line_scope_regex = '\\<\\%(if\\|else\\|for\\|while\\)\\>[^{;]*' . s:line_term$/;"	v
 s:oneline	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/markdown.vim	/^    let s:oneline = ' oneline'$/;"	v
 s:oneline	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/markdown.vim	/^    let s:oneline = ''$/;"	v
 s:open_pat	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^let s:open_pat = '\\\\\\@<!\\%(\\\\begin\\|\\\\left\\a\\@!\\|\\\\(\\|\\\\\\[\\|{\\)'$/;"	v
 s:open_patt	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let s:open_patt = '\\%(\\<\\%(function\\|if\\|repeat\\|do\\)\\>\\|(\\|{\\)'$/;"	v
 s:opfirst	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^let s:opfirst = '^' . get(g:,'javascript_opfirst',$/;"	v
+s:opfirst	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:opfirst = '^' . get(g:,'typescript_opfirst',$/;"	v
 s:options	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let s:options = g:PaperColor_Theme_Options$/;"	v
 s:options	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let s:options = {}$/;"	v
 s:optionsEnabled	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^let s:optionsEnabled = 0$/;"	v
@@ -4139,7 +4203,7 @@ s:skip_expr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyg
 s:skip_expr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let s:skip_expr = "synIDattr(synID(line('.'),col('.'),1),'name') =~ 'luaComment\\\\|luaString'"$/;"	v
 s:skip_expr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:skip_expr =$/;"	v
 s:skip_expr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:skip_expr = "synIDattr(synID(line('.'),col('.'),1),'name') =~ '".s:syng_strcom."'"$/;"	v
-s:skip_expr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:skip_expr = "synIDattr(synID(line('.'),col('.'),1),'name') =~ '".s:syng_strcom."'"$/;"	v
+s:skip_expr	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:skip_expr = "synIDattr(synID(line('.'),col('.'),0),'name') =~? '".s:syng_strcom."'"$/;"	v
 s:sock_type	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^let s:sock_type = (has('win32') || has('win64')) ? 'tcp' : 'unix'$/;"	v
 s:source	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/autoload/neocomplcache/sources/tmuxcomplete.vim	/^let s:source = {$/;"	v
 s:source	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/autoload/neocomplete/sources/tmuxcomplete.vim	/^let s:source = {$/;"	v
@@ -4159,23 +4223,22 @@ s:str	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/sy
 s:str	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/tt2.vim	/^    let s:str = substitute(s:str,'^ \\+','','g')$/;"	v
 s:subtype	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/liquid.vim	/^  let s:subtype = exists('b:liquid_subtype') ? b:liquid_subtype : ''$/;"	v
 s:syng_com	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^let s:syng_com = 'comment\\|doc'$/;"	v
+s:syng_com	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:syng_com = 'comment\\|doc'$/;"	v
 s:syng_linecom	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:syng_linecom = 'linecomment\\c'$/;"	v
-s:syng_linecom	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:syng_linecom = 'linecomment\\c'$/;"	v
 s:syng_multiline	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:syng_multiline = 'comment\\c'$/;"	v
-s:syng_multiline	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:syng_multiline = 'comment\\c'$/;"	v
-s:syng_str	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^let s:syng_str = 'string\\|template'$/;"	v
+s:syng_str	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^let s:syng_str = 'string\\|template\\|special'$/;"	v
+s:syng_str	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:syng_str = 'string\\|template\\|special'$/;"	v
 s:syng_strcom	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:syng_strcom = '\\<crystal\\%(Regexp\\|RegexpDelimiter\\|RegexpEscape' .$/;"	v
 s:syng_strcom	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^let s:syng_strcom = 'string\\|comment\\|regex\\|special\\|doc\\|template\\%(braces\\)\\@!'$/;"	v
 s:syng_strcom	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:syng_strcom = '\\<ruby\\%(Regexp\\|RegexpDelimiter\\|RegexpEscape' .$/;"	v
 s:syng_strcom	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:syng_strcom = 'string\\|regex\\|comment\\c'$/;"	v
-s:syng_strcom	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:syng_strcom = 'string\\|regex\\|comment\\c'$/;"	v
+s:syng_strcom	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:syng_strcom = 'string\\|comment\\|regex\\|special\\|doc\\|template\\%(braces\\)\\@!'$/;"	v
 s:syng_string	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:syng_string =$/;"	v
 s:syng_string	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:syng_string =$/;"	v
 s:syng_string	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:syng_string = 'regex\\c'$/;"	v
-s:syng_string	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:syng_string = 'regex\\c'$/;"	v
 s:syng_stringdoc	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:syng_stringdoc =$/;"	v
 s:syng_stringdoc	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:syng_stringdoc =$/;"	v
-s:syntaxes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/vue.vim	/^  let s:syntaxes = s:search_syntaxes('pug', 'slm', 'coffee', 'stylus', 'sass', 'scss', 'less')$/;"	v
+s:syntaxes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/vue.vim	/^  let s:syntaxes = s:search_syntaxes('pug', 'slm', 'coffee', 'stylus', 'sass', 'scss', 'less', 'typescript')$/;"	v
 s:tag	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/haml.vim	/^let s:tag = '\\%([%.#][[:alnum:]_-]\\+\\|'.s:attributes.'\\)*[<>]*'$/;"	v
 s:tag	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/pug.vim	/^let s:tag = '\\([%.#][[:alnum:]_-]\\+\\|'.s:attributes.'\\)*[<>]*'$/;"	v
 s:tag	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/slim.vim	/^let s:tag = '\\%([%.#][[:alnum:]_-]\\+\\|'.s:attributes.'\\)*[<>]*'$/;"	v
@@ -4183,9 +4246,7 @@ s:tag	/home/rmelton/projects/vimfiles/pack/plugins/start/t9md-vim-quickhl/autolo
 s:tags	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:tags = []$/;"	v
 s:temp_files	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^  let s:temp_files = {}$/;"	v
 s:ternary	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:ternary = '^\\s\\+[?|:]'$/;"	v
-s:ternary	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:ternary = '^\\s\\+[?|:]'$/;"	v
 s:ternary_q	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:ternary_q = '^\\s\\+?'$/;"	v
-s:ternary_q	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:ternary_q = '^\\s\\+?'$/;"	v
 s:test_compile_handlers	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^let s:test_compile_handlers = {}$/;"	v
 s:tests	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let s:tests = split(substitute(@q, 'function \\(\\k*()\\)', '\\1', 'g'))$/;"	v
 s:theme_name	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let s:theme_name = tolower(g:PaperColor_Theme)$/;"	v
@@ -4202,7 +4263,6 @@ s:timestamps	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/
 s:to_HEX	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let s:to_HEX = {$/;"	v
 s:toggle	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^let s:toggle = 0$/;"	v
 s:topLev	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/indent/objc.vim	/^let s:topLev = '^\\s*@\\%(class\\|end\\|implementation\\|interface\\|protocol\\|\\)\\>'$/;"	v
-s:ts_keywords	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:ts_keywords = '^\\s*\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|in\\|instanceof\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\)'$/;"	v
 s:type	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/ocaml.vim	/^let s:type = '^\\s*\\%(class\\|let\\|type\\)\\>.*='$/;"	v
 s:typeSpecMatcher	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/scala.vim	/^let s:typeSpecMatcher = '\\%(\\s*\\[\\_[^\\]]*\\]\\)'$/;"	v
 s:type_length	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^let s:type_length=0$/;"	v
@@ -4226,7 +4286,6 @@ s:update_queue	/home/rmelton/projects/vimfiles/pack/plugins/start/ludovicchabant
 s:vala_cpo_save	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/syntax/vala.vim	/^let s:vala_cpo_save = &cpo$/;"	v
 s:value	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/autoload/tlib/progressbar.vim	/^let s:value = []$/;"	v
 s:var_stmt	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:var_stmt = '^\\s*var'$/;"	v
-s:var_stmt	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:var_stmt = '^\\s*var'$/;"	v
 s:version_file	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  let s:version_file = findfile('.ruby-version', '.;')$/;"	v
 s:viewer	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^		  let s:viewer = 'open'$/;"	v
 s:viewer	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^		  let s:viewer = 'xdg-open'$/;"	v
@@ -4237,8 +4296,10 @@ s:win_sep	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglo
 s:words	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/clojurecomplete.vim	/^let s:words = ["*","*'","*1","*2","*3","*agent*","*allow-unresolved-vars*","*assert*","*clojure-version*","*command-line-args*","*compile-files*","*compile-path*","*compiler-options*","*data-readers*","*default-data-reader-fn*","*e","*err*","*file*","*flush-on-newline*","*fn-loader*","*in*","*math-context*","*ns*","*out*","*print-dup*","*print-length*","*print-level*","*print-meta*","*print-readably*","*read-eval*","*source-path*","*suppress-read*","*unchecked-math*","*use-context-classloader*","*verbose-defrecords*","*warn-on-reflection*","+","+'","-","-'","->","->>","->ArrayChunk","->Eduction","->Vec","->VecNode","->VecSeq","-cache-protocol-fn","-reset-methods",".","..","\/","<","<=","=","==",">",">=","EMPTY-NODE","Throwable->map","accessor","aclone","add-classpath","add-watch","agent","agent-error","agent-errors","aget","alength","alias","all-ns","alter","alter-meta!","alter-var-root","amap","ancestors","and","apply","areduce","array-map","as->","aset","aset-boolean","aset-byte","aset-char","aset-double","aset-float","aset-int","aset-long","aset-short","assert","assoc!","assoc","assoc-in","associative?","atom","await","await-for","await1","bases","bean","bigdec","bigint","biginteger","binding","bit-and","bit-and-not","bit-clear","bit-flip","bit-not","bit-or","bit-set","bit-shift-left","bit-shift-right","bit-test","bit-xor","boolean","boolean-array","booleans","bound-fn","bound-fn*","bound?","butlast","byte","byte-array","bytes","case","cast","cat","catch","char","char-array","char-escape-string","char-name-string","char?","chars","chunk","chunk-append","chunk-buffer","chunk-cons","chunk-first","chunk-next","chunk-rest","chunked-seq?","class","class?","clear-agent-errors","clojure-version","coll?","comment","commute","comp","comparator","compare","compare-and-set!","compile","complement","completing","concat","cond","cond->","cond->>","condp","conj!","conj","cons","constantly","construct-proxy","contains?","count","counted?","create-ns","create-struct","cycle","dec","dec'","decimal?","declare","dedupe","def","default-data-readers","definline","definterface","defmacro","defmethod","defmulti","defn","defn-","defonce","defprotocol","defrecord","defstruct","deftype","delay","delay?","deliver","denominator","deref","derive","descendants","destructure","disj!","disj","dissoc!","dissoc","distinct","distinct?","do","doall","dorun","doseq","dosync","dotimes","doto","double","double-array","doubles","drop","drop-last","drop-while","eduction","empty","empty?","ensure","ensure-reduced","enumeration-seq","error-handler","error-mode","eval","even?","every-pred","every?","ex-data","ex-info","extend","extend-protocol","extend-type","extenders","extends?","false?","ffirst","file-seq","filter","filterv","finally","find","find-keyword","find-ns","find-protocol-impl","find-protocol-method","find-var","first","flatten","float","float-array","float?","floats","flush","fn","fn","fn?","fnext","fnil","for","force","format","frequencies","future","future-call","future-cancel","future-cancelled?","future-done?","future?","gen-class","gen-interface","gensym","get","get-in","get-method","get-proxy-class","get-thread-bindings","get-validator","group-by","hash","hash-combine","hash-map","hash-ordered-coll","hash-set","hash-unordered-coll","identical?","identity","if","if-let","if-not","if-some","ifn?","import","in-ns","inc","inc'","init-proxy","instance?","int","int-array","integer?","interleave","intern","interpose","into","into-array","ints","io!","isa?","iterate","iterator-seq","juxt","keep","keep-indexed","key","keys","keyword","keyword?","last","lazy-cat","lazy-seq","let","let","letfn","line-seq","list","list*","list?","load","load-file","load-reader","load-string","loaded-libs","locking","long","long-array","longs","loop","loop","macroexpand","macroexpand-1","make-array","make-hierarchy","map","map-entry?","map-indexed","map?","mapcat","mapv","max","max-key","memfn","memoize","merge","merge-with","meta","method-sig","methods","min","min-key","mix-collection-hash","mod","monitor-enter","monitor-exit","munge","name","namespace","namespace-munge","neg?","new","newline","next","nfirst","nil?","nnext","not","not-any?","not-empty","not-every?","not=","ns","ns-aliases","ns-imports","ns-interns","ns-map","ns-name","ns-publics","ns-refers","ns-resolve","ns-unalias","ns-unmap","nth","nthnext","nthrest","num","number?","numerator","object-array","odd?","or","parents","partial","partition","partition-all","partition-by","pcalls","peek","persistent!","pmap","pop!","pop","pop-thread-bindings","pos?","pr","pr-str","prefer-method","prefers","primitives-classnames","print","print-ctor","print-dup","print-method","print-simple","print-str","printf","println","println-str","prn","prn-str","promise","proxy","proxy-call-with-super","proxy-mappings","proxy-name","proxy-super","push-thread-bindings","pvalues","quot","quote","rand","rand-int","rand-nth","random-sample","range","ratio?","rational?","rationalize","re-find","re-groups","re-matcher","re-matches","re-pattern","re-seq","read","read-line","read-string","reader-conditional","reader-conditional?","realized?","record?","recur","reduce","reduce-kv","reduced","reduced?","reductions","ref","ref-history-count","ref-max-history","ref-min-history","ref-set","refer","refer-clojure","reify","release-pending-sends","rem","remove","remove-all-methods","remove-method","remove-ns","remove-watch","repeat","repeatedly","replace","replicate","require","reset!","reset-meta!","resolve","rest","restart-agent","resultset-seq","reverse","reversible?","rseq","rsubseq","run!","satisfies?","second","select-keys","send","send-off","send-via","seq","seq?","seque","sequence","sequential?","set!","set","set-agent-send-executor!","set-agent-send-off-executor!","set-error-handler!","set-error-mode!","set-validator!","set?","short","short-array","shorts","shuffle","shutdown-agents","slurp","some","some->","some->>","some-fn","some?","sort","sort-by","sorted-map","sorted-map-by","sorted-set","sorted-set-by","sorted?","special-symbol?","spit","split-at","split-with","str","string?","struct","struct-map","subs","subseq","subvec","supers","swap!","symbol","symbol?","sync","tagged-literal","tagged-literal?","take","take-last","take-nth","take-while","test","the-ns","thread-bound?","throw","time","to-array","to-array-2d","trampoline","transduce","transient","tree-seq","true?","try","type","unchecked-add","unchecked-add-int","unchecked-byte","unchecked-char","unchecked-dec","unchecked-dec-int","unchecked-divide-int","unchecked-double","unchecked-float","unchecked-inc","unchecked-inc-int","unchecked-int","unchecked-long","unchecked-multiply","unchecked-multiply-int","unchecked-negate","unchecked-negate-int","unchecked-remainder-int","unchecked-short","unchecked-subtract","unchecked-subtract-int","underive","unquote","unquote-splicing","unreduced","unsigned-bit-shift-right","update","update-in","update-proxy","use","val","vals","var","var-get","var-set","var?","vary-meta","vec","vector","vector-of","vector?","volatile!","volatile?","vreset!","vswap!","when","when-first","when-let","when-not","when-some","while","with-bindings","with-bindings*","with-in-str","with-loading-context","with-local-vars","with-meta","with-open","with-out-str","with-precision","with-redefs","with-redefs-fn","xml-seq","zero?","zipmap"]$/;"	v
 s:words	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-tmux-complete-vim/autoload/unite/sources/tmuxcomplete.vim	/^let s:words = {$/;"	v
 s:worktree_for_dir	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:worktree_for_dir = {}$/;"	v
+s:z	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^let s:z = has('patch-7.4.984') ? 'z' : ''$/;"	v
 same_ids_highlight	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:same_ids_highlight(exit_val, output) abort$/;"	f
 save_pos	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:save_pos(f,...)$/;"	f
+save_pos	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:save_pos(f,...)$/;"	f
 scala#ConditionalConfirm	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/scala.vim	/^function! scala#ConditionalConfirm(msg)$/;"	f
 scala#CountBrackets	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/scala.vim	/^function! scala#CountBrackets(line, openBracket, closedBracket)$/;"	f
 scala#CountCurlies	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/scala.vim	/^function! scala#CountCurlies(line)$/;"	f
@@ -4309,6 +4370,7 @@ shouldGrow	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim
 show_errors	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^function! s:show_errors(errors) abort$/;"	f
 shrink	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:shrink(target)$/;"	f
 skip_func	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:skip_func()$/;"	f
+skip_func	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:skip_func()$/;"	f
 smart_execute_command	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:smart_execute_command(action, word) abort$/;"	f
 snakecase	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:snakecase(word)$/;"	f
 snipMate#BackwardsSnippet	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/autoload/snipMate.vim	/^fun! snipMate#BackwardsSnippet() abort$/;"	f
@@ -4381,7 +4443,7 @@ stop	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/t/ju
 stop_easy_paste	/home/rmelton/projects/vimfiles/pack/plugins/start/roxma-vim-paste-easy/plugin/paste-easy.vim	/^func! s:stop_easy_paste()$/;"	f
 strchars	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^  function! s:strchars(str) abort$/;"	f
 string	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^import string$/;"	m
-stripTrailingComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/haskell.vim	/^function! s:stripTrailingComment(line)$/;"	f
+stripComment	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/haskell.vim	/^function! s:stripComment(line)$/;"	f
 strip_namespace_and_macro_chars	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:strip_namespace_and_macro_chars(word)$/;"	f
 strip_white_space	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^function! s:strip_white_space(l,r,line) abort$/;"	f
 strwidthpart	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:strwidthpart(str, width) abort$/;"	f
@@ -4397,11 +4459,14 @@ substitute_visual	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-
 subvert_dispatcher	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:subvert_dispatcher(bang,line1,line2,count,args)$/;"	f
 surroundings	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^function! s:surroundings() abort$/;"	f
 sw	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/indent/go.vim	/^  func s:sw()$/;"	f
+sw	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/caddyfile.vim	/^	func s:sw()$/;"	f
 sw	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/go.vim	/^  func s:sw()$/;"	f
 sw	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^  function s:sw()$/;"	f
 sw	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^let sw=2    " default shiftwidth of 2 spaces$/;"	v
+sw	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^  function s:sw()$/;"	f
 syn	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/cucumber.vim	/^function! s:syn(lnum)$/;"	f
 syn_at	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:syn_at(l,c)$/;"	f
+syn_at	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:syn_at(l,c)$/;"	f
 syn_id_name	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:syn_id_name()$/;"	f
 sync_guru	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:sync_guru(args) abort$/;"	f
 synname	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^function! s:synname() abort$/;"	f
@@ -4450,8 +4515,8 @@ targets#target#withError	/home/rmelton/projects/vimfiles/pack/plugins/start/well
 targets#undo	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! targets#undo(lastseq)$/;"	f
 targets#x	/home/rmelton/projects/vimfiles/pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! targets#x(trigger, count)$/;"	f
 template_autocreate	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:template_autocreate()$/;"	f
-tern_col	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:tern_col(p)$/;"	f
-tern_skip	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:tern_skip(p)$/;"	f
+tern_col	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:tern_col(p)$/;"	f
+tern_skip	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:tern_skip(p)$/;"	f
 terraformalign	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/terraform.vim	/^  function! s:terraformalign()$/;"	f
 test	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/test/tlib.vim	/^let test = tlib#Test#New()$/;"	v
 test1	/home/rmelton/projects/vimfiles/pack/plugins/start/tomtom-tlib-vim/test/tlib.vim	/^let test1 = tlib#Test#New()$/;"	v
@@ -4819,6 +4884,7 @@ to_256	/home/rmelton/projects/vimfiles/pack/colors/start/nlknguyen-papercolor-th
 to_be_file	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/t/jumping.vim	/^function! s:to_be_file(expected) abort$/;"	f
 to_be_in	/home/rmelton/projects/vimfiles/pack/plugins/start/garbas-vim-snipmate/t/jumping.vim	/^function! s:to_be_in(item, list) abort$/;"	f
 token	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:token()$/;"	f
+token	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:token()$/;"	f
 topindent	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^function s:topindent(lnum)$/;"	f
 total_elapsed_time	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let total_elapsed_time = reltimestr(reltime(total_started))$/;"	v
 total_elapsed_time	/home/rmelton/projects/vimfiles/pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let total_elapsed_time = substitute(total_elapsed_time, '^\\s*\\(.\\{-}\\)\\s*$', '\\1', '')$/;"	v
@@ -4879,9 +4945,9 @@ warn	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugi
 warning	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^		let warning = escape(substitute(w, '[\\,]', '%\\\\\\\\&', 'g'), ' ')$/;"	v
 wcswidth	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^  function! s:wcswidth(str) abort$/;"	f
 wcswidth	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^  function! s:wcswidth(str) abort$/;"	f
-widget_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let widget_attributes = {'aria-autocomplete': ['inline', 'list', 'both', 'none'], 'aria-checked': ['true', 'false', 'mixed', 'undefined'], 'aria-disabled': ['true', 'false'], 'aria-expanded': ['true', 'false', 'undefined'], 'aria-haspopup': ['true', 'false'], 'aria-hidden': ['true', 'false'], 'aria-invalid': ['grammar', 'spelling', 'true', 'false'], 'aria-label': [], 'aria-level': [], 'aria-multiline': ['true', 'false'], 'aria-multiselectable': ['true', 'false'], 'aria-orientation': ['horizontal', 'vertical'], 'aria-pressed': ['true', 'false', 'mixed', 'undefined'], 'aria-readonly': ['true', 'false'], 'aria-required': ['true', 'false'], 'aria-selected': ['true', 'false', 'undefined'], 'aria-sort': ['ascending', 'descending', 'none', 'other'], 'aria-valuemax': [], 'aria-valuemin': [], 'aria-valuenow': [], 'aria-valuetext': []}$/;"	v
-widget_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let widget_role = ['alert', 'alertdialog', 'button', 'checkbox', 'combobox', 'dialog', 'gridcell', 'link', 'log', 'marquee', 'menuitem', 'menuitemcheckbox', 'menuitemradio', 'option', 'progressbar', 'radio', 'radiogroup', 'scrollbar', 'slider', 'spinbutton', 'status', 'tab', 'tabpanel', 'textbox', 'timer', 'tooltip', 'treeitem', 'combobox', 'grid', 'listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid']$/;"	v
-widget_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let widget_role = ['alert', 'alertdialog', 'button', 'checkbox', 'combobox', 'dialog', 'gridcell', 'link', 'log', 'marquee', 'menuitem', 'menuitemcheckbox', 'menuitemradio', 'option', 'progressbar', 'radio', 'radiogroup', 'scrollbar', 'slider', 'spinbutton', 'status', 'tab', 'tabpanel', 'textbox', 'timer', 'tooltip', 'treeitem', 'combobox', 'grid', 'listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid']$/;"	v
+widget_attributes	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let widget_attributes = {$/;"	v
+widget_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let widget_role = [$/;"	v
+widget_role	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let widget_role = ['alert', 'alertdialog', 'button', 'checkbox', 'combobox', 'dialog', 'gridcell', 'link', 'log', 'marquee', 'menuitem', 'menuitemcheckbox', 'menuitemradio', 'option', 'progressbar', 'radio', 'radiogroup', 'scrollbar', 'searchbox', 'slider', 'spinbutton', 'status', 'switch', 'tab', 'tabpanel', 'textbox', 'timer', 'tooltip', 'treeitem', 'combobox', 'grid', 'listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid']$/;"	v
 winshell	/home/rmelton/projects/vimfiles/pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:winshell() abort$/;"	f
 withName	/home/rmelton/projects/vimfiles/pack/colors/start/robertmeta-nofrils/generate_colors.go	/^func withName(name string, vcr vimColorRow) vimColorRow {$/;"	f
 with_index	/home/rmelton/projects/vimfiles/pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:with_index(list, ...) abort$/;"	f
