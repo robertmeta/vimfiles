@@ -82,8 +82,7 @@ nnoremap <leader>M :make<cr>
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun<cr>
 nnoremap <leader>R :TxSetRunCmd<cr>
-nnoremap <leader>t :ltag<space>/
-nnoremap <leader>T :ltag<space><C-d>
+nnoremap <leader>t :ltag<space>/ \| lop<left><left><left><left><left><left>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap Y y$
 
@@ -102,13 +101,13 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,preview
 set complete=.,w,b,u,U,i,t " complete options
-set cursorline " no cursor line
+set cursorline " cursor line
 set diffopt=vertical,filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
 set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
-set foldcolumn=2 " I can see fold fine thank you
+set foldcolumn=0 " I can see fold fine thank you
 set foldenable " Turn on folding
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldmethod=indent " Fold on the indent
@@ -146,7 +145,7 @@ set norelativenumber " no thank you
 set nospell " nope nope nope
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set numberwidth=8 " We are good up to LOTS lines
+set numberwidth=4 " We are good up to 9999 lines
 set omnifunc=syntaxcomplete#Complete
 set pastetoggle=<F10> " paste toggle of course
 set path=.,** " Default path is local dir, make better with autocommands per language
@@ -334,8 +333,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Cursorline in active file
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-        au WinLeave * setlocal nocursorline
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
+        au WinLeave * setlocal nocursorline nocursorcolumn
     augroup END
 endif
 
