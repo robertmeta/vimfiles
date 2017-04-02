@@ -240,6 +240,7 @@ I}	targets.txt	/*I}*
 I~	targets.txt	/*I~*
 a#	targets.txt	/*a#*
 a$	targets.txt	/*a$*
+a&	targets.txt	/*a&*
 a'_t	targets.txt	/*a'_t*
 a(_t	targets.txt	/*a(_t*
 a)_t	targets.txt	/*a)_t*
@@ -358,7 +359,6 @@ an{	targets.txt	/*an{*
 an}	targets.txt	/*an}*
 an~	targets.txt	/*an~*
 aquote_t	targets.txt	/*aquote_t*
-ar	targets.txt	/*ar*
 astar	targets.txt	/*astar*
 at_t	targets.txt	/*at_t*
 a{_t	targets.txt	/*a{_t*

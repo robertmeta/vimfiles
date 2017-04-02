@@ -412,6 +412,10 @@ for an example. Note: do not set the value of this variable!
 ====================================================================
 Section 10: Tips & tricks                          *mucomplete-tips*
 
+How to insert a tab character when <tab> is used by µcomplete? ~
+Use CTRL-V <Tab> (or CTRL-Q <Tab> if CTRL-V is mapped).
+See also |i_<Tab>|.
+
 Use different values of completeopt ~
 If you want to use different values of |'completeopt'| for manual
 and automatic completion, you may adapt the following snippet:

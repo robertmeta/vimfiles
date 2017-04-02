@@ -70,8 +70,6 @@ nnoremap <leader>A :argadd **/*
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>B :ls<cr>:b<space>
-nnoremap <leader>c :chdir <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>d :Dlist<space>
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>f :find *
 nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
@@ -79,15 +77,13 @@ nnoremap <leader>g :grep<space>
 nnoremap <leader>G :vimgrep<space>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :QuickhlCwordToggle<cr>
-nnoremap <leader>J :tjump /
 nnoremap <leader>M :make<cr>
 "nnoremap <leader>m saved for tmuxify
-nnoremap <leader>p :ptjump /
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun<cr>
 nnoremap <leader>R :TxSetRunCmd<cr>
-nnoremap <leader>t :tag<space>
-nnoremap <leader>T :tag<space><C-d>
+nnoremap <leader>t :ltag<space>/
+nnoremap <leader>T :ltag<space><C-d>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap Y y$
 
