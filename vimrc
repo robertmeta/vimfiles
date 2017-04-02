@@ -107,8 +107,8 @@ set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
 set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
-set foldcolumn=0 " I can see fold fine thank you
-set foldenable " Turn on folding
+set foldcolumn=1 " I can see fold fine thank you
+set nofoldenable " Turn off folding by default
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldmethod=indent " Fold on the indent
 set foldnestmax=1 " I only like to fold outer functions
@@ -140,8 +140,8 @@ set nocursorcolumn " no cursor column
 set noerrorbells " don't be noisy
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
-set number " line numbers
-set relativenumber " relative line numbers
+set nonumber " line numbers
+set norelativenumber " relative line numbers
 set nospell " nope nope nope
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
@@ -333,8 +333,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Cursorline in active file
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline number relativenumber
-        au WinLeave * setlocal nocursorline number norelativenumber
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+        au WinLeave * setlocal nocursorline
     augroup END
 endif
 
