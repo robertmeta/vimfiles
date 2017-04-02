@@ -101,7 +101,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,preview
 set complete=.,w,b,u,U,i,t " complete options
-set cursorline " cursor line
+set cursorline " cursor line highlight
 set diffopt=vertical,filler,iwhite " filler and whitespace
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
@@ -140,12 +140,12 @@ set nocursorcolumn " no cursor column
 set noerrorbells " don't be noisy
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
-set nonumber " no line numbers
-set norelativenumber " no thank you
+set number " line numbers
+set relativenumber " relative line numbers
 set nospell " nope nope nope
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
-set numberwidth=4 " We are good up to 9999 lines
+set numberwidth=5 " We are good up to 99999 lines
 set omnifunc=syntaxcomplete#Complete
 set pastetoggle=<F10> " paste toggle of course
 set path=.,** " Default path is local dir, make better with autocommands per language
@@ -333,8 +333,8 @@ if has("autocmd")
         au FileType markdown setlocal spell
         au FileType svn setlocal spell
         " Cursorline in active file
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
-        au WinLeave * setlocal nocursorline nocursorcolumn
+        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline number relativenumber
+        au WinLeave * setlocal nocursorline number norelativenumber
     augroup END
 endif
 
@@ -402,14 +402,6 @@ let g:go_fmt_command="goimports"
 let g:go_jump_to_error=0
 let g:go_fmt_experimental=1
 let g:go_bin_path=$HOME."/go/bin"
-let g:go_highlight_operators=1
-let g:go_highlight_functions=1
-let g:go_highlight_methods=1
-let g:go_highlight_types=1
-let g:go_highlight_fields=1
-let g:go_highlight_build_constraints=1
-let g:go_highlight_generate_tags=1
-let g:go_highlight_string_spellcheck=0
 
 " Tmuxify
 let g:tmuxify_custom_command='tmux split-window -d -l 10'
