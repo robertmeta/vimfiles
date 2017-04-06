@@ -419,7 +419,6 @@ Contributing	pack/plugins/start/sheerun-vim-polyglot/README.md	/^## Contributing
 ConvertBack	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:ConvertBack(line)$/;"	f
 CountMatches	pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^function! s:CountMatches(str, pat)$/;"	f
 CreateOrExpression	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^function! s:CreateOrExpression(keywords)$/;"	f
-Credits	pack/plugins/start/fatih-vim-go/README.md	/^## Credits$/;"	i
 CrystalContext	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^command! -buffer -nargs=* CrystalContext echo crystal_lang#context(expand('%'), getpos('.'), <q-args>).output$/;"	c
 CrystalDef	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^command! -buffer -nargs=0 CrystalDef call crystal_lang#jump_to_definition(expand('%'), getpos('.'))$/;"	c
 CrystalFormat	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^command! -buffer -nargs=* -bar CrystalFormat call crystal_lang#format(<q-args>)$/;"	c
@@ -443,7 +442,6 @@ DetectCoffee	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^fun
 DetectElixir	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^function! s:DetectElixir()$/;"	f
 DetectPerl6	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^function! s:DetectPerl6()$/;"	f
 DetectScala	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^fun! s:DetectScala()$/;"	f
-Development & Testing	pack/plugins/start/fatih-vim-go/README.md	/^## Development & Testing$/;"	i
 Diff	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Diff(vert,keepfocus,...) abort$/;"	f
 DiffGitCached	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitcommit.vim	/^command! -bang -bar -buffer -complete=custom,s:diffcomplete -nargs=* DiffGitCached :call s:gitdiffcached(<bang>0,b:git_dir,<f-args>)$/;"	c
 DirComplete	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:DirComplete(A,L,P) abort$/;"	f
@@ -454,7 +452,6 @@ Documentation	pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Documentation$
 Documentation	pack/plugins/start/romainl-vim-qf/README.md	/^## Documentation$/;"	i
 Dofile	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=1 Dofile call qf#do#DoList(0, <q-args>)$/;"	c
 Doline	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=1 Doline call qf#do#DoList(1, <q-args>)$/;"	c
-Donation	pack/plugins/start/fatih-vim-go/README.md	/^## Donation$/;"	i
 DoneParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^:DoneParseArgs$/;"	l
 DoneParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:DoneParseArgs$/;"	l
 DotPackagesFile	pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! s:DotPackagesFile() abort$/;"	f
@@ -490,7 +487,6 @@ ErlangShowTokensInLine	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim
 ErrMsg	pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! s:ErrMsg(msg)$/;"	f
 Error	pack/plugins/start/fatih-vim-go/autoload/go/import.vim	/^function! s:Error(s) abort$/;"	f
 EscapeTitle	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^function! s:EscapeTitle(titlestr)$/;"	f
-Example Mappings	pack/plugins/start/fatih-vim-go/README.md	/^## Example Mappings$/;"	i
 Examples	pack/plugins/start/wellle-targets-vim/README.md	/^## Examples$/;"	i
 ExecuteInTree	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:ExecuteInTree(cmd) abort$/;"	f
 ExitingOneLineScope	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:ExitingOneLineScope(lnum)$/;"	f
@@ -951,7 +947,6 @@ MaxLookback	pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:
 Merge	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Merge(cmd, bang, args) abort$/;"	f
 Mkdir	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -bang -nargs=? -complete=dir Mkdir$/;"	c
 Molokai Color Scheme for Vim	pack/colors/start/tomasr-molokai/README.md	/^# Molokai Color Scheme for Vim$/;"	h
-More info	pack/plugins/start/fatih-vim-go/README.md	/^## More info$/;"	i
 Motivation	pack/plugins/start/roxma-vim-paste-easy/README.md	/^## Motivation$/;"	i
 Motivation	pack/plugins/start/wellle-tmux-complete-vim/README.md	/^## Motivation$/;"	i
 Move	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -nargs=1 -bang -complete=file Move :$/;"	c
@@ -1019,7 +1014,6 @@ OMLetFoldLevel	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^func
 OneScope	pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:OneScope(lnum)$/;"	f
 OneScope	pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:OneScope(lnum)$/;"	f
 OpenBrace	pack/plugins/start/sheerun-vim-polyglot/indent/puppet.vim	/^function! s:OpenBrace(lnum)$/;"	f
-Optional	pack/plugins/start/fatih-vim-go/README.md	/^### Optional$/;"	k
 Options	pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Options$/;"	i
 Overview	pack/plugins/start/wellle-targets-vim/README.md	/^## Overview$/;"	i
 PAUSE_BEFORE_EXIT	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^    set PAUSE_BEFORE_EXIT=1$/;"	v
@@ -1145,7 +1139,6 @@ SetMakePrg	pack/plugins/start/sheerun-vim-polyglot/compiler/coffee.vim	/^functio
 SetMakePrg	pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^function! s:SetMakePrg()$/;"	f
 SetTagbar	pack/plugins/start/fatih-vim-go/ftplugin/go/tagbar.vim	/^function! s:SetTagbar()$/;"	f
 SetTitle	pack/plugins/start/romainl-vim-qf/autoload/qf/filter.vim	/^function! s:SetTitle(pat, reject)$/;"	f
-Settings	pack/plugins/start/fatih-vim-go/README.md	/^## Settings$/;"	i
 Settings	pack/plugins/start/wellle-targets-vim/README.md	/^## Settings$/;"	i
 Settings	pack/plugins/start/wellle-tmux-complete-vim/README.md	/^## Settings$/;"	i
 ShellTokenize	pack/plugins/start/sheerun-vim-polyglot/autoload/rust.vim	/^function! s:ShellTokenize(text)$/;"	f
@@ -1265,8 +1258,6 @@ Usage	pack/plugins/start/fatih-vim-go/README.md	/^## Usage$/;"	i
 Usage	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^:Usage$/;"	l
 Usage	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:Usage$/;"	l
 User-config Options	pack/colors/start/nlknguyen-papercolor-theme/README.md	/^## User-config Options$/;"	i
-Using with Neovim (beta)	pack/plugins/start/fatih-vim-go/README.md	/^### Using with Neovim (beta)$/;"	k
-Using with Syntastic	pack/plugins/start/fatih-vim-go/README.md	/^### Using with Syntastic$/;"	k
 W	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^  command! -bar W Wall$/;"	c
 Wall	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -nargs=? Wall$/;"	c
 Wall	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! s:Wall() abort$/;"	f

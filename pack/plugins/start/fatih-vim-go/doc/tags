@@ -180,6 +180,8 @@ go-af	vim-go.txt	/*go-af*
 go-commands	vim-go.txt	/*go-commands*
 go-contents	vim-go.txt	/*go-contents*
 go-credits	vim-go.txt	/*go-credits*
+go-development	vim-go.txt	/*go-development*
+go-donation	vim-go.txt	/*go-donation*
 go-functions	vim-go.txt	/*go-functions*
 go-if	vim-go.txt	/*go-if*
 go-install	vim-go.txt	/*go-install*

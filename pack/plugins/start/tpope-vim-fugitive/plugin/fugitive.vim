@@ -1390,6 +1390,9 @@ function! s:Edit(cmd,bang,...) abort
       return 'redraw|echo '.string(':!'.git.' '.args)
     else
       let temp = resolve(tempname())
+      if has('win32')
+        let temp = fnamemodify(fnamemodify(temp, ':h'), ':p').fnamemodify(temp, ':t')
+      endif
       let s:temp_files[s:cpath(temp)] = { 'dir': buffer.repo().dir(), 'args': arglist }
       silent execute a:cmd.' '.temp
       if a:cmd =~# 'pedit'
@@ -2011,6 +2014,9 @@ function! s:Blame(bang,line1,line2,count,args) abort
         endif
         let top = line('w0') + &scrolloff
         let current = line('.')
+        if has('win32')
+          let temp = fnamemodify(fnamemodify(temp, ':h'), ':p').fnamemodify(temp, ':t')
+        endif
         let s:temp_files[s:cpath(temp)] = { 'dir': s:repo().dir(), 'args': cmd }
         exe 'keepalt leftabove vsplit '.temp
         let b:fugitive_blamed_bufnr = bufnr
@@ -2260,10 +2266,11 @@ function! s:Browse(bang,line1,count,...) abort
     if path =~# '^\.git/refs/remotes/.'
       if empty(remote)
         let remote = matchstr(path, '^\.git/refs/remotes/\zs[^/]\+')
+        let branch = matchstr(path, '^\.git/refs/remotes/[^/]\+/\zs.\+')
+      else
+        let merge = matchstr(path, '^\.git/refs/remotes/[^/]\+/\zs.\+')
+        let path = '.git/refs/heads/'.merge
       endif
-      let merge = matchstr(path, '^\.git/refs/remotes/[^/]\+/\zs.\+')
-      let branch = ''
-      let path = '.git/refs/heads/'.merge
     elseif path =~# '^\.git/refs/heads/.'
       let branch = path[16:-1]
     elseif !exists('branch')
