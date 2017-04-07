@@ -1144,6 +1144,7 @@ ParseCoffeeError	pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^f
 PartOfInclude	pack/plugins/start/sheerun-vim-polyglot/indent/puppet.vim	/^function! s:PartOfInclude(lnum)$/;"	f
 PasteEasyDisable	pack/plugins/start/roxma-vim-paste-easy/plugin/paste-easy.vim	/^command! PasteEasyDisable let g:paste_easy_enable=0$/;"	c
 PasteEasyEnable	pack/plugins/start/roxma-vim-paste-easy/plugin/paste-easy.vim	/^command! PasteEasyEnable let g:paste_easy_enable=1$/;"	c
+PasteForStatusline	vimrc	/^function! PasteForStatusline()$/;"	f
 Pick	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Pick   :call s:choose('pick')$/;"	c
 Pop	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:Pop(stack)$/;"	f
 Preparing your environment.	pack/colors/start/romainl-apprentice/README.md	/^## Preparing your environment.$/;"	i

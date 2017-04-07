@@ -147,7 +147,7 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set numberwidth=5 " We are good up to 99999 lines
 set omnifunc=syntaxcomplete#Complete
-set pastetoggle=<F10> " paste toggle of course
+set pastetoggle=<leader>p " paste toggle of course
 set path=.,** " Default path is local dir, make better with autocommands per language
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
@@ -218,70 +218,58 @@ endif
 set wildmode=list:longest " turn on wild mode full match only
 
 " Various formatting / output options
-set viminfo=!,h,'500,<10000,s1000,/1000,:1000
-"           | | |    |      |     |     |
-"           | | |    |      |     |     +-- remember last 1000 commands
-"           | | |    |      |     +-- remember last 1000 search patterns
-"           | | |    |      +- remember up to 1MB in each register
-"           | | |    +-- remember up to 10000 lines in each register
-"           | | +-- remember marks for last 500 files
-"           | +-- disable hlsearch while loading viminfo
-"           +-- include uppercase registers
+set viminfo=!,h,'500 " include uppercase registers, disable hlsearch while loading viminfo, remember marks for last 500 files
+set viminfo+=<10000 " remember up to 10000 lines in each register
+set viminfo+=s1000 " remember up to 1MB in each register
+set viminfo+=/1000 " remember last 1000 search patterns
+set viminfo+=:1000 " remember last 1000 commands
 
-set formatoptions=qrn1j " used to be just rq
-"                 |||||
-"                 ||||+-- remove comment when joining lines
-"                 |||+-- don't break after one letter word
-"                 ||+-- format numbered lists using 'formatlistpat'
-"                 |+-- enter extends comments
-"                 +-- allow gq to work on comment
+set formatoptions=q " allow gq to work on comment
+set formatoptions+=r " enter extends comments
+set formatoptions+=n " format numbered lists using 'formatlistpat'
+set formatoptions+=1 " don't break after one letter word
+set formatoptions+=j " remove comment when joining lines
 
-set shortmess=aOstTIc " shortens messages to avoid 'press a key' prompt
-"             |||||||
-"             ||||||+ no ins-completion messages
-"             |||||+-- no intro message
-"             ||||+-- truncate messages in the middle
-"             |||+-- truncate file message
-"             ||+-- no Search hit bottom crap
-"             |+-- file read message overwrites subsequent
-"             +-- use every short text trick
+set shortmess=a " use every short text trick
+set shortmess+=O " file read message overwrites subsequent
+set shortmess+=s " no search hit bottom crap
+set shortmess+=t " truncate file message
+set shortmess+=T " truncate messages in the middle
+set shortmess+=I " no intro message
+set shortmess+=c " no ins-completion messages
 
-set statusline=[%{getcwd()}][%f]%m%r%{fugitive#statusline()}%=%y[%P][%l:%c]%{gutentags#statusline('[Generating\ Tags...]')}
-"               |            |  | | |                       | |  |   |  |  |
-"               |            |  | | |                       | |  |   |  |  +-- gutentags status
-"               |            |  | | |                       | |  |   |  +-- column number
-"               |            |  | | |                       | |  |   +-- line number
-"               |            |  | | |                       | |  +-- percentage through file
-"               |            |  | | |                       | +-- file type
-"               |            |  | | |                       +-- right align / left align splitter
-"               |            |  | | +-- fugitive status
-"               |            |  | +-- readonly status
-"               |            |  +-- modified?
-"               |            +-- full path to file
-"               +-- working directory
+set statusline=%{PasteForStatusline()} " paste status
+set statusline+=[%{getcwd()}] " working directory
+set statusline+=[%f] " full path to file 
+set statusline+=%m " modified?
+set statusline+=%r " read only?
+set statusline+=%{fugitive#statusline()} " fugitive status
+set statusline+=%= " right align
+set statusline+=%y " file type
+set statusline+=[%P] " percentage through file
+set statusline+=[%l:%c] " line number : column number
+set statusline+=%{gutentags#statusline('[Generating\ Tags...]')} " Lets me know if generating tags
+set statusline+=[%{mode()}] " current mode
 
-set cpoptions=aABceFsmq
-"             |||||||||
-"             ||||||||+-- When joining lines, leave the cursor between joined lines
-"             |||||||+-- When a new match is created (showmatch) pause for .5
-"             ||||||+-- Set buffer options when entering the buffer
-"             |||||+-- :write command updates current file name automatically add <cr> to the last line when using :@r
-"             |||+-- Searching continues at the end of the match at the cursor position
-"             ||+-- A backslash has no special meaning in mappings
-"             |+-- :write updates alternative file name
-"             +-- :read updates alternative file name
+set cpoptions=a " read updates alternative file name
+set cpoptions+=A " write updates alternative file name
+set cpoptions+=B " backslash has no special meaning in mappings
+set cpoptions+=c " searching continues at the end of the match at the cursor position
+set cpoptions+=e " automatically add CR to the last line when using :@r
+set cpoptions+=F " write command updates current file name 
+set cpoptions+=s " set buffer options when entering the buffer
+set cpoptions+=m " when a new match is created (showmatch) pause for .5
+set cpoptions+=q " when joining lines, leave the cursor between joined lines
 
-set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
-"             | | | | | | | | |
-"             | | | | | | | | +-- Insert and Replace
-"             | | | | | | | +-- Insert and Replace
-"             | | | | | | +-- Normal
-"             | | | | | +-- <Right> Normal and Visual
-"             | | | | +-- <Left> Normal and Visual
-"             | | | +-- Normal and Visual (not recommended)
-"             | | +-- Normal and Visual (not recommended)
-"             | +-- <Space> Normal and Visual
-"             +-- <bs> Normal and Visual
+set whichwrap=b " <bs> normal and visual
+set whichwrap+=s " <space> normal and visual
+set whichwrap+=h " normal and visual (not recommended)
+set whichwrap+=l " normal and visual (not recommended)
+set whichwrap+=< " <left> normal and visual
+set whichwrap+=> " <right> normal and visual
+set whichwrap+=~ " normal
+set whichwrap+=[ " insert and replace
+set whichwrap+=] " insert and replace
 
 " Additional text objects
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '`' ]
@@ -460,6 +448,15 @@ function! StripTrailingWhitespace()
     normal 'yz<CR>
     normal `z
   endif
+endfunction
+
+function! PasteForStatusline()
+    let paste_status = &paste
+    if paste_status == 1
+        return "[PASTE]"
+    else
+        return ""
+    endif
 endfunction
 
 function! <SID>AutoMkdir() abort

@@ -30,7 +30,6 @@ func main() {
 		"mhinz/vim-tmuxify",
 		"romainl/vim-qf",
 		"romainl/vim-qlist",
-		"roxma/vim-paste-easy",
 		"sheerun/vim-polyglot",
 		"t9md/vim-quickhl",
 		"tommcdo/vim-lion",
