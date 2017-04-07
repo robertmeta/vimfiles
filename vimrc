@@ -411,13 +411,6 @@ let g:tmuxify_global_maps = 1
 " Netrw
 let g:netrw_altfile=1
 
-" NERDTree
-let g:NERDTreeHighlightCursorline=1
-let g:NERDTreeShowLineNumbers=0
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeHijackNetrw=1
-
 " Mucomplete
 let g:mucomplete#enable_auto_at_startup=0
 

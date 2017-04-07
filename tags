@@ -626,6 +626,7 @@ Doline	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffe
 DoneParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^:DoneParseArgs$/;"	l
 DoneParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:DoneParseArgs$/;"	l
 DotPackagesFile	pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! s:DotPackagesFile() abort$/;"	f
+Eatchar	ftplugin/go.vim	/^func! Eatchar(pat)$/;"	f
 Edit	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Edit   :call s:choose('edit')$/;"	c
 Edit	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Edit(cmd,bang,...) abort$/;"	f
 EditCallback	pack/plugins/start/tomtom-tlib-vim/autoload/tlib/input.vim	/^function! s:EditCallback(...) "{{{3$/;"	f
@@ -2961,24 +2962,19 @@ g:NERDDelimiterMap	pack/plugins/start/sheerun-vim-polyglot/ftplugin/caddyfile.vi
 g:NERDDelimiterMap	pack/plugins/start/sheerun-vim-polyglot/ftplugin/toml.vim	/^        let g:NERDDelimiterMap.toml = s:delims$/;"	v
 g:NERDTree	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/nerdtree.vim	/^let g:NERDTree = s:NERDTree$/;"	v
 g:NERDTreeAutoDeleteBuffer	pack/plugins/start/scrooloose-nerdtree/nerdtree_plugin/fs_menu.vim	/^    let g:NERDTreeAutoDeleteBuffer = 0$/;"	v
-g:NERDTreeAutoDeleteBuffer	vimrc	/^let g:NERDTreeAutoDeleteBuffer=1$/;"	v
 g:NERDTreeBookmark	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/bookmark.vim	/^let g:NERDTreeBookmark = s:Bookmark$/;"	v
 g:NERDTreeCreator	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/creator.vim	/^let g:NERDTreeCreator = s:Creator$/;"	v
 g:NERDTreeDirNode	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/tree_dir_node.vim	/^let g:NERDTreeDirNode = s:TreeDirNode$/;"	v
 g:NERDTreeEvent	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/event.vim	/^let g:NERDTreeEvent = s:Event$/;"	v
 g:NERDTreeFileNode	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/tree_file_node.vim	/^let g:NERDTreeFileNode = s:TreeFileNode$/;"	v
 g:NERDTreeFlagSet	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/flag_set.vim	/^let g:NERDTreeFlagSet = s:FlagSet$/;"	v
-g:NERDTreeHighlightCursorline	vimrc	/^let g:NERDTreeHighlightCursorline=1$/;"	v
-g:NERDTreeHijackNetrw	vimrc	/^let g:NERDTreeHijackNetrw=1$/;"	v
 g:NERDTreeIgnore	pack/plugins/start/scrooloose-nerdtree/plugin/NERD_tree.vim	/^    let g:NERDTreeIgnore = ['\\~$']$/;"	v
 g:NERDTreeKeyMap	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/key_map.vim	/^let g:NERDTreeKeyMap = s:KeyMap$/;"	v
 g:NERDTreeMenuController	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/menu_controller.vim	/^let g:NERDTreeMenuController = s:MenuController$/;"	v
 g:NERDTreeMenuItem	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/menu_item.vim	/^let g:NERDTreeMenuItem = s:MenuItem$/;"	v
-g:NERDTreeMinimalUI	vimrc	/^let g:NERDTreeMinimalUI=1$/;"	v
 g:NERDTreeOpener	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/opener.vim	/^let g:NERDTreeOpener = s:Opener$/;"	v
 g:NERDTreePath	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/path.vim	/^let g:NERDTreePath = s:Path$/;"	v
 g:NERDTreePathNotifier	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/notifier.vim	/^let g:NERDTreePathNotifier = deepcopy(s:Notifier)$/;"	v
-g:NERDTreeShowLineNumbers	vimrc	/^let g:NERDTreeShowLineNumbers=0$/;"	v
 g:NERDTreeSortOrder	pack/plugins/start/scrooloose-nerdtree/plugin/NERD_tree.vim	/^    let g:NERDTreeSortOrder = ['\\\/$', '*', '\\.swp$',  '\\.bak$', '\\~$']$/;"	v
 g:NERDTreeStatusline	pack/plugins/start/scrooloose-nerdtree/plugin/NERD_tree.vim	/^    let g:NERDTreeStatusline = "%{exists('b:NERDTree')?b:NERDTree.root.path.str():''}"$/;"	v
 g:NERDTreeUI	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/ui.vim	/^let g:NERDTreeUI = s:UI$/;"	v
