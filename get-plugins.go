@@ -24,6 +24,7 @@ func main() {
 		"fatih/vim-go",
 		"glts/vim-textobj-comment",
 		"kana/vim-textobj-indent",
+		"kana/vim-textobj-user",
 		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
 		"majutsushi/tagbar",
