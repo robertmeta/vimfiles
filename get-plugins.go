@@ -46,7 +46,6 @@ func main() {
 		"tpope/vim-rsi",
 		"tpope/vim-surround",
 		"tpope/vim-unimpaired",
-		"tpope/vim-vinegar",
 		"wellle/targets.vim",
 		"wellle/tmux-complete.vim",
 	}
