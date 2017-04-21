@@ -10,10 +10,8 @@ let g:loaded_mucomplete = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-imap <expr> <silent> <plug>(MUcompleteCycFwd) pumvisible()?mucomplete#cycle( 1):"\<plug>(MUcompleteFwdKey)"
-imap <expr> <silent> <plug>(MUcompleteCycBwd) pumvisible()?mucomplete#cycle(-1):"\<plug>(MUcompleteBwdKey)"
-imap <expr> <silent> <plug>(MUcompleteNxt) mucomplete#verify_completion()
-imap <expr> <silent> <plug>(MUcompleteAuto) mucomplete#complete(1)
+imap <expr> <silent> <plug>(MUcompleteCycFwd) mucomplete#cycle( 1)
+imap <expr> <silent> <plug>(MUcompleteCycBwd) mucomplete#cycle(-1)
 imap <expr> <silent> <plug>(MUcompleteFwd) mucomplete#tab_complete( 1)
 imap <expr> <silent> <plug>(MUcompleteBwd) mucomplete#tab_complete(-1)
 
@@ -34,17 +32,17 @@ if !get(g:, 'mucomplete#no_mappings', get(g:, 'no_plugin_maps', 0))
   endif
 endif
 
-if exists('##TextChangedI') && exists('##CompleteDone')
+if has('patch-7.4.775') " noinsert was added there
   if !exists(":MUcompleteAutoOn")
-    command -bar -nargs=0 MUcompleteAutoOn :call mucomplete#enable_auto()
+    command -bar -nargs=0 MUcompleteAutoOn call mucomplete#enable_auto()
   endif
 
   if !exists(":MUcompleteAutoOff")
-    command -bar -nargs=0 MUcompleteAutoOff :call mucomplete#disable_auto()
+    command -bar -nargs=0 MUcompleteAutoOff call mucomplete#disable_auto()
   endif
 
   if !exists(":MUcompleteAutoToggle")
-    command -bar -nargs=0 MUcompleteAutoToggle :call mucomplete#toggle_auto()
+    command -bar -nargs=0 MUcompleteAutoToggle call mucomplete#toggle_auto()
   endif
 
   if get(g:, 'mucomplete#enable_auto_at_startup', 0)

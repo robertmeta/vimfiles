@@ -1,3 +1,5 @@
+**NOTE: v1.0.0 introduces some backward incompatible changes. Please review the docs.**
+
 >We're coming down to the ground
 >
 >There's no better place to go
@@ -34,8 +36,7 @@ MUcomplete requires Vim 7.2 compiled with `+insert_expand` and
 Vim 8. NeoVim is supported, too.
 
 Installation does not require anything special. If you need help,
-please read [How to Install]
-(https://github.com/lifepillar/vim-mucomplete/wiki/How-to-Install).
+please read [How to Install](https://github.com/lifepillar/vim-mucomplete/wiki/How-to-Install).
 
 Mandatory Vim settings:
 
@@ -43,28 +44,36 @@ Mandatory Vim settings:
   set completeopt+=menuone
 ```
 
+For automatic completion, you also need to put these in your `vimrc`:
+
+```vim
+  set completeopt+=noinsert
+  inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
+  inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
+  inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
+```
+
 Other recommended settings:
 
 ```vim
   set shortmess+=c
-  " For automatic completion, you most likely want one of:
-  set completeopt+=noinsert " or
-  set completeopt+=noinsert,noselect
+  set completeopt+=noselect
 ```
 
 No other configuration is needed. Just start pressing `<tab>` or
 `<s-tab>` to complete a word. If you want to enable automatic
-completion, put
+completion at startup, put
 
 ```vim
 let g:mucomplete#enable_auto_at_startup = 1
 ```
 
-in your `.vimrc`.
+in your `.vimrc`. Automatic completion may be enabled and disabled at
+any time with `:MUcompleteAutoToggle`.
 
 When the pop-up menu is visible, you may cycle back and forth through
 the completion methods in the current completion chain by pressing
-`<c-h>` and `<c-j>`, respectively.
+`<c-h>` and `<c-j>`, respectively. See below for an example.
 
 MUcomplete is fully customizable. See `:help mucomplete.txt` for
 detailed documentation.
@@ -72,7 +81,7 @@ detailed documentation.
 **Important:** by itself, µcomplete does not provide any
 “intellisense”/semantic completion. If you want that, you also need to
 install suitable omni completion plugins for the languages you are
-using (see the example below).
+using (see the examples below).
 
 
 # MUcomplete in action
@@ -80,9 +89,9 @@ using (see the example below).
 ![µcomplete with jedi-vim](https://raw.github.com/lifepillar/Resources/master/mucomplete/jedi.gif)
 ![µcomplete with SQL](https://raw.github.com/lifepillar/Resources/master/mucomplete/sql.gif)
 
-The example on the left shows µcomplete automatically offering
-suggestions from [jedi-vim](https://github.com/davidhalter/jedi-vim),
-which provides semantic completion for Python. Used settings:
+The first example shows µcomplete automatically offering suggestions from
+[jedi-vim](https://github.com/davidhalter/jedi-vim), which provides semantic
+completion for Python. Used settings:
 
 ```vim
 set noshowmode shortmess+=c
@@ -92,9 +101,9 @@ let g:jedi#popup_on_dot = 0  " It may be 1 as well
 let g:mucomplete#enable_auto_at_startup = 1
 ```
 
-The example on the right shows how different completion methods (omni
-completion, keyword completion, file completion) are automatically
-selected in different contexts. Used settings:
+The second example shows how different completion methods (omni completion,
+keyword completion, file completion) are automatically selected in different
+contexts. Used settings:
 
 ```vim
 set showmode shortmess-=c
@@ -118,6 +127,7 @@ set noshowmode shortmess+=c
 set noinfercase
 set completeopt-=preview
 set completeopt+=menuone,noinsert,noselect
+" The following line assumes `brew install llvm` in macOS
 let g:clang_library_path = '/usr/local/opt/llvm/lib/libclang.dylib'
 let g:clang_user_options = '-std=c++14'
 let g:clang_complete_auto = 1
@@ -128,3 +138,8 @@ let g:mucomplete#enable_auto_at_startup = 1
 # Compatibility
 
 See `:help mucomplete-compatibility`.
+
+
+# Troubleshooting
+
+See `:help mucomplete-troubleshooting`.

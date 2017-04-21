@@ -29,6 +29,7 @@ gutentags_dont_load	gutentags.txt	/*gutentags_dont_load*
 gutentags_enabled	gutentags.txt	/*gutentags_enabled*
 gutentags_exclude_project_root	gutentags.txt	/*gutentags_exclude_project_root*
 gutentags_file_list_command	gutentags.txt	/*gutentags_file_list_command*
+gutentags_generate_on_empty_buffer	gutentags.txt	/*gutentags_generate_on_empty_buffer*
 gutentags_generate_on_missing	gutentags.txt	/*gutentags_generate_on_missing*
 gutentags_generate_on_new	gutentags.txt	/*gutentags_generate_on_new*
 gutentags_generate_on_write	gutentags.txt	/*gutentags_generate_on_write*
