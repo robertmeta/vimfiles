@@ -4,7 +4,7 @@
 "   .vimrc in its entirety, weird and unexpected things can happen
 "
 "   If you find an obvious mistake hit me up at:
-"   http://robertmelton.com (many forms of communication)
+"   https://www.robertmelton.com/contact-me/
 "
 "   source: https://github.com/robertmeta/vimfiles
 
@@ -184,11 +184,9 @@ set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " wrap forever!
 " Clipboard, Backup and Undo
 set backup " make backup files
-if s:running_windows
-    set backupdir=~/.vim/backup/,~/vimfiles/backup/ " where to put backup files
-    set directory=~/.vim/temp/,~/vimfiles/temp/ " directory to place swap files in
-    set undodir=~/.vim/undo/,~/vimfiles/undo/ " where to put undo files
-endif
+set backupdir=~/.vim/backup/,~/vimfiles/backup/ " where to put backup files
+set directory=~/.vim/temp/,~/vimfiles/temp/ " directory to place swap files in
+set undodir=~/.vim/undo/,~/vimfiles/undo/ " where to put undo files
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
