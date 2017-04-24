@@ -9,9 +9,9 @@
 "   source: https://github.com/robertmeta/vimfiles
 
 " Baseline
-set encoding=utf-8 " yey! utf-8
-scriptencoding utf-8 " yey! utf-8
-" DRY helpers
+set encoding=utf-8
+scriptencoding utf-8
+" Helpers
 let s:running_windows=has("win16") || has("win32") || has("win64")
 let s:colorful_term=(&term=~"xterm") || (&term=~"screen")
 
@@ -29,25 +29,25 @@ nnoremap gk k
 nnoremap j gj
 nnoremap k gk
 " Window control
-nnoremap <leader>o <C-w>o
-nnoremap <leader>w <C-w>w
-nnoremap <leader>W <C-w>W
+nnoremap <leader>o <c-w>o
+nnoremap <leader>w <c-w>w
+nnoremap <leader>W <c-w>W
 nnoremap <silent> <leader>c <esc>:close<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
 " Clear highlight
-nnoremap <silent> <backspace> :noh<CR>:QuickhlManualReset<CR>
+nnoremap <silent> <backspace> :noh<cr>:QuickhlManualReset<cr>
 
 " Mappings
-inoremap <silent> ;f <C-x><C-f>
-inoremap <silent> ;i <C-x><C-i>
-inoremap <silent> ;l <C-x><C-l>
-inoremap <silent> ;n <C-x><C-n>
-inoremap <silent> ;o <C-x><C-o>
-inoremap <silent> ;p <C-x><C-p>
-inoremap <silent> ;t <C-x><C-]>
-inoremap <silent> ;u <C-x><C-u>
-inoremap <F5> <C-R>=strftime("%c")<CR>
+inoremap <silent> ;f <c-x><c-f>
+inoremap <silent> ;i <c-x><c-i>
+inoremap <silent> ;l <c-x><c-l>
+inoremap <silent> ;n <c-x><c-n>
+inoremap <silent> ;o <c-x><c-o>
+inoremap <silent> ;p <c-x><c-p>
+inoremap <silent> ;t <c-x><c-]>
+inoremap <silent> ;u <c-x><c-u>
+inoremap <f5> <c-r>=strftime("%c")<cr>
 
 " Abbreviations
 iab <expr> dts strftime("%c")
@@ -59,13 +59,14 @@ xmap <leader>s <Plug>(quickhl-manual-this)
 nnoremap <leader>S :QuickhlManualAdd<space>
 let g:quickhl_manual_colors = ['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=black ctermbg=2 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black', 'gui=bold ctermfg=black ctermbg=1 guibg=#a07040 guifg=#ffffff']
 
-" Arrow control
+" Arrow mappings
 nmap <silent> <left> <esc>:lprev<cr>
 nmap <silent> <right> <esc>:lnext<cr>
 nmap <silent> <up> <esc>:cprev<cr>
 nmap <silent> <down>  <esc>:cnext<cr>
+
 " Mappings
-nnoremap <F5> "=strftime("%c")<CR>P
+nnoremap <f5> "=strftime("%c")<cr>P
 nnoremap <leader>A :argadd **/*
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>b :b <C-d>
@@ -78,10 +79,11 @@ nnoremap <leader>G :grep <c-r><c-w><cr>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :QuickhlCwordToggle<cr>
 nnoremap <leader>M :make<cr>
-"nnoremap <leader>m saved for tmuxify
+" nnoremap <leader>m saved for tmuxify binds
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun<cr>
 nnoremap <leader>R :TxSetRunCmd<cr>
+nnoremap <leader>x :TxSigInt<cr>
 nnoremap <leader>t :ltag<space>/ \| lop<left><left><left><left><left><left>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap Y y$
@@ -89,7 +91,7 @@ nnoremap Y y$
 " quick command helpers
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
-cnoremap <C-r><C-l> <C-r>=getline('.')<cr>
+cnoremap <c-r><c-l> <c-r>=getline('.')<cr>
 
 "Visual mode maps
 vnoremap <leader>@ :norm! @<cr>
@@ -183,13 +185,9 @@ set wrap " wrap forever!
 " Clipboard, Backup and Undo
 set backup " make backup files
 if s:running_windows
-    set backupdir=~/vimfiles/backup/ " where to put backup files
-    set directory=~/vimfiles/temp/ " directory to place swap files in
-    set undodir=~/vimfiles/undo/ " where to put undo files
-else
-    set backupdir=~/.vim/backup/ " where to put backup files
-    set directory=~/.vim/temp/ " directory to place swap files in
-    set undodir=~/.vim/undo/ " where to put undo files
+    set backupdir=~/.vim/backup/,~/vimfiles/backup/ " where to put backup files
+    set directory=~/.vim/temp/,~/vimfiles/temp/ " directory to place swap files in
+    set undodir=~/.vim/undo/,~/vimfiles/undo/ " where to put undo files
 endif
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
@@ -211,13 +209,12 @@ set wildignore+=*.swp,*.bak " ignore these
 set wildignore+=*.sw? " Vim swap files
 set wildignore+=**/vendor " Ignore vendor directory
 if s:running_windows
-    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*,*\\vendor\\*,
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*\\bin\\*,*\\pkg\\*,*\\vendor\\*
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*,*/vendor/*
 endif
 set wildmode=list:longest " turn on wild mode full match only
 
-" Various formatting / output options
 set viminfo=!,h,'500 " include uppercase registers, disable hlsearch while loading viminfo, remember marks for last 500 files
 set viminfo+=<10000 " remember up to 10000 lines in each register
 set viminfo+=s1000 " remember up to 1MB in each register
@@ -271,23 +268,23 @@ set whichwrap+=~ " normal
 set whichwrap+=[ " insert and replace
 set whichwrap+=] " insert and replace
 
-" Additional text objects
+" Additional text objects (stolen from romainl)
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '`' ]
-    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
-    execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
-    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
-    execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
+    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<cr>'
+    execute 'onoremap i' . char . ' :normal vi' . char . '<cr>'
+    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<cr>'
+    execute 'onoremap a' . char . ' :normal va' . char . '<cr>'
 endfor
 
 " line text-objects
 xnoremap il g_o0
-omap il :<C-u>normal vil<CR>
+omap il :<c-u>normal vil<cr>
 xnoremap al $o0
-omap al :<C-u>normal val<CR>
+omap al :<c-u>normal val<cr>
 
 " buffer text-object
 xnoremap i% GoggV
-omap i% :<C-u>normal vi%<CR>
+omap i% :<c-u>normal vi%<cr>
 
 " Autocommands
 if has("autocmd")
@@ -300,12 +297,12 @@ if has("autocmd")
         au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
         au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete
-        au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<CR>
-        au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<CR>
-        au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<CR>
-        au BufRead,BufNewFile *.go nnoremap <buffer> gr :GoRename<CR>
-        au BufRead,BufNewFile *.go nnoremap <buffer> gt :GoTest<CR>
-        au BufRead,BufNewFile *.go nnoremap <buffer> ga :GoAlternate!<CR>
+        au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<cr>
+        au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<cr>
+        au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<cr>
+        au BufRead,BufNewFile *.go nnoremap <buffer> gr :GoRename<cr>
+        au BufRead,BufNewFile *.go nnoremap <buffer> gt :GoTest<cr>
+        au BufRead,BufNewFile *.go nnoremap <buffer> ga :GoAlternate!<cr>
         au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make
         " Some JS awesome via romainl
         au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<cr><cr>
@@ -445,7 +442,7 @@ function! StripTrailingWhitespace()
     normal mz
     normal Hmy
     %s/\s\+$//e
-    normal 'yz<CR>
+    normal 'yz<cr>
     normal `z
   endif
 endfunction

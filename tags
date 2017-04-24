@@ -35,14 +35,14 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 2Gvany	pack/plugins/start/kana-vim-textobj-user/t/single-character-objects.vim	/^    normal 2Gvany$/;"	m
 4G	pack/plugins/start/kana-vim-textobj-indent/t/basics.vim	/^    normal! 4G$/;"	m
 ::	vimrc	/^cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>\/$/;"	m
-;f	vimrc	/^inoremap <silent> ;f <C-x><C-f>$/;"	m
-;i	vimrc	/^inoremap <silent> ;i <C-x><C-i>$/;"	m
-;l	vimrc	/^inoremap <silent> ;l <C-x><C-l>$/;"	m
-;n	vimrc	/^inoremap <silent> ;n <C-x><C-n>$/;"	m
-;o	vimrc	/^inoremap <silent> ;o <C-x><C-o>$/;"	m
-;p	vimrc	/^inoremap <silent> ;p <C-x><C-p>$/;"	m
-;t	vimrc	/^inoremap <silent> ;t <C-x><C-]>$/;"	m
-;u	vimrc	/^inoremap <silent> ;u <C-x><C-u>$/;"	m
+;f	vimrc	/^inoremap <silent> ;f <c-x><c-f>$/;"	m
+;i	vimrc	/^inoremap <silent> ;i <c-x><c-i>$/;"	m
+;l	vimrc	/^inoremap <silent> ;l <c-x><c-l>$/;"	m
+;n	vimrc	/^inoremap <silent> ;n <c-x><c-n>$/;"	m
+;o	vimrc	/^inoremap <silent> ;o <c-x><c-o>$/;"	m
+;p	vimrc	/^inoremap <silent> ;p <c-x><c-p>$/;"	m
+;t	vimrc	/^inoremap <silent> ;t <c-x><c-]>$/;"	m
+;u	vimrc	/^inoremap <silent> ;u <c-x><c-u>$/;"	m
 <2-leftmouse>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <2-leftmouse> :call <SID>TOCActivate(1)<cr>$/;"	m
 <BS>	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^    inoremap <silent> <BS> <C-R>=<SID>HaskellDedent(1)<CR>$/;"	m
 <C-A>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^cnoremap        <C-A> <Home>$/;"	m
@@ -66,7 +66,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <C-X><C-A>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^cnoremap   <C-X><C-A> <C-A>$/;"	m
 <C-X><C-A>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^inoremap   <C-X><C-A> <C-A>$/;"	m
 <C-]>	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> <C-]> :GoDef<cr>$/;"	m
-<C-r><C-l>	vimrc	/^cnoremap <C-r><C-l> <C-r>=getline('.')<cr>$/;"	m
 <C-t>	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>$/;"	m
 <C-w><C-]>	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> <C-w><C-]> :<C-u>call go#def#Jump("split")<CR>$/;"	m
 <C-w>]	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> <C-w>] :<C-u>call go#def#Jump("split")<CR>$/;"	m
@@ -94,8 +93,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <F3>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/r.vim	/^noremap <buffer> <F3> :!xterm -T 'R' -e funnel.pl ~\/.r-pipe "R-devel && echo 'Interpreter has finished. Exiting. Goodbye.'"&<CR><CR>$/;"	m
 <F4>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/r.vim	/^noremap <buffer> <F4> :!xterm -T 'R' -e funnel.pl ~\/.r-pipe "R -vanilla && echo 'Interpreter has finished. Exiting. Goodbye.'"&<CR><CR>$/;"	m
 <F5>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/r.vim	/^noremap <buffer> <F5> :execute '1 ,' line("$") 'w >> ~\/.r-pipe' <CR><CR>$/;"	m
-<F5>	vimrc	/^inoremap <F5> <C-R>=strftime("%c")<CR>$/;"	m
-<F5>	vimrc	/^nnoremap <F5> "=strftime("%c")<CR>P$/;"	m
 <F9>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/r.vim	/^inoremap <buffer> <F9> <Esc> :execute line(".") 'w >> ~\/.r-pipe'<CR>$/;"	m
 <F9>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/r.vim	/^noremap <buffer> <F9> :execute line(".") 'w >> ~\/.r-pipe'<CR>$/;"	m
 <F9>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rhelp.vim	/^inoremap <buffer> <F9> <Esc> :execute line(".") 'w >> ~\/.r-pipe'<CR>$/;"	m
@@ -305,10 +302,13 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <SID>transpose	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^noremap! <expr> <SID>transpose "\\<BS>\\<Right>".matchstr(getcmdline()[0 : getcmdpos()-2], '.$')$/;"	m
 <SID>transposition	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^noremap! <expr> <SID>transposition getcmdpos()>strlen(getcmdline())?"\\<Left>":getcmdpos()>1?'':"\\<Right>"$/;"	m
 <Space>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <Space> :call <SID>TOCActivate(0)<CR>$/;"	m
-<backspace>	vimrc	/^nnoremap <silent> <backspace> :noh<CR>:QuickhlManualReset<CR>$/;"	m
+<backspace>	vimrc	/^nnoremap <silent> <backspace> :noh<cr>:QuickhlManualReset<cr>$/;"	m
 <c-h>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <unique> <c-h> <plug>(MUcompleteCycBwd)$/;"	m
 <c-j>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <unique> <c-j> <plug>(MUcompleteCycFwd)$/;"	m
+<c-r><c-l>	vimrc	/^cnoremap <c-r><c-l> <c-r>=getline('.')<cr>$/;"	m
 <down>	vimrc	/^nmap <silent> <down>  <esc>:cnext<cr>$/;"	m
+<f5>	vimrc	/^inoremap <f5> <c-r>=strftime("%c")<cr>$/;"	m
+<f5>	vimrc	/^nnoremap <f5> "=strftime("%c")<cr>P$/;"	m
 <leader>"	vimrc	/^nnoremap <silent> <leader>" :split<cr>$/;"	m
 <leader>%	vimrc	/^nnoremap <silent> <leader>% :vsplit<cr>$/;"	m
 <leader>.	vimrc	/^vnoremap <leader>. :norm! .<cr>$/;"	m
@@ -320,7 +320,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>M	vimrc	/^nnoremap <leader>M :make<cr>$/;"	m
 <leader>R	vimrc	/^nnoremap <leader>R :TxSetRunCmd<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
-<leader>W	vimrc	/^nnoremap <leader>W <C-w>W$/;"	m
+<leader>W	vimrc	/^nnoremap <leader>W <c-w>W$/;"	m
 <leader>a	vimrc	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>b	vimrc	/^nnoremap <leader>b :b <C-d>$/;"	m
 <leader>c	vimrc	/^nnoremap <silent> <leader>c <esc>:close<cr>$/;"	m
@@ -329,12 +329,13 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>g	vimrc	/^nnoremap <leader>g :grep<space>$/;"	m
 <leader>i	vimrc	/^nnoremap <leader>i :Ilist<space>$/;"	m
 <leader>j	vimrc	/^nnoremap <leader>j :QuickhlCwordToggle<cr>$/;"	m
-<leader>o	vimrc	/^nnoremap <leader>o <C-w>o$/;"	m
+<leader>o	vimrc	/^nnoremap <leader>o <c-w>o$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
 <leader>r	vimrc	/^nnoremap <leader>r :TxRun<cr>$/;"	m
 <leader>s	vimrc	/^nmap <leader>s <Plug>(quickhl-manual-this)$/;"	m
 <leader>t	vimrc	/^nnoremap <leader>t :ltag<space>\/ \\| lop<left><left><left><left><left><left>$/;"	m
-<leader>w	vimrc	/^nnoremap <leader>w <C-w>w$/;"	m
+<leader>w	vimrc	/^nnoremap <leader>w <c-w>w$/;"	m
+<leader>x	vimrc	/^nnoremap <leader>x :TxSigInt<cr>$/;"	m
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
 <left>	vimrc	/^nmap <silent> <left> <esc>:lprev<cr>$/;"	m
 <leftrelease>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <leftrelease> :call <SID>TOCActivate(0)<cr>$/;"	m
@@ -1029,9 +1030,9 @@ LoopParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_
 LoopParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:LoopParseArgs$/;"	l
 MUcomplete	pack/plugins/start/lifepillar-vim-mucomplete/Readme.md	/^# MUcomplete$/;"	h
 MUcomplete in action	pack/plugins/start/lifepillar-vim-mucomplete/Readme.md	/^# MUcomplete in action$/;"	h
-MUcompleteAutoOff	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -bar -nargs=0 MUcompleteAutoOff :call mucomplete#disable_auto()$/;"	c
-MUcompleteAutoOn	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -bar -nargs=0 MUcompleteAutoOn :call mucomplete#enable_auto()$/;"	c
-MUcompleteAutoToggle	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -bar -nargs=0 MUcompleteAutoToggle :call mucomplete#toggle_auto()$/;"	c
+MUcompleteAutoOff	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -bar -nargs=0 MUcompleteAutoOff call mucomplete#disable_auto()$/;"	c
+MUcompleteAutoOn	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -bar -nargs=0 MUcompleteAutoOn call mucomplete#enable_auto()$/;"	c
+MUcompleteAutoToggle	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    command -bar -nargs=0 MUcompleteAutoToggle call mucomplete#toggle_auto()$/;"	c
 MakoIndentClose	pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^fun! <SID>MakoIndentClose(lnum)$/;"	f
 MakoIndentOpen	pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^fun! <SID>MakoIndentOpen(lnum)$/;"	f
 MakoIndentPush	pack/plugins/start/sheerun-vim-polyglot/indent/mako.vim	/^fun! <SID>MakoIndentPush(tag)$/;"	f
@@ -1540,7 +1541,7 @@ ae	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^ono
 ae	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^vmap <buffer> ae <Plug>LatexBox_SelectCurrentEnvOuter$/;"	m
 ae	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^  onoremap <silent> <buffer> ae :<C-U>call <SID>wrap_around()<CR>$/;"	m
 af	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  onoremap <buffer> <silent> af :<c-u>call go#textobj#Function('a')<cr>$/;"	m
-al	vimrc	/^omap al :<C-u>normal val<CR>$/;"	m
+al	vimrc	/^omap al :<c-u>normal val<cr>$/;"	m
 align	pack/plugins/start/tommcdo-vim-lion/plugin/lion.vim	/^function! s:align(mode, type, vis, align_char)$/;"	f
 alignLeft	pack/plugins/start/tommcdo-vim-lion/plugin/lion.vim	/^function! s:alignLeft(type, ...)$/;"	f
 alignRight	pack/plugins/start/tommcdo-vim-lion/plugin/lion.vim	/^function! s:alignRight(type, ...)$/;"	f
@@ -3005,7 +3006,7 @@ htmlcomplete#LoadAria	pack/plugins/start/sheerun-vim-polyglot/autoload/htmlcompl
 htmlcomplete#LoadData	pack/plugins/start/sheerun-vim-polyglot/autoload/htmlcomplete.vim	/^function! htmlcomplete#LoadData() " {{{$/;"	f
 i$	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^onoremap <buffer> i$ :normal vi$<CR>$/;"	m
 i$	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^vmap <buffer> i$ <Plug>LatexBox_SelectInlineMathInner$/;"	m
-i%	vimrc	/^omap i% :<C-u>normal vi%<CR>$/;"	m
+i%	vimrc	/^omap i% :<c-u>normal vi%<cr>$/;"	m
 i3_ftdetect	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^augroup i3_ftdetect$/;"	a
 iM	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^    onoremap <silent> <buffer> iM :<C-U>call <SID>wrap_i('[[','][')<CR>$/;"	m
 iconv	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Process.vim	/^function! s:iconv(expr, from, to) abort$/;"	f
@@ -3014,7 +3015,7 @@ ie	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^vma
 ie	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^  onoremap <silent> <buffer> ie :<C-U>call <SID>wrap_inside()<CR>$/;"	m
 if	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  onoremap <buffer> <silent> if :<c-u>call go#textobj#Function('i')<cr>$/;"	m
 ignored_region	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:ignored_region()$/;"	f
-il	vimrc	/^omap il :<C-u>normal vil<CR>$/;"	m
+il	vimrc	/^omap il :<c-u>normal vil<cr>$/;"	m
 im	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^    onoremap <silent> <buffer> im :<C-U>call <SID>wrap_i('[m',']M')<CR>$/;"	m
 import	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^function! s:import(name, ...) abort$/;"	f
 increment	pack/plugins/start/kana-vim-textobj-user/t/script-local.vim	/^function! s:increment()$/;"	f
@@ -3884,7 +3885,7 @@ s:indent_if_final	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^let s
 s:indent_next	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^let s:indent_next = ['let', 'in', 'where', 'do', 'if']$/;"	v
 s:indent_self	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^let s:indent_self = ['=']$/;"	v
 s:initial_go_path	pack/plugins/start/fatih-vim-go/autoload/go/path.vim	/^let s:initial_go_path = ""$/;"	v
-s:insertcharpre	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:insertcharpre = 0  " Was a printable character pressed?$/;"	v
+s:insertcharpre	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:insertcharpre = 0  " Was a non-whitespace character inserted?$/;"	v
 s:invalid	pack/plugins/start/wellle-targets-vim/autoload/targets/state.vim	/^let s:invalid = 0$/;"	v
 s:is_cygwin	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^let s:is_cygwin = has('win32unix')$/;"	v
 s:is_dark	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let s:is_dark=(&background == 'dark')$/;"	v
