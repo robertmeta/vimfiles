@@ -317,7 +317,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>F	vimrc	/^nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :grep <c-r><c-w><cr>$/;"	m
-<leader>M	vimrc	/^nnoremap <leader>M :make<cr>$/;"	m
 <leader>R	vimrc	/^nnoremap <leader>R :TxSetRunCmd<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
 <leader>W	vimrc	/^nnoremap <leader>W <c-w>W$/;"	m
@@ -329,6 +328,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>g	vimrc	/^nnoremap <leader>g :grep<space>$/;"	m
 <leader>i	vimrc	/^nnoremap <leader>i :Ilist<space>$/;"	m
 <leader>j	vimrc	/^nnoremap <leader>j :QuickhlCwordToggle<cr>$/;"	m
+<leader>m	vimrc	/^nnoremap <leader>m :make<cr>$/;"	m
 <leader>o	vimrc	/^nnoremap <leader>o <c-w>o$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
 <leader>r	vimrc	/^nnoremap <leader>r :TxRun<cr>$/;"	m

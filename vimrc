@@ -11,6 +11,7 @@
 " Baseline
 set encoding=utf-8
 scriptencoding utf-8
+
 " Helpers
 let s:running_windows=has("win16") || has("win32") || has("win64")
 let s:colorful_term=(&term=~"xterm") || (&term=~"screen")
@@ -19,7 +20,6 @@ let s:colorful_term=(&term=~"xterm") || (&term=~"screen")
 let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 syntax on " syntax highlighting on
-syntax sync minlines=100 " helps to avoid syntax highlighting bugs
 
 " Mappings
 let mapleader="\<space>"
@@ -78,8 +78,7 @@ nnoremap <leader>g :grep<space>
 nnoremap <leader>G :grep <c-r><c-w><cr>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>j :QuickhlCwordToggle<cr>
-nnoremap <leader>M :make<cr>
-" nnoremap <leader>m saved for tmuxify binds
+nnoremap <leader>m :make<cr>
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun<cr>
 nnoremap <leader>R :TxSetRunCmd<cr>
@@ -99,18 +98,20 @@ vnoremap <leader>. :norm! .<cr>
 
 " Basics Settings
 set backspace=indent,eol,start " make backspace a more flexible
+set backupdir=~/.vim/backup/,~/vimfiles/backup/ " where to put backup files
+set backup " make backup files
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,preview
 set complete=.,w,b,u,U,i,t " complete options
 set cursorline " cursor line highlight
 set diffopt=vertical,filler,iwhite " filler and whitespace
+set directory=~/.vim/temp/,~/vimfiles/temp/ " directory to place swap files in
 set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
 set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
 set foldcolumn=1 " I can see fold fine thank you
-set nofoldenable " Turn off folding by default
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldmethod=indent " Fold on the indent
 set foldnestmax=1 " I only like to fold outer functions
@@ -140,6 +141,7 @@ set noautowriteall " nope
 set noautowrite " nope
 set nocursorcolumn " no cursor column
 set noerrorbells " don't be noisy
+set nofoldenable " Turn off folding by default
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
 set nonumber " line numbers
@@ -180,16 +182,12 @@ set ttimeoutlen=10 " 10ms timeout
 set ttimeout " time out on key codes
 set ttyfast " Assume a fast terminal
 set t_vb= " seriously, shhhh, don't be noisy
-set virtualedit=block " block mode, yey (onemore is evil)
-set wrap " wrap forever!
-" Clipboard, Backup and Undo
-set backup " make backup files
-set backupdir=~/.vim/backup/,~/vimfiles/backup/ " where to put backup files
-set directory=~/.vim/temp/,~/vimfiles/temp/ " directory to place swap files in
 set undodir=~/.vim/undo/,~/vimfiles/undo/ " where to put undo files
 set undofile " persistent undo (between saves)
 set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
+set virtualedit=block " block mode, yey (onemore is evil)
+set wrap " wrap forever!
 
 " Wildmenu
 set wildmenu " turn on command line completion wild style
@@ -327,22 +325,6 @@ if has("gui_running")
     "              ||
     "              |+-- use GUI tabs, not console style tabs
     "              +-- use simple dialogs rather than pop-ups
-endif
-
-" 256 color term tweaks
-if s:colorful_term
-    " 256 color -- this is a bad idea generally, but I use it anyway
-    let &t_Co=256
-    " don't clear background color
-    set t_ut=
-    " restore screen after quitting
-    if has("terminfo")
-        let &t_Sb="\ESC[4%p1%dm"
-        let &t_Sf="\ESC[3%p1%dm"
-    else
-        let &t_Sb="\ESC[4%dm"
-        let &t_Sf="\ESC[3%dm"
-    endif
 endif
 
 " Mousing
