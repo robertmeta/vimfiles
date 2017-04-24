@@ -127,8 +127,7 @@ set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
-set listchars=""
-set listchars+=extends:⟩
+set listchars=extends:⟩
 set listchars+=nbsp:‡
 set listchars+=precedes:⟨
 set listchars+=tab:\ \ 
