@@ -150,7 +150,6 @@ set notimeout " better timeout handling
 set novisualbell " don't be noisy
 set numberwidth=5 " We are good up to 99999 lines
 set omnifunc=syntaxcomplete#Complete
-set pastetoggle=<leader>p " paste toggle of course
 set path=.,** " Default path is local dir, make better with autocommands per language
 set report=0 " tell us when anything is changed via :
 set ruler " Always show current positions along the bottom
@@ -361,11 +360,23 @@ let g:vim_markdown_folding_disabled=0
 let g:vim_markdown_frontmatter=1
 
 " Vim-go
+let g:go_autodetect_gopath = 1
+let g:go_auto_type_info = 0
+let g:go_bin_path=$HOME."/go/bin"
+let g:go_def_mode = 'guru'
+let g:go_def_reuse_buffer = 0
+let g:go_doc_command = "godoc"
 let g:go_fmt_autosave=1
 let g:go_fmt_command="goimports"
-let g:go_jump_to_error=0
 let g:go_fmt_experimental=1
-let g:go_bin_path=$HOME."/go/bin"
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_info_mode = 'guru'
+let g:go_jump_to_error=0
+let g:go_template_autocreate = 0
+let g:go_textobj_enabled = 1
 
 " Tmuxify
 let g:tmuxify_custom_command='tmux split-window -d -l 10'
