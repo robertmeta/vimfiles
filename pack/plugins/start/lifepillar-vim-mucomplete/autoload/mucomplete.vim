@@ -161,7 +161,7 @@ fun! s:fix_auto_select() " Select the correct entry taking into account g:mucomp
 endf
 
 fun! s:act_on_pumvisible()
-  return s:auto || (index(['spel','uspl'], get(s:compl_methods, s:i, '')) > - 1)
+  return !g:mucomplete_with_key || (index(['spel','uspl'], get(s:compl_methods, s:i, '')) > - 1)
         \ ? s:fix_auto_select()
         \ : s:insert_entry()
 endf
@@ -230,11 +230,11 @@ fun! mucomplete#tab_complete(dir)
     return mucomplete#cycle_or_select(a:dir)
   else
     let s:compl_text = matchstr(getline('.'), '\S\+\%'.col('.').'c')
-    if empty(s:compl_text)
-      return (a:dir > 0 ? "\<plug>(MUcompleteTab)" : "\<plug>(MUcompleteCtd)")
+    if get(b:, 'mucomplete_empty_text', get(g:, 'mucomplete#empty_text', 0)) || !empty(s:compl_text)
+      call mucomplete#init(a:dir, 1)
+      return s:next_method()
     endif
-    call mucomplete#init(a:dir, 1)
-    return s:next_method()
+    return (a:dir > 0 ? "\<plug>(MUcompleteTab)" : "\<plug>(MUcompleteCtd)")
   endif
 endf
 

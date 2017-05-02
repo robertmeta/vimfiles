@@ -17,6 +17,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 %	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^	nmap <buffer> % <Plug>LatexBox_JumpToMatch$/;"	m
 %	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^	omap <buffer> % <Plug>LatexBox_JumpToMatch$/;"	m
 %	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^	vmap <buffer> % <Plug>LatexBox_JumpToMatch$/;"	m
+%%	init.vim	/^cnoremap %% <c-r>=fnameescape(expand('%'))<cr>$/;"	m
 %%	vimrc	/^cnoremap %% <c-r>=fnameescape(expand('%'))<cr>$/;"	m
 -	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^  nmap - <Plug>VinegarUp$/;"	m
 .	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^    nmap . <Plug>(RepeatDot)$/;"	m
@@ -34,14 +35,23 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 2Gf2vany	pack/plugins/start/kana-vim-textobj-user/t/single-character-objects.vim	/^    normal 2Gf2vany$/;"	m
 2Gvany	pack/plugins/start/kana-vim-textobj-user/t/single-character-objects.vim	/^    normal 2Gvany$/;"	m
 4G	pack/plugins/start/kana-vim-textobj-indent/t/basics.vim	/^    normal! 4G$/;"	m
+::	init.vim	/^cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>\/$/;"	m
 ::	vimrc	/^cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>\/$/;"	m
+;f	init.vim	/^inoremap <silent> ;f <c-x><c-f>$/;"	m
 ;f	vimrc	/^inoremap <silent> ;f <c-x><c-f>$/;"	m
+;i	init.vim	/^inoremap <silent> ;i <c-x><c-i>$/;"	m
 ;i	vimrc	/^inoremap <silent> ;i <c-x><c-i>$/;"	m
+;l	init.vim	/^inoremap <silent> ;l <c-x><c-l>$/;"	m
 ;l	vimrc	/^inoremap <silent> ;l <c-x><c-l>$/;"	m
+;n	init.vim	/^inoremap <silent> ;n <c-x><c-n>$/;"	m
 ;n	vimrc	/^inoremap <silent> ;n <c-x><c-n>$/;"	m
+;o	init.vim	/^inoremap <silent> ;o <c-x><c-o>$/;"	m
 ;o	vimrc	/^inoremap <silent> ;o <c-x><c-o>$/;"	m
+;p	init.vim	/^inoremap <silent> ;p <c-x><c-p>$/;"	m
 ;p	vimrc	/^inoremap <silent> ;p <c-x><c-p>$/;"	m
+;t	init.vim	/^inoremap <silent> ;t <c-x><c-]>$/;"	m
 ;t	vimrc	/^inoremap <silent> ;t <c-x><c-]>$/;"	m
+;u	init.vim	/^inoremap <silent> ;u <c-x><c-u>$/;"	m
 ;u	vimrc	/^inoremap <silent> ;u <c-x><c-u>$/;"	m
 <2-leftmouse>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <2-leftmouse> :call <SID>TOCActivate(1)<cr>$/;"	m
 <BS>	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^    inoremap <silent> <BS> <C-R>=<SID>HaskellDedent(1)<CR>$/;"	m
@@ -302,41 +312,75 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <SID>transpose	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^noremap! <expr> <SID>transpose "\\<BS>\\<Right>".matchstr(getcmdline()[0 : getcmdpos()-2], '.$')$/;"	m
 <SID>transposition	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^noremap! <expr> <SID>transposition getcmdpos()>strlen(getcmdline())?"\\<Left>":getcmdpos()>1?'':"\\<Right>"$/;"	m
 <Space>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <Space> :call <SID>TOCActivate(0)<CR>$/;"	m
+<backspace>	init.vim	/^nnoremap <silent> <backspace> :noh<cr>:QuickhlManualReset<cr>$/;"	m
 <backspace>	vimrc	/^nnoremap <silent> <backspace> :noh<cr>:QuickhlManualReset<cr>$/;"	m
 <c-h>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <unique> <c-h> <plug>(MUcompleteCycBwd)$/;"	m
 <c-j>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <unique> <c-j> <plug>(MUcompleteCycFwd)$/;"	m
+<c-r><c-l>	init.vim	/^cnoremap <c-r><c-l> <c-r>=getline('.')<cr>$/;"	m
 <c-r><c-l>	vimrc	/^cnoremap <c-r><c-l> <c-r>=getline('.')<cr>$/;"	m
+<down>	init.vim	/^nmap <silent> <down>  <esc>:cnext<cr>$/;"	m
 <down>	vimrc	/^nmap <silent> <down>  <esc>:cnext<cr>$/;"	m
+<f5>	init.vim	/^inoremap <f5> <c-r>=strftime("%c")<cr>$/;"	m
+<f5>	init.vim	/^nnoremap <f5> "=strftime("%c")<cr>P$/;"	m
 <f5>	vimrc	/^inoremap <f5> <c-r>=strftime("%c")<cr>$/;"	m
 <f5>	vimrc	/^nnoremap <f5> "=strftime("%c")<cr>P$/;"	m
+<leader>"	init.vim	/^nnoremap <silent> <leader>" :split<cr>$/;"	m
 <leader>"	vimrc	/^nnoremap <silent> <leader>" :split<cr>$/;"	m
+<leader>%	init.vim	/^nnoremap <silent> <leader>% :vsplit<cr>$/;"	m
 <leader>%	vimrc	/^nnoremap <silent> <leader>% :vsplit<cr>$/;"	m
+<leader>.	init.vim	/^vnoremap <leader>. :norm! .<cr>$/;"	m
 <leader>.	vimrc	/^vnoremap <leader>. :norm! .<cr>$/;"	m
+<leader>@	init.vim	/^vnoremap <leader>@ :norm! @<cr>$/;"	m
 <leader>@	vimrc	/^vnoremap <leader>@ :norm! @<cr>$/;"	m
+<leader>A	init.vim	/^nnoremap <leader>A :argadd **\/*$/;"	m
 <leader>A	vimrc	/^nnoremap <leader>A :argadd **\/*$/;"	m
+<leader>B	init.vim	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
+<leader>F	init.vim	/^nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>F	vimrc	/^nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
+<leader>G	init.vim	/^nnoremap <leader>G :grep <c-r><c-w><cr>$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :grep <c-r><c-w><cr>$/;"	m
+<leader>R	init.vim	/^nnoremap <leader>R :TxSetRunCmd<cr>$/;"	m
 <leader>R	vimrc	/^nnoremap <leader>R :TxSetRunCmd<cr>$/;"	m
+<leader>S	init.vim	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
+<leader>W	init.vim	/^nnoremap <leader>W <c-w>W$/;"	m
 <leader>W	vimrc	/^nnoremap <leader>W <c-w>W$/;"	m
+<leader>a	init.vim	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>a	vimrc	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
+<leader>b	init.vim	/^nnoremap <leader>b :b <C-d>$/;"	m
 <leader>b	vimrc	/^nnoremap <leader>b :b <C-d>$/;"	m
+<leader>c	init.vim	/^nnoremap <silent> <leader>c <esc>:close<cr>$/;"	m
 <leader>c	vimrc	/^nnoremap <silent> <leader>c <esc>:close<cr>$/;"	m
+<leader>e	init.vim	/^nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
 <leader>e	vimrc	/^nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
+<leader>f	init.vim	/^nnoremap <leader>f :find *$/;"	m
 <leader>f	vimrc	/^nnoremap <leader>f :find *$/;"	m
+<leader>g	init.vim	/^nnoremap <leader>g :grep<space>$/;"	m
 <leader>g	vimrc	/^nnoremap <leader>g :grep<space>$/;"	m
+<leader>i	init.vim	/^nnoremap <leader>i :Ilist<space>$/;"	m
 <leader>i	vimrc	/^nnoremap <leader>i :Ilist<space>$/;"	m
+<leader>j	init.vim	/^nnoremap <leader>j :QuickhlCwordToggle<cr>$/;"	m
 <leader>j	vimrc	/^nnoremap <leader>j :QuickhlCwordToggle<cr>$/;"	m
+<leader>m	init.vim	/^nnoremap <leader>m :make<cr>$/;"	m
 <leader>m	vimrc	/^nnoremap <leader>m :make<cr>$/;"	m
+<leader>o	init.vim	/^nnoremap <leader>o <c-w>o$/;"	m
 <leader>o	vimrc	/^nnoremap <leader>o <c-w>o$/;"	m
+<leader>q	init.vim	/^nnoremap <leader>q :b#<cr>$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
+<leader>r	init.vim	/^nnoremap <leader>r :TxRun<cr>$/;"	m
 <leader>r	vimrc	/^nnoremap <leader>r :TxRun<cr>$/;"	m
+<leader>s	init.vim	/^nmap <leader>s <Plug>(quickhl-manual-this)$/;"	m
 <leader>s	vimrc	/^nmap <leader>s <Plug>(quickhl-manual-this)$/;"	m
+<leader>t	init.vim	/^nnoremap <leader>t :ltag<space>\/ \\| lop<left><left><left><left><left><left>$/;"	m
 <leader>t	vimrc	/^nnoremap <leader>t :ltag<space>\/ \\| lop<left><left><left><left><left><left>$/;"	m
+<leader>w	init.vim	/^nnoremap <leader>w <c-w>w$/;"	m
 <leader>w	vimrc	/^nnoremap <leader>w <c-w>w$/;"	m
+<leader>x	init.vim	/^nnoremap <leader>x :TxSigInt<cr>$/;"	m
 <leader>x	vimrc	/^nnoremap <leader>x :TxSigInt<cr>$/;"	m
+<leader>z	init.vim	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
+<left>	init.vim	/^nmap <silent> <left> <esc>:lprev<cr>$/;"	m
 <left>	vimrc	/^nmap <silent> <left> <esc>:lprev<cr>$/;"	m
 <leftrelease>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <leftrelease> :call <SID>TOCActivate(0)<cr>$/;"	m
 <p	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <p :call <SID>putline(']p', 'Below')<CR><']$/;"	m
@@ -351,9 +395,11 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <plug>(MUcompleteTab)	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^inoremap <silent>        <plug>(MUcompleteTab) <tab>$/;"	m
 <plug>(MUcompleteTry)	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^imap     <silent> <expr> <plug>(MUcompleteTry) <sid>try_completion()$/;"	m
 <plug>(MUcompleteVerify)	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^imap     <silent> <expr> <plug>(MUcompleteVerify) <sid>verify_completion()$/;"	m
+<right>	init.vim	/^nmap <silent> <right> <esc>:lnext<cr>$/;"	m
 <right>	vimrc	/^nmap <silent> <right> <esc>:lnext<cr>$/;"	m
 <s-tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <unique> <s-tab> <plug>(MUcompleteBwd)$/;"	m
 <tab>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <unique> <tab> <plug>(MUcompleteFwd)$/;"	m
+<up>	init.vim	/^nmap <silent> <up> <esc>:cprev<cr>$/;"	m
 <up>	vimrc	/^nmap <silent> <up> <esc>:cprev<cr>$/;"	m
 =	pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/terraform.vim	/^  inoremap <buffer> <silent> = =<Esc>:call <SID>terraformalign()<CR>a$/;"	m
 =	pack/plugins/start/sheerun-vim-polyglot/compiler/cryptol.vim	/^   command = -nargs =* CompilerSet setlocal <args>$/;"	c
@@ -386,6 +432,8 @@ Argument Text Objects	pack/plugins/start/wellle-targets-vim/README.md	/^## Argum
 Argument mappings	pack/plugins/start/wellle-targets-vim/cheatsheet.md	/^## Argument mappings$/;"	i
 AsmFmt	pack/plugins/start/fatih-vim-go/ftplugin/asm.vim	/^command! -nargs=0 AsmFmt call go#asmfmt#Format()$/;"	c
 Author	pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Author$/;"	i
+AutoMkdir	init.vim	/^augroup AutoMkdir$/;"	a
+AutoMkdir	init.vim	/^function! <SID>AutoMkdir() abort$/;"	f
 AutoMkdir	vimrc	/^augroup AutoMkdir$/;"	a
 AutoMkdir	vimrc	/^function! <SID>AutoMkdir() abort$/;"	f
 Balanced	pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:Balanced(lnum)$/;"	f
@@ -1141,6 +1189,7 @@ ParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scop
 ParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:ParseArgs$/;"	l
 ParseCoffeeError	pack/plugins/start/sheerun-vim-polyglot/ftplugin/coffee.vim	/^function! s:ParseCoffeeError(output, src, startline)$/;"	f
 PartOfInclude	pack/plugins/start/sheerun-vim-polyglot/indent/puppet.vim	/^function! s:PartOfInclude(lnum)$/;"	f
+PasteForStatusline	init.vim	/^function! PasteForStatusline()$/;"	f
 PasteForStatusline	vimrc	/^function! PasteForStatusline()$/;"	f
 Pick	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Pick   :call s:choose('pick')$/;"	c
 Pop	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:Pop(stack)$/;"	f
@@ -1285,6 +1334,7 @@ StatementStart	pack/plugins/start/sheerun-vim-polyglot/indent/python.vim	/^funct
 Status	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Status() abort$/;"	f
 StatusOf	pack/plugins/start/kana-vim-textobj-user/t/plugin.vim	/^function! StatusOf(lhs)$/;"	f
 Steps to reproduce:	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### Steps to reproduce:$/;"	k
+StripTrailingWhitespace	init.vim	/^function! StripTrailingWhitespace()$/;"	f
 StripTrailingWhitespace	vimrc	/^function! StripTrailingWhitespace()$/;"	f
 Stylus	pack/plugins/start/sheerun-vim-polyglot/ftplugin/stylus.vim	/^command! Stylus !clear; cat % | stylus$/;"	c
 SubComplete	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:SubComplete(A,L,P)$/;"	f
@@ -1356,6 +1406,7 @@ ToHaveColumns	pack/plugins/start/glts-vim-textobj-comment/t/util/helpers.vim	/^f
 ToHaveLineNumbers	pack/plugins/start/glts-vim-textobj-comment/t/util/helpers.vim	/^function! ToHaveLineNumbers(actual, lnum1, lnum2)$/;"	f
 ToHavePositions	pack/plugins/start/glts-vim-textobj-comment/t/util/helpers.vim	/^function! ToHavePositions(actual, pos1, pos2)$/;"	f
 Todos	pack/plugins/start/wellle-targets-vim/README.md	/^## Todos$/;"	i
+ToggleFolds	init.vim	/^function! ToggleFolds()$/;"	f
 ToggleFolds	vimrc	/^function! ToggleFolds()$/;"	f
 TokenizeLine	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:TokenizeLine(lnum, direction)$/;"	f
 Transform	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:Transform(algorithm,type)$/;"	f
@@ -1407,6 +1458,7 @@ Wq	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Wq(fo
 WrapSelection	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:WrapSelection(wrapper)$/;"	f
 Write	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Write(force,...) abort$/;"	f
 Writing	pack/plugins/start/ludovicchabant-vim-gutentags/CONTRIBUTING.md	/^## Writing$/;"	i
+Y	init.vim	/^nnoremap Y y\$$/;"	m
 Y	vimrc	/^nnoremap Y y\$$/;"	m
 [<C-D>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  nnoremap <silent> <script> <buffer> [<C-D>      :<C-U>exe <SID>jump('edit',v:count)<SID>foldopen<CR>$/;"	m
 [<Space>	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap [<Space> <Plug>unimpairedBlankUp$/;"	m
@@ -1541,6 +1593,7 @@ ae	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^ono
 ae	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^vmap <buffer> ae <Plug>LatexBox_SelectCurrentEnvOuter$/;"	m
 ae	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^  onoremap <silent> <buffer> ae :<C-U>call <SID>wrap_around()<CR>$/;"	m
 af	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  onoremap <buffer> <silent> af :<c-u>call go#textobj#Function('a')<cr>$/;"	m
+al	init.vim	/^omap al :<c-u>normal val<cr>$/;"	m
 al	vimrc	/^omap al :<c-u>normal val<cr>$/;"	m
 align	pack/plugins/start/tommcdo-vim-lion/plugin/lion.vim	/^function! s:align(mode, type, vis, align_char)$/;"	f
 alignLeft	pack/plugins/start/tommcdo-vim-lion/plugin/lion.vim	/^function! s:alignLeft(type, ...)$/;"	f
@@ -2174,6 +2227,7 @@ ctrlp#decls#cmd	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^funct
 ctrlp#decls#enter	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^function! ctrlp#decls#enter() abort$/;"	f
 ctrlp#decls#exit	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^function! ctrlp#decls#exit() abort$/;"	f
 ctrlp#decls#init	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^function! ctrlp#decls#init() abort$/;"	f
+curhour	init.vim	/^        let curhour=system('date -u +%H')$/;"	v
 curhour	vimrc	/^        let curhour=system('date -u +%H')$/;"	v
 current_char	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:current_char()$/;"	f
 current_compiler	pack/plugins/start/fatih-vim-go/compiler/go.vim	/^let current_compiler = "go"$/;"	v
@@ -2485,18 +2539,27 @@ g:fugitive_git_executable	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.
 g:fugitive_summary_format	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^  let g:fugitive_summary_format = '%s'$/;"	v
 g:fullDefMatcher	pack/plugins/start/sheerun-vim-polyglot/indent/scala.vim	/^let g:fullDefMatcher = '^\\s*' . s:defMatcher . '\\s\\+' . s:funcNameMatcher . '\\s*' . s:typeSpecMatcher . '\\?\\s*' . s:defArgMatcher . '\\?\\s*' . s:returnTypeMatcher . '\\?\\s*[={]'$/;"	v
 g:go_alternate_mode	pack/plugins/start/fatih-vim-go/autoload/go/alternate.vim	/^  let g:go_alternate_mode = "edit"$/;"	v
+g:go_auto_type_info	init.vim	/^let g:go_auto_type_info = 0$/;"	v
 g:go_auto_type_info	vimrc	/^let g:go_auto_type_info = 0$/;"	v
+g:go_autodetect_gopath	init.vim	/^let g:go_autodetect_gopath = 1$/;"	v
 g:go_autodetect_gopath	vimrc	/^let g:go_autodetect_gopath = 1$/;"	v
+g:go_bin_path	init.vim	/^let g:go_bin_path=$HOME."\/go\/bin"$/;"	v
 g:go_bin_path	vimrc	/^let g:go_bin_path=$HOME."\/go\/bin"$/;"	v
+g:go_def_mode	init.vim	/^let g:go_def_mode = 'guru'$/;"	v
 g:go_def_mode	vimrc	/^let g:go_def_mode = 'guru'$/;"	v
+g:go_def_reuse_buffer	init.vim	/^let g:go_def_reuse_buffer = 0$/;"	v
 g:go_def_reuse_buffer	vimrc	/^let g:go_def_reuse_buffer = 0$/;"	v
+g:go_doc_command	init.vim	/^let g:go_doc_command = "godoc"$/;"	v
 g:go_doc_command	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^  let g:go_doc_command = "godoc"$/;"	v
 g:go_doc_command	vimrc	/^let g:go_doc_command = "godoc"$/;"	v
 g:go_doc_options	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^  let g:go_doc_options = ""$/;"	v
 g:go_errcheck_bin	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let g:go_errcheck_bin = "errcheck"$/;"	v
+g:go_fmt_autosave	init.vim	/^let g:go_fmt_autosave=1$/;"	v
 g:go_fmt_autosave	vimrc	/^let g:go_fmt_autosave=1$/;"	v
+g:go_fmt_command	init.vim	/^let g:go_fmt_command="goimports"$/;"	v
 g:go_fmt_command	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_command = "gofmt"$/;"	v
 g:go_fmt_command	vimrc	/^let g:go_fmt_command="goimports"$/;"	v
+g:go_fmt_experimental	init.vim	/^let g:go_fmt_experimental=1$/;"	v
 g:go_fmt_experimental	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_experimental = 0$/;"	v
 g:go_fmt_experimental	vimrc	/^let g:go_fmt_experimental=1$/;"	v
 g:go_fmt_fail_silently	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_fail_silently = 0$/;"	v
@@ -2506,11 +2569,13 @@ g:go_golint_bin	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let g:g
 g:go_gorename_bin	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let g:go_gorename_bin = "gorename"$/;"	v
 g:go_gorename_prefill	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let g:go_gorename_prefill = 1$/;"	v
 g:go_gotags_bin	pack/plugins/start/fatih-vim-go/ftplugin/go/tagbar.vim	/^  let g:go_gotags_bin = "gotags"$/;"	v
+g:go_highlight_array_whitespace_error	init.vim	/^let g:go_highlight_array_whitespace_error = 1$/;"	v
 g:go_highlight_array_whitespace_error	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_array_whitespace_error = 0$/;"	v
 g:go_highlight_array_whitespace_error	pack/plugins/start/sheerun-vim-polyglot/syntax/go.vim	/^  let g:go_highlight_array_whitespace_error = 0$/;"	v
 g:go_highlight_array_whitespace_error	vimrc	/^let g:go_highlight_array_whitespace_error = 1$/;"	v
 g:go_highlight_build_constraints	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_build_constraints = 0$/;"	v
 g:go_highlight_build_constraints	pack/plugins/start/sheerun-vim-polyglot/syntax/go.vim	/^  let g:go_highlight_build_constraints = 0$/;"	v
+g:go_highlight_chan_whitespace_error	init.vim	/^let g:go_highlight_chan_whitespace_error = 1$/;"	v
 g:go_highlight_chan_whitespace_error	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_chan_whitespace_error = 0$/;"	v
 g:go_highlight_chan_whitespace_error	pack/plugins/start/sheerun-vim-polyglot/syntax/go.vim	/^  let g:go_highlight_chan_whitespace_error = 0$/;"	v
 g:go_highlight_chan_whitespace_error	vimrc	/^let g:go_highlight_chan_whitespace_error = 1$/;"	v
@@ -2528,17 +2593,21 @@ g:go_highlight_methods	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:g
 g:go_highlight_methods	pack/plugins/start/sheerun-vim-polyglot/syntax/go.vim	/^  let g:go_highlight_methods = 0$/;"	v
 g:go_highlight_operators	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_operators = 0$/;"	v
 g:go_highlight_operators	pack/plugins/start/sheerun-vim-polyglot/syntax/go.vim	/^  let g:go_highlight_operators = 0$/;"	v
+g:go_highlight_space_tab_error	init.vim	/^let g:go_highlight_space_tab_error = 1$/;"	v
 g:go_highlight_space_tab_error	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_space_tab_error = 0$/;"	v
 g:go_highlight_space_tab_error	pack/plugins/start/sheerun-vim-polyglot/syntax/go.vim	/^  let g:go_highlight_space_tab_error = 0$/;"	v
 g:go_highlight_space_tab_error	vimrc	/^let g:go_highlight_space_tab_error = 1$/;"	v
 g:go_highlight_string_spellcheck	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_string_spellcheck = 1$/;"	v
 g:go_highlight_string_spellcheck	pack/plugins/start/sheerun-vim-polyglot/syntax/go.vim	/^  let g:go_highlight_string_spellcheck = 1$/;"	v
+g:go_highlight_trailing_whitespace_error	init.vim	/^let g:go_highlight_trailing_whitespace_error = 1$/;"	v
 g:go_highlight_trailing_whitespace_error	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_trailing_whitespace_error = 0$/;"	v
 g:go_highlight_trailing_whitespace_error	pack/plugins/start/sheerun-vim-polyglot/syntax/go.vim	/^  let g:go_highlight_trailing_whitespace_error = 0$/;"	v
 g:go_highlight_trailing_whitespace_error	vimrc	/^let g:go_highlight_trailing_whitespace_error = 1$/;"	v
 g:go_highlight_types	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_types = 0$/;"	v
 g:go_highlight_types	pack/plugins/start/sheerun-vim-polyglot/syntax/go.vim	/^  let g:go_highlight_types = 0$/;"	v
+g:go_info_mode	init.vim	/^let g:go_info_mode = 'guru'$/;"	v
 g:go_info_mode	vimrc	/^let g:go_info_mode = 'guru'$/;"	v
+g:go_jump_to_error	init.vim	/^let g:go_jump_to_error=0$/;"	v
 g:go_jump_to_error	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^  let g:go_jump_to_error = 1$/;"	v
 g:go_jump_to_error	vimrc	/^let g:go_jump_to_error=0$/;"	v
 g:go_list_type	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^  let g:go_list_type = ""$/;"	v
@@ -2550,8 +2619,10 @@ g:go_metalinter_enabled	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^ 
 g:go_metalinter_excludes	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let g:go_metalinter_excludes = []$/;"	v
 g:go_play_open_browser	pack/plugins/start/fatih-vim-go/autoload/go/play.vim	/^  let g:go_play_open_browser = 1$/;"	v
 g:go_snippet_engine	pack/plugins/start/fatih-vim-go/ftplugin/go/snippets.vim	/^  let g:go_snippet_engine = "ultisnips"$/;"	v
+g:go_template_autocreate	init.vim	/^let g:go_template_autocreate = 0$/;"	v
 g:go_template_autocreate	vimrc	/^let g:go_template_autocreate = 0$/;"	v
 g:go_term_mode	pack/plugins/start/fatih-vim-go/autoload/go/term.vim	/^  let g:go_term_mode = 'vsplit'$/;"	v
+g:go_textobj_enabled	init.vim	/^let g:go_textobj_enabled = 1$/;"	v
 g:go_textobj_enabled	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^  let g:go_textobj_enabled = 1$/;"	v
 g:go_textobj_enabled	vimrc	/^let g:go_textobj_enabled = 1$/;"	v
 g:go_textobj_include_function_doc	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^  let g:go_textobj_include_function_doc = 1$/;"	v
@@ -2567,6 +2638,7 @@ g:gutentags_ctags_auto_set_tags	pack/plugins/start/ludovicchabant-vim-gutentags/
 g:gutentags_ctags_check_tagfile	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_check_tagfile = get(g:, 'gutentags_ctags_check_tagfile', 0)$/;"	v
 g:gutentags_ctags_exclude	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_exclude = get(g:, 'gutentags_ctags_exclude', [])$/;"	v
 g:gutentags_ctags_exclude_wildignore	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_exclude_wildignore = get(g:, 'gutentags_ctags_exclude_wildignore', 1)$/;"	v
+g:gutentags_ctags_executable	init.vim	/^    let g:gutentags_ctags_executable="ctags-exuberant"$/;"	v
 g:gutentags_ctags_executable	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_executable = get(g:, 'gutentags_ctags_executable', 'ctags')$/;"	v
 g:gutentags_ctags_executable	vimrc	/^    let g:gutentags_ctags_executable="ctags-exuberant"$/;"	v
 g:gutentags_ctags_extra_args	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_extra_args = get(g:, 'gutentags_ctags_extra_args', [])$/;"	v
@@ -2655,22 +2727,27 @@ g:maps	pack/plugins/start/glts-vim-textobj-comment/t/plugin.vim	/^let g:maps = {
 g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = extend({$/;"	v
 g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = mucomplete#compat#can_complete()$/;"	v
 g:mucomplete#chains	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let g:mucomplete#chains = extend({$/;"	v
+g:mucomplete#enable_auto_at_startup	init.vim	/^let g:mucomplete#enable_auto_at_startup=0$/;"	v
 g:mucomplete#enable_auto_at_startup	vimrc	/^let g:mucomplete#enable_auto_at_startup=0$/;"	v
 g:mustache_operators	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^  let g:mustache_operators = 1$/;"	v
+g:netrw_altfile	init.vim	/^let g:netrw_altfile=1$/;"	v
 g:netrw_altfile	vimrc	/^let g:netrw_altfile=1$/;"	v
 g:netrw_banner	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^  let g:netrw_banner = 0$/;"	v
 g:netrw_list_hide	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:netrw_list_hide =$/;"	v
 g:netrw_sort_sequence	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:netrw_sort_sequence = '[\\\/]$,*,\\%(' . join(map(split(&suffixes, ','), 'escape(v:val, ".*$~")'), '\\|') . '\\)[*@]\\=$'$/;"	v
+g:nofrils_heavycomments	init.vim	/^let g:nofrils_heavycomments=0 " bright comments off$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	vimrc	/^let g:nofrils_heavycomments=0 " bright comments off$/;"	v
+g:nofrils_heavylinenumbers	init.vim	/^let g:nofrils_heavylinenumbers=0 " heavy line numbers off$/;"	v
 g:nofrils_heavylinenumbers	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^    let g:nofrils_heavylinenumbers = 0$/;"	v
 g:nofrils_heavylinenumbers	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_heavylinenumbers = 0$/;"	v
 g:nofrils_heavylinenumbers	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_heavylinenumbers = 0$/;"	v
 g:nofrils_heavylinenumbers	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^    let g:nofrils_heavylinenumbers = 0$/;"	v
 g:nofrils_heavylinenumbers	vimrc	/^let g:nofrils_heavylinenumbers=0 " heavy line numbers off$/;"	v
+g:nofrils_strbackgrounds	init.vim	/^let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds$/;"	v
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
@@ -2687,6 +2764,7 @@ g:purescript_indent_if	pack/plugins/start/sheerun-vim-polyglot/indent/purescript
 g:purescript_indent_let	pack/plugins/start/sheerun-vim-polyglot/indent/purescript.vim	/^  let g:purescript_indent_let = 4$/;"	v
 g:purescript_indent_where	pack/plugins/start/sheerun-vim-polyglot/indent/purescript.vim	/^  let g:purescript_indent_where = 6$/;"	v
 g:quickhl_debug	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_debug = 0$/;"	v
+g:quickhl_manual_colors	init.vim	/^let g:quickhl_manual_colors = ['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=black ctermbg=2 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black', 'gui=bold ctermfg=black ctermbg=1 guibg=#a07040 guifg=#ffffff']$/;"	v
 g:quickhl_manual_colors	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_manual_colors = [$/;"	v
 g:quickhl_manual_colors	vimrc	/^let g:quickhl_manual_colors = ['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=black ctermbg=2 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black', 'gui=bold ctermfg=black ctermbg=1 guibg=#a07040 guifg=#ffffff']$/;"	v
 g:ragel_default_subtype	pack/plugins/start/sheerun-vim-polyglot/syntax/ragel.vim	/^  let g:ragel_default_subtype = 'c'$/;"	v
@@ -2708,6 +2786,7 @@ g:rustfmt_autosave	pack/plugins/start/sheerun-vim-polyglot/autoload/rustfmt.vim	
 g:rustfmt_command	pack/plugins/start/sheerun-vim-polyglot/autoload/rustfmt.vim	/^    let g:rustfmt_command = "rustfmt"$/;"	v
 g:rustfmt_fail_silently	pack/plugins/start/sheerun-vim-polyglot/autoload/rustfmt.vim	/^  let g:rustfmt_fail_silently = 0$/;"	v
 g:rustfmt_options	pack/plugins/start/sheerun-vim-polyglot/autoload/rustfmt.vim	/^  let g:rustfmt_options = ""$/;"	v
+g:skip_loading_mswin	init.vim	/^let g:skip_loading_mswin=1 " Just in case :)$/;"	v
 g:skip_loading_mswin	vimrc	/^let g:skip_loading_mswin=1 " Just in case :)$/;"	v
 g:tagbar_type_scala	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala/tagbar.vim	/^  let g:tagbar_type_scala.deffile = expand('<sfile>:p:h:h:h') . '\/ctags\/scala.ctags'$/;"	v
 g:tagbar_type_scala	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala/tagbar.vim	/^let g:tagbar_type_scala = {$/;"	v
@@ -2725,8 +2804,11 @@ g:targets_tagTrigger	pack/plugins/start/wellle-targets-vim/README.md	/^### g:tar
 g:terraform_align	pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/terraform.vim	/^  let g:terraform_align = 0$/;"	v
 g:testname	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let g:testname = expand('%')$/;"	v
 g:tmuxcomplete#loaded	pack/plugins/start/wellle-tmux-complete-vim/plugin/tmuxcomplete.vim	/^let g:tmuxcomplete#loaded = '0.1.1' " version number$/;"	v
+g:tmuxify_custom_command	init.vim	/^let g:tmuxify_custom_command='tmux split-window -d -l 10'$/;"	v
 g:tmuxify_custom_command	vimrc	/^let g:tmuxify_custom_command='tmux split-window -d -l 10'$/;"	v
+g:tmuxify_global_maps	init.vim	/^let g:tmuxify_global_maps = 1$/;"	v
 g:tmuxify_global_maps	vimrc	/^let g:tmuxify_global_maps = 1$/;"	v
+g:tmuxify_map_prefix	init.vim	/^let g:tmuxify_map_prefix = ''$/;"	v
 g:tmuxify_map_prefix	vimrc	/^let g:tmuxify_map_prefix = ''$/;"	v
 g:typescript_compiler_binary	pack/plugins/start/sheerun-vim-polyglot/compiler/typescript.vim	/^  let g:typescript_compiler_binary = "tsc"$/;"	v
 g:typescript_compiler_options	pack/plugins/start/sheerun-vim-polyglot/compiler/typescript.vim	/^  let g:typescript_compiler_options = ""$/;"	v
@@ -2738,7 +2820,9 @@ g:vim_json_syntax_conceal	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyg
 g:vim_json_syntax_conceal	pack/plugins/start/sheerun-vim-polyglot/ftplugin/json.vim	/^	let g:vim_json_syntax_conceal = 1$/;"	v
 g:vim_json_syntax_concealcursor	pack/plugins/start/sheerun-vim-polyglot/ftplugin/json.vim	/^	let g:vim_json_syntax_concealcursor = ""$/;"	v
 g:vim_json_warnings	pack/plugins/start/sheerun-vim-polyglot/ftplugin/json.vim	/^	let g:vim_json_warnings = 1$/;"	v
+g:vim_markdown_folding_disabled	init.vim	/^let g:vim_markdown_folding_disabled=0$/;"	v
 g:vim_markdown_folding_disabled	vimrc	/^let g:vim_markdown_folding_disabled=0$/;"	v
+g:vim_markdown_frontmatter	init.vim	/^let g:vim_markdown_frontmatter=1$/;"	v
 g:vim_markdown_frontmatter	vimrc	/^let g:vim_markdown_frontmatter=1$/;"	v
 g:xmldata_aria	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let g:xmldata_aria = {$/;"	v
 g:xmldata_html5	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let g:xmldata_html5 = {$/;"	v
@@ -2750,6 +2834,7 @@ gcc	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^  nmap gcc <
 gcu	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^  nmap gcu <Plug>Commentary<Plug>Commentary$/;"	m
 gd	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> gd :GoDef<cr>$/;"	m
 gd	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^  nmap <buffer>gd <Plug>(crystal-jump-to-definition)$/;"	m
+general	init.vim	/^    augroup general$/;"	a
 general	vimrc	/^    augroup general$/;"	a
 generate_color_palettes	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:generate_color_palettes()$/;"	f
 generate_vim_highlightings	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:generate_vim_highlightings()$/;"	f
@@ -2780,7 +2865,9 @@ git_command	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function
 git_root_path	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let git_root_path = system("git rev-parse --show-toplevel | tr -d '\\\\n'")$/;"	v
 gitdiffcached	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitcommit.vim	/^function! s:gitdiffcached(bang,gitdir,...)$/;"	f
 github_url	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:github_url(opts, ...) abort$/;"	f
+gj	init.vim	/^nnoremap gj j$/;"	m
 gj	vimrc	/^nnoremap gj j$/;"	m
+gk	init.vim	/^nnoremap gk k$/;"	m
 gk	vimrc	/^nnoremap gk k$/;"	m
 glob	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^  function! s:glob(expr) abort$/;"	f
 global	pack/plugins/start/mhinz-vim-tmuxify/plugin/tmuxify.vim	/^let global = get(g:, 'tmuxify_global_maps', 0) ? '!' : ''$/;"	v
@@ -3018,6 +3105,7 @@ htmlcomplete#LoadAria	pack/plugins/start/sheerun-vim-polyglot/autoload/htmlcompl
 htmlcomplete#LoadData	pack/plugins/start/sheerun-vim-polyglot/autoload/htmlcomplete.vim	/^function! htmlcomplete#LoadData() " {{{$/;"	f
 i$	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^onoremap <buffer> i$ :normal vi$<CR>$/;"	m
 i$	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^vmap <buffer> i$ <Plug>LatexBox_SelectInlineMathInner$/;"	m
+i%	init.vim	/^omap i% :<c-u>normal vi%<cr>$/;"	m
 i%	vimrc	/^omap i% :<c-u>normal vi%<cr>$/;"	m
 i3_ftdetect	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^augroup i3_ftdetect$/;"	a
 iM	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^    onoremap <silent> <buffer> iM :<C-U>call <SID>wrap_i('[[','][')<CR>$/;"	m
@@ -3027,6 +3115,7 @@ ie	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^vma
 ie	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^  onoremap <silent> <buffer> ie :<C-U>call <SID>wrap_inside()<CR>$/;"	m
 if	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  onoremap <buffer> <silent> if :<c-u>call go#textobj#Function('i')<cr>$/;"	m
 ignored_region	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:ignored_region()$/;"	f
+il	init.vim	/^omap il :<c-u>normal vil<cr>$/;"	m
 il	vimrc	/^omap il :<c-u>normal vil<cr>$/;"	m
 im	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^    onoremap <silent> <buffer> im :<C-U>call <SID>wrap_i('[m',']M')<CR>$/;"	m
 import	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^function! s:import(name, ...) abort$/;"	f
@@ -3078,6 +3167,7 @@ is_windows	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelu
 isblank	pack/plugins/start/glts-vim-textobj-comment/autoload/textobj/comment.vim	/^function! s:isblank(lnum) abort$/;"	f
 iscontOne	pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:iscontOne(i,num,cont)$/;"	f
 iscontOne	pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:iscontOne(i,num,cont)$/;"	f
+j	init.vim	/^nnoremap j gj$/;"	m
 j	vimrc	/^nnoremap j gj$/;"	m
 jobdir	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^  let jobdir = fnameescape(expand("%:p:h"))$/;"	v
 jobdir	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^  let jobdir = fnameescape(expand("%:p:h"))$/;"	v
@@ -3085,6 +3175,7 @@ jump	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^function! s
 jump_to_declaration_cb	pack/plugins/start/fatih-vim-go/autoload/go/def.vim	/^function! s:jump_to_declaration_cb(mode, bin_name, job, exit_status, data) abort$/;"	f
 jump_to_impl	pack/plugins/start/sheerun-vim-polyglot/autoload/crystal_lang.vim	/^function! s:jump_to_impl(impl) abort$/;"	f
 justify_equal_spacing	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:justify_equal_spacing(str, width, ...) abort$/;"	f
+k	init.vim	/^nnoremap k gk$/;"	m
 k	pack/plugins/start/glts-vim-textobj-comment/t/simple.vim	/^    normal! k$/;"	m
 k	vimrc	/^nnoremap k gk$/;"	m
 kill_all_latexmk_processes	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^function! s:kill_all_latexmk_processes()$/;"	f
@@ -3197,6 +3288,7 @@ map_accum	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/L
 mapargs_pair_select	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_pair_select(lhs, pattern1, pattern2, flags, previous_mode)$/;"	f
 mapargs_single_move	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_single_move(lhs, pattern, flags, previous_mode)$/;"	f
 mapargs_single_select	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_single_select(lhs, pattern, flags, previous_mode)$/;"	f
+mapleader	init.vim	/^let mapleader="\\<space>"$/;"	v
 mapleader	vimrc	/^let mapleader="\\<space>"$/;"	v
 match_count	pack/plugins/start/sheerun-vim-polyglot/autoload/elixir/util.vim	/^function! s:match_count(line, pattern)$/;"	f
 match_one	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:match_one(patterns, string)$/;"	f
@@ -3712,6 +3804,7 @@ s:close_pat	pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^let s:close
 s:close_patt	pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let s:close_patt = '\\%(\\<\\%(end\\|until\\)\\>\\|)\\|}\\)'$/;"	v
 s:cmp	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/ultisnips.vim	/^let s:cmp = 'stridx(v:val, l:pat)' . (get(g:, 'mucomplete#ultisnips#match_at_start', 1) ? '==0' : '>=0')$/;"	v
 s:coffeeIndentExpr	pack/plugins/start/sheerun-vim-polyglot/after/indent/html.vim	/^let s:coffeeIndentExpr = &l:indentexpr$/;"	v
+s:colorful_term	init.vim	/^let s:colorful_term=(&term=~"xterm") || (&term=~"screen")$/;"	v
 s:colorful_term	vimrc	/^let s:colorful_term=(&term=~"xterm") || (&term=~"screen")$/;"	v
 s:comma_first	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:comma_first = '^\\s*,'$/;"	v
 s:comma_last	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:comma_last = ',\\s*$'$/;"	v
@@ -4030,6 +4123,7 @@ s:rubycomplete_debug	pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomple
 s:rubycomplete_rails_loaded	pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^let s:rubycomplete_rails_loaded = 0$/;"	v
 s:runner_exe	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/cscope.vim	/^let s:runner_exe = gutentags#get_plat_file('update_scopedb')$/;"	v
 s:runner_exe	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let s:runner_exe = gutentags#get_plat_file('update_tags')$/;"	v
+s:running_windows	init.vim	/^let s:running_windows=has("win16") || has("win32") || has("win64")$/;"	v
 s:running_windows	vimrc	/^let s:running_windows=has("win16") || has("win32") || has("win64")$/;"	v
 s:s	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^let s:s = line2byte(line('.'))+col('.')-1$/;"	v
 s:save_cpo	pack/plugins/start/fatih-vim-go/compiler/go.vim	/^let s:save_cpo = &cpo$/;"	v
