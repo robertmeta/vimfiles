@@ -21,6 +21,7 @@ func main() {
 		"tomasr/molokai",
 	}
 	plugins := []string{
+		"easymotion/vim-easymotion",
 		"fatih/vim-go",
 		"glts/vim-textobj-comment",
 		"kana/vim-textobj-indent",
@@ -59,7 +60,6 @@ func main() {
 
 	wg.Done()
 	wg.Wait()
-
 }
 
 func clearPack() {
