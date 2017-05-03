@@ -23,11 +23,13 @@ syntax on " syntax highlighting on
 
 " Mappings
 let mapleader="\<space>"
+
 " Scrolling/Line movement
 nnoremap gj j
 nnoremap gk k
 nnoremap j gj
 nnoremap k gk
+
 " Window control
 nnoremap <leader>o <c-w>o
 nnoremap <leader>w <c-w>w
@@ -35,6 +37,7 @@ nnoremap <leader>W <c-w>W
 nnoremap <silent> <leader>c <esc>:close<cr>
 nnoremap <silent> <leader>" :split<cr>
 nnoremap <silent> <leader>% :vsplit<cr>
+
 " Clear highlight
 nnoremap <silent> <backspace> :noh<cr>:QuickhlManualReset<cr>
 
@@ -48,33 +51,6 @@ inoremap <silent> ;p <c-x><c-p>
 inoremap <silent> ;t <c-x><c-]>
 inoremap <silent> ;u <c-x><c-u>
 inoremap <f5> <c-r>=strftime("%c")<cr>
-
-" <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-
-" s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
-
-" Move to line
-map <Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader>l <Plug>(easymotion-overwin-line)
-
-" Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_smartsign_us = 1 " US layout
 
 
 " Abbreviations
@@ -105,7 +81,6 @@ nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>G :grep <c-r><c-w><cr>
 nnoremap <leader>i :Ilist<space>
-nnoremap <leader>j :QuickhlCwordToggle<cr>
 nnoremap <leader>m :make<cr>
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun<cr>
@@ -308,42 +283,39 @@ omap al :<c-u>normal val<cr>
 xnoremap i% GoggV
 omap i% :<c-u>normal vi%<cr>
 
-" Autocommands
-if has("autocmd")
-    augroup general
-        " Clear!
-        au!
-        " Resize windows automagically
-        au VimResized * :wincmd =
-        " Things that use two spaces rather than four
-        au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
-        au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
-        au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete
-        au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<cr>
-        au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<cr>
-        au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<cr>
-        au BufRead,BufNewFile *.go nnoremap <buffer> gr :GoRename<cr>
-        au BufRead,BufNewFile *.go nnoremap <buffer> gt :GoTest<cr>
-        au BufRead,BufNewFile *.go nnoremap <buffer> ga :GoAlternate!<cr>
-        au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make
-        " Some JS awesome via romainl
-        au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<cr><cr>
-        au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<cr><cr>
-        " Override types
-        au BufNewFile,BufRead *.ahk setlocal filetype=autohotkey " Autohotkey
-        au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
-        au BufNewFile,BufRead *.md,*.markdown setlocal filetype=markdown " Markdown (common markdown?)
-        au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
-        " Things I like spellcheck in
-        au FileType asciidoc setlocal spell
-        au FileType gitcommit setlocal spell
-        au FileType markdown setlocal spell
-        au FileType svn setlocal spell
-        " Cursorline in active file
-        au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-        au WinLeave * setlocal nocursorline
-    augroup END
-endif
+augroup general
+    " Clear!
+    au!
+    " Resize windows automagically
+    au VimResized * :wincmd =
+    " Things that use two spaces rather than four
+    au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
+    au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
+    au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete
+    au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<cr>
+    au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<cr>
+    au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<cr>
+    au BufRead,BufNewFile *.go nnoremap <buffer> gr :GoRename<cr>
+    au BufRead,BufNewFile *.go nnoremap <buffer> gt :GoTest<cr>
+    au BufRead,BufNewFile *.go nnoremap <buffer> ga :GoAlternate!<cr>
+    au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make
+    " Some JS awesome via romainl
+    au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<cr><cr>
+    au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<cr><cr>
+    " Override types
+    au BufNewFile,BufRead *.ahk setlocal filetype=autohotkey " Autohotkey
+    au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=markdown " Markdown (common markdown?)
+    au BufNewFile,BufRead *.ps1 setlocal filetype=ps1 " Powershell
+    " Things I like spellcheck in
+    au FileType asciidoc setlocal spell
+    au FileType gitcommit setlocal spell
+    au FileType markdown setlocal spell
+    au FileType svn setlocal spell
+    " Cursorline in active file
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
 
 " GUI
 if has("gui_running")
@@ -365,6 +337,39 @@ if has("mouse")
         set ttymouse=sgr
     endif
 endif
+
+" Easy Motion
+" Options
+let g:EasyMotion_use_upper=0
+let g:EasyMotion_do_mapping=0
+let g:EasyMotion_do_shade=0
+let g:EasyMotion_startofline=0 " keep cursor column when JK motion
+let g:EasyMotion_smartcase=1
+let g:EasyMotion_use_smartsign_us=1 " US layout
+" <Leader>f{char} to move to {char}
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+xmap <Leader>f <Plug>(easymotion-bd-f)
+omap <Leader>f <Plug>(easymotion-bd-f)
+" s{char}{char} to move to {char}{char}
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+xmap <Leader>s <Plug>(easymotion-bd-f2)
+omap <Leader>s <Plug>(easymotion-bd-f2)
+" Move to line
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+xmap <Leader>l <Plug>(easymotion-bd-jk)
+omap <Leader>l <Plug>(easymotion-bd-jk)
+" Move to word
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+xmap <Leader>w <Plug>(easymotion-bd-w)
+omap <Leader>w <Plug>(easymotion-bd-w)
+" Search
+map  <Leader>/ <Plug>(easymotion-sn)
+omap <Leader>/ <Plug>(easymotion-tn)
+map  <Leader>n <Plug>(easymotion-next)
+map  <Leader>N <Plug>(easymotion-prev)
+
+" Vim-Move
+let g:move_key_modifier = 'C'
 
 " Adapt for executables
 if executable("ag")

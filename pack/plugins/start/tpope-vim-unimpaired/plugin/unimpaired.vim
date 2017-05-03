@@ -51,6 +51,9 @@ endfunction
 
 function! s:FileByOffset(num)
   let file = expand('%:p')
+  if file == ''
+    let file = getcwd() . '/'
+  endif
   let num = a:num
   while num
     let files = s:entries(fnamemodify(file,':h'))
@@ -64,15 +67,16 @@ function! s:FileByOffset(num)
       let file = fnamemodify(file,':h')
     else
       let file = temp
+      let found = 1
       while isdirectory(file)
         let files = s:entries(file)
-        if files == []
-          " TODO: walk back up the tree and continue
+        if empty(files)
+          let found = 0
           break
         endif
         let file = files[num > 0 ? 0 : -1]
       endwhile
-      let num += num > 0 ? -1 : 1
+      let num += (num > 0 ? -1 : 1) * found
     endif
   endwhile
   return file
@@ -164,7 +168,7 @@ nnoremap <silent> <Plug>unimpairedBlankDown :<C-U>call <SID>BlankDown(v:count1)<
 nmap [<Space> <Plug>unimpairedBlankUp
 nmap ]<Space> <Plug>unimpairedBlankDown
 
-function s:ExecMove(cmd) abort
+function! s:ExecMove(cmd) abort
   let old_fdm = &foldmethod
   if old_fdm != 'manual'
     let &foldmethod = 'manual'

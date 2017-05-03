@@ -28,6 +28,7 @@ func main() {
 		"kana/vim-textobj-user",
 		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
+		"matze/vim-move",
 		"mhinz/vim-tmuxify",
 		"romainl/vim-qf",
 		"romainl/vim-qlist",

@@ -27,8 +27,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 .	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^    nmap . <Plug>(RepeatDot)$/;"	m
 /	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        map \/ <Plug>(easymotion-sn)$/;"	m
 /	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        map \/ <Plug>(easymotion-sn)$/;"	m
-/	vimrc	/^map  \/ <Plug>(easymotion-sn)$/;"	m
-/	vimrc	/^omap \/ <Plug>(easymotion-tn)$/;"	m
 /,,1	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        normal \/,,1$/;"	m
 /,<1	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        normal \/,<1$/;"	m
 0	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        normal! 0$/;"	m
@@ -119,29 +117,35 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <F9>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rhelp.vim	/^noremap <buffer> <F9> :execute line(".") 'w >> ~\/.r-pipe'<CR>$/;"	m
 <F9>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rnoweb.vim	/^inoremap <buffer> <F9> <Esc> :execute line(".") 'w >> ~\/.r-pipe'<CR>$/;"	m
 <F9>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rnoweb.vim	/^noremap <buffer> <F9> :execute line(".") 'w >> ~\/.r-pipe'<CR>$/;"	m
+<Leader>/	vimrc	/^map  <Leader>\/ <Plug>(easymotion-sn)$/;"	m
+<Leader>/	vimrc	/^omap <Leader>\/ <Plug>(easymotion-tn)$/;"	m
 <Leader><Leader>	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^            map <Leader><Leader> <Plug>(easymotion-prefix)$/;"	m
 <Leader>B	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>B <Plug>(easymotion-B)$/;"	m
 <Leader>E	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>E <Plug>(easymotion-E)$/;"	m
+<Leader>N	vimrc	/^map  <Leader>N <Plug>(easymotion-prev)$/;"	m
 <Leader>W	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>W <Plug>(easymotion-W)$/;"	m
 <Leader>b	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>b <Plug>(easymotion-iskeyword-b)$/;"	m
 <Leader>b	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        map <Leader>b <Plug>(easymotion-iskeyword-b)$/;"	m
 <Leader>e	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>e <Plug>(easymotion-iskeyword-e)$/;"	m
-<Leader>f	vimrc	/^map  <Leader>f <Plug>(easymotion-bd-f)$/;"	m
 <Leader>f	vimrc	/^nmap <Leader>f <Plug>(easymotion-overwin-f)$/;"	m
+<Leader>f	vimrc	/^omap <Leader>f <Plug>(easymotion-bd-f)$/;"	m
 <Leader>fr	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>fr :FufFile <c-r>=scala#GetRootDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
 <Leader>fs	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>fs :FufFile <c-r>=scala#GetMainDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
 <Leader>ft	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>ft :FufFile <c-r>=scala#GetTestDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
 <Leader>gE	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>gE <Plug>(easymotion-gE)$/;"	m
 <Leader>ge	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>ge <Plug>(easymotion-iskeyword-ge)$/;"	m
-<Leader>l	vimrc	/^map <Leader>l <Plug>(easymotion-bd-jk)$/;"	m
 <Leader>l	vimrc	/^nmap <Leader>l <Plug>(easymotion-overwin-line)$/;"	m
+<Leader>l	vimrc	/^omap <Leader>l <Plug>(easymotion-bd-jk)$/;"	m
+<Leader>n	vimrc	/^map  <Leader>n <Plug>(easymotion-next)$/;"	m
 <Leader>rf	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rf :TextileRenderFile<CR>$/;"	m
 <Leader>rp	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rp :TextilePreview<CR>$/;"	m
 <Leader>rt	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rt :TextileRenderTab<CR>$/;"	m
+<Leader>s	vimrc	/^nmap <Leader>s <Plug>(easymotion-overwin-f2)$/;"	m
+<Leader>s	vimrc	/^omap <Leader>s <Plug>(easymotion-bd-f2)$/;"	m
 <Leader>w	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>w <Plug>(easymotion-iskeyword-w)$/;"	m
 <Leader>w	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        map <Leader>w <Plug>(easymotion-iskeyword-w)$/;"	m
-<Leader>w	vimrc	/^map  <Leader>w <Plug>(easymotion-bd-w)$/;"	m
 <Leader>w	vimrc	/^nmap <Leader>w <Plug>(easymotion-overwin-w)$/;"	m
+<Leader>w	vimrc	/^omap <Leader>w <Plug>(easymotion-bd-w)$/;"	m
 <LocalLeader>C	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^    nmap <buffer> <LocalLeader>C <Plug>LUncomOff$/;"	m
 <LocalLeader>C	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^    vmap <buffer> <LocalLeader>C <Plug>BUncomOff$/;"	m
 <LocalLeader>S	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  map <LocalLeader>S :call OCaml_switch(1)<CR>$/;"	m
@@ -373,7 +377,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>f	vimrc	/^nnoremap <leader>f :find *$/;"	m
 <leader>g	vimrc	/^nnoremap <leader>g :grep<space>$/;"	m
 <leader>i	vimrc	/^nnoremap <leader>i :Ilist<space>$/;"	m
-<leader>j	vimrc	/^nnoremap <leader>j :QuickhlCwordToggle<cr>$/;"	m
 <leader>m	vimrc	/^nnoremap <leader>m :make<cr>$/;"	m
 <leader>o	vimrc	/^nnoremap <leader>o <c-w>o$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
@@ -1230,7 +1233,6 @@ Move_P	pack/plugins/start/kana-vim-textobj-user/t/move.vim	/^function! Move_P()$
 Move_n	pack/plugins/start/kana-vim-textobj-user/t/move.vim	/^function! Move_n()$/;"	f
 Move_p	pack/plugins/start/kana-vim-textobj-user/t/move.vim	/^function! Move_p()$/;"	f
 MultilineStringOrLineComment	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:MultilineStringOrLineComment(cline_info)$/;"	f
-N	vimrc	/^map  N <Plug>(easymotion-prev)$/;"	m
 NeoBundle (https://github.com/Shougo/neobundle.vim)	pack/plugins/start/easymotion-vim-easymotion/README.md	/^### NeoBundle (https:\/\/github.com\/Shougo\/neobundle.vim)$/;"	k
 Neovim terminal theme	pack/colors/start/romainl-apprentice/README.md	/^## Neovim terminal theme$/;"	i
 Next and Last Argument	pack/plugins/start/wellle-targets-vim/README.md	/^### Next and Last Argument$/;"	k
@@ -2939,7 +2941,9 @@ g:EasyMotion_command_line_key_mappings	pack/plugins/start/easymotion-vim-easymot
 g:EasyMotion_cursor_highlight	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_cursor_highlight   = get(g: , 'EasyMotion_cursor_highlight'   , 1)$/;"	v
 g:EasyMotion_disable_two_key_combo	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_disable_two_key_combo     =$/;"	v
 g:EasyMotion_do_mapping	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_do_mapping         = get(g: , 'EasyMotion_do_mapping'         , 1)$/;"	v
+g:EasyMotion_do_mapping	vimrc	/^let g:EasyMotion_do_mapping=0$/;"	v
 g:EasyMotion_do_shade	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_do_shade           = get(g: , 'EasyMotion_do_shade'           , 1)$/;"	v
+g:EasyMotion_do_shade	vimrc	/^let g:EasyMotion_do_shade=0$/;"	v
 g:EasyMotion_enter_jump_first	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_enter_jump_first   = get(g: , 'EasyMotion_enter_jump_first'   , 0)$/;"	v
 g:EasyMotion_force_csapprox	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_force_csapprox     = get(g: , 'EasyMotion_force_csapprox'     , 0)$/;"	v
 g:EasyMotion_grouping	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_grouping           = get(g: , 'EasyMotion_grouping'           , 1)$/;"	v
@@ -2969,10 +2973,10 @@ g:EasyMotion_skipfoldedline	pack/plugins/start/easymotion-vim-easymotion/plugin/
 g:EasyMotion_smartcase	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_smartcase          = get(g: , 'EasyMotion_smartcase'          , 0)$/;"	v
 g:EasyMotion_smartcase	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        let g:EasyMotion_smartcase = 0$/;"	v
 g:EasyMotion_smartcase	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        let g:EasyMotion_smartcase = 1$/;"	v
-g:EasyMotion_smartcase	vimrc	/^let g:EasyMotion_smartcase = 1$/;"	v
+g:EasyMotion_smartcase	vimrc	/^let g:EasyMotion_smartcase=1$/;"	v
 g:EasyMotion_space_jump_first	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_space_jump_first   = get(g: , 'EasyMotion_space_jump_first'   , 0)$/;"	v
 g:EasyMotion_startofline	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_startofline        = get(g: , 'EasyMotion_startofline'        , 1)$/;"	v
-g:EasyMotion_startofline	vimrc	/^let g:EasyMotion_startofline = 0 " keep cursor column when JK motion$/;"	v
+g:EasyMotion_startofline	vimrc	/^let g:EasyMotion_startofline=0 " keep cursor column when JK motion$/;"	v
 g:EasyMotion_use_migemo	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_use_migemo         = get(g: , 'EasyMotion_use_migemo'         , 0)$/;"	v
 g:EasyMotion_use_migemo	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        let g:EasyMotion_use_migemo = 1$/;"	v
 g:EasyMotion_use_regexp	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_use_regexp         = get(g: , 'EasyMotion_use_regexp'         , 1)$/;"	v
@@ -2982,8 +2986,9 @@ g:EasyMotion_use_smartsign_jp	pack/plugins/start/easymotion-vim-easymotion/t/sma
 g:EasyMotion_use_smartsign_us	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        let g:EasyMotion_use_smartsign_us = 0$/;"	v
 g:EasyMotion_use_smartsign_us	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        let g:EasyMotion_use_smartsign_us = 1$/;"	v
 g:EasyMotion_use_smartsign_us	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        let g:EasyMotion_use_smartsign_us = 1$/;"	v
-g:EasyMotion_use_smartsign_us	vimrc	/^let g:EasyMotion_use_smartsign_us = 1 " US layout$/;"	v
+g:EasyMotion_use_smartsign_us	vimrc	/^let g:EasyMotion_use_smartsign_us=1 " US layout$/;"	v
 g:EasyMotion_use_upper	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_use_upper          = get(g: , 'EasyMotion_use_upper'          , 0)$/;"	v
+g:EasyMotion_use_upper	vimrc	/^let g:EasyMotion_use_upper=0$/;"	v
 g:EasyMotion_verbose	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^let g:EasyMotion_verbose            = get(g: , 'EasyMotion_verbose'            , 1)$/;"	v
 g:EasyMotion_verbose	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        let g:EasyMotion_verbose = 0$/;"	v
 g:EasyMotion_verbose	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        let g:EasyMotion_verbose = 1$/;"	v
@@ -3239,6 +3244,7 @@ g:loaded_unimpaired	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vi
 g:loaded_vinegar	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:loaded_vinegar = 1$/;"	v
 g:main_syntax	pack/plugins/start/sheerun-vim-polyglot/syntax/dart.vim	/^  let g:main_syntax = 'dart'$/;"	v
 g:maps	pack/plugins/start/glts-vim-textobj-comment/t/plugin.vim	/^let g:maps = { 'ac': '<Plug>(textobj-comment-a)',$/;"	v
+g:move_key_modifier	vimrc	/^let g:move_key_modifier = 'C'$/;"	v
 g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = extend({$/;"	v
 g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = mucomplete#compat#can_complete()$/;"	v
 g:mucomplete#chains	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let g:mucomplete#chains = extend({$/;"	v
@@ -3339,7 +3345,7 @@ gcc	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^  nmap gcc <
 gcu	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^  nmap gcu <Plug>Commentary<Plug>Commentary$/;"	m
 gd	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> gd :GoDef<cr>$/;"	m
 gd	pack/plugins/start/sheerun-vim-polyglot/ftplugin/crystal.vim	/^  nmap <buffer>gd <Plug>(crystal-jump-to-definition)$/;"	m
-general	vimrc	/^    augroup general$/;"	a
+general	vimrc	/^augroup general$/;"	a
 generate_color_palettes	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:generate_color_palettes()$/;"	f
 generate_vim_highlightings	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:generate_vim_highlightings()$/;"	f
 get	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/_easymotion/Over/Commandline/Modules.vim	/^function! s:get(name)$/;"	f
@@ -3956,7 +3962,6 @@ mucomplete#tab_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mu
 mucomplete#toggle_auto	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  fun! mucomplete#toggle_auto()$/;"	f
 mucomplete#ultisnips#complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/ultisnips.vim	/^fun! mucomplete#ultisnips#complete() abort$/;"	f
 mustNotError	get-plugins.go	/^func mustNotError(err error) {$/;"	f
-n	vimrc	/^map  n <Plug>(easymotion-next)$/;"	m
 n-character search motion	pack/plugins/start/easymotion-vim-easymotion/README.md	/^### n-character search motion$/;"	k
 neocomplcache#sources#tmuxcomplete#define	pack/plugins/start/wellle-tmux-complete-vim/autoload/neocomplcache/sources/tmuxcomplete.vim	/^function! neocomplcache#sources#tmuxcomplete#define()$/;"	f
 neocomplete#sources#tmuxcomplete#define	pack/plugins/start/wellle-tmux-complete-vim/autoload/neocomplete/sources/tmuxcomplete.vim	/^function! neocomplete#sources#tmuxcomplete#define()$/;"	f
@@ -4336,8 +4341,6 @@ s	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        ma
 s	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        map s <Plug>(easymotion-s2)$/;"	m
 s	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^    nnoremap <buffer> s <C-w><CR>$/;"	m
 s	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> s :call <SID>TOCToggleNumbers()<CR>$/;"	m
-s	vimrc	/^nmap s <Plug>(easymotion-overwin-f2)$/;"	m
-s	vimrc	/^nmap s <Plug>(easymotion-s2)$/;"	m
 s!1	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        normal s!1$/;"	m
 s"1	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        normal s"1$/;"	m
 s#1	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        normal s#1$/;"	m
@@ -5384,7 +5387,6 @@ s~1	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        
 t	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        map t <Plug>(easymotion-bd-t)$/;"	m
 t	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        map t <Plug>(easymotion-t)$/;"	m
 t	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^    nnoremap <buffer> t <C-w><CR><C-w>T$/;"	m
-t	vimrc	/^nmap t <Plug>(easymotion-t2)$/;"	m
 t/	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        map t\/ <Plug>(easymotion-tn)$/;"	m
 t;	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        normal t;$/;"	m
 t;a	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        normal t;a$/;"	m
