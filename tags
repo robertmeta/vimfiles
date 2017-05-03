@@ -25,6 +25,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 ,	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        normal ,$/;"	m
 -	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^  nmap - <Plug>VinegarUp$/;"	m
 .	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^    nmap . <Plug>(RepeatDot)$/;"	m
+.	vimrc	/^vnoremap . :norm.<CR>$/;"	m
 /	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        map \/ <Plug>(easymotion-sn)$/;"	m
 /	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        map \/ <Plug>(easymotion-sn)$/;"	m
 /,,1	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        normal \/,,1$/;"	m
@@ -302,6 +303,14 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Plug>LionLeft	pack/plugins/start/tommcdo-vim-lion/plugin/lion.vim	/^nnoremap <silent> <expr> <Plug>LionLeft <SID>command("<SID>alignLeft")$/;"	m
 <Plug>LionRepeat	pack/plugins/start/tommcdo-vim-lion/plugin/lion.vim	/^nnoremap <silent> <Plug>LionRepeat .$/;"	m
 <Plug>LionRight	pack/plugins/start/tommcdo-vim-lion/plugin/lion.vim	/^nnoremap <silent> <expr> <Plug>LionRight <SID>command("<SID>alignRight")$/;"	m
+<Plug>MoveBlockDown	pack/plugins/start/matze-vim-move/plugin/move.vim	/^vnoremap <silent> <Plug>MoveBlockDown           :call <SID>MoveBlockOneLineDown()<CR>$/;"	m
+<Plug>MoveBlockHalfPageDown	pack/plugins/start/matze-vim-move/plugin/move.vim	/^vnoremap <silent> <Plug>MoveBlockHalfPageDown   :call <SID>MoveBlockHalfPageDown()<CR>$/;"	m
+<Plug>MoveBlockHalfPageUp	pack/plugins/start/matze-vim-move/plugin/move.vim	/^vnoremap <silent> <Plug>MoveBlockHalfPageUp     :call <SID>MoveBlockHalfPageUp()<CR>$/;"	m
+<Plug>MoveBlockUp	pack/plugins/start/matze-vim-move/plugin/move.vim	/^vnoremap <silent> <Plug>MoveBlockUp             :call <SID>MoveBlockOneLineUp()<CR>$/;"	m
+<Plug>MoveLineDown	pack/plugins/start/matze-vim-move/plugin/move.vim	/^nnoremap <silent> <Plug>MoveLineDown            :call <SID>MoveLineDown(1)<CR>$/;"	m
+<Plug>MoveLineHalfPageDown	pack/plugins/start/matze-vim-move/plugin/move.vim	/^nnoremap <silent> <Plug>MoveLineHalfPageDown    :call <SID>MoveLineHalfPageDown()<CR>$/;"	m
+<Plug>MoveLineHalfPageUp	pack/plugins/start/matze-vim-move/plugin/move.vim	/^nnoremap <silent> <Plug>MoveLineHalfPageUp      :call <SID>MoveLineHalfPageUp()<CR>$/;"	m
+<Plug>MoveLineUp	pack/plugins/start/matze-vim-move/plugin/move.vim	/^nnoremap <silent> <Plug>MoveLineUp              :call <SID>MoveLineUp(1)<CR>$/;"	m
 <Plug>QfCnext	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent> <Plug>QfCnext          :<C-u> call qf#wrap#WrapCommand('down', 'c')<CR>$/;"	m
 <Plug>QfCprevious	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent> <Plug>QfCprevious      :<C-u> call qf#wrap#WrapCommand('up', 'c')<CR>$/;"	m
 <Plug>QfCtoggle	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent> <Plug>QfCtoggle        :<C-u> call qf#toggle#ToggleQfWindow(0)<CR>$/;"	m
@@ -571,6 +580,7 @@ CursorPos	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.
 CursorPos	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^function! CursorPos()$/;"	f
 CursorPos	pack/plugins/start/easymotion-vim-easymotion/t/operator_pending_spec.vim	/^function! CursorPos()$/;"	f
 CursorPos	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^function! CursorPos()$/;"	f
+Customization	pack/plugins/start/matze-vim-move/README.md	/^## Customization$/;"	i
 Customize seeking	pack/plugins/start/wellle-targets-vim/cheatsheet.md	/^## Customize seeking$/;"	i
 Cycle	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Cycle  :call s:cycle()$/;"	c
 D	pack/plugins/start/glts-vim-textobj-comment/t/paired.vim	/^    normal! D$/;"	m
@@ -707,8 +717,9 @@ Error	pack/plugins/start/fatih-vim-go/autoload/go/import.vim	/^function! s:Error
 EscapeTitle	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^function! s:EscapeTitle(titlestr)$/;"	f
 Examples	pack/plugins/start/kana-vim-textobj-user/README.md	/^## Examples$/;"	i
 Examples	pack/plugins/start/wellle-targets-vim/README.md	/^## Examples$/;"	i
-ExecMove	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function s:ExecMove(cmd) abort$/;"	f
+ExecMove	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:ExecMove(cmd) abort$/;"	f
 ExecuteInTree	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:ExecuteInTree(cmd) abort$/;"	f
+ExecuteMacroOverVisualRange	vimrc	/^function! ExecuteMacroOverVisualRange()$/;"	f
 ExitingOneLineScope	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:ExitingOneLineScope(lnum)$/;"	f
 Expand	pack/plugins/start/sheerun-vim-polyglot/autoload/rust.vim	/^function! s:Expand(dict, pretty, args)$/;"	f
 ExtraBrackets	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:ExtraBrackets(lnum)$/;"	f
@@ -1061,6 +1072,7 @@ InsertTestText1	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements
 Install	pack/plugins/start/fatih-vim-go/README.md	/^## Install$/;"	i
 Installation	pack/colors/start/nlknguyen-papercolor-theme/README.md	/^## Installation$/;"	i
 Installation	pack/colors/start/tomasr-molokai/README.md	/^## Installation$/;"	i
+Installation	pack/plugins/start/matze-vim-move/README.md	/^## Installation$/;"	i
 Installation	pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## Installation$/;"	i
 Installation	pack/plugins/start/romainl-vim-qf/README.md	/^## Installation$/;"	i
 Installation	pack/plugins/start/romainl-vim-qlist/README.md	/^## Installation$/;"	i
@@ -1172,6 +1184,7 @@ LatexmkStatus	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk
 LatexmkStop	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^command! LatexmkStop			call LatexBox_LatexmkStop(0)$/;"	c
 LeadingOperator	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:LeadingOperator(cline_info)$/;"	f
 License	pack/plugins/start/fatih-vim-go/README.md	/^## License$/;"	i
+License	pack/plugins/start/matze-vim-move/README.md	/^## License$/;"	i
 License	pack/plugins/start/mhinz-vim-tmuxify/README.md	/^## License$/;"	i
 License	pack/plugins/start/sheerun-vim-polyglot/README.md	/^## License$/;"	i
 Lightline and Airline themes	pack/colors/start/romainl-apprentice/README.md	/^## Lightline and Airline themes$/;"	i
@@ -1225,7 +1238,18 @@ Motivation	pack/plugins/start/wellle-tmux-complete-vim/README.md	/^## Motivation
 Move	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -nargs=1 -bang -complete=file Move :$/;"	c
 Move	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Move(force,destination) abort$/;"	f
 Move	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:Move(cmd, count, map) abort$/;"	f
+MoveBlockDown	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveBlockDown(start, end, count)$/;"	f
+MoveBlockHalfPageDown	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveBlockHalfPageDown() range$/;"	f
+MoveBlockHalfPageUp	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveBlockHalfPageUp() range$/;"	f
+MoveBlockOneLineDown	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveBlockOneLineDown() range$/;"	f
+MoveBlockOneLineUp	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveBlockOneLineUp() range$/;"	f
+MoveBlockUp	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveBlockUp(start, end, count)$/;"	f
 MoveComplete	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:MoveComplete(A,L,P) abort$/;"	f
+MoveKey	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveKey(key)$/;"	f
+MoveLineDown	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveLineDown(count) range$/;"	f
+MoveLineHalfPageDown	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveLineHalfPageDown() range$/;"	f
+MoveLineHalfPageUp	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveLineHalfPageUp() range$/;"	f
+MoveLineUp	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:MoveLineUp(count) range$/;"	f
 MoveSelectionDown	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:MoveSelectionDown(count) abort$/;"	f
 MoveSelectionUp	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:MoveSelectionUp(count) abort$/;"	f
 Move_N	pack/plugins/start/kana-vim-textobj-user/t/move.vim	/^function! Move_N()$/;"	f
@@ -1378,6 +1402,7 @@ Rename	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -na
 Rename_complete	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! s:Rename_complete(A, L, P) abort$/;"	f
 Repeat motions	pack/plugins/start/easymotion-vim-easymotion/README.md	/^### Repeat motions$/;"	k
 ReplaceCmd	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:ReplaceCmd(cmd,...) abort$/;"	f
+ResetCursor	pack/plugins/start/matze-vim-move/plugin/move.vim	/^function! s:ResetCursor()$/;"	f
 ResetLists	pack/plugins/start/romainl-vim-qf/autoload/qf/filter.vim	/^function! s:ResetLists()$/;"	f
 Restore	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer Restore call qf#filter#RestoreList()$/;"	c
 RestoreValue	pack/plugins/start/easymotion-vim-easymotion/autoload/EasyMotion.vim	/^function! s:RestoreValue() "{{{$/;"	f
@@ -3244,7 +3269,10 @@ g:loaded_unimpaired	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vi
 g:loaded_vinegar	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:loaded_vinegar = 1$/;"	v
 g:main_syntax	pack/plugins/start/sheerun-vim-polyglot/syntax/dart.vim	/^  let g:main_syntax = 'dart'$/;"	v
 g:maps	pack/plugins/start/glts-vim-textobj-comment/t/plugin.vim	/^let g:maps = { 'ac': '<Plug>(textobj-comment-a)',$/;"	v
+g:move_auto_indent	pack/plugins/start/matze-vim-move/plugin/move.vim	/^    let g:move_auto_indent = 1$/;"	v
+g:move_key_modifier	pack/plugins/start/matze-vim-move/plugin/move.vim	/^    let g:move_key_modifier = 'A'$/;"	v
 g:move_key_modifier	vimrc	/^let g:move_key_modifier = 'C'$/;"	v
+g:move_map_keys	pack/plugins/start/matze-vim-move/plugin/move.vim	/^    let g:move_map_keys = 1$/;"	v
 g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = extend({$/;"	v
 g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = mucomplete#compat#can_complete()$/;"	v
 g:mucomplete#chains	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let g:mucomplete#chains = extend({$/;"	v
@@ -3781,6 +3809,7 @@ load	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/easymotion.vim	
 load	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^function! s:load(...) dict abort$/;"	f
 loadSettings	pack/plugins/start/wellle-targets-vim/plugin/targets.vim	/^function! s:loadSettings()$/;"	f
 load_smart_dict	pack/plugins/start/easymotion-vim-easymotion/autoload/EasyMotion.vim	/^function! s:load_smart_dict() "{{{$/;"	f
+loaded_move	pack/plugins/start/matze-vim-move/plugin/move.vim	/^let loaded_move = 1$/;"	v
 log_contains_error	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^function! s:log_contains_error(file)$/;"	f
 looking_at	pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:looking_at()$/;"	f
 looking_at	pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:looking_at()$/;"	f
@@ -3933,6 +3962,7 @@ module.reset	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/_easymo
 motion_map_helper	pack/plugins/start/easymotion-vim-easymotion/plugin/EasyMotion.vim	/^function! s:motion_map_helper(motions) "{{{$/;"	f
 move	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/_easymotion/HitAHint/Motion.vim	/^function! s:move(pattern, ...) abort$/;"	f
 move	pack/plugins/start/kana-vim-textobj-user/t/move.vim	/^function! s:move(type, count)$/;"	f
+move	pack/plugins/start/matze-vim-move/README.md	/^# move$/;"	h
 move_f	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/_easymotion/HitAHint/Motion.vim	/^function! s:move_f(...) abort$/;"	f
 move_f2	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/_easymotion/HitAHint/Motion.vim	/^function! s:move_f2() abort$/;"	f
 move_function_wrapper	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:move_function_wrapper(function_name, spec_name, previous_mode)$/;"	f

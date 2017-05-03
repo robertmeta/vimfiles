@@ -52,6 +52,8 @@ inoremap <silent> ;t <c-x><c-]>
 inoremap <silent> ;u <c-x><c-u>
 inoremap <f5> <c-r>=strftime("%c")<cr>
 
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+vnoremap . :norm.<CR>
 
 " Abbreviations
 iab <expr> dts strftime("%c")
@@ -446,6 +448,13 @@ else " MacOSX/Linux
 endif
 
 " Functions
+" Allows you to visually select a section and then hit @ to run a macro on all lines
+" https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db#.3dcn9prw6
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 function! ToggleFolds()
     if !exists("b:myfolded")
         let b:myfolded=0
