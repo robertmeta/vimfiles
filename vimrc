@@ -107,7 +107,7 @@ set backupdir=~/.vim/backup/,~/vimfiles/backup/ " where to put backup files
 set backup " make backup files
 set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
-set completeopt=menu,menuone,preview
+set completeopt=menu,menuone,noselect,noinsert
 set complete=.,w,b,u,U,i,t " complete options
 set cursorline " cursor line highlight
 set diffopt=vertical,filler,iwhite " filler and whitespace
