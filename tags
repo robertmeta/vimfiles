@@ -128,8 +128,8 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Leader>b	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>b <Plug>(easymotion-iskeyword-b)$/;"	m
 <Leader>b	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        map <Leader>b <Plug>(easymotion-iskeyword-b)$/;"	m
 <Leader>e	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>e <Plug>(easymotion-iskeyword-e)$/;"	m
-<Leader>f	vimrc	/^nmap <Leader>f <Plug>(easymotion-overwin-f)$/;"	m
-<Leader>f	vimrc	/^omap <Leader>f <Plug>(easymotion-bd-f)$/;"	m
+<Leader>f	vimrc	/^nmap <Leader>f <Plug>(easymotion-overwin-f2)$/;"	m
+<Leader>f	vimrc	/^omap <Leader>f <Plug>(easymotion-bd-f2)$/;"	m
 <Leader>fr	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>fr :FufFile <c-r>=scala#GetRootDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
 <Leader>fs	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>fs :FufFile <c-r>=scala#GetMainDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
 <Leader>ft	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>ft :FufFile <c-r>=scala#GetTestDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
@@ -141,11 +141,9 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Leader>rf	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rf :TextileRenderFile<CR>$/;"	m
 <Leader>rp	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rp :TextilePreview<CR>$/;"	m
 <Leader>rt	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rt :TextileRenderTab<CR>$/;"	m
-<Leader>s	vimrc	/^nmap <Leader>s <Plug>(easymotion-overwin-f2)$/;"	m
-<Leader>s	vimrc	/^omap <Leader>s <Plug>(easymotion-bd-f2)$/;"	m
 <Leader>w	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>w <Plug>(easymotion-iskeyword-w)$/;"	m
 <Leader>w	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        map <Leader>w <Plug>(easymotion-iskeyword-w)$/;"	m
-<Leader>w	vimrc	/^nmap <Leader>w <Plug>(easymotion-overwin-w)$/;"	m
+<Leader>w	vimrc	/^nmap <Leader>w <Plug>(easymotion-overwin-line) " deal with my muscle memory$/;"	m
 <Leader>w	vimrc	/^omap <Leader>w <Plug>(easymotion-bd-w)$/;"	m
 <LocalLeader>C	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^    nmap <buffer> <LocalLeader>C <Plug>LUncomOff$/;"	m
 <LocalLeader>C	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^    vmap <buffer> <LocalLeader>C <Plug>BUncomOff$/;"	m
@@ -370,11 +368,9 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <f5>	vimrc	/^nnoremap <f5> "=strftime("%c")<cr>P$/;"	m
 <leader>"	vimrc	/^nnoremap <silent> <leader>" :split<cr>$/;"	m
 <leader>%	vimrc	/^nnoremap <silent> <leader>% :vsplit<cr>$/;"	m
-<leader>.	vimrc	/^vnoremap <leader>. :norm! .<cr>$/;"	m
-<leader>@	vimrc	/^vnoremap <leader>@ :norm! @<cr>$/;"	m
 <leader>A	vimrc	/^nnoremap <leader>A :argadd **\/*$/;"	m
 <leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
-<leader>F	vimrc	/^nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
+<leader>F	vimrc	/^nnoremap <leader>F :find *$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :grep <c-r><c-w><cr>$/;"	m
 <leader>R	vimrc	/^nnoremap <leader>R :TxSetRunCmd<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
@@ -383,16 +379,16 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>b	vimrc	/^nnoremap <leader>b :b <C-d>$/;"	m
 <leader>c	vimrc	/^nnoremap <silent> <leader>c <esc>:close<cr>$/;"	m
 <leader>e	vimrc	/^nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
-<leader>f	vimrc	/^nnoremap <leader>f :find *$/;"	m
 <leader>g	vimrc	/^nnoremap <leader>g :grep<space>$/;"	m
 <leader>i	vimrc	/^nnoremap <leader>i :Ilist<space>$/;"	m
 <leader>m	vimrc	/^nnoremap <leader>m :make<cr>$/;"	m
 <leader>o	vimrc	/^nnoremap <leader>o <c-w>o$/;"	m
+<leader>p	vimrc	/^nnoremap <leader>p :find *$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
 <leader>r	vimrc	/^nnoremap <leader>r :TxRun<cr>$/;"	m
 <leader>s	vimrc	/^nmap <leader>s <Plug>(quickhl-manual-this)$/;"	m
 <leader>t	vimrc	/^nnoremap <leader>t :ltag<space>\/ \\| lop<left><left><left><left><left><left>$/;"	m
-<leader>w	vimrc	/^nnoremap <leader>w <c-w>w$/;"	m
+<leader>vs	vimrc	/^nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>$/;"	m
 <leader>x	vimrc	/^nnoremap <leader>x :TxSigInt<cr>$/;"	m
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
 <left>	vimrc	/^nmap <silent> <left> <esc>:lprev<cr>$/;"	m

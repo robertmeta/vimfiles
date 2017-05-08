@@ -1,3 +1,4 @@
+'g:go_addtags_transform'	vim-go.txt	/*'g:go_addtags_transform'*
 'g:go_alternate_mode'	vim-go.txt	/*'g:go_alternate_mode'*
 'g:go_asmfmt_autosave'	vim-go.txt	/*'g:go_asmfmt_autosave'*
 'g:go_auto_sameids'	vim-go.txt	/*'g:go_auto_sameids'*
@@ -152,6 +153,7 @@
 :GoInfo	vim-go.txt	/*:GoInfo*
 :GoInstall	vim-go.txt	/*:GoInstall*
 :GoInstallBinaries	vim-go.txt	/*:GoInstallBinaries*
+:GoKeyify	vim-go.txt	/*:GoKeyify*
 :GoLint	vim-go.txt	/*:GoLint*
 :GoMetaLinter	vim-go.txt	/*:GoMetaLinter*
 :GoMetaLinterAutoSaveToggle	vim-go.txt	/*:GoMetaLinterAutoSaveToggle*

@@ -32,7 +32,6 @@ nnoremap k gk
 
 " Window control
 nnoremap <leader>o <c-w>o
-nnoremap <leader>w <c-w>w
 nnoremap <leader>W <c-w>W
 nnoremap <silent> <leader>c <esc>:close<cr>
 nnoremap <silent> <leader>" :split<cr>
@@ -54,6 +53,7 @@ inoremap <f5> <c-r>=strftime("%c")<cr>
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 vnoremap . :norm.<CR>
+nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 
 " Abbreviations
 iab <expr> dts strftime("%c")
@@ -78,17 +78,17 @@ nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>B :ls<cr>:b<space>
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>f :find *
-nnoremap <leader>F :find <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>g :grep<space>
+nnoremap <leader>F :find *
 nnoremap <leader>G :grep <c-r><c-w><cr>
+nnoremap <leader>g :grep<space>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>m :make<cr>
+nnoremap <leader>p :find *
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun<cr>
 nnoremap <leader>R :TxSetRunCmd<cr>
-nnoremap <leader>x :TxSigInt<cr>
 nnoremap <leader>t :ltag<space>/ \| lop<left><left><left><left><left><left>
+nnoremap <leader>x :TxSigInt<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap Y y$
 
@@ -96,10 +96,6 @@ nnoremap Y y$
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
 cnoremap <c-r><c-l> <c-r>=getline('.')<cr>
-
-"Visual mode maps
-vnoremap <leader>@ :norm! @<cr>
-vnoremap <leader>. :norm! .<cr>
 
 " Basics Settings
 set backspace=indent,eol,start " make backspace a more flexible
@@ -349,19 +345,15 @@ let g:EasyMotion_startofline=0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase=1
 let g:EasyMotion_use_smartsign_us=1 " US layout
 " <Leader>f{char} to move to {char}
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-xmap <Leader>f <Plug>(easymotion-bd-f)
-omap <Leader>f <Plug>(easymotion-bd-f)
-" s{char}{char} to move to {char}{char}
-nmap <Leader>s <Plug>(easymotion-overwin-f2)
-xmap <Leader>s <Plug>(easymotion-bd-f2)
-omap <Leader>s <Plug>(easymotion-bd-f2)
+nmap <Leader>f <Plug>(easymotion-overwin-f2)
+xmap <Leader>f <Plug>(easymotion-bd-f2)
+omap <Leader>f <Plug>(easymotion-bd-f2)
 " Move to line
 nmap <Leader>l <Plug>(easymotion-overwin-line)
 xmap <Leader>l <Plug>(easymotion-bd-jk)
 omap <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>w <Plug>(easymotion-overwin-line) " deal with my muscle memory
 " Move to word
-nmap <Leader>w <Plug>(easymotion-overwin-w)
 xmap <Leader>w <Plug>(easymotion-bd-w)
 omap <Leader>w <Plug>(easymotion-bd-w)
 " Search
