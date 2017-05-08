@@ -328,7 +328,7 @@ if has("mouse")
     set mouse=a " use mouse everywhere
     set nomousehide " don't hide the mouse
     if !has('nvim')
-          set ttymouse=xterm2
+        set ttymouse=xterm2
     endif
     " allows clicking after the 223rd column
     if has('mouse_sgr')
@@ -440,11 +440,9 @@ else " MacOSX/Linux
 endif
 
 " Functions
-" Allows you to visually select a section and then hit @ to run a macro on all lines
-" https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db#.3dcn9prw6
 function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
+    echo "@".getcmdline()
+    execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
 function! ToggleFolds()
