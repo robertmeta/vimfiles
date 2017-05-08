@@ -311,8 +311,8 @@ augroup general
     au FileType markdown setlocal spell
     au FileType svn setlocal spell
     " Cursorline in active file
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline number relativenumber
+    au WinLeave * setlocal nocursorline nonumber norelativenumber
 augroup END
 
 " GUI

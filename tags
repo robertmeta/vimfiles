@@ -77,6 +77,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <C-G>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^  cmap <script> <C-G> <C-C>$/;"	m
 <C-G>S	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^    imap      <C-G>S <Plug>ISurround$/;"	m
 <C-G>s	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^    imap      <C-G>s <Plug>Isurround$/;"	m
+<C-LeftMouse>	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> <C-LeftMouse> <LeftMouse>:GoDef<cr>$/;"	m
 <C-R>	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^    nmap <C-R> <Plug>(RepeatRedo)$/;"	m
 <C-S>	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^      imap    <C-S> <Plug>Isurround$/;"	m
 <C-T>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^cmap   <script> <C-T> <SID>transposition<SID>transpose$/;"	m
@@ -908,6 +909,7 @@ GoInfo	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -narg
 GoInstall	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -bang GoInstall call go#cmd#Install(<bang>0, <f-args>)$/;"	c
 GoInstallBinaries	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^command! GoInstallBinaries call s:GoInstallBinaries(-1)$/;"	c
 GoInstallBinaries	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:GoInstallBinaries(updateBinaries)$/;"	f
+GoKeyify	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 GoKeyify call go#keyify#Keyify()$/;"	c
 GoLint	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* GoLint call go#lint#Golint(<f-args>)$/;"	c
 GoMetaLinter	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* GoMetaLinter call go#lint#Gometa(0, <f-args>)$/;"	c
 GoMetaLinterAutoSaveToggle	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 GoMetaLinterAutoSaveToggle call go#lint#ToggleMetaLinterAutoSave()$/;"	c
@@ -1352,6 +1354,7 @@ PrevNonBlankNonString	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^
 PrevNonBlankNonString	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:PrevNonBlankNonString(lnum)$/;"	f
 Previous releases	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## Previous releases$/;"	i
 PreviousNotMSL	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:PreviousNotMSL(msl_info)$/;"	f
+Profile script for µcomplete	pack/plugins/start/lifepillar-vim-mucomplete/test/Readme.md	/^# Profile script for µcomplete$/;"	h
 Prompt	pack/plugins/start/easymotion-vim-easymotion/autoload/EasyMotion.vim	/^function! s:Prompt(message) " {{{$/;"	f
 PromptEnvWrapSelection	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vim	/^function! s:PromptEnvWrapSelection(...)$/;"	f
 PromptForMainFile	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^function! s:PromptForMainFile()$/;"	f
@@ -2561,6 +2564,7 @@ char_range	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/_easymoti
 char_range	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:char_range(from, to) abort$/;"	f
 charset	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let charset = [$/;"	v
 check_for_string	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:check_for_string()$/;"	f
+chomp	pack/plugins/start/fatih-vim-go/autoload/go/keyify.vim	/^function! s:chomp(string)$/;"	f
 chomp	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:chomp(str) abort "{{{$/;"	f
 choose	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^function! s:choose(word)$/;"	f
 choose_better_pos	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:choose_better_pos(flags, ORIG_POS, pfh, pft, pbh, pbt)$/;"	f
@@ -3359,6 +3363,7 @@ g:vim_markdown_folding_disabled	vimrc	/^let g:vim_markdown_folding_disabled=0$/;
 g:vim_markdown_frontmatter	vimrc	/^let g:vim_markdown_frontmatter=1$/;"	v
 g:xmldata_aria	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let g:xmldata_aria = {$/;"	v
 g:xmldata_html5	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let g:xmldata_html5 = {$/;"	v
+g<LeftMouse>	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> g<LeftMouse> <LeftMouse>:GoDef<cr>$/;"	m
 gather_candidates	pack/plugins/start/wellle-tmux-complete-vim/rplugin/python3/deoplete/sources/tmuxcomplete.py	/^    def gather_candidates(self, context):$/;"	m	class:Source
 gather_poses	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/_easymotion/HitAHint/Motion.vim	/^function! s:gather_poses(pattern) abort$/;"	f
 gather_visible_matched_poses	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/_easymotion/HitAHint/Motion.vim	/^function! s:gather_visible_matched_poses(pattern, direction, allow_cursor_pos_match) abort$/;"	f
@@ -3486,6 +3491,7 @@ go#job#Spawn	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^function go#j
 go#jobcontrol#AddHandler	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^function! go#jobcontrol#AddHandler(handler) abort$/;"	f
 go#jobcontrol#RemoveHandler	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^function! go#jobcontrol#RemoveHandler(id) abort$/;"	f
 go#jobcontrol#Spawn	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^function! go#jobcontrol#Spawn(bang, desc, args) abort$/;"	f
+go#keyify#Keyify	pack/plugins/start/fatih-vim-go/autoload/go/keyify.vim	/^function! go#keyify#Keyify()$/;"	f
 go#lint#Errcheck	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^function! go#lint#Errcheck(...) abort$/;"	f
 go#lint#Golint	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^function! go#lint#Golint(...) abort$/;"	f
 go#lint#Gometa	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^function! go#lint#Gometa(autosave, ...) abort$/;"	f
