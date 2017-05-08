@@ -144,7 +144,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Leader>rt	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rt :TextileRenderTab<CR>$/;"	m
 <Leader>w	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        nmap <Leader>w <Plug>(easymotion-iskeyword-w)$/;"	m
 <Leader>w	pack/plugins/start/easymotion-vim-easymotion/t/easymotion_spec.vim	/^        map <Leader>w <Plug>(easymotion-iskeyword-w)$/;"	m
-<Leader>w	vimrc	/^nmap <Leader>w <Plug>(easymotion-overwin-line) " deal with my muscle memory$/;"	m
+<Leader>w	vimrc	/^nmap <Leader>w <Plug>(easymotion-overwin-line)$/;"	m
 <Leader>w	vimrc	/^omap <Leader>w <Plug>(easymotion-bd-w)$/;"	m
 <LocalLeader>C	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^    nmap <buffer> <LocalLeader>C <Plug>LUncomOff$/;"	m
 <LocalLeader>C	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^    vmap <buffer> <LocalLeader>C <Plug>BUncomOff$/;"	m

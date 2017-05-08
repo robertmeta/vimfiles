@@ -352,7 +352,7 @@ omap <Leader>f <Plug>(easymotion-bd-f2)
 nmap <Leader>l <Plug>(easymotion-overwin-line)
 xmap <Leader>l <Plug>(easymotion-bd-jk)
 omap <Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader>w <Plug>(easymotion-overwin-line) " deal with my muscle memory
+nmap <Leader>w <Plug>(easymotion-overwin-line)
 " Move to word
 xmap <Leader>w <Plug>(easymotion-bd-w)
 omap <Leader>w <Plug>(easymotion-bd-w)
