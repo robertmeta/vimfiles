@@ -51,8 +51,11 @@ inoremap <silent> ;t <c-x><c-]>
 inoremap <silent> ;u <c-x><c-u>
 inoremap <f5> <c-r>=strftime("%c")<cr>
 
+" Make @ . work on selected text
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 vnoremap . :norm.<CR>
+
+" Vertical split and scrollbind
 nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 
 " Abbreviations
@@ -313,7 +316,7 @@ augroup general
     " Cursorline in active file
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline number relativenumber
     au WinLeave * setlocal nocursorline nonumber norelativenumber
-augroup END
+augroup end
 
 " GUI
 if has("gui_running")
@@ -460,14 +463,15 @@ function! ToggleFolds()
 endfunction
 
 function! StripTrailingWhitespace()
-  if !&binary && &filetype != 'diff'
-    normal mz
-    normal Hmy
-    %s/\s\+$//e
-    normal 'yz<cr>
-    normal `z
-  endif
+    if !&binary && &filetype != 'diff'
+        normal mz
+        normal Hmy
+        %s/\s\+$//e
+        normal 'yz<cr>
+        normal `z
+    endif
 endfunction
+command! StripTrailingWhitespace :call StripTrailingWhitespace()
 
 function! PasteForStatusline()
     let paste_status = &paste

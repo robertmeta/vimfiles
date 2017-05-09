@@ -1494,6 +1494,7 @@ StatementStart	pack/plugins/start/sheerun-vim-polyglot/indent/python.vim	/^funct
 Status	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Status() abort$/;"	f
 StatusOf	pack/plugins/start/kana-vim-textobj-user/t/plugin.vim	/^function! StatusOf(lhs)$/;"	f
 Steps to reproduce:	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### Steps to reproduce:$/;"	k
+StripTrailingWhitespace	vimrc	/^command! StripTrailingWhitespace :call StripTrailingWhitespace()$/;"	c
 StripTrailingWhitespace	vimrc	/^function! StripTrailingWhitespace()$/;"	f
 Stylus	pack/plugins/start/sheerun-vim-polyglot/ftplugin/stylus.vim	/^command! Stylus !clear; cat % | stylus$/;"	c
 SubComplete	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:SubComplete(A,L,P)$/;"	f
