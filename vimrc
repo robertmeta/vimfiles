@@ -322,7 +322,7 @@ augroup end
 if has("gui_running")
     set guioptions=cm " use simple dialogs rather than pop-ups & show menu
     if s:running_windows
-        set guifont=Consolas
+        set guifont=Hack,Consolas
     endif
 endif
 
