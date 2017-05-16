@@ -1897,6 +1897,7 @@ aM	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^    onoremap <sil
 aa\<Esc>	pack/plugins/start/easymotion-vim-easymotion/t/compare_movements_spec.vim	/^        normal aa\\<Esc>$/;"	m
 abbreviate_from_dict	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:abbreviate_from_dict(cmd,dict)$/;"	f
 abortMatch	pack/plugins/start/wellle-targets-vim/autoload/targets.vim	/^function! s:abortMatch(message)$/;"	f
+absolutes	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^function! s:absolutes(first, ...) abort$/;"	f
 abstract_role	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let abstract_role = {}$/;"	v
 abstract_role	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let abstract_role['composite'] = abstract_role['widget'] + ['aria-activedescendant']$/;"	v
 abstract_role	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let abstract_role['input'] = abstract_role['widget']$/;"	v
@@ -4239,6 +4240,7 @@ regionize	pack/plugins/start/kana-vim-textobj-user/t/move.vim	/^function! s:regi
 register.restore	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/_easymotion/Vim/Guard.vim	/^function! s:register.restore() abort$/;"	f
 reindent	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:reindent() " {{{1$/;"	f
 relationship_attributes	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let relationship_attributes = {$/;"	v
+relatives	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^function! s:relatives(first, ...) abort$/;"	f
 relrev	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^    let relrev = ['chapter', 'contents', 'copyright', 'first', 'glossary', 'help', 'icon', 'index', 'last', 'license', 'meta', 'next', 'p3pv1', 'prev', 'role', 'section', 'stylesheet', 'subsection', 'start', 'top', 'up']$/;"	v
 rename_job	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^function s:rename_job(args)$/;"	f
 repeat#invalidate	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^function! repeat#invalidate()$/;"	f
@@ -5335,6 +5337,7 @@ sid2sfuncs	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/easymotio
 size	pack/plugins/start/glts-vim-textobj-comment/t/fixtures/simple.py	/^size = [640, 480]$/;"	v
 skip_func	pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:skip_func()$/;"	f
 skip_func	pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:skip_func()$/;"	f
+slash	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^function! s:slash() abort$/;"	f
 smart_execute_command	pack/plugins/start/easymotion-vim-easymotion/autoload/vital/_easymotion/Prelude.vim	/^function! s:smart_execute_command(action, word) abort$/;"	f
 smart_execute_command	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:smart_execute_command(action, word) abort$/;"	f
 smartdict_jp	pack/plugins/start/easymotion-vim-easymotion/t/smartsign_spec.vim	/^        let smartdict_jp = g:EasyMotion#sticky_table#jp$/;"	v

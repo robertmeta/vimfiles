@@ -155,13 +155,12 @@ Section 5: Path completion                *mucomplete-path-complete*
 
 MUcomplete provides two different methods to complete file paths:
 `'file'` and `'path'`. The `'file'` completion method is based on
-Vim's built-in file completion (see |i_CTRL-X_CTRL-F|) and works
-exactly as |i_CTRL-X_CTRL-F|. A limitation of the `'file'` method is
-that it does not expand paths containing spaces (in principle, one
-could add a space to |'isfname'|, but that is not recommended: see
-|'isfname'| for the details). Another limitation is that relative
-paths are always completed with respect to the current working
-directory.
+Vim's built-in file completion and works exactly as
+|i_CTRL-X_CTRL-F|. A limitation of the `'file'` method is that it
+does not expand paths containing spaces (in principle, one could add
+a space to |'isfname'|, but that is not recommended: see |'isfname'|
+for the details). Another limitation is that relative paths are
+always completed with respect to the current working directory.
 
 MUcomplete also implements its own path completion method, called
 `'path'`, which is enabled by default. It differs from `'file'`
@@ -175,7 +174,8 @@ current buffer (see |g:mucomplete#buffer_relative_paths|).
 
 See also |mucomplete-tips|.
 
-Note: `'path'` completion requires Vim 7.3.465 or later.
+Note: `'path'` completion requires Vim 7.3.465 or later. Older Vim
+uses `'file'` completion by default.
 
 ====================================================================
 Section 6: Spelling suggestions           *mucomplete-spel-complete*
@@ -200,16 +200,13 @@ is on.
 Section 7: Commands                            *mucomplete-commands*
 
                                                  *:MUcompleteAutoOn*
-`:MUcompleteAutoOn`
-  Enable automatic completion.
+Enable automatic completion.
 
                                                 *:MUcompleteAutoOff*
-`:MUcompleteAutoOff`
-  Disable automatic completion.
+Disable automatic completion.
 
                                              *:MUcompleteAutoToggle*
-`:MUcompleteAutoToggle`
-  Toggle automatic completion.
+Toggle automatic completion.
 
 ====================================================================
 Section 8: Mappings                            *mucomplete-mappings*
@@ -252,7 +249,7 @@ To use, say, <left> and <right> as cycling keys, use the following:
 <
 Note: if you decide to use your own cycling keys, please be aware
 that the keys that are valid in CTRL-X mode are not mapped (see
-|ins-completion|). This means, for example, that if you map `<c-k>`
+|ins-completion|). This means, for example, that if you use `<c-k>`
 as a cycling key, such mapping will be shadowed when the pop-up menu
 is offering dictionary suggestions, because CTRL-K is already used
 by Vim during dictionary completion to search for the next matching
@@ -365,10 +362,15 @@ CTRL-P to select the entries in the pop-up menu.
 By default, when you press <tab> to complete a word, µcomplete
 inserts a literal Tab character if there is no non-space character
 before the cursor. Set this to 1 if you want manual completion to be
-triggered no matter what the character in front of the cursor is.
+triggered no matter what the character in front of the cursor is
+(|g:mucomplete#can_complete| will still be applied):
 >
   let g:mucomplete#empty_text = 0
 <
+Setting this variable to 1 is useful in very limited circumstances,
+e.g., to trigger omni-completion at the start of a line in some
+buffer types.
+
                              *'g:mucomplete#enable_auto_at_startup'*
 Set to 1 to enable automatic completion at startup.
 >
@@ -484,7 +486,7 @@ You may adapt the following snippet:
       return mucomplete#tab_complete(1)
     endif
   endf
-  
+
   imap <expr> <silent> <tab> MyTabAction()
 <
 How to simulate ZSH behaviour for 'file' completion? ~
@@ -567,7 +569,7 @@ instead of:
   set completeopt+=t
   let g:mucomplete#chains = { 'default' : ['c-p'] }
 <
-which would scan tags and included files, you might use:
+which would always scan tags and included files, you might use:
 >
   set complete-=i
   set complete-=t
@@ -624,10 +626,23 @@ follows:
     \               . "\<plug>snipMateNextOrTrigger"
 <
 so you can expand a snippet while the pop-up menu is still visible.
-If you want to use <tab> to expand snippets, you have to either
-disable µcomplete's mappings (see |g:mucomplete#no_mappings|) or map
-µcomplete's manual completion trigger to something else (see
-|mucomplete-mappings|).
+By the way, if you use <c-j> in the mapping above, do not forget to
+map <plug>(MUcompleteCycFwd) (see |mucomplete-mappings|), too, e.g.:
+>
+  inoremap <silent> <plug>(MUcompleteFwdKey) <right>
+  imap <expr> <right> <plug>(MUcompleteCycFwd)
+>
+otherwise you will get an error at startup:
+>
+  E227: mapping already exists for ^@
+<
+because µcomplete maps <c-j> to <plug>(MUcompleteCycFwd) by default.
+Similarly, if you want to use <tab> to expand snippets, you have to
+map µcomplete's manual completion trigger to something else. If
+µcomplete's mappings get too much in the way, you may also disable
+them completely (see |g:mucomplete#no_mappings|). Finally, see also
+|mucomplete-tips| for a more sophisticated definition of a <tab>
+mapping.
 
 vim-peekabo ~
 By default, vim-peekabo remaps <c-r> in Insert mode. Since µcomplete
