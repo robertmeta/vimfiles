@@ -109,6 +109,7 @@ EOF
 PACKS="
   apiblueprint:sheerun/apiblueprint.vim
   applescript:vim-scripts/applescript.vim
+  asciidoc:asciidoc/vim-asciidoc
   yaml:stephpy/vim-yaml
   ansible:pearofducks/ansible-vim
   arduino:sudar/vim-arduino-syntax
@@ -136,6 +137,7 @@ PACKS="
   glsl:tikhomirov/vim-glsl
   gnuplot:vim-scripts/gnuplot-syntax-highlighting
   go:fatih/vim-go:_BASIC
+  graphql:jparise/vim-graphql
   groovy:vim-scripts/groovy.vim
   haml:sheerun/vim-haml
   handlebars:mustache/vim-mustache-handlebars
@@ -158,7 +160,7 @@ PACKS="
   mako:sophacles/vim-bundle-mako
   markdown:plasticboy/vim-markdown:_SYNTAX
   mathematica:rsmenon/vim-mathematica
-  nginx:othree/nginx-contrib-vim
+  nginx:chr4/nginx.vim
   nim:zah/nim.vim:_BASIC
   nix:spwhitt/vim-nix
   objc:b4winckler/vim-objc
@@ -178,6 +180,7 @@ PACKS="
   python-compiler:aliev/vim-compiler-python
   qml:peterhoeg/vim-qml
   r-lang:vim-scripts/R.vim
+  racket:wlangstroth/vim-racket
   raml:IN3D/vim-raml
   ragel:jneen/ragel.vim
   rspec:sheerun/rspec.vim
