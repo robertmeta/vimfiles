@@ -107,6 +107,7 @@ set breakindent " this is just awesome (best patch in a long time)
 set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,noselect,noinsert
 set complete=.,w,b,u,U,i,t " complete options
+set conceallevel=0 " Don't hide from me!
 set cursorline " cursor line highlight
 set diffopt=vertical,filler,iwhite " filler and whitespace
 set directory=~/.vim/temp/,~/vimfiles/temp/ " directory to place swap files in
@@ -313,8 +314,8 @@ augroup general
     au FileType markdown setlocal spell
     au FileType svn setlocal spell
     " Cursorline in active file
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline number relativenumber
-    au WinLeave * setlocal nocursorline nonumber norelativenumber
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
+    au WinLeave * setlocal nocursorline norelativenumber
 augroup end
 
 " GUI
