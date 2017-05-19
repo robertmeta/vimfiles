@@ -21,6 +21,7 @@ func main() {
 		"tomasr/molokai",
 	}
 	plugins := []string{
+		"airblade/vim-gitgutter",
 		"fatih/vim-go",
 		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
