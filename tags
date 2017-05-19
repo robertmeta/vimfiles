@@ -99,6 +99,10 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Leader>fr	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>fr :FufFile <c-r>=scala#GetRootDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
 <Leader>fs	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>fs :FufFile <c-r>=scala#GetMainDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
 <Leader>ft	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^      nnoremap <buffer> <silent> <Leader>ft :FufFile <c-r>=scala#GetTestDirForFuzzyFinder('%:p:h')<cr><cr>$/;"	m
+<Leader>hp	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    nmap <Leader>hp <Plug>GitGutterPreviewHunk$/;"	m
+<Leader>hr	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    nmap <Leader>hr <Plug>GitGutterUndoHunk:echomsg '<Leader>hr is deprecated. Use <Leader>hu'<CR>$/;"	m
+<Leader>hs	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    nmap <Leader>hs <Plug>GitGutterStageHunk$/;"	m
+<Leader>hu	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    nmap <Leader>hu <Plug>GitGutterUndoHunk$/;"	m
 <Leader>rf	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rf :TextileRenderFile<CR>$/;"	m
 <Leader>rp	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rp :TextilePreview<CR>$/;"	m
 <Leader>rt	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^noremap <buffer> <Leader>rt :TextileRenderTab<CR>$/;"	m
@@ -227,6 +231,13 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Plug>CommentaryUndo	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^nmap <silent> <Plug>CommentaryUndo <Plug>Commentary<Plug>Commentary$/;"	m
 <Plug>Csurround	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^nnoremap <silent> <Plug>Csurround  :<C-U>call <SID>changesurround()<CR>$/;"	m
 <Plug>Dsurround	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^nnoremap <silent> <Plug>Dsurround  :<C-U>call <SID>dosurround(<SID>inputtarget())<CR>$/;"	m
+<Plug>GitGutterNextHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^nnoremap <silent> <expr> <Plug>GitGutterNextHunk &diff ? ']c' : ":\\<C-U>execute v:count1 . 'GitGutterNextHunk'\\<CR>"$/;"	m
+<Plug>GitGutterPrevHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^nnoremap <silent> <expr> <Plug>GitGutterPrevHunk &diff ? '[c' : ":\\<C-U>execute v:count1 . 'GitGutterPrevHunk'\\<CR>"$/;"	m
+<Plug>GitGutterPreviewHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^nnoremap <silent> <Plug>GitGutterPreviewHunk :GitGutterPreviewHunk<CR>$/;"	m
+<Plug>GitGutterStageHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^nnoremap <silent> <Plug>GitGutterStageHunk   :GitGutterStageHunk<CR>$/;"	m
+<Plug>GitGutterTextObjectInnerPending	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^onoremap <silent> <Plug>GitGutterTextObjectInnerPending :<C-U>call gitgutter#hunk#text_object(1)<CR>$/;"	m
+<Plug>GitGutterTextObjectOuterPending	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^onoremap <silent> <Plug>GitGutterTextObjectOuterPending :<C-U>call gitgutter#hunk#text_object(0)<CR>$/;"	m
+<Plug>GitGutterUndoHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^nnoremap <silent> <Plug>GitGutterUndoHunk    :GitGutterUndoHunk<CR>$/;"	m
 <Plug>ISurround	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^inoremap <silent> <Plug>ISurround  <C-R>=<SID>insert(1)<CR>$/;"	m
 <Plug>Isurround	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^inoremap <silent> <Plug>Isurround  <C-R>=<SID>insert()<CR>$/;"	m
 <Plug>LUncomOff	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  nnoremap <buffer> <Plug>LUncomOff :s\/^(\\* \\(.*\\) \\*)\/\\1\/<CR>:noh<CR>$/;"	m
@@ -367,6 +378,7 @@ AfterHangingSplat	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^func
 AfterIndentKeyword	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AfterIndentKeyword(pline_info) abort$/;"	f
 AfterLeadingOperator	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AfterLeadingOperator(pline_info) abort$/;"	f
 AfterUnbalancedBracket	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:AfterUnbalancedBracket(pline_info) abort$/;"	f
+Align	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^function Align(left, right)$/;"	f
 All terminal emulators	pack/colors/start/romainl-apprentice/README.md	/^### All terminal emulators$/;"	k
 Anti-features	pack/plugins/start/romainl-vim-qf/README.md	/^### Anti-features$/;"	k
 AsmFmt	pack/plugins/start/fatih-vim-go/ftplugin/asm.vim	/^command! -nargs=0 AsmFmt call go#asmfmt#Format()$/;"	c
@@ -548,6 +560,7 @@ ErlangShowTokensInLine	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim
 ErrMsg	pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^function! s:ErrMsg(msg)$/;"	f
 Error	pack/plugins/start/fatih-vim-go/autoload/go/import.vim	/^function! s:Error(s) abort$/;"	f
 EscapeTitle	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^function! s:EscapeTitle(titlestr)$/;"	f
+Exception	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^function Exception()$/;"	f
 ExecMove	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:ExecMove(cmd) abort$/;"	f
 ExecuteInTree	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:ExecuteInTree(cmd) abort$/;"	f
 ExecuteMacroOverVisualRange	vimrc	/^function! ExecuteMacroOverVisualRange()$/;"	f
@@ -587,6 +600,7 @@ FinishCommit	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^functio
 Fixup	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar Fixup  :call s:choose('fixup')$/;"	c
 FoldSectionLevels	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^function! s:FoldSectionLevels()$/;"	f
 FoldableRegion	pack/plugins/start/sheerun-vim-polyglot/syntax/lua.vim	/^function! s:FoldableRegion(tag, name, expr)$/;"	f
+FriendlyName	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^function FriendlyName(test_name)$/;"	f
 G	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> G G4k$/;"	m
 GF	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:GF(mode) abort$/;"	f
 GFInit	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:GFInit(...) abort$/;"	f
@@ -675,6 +689,26 @@ GetVueIndent	pack/plugins/start/sheerun-vim-polyglot/indent/vue.vim	/^function! 
 Getting Started	pack/plugins/start/lifepillar-vim-mucomplete/Readme.md	/^# Getting Started$/;"	h
 Git	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Git(bang, args) abort$/;"	f
 GitComplete	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:GitComplete(A, L, P) abort$/;"	f
+GitGutter	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutter    call gitgutter#process_buffer(bufnr(''), 0)$/;"	c
+GitGutterAll	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterAll call gitgutter#all()$/;"	c
+GitGutterDebug	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterDebug call gitgutter#debug#debug()$/;"	c
+GitGutterDisable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterDisable call gitgutter#disable()$/;"	c
+GitGutterEnable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterEnable  call gitgutter#enable()$/;"	c
+GitGutterGetHunkSummary	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^function! GitGutterGetHunkSummary()$/;"	f
+GitGutterGetHunks	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^function! GitGutterGetHunks()$/;"	f
+GitGutterLineHighlightsDisable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterLineHighlightsDisable call gitgutter#line_highlights_disable()$/;"	c
+GitGutterLineHighlightsEnable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterLineHighlightsEnable  call gitgutter#line_highlights_enable()$/;"	c
+GitGutterLineHighlightsToggle	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterLineHighlightsToggle  call gitgutter#line_highlights_toggle()$/;"	c
+GitGutterNextHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar -count=1 GitGutterNextHunk call gitgutter#hunk#next_hunk(<count>)$/;"	c
+GitGutterPrevHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar -count=1 GitGutterPrevHunk call gitgutter#hunk#prev_hunk(<count>)$/;"	c
+GitGutterPreviewHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterPreviewHunk call gitgutter#preview_hunk()$/;"	c
+GitGutterRevertHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterRevertHunk  echomsg 'GitGutterRevertHunk is deprecated. Use GitGutterUndoHunk'<Bar>call gitgutter#undo_hunk()$/;"	c
+GitGutterSignsDisable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterSignsDisable call gitgutter#signs_disable()$/;"	c
+GitGutterSignsEnable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterSignsEnable  call gitgutter#signs_enable()$/;"	c
+GitGutterSignsToggle	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterSignsToggle  call gitgutter#signs_toggle()$/;"	c
+GitGutterStageHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterStageHunk   call gitgutter#stage_hunk()$/;"	c
+GitGutterToggle	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterToggle  call gitgutter#toggle()$/;"	c
+GitGutterUndoHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterUndoHunk    call gitgutter#undo_hunk()$/;"	c
 Global features (available from any window)	pack/plugins/start/romainl-vim-qf/README.md	/^### Global features (available from any window)$/;"	k
 GoAddTags	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -range GoAddTags call go#tags#Add(<line1>, <line2>, <count>, <f-args>)$/;"	c
 GoAlternate	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -bang GoAlternate call go#alternate#Switch(<bang>0, '')$/;"	c
@@ -988,6 +1022,7 @@ LoadListAdd	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -
 Load_Settings_Override	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:Load_Settings_Override(custom)$/;"	f
 Local features (available only in location/quickfix windows)	pack/plugins/start/romainl-vim-qf/README.md	/^### Local features (available only in location\/quickfix windows)$/;"	k
 Locate	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -bang -complete=file -nargs=+ Locate exe s:Grep(<q-bang>, <q-args>, 'locate')$/;"	c
+Log	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^function Log(msg)$/;"	f
 Log	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:Log(s)$/;"	f
 Log	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Log(cmd, line1, line2, ...) abort$/;"	f
 LoopParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^:LoopParseArgs$/;"	l
@@ -1133,6 +1168,7 @@ QuickhlTagDisable	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^comma
 QuickhlTagEnable	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlTagEnable   :call quickhl#tag#enable()$/;"	c
 QuickhlTagToggle	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^command! QuickhlTagToggle   :call quickhl#tag#toggle()$/;"	c
 Racket_visual_doc	pack/plugins/start/sheerun-vim-polyglot/ftplugin/racket.vim	/^function! s:Racket_visual_doc()$/;"	f
+Random	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^function Random(min, max)$/;"	f
 RandomID	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mma.vim	/^	function! RandomID()$/;"	f
 ReadOnPath	pack/plugins/start/sheerun-vim-polyglot/syntax/ragel.vim	/^fun! <SID>ReadOnPath(script)$/;"	f
 ReadTOC	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/motion.vim	/^function! s:ReadTOC(auxfile, texfile, ...)$/;"	f
@@ -1157,6 +1193,7 @@ RubyCursorFile	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^funct
 RubyCursorIdentifier	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^function! RubyCursorIdentifier() abort$/;"	f
 Run	pack/plugins/start/sheerun-vim-polyglot/autoload/rust.vim	/^function! s:Run(dict, rustc_args, args)$/;"	f
 RunRustfmt	pack/plugins/start/sheerun-vim-polyglot/autoload/rustfmt.vim	/^function! s:RunRustfmt(command, curw, tmpname)$/;"	f
+RunTest	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^function RunTest(test)$/;"	f
 RustEmitAsm	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rust.vim	/^command! -nargs=* -buffer RustEmitAsm call rust#Emit("asm", <q-args>)$/;"	c
 RustEmitIr	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rust.vim	/^command! -nargs=* -buffer RustEmitIr call rust#Emit("llvm-ir", <q-args>)$/;"	c
 RustExpand	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rust.vim	/^command! -nargs=* -complete=customlist,rust#CompleteExpand -bang -buffer RustExpand call rust#Expand(<bang>0, <q-args>)$/;"	c
@@ -1191,6 +1228,7 @@ SetMakePrg	pack/plugins/start/sheerun-vim-polyglot/compiler/coffee.vim	/^functio
 SetMakePrg	pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^function! s:SetMakePrg()$/;"	f
 SetTagbar	pack/plugins/start/fatih-vim-go/ftplugin/go/tagbar.vim	/^function! s:SetTagbar()$/;"	f
 SetTitle	pack/plugins/start/romainl-vim-qf/autoload/qf/filter.vim	/^function! s:SetTitle(pat, reject)$/;"	f
+SetUp	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function SetUp()$/;"	f
 Settings	pack/plugins/start/wellle-tmux-complete-vim/README.md	/^## Settings$/;"	i
 ShellTokenize	pack/plugins/start/sheerun-vim-polyglot/autoload/rust.vim	/^function! s:ShellTokenize(text)$/;"	f
 ShiftWidth	pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^  function! s:ShiftWidth()$/;"	f
@@ -1198,6 +1236,7 @@ ShouldSkip	pack/plugins/start/sheerun-vim-polyglot/indent/coffee.vim	/^function!
 ShouldSkip	pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:ShouldSkip(startlinenum, linenum, col)$/;"	f
 ShowUsage	pack/plugins/start/ludovicchabant-vim-gutentags/plat/unix/update_scopedb.sh	/^ShowUsage() {$/;"	f
 ShowUsage	pack/plugins/start/ludovicchabant-vim-gutentags/plat/unix/update_tags.sh	/^ShowUsage() {$/;"	f
+Shuffle	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^function Shuffle(list)$/;"	f
 SkipExpr	pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:SkipExpr(startlinenum)$/;"	f
 SmartSearch	pack/plugins/start/sheerun-vim-polyglot/indent/ls.vim	/^function! s:SmartSearch(linenum, regex)$/;"	f
 Source	pack/plugins/start/wellle-tmux-complete-vim/rplugin/python3/deoplete/sources/tmuxcomplete.py	/^class Source(Base):$/;"	c
@@ -1260,17 +1299,42 @@ TOCOpenBuf	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^funct
 TOCToggleNumbers	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^function! s:TOCToggleNumbers()$/;"	f
 TODO	pack/plugins/start/romainl-vim-qf/README.md	/^## TODO$/;"	i
 TODO	pack/plugins/start/romainl-vim-qlist/README.md	/^## TODO$/;"	i
+TearDown	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function TearDown()$/;"	f
 Terminal emulators	pack/colors/start/romainl-disciple/README.md	/^### Terminal emulators$/;"	k
 Terminal multiplexers	pack/colors/start/romainl-disciple/README.md	/^### Terminal multiplexers$/;"	k
 TerraformFoldText	pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/terraform.vim	/^function! TerraformFoldText()$/;"	f
 TerraformFolds	pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/terraform.vim	/^function! TerraformFolds()$/;"	f
 TerraformIndent	pack/plugins/start/sheerun-vim-polyglot/indent/terraform.vim	/^function! TerraformIndent(lnum)$/;"	f
 Test	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mma.vim	/^	function! Test()$/;"	f
+Test_add_lines	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_add_lines()$/;"	f
+Test_add_lines_fish	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_add_lines_fish()$/;"	f
 Test_add_tags	pack/plugins/start/fatih-vim-go/autoload/go/tags_test.vim	/^func Test_add_tags()$/;"	f
+Test_edit_file_with_same_name_as_a_branch	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_edit_file_with_same_name_as_a_branch()$/;"	f
+Test_file_added_to_git	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_file_added_to_git()$/;"	f
+Test_filename_with_equals	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_filename_with_equals()$/;"	f
+Test_filename_with_square_brackets	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_filename_with_square_brackets()$/;"	f
+Test_follow_symlink	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_follow_symlink()$/;"	f
+Test_hunk_outside_noop	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_hunk_outside_noop()$/;"	f
+Test_hunk_stage	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_hunk_stage()$/;"	f
+Test_hunk_stage_nearby_hunk	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_hunk_stage_nearby_hunk()$/;"	f
+Test_hunk_undo	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_hunk_undo()$/;"	f
 Test_jump_to_declaration_godef	pack/plugins/start/fatih-vim-go/autoload/go/def_test.vim	/^func Test_jump_to_declaration_godef()$/;"	f
 Test_jump_to_declaration_guru	pack/plugins/start/fatih-vim-go/autoload/go/def_test.vim	/^func Test_jump_to_declaration_guru()$/;"	f
+Test_keep_alt	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_keep_alt()$/;"	f
+Test_keep_modified	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_keep_modified()$/;"	f
+Test_keep_op_marks	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_keep_op_marks()$/;"	f
+Test_modify_lines	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_modify_lines()$/;"	f
+Test_no_modifications	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_no_modifications()$/;"	f
+Test_orphaned_signs	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_orphaned_signs()$/;"	f
+Test_remove_first_lines	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_remove_first_lines()$/;"	f
+Test_remove_lines	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_remove_lines()$/;"	f
 Test_remove_tags	pack/plugins/start/fatih-vim-go/autoload/go/tags_test.vim	/^func Test_remove_tags()$/;"	f
 Test_run_fmt	pack/plugins/start/fatih-vim-go/autoload/go/fmt_test.vim	/^func Test_run_fmt()$/;"	f
+Test_sign_column_always	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_sign_column_always()$/;"	f
+Test_undo_nearby_hunk	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_undo_nearby_hunk()$/;"	f
+Test_untracked_file_outside_repo	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_untracked_file_outside_repo()$/;"	f
+Test_untracked_file_square_brackets_within_repo	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_untracked_file_square_brackets_within_repo()$/;"	f
+Test_untracked_file_within_repo	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_untracked_file_within_repo()$/;"	f
 Test_update_file	pack/plugins/start/fatih-vim-go/autoload/go/fmt_test.vim	/^func Test_update_file()$/;"	f
 Testing	pack/plugins/start/ludovicchabant-vim-gutentags/CONTRIBUTING.md	/^## Testing$/;"	i
 TextilePreview	pack/plugins/start/sheerun-vim-polyglot/ftplugin/textile.vim	/^command! -nargs=0 TextilePreview call TextileRenderBufferToPreview()$/;"	c
@@ -1347,6 +1411,7 @@ Y	vimrc	/^nnoremap Y y\$$/;"	m
 []	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^noremap  <buffer> <silent> [] :call <SID>LatexBoxNextSection(1,1,0)<CR>$/;"	m
 []	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^vnoremap <buffer> <silent> [] :<c-u>call <SID>LatexBoxNextSection(1,1,1)<CR>$/;"	m
 []	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  nnoremap <silent> <buffer> [] :<C-U>call <SID>searchsyn('\\<end\\>',['rubyModule','rubyClass'],'b','n')<CR>$/;"	m
+[c	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    nmap [c <Plug>GitGutterPrevHunk$/;"	m
 [d	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  nnoremap <silent> <script> <buffer> [d          :<C-U>exe <SID>jump('pedit',v:count)<CR>$/;"	m
 [e	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap [e <Plug>unimpairedMoveUp$/;"	m
 [f	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap [f <Plug>unimpairedDirectoryPrevious$/;"	m
@@ -1376,6 +1441,7 @@ Y	vimrc	/^nnoremap Y y\$$/;"	m
 ]]	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rust.vim	/^nnoremap <silent> <buffer> ]] :call rust#Jump('n', 'Forward')<CR>$/;"	m
 ]]	pack/plugins/start/sheerun-vim-polyglot/ftplugin/rust.vim	/^onoremap <silent> <buffer> ]] :call rust#Jump('o', 'Forward')<CR>$/;"	m
 ]]	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^noremap <script> <buffer> <silent> ]] :call <SID>NextSection(0)<cr>$/;"	m
+]c	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    nmap ]c <Plug>GitGutterNextHunk$/;"	m
 ]d	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  nnoremap <silent> <script> <buffer> ]d          :<C-U>exe <SID>jump('pedit',v:count)<CR>$/;"	m
 ]e	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap ]e <Plug>unimpairedMoveDown$/;"	m
 ]f	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap ]f <Plug>unimpairedDirectoryNext$/;"	m
@@ -1448,6 +1514,8 @@ abstract_role	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^le
 abstract_role	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let abstract_role['widget'] = abstract_role['roletype']$/;"	v
 abstract_role	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/aria.vim	/^let abstract_role['window'] = abstract_role['roletype'] + ['aria-expanded']$/;"	v
 abutton_dec	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let abutton_dec = 'details\\\\|embed\\\\|iframe\\\\|keygen\\\\|label\\\\|menu\\\\|select\\\\|textarea'$/;"	v
+ac	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    omap ac <Plug>GitGutterTextObjectOuterPending$/;"	m
+accumulate_job_output	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:accumulate_job_output(id, line) abort$/;"	f
 act_on_pumvisible	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^fun! s:act_on_pumvisible()$/;"	f
 act_on_textchanged	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  fun! s:act_on_textchanged() " Assumes pumvisible() is false$/;"	f
 adapt_to_environment	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:adapt_to_environment()$/;"	f
@@ -1996,6 +2064,7 @@ cexpr	pack/plugins/start/sheerun-vim-polyglot/autoload/dart.vim	/^function! s:ce
 cfile	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:cfile() abort$/;"	f
 cgc	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^    nmap cgc <Plug>ChangeCommentary$/;"	m
 changesurround	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:changesurround(...) " {{{1$/;"	f
+channel_id	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:channel_id(channel) abort$/;"	f
 char_range	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:char_range(from, to) abort$/;"	f
 charset	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let charset = [$/;"	v
 check_for_string	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:check_for_string()$/;"	f
@@ -2272,6 +2341,8 @@ foldl	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.
 foldl1	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:foldl1(f, xs) abort$/;"	f
 foldr	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:foldr(f, init, xs) abort$/;"	f
 foldr1	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:foldr1(f, xs) abort$/;"	f
+format_for_log	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! s:format_for_log(data) abort$/;"	f
+friendly_name	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^  let friendly_name = FriendlyName(test)$/;"	v
 fugitive	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^augroup fugitive$/;"	a
 fugitive#buffer	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! fugitive#buffer(...) abort$/;"	f
 fugitive#can_diffoff	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! fugitive#can_diffoff(buf) abort$/;"	f
@@ -2384,6 +2455,9 @@ g:fugitive_browse_handlers	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive
 g:fugitive_git_executable	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^  let g:fugitive_git_executable = 'git'$/;"	v
 g:fugitive_summary_format	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^  let g:fugitive_summary_format = '%s'$/;"	v
 g:fullDefMatcher	pack/plugins/start/sheerun-vim-polyglot/indent/scala.vim	/^let g:fullDefMatcher = '^\\s*' . s:defMatcher . '\\s\\+' . s:funcNameMatcher . '\\s*' . s:typeSpecMatcher . '\\?\\s*' . s:defArgMatcher . '\\?\\s*' . s:returnTypeMatcher . '\\?\\s*[={]'$/;"	v
+g:gitgutter_eager	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^  let g:gitgutter_eager = 0$/;"	v
+g:gitgutter_realtime	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^  let g:gitgutter_realtime = 0$/;"	v
+g:gitgutter_sign_removed_first_line	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^  let g:gitgutter_sign_removed_first_line = '_^'$/;"	v
 g:go_alternate_mode	pack/plugins/start/fatih-vim-go/autoload/go/alternate.vim	/^  let g:go_alternate_mode = "edit"$/;"	v
 g:go_auto_type_info	vimrc	/^let g:go_auto_type_info=0$/;"	v
 g:go_autodetect_gopath	vimrc	/^let g:go_autodetect_gopath=1$/;"	v
@@ -2531,6 +2605,7 @@ g:loaded_abolish	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^let g
 g:loaded_commentary	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^let g:loaded_commentary = 1$/;"	v
 g:loaded_eunuch	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^let g:loaded_eunuch = 1$/;"	v
 g:loaded_fugitive	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let g:loaded_fugitive = 1$/;"	v
+g:loaded_gitgutter	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^let g:loaded_gitgutter = 1$/;"	v
 g:loaded_gutentags	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:loaded_gutentags = 1$/;"	v
 g:loaded_haskellvim_cabal	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cabal.vim	/^let g:loaded_haskellvim_cabal = 1$/;"	v
 g:loaded_haskellvim_haskell	pack/plugins/start/sheerun-vim-polyglot/ftplugin/haskell.vim	/^let g:loaded_haskellvim_haskell = 1$/;"	v
@@ -2608,6 +2683,7 @@ g:skip_loading_mswin	vimrc	/^let g:skip_loading_mswin=1 " Just in case :)$/;"	v
 g:tagbar_type_scala	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala/tagbar.vim	/^  let g:tagbar_type_scala.deffile = expand('<sfile>:p:h:h:h') . '\/ctags\/scala.ctags'$/;"	v
 g:tagbar_type_scala	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala/tagbar.vim	/^let g:tagbar_type_scala = {$/;"	v
 g:terraform_align	pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/terraform.vim	/^  let g:terraform_align = 0$/;"	v
+g:testname	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let g:testname = expand('%')$/;"	v
 g:testname	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let g:testname = expand('%')$/;"	v
 g:tmuxcomplete#loaded	pack/plugins/start/wellle-tmux-complete-vim/plugin/tmuxcomplete.vim	/^let g:tmuxcomplete#loaded = '0.1.1' " version number$/;"	v
 g:tmuxify_custom_command	vimrc	/^let g:tmuxify_custom_command='tmux split-window -d -l 10'$/;"	v
@@ -2659,8 +2735,119 @@ getchar	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^function! s:
 getchar_safe	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:getchar_safe(...) abort$/;"	f
 getword	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/spel.vim	/^  fun! s:getword()$/;"	f
 git_command	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:git_command() abort$/;"	f
+git_diff	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function s:git_diff()$/;"	f
+git_diff_staged	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function s:git_diff_staged()$/;"	f
 git_root_path	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let git_root_path = system("git rev-parse --show-toplevel | tr -d '\\\\n'")$/;"	v
 gitdiffcached	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitcommit.vim	/^function! s:gitdiffcached(bang,gitdir,...)$/;"	f
+gitgutter	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^augroup gitgutter$/;"	a
+gitgutter#all	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#all() abort$/;"	f
+gitgutter#async#available	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! gitgutter#async#available()$/;"	f
+gitgutter#async#execute	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! gitgutter#async#execute(cmd) abort$/;"	f
+gitgutter#async#handle_diff_job_nvim	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! gitgutter#async#handle_diff_job_nvim(job_id, data, event) dict abort$/;"	f
+gitgutter#async#handle_diff_job_vim	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! gitgutter#async#handle_diff_job_vim(channel, line) abort$/;"	f
+gitgutter#async#handle_diff_job_vim_close	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! gitgutter#async#handle_diff_job_vim_close(channel) abort$/;"	f
+gitgutter#debug#debug	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! gitgutter#debug#debug()$/;"	f
+gitgutter#debug#git_version	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! gitgutter#debug#git_version()$/;"	f
+gitgutter#debug#grep_version	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! gitgutter#debug#grep_version()$/;"	f
+gitgutter#debug#log	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! gitgutter#debug#log(message, ...) abort$/;"	f
+gitgutter#debug#option	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! gitgutter#debug#option(name)$/;"	f
+gitgutter#debug#output	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! gitgutter#debug#output(text)$/;"	f
+gitgutter#debug#separator	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! gitgutter#debug#separator()$/;"	f
+gitgutter#debug#vim_version	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! gitgutter#debug#vim_version()$/;"	f
+gitgutter#diff#adjust_hunk_summary	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#adjust_hunk_summary(diff_for_hunk, staging) abort$/;"	f
+gitgutter#diff#discard_hunks	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#discard_hunks(diff, keep_header) abort$/;"	f
+gitgutter#diff#generate_diff_for_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#generate_diff_for_hunk(diff, type) abort$/;"	f
+gitgutter#diff#is_added	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#is_added(from_count, to_count) abort$/;"	f
+gitgutter#diff#is_modified	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#is_modified(from_count, to_count) abort$/;"	f
+gitgutter#diff#is_modified_and_added	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#is_modified_and_added(from_count, to_count) abort$/;"	f
+gitgutter#diff#is_modified_and_removed	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#is_modified_and_removed(from_count, to_count) abort$/;"	f
+gitgutter#diff#is_removed	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#is_removed(from_count, to_count) abort$/;"	f
+gitgutter#diff#parse_diff	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#parse_diff(diff) abort$/;"	f
+gitgutter#diff#parse_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#parse_hunk(line) abort$/;"	f
+gitgutter#diff#process_added	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#process_added(modifications, from_count, to_count, to_line) abort$/;"	f
+gitgutter#diff#process_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#process_hunk(hunk) abort$/;"	f
+gitgutter#diff#process_hunks	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#process_hunks(hunks) abort$/;"	f
+gitgutter#diff#process_modified	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#process_modified(modifications, from_count, to_count, to_line) abort$/;"	f
+gitgutter#diff#process_modified_and_added	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#process_modified_and_added(modifications, from_count, to_count, to_line) abort$/;"	f
+gitgutter#diff#process_modified_and_removed	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#process_modified_and_removed(modifications, from_count, to_count, to_line) abort$/;"	f
+gitgutter#diff#process_removed	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#process_removed(modifications, from_count, to_count, to_line) abort$/;"	f
+gitgutter#diff#run_diff	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#run_diff(realtime, preserve_full_diff) abort$/;"	f
+gitgutter#disable	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#disable() abort$/;"	f
+gitgutter#enable	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#enable() abort$/;"	f
+gitgutter#handle_diff	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#handle_diff(diff) abort$/;"	f
+gitgutter#highlight#define_highlights	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! gitgutter#highlight#define_highlights() abort$/;"	f
+gitgutter#highlight#define_sign_column_highlight	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! gitgutter#highlight#define_sign_column_highlight() abort$/;"	f
+gitgutter#highlight#define_sign_line_highlights	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! gitgutter#highlight#define_sign_line_highlights() abort$/;"	f
+gitgutter#highlight#define_sign_text	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! gitgutter#highlight#define_sign_text() abort$/;"	f
+gitgutter#highlight#define_sign_text_highlights	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! gitgutter#highlight#define_sign_text_highlights() abort$/;"	f
+gitgutter#highlight#define_signs	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! gitgutter#highlight#define_signs() abort$/;"	f
+gitgutter#highlight#get_background_colors	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! gitgutter#highlight#get_background_colors(group) abort$/;"	f
+gitgutter#highlight#match_highlight	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! gitgutter#highlight#match_highlight(highlight, pattern) abort$/;"	f
+gitgutter#hunk#current_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#current_hunk() abort$/;"	f
+gitgutter#hunk#cursor_in_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#cursor_in_hunk(hunk) abort$/;"	f
+gitgutter#hunk#hunks	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#hunks() abort$/;"	f
+gitgutter#hunk#increment_lines_added	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#increment_lines_added(count) abort$/;"	f
+gitgutter#hunk#increment_lines_modified	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#increment_lines_modified(count) abort$/;"	f
+gitgutter#hunk#increment_lines_removed	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#increment_lines_removed(count) abort$/;"	f
+gitgutter#hunk#line_adjustment_for_current_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#line_adjustment_for_current_hunk() abort$/;"	f
+gitgutter#hunk#next_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#next_hunk(count) abort$/;"	f
+gitgutter#hunk#prev_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#prev_hunk(count) abort$/;"	f
+gitgutter#hunk#reset	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#reset() abort$/;"	f
+gitgutter#hunk#set_hunks	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#set_hunks(hunks) abort$/;"	f
+gitgutter#hunk#summary	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#summary(bufnr) abort$/;"	f
+gitgutter#hunk#text_object	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#text_object(inner) abort$/;"	f
+gitgutter#line_highlights_disable	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#line_highlights_disable() abort$/;"	f
+gitgutter#line_highlights_enable	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#line_highlights_enable() abort$/;"	f
+gitgutter#line_highlights_toggle	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#line_highlights_toggle() abort$/;"	f
+gitgutter#preview_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#preview_hunk() abort$/;"	f
+gitgutter#process_buffer	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#process_buffer(bufnr, realtime) abort$/;"	f
+gitgutter#sign#add_dummy_sign	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! gitgutter#sign#add_dummy_sign() abort$/;"	f
+gitgutter#sign#clear_signs	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! gitgutter#sign#clear_signs() abort$/;"	f
+gitgutter#sign#find_current_signs	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! gitgutter#sign#find_current_signs() abort$/;"	f
+gitgutter#sign#next_sign_id	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! gitgutter#sign#next_sign_id() abort$/;"	f
+gitgutter#sign#obsolete_gitgutter_signs_to_remove	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! gitgutter#sign#obsolete_gitgutter_signs_to_remove(new_gitgutter_signs_line_numbers) abort$/;"	f
+gitgutter#sign#remove_dummy_sign	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! gitgutter#sign#remove_dummy_sign(force) abort$/;"	f
+gitgutter#sign#remove_signs	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! gitgutter#sign#remove_signs(sign_ids, all_signs) abort$/;"	f
+gitgutter#sign#reset	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! gitgutter#sign#reset()$/;"	f
+gitgutter#sign#update_signs	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! gitgutter#sign#update_signs(modified_lines) abort$/;"	f
+gitgutter#sign#upsert_new_gitgutter_signs	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! gitgutter#sign#upsert_new_gitgutter_signs(modified_lines) abort$/;"	f
+gitgutter#signs_disable	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#signs_disable() abort$/;"	f
+gitgutter#signs_enable	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#signs_enable() abort$/;"	f
+gitgutter#signs_toggle	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#signs_toggle() abort$/;"	f
+gitgutter#stage_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#stage_hunk() abort$/;"	f
+gitgutter#toggle	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#toggle() abort$/;"	f
+gitgutter#undo_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#undo_hunk() abort$/;"	f
+gitgutter#utility#bufnr	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#bufnr()$/;"	f
+gitgutter#utility#command_in_directory_of_file	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#command_in_directory_of_file(cmd) abort$/;"	f
+gitgutter#utility#dedup	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#dedup(list)$/;"	f
+gitgutter#utility#directory_of_file	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#directory_of_file() abort$/;"	f
+gitgutter#utility#exists_file	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#exists_file() abort$/;"	f
+gitgutter#utility#extension	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#extension() abort$/;"	f
+gitgutter#utility#file	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#file()$/;"	f
+gitgutter#utility#file_relative_to_repo_root	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#file_relative_to_repo_root() abort$/;"	f
+gitgutter#utility#filename	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#filename() abort$/;"	f
+gitgutter#utility#full_path_to_directory_of_file	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#full_path_to_directory_of_file() abort$/;"	f
+gitgutter#utility#getbufvar	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#getbufvar(buffer, varname, ...)$/;"	f
+gitgutter#utility#git_supports_command_line_config_override	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#git_supports_command_line_config_override() abort$/;"	f
+gitgutter#utility#has_fresh_changes	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#has_fresh_changes() abort$/;"	f
+gitgutter#utility#has_unsaved_changes	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#has_unsaved_changes() abort$/;"	f
+gitgutter#utility#highlight_name_for_change	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#highlight_name_for_change(text) abort$/;"	f
+gitgutter#utility#is_active	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#is_active() abort$/;"	f
+gitgutter#utility#is_file_buffer	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#is_file_buffer() abort$/;"	f
+gitgutter#utility#not_git_dir	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#not_git_dir() abort$/;"	f
+gitgutter#utility#restore_shell	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#restore_shell() abort$/;"	f
+gitgutter#utility#save_last_seen_change	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#save_last_seen_change() abort$/;"	f
+gitgutter#utility#set_buffer	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#set_buffer(bufnr) abort$/;"	f
+gitgutter#utility#setbufvar	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#setbufvar(buffer, varname, val)$/;"	f
+gitgutter#utility#shell_error	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#shell_error() abort$/;"	f
+gitgutter#utility#shellescape	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#shellescape(arg) abort$/;"	f
+gitgutter#utility#stringify	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#stringify(list) abort$/;"	f
+gitgutter#utility#strip_trailing_new_line	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#strip_trailing_new_line(line) abort$/;"	f
+gitgutter#utility#system	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#system(cmd, ...) abort$/;"	f
+gitgutter#utility#use_known_shell	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#use_known_shell() abort$/;"	f
+gitgutter#utility#using_xolox_shell	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#using_xolox_shell() abort$/;"	f
+gitgutter#utility#warn	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#warn(message) abort$/;"	f
+gitgutter#utility#warn_once	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! gitgutter#utility#warn_once(message, key) abort$/;"	f
 github_url	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:github_url(opts, ...) abort$/;"	f
 gj	vimrc	/^nnoremap gj j$/;"	m
 gk	vimrc	/^nnoremap gk k$/;"	m
@@ -2894,11 +3081,14 @@ htmlcomplete#CompleteTags	pack/plugins/start/sheerun-vim-polyglot/autoload/htmlc
 htmlcomplete#DetectOmniFlavor	pack/plugins/start/sheerun-vim-polyglot/autoload/htmlcomplete.vim	/^function! htmlcomplete#DetectOmniFlavor()$/;"	f
 htmlcomplete#LoadAria	pack/plugins/start/sheerun-vim-polyglot/autoload/htmlcomplete.vim	/^function! htmlcomplete#LoadAria() " {{{$/;"	f
 htmlcomplete#LoadData	pack/plugins/start/sheerun-vim-polyglot/autoload/htmlcomplete.vim	/^function! htmlcomplete#LoadData() " {{{$/;"	f
+i	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^      let i += 1$/;"	v
+i	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^    let i = 0$/;"	v
 i$	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^onoremap <buffer> i$ :normal vi$<CR>$/;"	m
 i$	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^vmap <buffer> i$ <Plug>LatexBox_SelectInlineMathInner$/;"	m
 i%	vimrc	/^omap i% :<c-u>normal vi%<cr>$/;"	m
 i3_ftdetect	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^augroup i3_ftdetect$/;"	a
 iM	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^    onoremap <silent> <buffer> iM :<C-U>call <SID>wrap_i('[[','][')<CR>$/;"	m
+ic	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    omap ic <Plug>GitGutterTextObjectInnerPending$/;"	m
 iconv	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Process.vim	/^function! s:iconv(expr, from, to) abort$/;"	f
 ie	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^onoremap <buffer> ie :normal vie<CR>$/;"	m
 ie	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/mappings.vim	/^vmap <buffer> ie <Plug>LatexBox_SelectCurrentEnvInner$/;"	m
@@ -2930,6 +3120,7 @@ is_cygwin	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelud
 is_dict	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_dict(Value) abort$/;"	f
 is_float	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_float(Value) abort$/;"	f
 is_funcref	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_funcref(Value) abort$/;"	f
+is_job_started	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:is_job_started(id) abort$/;"	f
 is_list	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_list(Value) abort$/;"	f
 is_mac	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:is_mac() abort$/;"	f
 is_method_special_case	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:is_method_special_case(position)$/;"	f
@@ -2944,6 +3135,10 @@ is_windows	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelu
 iscontOne	pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:iscontOne(i,num,cont)$/;"	f
 iscontOne	pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:iscontOne(i,num,cont)$/;"	f
 j	vimrc	/^nnoremap j gj$/;"	m
+job_buffer	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:job_buffer(id) abort$/;"	f
+job_finished	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:job_finished(id) abort$/;"	f
+job_output	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:job_output(id) abort$/;"	f
+job_started	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:job_started(id, ...) abort$/;"	f
 jobdir	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^  let jobdir = fnameescape(expand("%:p:h"))$/;"	v
 jobdir	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^  let jobdir = fnameescape(expand("%:p:h"))$/;"	v
 jump	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^function! s:jump(command,count)$/;"	f
@@ -3278,6 +3473,7 @@ repo_superglob	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^funct
 repo_translate	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:repo_translate(spec) dict abort$/;"	f
 repo_tree	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:repo_tree(...) dict abort$/;"	f
 repo_user	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:repo_user() dict abort$/;"	f
+reset_summary	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! s:reset_summary() abort$/;"	f
 reverse	pack/colors/start/robertmeta-nofrils/generate_colors.go	/^func reverse(vcr vimColorRow) vimColorRow {$/;"	f
 reverse	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:reverse(str) abort$/;"	f
 rgb_colour	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:rgb_colour(x, y, z)$/;"	f
@@ -3446,6 +3642,7 @@ s:attributes	pack/plugins/start/sheerun-vim-polyglot/indent/haml.vim	/^let s:att
 s:attributes	pack/plugins/start/sheerun-vim-polyglot/indent/pug.vim	/^let s:attributes = '\\%((.\\{-\\})\\)'$/;"	v
 s:attributes	pack/plugins/start/sheerun-vim-polyglot/indent/slim.vim	/^let s:attributes = '\\%({.\\{-\\}}\\|\\[.\\{-\\}\\]\\)'$/;"	v
 s:auto	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:auto = 0           " Is autocompletion enabled?$/;"	v
+s:available	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^let s:available = has('nvim') || ($/;"	v
 s:backslash_continuation_regex	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:backslash_continuation_regex = '%\\@<!\\\\\\s*$'$/;"	v
 s:baseIndentExpr	pack/plugins/start/sheerun-vim-polyglot/indent/twig.vim	/^let s:baseIndentExpr=&indentexpr$/;"	v
 s:beflet	pack/plugins/start/sheerun-vim-polyglot/indent/ocaml.vim	/^let s:beflet = '^\\s*\\(initializer\\|method\\|try\\)\\|\\(\\<\\(begin\\|do\\|else\\|in\\|then\\|try\\)\\|->\\|<-\\|=\\|;\\|(\\)\\s*$'$/;"	v
@@ -3476,9 +3673,12 @@ s:bstfile	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/complete.vi
 s:buf_nr	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^let s:buf_nr = -1$/;"	v
 s:buf_nr	pack/plugins/start/fatih-vim-go/autoload/go/ui.vim	/^let s:buf_nr = -1$/;"	v
 s:buffer_prototype	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:buffer_prototype = {}$/;"	v
+s:bufnr	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^let s:bufnr       = bufnr('')$/;"	v
+s:c_flag	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^let s:c_flag = gitgutter#utility#git_supports_command_line_config_override()$/;"	v
 s:cache_module_path	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^let s:cache_module_path = {}$/;"	v
 s:cache_sid	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^let s:cache_sid = {}$/;"	v
 s:cancel_auto	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:cancel_auto = 0    " Used to detect whether the user leaves the pop-up menu with ctrl-y, ctrl-e, or enter.$/;"	v
+s:channel_log	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^let s:channel_log = s:plugin_dir.'channel.log'$/;"	v
 s:clojure_syntax_keywords	pack/plugins/start/sheerun-vim-polyglot/syntax/clojure.vim	/^let s:clojure_syntax_keywords = {$/;"	v
 s:close_pat	pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^let s:close_pat = '\\\\\\@<!\\%(\\\\end\\|\\\\right\\a\\@!\\|\\\\)\\|\\\\\\]\\|}\\)'$/;"	v
 s:close_patt	pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let s:close_patt = '\\%(\\<\\%(end\\|until\\)\\>\\|)\\|}\\)'$/;"	v
@@ -3571,6 +3771,7 @@ s:crystal_deindent_keywords	pack/plugins/start/sheerun-vim-polyglot/indent/cryst
 s:crystal_indent_keywords	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:crystal_indent_keywords =$/;"	v
 s:cssindent	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:cssindent = &indentexpr$/;"	v
 s:ctrlx_out	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:ctrlx_out = "\\<plug>(MUcompleteOut)"$/;"	v
+s:current_dir	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^let s:current_dir = expand('%:p:h')$/;"	v
 s:current_file	pack/plugins/start/fatih-vim-go/autoload/go/template.vim	/^let s:current_file = expand("<sfile>")$/;"	v
 s:current_fileencodings	pack/plugins/start/fatih-vim-go/ftdetect/gofiletype.vim	/^let s:current_fileencodings = ''$/;"	v
 s:current_fileencodings	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^let s:current_fileencodings = ''$/;"	v
@@ -3601,10 +3802,13 @@ s:directives_end	pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^    
 s:directives_end	pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^let s:directives_end = 'else\\|end\\|empty\\|show\\|stop\\|append\\|overwrite'$/;"	v
 s:directives_start	pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^    let s:directives_start .= '\\|' . join(keys(g:blade_custom_directives_pairs), '\\|')$/;"	v
 s:directives_start	pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^let s:directives_start = 'if\\|else\\|unless\\|for\\|while\\|empty\\|push\\|section\\|can\\|hasSection\\|verbatim\\|php\\|' .$/;"	v
+s:done	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^  let s:done += 1$/;"	v
+s:done	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:done = 0$/;"	v
 s:done	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^  let s:done += 1$/;"	v
 s:done	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let s:done = 0$/;"	v
 s:dot_continuation_regex	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:dot_continuation_regex = '%\\@<!\\.\\s*\\%(#.*\\)\\=$'$/;"	v
 s:dotfiles	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let s:dotfiles = '\\(^\\|\\s\\s\\)\\zs\\.\\S\\+'$/;"	v
+s:dummy_sign_id	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^let s:dummy_sign_id = s:first_sign_id - 1$/;"	v
 s:echorizer	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/ColorEcho.vim	/^let s:echorizer = {$/;"	v
 s:ed	pack/plugins/start/sheerun-vim-polyglot/syntax/tt2.vim	/^        let s:ed = strpart(s:str,0,stridx(s:str,' '))$/;"	v
 s:end_end_regex	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:end_end_regex = '\\%(^\\|[^.:@$]\\)\\@<=\\<end:\\@!\\>\\|{%\\s*\\<\\%(end\\)\\>'$/;"	v
@@ -3619,11 +3823,21 @@ s:endtag	pack/plugins/start/sheerun-vim-polyglot/after/indent/jsx.vim	/^let s:en
 s:env_cache	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^let s:env_cache = {}$/;"	v
 s:envbeginpattern	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:envbeginpattern = s:notcomment . s:notbslash . '\\\\begin\\s*{.\\{-}}'$/;"	v
 s:envendpattern	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:envendpattern = s:notcomment . s:notbslash . '\\\\end\\s*{.\\{-}}'$/;"	v
+s:errored	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^      let s:errored = 0$/;"	v
+s:errored	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:errored = 0$/;"	v
+s:errors	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^      let s:errors += 1$/;"	v
+s:errors	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^  let s:errors += 1$/;"	v
+s:errors	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:errors = 0$/;"	v
 s:escape	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let s:escape = 'substitute(escape(v:val, ".$~"), "*", ".*", "g")'$/;"	v
+s:exit_code	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^let s:exit_code = 0$/;"	v
 s:extra_syntax	pack/plugins/start/sheerun-vim-polyglot/syntax/ansible_template.vim	/^  let s:extra_syntax = split(g:ansible_extra_syntaxes)$/;"	v
+s:fail	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^      let s:fail += 1$/;"	v
+s:fail	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:fail = 0$/;"	v
 s:fail	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^    let s:fail += 1$/;"	v
 s:fail	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let s:fail = 0$/;"	v
+s:file	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^let s:file = ''$/;"	v
 s:file_name	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^let s:file_name = ''$/;"	v
+s:first_sign_id	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^let s:first_sign_id = 3000$/;"	v
 s:foldable_groups	pack/plugins/start/sheerun-vim-polyglot/syntax/ruby.vim	/^let s:foldable_groups = split($/;"	v
 s:folded	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:folded = '\\(% Fake\\|\\\\\\(document\\|begin\\|end\\|paragraph\\|'$/;"	v
 s:foldparts	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:foldparts = '^\\s*\\\\\\%(' . join(g:LatexBox_fold_parts, '\\|') . '\\)'$/;"	v
@@ -3644,6 +3858,11 @@ s:goos	pack/plugins/start/fatih-vim-go/autoload/go/package.vim	/^    let s:goos 
 s:goos	pack/plugins/start/fatih-vim-go/autoload/go/package.vim	/^let s:goos = $GOOS$/;"	v
 s:got_fmt_error	pack/plugins/start/fatih-vim-go/autoload/go/asmfmt.vim	/^let s:got_fmt_error = 0$/;"	v
 s:got_fmt_error	pack/plugins/start/sheerun-vim-polyglot/autoload/rustfmt.vim	/^let s:got_fmt_error = 0$/;"	v
+s:grep_available	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^  let s:grep_available = 1$/;"	v
+s:grep_available	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^  let s:grep_available = executable('grep')$/;"	v
+s:grep_command	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^      let s:grep_command .= ' --color=never'$/;"	v
+s:grep_command	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^    let s:grep_command = 'grep'$/;"	v
+s:grep_command	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^  let s:grep_command = g:gitgutter_grep_command$/;"	v
 s:handlers	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^let s:handlers = {}$/;"	v
 s:hash_colors	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:hash_colors = {}$/;"	v
 s:htmlIndentExpr	pack/plugins/start/sheerun-vim-polyglot/after/indent/html.vim	/^let s:htmlIndentExpr = &l:indentexpr$/;"	v
@@ -3652,6 +3871,7 @@ s:html_indent_tags	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let
 s:html_noindent_tags	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^    let s:html_noindent_tags = s:html_noindent_tags.'\\|'.join(g:html_exclude_tags, '\\|')$/;"	v
 s:html_noindent_tags	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:html_noindent_tags = join(s:no_tags, '\\|')$/;"	v
 s:htmlindent	pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^let s:htmlindent = &indentexpr$/;"	v
+s:hunk_re	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^let s:hunk_re = '^@@ -\\(\\d\\+\\),\\?\\(\\d*\\) +\\(\\d\\+\\),\\?\\(\\d*\\) @@'$/;"	v
 s:i	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:i = 0              " Index of the current completion method in the completion chain$/;"	v
 s:i	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  let s:i = g:omlet_indent_struct$/;"	v
 s:i	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  let s:i = matchstr(s:m,'\\d\\+')$/;"	v
@@ -3661,6 +3881,8 @@ s:idef	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  let s:idef
 s:idef	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  let s:idef = g:omlet_indent$/;"	v
 s:idef	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^  let s:idef = matchstr(s:m,'\\d\\+')$/;"	v
 s:incIndent	pack/plugins/start/sheerun-vim-polyglot/indent/plantuml.vim	/^let s:incIndent =$/;"	v
+s:indent	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:indent = ''$/;"	v
+s:indent	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:indent = max(map(copy(s:tests), {_, val -> len(FriendlyName(val))}))$/;"	v
 s:indent_access_modifier_regex	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:indent_access_modifier_regex = '\\C^\\s*\\%(protected\\|private\\)\\s*\\%(#.*\\)\\=$'$/;"	v
 s:indent_if_final	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^let s:indent_if_final = ['=', 'do', '->', 'of', 'where']$/;"	v
 s:indent_next	pack/plugins/start/sheerun-vim-polyglot/indent/elm.vim	/^let s:indent_next = ['let', 'in', 'where', 'do', 'if']$/;"	v
@@ -3676,6 +3898,7 @@ s:is_windows	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Pre
 s:is_windows	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Process.vim	/^let s:is_windows = has('win16') || has('win32') || has('win64') || has('win95')$/;"	v
 s:iskeyword_save	pack/plugins/start/sheerun-vim-polyglot/syntax/php.vim	/^let s:iskeyword_save = &iskeyword$/;"	v
 s:job_db_files	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^let s:job_db_files = []$/;"	v
+s:jobs	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^let s:jobs = {}$/;"	v
 s:jobs	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^let s:jobs = {}$/;"	v
 s:jobs	pack/plugins/start/fatih-vim-go/autoload/go/term.vim	/^let s:jobs = {}$/;"	v
 s:js_keywords	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:js_keywords = '^\\s*\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|in\\|instanceof\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\)'$/;"	v
@@ -3714,6 +3937,7 @@ s:list_close_pat	pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^let s:
 s:list_envs	pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^let s:list_envs = ['itemize', 'enumerate', 'description']$/;"	v
 s:list_open_pat	pack/plugins/start/sheerun-vim-polyglot/indent/tex.vim	/^let s:list_open_pat = '\\\\\\@<!\\\\begin{\\%(' . join(s:list_envs, '\\|') . '\\)}'$/;"	v
 s:loaded	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^let s:loaded = {}$/;"	v
+s:log_file	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^let s:log_file    = s:plugin_dir.'gitgutter.log'$/;"	v
 s:logs	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let s:logs = []$/;"	v
 s:m	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^let s:m = matchstr(s:modeline,'default\\s*=\\s*\\d\\+')$/;"	v
 s:m	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^let s:m = matchstr(s:modeline,'struct\\s*=\\s*\\d\\+')$/;"	v
@@ -3735,6 +3959,7 @@ s:match_words	pack/plugins/start/sheerun-vim-polyglot/ftplugin/stylus.vim	/^let 
 s:maxoff	pack/plugins/start/sheerun-vim-polyglot/indent/python.vim	/^let s:maxoff = 50$/;"	v
 s:maybe_in_progress	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^    let s:maybe_in_progress[module] = {}$/;"	v
 s:maybe_in_progress	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^let s:maybe_in_progress = {}$/;"	v
+s:messages	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:messages = []$/;"	v
 s:metachar	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl.vim	/^let s:metachar = '\\\/~ .*^[''$'$/;"	v
 s:middle_patt	pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let s:middle_patt = '\\<\\%(else\\|elseif\\)\\>'$/;"	v
 s:mode	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let s:mode = s:MODE_16_COLOR$/;"	v
@@ -3750,7 +3975,10 @@ s:named_lists	pack/plugins/start/romainl-vim-qf/autoload/qf/namedlist.vim	/^let 
 s:named_module_entry	pack/plugins/start/sheerun-vim-polyglot/indent/ansible.vim	/^let s:named_module_entry = '\\v^\\s*-\\s*(name|hosts|role):\\s*\\S' " - name: 'do stuff'$/;"	v
 s:need_trans	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Process.vim	/^let s:need_trans = v:version < 704 || (v:version == 704 && !has('patch122'))$/;"	v
 s:netrw_up	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let s:netrw_up = ''$/;"	v
+s:new_log_session	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^let s:new_log_session = 1$/;"	v
+s:next_sign_id	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^let s:next_sign_id  = s:first_sign_id$/;"	v
 s:no_tags	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:no_tags = []$/;"	v
+s:nomodeline	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^let s:nomodeline = (v:version > 703 || (v:version == 703 && has('patch442'))) ? '<nomodeline>' : ''$/;"	v
 s:non_bracket_continuation_regex	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:non_bracket_continuation_regex = '\\%([\\\\.,:*\/%+]\\|\\<and\\|\\<or\\|\\%(<%\\)\\@<![=-]\\|\\W[|&?]\\|||\\|&&\\)\\s*\\%(#.*\\)\\=$'$/;"	v
 s:non_bracket_continuation_regex	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:non_bracket_continuation_regex =$/;"	v
 s:notbslash	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:notbslash = '\\%(\\\\\\@<!\\%(\\\\\\\\\\)*\\)\\@<='$/;"	v
@@ -3778,6 +4006,7 @@ s:pat	pack/plugins/start/sheerun-vim-polyglot/compiler/ls.vim	/^let s:pat = '^' 
 s:pathsep	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:pathsep = exists('+shellslash') && !&shellslash ? '\\\\' : '\/'$/;"	v
 s:pathsep	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/compat.vim	/^let s:pathsep = exists('+shellslash') && !&shellslash ? '\\\\' : '\/'$/;"	v
 s:phpindent	pack/plugins/start/sheerun-vim-polyglot/indent/blade.vim	/^let s:phpindent = &indentexpr$/;"	v
+s:plugin_dir	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^let s:plugin_dir  = expand('<sfile>:p:h:h:h').'\/'$/;"	v
 s:pre_less_cur_syn	pack/plugins/start/sheerun-vim-polyglot/after/syntax/html.vim	/^   let s:pre_less_cur_syn = b:current_syntax$/;"	v
 s:ps1xml_cpo_save	pack/plugins/start/sheerun-vim-polyglot/syntax/ps1xml.vim	/^let s:ps1xml_cpo_save = &cpo$/;"	v
 s:radix_chars	pack/plugins/start/sheerun-vim-polyglot/syntax/clojure.vim	/^let s:radix_chars = "0123456789abcdefghijklmnopqrstuvwxyz"$/;"	v
@@ -3865,6 +4094,7 @@ s:str	pack/plugins/start/sheerun-vim-polyglot/syntax/tt2.vim	/^    let s:str = b
 s:str	pack/plugins/start/sheerun-vim-polyglot/syntax/tt2.vim	/^    let s:str = substitute(s:str,' \\+',' ','g')$/;"	v
 s:str	pack/plugins/start/sheerun-vim-polyglot/syntax/tt2.vim	/^    let s:str = substitute(s:str,'^ \\+','','g')$/;"	v
 s:subtype	pack/plugins/start/sheerun-vim-polyglot/syntax/liquid.vim	/^  let s:subtype = exists('b:liquid_subtype') ? b:liquid_subtype : ''$/;"	v
+s:supports_star	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^let s:supports_star = v:version > 703 || (v:version == 703 && has("patch596"))$/;"	v
 s:syng_com	pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^let s:syng_com = 'comment\\|doc'$/;"	v
 s:syng_com	pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^let s:syng_com = 'comment\\|doc'$/;"	v
 s:syng_linecom	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:syng_linecom = 'linecomment\\c'$/;"	v
@@ -3884,10 +4114,15 @@ s:tag	pack/plugins/start/sheerun-vim-polyglot/indent/pug.vim	/^let s:tag = '\\([
 s:tag	pack/plugins/start/sheerun-vim-polyglot/indent/slim.vim	/^let s:tag = '\\%([%.#][[:alnum:]_-]\\+\\|'.s:attributes.'\\)*[<>]*'$/;"	v
 s:tag	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^let s:tag = {$/;"	v
 s:tags	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:tags = []$/;"	v
+s:temp_buffer	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^let s:temp_buffer = tempname()$/;"	v
 s:temp_files	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^  let s:temp_files = {}$/;"	v
+s:temp_index	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^let s:temp_index = tempname()$/;"	v
 s:ternary	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:ternary = '^\\s\\+[?|:]'$/;"	v
 s:ternary_q	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:ternary_q = '^\\s\\+?'$/;"	v
 s:test_compile_handlers	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^let s:test_compile_handlers = {}$/;"	v
+s:test_repo	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^let s:test_repo   = s:current_dir.'\/test-repo'$/;"	v
+s:tests	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^  let s:tests = filter(s:tests, 'v:val =~ argv(1)')$/;"	v
+s:tests	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:tests = split(substitute(@q, 'function \\(\\k*()\\)', '\\1', 'g'))$/;"	v
 s:tests	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let s:tests = split(substitute(@q, 'function \\(\\k*()\\)', '\\1', 'g'))$/;"	v
 s:theme_name	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let s:theme_name = tolower(g:PaperColor_Theme)$/;"	v
 s:theme_name	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let s:theme_name = 'default'$/;"	v
@@ -3921,6 +4156,7 @@ s:undo_ftplugin	pack/plugins/start/sheerun-vim-polyglot/ftplugin/stylus.vim	/^le
 s:unix_redir	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let s:unix_redir = (&shellredir =~# '%s') ? &shellredir : &shellredir . ' %s'$/;"	v
 s:update_queue	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^    let s:update_queue[module] = []$/;"	v
 s:update_queue	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^let s:update_queue = {}$/;"	v
+s:using_xolox_shell	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^let s:using_xolox_shell = -1$/;"	v
 s:vala_cpo_save	pack/plugins/start/sheerun-vim-polyglot/syntax/vala.vim	/^let s:vala_cpo_save = &cpo$/;"	v
 s:var_stmt	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:var_stmt = '^\\s*var'$/;"	v
 s:version_file	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  let s:version_file = findfile('.ruby-version', '.;')$/;"	v
@@ -3976,6 +4212,7 @@ sectionmovement	pack/plugins/start/sheerun-vim-polyglot/ftplugin/mustache.vim	/^
 seek	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^function! s:seek(file) abort$/;"	f
 send	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:send(self,func,...)$/;"	f
 separator	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! s:separator()$/;"	f
+set	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^function! s:set(var, default) abort$/;"	f
 set_color_variables	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:set_color_variables()$/;"	f
 set_default	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:set_default(var, val) abort$/;"	f
 set_default	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^function! s:set_default(dict) "{{{$/;"	f
@@ -3990,6 +4227,7 @@ shellescape	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Proc
 shellslash	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:shellslash(path) abort$/;"	f
 shift	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:shift(list) abort$/;"	f
 show_errors	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^function! s:show_errors(errors) abort$/;"	f
+signs	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function s:signs(filename)$/;"	f
 skip_func	pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:skip_func()$/;"	f
 skip_func	pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vim	/^function s:skip_func()$/;"	f
 slash	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^function! s:slash() abort$/;"	f
@@ -4037,6 +4275,7 @@ substitute_command	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^fun
 substitute_last	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/String.vim	/^function! s:substitute_last(expr, pat, sub) abort$/;"	f
 substitute_path_separator	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Prelude.vim	/^function! s:substitute_path_separator(path) abort$/;"	f
 subvert_dispatcher	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:subvert_dispatcher(bang,line1,line2,count,args)$/;"	f
+summary	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let summary = [$/;"	v
 surroundings	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^function! s:surroundings() abort$/;"	f
 sw	pack/plugins/start/fatih-vim-go/indent/go.vim	/^  func s:sw()$/;"	f
 sw	pack/plugins/start/sheerun-vim-polyglot/indent/caddyfile.vim	/^	func s:sw()$/;"	f

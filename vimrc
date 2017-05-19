@@ -115,7 +115,7 @@ set expandtab " no real tabs please!
 set exrc " source .vimrc _vimrc .exrc _exrc files in local tree (deepest found rules all)
 set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
-set foldcolumn=1 " I can see fold fine thank you
+set foldcolumn=0 " I can see fold fine thank you
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldmethod=indent " Fold on the indent
 set foldnestmax=1 " I only like to fold outer functions
