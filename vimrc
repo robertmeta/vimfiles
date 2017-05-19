@@ -30,13 +30,6 @@ nnoremap gk k
 nnoremap j gj
 nnoremap k gk
 
-" Window control
-nnoremap <leader>o <c-w>o
-nnoremap <leader>W <c-w>W
-nnoremap <silent> <leader>c <esc>:close<cr>
-nnoremap <silent> <leader>" :split<cr>
-nnoremap <silent> <leader>% :vsplit<cr>
-
 " Clear highlight
 nnoremap <silent> <backspace> :noh<cr>:QuickhlManualReset<cr>
 
@@ -66,7 +59,7 @@ iab rrm Robert R. Melton
 nmap <leader>s <Plug>(quickhl-manual-this)
 xmap <leader>s <Plug>(quickhl-manual-this)
 nnoremap <leader>S :QuickhlManualAdd<space>
-let g:quickhl_manual_colors = ['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=black ctermbg=2 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black', 'gui=bold ctermfg=black ctermbg=1 guibg=#a07040 guifg=#ffffff']
+let g:quickhl_manual_colors=['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=black ctermbg=2 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black', 'gui=bold ctermfg=black ctermbg=1 guibg=#a07040 guifg=#ffffff']
 
 " Arrow mappings
 nmap <silent> <left> <esc>:lprev<cr>
@@ -80,17 +73,23 @@ nnoremap <leader>A :argadd **/*
 nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
 nnoremap <leader>b :b <C-d>
 nnoremap <leader>B :ls<cr>:b<space>
+nnoremap <leader>c <esc>:close<cr>
 nnoremap <leader>e :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
-nnoremap <leader>F :find *
+nnoremap <leader>f :find *
 nnoremap <leader>G :grep <c-r><c-w><cr>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>i :Ilist<space>
 nnoremap <leader>m :make<cr>
+nnoremap <leader>o <c-w>o
 nnoremap <leader>p :find *
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun<cr>
 nnoremap <leader>R :TxSetRunCmd<cr>
+nnoremap <leader>" :split<cr>
 nnoremap <leader>t :ltag<space>/ \| lop<left><left><left><left><left><left>
+nnoremap <leader>% :vsplit<cr>
+nnoremap <leader>w <c-w>w
+nnoremap <leader>W <c-w>W
 nnoremap <leader>x :TxSigInt<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap Y y$
@@ -147,8 +146,8 @@ set noerrorbells " don't be noisy
 set nofoldenable " Turn off folding by default
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
-set nonumber " line numbers
-set norelativenumber " relative line numbers
+set number " line numbers
+set relativenumber " relative line numbers
 set nospell " nope nope nope
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
@@ -339,34 +338,8 @@ if has("mouse")
     endif
 endif
 
-" Easy Motion
-" Options
-let g:EasyMotion_use_upper=0
-let g:EasyMotion_do_mapping=0
-let g:EasyMotion_do_shade=0
-let g:EasyMotion_startofline=0 " keep cursor column when JK motion
-let g:EasyMotion_smartcase=1
-let g:EasyMotion_use_smartsign_us=1 " US layout
-" <Leader>f{char} to move to {char}
-nmap <Leader>f <Plug>(easymotion-overwin-f2)
-xmap <Leader>f <Plug>(easymotion-bd-f2)
-omap <Leader>f <Plug>(easymotion-bd-f2)
-" Move to line
-nmap <Leader>l <Plug>(easymotion-overwin-line)
-xmap <Leader>l <Plug>(easymotion-bd-jk)
-omap <Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader>w <Plug>(easymotion-overwin-line)
-" Move to word
-xmap <Leader>w <Plug>(easymotion-bd-w)
-omap <Leader>w <Plug>(easymotion-bd-w)
-" Search
-map  <Leader>/ <Plug>(easymotion-sn)
-omap <Leader>/ <Plug>(easymotion-tn)
-map  <Leader>n <Plug>(easymotion-next)
-map  <Leader>N <Plug>(easymotion-prev)
-
 " Vim-Move
-let g:move_key_modifier = 'C'
+let g:move_key_modifier='C'
 
 " Adapt for executables
 if executable("ag")
@@ -390,28 +363,28 @@ let g:vim_markdown_folding_disabled=0
 let g:vim_markdown_frontmatter=1
 
 " Vim-go
-let g:go_autodetect_gopath = 1
-let g:go_auto_type_info = 0
+let g:go_autodetect_gopath=1
+let g:go_auto_type_info=0
 let g:go_bin_path=$HOME."/go/bin"
-let g:go_def_mode = 'guru'
-let g:go_def_reuse_buffer = 0
-let g:go_doc_command = "godoc"
+let g:go_def_mode='guru'
+let g:go_def_reuse_buffer=0
+let g:go_doc_command="godoc"
 let g:go_fmt_autosave=1
 let g:go_fmt_command="goimports"
 let g:go_fmt_experimental=1
-let g:go_highlight_array_whitespace_error = 1
-let g:go_highlight_chan_whitespace_error = 1
-let g:go_highlight_space_tab_error = 1
-let g:go_highlight_trailing_whitespace_error = 1
-let g:go_info_mode = 'guru'
+let g:go_highlight_array_whitespace_error=1
+let g:go_highlight_chan_whitespace_error=1
+let g:go_highlight_space_tab_error=1
+let g:go_highlight_trailing_whitespace_error=1
+let g:go_info_mode='guru'
 let g:go_jump_to_error=0
-let g:go_template_autocreate = 0
-let g:go_textobj_enabled = 1
+let g:go_template_autocreate=0
+let g:go_textobj_enabled=1
 
 " Tmuxify
 let g:tmuxify_custom_command='tmux split-window -d -l 10'
-let g:tmuxify_map_prefix = ''
-let g:tmuxify_global_maps = 1
+let g:tmuxify_map_prefix=''
+let g:tmuxify_global_maps=1
 
 " Netrw
 let g:netrw_altfile=1
@@ -474,7 +447,7 @@ endfunction
 command! StripTrailingWhitespace :call StripTrailingWhitespace()
 
 function! PasteForStatusline()
-    let paste_status = &paste
+    let paste_status=&paste
     if paste_status == 1
         return "[PASTE]"
     else

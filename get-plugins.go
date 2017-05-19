@@ -21,20 +21,14 @@ func main() {
 		"tomasr/molokai",
 	}
 	plugins := []string{
-		"easymotion/vim-easymotion",
 		"fatih/vim-go",
-		"glts/vim-textobj-comment",
-		"kana/vim-textobj-indent",
-		"kana/vim-textobj-user",
 		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
-		"matze/vim-move",
 		"mhinz/vim-tmuxify",
 		"romainl/vim-qf",
 		"romainl/vim-qlist",
 		"sheerun/vim-polyglot",
 		"t9md/vim-quickhl",
-		"tommcdo/vim-lion",
 		"tpope/vim-abolish",
 		"tpope/vim-commentary",
 		"tpope/vim-eunuch",
@@ -44,7 +38,6 @@ func main() {
 		"tpope/vim-surround",
 		"tpope/vim-unimpaired",
 		"tpope/vim-vinegar",
-		"wellle/targets.vim",
 		"wellle/tmux-complete.vim",
 	}
 
