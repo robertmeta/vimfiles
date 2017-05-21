@@ -470,3 +470,6 @@ augroup AutoMkdir
     autocmd!
     autocmd BufWritePre,FileWritePre,BufNewFile * call <SID>AutoMkdir()
 augroup END
+
+" Thanks romainl
+command! -range=% TB  <line1>,<line2>w !nc termbin.com 9999 | tr -d '\n' | cat

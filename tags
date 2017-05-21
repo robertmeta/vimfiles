@@ -1290,6 +1290,7 @@ SyntaxNameAtPosition	pack/plugins/start/sheerun-vim-polyglot/indent/swift.vim	/^
 TAGS_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^    set TAGS_FILE=%~2$/;"	v
 TAGS_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^set TAGS_FILE=tags$/;"	v
 TAPTestLine_foldtext	pack/plugins/start/sheerun-vim-polyglot/syntax/tap.vim	/^function! TAPTestLine_foldtext()$/;"	f
+TB	vimrc	/^command! -range=% TB  <line1>,<line2>w !nc termbin.com 9999 | tr -d '\\n' | cat$/;"	c
 TOCActivate	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^function! s:TOCActivate(close)$/;"	f
 TOCClose	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^function! s:TOCClose()$/;"	f
 TOCFindMatch	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^function! s:TOCFindMatch(strsearch,duplicates,files)$/;"	f
