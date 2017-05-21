@@ -472,4 +472,6 @@ augroup AutoMkdir
 augroup END
 
 " Thanks romainl
-command! -range=% TB  <line1>,<line2>w !nc termbin.com 9999 | tr -d '\n' | cat
+if executable("nc") && executable("tr") && executable("cat")
+    command! -range=% TB  <line1>,<line2>w !nc termbin.com 9999 | tr -d '\n' | cat
+endif
