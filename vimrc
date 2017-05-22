@@ -249,12 +249,13 @@ set statusline+=[%{mode()}] " current mode
 set cpoptions=a " read updates alternative file name
 set cpoptions+=A " write updates alternative file name
 set cpoptions+=B " backslash has no special meaning in mappings
-set cpoptions+=c " searching continues at the end of the match at the cursor position
+set cpoptions+=d " ./tags means relative to cwd not file
 set cpoptions+=e " automatically add CR to the last line when using :@r
+set cpoptions+=f " read command updates current file name 
 set cpoptions+=F " write command updates current file name 
-set cpoptions+=s " set buffer options when entering the buffer
-set cpoptions+=m " when a new match is created (showmatch) pause for .5
+set cpoptions+=P " write command updates current file name on append
 set cpoptions+=q " when joining lines, leave the cursor between joined lines
+set cpoptions+=t " search pattern for tag command is remember for n command
 
 set whichwrap=b " <bs> normal and visual
 set whichwrap+=s " <space> normal and visual
