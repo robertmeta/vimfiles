@@ -84,7 +84,7 @@ nnoremap <leader>o <c-w>o
 nnoremap <leader>p :find *
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>r :TxRun!<cr>
-nnoremap <leader>R :TxSetRunCmd!<cr>
+nnoremap <leader>R :TxSetRunCmd<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>t :ltag<space>/ \| lop<left><left><left><left><left><left>
 nnoremap <leader>% :vsplit<cr>

@@ -315,7 +315,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>A	vimrc	/^nnoremap <leader>A :argadd **\/*$/;"	m
 <leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :grep <c-r><c-w><cr>$/;"	m
-<leader>R	vimrc	/^nnoremap <leader>R :TxSetRunCmd!<cr>$/;"	m
+<leader>R	vimrc	/^nnoremap <leader>R :TxSetRunCmd<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
 <leader>W	vimrc	/^nnoremap <leader>W <c-w>W$/;"	m
 <leader>a	vimrc	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
