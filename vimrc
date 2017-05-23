@@ -83,14 +83,14 @@ nnoremap <leader>m :make<cr>
 nnoremap <leader>o <c-w>o
 nnoremap <leader>p :find *
 nnoremap <leader>q :b#<cr>
-nnoremap <leader>r :TxRun<cr>
-nnoremap <leader>R :TxSetRunCmd<cr>
+nnoremap <leader>r :TxRun!<cr>
+nnoremap <leader>R :TxSetRunCmd!<cr>
 nnoremap <leader>" :split<cr>
 nnoremap <leader>t :ltag<space>/ \| lop<left><left><left><left><left><left>
 nnoremap <leader>% :vsplit<cr>
 nnoremap <leader>w <c-w>w
 nnoremap <leader>W <c-w>W
-nnoremap <leader>x :TxSigInt<cr>
+nnoremap <leader>x :TxSigInt!<cr>
 nnoremap <leader>z :call ToggleFolds()<cr>
 nnoremap Y y$
 

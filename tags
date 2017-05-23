@@ -315,7 +315,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>A	vimrc	/^nnoremap <leader>A :argadd **\/*$/;"	m
 <leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :grep <c-r><c-w><cr>$/;"	m
-<leader>R	vimrc	/^nnoremap <leader>R :TxSetRunCmd<cr>$/;"	m
+<leader>R	vimrc	/^nnoremap <leader>R :TxSetRunCmd!<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
 <leader>W	vimrc	/^nnoremap <leader>W <c-w>W$/;"	m
 <leader>a	vimrc	/^nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>\/*<C-d>$/;"	m
@@ -329,12 +329,12 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>o	vimrc	/^nnoremap <leader>o <c-w>o$/;"	m
 <leader>p	vimrc	/^nnoremap <leader>p :find *$/;"	m
 <leader>q	vimrc	/^nnoremap <leader>q :b#<cr>$/;"	m
-<leader>r	vimrc	/^nnoremap <leader>r :TxRun<cr>$/;"	m
+<leader>r	vimrc	/^nnoremap <leader>r :TxRun!<cr>$/;"	m
 <leader>s	vimrc	/^nmap <leader>s <Plug>(quickhl-manual-this)$/;"	m
 <leader>t	vimrc	/^nnoremap <leader>t :ltag<space>\/ \\| lop<left><left><left><left><left><left>$/;"	m
 <leader>vs	vimrc	/^nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>$/;"	m
 <leader>w	vimrc	/^nnoremap <leader>w <c-w>w$/;"	m
-<leader>x	vimrc	/^nnoremap <leader>x :TxSigInt<cr>$/;"	m
+<leader>x	vimrc	/^nnoremap <leader>x :TxSigInt!<cr>$/;"	m
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
 <left>	vimrc	/^nmap <silent> <left> <esc>:lprev<cr>$/;"	m
 <leftrelease>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <leftrelease> :call <SID>TOCActivate(0)<cr>$/;"	m
