@@ -79,6 +79,8 @@ nnoremap <leader>f :find *
 nnoremap <leader>G :grep <c-r><c-w><cr>
 nnoremap <leader>g :grep<space>
 nnoremap <leader>i :Ilist<space>
+nnoremap <leader>L :lgrep <c-r><c-w><cr>
+nnoremap <leader>l :lgrep<space>
 nnoremap <leader>m :make<cr>
 nnoremap <leader>o <c-w>o
 nnoremap <leader>p :find *

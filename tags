@@ -315,6 +315,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>A	vimrc	/^nnoremap <leader>A :argadd **\/*$/;"	m
 <leader>B	vimrc	/^nnoremap <leader>B :ls<cr>:b<space>$/;"	m
 <leader>G	vimrc	/^nnoremap <leader>G :grep <c-r><c-w><cr>$/;"	m
+<leader>L	vimrc	/^nnoremap <leader>L :lgrep <c-r><c-w><cr>$/;"	m
 <leader>R	vimrc	/^nnoremap <leader>R :TxSetRunCmd<cr>$/;"	m
 <leader>S	vimrc	/^nnoremap <leader>S :QuickhlManualAdd<space>$/;"	m
 <leader>W	vimrc	/^nnoremap <leader>W <c-w>W$/;"	m
@@ -325,6 +326,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>f	vimrc	/^nnoremap <leader>f :find *$/;"	m
 <leader>g	vimrc	/^nnoremap <leader>g :grep<space>$/;"	m
 <leader>i	vimrc	/^nnoremap <leader>i :Ilist<space>$/;"	m
+<leader>l	vimrc	/^nnoremap <leader>l :lgrep<space>$/;"	m
 <leader>m	vimrc	/^nnoremap <leader>m :make<cr>$/;"	m
 <leader>o	vimrc	/^nnoremap <leader>o <c-w>o$/;"	m
 <leader>p	vimrc	/^nnoremap <leader>p :find *$/;"	m
@@ -2121,7 +2123,7 @@ coverage_browser_handler	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vi
 coverage_callback	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^function! s:coverage_callback(coverfile, job, exit_status, data)$/;"	f
 coverage_handler	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^function! s:coverage_handler(job, exit_status, data) abort$/;"	f
 coverage_job	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^function s:coverage_job(args)$/;"	f
-cox	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap cox :set <C-R>=&cursorline && &cursorcolumn ? 'nocursorline nocursorcolumn' : 'cursorline cursorcolumn'<CR><CR>$/;"	m
+cox	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <expr> cox ':set ' . (&cursorline && &cursorcolumn ? 'nocursorline nocursorcolumn' : 'cursorline cursorcolumn').'<CR>'$/;"	m
 cpath	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:cpath(path) abort$/;"	f
 cr	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  nmap cr  <Plug>Coerce$/;"	m
 create_cmd	pack/plugins/start/fatih-vim-go/autoload/go/tags.vim	/^func s:create_cmd(args) abort$/;"	f
@@ -2986,7 +2988,6 @@ go#ui#CloseWindow	pack/plugins/start/fatih-vim-go/autoload/go/ui.vim	/^function!
 go#ui#GetReturnWindow	pack/plugins/start/fatih-vim-go/autoload/go/ui.vim	/^function! go#ui#GetReturnWindow() abort$/;"	f
 go#ui#OpenDefinition	pack/plugins/start/fatih-vim-go/autoload/go/ui.vim	/^function! go#ui#OpenDefinition(filter) abort$/;"	f
 go#ui#OpenWindow	pack/plugins/start/fatih-vim-go/autoload/go/ui.vim	/^function! go#ui#OpenWindow(title, content, filetype) abort$/;"	f
-go#util#AddTags	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#AddTags(line1, line2, ...) abort$/;"	f
 go#util#EchoError	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#EchoError(msg)$/;"	f
 go#util#EchoInfo	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#EchoInfo(msg)$/;"	f
 go#util#EchoProgress	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#EchoProgress(msg)$/;"	f

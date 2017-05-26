@@ -16,10 +16,12 @@ BUG FIXES:
 * job: fix race between channel close and job exit [gh-1247]
 * internal: fix system calls when using tcsh [gh-1276]
 * path: return the unmodified GOPATH if autodetect is disabled [gh-1280]
+* fix jumping to quickfix window when autom gometalinter on save was enabled [gh-1293]
 
 BACKWARDS INCOMPATIBILITIES:
 
 * `:GoLint` works on the whole directory instead of the current file. To use it for the current file give it as an argument, i.e `:GoLint foo.go` [gh-1295]
+* `go_snippet_case_type` is removed in favor of the new `go_addtags_transform` setting [gh-1299]
 
 ## 1.12 - (March 29, 2017)
 

@@ -53,7 +53,6 @@
 'g:go_metalinter_excludes'	vim-go.txt	/*'g:go_metalinter_excludes'*
 'g:go_play_browser_command'	vim-go.txt	/*'g:go_play_browser_command'*
 'g:go_play_open_browser'	vim-go.txt	/*'g:go_play_open_browser'*
-'g:go_snippet_case_type'	vim-go.txt	/*'g:go_snippet_case_type'*
 'g:go_snippet_engine'	vim-go.txt	/*'g:go_snippet_engine'*
 'g:go_statusline_duration'	vim-go.txt	/*'g:go_statusline_duration'*
 'g:go_template_autocreate'	vim-go.txt	/*'g:go_template_autocreate'*
