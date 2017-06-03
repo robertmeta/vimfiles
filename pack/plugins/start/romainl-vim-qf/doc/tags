@@ -2,6 +2,7 @@
 'g:qf_auto_open_quickfix'	qf.txt	/*'g:qf_auto_open_quickfix'*
 'g:qf_auto_quit'	qf.txt	/*'g:qf_auto_quit'*
 'g:qf_auto_resize'	qf.txt	/*'g:qf_auto_resize'*
+'g:qf_bufname_or_text'	qf.txt	/*'g:qf_bufname_or_text'*
 'g:qf_loclist_window_bottom'	qf.txt	/*'g:qf_loclist_window_bottom'*
 'g:qf_mapping_ack_style'	qf.txt	/*'g:qf_mapping_ack_style'*
 'g:qf_max_height'	qf.txt	/*'g:qf_max_height'*
