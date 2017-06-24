@@ -1,5 +1,6 @@
 eunuch	eunuch.txt	/*eunuch*
 eunuch-:Chmod	eunuch.txt	/*eunuch-:Chmod*
+eunuch-:Delete	eunuch.txt	/*eunuch-:Delete*
 eunuch-:Find	eunuch.txt	/*eunuch-:Find*
 eunuch-:Locate	eunuch.txt	/*eunuch-:Locate*
 eunuch-:Mkdir	eunuch.txt	/*eunuch-:Mkdir*

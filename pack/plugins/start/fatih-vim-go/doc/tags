@@ -57,6 +57,7 @@
 'g:go_statusline_duration'	vim-go.txt	/*'g:go_statusline_duration'*
 'g:go_template_autocreate'	vim-go.txt	/*'g:go_template_autocreate'*
 'g:go_template_file'	vim-go.txt	/*'g:go_template_file'*
+'g:go_template_test_file'	vim-go.txt	/*'g:go_template_test_file'*
 'g:go_template_use_pkg'	vim-go.txt	/*'g:go_template_use_pkg'*
 'g:go_term_enabled'	vim-go.txt	/*'g:go_term_enabled'*
 'g:go_term_height'	vim-go.txt	/*'g:go_term_height'*
