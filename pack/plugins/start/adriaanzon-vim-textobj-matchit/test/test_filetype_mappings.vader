@@ -1,0 +1,11 @@
+After:
+  unlet! g:textobj_matchit_filetype_mappings
+
+Execute (Filetype mappings aren't set up without setting the option):
+  set filetype=blade
+  Assert empty(maparg('id', 'o'))
+
+Execute (Filetype mappings are set up when the option is set):
+  let g:textobj_matchit_filetype_mappings = 1
+  set filetype=blade
+  AssertEqual '<Plug>(textobj-matchit-a)', maparg('ad', 'o')

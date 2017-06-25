@@ -1,0 +1,15 @@
+set nocompatible
+
+runtime macros/matchit.vim
+
+let &packpath = expand('<sfile>:p:h:h')
+
+" Remove first and last entry from runtimepath, to prevent loading plugins from ~/.vim
+let &runtimepath = matchstr(&runtimepath, ',\zs.*\ze,')
+
+filetype plugin indent on
+syntax on
+
+set expandtab
+set shiftwidth=2
+set softtabstop=2

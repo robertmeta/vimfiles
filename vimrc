@@ -476,7 +476,7 @@ endfunction
 
 function! <SID>AutoMkdir() abort
     let l:dir=expand('<afile>:p:h')
-    let l:file=expand('<afile>:t')
+    let l:file=expand('<afile>:t', dog)
     if !isdirectory(l:dir)
         call mkdir(l:dir, 'p')
         silent execute 'bw ' . l:dir . '/' . l:file
@@ -493,3 +493,23 @@ augroup END
 if executable("nc") && executable("tr") && executable("cat")
     command! -range=% TB  <line1>,<line2>w !nc termbin.com 9999 | tr -d '\n' | cat
 endif
+
+function! Redir(cmd)
+    if a:cmd =~ '^!'
+        execute "let output = system('" . substitute(a:cmd, '^!', '', '') . "')"
+    else
+        redir => output
+        execute a:cmd
+        redir END
+    endif
+    vnew
+    setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
+    call setline(1, split(output, "\n"))
+endfunction
+command! -nargs=1 Redir silent call Redir(<f-args>)
+
+function! BreakHere()
+    s/^\(\s*\)\(.\{-}\)\(\s*\)\(\%#\)\(\s*\)\(.*\)/\1\2\r\1\4\6
+    call histdel("/", -1)
+endfunction
+command! BreakHere :call BreakHere()

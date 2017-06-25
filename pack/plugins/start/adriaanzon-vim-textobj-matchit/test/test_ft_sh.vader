@@ -1,0 +1,22 @@
+Given sh:
+  if true; then
+    for item in a b c; do
+
+    done
+  fi
+
+Do (Position the cursor inside the inner structure):
+  }
+  dam
+
+Expect:
+  if true; then
+  fi
+
+Do (Position the cursor before the start pattern):
+  j
+  dam
+
+Expect (It should still delete the structure next to the cursor):
+  if true; then
+  fi

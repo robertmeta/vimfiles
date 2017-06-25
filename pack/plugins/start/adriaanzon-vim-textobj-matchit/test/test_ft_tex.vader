@@ -1,0 +1,23 @@
+Given tex:
+  \documentclass{article}
+
+  \begin{document}
+
+  \end{document}
+
+Do:
+  }}
+  dim
+
+Expect:
+  \documentclass{article}
+
+  \begin{document}
+  \end{document}
+
+Do:
+  }}
+  damdd
+
+Expect:
+  \documentclass{article}

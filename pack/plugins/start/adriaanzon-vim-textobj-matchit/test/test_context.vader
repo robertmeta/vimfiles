@@ -1,0 +1,21 @@
+Given ruby (Comment that contains an end pattern):
+  while true
+    # this loop never
+    # comes to an end
+  end
+
+Do:
+  j
+  dim
+
+Expect (It should skip over the comment):
+  while true
+  end
+
+Do (Position the cursor on 'end' in the comment):
+  /end\<CR>
+  dim
+
+Expect (It should skip over the comment):
+  while true
+  end

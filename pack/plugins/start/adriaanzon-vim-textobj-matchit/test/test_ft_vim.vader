@@ -1,0 +1,12 @@
+Given vim:
+  function! Foo()
+    if 1
+    endif
+  endfunction
+
+Do:
+  dim
+
+Expect:
+  function! Foo()
+  endfunction

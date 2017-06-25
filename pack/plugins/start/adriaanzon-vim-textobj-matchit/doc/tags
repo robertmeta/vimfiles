@@ -1,0 +1,9 @@
+g:textobj_matchit_filetype_mappings	textobj-matchit.txt	/*g:textobj_matchit_filetype_mappings*
+g:textobj_matchit_no_default_key_mappings	textobj-matchit.txt	/*g:textobj_matchit_no_default_key_mappings*
+textobj-matchit	textobj-matchit.txt	/*textobj-matchit*
+textobj-matchit-am	textobj-matchit.txt	/*textobj-matchit-am*
+textobj-matchit-im	textobj-matchit.txt	/*textobj-matchit-im*
+textobj-matchit-introduction	textobj-matchit.txt	/*textobj-matchit-introduction*
+textobj-matchit-mappings	textobj-matchit.txt	/*textobj-matchit-mappings*
+textobj-matchit-options	textobj-matchit.txt	/*textobj-matchit-options*
+textobj-matchit.txt	textobj-matchit.txt	/*textobj-matchit.txt*

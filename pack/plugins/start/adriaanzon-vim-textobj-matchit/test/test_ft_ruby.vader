@@ -1,0 +1,78 @@
+Given ruby (Simple structure):
+  if true
+    # do something
+  end
+
+Do:
+  cam
+  # don't do something
+
+Expect:
+  # don't do something
+
+Do:
+  dim
+
+Expect:
+  if true
+  end
+
+
+Given ruby (Nested structure):
+  if true
+    if true
+      # something
+    end
+  end
+
+Do (Position the cursor inside a structure):
+  2j
+  dam
+
+Expect:
+  if true
+  end
+
+Do (Position the cursor on the end pattern):
+  3j^
+  dam
+
+Expect (It should still remove the structure under the cursor):
+  if true
+  end
+
+Do (Position the cursor on the end of the end pattern):
+  3j$
+  dam
+
+Expect (It should still remove the structure under the cursor):
+  if true
+  end
+
+Do (Position the cursor before the start pattern):
+  j
+  dam
+
+Expect (It should still remove the structure under the cursor):
+  if true
+  end
+
+
+Given ruby (Multiple nested structures):
+  if true
+
+    if true
+    end
+
+    if true
+    end
+
+  end
+
+Do (Position the cursor between the two nested structures, but still inside of the outer structure):
+  }}
+  dim
+
+Expect:
+  if true
+  end

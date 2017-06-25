@@ -1,0 +1,60 @@
+*textobj-matchit.txt*   Creates text objects from matchit pairs
+*textobj-matchit*
+
+==============================================================================
+INTRODUCTION                                      *textobj-matchit-introduction*
+
+This plugin uses |b:match_words| from |matchit.vim| to create |text-objects|.
+It specifically looks for word characters (`\w`), so that regular matchpairs,
+like `(:),[:],{:}` are ignored. This is done because those characters already
+have text objects of their own. This plugin is meant to create text objects
+for, but not limited to, the following language structures:
+
+  - Ruby (`if…end`, `def…end`)
+  - Blade (`@section…@endsection`)
+  - Shell (`if…fi`, `for…done`)
+  - Vim script (`if…endif`, `for…endfor`)
+
+Given the nature of these structures, this text object always works |linewise|.
+
+==============================================================================
+MAPPINGS                                              *textobj-matchit-mappings*
+
+                                                            *textobj-matchit-im*
+                                                            *textobj-matchit-am*
+
+By default, textobj-matchit maps to `am` and `im`. If you wish, you can change
+them to something else. In the following example, we map them to `a%` and `i%`,
+as a mnemonic for |matchit-%|:
+>
+  xmap a%  <Plug>(textobj-matchit-a)
+  omap a%  <Plug>(textobj-matchit-a)
+  xmap i%  <Plug>(textobj-matchit-i)
+  omap i%  <Plug>(textobj-matchit-i)
+<
+                                     *g:textobj_matchit_no_default_key_mappings*
+
+Additionally, you can disable the `am` and `im` mappings entirely using:
+>
+  let g:textobj_matchit_no_default_key_mappings = 1
+<
+==============================================================================
+OPTIONS                                                *textobj-matchit-options*
+
+g:textobj_matchit_filetype_mappings        *g:textobj_matchit_filetype_mappings*
+
+  Type: |Number|
+  Default: `0`
+
+  Enable extra mappings for various filetypes. These are aliases for the
+  existing `am` and `im`, and are mainly intended to replace existing plugins.
+
+  | filetype | mappings | mnemonic    |
+  | -------- | -------- | --------    |
+  | blade    | ad, id   | directive   |
+  | lua      | al, il   |             |
+  | ruby     | ar, ir   |             |
+  | tex      | ae, ie   | environment |
+
+------------------------------------------------------------------------------
+ vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,59 @@
+Given blade (Directive pair with content):
+  @foreach($dogs as $dog)
+    This dog's name is: {{ $dog->name }}
+  @endforeach
+
+Do (Delete contents of directive pair):
+  dim
+
+Expect blade:
+  @foreach($dogs as $dog)
+  @endforeach
+
+
+Given blade (Pair with one-line php directive inside):
+  @if($condition)
+    @php($foo = 'bar')
+    {{ $foo }}
+  @endif
+
+Do (Delete contents of directive pair):
+  dim
+
+Expect blade (It ignores the one-line @php directive):
+  @if($condition)
+  @endif
+
+
+Given blade (Section pair with one-line section directive inside):
+  @section('content')
+    @section('title', 'The Home Page')
+
+    Welcome to my web page
+  @endsection
+
+Do (Delete contents of directive pair):
+  jj
+  cim
+  Welcome\<Esc>
+
+Expect blade (It ignores the one-line section directive):
+  @section('content')
+    Welcome
+  @endsection
+
+
+Given blade (Blade template with HTML tag):
+  @foreach($users as $user)
+    <div>
+      {{ $user->name }}
+    </div>
+  @endforeach
+
+Do (Position cursor inside the HTML tag):
+  jj
+  dim
+
+Expect (It shouldn't match the HTML tag as a text object):
+  @foreach($users as $user)
+  @endforeach

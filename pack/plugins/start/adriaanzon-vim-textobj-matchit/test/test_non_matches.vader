@@ -1,0 +1,10 @@
+Given vim (Half a pair):
+
+  endfunction
+
+Do:
+  dim
+
+Expect (Nothing interesting happens):
+
+  endfunction
