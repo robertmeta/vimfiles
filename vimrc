@@ -378,9 +378,7 @@ let g:go_fmt_autosave=1
 let g:go_fmt_command="goimports"
 let g:go_fmt_experimental=1
 let g:go_highlight_array_whitespace_error=1
-let g:go_highlight_array_whitespace_error=1
 let g:go_highlight_build_constraints=1
-let g:go_highlight_chan_whitespace_error=1
 let g:go_highlight_chan_whitespace_error=1
 let g:go_highlight_extra_types=1
 let g:go_highlight_fields=1
@@ -390,9 +388,7 @@ let g:go_highlight_generate_tags=1
 let g:go_highlight_methods=1
 let g:go_highlight_operators=1
 let g:go_highlight_space_tab_error=1
-let g:go_highlight_space_tab_error=1
 let g:go_highlight_string_spellcheck=1
-let g:go_highlight_trailing_whitespace_error=1
 let g:go_highlight_trailing_whitespace_error=1
 let g:go_highlight_types=1
 let g:go_info_mode='guru'
@@ -476,7 +472,7 @@ endfunction
 
 function! <SID>AutoMkdir() abort
     let l:dir=expand('<afile>:p:h')
-    let l:file=expand('<afile>:t', dog)
+    let l:file=expand('<afile>:t')
     if !isdirectory(l:dir)
         call mkdir(l:dir, 'p')
         silent execute 'bw ' . l:dir . '/' . l:file
