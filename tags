@@ -164,7 +164,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <M-f>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^noremap!        <M-f> <S-Right>$/;"	m
 <M-n>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^noremap!        <M-n> <Down>$/;"	m
 <M-p>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^noremap!        <M-p> <Up>$/;"	m
-<P	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <P :call <SID>putline('[p', 'Above')<CR><']$/;"	m
 <Plug>(RepeatDot)	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^nnoremap <silent> <Plug>(RepeatDot)      :<C-U>exe repeat#run(v:count)<CR>$/;"	m
 <Plug>(RepeatRedo)	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^nnoremap <silent> <Plug>(RepeatRedo)     :<C-U>call repeat#wrap("\\<Lt>C-R>",v:count)<CR>$/;"	m
 <Plug>(RepeatUndo)	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^nnoremap <silent> <Plug>(RepeatUndo)     :<C-U>call repeat#wrap('u',v:count)<CR>$/;"	m
@@ -240,6 +239,8 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Plug>(quickhl-manual-reset)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^vnoremap <silent> <Plug>(quickhl-manual-reset)  :call quickhl#manual#reset()<CR>$/;"	m
 <Plug>(quickhl-manual-this)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-manual-this) :call quickhl#manual#this('n')<CR>$/;"	m
 <Plug>(quickhl-manual-this)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^vnoremap <silent> <Plug>(quickhl-manual-this) :call quickhl#manual#this('v')<CR>$/;"	m
+<Plug>(quickhl-manual-this-whole-word)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-manual-this-whole-word) :call quickhl#manual#this_whole_word('n/;"	m
+<Plug>(quickhl-manual-this-whole-word)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^vnoremap <silent> <Plug>(quickhl-manual-this-whole-word) :call quickhl#manual#this_whole_word('v/;"	m
 <Plug>(quickhl-manual-toggle)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-manual-toggle) :call quickhl#manual#lock_toggle()<CR>$/;"	m
 <Plug>(quickhl-manual-toggle)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^vnoremap <silent> <Plug>(quickhl-manual-toggle) :call quickhl#manual#lock_toggle()<CR>$/;"	m
 <Plug>(quickhl-tag-disable)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-tag-disable)    :call quickhl#tag#disable()<CR>$/;"	m
@@ -321,8 +322,8 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <Plug>unimpairedContextNext	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^onoremap <silent> <Plug>unimpairedContextNext     :call <SID>ContextMotion(0)<CR>$/;"	m
 <Plug>unimpairedContextPrevious	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedContextPrevious :call <SID>Context(1)<CR>$/;"	m
 <Plug>unimpairedContextPrevious	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^onoremap <silent> <Plug>unimpairedContextPrevious :call <SID>ContextMotion(1)<CR>$/;"	m
-<Plug>unimpairedDirectoryNext	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedDirectoryNext     :<C-U>edit <C-R>=fnamemodify(<SID>fnameescap/;"	m
-<Plug>unimpairedDirectoryPrevious	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedDirectoryPrevious :<C-U>edit <C-R>=fnamemodify(<SID>fnameescap/;"	m
+<Plug>unimpairedDirectoryNext	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedDirectoryNext     :<C-U>edit <C-R>=<SID>fnameescape(fnamemodif/;"	m
+<Plug>unimpairedDirectoryPrevious	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedDirectoryPrevious :<C-U>edit <C-R>=<SID>fnameescape(fnamemodif/;"	m
 <Plug>unimpairedMoveDown	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedMoveDown          :<C-U>call <SID>Move('+',v:count1,'Down')<CR/;"	m
 <Plug>unimpairedMoveSelectionDown	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^noremap  <silent> <Plug>unimpairedMoveSelectionDown :<C-U>call <SID>MoveSelectionDown(v:count1)</;"	m
 <Plug>unimpairedMoveSelectionUp	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^noremap  <silent> <Plug>unimpairedMoveSelectionUp   :<C-U>call <SID>MoveSelectionUp(v:count1)<CR/;"	m
@@ -342,9 +343,12 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <SID>transposition	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^noremap! <expr> <SID>transposition getcmdpos()>strlen(getcmdline())?"\\<Left>":getcmdpos()>1?'':/;"	m
 <Space>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <Space> :call <SID>TOCActivate(0)<CR>$/;"	m
 <backspace>	vimrc	/^nnoremap <silent> <backspace> :noh<cr>:QuickhlManualReset<cr>$/;"	m
+<c-e>	pack/plugins/start/lifepillar-vim-mucomplete/troubleshooting_vimrc.vim	/^inoremap <expr> <c-e> mucomplete#popup_exit("\\<c-e>")$/;"	m
 <c-h>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <unique> <c-h> <plug>(MUcompleteCycBwd)$/;"	m
 <c-j>	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    imap <unique> <c-j> <plug>(MUcompleteCycFwd)$/;"	m
 <c-r><c-l>	vimrc	/^cnoremap <c-r><c-l> <c-r>=getline('.')<cr>$/;"	m
+<c-y>	pack/plugins/start/lifepillar-vim-mucomplete/troubleshooting_vimrc.vim	/^inoremap <expr> <c-y> mucomplete#popup_exit("\\<c-y>")$/;"	m
+<cr>	pack/plugins/start/lifepillar-vim-mucomplete/troubleshooting_vimrc.vim	/^inoremap <expr>  <cr> mucomplete#popup_exit("\\<cr>")$/;"	m
 <down>	vimrc	/^nmap <silent> <down>  <esc>:cnext<cr>$/;"	m
 <f5>	vimrc	/^inoremap <f5> <c-r>=strftime("%c")<cr>$/;"	m
 <f5>	vimrc	/^nnoremap <f5> "=strftime("%c")<cr>P$/;"	m
@@ -380,7 +384,6 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 <leader>z	vimrc	/^nnoremap <leader>z :call ToggleFolds()<cr>$/;"	m
 <left>	vimrc	/^nmap <silent> <left> <esc>:lprev<cr>$/;"	m
 <leftrelease>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latextoc.vim	/^nnoremap <buffer> <silent> <leftrelease> :call <SID>TOCActivate(0)<cr>$/;"	m
-<p	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <p :call <SID>putline(']p', 'Below')<CR><']$/;"	m
 <plug>(MUcompleteBwd)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^imap <expr> <silent> <plug>(MUcompleteBwd) mucomplete#tab_complete(-1)$/;"	m
 <plug>(MUcompleteBwdKey)	pack/plugins/start/lifepillar-vim-mucomplete/plugin/mucomplete.vim	/^    inoremap <silent> <plug>(MUcompleteBwdKey) <c-h>$/;"	m
 <plug>(MUcompleteCtd)	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^inoremap <silent>        <plug>(MUcompleteCtd) <c-d>$/;"	m
@@ -403,11 +406,7 @@ $PYTHONWARNINGS	pack/plugins/start/sheerun-vim-polyglot/compiler/python.vim	/^  
 =	pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^          ln = buf[x]$/;"	m
 =	pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^      ln = buf[x]$/;"	m
 =	pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^      nm = "%s(::.*)*\\", %s, \\"" % [ name, nums.last ]$/;"	m
-=P	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> =P :call <SID>putline('[p', 'Above')<CR>=']$/;"	m
-=p	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> =p :call <SID>putline(']p', 'Below')<CR>=']$/;"	m
 >	pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/puppet.vim	/^    inoremap <buffer> <silent> > ><Esc>:call <SID>puppetalign()<CR>a$/;"	m
->P	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> >P :call <SID>putline('[p', 'Above')<CR>>']$/;"	m
->p	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> >p :call <SID>putline(']p', 'Below')<CR>>']$/;"	m
 @	vimrc	/^xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>$/;"	m
 A	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^        nnoremap <buffer> <silent> A    :<C-u>exe "vertical resize ".(<SID>linechars('.\\{-\\}\\/;"	m
 Abolish	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  let Abolish = {}$/;"	v
@@ -671,7 +670,7 @@ GoDoc	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs
 GoDocBrowser	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -range -complete=customlist,go#package#Complete GoDocBrowser call go#doc#OpenB/;"	c
 GoDrop	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=? -complete=customlist,go#package#Complete GoDrop call go#import#SwitchImport(0,/;"	c
 GoErrCheck	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -complete=customlist,go#package#Complete GoErrCheck call go#lint#Errcheck(<f-a/;"	c
-GoFiles	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 GoFiles echo go#tool#Files()$/;"	c
+GoFiles	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -complete=customlist,go#tool#ValidFiles GoFiles echo go#tool#Files(<f-args>)$/;"	c
 GoFmt	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 GoFmt call go#fmt#Format(-1)$/;"	c
 GoFmtAutoSaveToggle	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=0 GoFmtAutoSaveToggle call go#fmt#ToggleFmtAutoSave()$/;"	c
 GoFreevars	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -range=% GoFreevars call go#guru#Freevars(<count>)$/;"	c
@@ -831,6 +830,9 @@ K	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^nnoremap <buf
 K	pack/plugins/start/sheerun-vim-polyglot/ftplugin/racket.vim	/^nnoremap <buffer> K :silent !raco docs <cword><cr>:redraw!<cr>$/;"	m
 K	pack/plugins/start/sheerun-vim-polyglot/ftplugin/racket.vim	/^vnoremap <buffer> K :call <SID>Racket_visual_doc()<cr>$/;"	m
 Keep	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=? Keep call qf#filter#FilterList(<q-args>, 0)$/;"	c
+LOG_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^    set LOG_FILE=%~2$/;"	v
+LOG_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^if [%LOG_FILE%]==[] set LOG_FILE=CON$/;"	v
+LOG_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^set LOG_FILE=$/;"	v
 LOG_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^    set LOG_FILE=%~2$/;"	v
 LOG_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^if [%LOG_FILE%]==[] set LOG_FILE=CON$/;"	v
 LOG_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^set LOG_FILE=$/;"	v
@@ -1165,7 +1167,7 @@ U	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^    nnoremap <buff
 U	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^    nmap U <Plug>(RepeatUndoLine)$/;"	m
 UPDATED_SOURCE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^    set UPDATED_SOURCE=%~2$/;"	v
 UPDATED_SOURCE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^set UPDATED_SOURCE=$/;"	v
-UnimpairedMapTransform	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! UnimpairedMapTransform(algorithm, key)$/;"	f
+UnimpairedMapTransform	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! UnimpairedMapTransform(algorithm, key) abort$/;"	f
 Unlink	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -bang Unlink$/;"	c
 Unlock	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:Unlock$/;"	l
 Updating	pack/plugins/start/sheerun-vim-polyglot/README.md	/^## Updating$/;"	i
@@ -1184,7 +1186,6 @@ Working with 8/16 colors	pack/colors/start/romainl-apprentice/README.md	/^### Wo
 Writing	pack/plugins/start/ludovicchabant-vim-gutentags/CONTRIBUTING.md	/^## Writing$/;"	i
 Y	vimrc	/^nnoremap Y y\$$/;"	m
 [<C-D>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  nnoremap <silent> <script> <buffer> [<C-D>      :<C-U>exe <SID>jump('edit',v:count)<SID>foldop/;"	m
-[<Space>	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap [<Space> <Plug>unimpairedBlankUp$/;"	m
 [D	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^    nmap <silent> [D <Plug>QlistDefinefromtop$/;"	m
 [D	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^    xmap <silent> [D <Plug>QlistDefinefromtopvisual$/;"	m
 [I	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^    nmap <silent> [I <Plug>QlistIncludefromtop$/;"	m
@@ -1210,21 +1211,9 @@ Y	vimrc	/^nnoremap Y y\$$/;"	m
 []	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  xnoremap <silent> <buffer> [] :<C-U>call <SID>searchsyn('\\<end\\>',['rubyModule','rubyClass']/;"	m
 [c	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    nmap [c <Plug>GitGutterPrevHunk$/;"	m
 [d	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  nnoremap <silent> <script> <buffer> [d          :<C-U>exe <SID>jump('pedit',v:count)<CR>$/;"	m
-[e	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap [e <Plug>unimpairedMoveUp$/;"	m
-[e	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^xmap [e <Plug>unimpairedMoveSelectionUp$/;"	m
-[f	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap [f <Plug>unimpairedDirectoryPrevious$/;"	m
 [m	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  nnoremap <silent> <buffer> [m :<C-U>call <SID>searchsyn('\\<def\\>',['rubyDefine'],'b','n')<CR/;"	m
 [m	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  xnoremap <silent> <buffer> [m :<C-U>call <SID>searchsyn('\\<def\\>',['rubyDefine'],'b','v')<CR/;"	m
-[n	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap [n <Plug>unimpairedContextPrevious$/;"	m
-[n	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^omap [n <Plug>unimpairedContextPrevious$/;"	m
-[o	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap [o <Plug>unimpairedOPrevious$/;"	m
-[ob	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap [ob :set background=light<CR>$/;"	m
-[od	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap [od :diffthis<CR>$/;"	m
-[ov	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap [ov :set virtualedit+=all<CR>$/;"	m
-[ox	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap [ox :set cursorline cursorcolumn<CR>$/;"	m
-[p	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap [p <Plug>unimpairedPutAbove$/;"	m
 ]<C-D>	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  nnoremap <silent> <script> <buffer> ]<C-D>      :<C-U>exe <SID>jump('edit',v:count)<SID>foldop/;"	m
-]<Space>	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap ]<Space> <Plug>unimpairedBlankDown$/;"	m
 ]D	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^    nmap <silent> ]D <Plug>QlistDefinefromhere$/;"	m
 ]D	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^    xmap <silent> ]D <Plug>QlistDefinefromherevisual$/;"	m
 ]I	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^    nmap <silent> ]I <Plug>QlistIncludefromhere$/;"	m
@@ -1250,19 +1239,8 @@ Y	vimrc	/^nnoremap Y y\$$/;"	m
 ]]	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala.vim	/^noremap <script> <buffer> <silent> ]] :call <SID>NextSection(0)<cr>$/;"	m
 ]c	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    nmap ]c <Plug>GitGutterNextHunk$/;"	m
 ]d	pack/plugins/start/sheerun-vim-polyglot/ftplugin/cucumber.vim	/^  nnoremap <silent> <script> <buffer> ]d          :<C-U>exe <SID>jump('pedit',v:count)<CR>$/;"	m
-]e	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap ]e <Plug>unimpairedMoveDown$/;"	m
-]e	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^xmap ]e <Plug>unimpairedMoveSelectionDown$/;"	m
-]f	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap ]f <Plug>unimpairedDirectoryNext$/;"	m
 ]m	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  nnoremap <silent> <buffer> ]m :<C-U>call <SID>searchsyn('\\<def\\>',['rubyDefine'],'','n')<CR>$/;"	m
 ]m	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  xnoremap <silent> <buffer> ]m :<C-U>call <SID>searchsyn('\\<def\\>',['rubyDefine'],'','v')<CR>$/;"	m
-]n	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap ]n <Plug>unimpairedContextNext$/;"	m
-]n	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^omap ]n <Plug>unimpairedContextNext$/;"	m
-]o	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap ]o <Plug>unimpairedONext$/;"	m
-]ob	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap ]ob :set background=dark<CR>$/;"	m
-]od	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap ]od :diffoff<CR>$/;"	m
-]ov	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap ]ov :set virtualedit-=all<CR>$/;"	m
-]ox	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap ]ox :set nocursorline nocursorcolumn<CR>$/;"	m
-]p	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nmap ]p <Plug>unimpairedPutBelow$/;"	m
 __init__	pack/plugins/start/wellle-tmux-complete-vim/rplugin/python3/deoplete/sources/tmuxcomplete.py	/^    def __init__(self, vim):$/;"	m	class:Source
 a	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^        nnoremap <buffer> <silent> a :<C-U>let b:fugitive_display_format += v:count1<Bar>exe <SI/;"	m
 a	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^    nnoremap <buffer> <silent> a :<C-U>let b:fugitive_display_format += 1<Bar>exe <SID>BufReadIn/;"	m
@@ -1815,8 +1793,7 @@ clean	pack/plugins/start/glts-vim-textobj-comment/Makefile	/^clean:$/;"	t
 clearPack	get-plugins.go	/^func clearPack() {$/;"	f
 clojurecomplete#Complete	pack/plugins/start/sheerun-vim-polyglot/autoload/clojurecomplete.vim	/^function! clojurecomplete#Complete(findstart, base)$/;"	f
 co	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^    nnoremap <buffer> <silent> co    :<C-U>exe <SID>Edit('split',0,<SID>buffer().containing_comm/;"	m
-cob	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap cob :set background=<C-R>=&background == 'dark' ? 'light' : 'dark'<CR><CR>$/;"	m
-cod	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap cod :<C-R>=&diff ? 'diffoff' : 'diffthis'<CR><CR>$/;"	m
+co	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^  nmap co =o$/;"	m
 coffee#CoffeeSetUpErrorFormat	pack/plugins/start/sheerun-vim-polyglot/autoload/coffee.vim	/^function! coffee#CoffeeSetUpErrorFormat()$/;"	f
 coffee#CoffeeSetUpVariables	pack/plugins/start/sheerun-vim-polyglot/autoload/coffee.vim	/^function! coffee#CoffeeSetUpVariables()$/;"	f
 color	pack/colors/start/robertmeta-nofrils/generate_colors.go	/^type color struct {$/;"	s
@@ -1830,8 +1807,6 @@ command	pack/plugins/start/glts-vim-textobj-comment/t/simple.vim	/^    let comma
 command	pack/plugins/start/glts-vim-textobj-comment/t/simple.vim	/^    let command = "v\\<Plug>(textobj-comment-big-a)v\\<Esc>"$/;"	v
 copy_dir	pack/plugins/start/sheerun-vim-polyglot/build	/^copy_dir() {$/;"	f
 core_attributes	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let core_attributes = {'accesskey': [], 'class': [], 'contenteditable': ['true', 'false', ''], '/;"	v
-cov	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap cov :set <C-R>=(&virtualedit =~# "all") ? 'virtualedit-=all' : 'virtualedit+=all'<CR><C/;"	m
-cox	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <expr> cox ':set ' . (&cursorline && &cursorcolumn ? 'nocursorline nocursorcolumn' : 'c/;"	m
 cr	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  nmap cr  <Plug>Coerce$/;"	m
 crossorigin	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let crossorigin = ['anonymous', 'use-credentials']$/;"	v
 cry_minlines	pack/plugins/start/sheerun-vim-polyglot/syntax/cryptol.vim	/^  let cry_minlines = 50$/;"	v
@@ -2227,6 +2202,7 @@ g:go_term_mode	pack/plugins/start/fatih-vim-go/autoload/go/term.vim	/^  let g:go
 g:go_textobj_enabled	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^  let g:go_textobj_enabled = 1$/;"	v
 g:go_textobj_enabled	vimrc	/^let g:go_textobj_enabled=1$/;"	v
 g:go_textobj_include_function_doc	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^  let g:go_textobj_include_function_doc = 1$/;"	v
+g:go_textobj_include_variable	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^  let g:go_textobj_include_variable = 1$/;"	v
 g:gutentags_add_default_project_roots	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_add_default_project_roots = get(g:, 'gutentags_add_default_project_roots', 1)$/;"	v
 g:gutentags_auto_add_cscope	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/cscope.vim	/^    let g:gutentags_auto_add_cscope = 1$/;"	v
 g:gutentags_auto_add_gtags_cscope	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^	let g:gutentags_auto_add_gtags_cscope = 1$/;"	v
@@ -2426,6 +2402,22 @@ g:skip_loading_mswin	vimrc	/^let g:skip_loading_mswin=1 " Just in case :)$/;"	v
 g:tagbar_type_go	pack/plugins/start/fatih-vim-go/ftplugin/go/tagbar.vim	/^    let g:tagbar_type_go = {$/;"	v
 g:tagbar_type_scala	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala/tagbar.vim	/^  let g:tagbar_type_scala.deffile = expand('<sfile>:p:h:h:h') . '\/ctags\/scala.ctags'$/;"	v
 g:tagbar_type_scala	pack/plugins/start/sheerun-vim-polyglot/ftplugin/scala/tagbar.vim	/^let g:tagbar_type_scala = {$/;"	v
+g:terminal_color_0	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_0=get(s:palette, 'color00')[0]$/;"	v
+g:terminal_color_1	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_1=get(s:palette, 'color01')[0]$/;"	v
+g:terminal_color_10	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_10=get(s:palette, 'color10')[0]$/;"	v
+g:terminal_color_11	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_11=get(s:palette, 'color11')[0]$/;"	v
+g:terminal_color_12	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_12=get(s:palette, 'color12')[0]$/;"	v
+g:terminal_color_13	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_13=get(s:palette, 'color13')[0]$/;"	v
+g:terminal_color_14	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_14=get(s:palette, 'color14')[0]$/;"	v
+g:terminal_color_15	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_15=get(s:palette, 'color15')[0]$/;"	v
+g:terminal_color_2	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_2=get(s:palette, 'color02')[0]$/;"	v
+g:terminal_color_3	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_3=get(s:palette, 'color03')[0]$/;"	v
+g:terminal_color_4	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_4=get(s:palette, 'color04')[0]$/;"	v
+g:terminal_color_5	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_5=get(s:palette, 'color05')[0]$/;"	v
+g:terminal_color_6	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_6=get(s:palette, 'color06')[0]$/;"	v
+g:terminal_color_7	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_7=get(s:palette, 'color07')[0]$/;"	v
+g:terminal_color_8	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_8=get(s:palette, 'color08')[0]$/;"	v
+g:terminal_color_9	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^  let g:terminal_color_9=get(s:palette, 'color09')[0]$/;"	v
 g:terraform_align	pack/plugins/start/sheerun-vim-polyglot/after/ftplugin/terraform.vim	/^  let g:terraform_align = 0$/;"	v
 g:testname	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let g:testname = expand('%')$/;"	v
 g:testname	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let g:testname = expand('%')$/;"	v
@@ -2696,13 +2688,14 @@ go#textobj#FunctionJump	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	
 go#tool#Deps	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Deps() abort$/;"	f
 go#tool#ExecuteInDir	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#ExecuteInDir(cmd) abort$/;"	f
 go#tool#Exists	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Exists(importpath) abort$/;"	f
-go#tool#Files	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Files() abort$/;"	f
+go#tool#Files	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Files(...) abort$/;"	f
 go#tool#FilterValids	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#FilterValids(items) abort$/;"	f
 go#tool#Imports	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Imports() abort$/;"	f
 go#tool#Info	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Info(auto) abort$/;"	f
 go#tool#OpenBrowser	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#OpenBrowser(url) abort$/;"	f
 go#tool#PackageName	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#PackageName() abort$/;"	f
 go#tool#ParseErrors	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#ParseErrors(lines) abort$/;"	f
+go#tool#ValidFiles	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#ValidFiles(...)$/;"	f
 go#ui#CloseWindow	pack/plugins/start/fatih-vim-go/autoload/go/ui.vim	/^function! go#ui#CloseWindow() abort$/;"	f
 go#ui#GetReturnWindow	pack/plugins/start/fatih-vim-go/autoload/go/ui.vim	/^function! go#ui#GetReturnWindow() abort$/;"	f
 go#ui#OpenDefinition	pack/plugins/start/fatih-vim-go/autoload/go/ui.vim	/^function! go#ui#OpenDefinition(filter) abort$/;"	f
@@ -3010,7 +3003,7 @@ quickhl#cword#toggle	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.
 quickhl#escape	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl.vim	/^function! quickhl#escape(pattern) "{{{$/;"	f
 quickhl#get_selected_text	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl.vim	/^function! quickhl#get_selected_text() "{{{$/;"	f
 quickhl#manual#add	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#add(pattern, escaped) "{{{$/;"	f
-quickhl#manual#add_or_del	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#add_or_del(pattern) "{{{$/;"	f
+quickhl#manual#add_or_del	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#add_or_del(pattern, escaped) "{{{$/;"	f
 quickhl#manual#colors	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#colors() "{{{$/;"	f
 quickhl#manual#del	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#del(pattern, escaped) "{{{$/;"	f
 quickhl#manual#disable	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#disable() "{{{$/;"	f
@@ -3027,6 +3020,7 @@ quickhl#manual#reset	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual
 quickhl#manual#status	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#status() "{{{$/;"	f
 quickhl#manual#this	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#this(mode) "{{{$/;"	f
 quickhl#manual#this_motion	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#this_motion(motion_wise) " {{{$/;"	f
+quickhl#manual#this_whole_word	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#this_whole_word(mode) "{{{$/;"	f
 quickhl#manual#unlock	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#unlock() "{{{$/;"	f
 quickhl#manual#unlock_window	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! quickhl#manual#unlock_window() "{{{$/;"	f
 quickhl#our_match	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl.vim	/^function! quickhl#our_match(pattern) "{{{$/;"	f
@@ -3419,7 +3413,7 @@ s:MODE_256_COLOR	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.
 s:MODE_TRUE_COLOR	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let s:MODE_TRUE_COLOR = 2$/;"	v
 s:MODE_TRUE_OR_256_COLOR	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let s:MODE_TRUE_OR_256_COLOR = 3 " for code generation purpose, not for theme usage$/;"	v
 s:Map	pack/plugins/start/sheerun-vim-polyglot/indent/twig.vim	/^function! s:Map(Fun, list)$/;"	f
-s:MapNextFamily	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:MapNextFamily(map,cmd)$/;"	f
+s:MapNextFamily	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:MapNextFamily(map,cmd) abort$/;"	f
 s:Match	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^function s:Match(lnum, regex)$/;"	f
 s:Match	pack/plugins/start/sheerun-vim-polyglot/indent/json.vim	/^function s:Match(lnum, regex)$/;"	f
 s:Match	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^function! s:Match(lnum, regex) abort$/;"	f
@@ -3877,6 +3871,7 @@ s:current_syntax	pack/plugins/start/sheerun-vim-polyglot/syntax/dockerfile.vim	/
 s:current_syntax_save	pack/plugins/start/sheerun-vim-polyglot/after/syntax/haml.vim	/^  let s:current_syntax_save = b:current_syntax$/;"	v
 s:current_syntax_save	pack/plugins/start/sheerun-vim-polyglot/after/syntax/html.vim	/^  let s:current_syntax_save = b:current_syntax$/;"	v
 s:current_word	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:current_word()$/;"	f
+s:cursor_options	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:cursor_options() abort$/;"	f
 s:cword	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^let s:cword = {$/;"	v
 s:cword.clear	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! s:cword.clear() "{{{$/;"	f
 s:cword.init	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/cword.vim	/^function! s:cword.init() "{{{$/;"	f
@@ -4014,6 +4009,12 @@ s:fnameescape	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! 
 s:fnameescape	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:fnameescape(file) abort$/;"	f
 s:fnameescape	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:fnameescape(file) abort$/;"	f
 s:fnameescape	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^function! s:fnameescape(file) abort$/;"	f
+s:fold_block	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^    let s:fold_block = 0$/;"	v
+s:fold_block	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^let s:fold_block = 1$/;"	v
+s:fold_import	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^    let s:fold_import = 0$/;"	v
+s:fold_import	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^let s:fold_import = 1$/;"	v
+s:fold_varconst	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^    let s:fold_varconst = 0$/;"	v
+s:fold_varconst	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^let s:fold_varconst = 1$/;"	v
 s:foldable	pack/plugins/start/sheerun-vim-polyglot/syntax/ruby.vim	/^function! s:foldable(...) abort$/;"	f
 s:foldable_groups	pack/plugins/start/sheerun-vim-polyglot/syntax/ruby.vim	/^let s:foldable_groups = split($/;"	v
 s:folded	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:folded = '\\(% Fake\\|\\\\\\(document\\|begin\\|end\\|paragraph\\|'$/;"	v
@@ -4275,6 +4276,7 @@ s:manual.show_colors	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual
 s:manual_update_tags	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! s:manual_update_tags(bang) abort$/;"	f
 s:map	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:map(forced_p, lhs, rhs)$/;"	f
 s:map	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^function! s:map(mode, flags, map) abort$/;"	f
+s:map	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:map(mode, lhs, rhs, ...) abort$/;"	f
 s:map_accum	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:map_accum(expr, xs, init) abort$/;"	f
 s:mapargs_pair_select	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_pair_select(lhs, pattern1, pattern2, flags, previous_mode)$/;"	f
 s:mapargs_single_move	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_single_move(lhs, pattern, flags, previous_mode)$/;"	f
@@ -4772,6 +4774,7 @@ s:uniq	pack/plugins/start/fatih-vim-go/autoload/go/impl.vim	/^  function! s:uniq
 s:uniq	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:uniq(list) abort$/;"	f
 s:uniq	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/latexmk.vim	/^function! s:uniq(list)$/;"	f
 s:uniq_by	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:uniq_by(list, f) abort$/;"	f
+s:unix_redir	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/cscope.vim	/^let s:unix_redir = (&shellredir =~# '%s') ? &shellredir : &shellredir . ' %s'$/;"	v
 s:unix_redir	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let s:unix_redir = (&shellredir =~# '%s') ? &shellredir : &shellredir . ' %s'$/;"	v
 s:unknown_coercion	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:unknown_coercion(letter,word)$/;"	f
 s:unload	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal.vim	/^function! s:unload() abort$/;"	f
@@ -4958,11 +4961,9 @@ x	pack/plugins/start/kana-vim-textobj-user/t/plugin.vim	/^    let x = ''$/;"	v
 xml_attributes	pack/plugins/start/sheerun-vim-polyglot/autoload/xml/html5.vim	/^let xml_attributes = {'xml:lang': lang_tag, 'xml:space': ['preserve'], 'xml:base': [], 'xmlns': /;"	v
 y.	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^    nnoremap <silent><buffer> y. :<C-U>call setreg(v:register, join(<SID>absolutes(line('.'), li/;"	m
 y<C-G>	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^      nnoremap <buffer> <silent> y<C-G> :call setreg(v:register, <SID>recall())<CR>$/;"	m
-yO	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> yO  :call <SID>setup_paste()<CR>O$/;"	m
 yS	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^  nmap yS  <Plug>YSurround$/;"	m
 ySS	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^  nmap ySS <Plug>YSsurround$/;"	m
 ySs	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^  nmap ySs <Plug>YSsurround$/;"	m
-yo	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> yo  :call <SID>setup_paste()<CR>o$/;"	m
 ys	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^  nmap ys  <Plug>Ysurround$/;"	m
 yss	pack/plugins/start/tpope-vim-surround/plugin/surround.vim	/^  nmap yss <Plug>Yssurround$/;"	m
 {	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^nnoremap <silent> <buffer> { :call qf#filegroup#PreviousFile()<CR>$/;"	m

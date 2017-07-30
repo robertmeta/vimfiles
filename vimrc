@@ -476,7 +476,7 @@ endfunction
 
 function! <SID>AutoMkdir() abort
     let l:dir=expand('<afile>:p:h')
-    let l:file=expand('<afile>:t', dog)
+    let l:file=expand('<afile>:t')
     if !isdirectory(l:dir)
         call mkdir(l:dir, 'p')
         silent execute 'bw ' . l:dir . '/' . l:file
