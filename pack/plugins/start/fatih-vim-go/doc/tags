@@ -11,6 +11,7 @@
 'g:go_def_mode'	vim-go.txt	/*'g:go_def_mode'*
 'g:go_def_reuse_buffer'	vim-go.txt	/*'g:go_def_reuse_buffer'*
 'g:go_doc_command'	vim-go.txt	/*'g:go_doc_command'*
+'g:go_doc_height'	vim-go.txt	/*'g:go_doc_height'*
 'g:go_doc_keywordprg_enabled'	vim-go.txt	/*'g:go_doc_keywordprg_enabled'*
 'g:go_doc_options'	vim-go.txt	/*'g:go_doc_options'*
 'g:go_echo_command_info'	vim-go.txt	/*'g:go_echo_command_info'*
@@ -20,6 +21,7 @@
 'g:go_fmt_experimental'	vim-go.txt	/*'g:go_fmt_experimental'*
 'g:go_fmt_fail_silently'	vim-go.txt	/*'g:go_fmt_fail_silently'*
 'g:go_fmt_options'	vim-go.txt	/*'g:go_fmt_options'*
+'g:go_fold_enable'	vim-go.txt	/*'g:go_fold_enable'*
 'g:go_get_update'	vim-go.txt	/*'g:go_get_update'*
 'g:go_gocode_autobuild'	vim-go.txt	/*'g:go_gocode_autobuild'*
 'g:go_gocode_propose_builtins'	vim-go.txt	/*'g:go_gocode_propose_builtins'*
@@ -43,6 +45,7 @@
 'g:go_highlight_types'	vim-go.txt	/*'g:go_highlight_types'*
 'g:go_info_mode'	vim-go.txt	/*'g:go_info_mode'*
 'g:go_jump_to_error'	vim-go.txt	/*'g:go_jump_to_error'*
+'g:go_list_autoclose'	vim-go.txt	/*'g:go_list_autoclose'*
 'g:go_list_height'	vim-go.txt	/*'g:go_list_height'*
 'g:go_list_type'	vim-go.txt	/*'g:go_list_type'*
 'g:go_metalinter_autosave'	vim-go.txt	/*'g:go_metalinter_autosave'*
@@ -66,6 +69,7 @@
 'g:go_test_timeout'	vim-go.txt	/*'g:go_test_timeout'*
 'g:go_textobj_enabled'	vim-go.txt	/*'g:go_textobj_enabled'*
 'g:go_textobj_include_function_doc'	vim-go.txt	/*'g:go_textobj_include_function_doc'*
+'g:go_textobj_include_variable'	vim-go.txt	/*'g:go_textobj_include_variable'*
 'g:go_updatetime'	vim-go.txt	/*'g:go_updatetime'*
 (go-alternate-edit)	vim-go.txt	/*(go-alternate-edit)*
 (go-alternate-split)	vim-go.txt	/*(go-alternate-split)*

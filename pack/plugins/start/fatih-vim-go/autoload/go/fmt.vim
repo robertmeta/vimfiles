@@ -69,7 +69,10 @@ function! go#fmt#Format(withGoimport) abort
     let bin_name = "goimports"
   endif
 
+  let current_col = col('.')
   let out = go#fmt#run(bin_name, l:tmpname, expand('%'))
+  let diff_offset = len(readfile(l:tmpname)) - line('$') 
+
   if go#util#ShellError() == 0
     call go#fmt#update_file(l:tmpname, expand('%'))
   elseif g:go_fmt_fail_silently == 0
@@ -95,6 +98,9 @@ function! go#fmt#Format(withGoimport) abort
     " Restore our cursor/windows positions.
     call winrestview(l:curw)
   endif
+
+  " be smart and jump to the line the new statement was added/removed
+  call cursor(line('.') + diff_offset, current_col)
 endfunction
 
 " update_file updates the target file with the given formatted source
@@ -116,13 +122,13 @@ function! go#fmt#update_file(source, target)
   endif
 
   " reload buffer to reflect latest changes
-  silent! edit!
+  silent edit!
 
   let &fileformat = old_fileformat
   let &syntax = &syntax
 
   " clean up previous location list
-  let l:listtype = "locationlist"
+  let l:listtype = go#list#Type("quickfix")
   call go#list#Clean(l:listtype)
   call go#list#Window(l:listtype)
 endfunction
@@ -166,6 +172,7 @@ function! s:fmt_cmd(bin_name, source, target)
   endif
 
   " start constructing the command
+  let bin_path = go#util#Shellescape(bin_path)
   let cmd = [bin_path]
   call add(cmd, "-w")
     
@@ -184,7 +191,7 @@ function! s:fmt_cmd(bin_name, source, target)
     if !exists('b:goimports_vendor_compatible')
       let out = go#util#System(bin_path . " --help")
       if out !~ "-srcdir"
-        call go#util#EchoWarning(printf("vim-go: goimports (%s) does not support srcdir. Update with: :GoUpdateBinaries", , bin_path))
+        call go#util#EchoWarning(printf("vim-go: goimports (%s) does not support srcdir. Update with: :GoUpdateBinaries", bin_path))
       else
         let b:goimports_vendor_compatible = 1
       endif
@@ -228,7 +235,7 @@ endfunction
 " show_errors opens a location list and shows the given errors. If the given
 " errors is empty, it closes the the location list
 function! s:show_errors(errors) abort
-  let l:listtype = go#list#Type("locationlist")
+  let l:listtype = go#list#Type("quickfix")
   if !empty(a:errors)
     call go#list#Populate(l:listtype, a:errors, 'Format')
     echohl Error | echomsg "Gofmt returned error" | echohl None

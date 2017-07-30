@@ -2,6 +2,7 @@
 :GutentagsUnlock	gutentags.txt	/*:GutentagsUnlock*
 :GutentagsUpdate	gutentags.txt	/*:GutentagsUpdate*
 GutentagsToggleTrace	gutentags.txt	/*GutentagsToggleTrace*
+GutentagsUpdated	gutentags.txt	/*GutentagsUpdated*
 gutentags	gutentags.txt	/*gutentags*
 gutentags#statusline()	gutentags.txt	/*gutentags#statusline()*
 gutentags-.gutctags	gutentags.txt	/*gutentags-.gutctags*

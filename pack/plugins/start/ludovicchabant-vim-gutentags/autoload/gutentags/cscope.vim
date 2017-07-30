@@ -24,6 +24,7 @@ endif
 " Gutentags Module Interface {{{
 
 let s:runner_exe = gutentags#get_plat_file('update_scopedb')
+let s:unix_redir = (&shellredir =~# '%s') ? &shellredir : &shellredir . ' %s'
 let s:added_dbs = []
 
 function! gutentags#cscope#init(project_root) abort
@@ -34,7 +35,7 @@ function! gutentags#cscope#init(project_root) abort
     if g:gutentags_auto_add_cscope && filereadable(l:dbfile_path)
         if index(s:added_dbs, l:dbfile_path) < 0
             call add(s:added_dbs, l:dbfile_path)
-            execute 'cs add ' . fnameescape(l:dbfile_path)
+            silent! execute 'cs add ' . fnameescape(l:dbfile_path)
         endif
     endif
 endfunction
@@ -43,7 +44,7 @@ function! gutentags#cscope#command_terminated(job_id, data, event) abort
     if a:data == 0
         if index(s:added_dbs, self.db_file) < 0
             call add(s:added_dbs, self.db_file)
-            execute 'cs add ' . fnameescape(s:db_file)
+            silent! execute 'cs add ' . fnameescape(s:db_file)
         else
             execute 'cs reset'
         endif
@@ -56,9 +57,20 @@ function! gutentags#cscope#generate(proj_dir, tags_file, write_mode) abort
     let l:cmd .= ' -p ' . a:proj_dir
     let l:cmd .= ' -f ' . a:tags_file
     let l:file_list_cmd =
-        \ gutentags#get_project_file_list_cmd(l:proj_dir)
+        \ gutentags#get_project_file_list_cmd(a:proj_dir)
     if !empty(l:file_list_cmd)
         let l:cmd .= ' -L "' . l:file_list_cmd . '"'
+    endif
+    if g:gutentags_trace
+        if has('win32')
+            let l:cmd .= ' -l "' . a:tags_file . '.log"'
+        else
+            let l:cmd .= ' ' . printf(s:unix_redir, '"' . a:tags_file . '.log"')
+        endif
+    else
+        if !has('win32')
+            let l:cmd .= ' ' . printf(s:unix_redir, '/dev/null')
+        endif
     endif
     let l:cmd .= ' '
     let l:cmd .= gutentags#get_execute_cmd_suffix()
@@ -81,8 +93,7 @@ function! gutentags#cscope#generate(proj_dir, tags_file, write_mode) abort
             let job_id = jobstart(job_cmd, job_dict)
         endif
 
-        let l:full_scopedb_file = fnamemodify(a:tags_file, ':p')
-        call gutentags#add_progress('cscope', l:full_scopedb_file)
+        call gutentags#add_progress('cscope', a:tags_file)
     else
         call gutentags#trace("(fake... not actually running)")
     endif
