@@ -218,18 +218,22 @@ endif
 
 " import
 if s:fold_import
-  syn region    goImport            start='import (' end=')' transparent fold contains=goImport,goString
+  syn region    goImport            start='import (' end=')' transparent fold contains=goImport,goString,goComment
 else
-  syn region    goImport            start='import (' end=')' transparent contains=goImport,goString
+  syn region    goImport            start='import (' end=')' transparent contains=goImport,goString,goComment
 endif
 
 " var, const
 if s:fold_varconst
-  syn region    goVar               start='var (' end=')' transparent fold contains=ALLBUT,goParen,goBlock
-  syn region    goConst             start='const (' end=')' transparent fold contains=ALLBUT,goParen,goBlock
+  syn region    goVar               start='var ('   end='^\s*)$' transparent fold
+                        \ contains=ALLBUT,goParen,goBlock,goFunction,goTypeName,goReceiverType,goReceiverVar
+  syn region    goConst             start='const (' end='^\s*)$' transparent fold
+                        \ contains=ALLBUT,goParen,goBlock,goFunction,goTypeName,goReceiverType,goReceiverVar
 else
-  syn region    goVar               start='var (' end=')' transparent contains=ALLBUT,goParen,goBlock
-  syn region    goConst             start='const (' end=')' transparent contains=ALLBUT,goParen,goBlock
+  syn region    goVar               start='var ('   end='^\s*)$' transparent 
+                        \ contains=ALLBUT,goParen,goBlock,goFunction,goTypeName,goReceiverType,goReceiverVar
+  syn region    goConst             start='const (' end='^\s*)$' transparent
+                        \ contains=ALLBUT,goParen,goBlock,goFunction,goTypeName,goReceiverType,goReceiverVar
 endif
 
 " Single-line var, const, and import.

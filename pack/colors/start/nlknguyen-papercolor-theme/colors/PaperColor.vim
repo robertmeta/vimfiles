@@ -3,6 +3,8 @@
 " License: MIT
 " Source: http://github.com/NLKNguyen/papercolor-theme
 
+let s:version = '0.8.x'
+let g:PaperColor_Theme_Info = 'PaperColor Theme version ' . s:version . ' by Nikyle Nguyen and other contributors at https://github.com/NLKNguyen/papercolor-theme/'
 
 " Note on navigating this source code:
 " - Use folding feature to collapse/uncollapse blocks of marked code
@@ -181,9 +183,28 @@ let s:themes['default'].dark = {
 " Get Selected Theme: {{{
 
 let s:theme_name = 'default'
-if exists("g:PaperColor_Theme") && has_key(s:themes, tolower(g:PaperColor_Theme))
-  let s:theme_name = tolower(g:PaperColor_Theme)
+
+if exists("g:PaperColor_Theme") " Users expressed theme preference
+  let lowercase_theme_name = tolower(g:PaperColor_Theme)
+
+  if has_key(s:themes, lowercase_theme_name) "the name is part of built-in themes
+    let s:theme_name = lowercase_theme_name
+
+  else "expect a variable with a designated theme name
+    let theme_variable =  "g:PaperColor_Theme_" . lowercase_theme_name
+
+    if exists(theme_variable)
+      " Register custom theme to theme dictionary
+      let s:themes[lowercase_theme_name] = {theme_variable}
+      let s:theme_name = lowercase_theme_name
+    else
+      echom "Cannot find variable " . theme_variable
+      " Still use 'default' theme
+    endif
+
+  endif
 endif
+
 let s:selected_theme = s:themes[s:theme_name]
 " }}}
 
@@ -608,20 +629,6 @@ fun! s:HL(group, fg, bg, attr)
   call add(s:highlightings, [a:group, l:highlight])
 endfun
 
-fun! s:Load_Settings_Override(custom)
-  if has_key(a:custom, 'cursorline')
-    let s:cursorline = [a:custom['cursorline'], '' . s:to_256(a:custom['cursorline'])]
-  endif
-  if has_key(a:custom, 'background')
-    let s:background = [a:custom['background'], '' . s:to_256(a:custom['background'])]
-  endif
-  if has_key(a:custom, 'matchparen')
-    let s:matchparen = [a:custom['matchparen'], '' . s:to_256(a:custom['matchparen'])]
-  endif
-  if has_key(a:custom, 'comment')
-    let s:comment = [a:custom['comment'], '' . s:to_256(a:custom['comment'])]
-  endif
-endfun
 " }}}
 
 " 256-COLOR TO HEX TABLE: {{{
@@ -723,9 +730,6 @@ fun! s:set_color_variables()
   " Array format [<GUI COLOR/HEX >, <256-Base>, <16-Base>]
   " 16-Base is terminal's native color palette that can be alternated through
   " the terminal settings. The 16-color names are according to `:h cterm-colors`
-  " Use 16: targetcolor[-1]
-  " Use 256: targetcolor[-2] " GUI can be omitted
-  " Use GUI: targetcolor[0] " 256 can be ommitted
 
   " BASIC COLORS:
   " color00-15 are required by all themes.
@@ -1660,6 +1664,31 @@ fun! s:set_highlightings_variable()
   call s:HL("cucumberExamples", s:aqua, "", "")
   call s:HL("cucumberTags", s:aqua, "", "")
   call s:HL("cucumberPlaceholder", s:aqua, "", "")
+
+  " Ada Highlighting
+  call s:HL("adaInc", s:aqua, "", s:bold)
+  call s:HL("adaSpecial", s:aqua, "", s:bold)
+  call s:HL("adaKeyword", s:pink, "", "")
+  call s:HL("adaBegin", s:pink, "", "")
+  call s:HL("adaEnd", s:pink, "", "")
+  call s:HL("adaTypedef", s:navy, "", s:bold)
+  call s:HL("adaAssignment", s:aqua, "", s:bold)
+  call s:HL("adaAttribute", s:green, "", "")
+
+  " COBOL Highlighting
+  call s:HL("cobolMarker", s:comment, s:cursorline, "")
+  call s:HL("cobolLine", s:foreground, "", "")
+  call s:HL("cobolReserved", s:blue, "", "")
+  call s:HL("cobolDivision", s:pink, "", s:bold)
+  call s:HL("cobolDivisionName", s:pink, "", s:bold)
+  call s:HL("cobolSection", s:navy, "", s:bold)
+  call s:HL("cobolSectionName", s:navy, "", s:bold)
+  call s:HL("cobolParagraph", s:purple, "", "")
+  call s:HL("cobolParagraphName", s:purple, "", "")
+  call s:HL("cobolDeclA", s:purple, "", "")
+  call s:HL("cobolDecl", s:green, "", "")
+  call s:HL("cobolCALLs", s:aqua, "", s:bold)
+  call s:HL("cobolEXECs", s:aqua, "", s:bold)
   " }}}
 
   " Plugin: Netrw
@@ -1994,7 +2023,7 @@ fun! s:writeToFile(message, file)
   echo a:file
   new
   setlocal buftype=nofile bufhidden=hide noswapfile nobuflisted
-  put=a:message
+  put =a:message
   execute 'w ' a:file
   q
 endfun

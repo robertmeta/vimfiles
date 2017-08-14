@@ -71,7 +71,7 @@ function! go#fmt#Format(withGoimport) abort
 
   let current_col = col('.')
   let out = go#fmt#run(bin_name, l:tmpname, expand('%'))
-  let diff_offset = len(readfile(l:tmpname)) - line('$') 
+  let diff_offset = len(readfile(l:tmpname)) - line('$')
 
   if go#util#ShellError() == 0
     call go#fmt#update_file(l:tmpname, expand('%'))
@@ -128,9 +128,12 @@ function! go#fmt#update_file(source, target)
   let &syntax = &syntax
 
   " clean up previous location list
-  let l:listtype = go#list#Type("quickfix")
-  call go#list#Clean(l:listtype)
-  call go#list#Window(l:listtype)
+  let l:list_title = getqflist({'title': 1})
+  if has_key(l:list_title, "title") && l:list_title['title'] == "Format"
+    let l:listtype = go#list#Type("quickfix")
+    call go#list#Clean(l:listtype)
+    call go#list#Window(l:listtype)
+  endif
 endfunction
 
 " run runs the gofmt/goimport command for the given source file and returns
@@ -175,7 +178,7 @@ function! s:fmt_cmd(bin_name, source, target)
   let bin_path = go#util#Shellescape(bin_path)
   let cmd = [bin_path]
   call add(cmd, "-w")
-    
+
   " add the options for binary (if any). go_fmt_options was by default of type
   " string, however to allow customization it's now a dictionary of binary
   " name mapping to options.

@@ -124,7 +124,7 @@ function! go#lint#Golint(...) abort
   let bin_path = go#util#Shellescape(bin_path)
 
   if a:0 == 0
-    let out = go#util#System(bin_path)
+    let out = go#util#System(bin_path . " " . go#util#Shellescape(go#package#ImportPath()))
   else
     let out = go#util#System(bin_path . " " . go#util#Shelljoin(a:000))
   endif
@@ -147,9 +147,9 @@ function! go#lint#Vet(bang, ...) abort
   call go#cmd#autowrite()
   echon "vim-go: " | echohl Identifier | echon "calling vet..." | echohl None
   if a:0 == 0
-    let out = go#tool#ExecuteInDir('go vet')
+    let out = go#util#System('go vet ' . go#util#Shellescape(go#package#ImportPath()))
   else
-    let out = go#tool#ExecuteInDir('go tool vet ' . go#util#Shelljoin(a:000))
+    let out = go#util#System('go tool vet ' . go#util#Shelljoin(a:000))
   endif
 
   let l:listtype = "quickfix"

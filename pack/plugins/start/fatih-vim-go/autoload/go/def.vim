@@ -97,6 +97,7 @@ function! s:jump_to_declaration_cb(mode, bin_name, job, exit_status, data) abort
   endif
 
   call go#def#jump_to_declaration(a:data[0], a:mode, a:bin_name)
+  call go#util#EchoSuccess(fnamemodify(a:data[0], ":t"))
 endfunction
 
 function! go#def#jump_to_declaration(out, mode, bin_name) abort
@@ -154,9 +155,11 @@ function! go#def#jump_to_declaration(out, mode, bin_name) abort
       endif
 
       if a:mode == "tab"
-        let &switchbuf = "usetab"
+        let &switchbuf = "useopen,usetab,newtab"
         if bufloaded(filename) == 0
           tab split
+        else
+           let cmd = 'sbuf'
         endif
       elseif a:mode == "split"
         split

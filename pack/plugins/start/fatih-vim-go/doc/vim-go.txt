@@ -167,7 +167,8 @@ COMMANDS                                                         *go-commands*
                                                                      *:GoLint*
 :GoLint [packages]
 
-    Run golint for the current directory, or for given packages.
+    Run golint for the directory under your current file, or for the given
+    packages.
 
                                                                       *:GoDoc*
 :GoDoc [word]
@@ -1167,7 +1168,7 @@ Maximum height for the GoDoc window created with |:GoDoc|. Default is 20. >
 
 Use this option to define the command to be used for |:GoDef|. By default
 `guru` is being used as it covers all edge cases. But one might also use
-`godef` as it's more faster. Current valid options are: `[guru, godef]` >
+`godef` as it's faster. Current valid options are: `[guru, godef]` >
 
   let g:go_def_mode = 'guru'
 <
@@ -1702,6 +1703,25 @@ example sometimes code.google.com times out. To test, just execute a simple
   go get golang.org/x/tools/cmd/goimports
 <
 You'll see a more detailed error. If this works, vim-go will work too.
+
+
+I want to use a different binary name than "go", can I do this?~
+
+There is no way to directly configure the binary name; but you can use a
+wrapper script; for example if you would like to run `goapp` instead of `go`:
+
+1. In `~/gobin/go` (remember to make it executable):
+>
+     #!/bin/sh
+     # Remove gobin from PATH and run goapp.
+     PATH=${PATH#$HOME/gobin} goapp "$@"
+<
+2. Start Vim with `~/gobin` as the first `PATH` entry so it will use the
+   wrapper script:
+>
+     PATH="$HOME/gobin/:$PATH" vim
+<
+   Alternatively you you could set `$PATH` in your vimrc with an |:autocmd|.
 
 
 How do I use vim-go with syntastic?~
