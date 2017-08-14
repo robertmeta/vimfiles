@@ -52,6 +52,7 @@ func main() {
 		"tpope/vim-surround",
 		"tpope/vim-unimpaired",
 		"tpope/vim-vinegar",
+		"w0rp/ale",
 		"wellle/tmux-complete.vim",
 	}
 
