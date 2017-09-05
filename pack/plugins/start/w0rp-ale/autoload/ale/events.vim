@@ -24,7 +24,24 @@ function! s:LintOnEnter(buffer) abort
 endfunction
 
 function! ale#events#EnterEvent(buffer) abort
+    let l:filetype = getbufvar(a:buffer, '&filetype')
+    call setbufvar(a:buffer, 'ale_original_filetype', l:filetype)
+
     call s:LintOnEnter(a:buffer)
+endfunction
+
+function! ale#events#FileTypeEvent(buffer, new_filetype) abort
+    let l:filetype = getbufvar(a:buffer, 'ale_original_filetype', '')
+
+    " If we're setting the filetype for the first time after it was blank,
+    " and the option for linting on enter is off, then we should set this
+    " filetype as the original filetype. Otherwise ALE will still appear to
+    " lint files because of the BufEnter event, etc.
+    if empty(l:filetype) && !ale#Var(a:buffer, 'lint_on_enter')
+        call setbufvar(a:buffer, 'ale_original_filetype', a:new_filetype)
+    elseif a:new_filetype isnot# l:filetype
+        call ale#Queue(300, 'lint_file', a:buffer)
+    endif
 endfunction
 
 function! ale#events#FileChangedEvent(buffer) abort

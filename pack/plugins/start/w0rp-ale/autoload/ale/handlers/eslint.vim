@@ -4,6 +4,7 @@
 call ale#Set('javascript_eslint_options', '')
 call ale#Set('javascript_eslint_executable', 'eslint')
 call ale#Set('javascript_eslint_use_global', 0)
+call ale#Set('javascript_eslint_suppress_eslintignore', 0)
 
 function! ale#handlers#eslint#GetExecutable(buffer) abort
     return ale#node#FindExecutable(a:buffer, 'javascript_eslint', [
@@ -16,17 +17,9 @@ endfunction
 function! ale#handlers#eslint#GetCommand(buffer) abort
     let l:executable = ale#handlers#eslint#GetExecutable(a:buffer)
 
-    if ale#Has('win32') && l:executable =~? 'eslint\.js$'
-        " For Windows, if we detect an eslint.js script, we need to execute
-        " it with node, or the file can be opened with a text editor.
-        let l:head = 'node ' . ale#Escape(l:executable)
-    else
-        let l:head = ale#Escape(l:executable)
-    endif
-
     let l:options = ale#Var(a:buffer, 'javascript_eslint_options')
 
-    return l:head
+    return ale#node#Executable(a:buffer, l:executable)
     \   . (!empty(l:options) ? ' ' . l:options : '')
     \   . ' -f unix --stdin --stdin-filename %s'
 endfunction
@@ -81,6 +74,12 @@ function! ale#handlers#eslint#Handle(buffer, lines) abort
     for l:match in ale#util#GetMatches(a:lines, [l:pattern, l:parsing_pattern])
         let l:type = 'Error'
         let l:text = l:match[3]
+
+        if ale#Var(a:buffer, 'javascript_eslint_suppress_eslintignore')
+            if l:text is# 'File ignored because of a matching ignore pattern. Use "--no-ignore" to override.'
+                continue
+            endif
+        endif
 
         " Take the error type from the output if available.
         if !empty(l:match[4])
