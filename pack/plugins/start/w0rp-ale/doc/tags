@@ -72,7 +72,10 @@ ale-cpp-cpplint	ale-cpp.txt	/*ale-cpp-cpplint*
 ale-cpp-gcc	ale-cpp.txt	/*ale-cpp-gcc*
 ale-cpp-options	ale-cpp.txt	/*ale-cpp-options*
 ale-css-options	ale-css.txt	/*ale-css-options*
+ale-css-prettier	ale-css.txt	/*ale-css-prettier*
 ale-css-stylelint	ale-css.txt	/*ale-css-stylelint*
+ale-cuda-nvcc	ale-cuda.txt	/*ale-cuda-nvcc*
+ale-cuda-options	ale-cuda.txt	/*ale-cuda-options*
 ale-dart-dartanalyzer	ale-dart.txt	/*ale-dart-dartanalyzer*
 ale-dart-options	ale-dart.txt	/*ale-dart-options*
 ale-dockerfile-hadolint	ale-dockerfile.txt	/*ale-dockerfile-hadolint*
@@ -122,6 +125,9 @@ ale-javascript-prettier-eslint	ale-javascript.txt	/*ale-javascript-prettier-esli
 ale-javascript-prettier-standard	ale-javascript.txt	/*ale-javascript-prettier-standard*
 ale-javascript-standard	ale-javascript.txt	/*ale-javascript-standard*
 ale-javascript-xo	ale-javascript.txt	/*ale-javascript-xo*
+ale-json-jsonlint	ale-json.txt	/*ale-json-jsonlint*
+ale-json-options	ale-json.txt	/*ale-json-options*
+ale-json-prettier	ale-json.txt	/*ale-json-prettier*
 ale-kotlin-kotlinc	ale-kotlin.txt	/*ale-kotlin-kotlinc*
 ale-kotlin-ktlint	ale-kotlin.txt	/*ale-kotlin-ktlint*
 ale-kotlin-options	ale-kotlin.txt	/*ale-kotlin-options*
@@ -181,6 +187,7 @@ ale-sass-stylelint	ale-sass.txt	/*ale-sass-stylelint*
 ale-scala-options	ale-scala-scalastyle.txt	/*ale-scala-options*
 ale-scala-scalastyle	ale-scala-scalastyle.txt	/*ale-scala-scalastyle*
 ale-scss-options	ale-scss.txt	/*ale-scss-options*
+ale-scss-prettier	ale-scss.txt	/*ale-scss-prettier*
 ale-scss-stylelint	ale-scss.txt	/*ale-scss-stylelint*
 ale-sh-options	ale-sh.txt	/*ale-sh-options*
 ale-sh-shell	ale-sh.txt	/*ale-sh-shell*
@@ -203,6 +210,7 @@ ale-thrift-options	ale-thrift.txt	/*ale-thrift-options*
 ale-thrift-thrift	ale-thrift.txt	/*ale-thrift-thrift*
 ale-typescript-eslint	ale-typescript.txt	/*ale-typescript-eslint*
 ale-typescript-options	ale-typescript.txt	/*ale-typescript-options*
+ale-typescript-prettier	ale-typescript.txt	/*ale-typescript-prettier*
 ale-typescript-tslint	ale-typescript.txt	/*ale-typescript-tslint*
 ale-typescript-tsserver	ale-typescript.txt	/*ale-typescript-tsserver*
 ale-verilog-iverilog	ale-verilog.txt	/*ale-verilog-iverilog*
@@ -252,6 +260,8 @@ b:ale_cpp_gcc_options	ale-cpp.txt	/*b:ale_cpp_gcc_options*
 b:ale_css_stylelint_executable	ale-css.txt	/*b:ale_css_stylelint_executable*
 b:ale_css_stylelint_options	ale-css.txt	/*b:ale_css_stylelint_options*
 b:ale_css_stylelint_use_global	ale-css.txt	/*b:ale_css_stylelint_use_global*
+b:ale_cuda_nvcc_executable	ale-cuda.txt	/*b:ale_cuda_nvcc_executable*
+b:ale_cuda_nvcc_options	ale-cuda.txt	/*b:ale_cuda_nvcc_options*
 b:ale_dart_dartanalyzer_executable	ale-dart.txt	/*b:ale_dart_dartanalyzer_executable*
 b:ale_dockerfile_hadolint_image	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_image*
 b:ale_dockerfile_hadolint_use_docker	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_use_docker*
@@ -394,6 +404,7 @@ b:ale_thrift_thrift_options	ale-thrift.txt	/*b:ale_thrift_thrift_options*
 b:ale_type_map	ale.txt	/*b:ale_type_map*
 b:ale_typescript_tslint_config_path	ale-typescript.txt	/*b:ale_typescript_tslint_config_path*
 b:ale_typescript_tslint_executable	ale-typescript.txt	/*b:ale_typescript_tslint_executable*
+b:ale_typescript_tslint_ignore_empty_files	ale-typescript.txt	/*b:ale_typescript_tslint_ignore_empty_files*
 b:ale_typescript_tslint_rules_dir	ale-typescript.txt	/*b:ale_typescript_tslint_rules_dir*
 b:ale_typescript_tslint_use_global	ale-typescript.txt	/*b:ale_typescript_tslint_use_global*
 b:ale_typescript_tsserver_config_path	ale-typescript.txt	/*b:ale_typescript_tsserver_config_path*
@@ -451,6 +462,8 @@ g:ale_cpp_gcc_options	ale-cpp.txt	/*g:ale_cpp_gcc_options*
 g:ale_css_stylelint_executable	ale-css.txt	/*g:ale_css_stylelint_executable*
 g:ale_css_stylelint_options	ale-css.txt	/*g:ale_css_stylelint_options*
 g:ale_css_stylelint_use_global	ale-css.txt	/*g:ale_css_stylelint_use_global*
+g:ale_cuda_nvcc_executable	ale-cuda.txt	/*g:ale_cuda_nvcc_executable*
+g:ale_cuda_nvcc_options	ale-cuda.txt	/*g:ale_cuda_nvcc_options*
 g:ale_dart_dartanalyzer_executable	ale-dart.txt	/*g:ale_dart_dartanalyzer_executable*
 g:ale_dockerfile_hadolint_image	ale-dockerfile.txt	/*g:ale_dockerfile_hadolint_image*
 g:ale_dockerfile_hadolint_use_docker	ale-dockerfile.txt	/*g:ale_dockerfile_hadolint_use_docker*
@@ -634,6 +647,7 @@ g:ale_thrift_thrift_options	ale-thrift.txt	/*g:ale_thrift_thrift_options*
 g:ale_type_map	ale.txt	/*g:ale_type_map*
 g:ale_typescript_tslint_config_path	ale-typescript.txt	/*g:ale_typescript_tslint_config_path*
 g:ale_typescript_tslint_executable	ale-typescript.txt	/*g:ale_typescript_tslint_executable*
+g:ale_typescript_tslint_ignore_empty_files	ale-typescript.txt	/*g:ale_typescript_tslint_ignore_empty_files*
 g:ale_typescript_tslint_rules_dir	ale-typescript.txt	/*g:ale_typescript_tslint_rules_dir*
 g:ale_typescript_tslint_use_global	ale-typescript.txt	/*g:ale_typescript_tslint_use_global*
 g:ale_typescript_tsserver_config_path	ale-typescript.txt	/*g:ale_typescript_tsserver_config_path*

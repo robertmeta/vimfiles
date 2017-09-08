@@ -13,7 +13,6 @@
 'g:go_doc_command'	vim-go.txt	/*'g:go_doc_command'*
 'g:go_doc_height'	vim-go.txt	/*'g:go_doc_height'*
 'g:go_doc_keywordprg_enabled'	vim-go.txt	/*'g:go_doc_keywordprg_enabled'*
-'g:go_doc_options'	vim-go.txt	/*'g:go_doc_options'*
 'g:go_echo_command_info'	vim-go.txt	/*'g:go_echo_command_info'*
 'g:go_echo_go_info'	vim-go.txt	/*'g:go_echo_go_info'*
 'g:go_fmt_autosave'	vim-go.txt	/*'g:go_fmt_autosave'*
