@@ -133,7 +133,7 @@ set listchars=extends:⟩
 set listchars+=nbsp:‡
 set listchars+=precedes:⟨
 set listchars+=tab:\ \ 
-set listchars+=trais:•
+set listchars+=trail:•
 set list " show listchars
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
@@ -240,7 +240,7 @@ set statusline+=%{fugitive#statusline()} " fugitive status
 set statusline+=%= " right align
 set statusline+=%y " file type
 set statusline+=[%P] " percentage through file
-set statusline+=[%s:%c] " line number : column number
+set statusline+=[%l:%c] " line number : column number
 set statusline+=%{gutentags#statusline('[Generating\ Tags...]')} " Lets me know if generating tags
 set statusline+=[%{mode()}] " current mode
 
