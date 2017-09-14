@@ -89,11 +89,18 @@ if !exists("g:go_highlight_generate_tags")
   let g:go_highlight_generate_tags = 0
 endif
 
+if !exists("g:go_highlight_variable_declarations")
+  let g:go_highlight_variable_declarations = 0
+endif
+
 let s:fold_block = 1
 let s:fold_import = 1
 let s:fold_varconst = 1
 let s:fold_package_comment = 1
+let s:fold_comment = 0
+
 if exists("g:go_fold_enable")
+  " Enabled by default.
   if index(g:go_fold_enable, 'block') == -1
     let s:fold_block = 0
   endif
@@ -105,6 +112,11 @@ if exists("g:go_fold_enable")
   endif
   if index(g:go_fold_enable, 'package_comment') == -1
     let s:fold_package_comment = 0
+  endif
+ 
+  " Disabled by default.
+  if index(g:go_fold_enable, 'comment') > -1
+    let s:fold_comment = 1
   endif
 endif
 
@@ -159,8 +171,14 @@ hi def link     goPredefinedIdentifiers    goBoolean
 " Comments; their contents
 syn keyword     goTodo              contained TODO FIXME XXX BUG
 syn cluster     goCommentGroup      contains=goTodo
-syn region      goComment           start="/\*" end="\*/" contains=@goCommentGroup,@Spell
+
 syn region      goComment           start="//" end="$" contains=goGenerate,@goCommentGroup,@Spell
+if s:fold_comment
+  syn region    goComment           start="/\*" end="\*/" contains=@goCommentGroup,@Spell fold
+  syn match     goComment           "\v(^\s*//.*\n)+" contains=goGenerate,@goCommentGroup,@Spell fold
+else
+  syn region    goComment           start="/\*" end="\*/" contains=@goCommentGroup,@Spell
+endif
 
 hi def link     goComment           Comment
 hi def link     goTodo              Todo
@@ -385,6 +403,12 @@ hi def link     goTypeConstructor   Type
 hi def link     goTypeName          Type
 hi def link     goTypeDecl          Keyword
 hi def link     goDeclType          Keyword
+
+" Variable Declarations
+if g:go_highlight_variable_declarations != 0
+  syn match goVarDefs /\v\w+(,\s*\w+)*\ze(\s*:\=)/
+  hi def link   goVarDefs           Special
+endif
 
 " Build Constraints
 if g:go_highlight_build_constraints != 0

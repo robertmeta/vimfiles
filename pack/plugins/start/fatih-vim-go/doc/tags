@@ -42,11 +42,13 @@
 'g:go_highlight_string_spellcheck'	vim-go.txt	/*'g:go_highlight_string_spellcheck'*
 'g:go_highlight_trailing_whitespace_error'	vim-go.txt	/*'g:go_highlight_trailing_whitespace_error'*
 'g:go_highlight_types'	vim-go.txt	/*'g:go_highlight_types'*
+'g:go_highlight_variable_declarations'	vim-go.txt	/*'g:go_highlight_variable_declarations'*
 'g:go_info_mode'	vim-go.txt	/*'g:go_info_mode'*
 'g:go_jump_to_error'	vim-go.txt	/*'g:go_jump_to_error'*
 'g:go_list_autoclose'	vim-go.txt	/*'g:go_list_autoclose'*
 'g:go_list_height'	vim-go.txt	/*'g:go_list_height'*
 'g:go_list_type'	vim-go.txt	/*'g:go_list_type'*
+'g:go_list_type_commands'	vim-go.txt	/*'g:go_list_type_commands'*
 'g:go_metalinter_autosave'	vim-go.txt	/*'g:go_metalinter_autosave'*
 'g:go_metalinter_autosave_enabled'	vim-go.txt	/*'g:go_metalinter_autosave_enabled'*
 'g:go_metalinter_command'	vim-go.txt	/*'g:go_metalinter_command'*
@@ -199,5 +201,7 @@ go-v_[[	vim-go.txt	/*go-v_[[*
 go-v_]]	vim-go.txt	/*go-v_]]*
 go-v_af	vim-go.txt	/*go-v_af*
 go-v_if	vim-go.txt	/*go-v_if*
+unite-decls	vim-go.txt	/*unite-decls*
 vim-go	vim-go.txt	/*vim-go*
+vim-go-plugins	vim-go.txt	/*vim-go-plugins*
 vim-go.txt	vim-go.txt	/*vim-go.txt*

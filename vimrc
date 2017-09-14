@@ -13,8 +13,8 @@ set encoding=utf-8
 scriptencoding utf-8
 
 " Helpers
-let s:running_windows=has("win16") || has("win32") || has("win64")
-let s:colorful_term=(&term=~"xterm") || (&term=~"screen")
+let s:running_windows=has('win16') || has('win32') || has('win64')
+let s:colorful_term=(&term=~?'xterm') || (&term=~?'screen')
 
 " Loading Settings
 let g:skip_loading_mswin=1 " Just in case :)
@@ -22,7 +22,7 @@ filetype plugin indent on " if you are going to steal something from my vimrc, t
 syntax on " syntax highlighting on
 
 " Mappings
-let mapleader="\<space>"
+let mapleader='\<space>'
 
 " Scrolling/Line movement
 nnoremap gj j
@@ -137,7 +137,7 @@ set listchars=extends:⟩
 set listchars+=nbsp:‡
 set listchars+=precedes:⟨
 set listchars+=tab:\ \ 
-set listchars+=trail:•
+set listchars+=trais:•
 set list " show listchars
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
@@ -244,7 +244,7 @@ set statusline+=%{fugitive#statusline()} " fugitive status
 set statusline+=%= " right align
 set statusline+=%y " file type
 set statusline+=[%P] " percentage through file
-set statusline+=[%l:%c] " line number : column number
+set statusline+=[%s:%c] " line number : column number
 set statusline+=%{gutentags#statusline('[Generating\ Tags...]')} " Lets me know if generating tags
 set statusline+=[%{mode()}] " current mode
 
@@ -270,11 +270,11 @@ set whichwrap+=[ " insert and replace
 set whichwrap+=] " insert and replace
 
 " Additional text objects (stolen from romainl)
-for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '`' ]
-    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<cr>'
-    execute 'onoremap i' . char . ' :normal vi' . char . '<cr>'
-    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<cr>'
-    execute 'onoremap a' . char . ' :normal va' . char . '<cr>'
+for s:char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '`' ]
+    execute 'xnoremap i' . s:char . ' :<C-u>normal! T' . s:char . 'vt' . s:char . '<cr>'
+    execute 'onoremap i' . s:char . ' :normal vi' . s:char . '<cr>'
+    execute 'xnoremap a' . s:char . ' :<C-u>normal! F' . s:char . 'vf' . s:char . '<cr>'
+    execute 'onoremap a' . s:char . ' :normal va' . s:char . '<cr>'
 endfor
 
 " line text-objects
@@ -322,7 +322,7 @@ augroup general
 augroup end
 
 " GUI
-if has("gui_running")
+if has('gui_running')
     set guioptions=cm " use simple dialogs rather than pop-ups & show menu
     if s:running_windows
         set guifont=Hack,Consolas
@@ -330,7 +330,7 @@ if has("gui_running")
 endif
 
 " Mousing
-if has("mouse")
+if has('mouse')
     set mouse=a " use mouse everywhere
     set nomousehide " don't hide the mouse
     if !has('nvim')
@@ -346,20 +346,20 @@ endif
 let g:move_key_modifier='C'
 
 " Adapt for executables
-if executable("ag")
+if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
+    set grepformat=%f:%s:%c:%m,%f:%s:%m
 endif
-if executable("pt")
+if executable('pt')
     set grepprg=pt\ --nogroup\ --nocolor\ --ignore-case\ --column
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
+    set grepformat=%f:%s:%c:%m,%f:%s:%m
 endif
-if executable("rg")
+if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
+    set grepformat=%f:%s:%c:%m,%f:%s:%m
 endif
-if executable("ctags-exuberant")
-    let g:gutentags_ctags_executable="ctags-exuberant"
+if executable('ctags-exuberant')
+    let g:gutentags_ctags_executable='ctags-exuberant'
 endif
 
 " Markdown
@@ -369,13 +369,13 @@ let g:vim_markdown_frontmatter=1
 " Vim-go
 let g:go_autodetect_gopath=1
 let g:go_auto_type_info=0
-let g:go_bin_path=$HOME."/go/bin"
+let g:go_bin_path=$HOME.'/go/bin'
 let g:go_def_mapping_enabled=1
 let g:go_def_mode='guru'
 let g:go_def_reuse_buffer=1
-let g:go_doc_command="godoc"
+let g:go_doc_command='godoc'
 let g:go_fmt_autosave=1
-let g:go_fmt_command="goimports"
+let g:go_fmt_command='goimports'
 let g:go_fmt_experimental=1
 let g:go_highlight_array_whitespace_error=1
 let g:go_highlight_build_constraints=1
@@ -414,13 +414,13 @@ let g:nofrils_heavylinenumbers=0 " heavy line numbers off
 if s:running_windows
     colo nofrils-acme
 else " MacOSX/Linux
-    if executable("date")
+    if executable('date')
         " EST is -5 from UTC so
         " EST 19:00 to 7:00 is 01:00 to 
-        let curhour=system('date -u +%H')
-        if curhour <# 12
+        let s:curhour=system('date -u +%H')
+        if s:curhour <# 12
             colo nofrils-dark
-        elseif curhour ># 22
+        elseif s:curhour ># 22
             colo nofrils-dark
         else
             colo nofrils-acme
@@ -437,21 +437,21 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 function! ToggleFolds()
-    if !exists("b:myfolded")
+    if !exists('b:myfolded')
         let b:myfolded=0
     endif
 
     if b:myfolded ># 0
-        execute("%foldo")
+        execute('%foldo')
         let b:myfolded=0
     else
-        execute("%foldc")
+        execute('%foldc')
         let b:myfolded=1
     endif
 endfunction
 
 function! StripTrailingWhitespace()
-    if !&binary && &filetype != 'diff'
+    if !&binary && &filetype !=? 'diff'
         normal mz
         normal Hmy
         %s/\s\+$//e
@@ -462,11 +462,11 @@ endfunction
 command! StripTrailingWhitespace :call StripTrailingWhitespace()
 
 function! PasteForStatusline()
-    let paste_status=&paste
-    if paste_status == 1
-        return "[PASTE]"
+    let l:paste_status=&paste
+    if l:paste_status == 1
+        return '[PASTE]'
     else
-        return ""
+        return ''
     endif
 endfunction
 
@@ -486,26 +486,26 @@ augroup AutoMkdir
 augroup END
 
 " Thanks romainl
-if executable("nc") && executable("tr") && executable("cat")
+if executable('nc') && executable('tr') && executable('cat')
     command! -range=% TB  <line1>,<line2>w !nc termbin.com 9999 | tr -d '\n' | cat
 endif
 
 function! Redir(cmd)
-    if a:cmd =~ '^!'
-        execute "let output = system('" . substitute(a:cmd, '^!', '', '') . "')"
+    if a:cmd =~? '^!'
+        execute "let g:output = system('" . substitute(a:cmd, '^!', '', '') . "')"
     else
-        redir => output
+        redir => g:output
         execute a:cmd
         redir END
     endif
     vnew
     setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
-    call setline(1, split(output, "\n"))
+    call setline(1, split(g:output, "\n"))
 endfunction
 command! -nargs=1 Redir silent call Redir(<f-args>)
 
 function! BreakHere()
     s/^\(\s*\)\(.\{-}\)\(\s*\)\(\%#\)\(\s*\)\(.*\)/\1\2\r\1\4\6
-    call histdel("/", -1)
+    call histdel('/', -1)
 endfunction
 command! BreakHere :call BreakHere()

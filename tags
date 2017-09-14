@@ -2105,6 +2105,9 @@ ale_linters#cs#mcs#Handle	pack/plugins/start/w0rp-ale/ale_linters/cs/mcs.vim	/^f
 ale_linters#css#csslint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/css/csslint.vim	/^function! ale_linters#css#csslint#GetCommand(buffer) abort$/;"	f
 ale_linters#css#stylelint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/css/stylelint.vim	/^function! ale_linters#css#stylelint#GetCommand(buffer) abort$/;"	f
 ale_linters#css#stylelint#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/css/stylelint.vim	/^function! ale_linters#css#stylelint#GetExecutable(buffer) abort$/;"	f
+ale_linters#cuda#nvcc#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cuda/nvcc.vim	/^function! ale_linters#cuda#nvcc#GetCommand(buffer) abort$/;"	f
+ale_linters#cuda#nvcc#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/cuda/nvcc.vim	/^function! ale_linters#cuda#nvcc#GetExecutable(buffer) abort$/;"	f
+ale_linters#cuda#nvcc#HandleNVCCFormat	pack/plugins/start/w0rp-ale/ale_linters/cuda/nvcc.vim	/^function! ale_linters#cuda#nvcc#HandleNVCCFormat(buffer, lines) abort$/;"	f
 ale_linters#d#dmd#DMDCommand	pack/plugins/start/w0rp-ale/ale_linters/d/dmd.vim	/^function! ale_linters#d#dmd#DMDCommand(buffer, dub_output) abort$/;"	f
 ale_linters#d#dmd#DUBCommand	pack/plugins/start/w0rp-ale/ale_linters/d/dmd.vim	/^function! ale_linters#d#dmd#DUBCommand(buffer) abort$/;"	f
 ale_linters#d#dmd#Handle	pack/plugins/start/w0rp-ale/ale_linters/d/dmd.vim	/^function! ale_linters#d#dmd#Handle(buffer, lines) abort$/;"	f
@@ -2982,7 +2985,6 @@ ctrlp#decls#enter	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^fun
 ctrlp#decls#exit	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^function! ctrlp#decls#exit() abort$/;"	f
 ctrlp#decls#init	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^function! ctrlp#decls#init() abort$/;"	f
 ctrlp_warning	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^  function! s:ctrlp_warning()$/;"	f
-curhour	vimrc	/^        let curhour=system('date -u +%H')$/;"	v
 current_char	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:current_char()$/;"	f
 current_compiler	pack/plugins/start/fatih-vim-go/compiler/go.vim	/^let current_compiler = "go"$/;"	v
 current_compiler	pack/plugins/start/sheerun-vim-polyglot/compiler/cake.vim	/^let current_compiler = 'cake'$/;"	v
@@ -3438,17 +3440,16 @@ g:gitgutter_sign_removed_first_line	pack/plugins/start/airblade-vim-gitgutter/pl
 g:go_alternate_mode	pack/plugins/start/fatih-vim-go/autoload/go/alternate.vim	/^  let g:go_alternate_mode = "edit"$/;"	v
 g:go_auto_type_info	vimrc	/^let g:go_auto_type_info=0$/;"	v
 g:go_autodetect_gopath	vimrc	/^let g:go_autodetect_gopath=1$/;"	v
-g:go_bin_path	vimrc	/^let g:go_bin_path=$HOME."\/go\/bin"$/;"	v
+g:go_bin_path	vimrc	/^let g:go_bin_path=$HOME.'\/go\/bin'$/;"	v
 g:go_def_mapping_enabled	vimrc	/^let g:go_def_mapping_enabled=1$/;"	v
 g:go_def_mode	vimrc	/^let g:go_def_mode='guru'$/;"	v
 g:go_def_reuse_buffer	vimrc	/^let g:go_def_reuse_buffer=1$/;"	v
-g:go_doc_command	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^  let g:go_doc_command = "godoc"$/;"	v
-g:go_doc_command	vimrc	/^let g:go_doc_command="godoc"$/;"	v
-g:go_doc_options	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^  let g:go_doc_options = ""$/;"	v
+g:go_doc_command	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^  let g:go_doc_command = ["godoc"]$/;"	v
+g:go_doc_command	vimrc	/^let g:go_doc_command='godoc'$/;"	v
 g:go_errcheck_bin	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let g:go_errcheck_bin = "errcheck"$/;"	v
 g:go_fmt_autosave	vimrc	/^let g:go_fmt_autosave=1$/;"	v
 g:go_fmt_command	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_command = "gofmt"$/;"	v
-g:go_fmt_command	vimrc	/^let g:go_fmt_command="goimports"$/;"	v
+g:go_fmt_command	vimrc	/^let g:go_fmt_command='goimports'$/;"	v
 g:go_fmt_experimental	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_experimental = 0$/;"	v
 g:go_fmt_experimental	vimrc	/^let g:go_fmt_experimental=1$/;"	v
 g:go_fmt_fail_silently	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_fail_silently = 0$/;"	v
@@ -3530,7 +3531,7 @@ g:gutentags_ctags_check_tagfile	pack/plugins/start/ludovicchabant-vim-gutentags/
 g:gutentags_ctags_exclude	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_exclude = get(g:, 'gutentags_ctags_exclude', [])$/;"	v
 g:gutentags_ctags_exclude_wildignore	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_exclude_wildignore = get(g:, 'gutentags_ctags_exclude_wildignore', 1)$/;"	v
 g:gutentags_ctags_executable	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_executable = get(g:, 'gutentags_ctags_executable', 'ctags')$/;"	v
-g:gutentags_ctags_executable	vimrc	/^    let g:gutentags_ctags_executable="ctags-exuberant"$/;"	v
+g:gutentags_ctags_executable	vimrc	/^    let g:gutentags_ctags_executable='ctags-exuberant'$/;"	v
 g:gutentags_ctags_extra_args	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_extra_args = get(g:, 'gutentags_ctags_extra_args', [])$/;"	v
 g:gutentags_ctags_options_file	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_options_file = get(g:, 'gutentags_ctags_options_file', '.gutctags')$/;"	v
 g:gutentags_ctags_post_process_cmd	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let g:gutentags_ctags_post_process_cmd = get(g:, 'gutentags_ctags_post_process_cmd', '')$/;"	v
@@ -3747,6 +3748,7 @@ general	vimrc	/^augroup general$/;"	a
 generate_color_palettes	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^fun! s:generate_color_palettes()$/;"	f
 getHLStack	pack/plugins/start/sheerun-vim-polyglot/indent/haskell.vim	/^function! s:getHLStack(line, col)$/;"	f
 getNesting	pack/plugins/start/sheerun-vim-polyglot/indent/haskell.vim	/^function! s:getNesting(hlstack)$/;"	f
+getReceiver	pack/plugins/start/fatih-vim-go/autoload/go/impl.vim	/^function! s:getReceiver()$/;"	f
 get_browser_command	pack/plugins/start/fatih-vim-go/autoload/go/play.vim	/^function! s:get_browser_command() abort$/;"	f
 get_browser_command	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! s:get_browser_command() abort$/;"	f
 get_ctags_executable	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^function! s:get_ctags_executable(proj_dir) abort$/;"	f
@@ -4312,7 +4314,7 @@ map_accum	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/L
 mapargs_pair_select	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_pair_select(lhs, pattern1, pattern2, flags, previous_mode)$/;"	f
 mapargs_single_move	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_single_move(lhs, pattern, flags, previous_mode)$/;"	f
 mapargs_single_select	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_single_select(lhs, pattern, flags, previous_mode)$/;"	f
-mapleader	vimrc	/^let mapleader="\\<space>"$/;"	v
+mapleader	vimrc	/^let mapleader='\\<space>'$/;"	v
 match_one	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:match_one(patterns, string)$/;"	f
 match_pairs	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:match_pairs(open, close, stopat)$/;"	f
 max_by	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:max_by(list, expr) abort$/;"	f
@@ -4817,7 +4819,7 @@ s:close_patt	pack/plugins/start/sheerun-vim-polyglot/indent/lua.vim	/^let s:clos
 s:cmp	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete/ultisnips.vim	/^let s:cmp = 'stridx(v:val, l:pat)' . (get(g:, 'mucomplete#ultisnips#match_at_start', 1) ? '==0' : '>=0')$/;"	v
 s:coffeeIndentExpr	pack/plugins/start/sheerun-vim-polyglot/after/indent/html.vim	/^let s:coffeeIndentExpr = &l:indentexpr$/;"	v
 s:col_end_patterns	pack/plugins/start/w0rp-ale/autoload/ale/handlers/eslint.vim	/^let s:col_end_patterns = [$/;"	v
-s:colorful_term	vimrc	/^let s:colorful_term=(&term=~"xterm") || (&term=~"screen")$/;"	v
+s:colorful_term	vimrc	/^let s:colorful_term=(&term=~?'xterm') || (&term=~?'screen')$/;"	v
 s:comma_first	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:comma_first = '^\\s*,'$/;"	v
 s:comma_last	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:comma_last = ',\\s*$'$/;"	v
 s:commands	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^let s:commands = {}$/;"	v
@@ -4907,6 +4909,7 @@ s:crystal_deindent_keywords	pack/plugins/start/sheerun-vim-polyglot/indent/cryst
 s:crystal_indent_keywords	pack/plugins/start/sheerun-vim-polyglot/indent/crystal.vim	/^let s:crystal_indent_keywords =$/;"	v
 s:cssindent	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:cssindent = &indentexpr$/;"	v
 s:ctrlx_out	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:ctrlx_out = "\\<plug>(MUcompleteOut)"$/;"	v
+s:curhour	vimrc	/^        let s:curhour=system('date -u +%H')$/;"	v
 s:current_dir	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^let s:current_dir = expand('%:p:h')$/;"	v
 s:current_file	pack/plugins/start/fatih-vim-go/autoload/go/template.vim	/^let s:current_file = expand("<sfile>")$/;"	v
 s:current_fileencodings	pack/plugins/start/fatih-vim-go/ftdetect/gofiletype.vim	/^let s:current_fileencodings = ''$/;"	v
@@ -4995,6 +4998,8 @@ s:fold_block	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^    let s:fold_bloc
 s:fold_block	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^let s:fold_block = 1$/;"	v
 s:fold_import	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^    let s:fold_import = 0$/;"	v
 s:fold_import	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^let s:fold_import = 1$/;"	v
+s:fold_package_comment	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^    let s:fold_package_comment = 0$/;"	v
+s:fold_package_comment	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^let s:fold_package_comment = 1$/;"	v
 s:fold_varconst	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^    let s:fold_varconst = 0$/;"	v
 s:fold_varconst	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^let s:fold_varconst = 1$/;"	v
 s:foldable_groups	pack/plugins/start/sheerun-vim-polyglot/syntax/ruby.vim	/^let s:foldable_groups = split($/;"	v
@@ -5201,7 +5206,7 @@ s:rubycomplete_debug	pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomple
 s:rubycomplete_rails_loaded	pack/plugins/start/sheerun-vim-polyglot/autoload/rubycomplete.vim	/^let s:rubycomplete_rails_loaded = 0$/;"	v
 s:runner_exe	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/cscope.vim	/^let s:runner_exe = gutentags#get_plat_file('update_scopedb')$/;"	v
 s:runner_exe	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let s:runner_exe = gutentags#get_plat_file('update_tags')$/;"	v
-s:running_windows	vimrc	/^let s:running_windows=has("win16") || has("win32") || has("win64")$/;"	v
+s:running_windows	vimrc	/^let s:running_windows=has('win16') || has('win32') || has('win64')$/;"	v
 s:s	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ocaml.vim	/^let s:s = line2byte(line('.'))+col('.')-1$/;"	v
 s:save_cpo	pack/plugins/start/fatih-vim-go/compiler/go.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^let s:save_cpo = &cpo$/;"	v

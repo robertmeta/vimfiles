@@ -80,6 +80,9 @@ ale-dart-dartanalyzer	ale-dart.txt	/*ale-dart-dartanalyzer*
 ale-dart-options	ale-dart.txt	/*ale-dart-options*
 ale-dockerfile-hadolint	ale-dockerfile.txt	/*ale-dockerfile-hadolint*
 ale-dockerfile-options	ale-dockerfile.txt	/*ale-dockerfile-options*
+ale-elm-elm-format	ale-elm.txt	/*ale-elm-elm-format*
+ale-elm-elm-make	ale-elm.txt	/*ale-elm-elm-make*
+ale-elm-options	ale-elm.txt	/*ale-elm-options*
 ale-erlang-erlc	ale-erlang.txt	/*ale-erlang-erlc*
 ale-erlang-options	ale-erlang.txt	/*ale-erlang-options*
 ale-erlang-syntaxerl	ale-erlang.txt	/*ale-erlang-syntaxerl*
@@ -91,6 +94,8 @@ ale-fortran-gcc	ale-fortran.txt	/*ale-fortran-gcc*
 ale-fortran-options	ale-fortran.txt	/*ale-fortran-options*
 ale-fuse-fusionlint	ale-fuse.txt	/*ale-fuse-fusionlint*
 ale-fuse-options	ale-fuse.txt	/*ale-fuse-options*
+ale-glsl-glslang	ale-glsl.txt	/*ale-glsl-glslang*
+ale-glsl-options	ale-glsl.txt	/*ale-glsl-options*
 ale-go-gometalinter	ale-go.txt	/*ale-go-gometalinter*
 ale-go-options	ale-go.txt	/*ale-go-options*
 ale-graphql-gqlint	ale-graphql.txt	/*ale-graphql-gqlint*
@@ -106,6 +111,7 @@ ale-html-options	ale-html.txt	/*ale-html-options*
 ale-html-tidy	ale-html.txt	/*ale-html-tidy*
 ale-idris-idris	ale-idris.txt	/*ale-idris-idris*
 ale-idris-options	ale-idris.txt	/*ale-idris-options*
+ale-integration-glsl	ale-glsl.txt	/*ale-integration-glsl*
 ale-integration-kotlin	ale-kotlin.txt	/*ale-integration-kotlin*
 ale-integration-rust	ale-rust.txt	/*ale-integration-rust*
 ale-integration-spec	ale-spec.txt	/*ale-integration-spec*
@@ -195,6 +201,8 @@ ale-sh-shellcheck	ale-sh.txt	/*ale-sh-shellcheck*
 ale-sml-options	ale-sml.txt	/*ale-sml-options*
 ale-sml-smlnj	ale-sml.txt	/*ale-sml-smlnj*
 ale-sml-smlnj-cm	ale-sml.txt	/*ale-sml-smlnj-cm*
+ale-solidity-options	ale-solidity.txt	/*ale-solidity-options*
+ale-solidity-solium	ale-solidity.txt	/*ale-solidity-solium*
 ale-spec-options	ale-spec.txt	/*ale-spec-options*
 ale-spec-rpmlint	ale-spec.txt	/*ale-spec-rpmlint*
 ale-special-thanks	ale.txt	/*ale-special-thanks*
@@ -265,6 +273,11 @@ b:ale_cuda_nvcc_options	ale-cuda.txt	/*b:ale_cuda_nvcc_options*
 b:ale_dart_dartanalyzer_executable	ale-dart.txt	/*b:ale_dart_dartanalyzer_executable*
 b:ale_dockerfile_hadolint_image	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_image*
 b:ale_dockerfile_hadolint_use_docker	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_use_docker*
+b:ale_elm_format_executable	ale-elm.txt	/*b:ale_elm_format_executable*
+b:ale_elm_format_options	ale-elm.txt	/*b:ale_elm_format_options*
+b:ale_elm_format_use_global	ale-elm.txt	/*b:ale_elm_format_use_global*
+b:ale_elm_make_executable	ale-elm.txt	/*b:ale_elm_make_executable*
+b:ale_elm_make_use_global	ale-elm.txt	/*b:ale_elm_make_use_global*
 b:ale_enabled	ale.txt	/*b:ale_enabled*
 b:ale_erlang_erlc_options	ale-erlang.txt	/*b:ale_erlang_erlc_options*
 b:ale_erlang_syntaxerl_executable	ale-erlang.txt	/*b:ale_erlang_syntaxerl_executable*
@@ -274,6 +287,8 @@ b:ale_fortran_gcc_options	ale-fortran.txt	/*b:ale_fortran_gcc_options*
 b:ale_fortran_gcc_use_free_form	ale-fortran.txt	/*b:ale_fortran_gcc_use_free_form*
 b:ale_fuse_fusionlint_executable	ale-fuse.txt	/*b:ale_fuse_fusionlint_executable*
 b:ale_fuse_fusionlint_options	ale-fuse.txt	/*b:ale_fuse_fusionlint_options*
+b:ale_glsl_glslang_executable	ale-glsl.txt	/*b:ale_glsl_glslang_executable*
+b:ale_glsl_glslang_options	ale-glsl.txt	/*b:ale_glsl_glslang_options*
 b:ale_go_gometalinter_executable	ale-go.txt	/*b:ale_go_gometalinter_executable*
 b:ale_go_gometalinter_options	ale-go.txt	/*b:ale_go_gometalinter_options*
 b:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*b:ale_handlebars_embertemplatelint_executable*
@@ -471,6 +486,11 @@ g:ale_echo_cursor	ale.txt	/*g:ale_echo_cursor*
 g:ale_echo_msg_error_str	ale.txt	/*g:ale_echo_msg_error_str*
 g:ale_echo_msg_format	ale.txt	/*g:ale_echo_msg_format*
 g:ale_echo_msg_warning_str	ale.txt	/*g:ale_echo_msg_warning_str*
+g:ale_elm_format_executable	ale-elm.txt	/*g:ale_elm_format_executable*
+g:ale_elm_format_options	ale-elm.txt	/*g:ale_elm_format_options*
+g:ale_elm_format_use_global	ale-elm.txt	/*g:ale_elm_format_use_global*
+g:ale_elm_make_executable	ale-elm.txt	/*g:ale_elm_make_executable*
+g:ale_elm_make_use_global	ale-elm.txt	/*g:ale_elm_make_use_global*
 g:ale_emit_conflict_warnings	ale.txt	/*g:ale_emit_conflict_warnings*
 g:ale_enabled	ale.txt	/*g:ale_enabled*
 g:ale_erlang_erlc_options	ale-erlang.txt	/*g:ale_erlang_erlc_options*
@@ -482,6 +502,8 @@ g:ale_fortran_gcc_options	ale-fortran.txt	/*g:ale_fortran_gcc_options*
 g:ale_fortran_gcc_use_free_form	ale-fortran.txt	/*g:ale_fortran_gcc_use_free_form*
 g:ale_fuse_fusionlint_executable	ale-fuse.txt	/*g:ale_fuse_fusionlint_executable*
 g:ale_fuse_fusionlint_options	ale-fuse.txt	/*g:ale_fuse_fusionlint_options*
+g:ale_glsl_glslang_executable	ale-glsl.txt	/*g:ale_glsl_glslang_executable*
+g:ale_glsl_glslang_options	ale-glsl.txt	/*g:ale_glsl_glslang_options*
 g:ale_go_gometalinter_executable	ale-go.txt	/*g:ale_go_gometalinter_executable*
 g:ale_go_gometalinter_options	ale-go.txt	/*g:ale_go_gometalinter_options*
 g:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*g:ale_handlebars_embertemplatelint_executable*
