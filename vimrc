@@ -51,10 +51,6 @@ vnoremap . :norm.<CR>
 " Vertical split and scrollbind
 nnoremap <leader>vs :<C-u>let @z=&so<cr>:set so=0 noscb<cr>:bo vs<cr>Ljzt:setl scb<cr><C-w>p:setl scb<cr>:let &so=@z<cr>
 
-" Abbreviations
-iab <expr> dts strftime("%c")
-iab rrm Robert R. Melton
-
 " Search
 nmap <leader>s <Plug>(quickhl-manual-this)
 xmap <leader>s <Plug>(quickhl-manual-this)
