@@ -42,6 +42,7 @@
 'g:go_highlight_string_spellcheck'	vim-go.txt	/*'g:go_highlight_string_spellcheck'*
 'g:go_highlight_trailing_whitespace_error'	vim-go.txt	/*'g:go_highlight_trailing_whitespace_error'*
 'g:go_highlight_types'	vim-go.txt	/*'g:go_highlight_types'*
+'g:go_highlight_variable_assignments'	vim-go.txt	/*'g:go_highlight_variable_assignments'*
 'g:go_highlight_variable_declarations'	vim-go.txt	/*'g:go_highlight_variable_declarations'*
 'g:go_info_mode'	vim-go.txt	/*'g:go_info_mode'*
 'g:go_jump_to_error'	vim-go.txt	/*'g:go_jump_to_error'*
@@ -145,6 +146,7 @@
 :GoDrop	vim-go.txt	/*:GoDrop*
 :GoErrCheck	vim-go.txt	/*:GoErrCheck*
 :GoFiles	vim-go.txt	/*:GoFiles*
+:GoFillStruct	vim-go.txt	/*:GoFillStruct*
 :GoFmt	vim-go.txt	/*:GoFmt*
 :GoFmtAutoSaveToggle	vim-go.txt	/*:GoFmtAutoSaveToggle*
 :GoFreevars	vim-go.txt	/*:GoFreevars*

@@ -10,7 +10,7 @@ function go#job#Spawn(args)
         \ 'messages': [],
         \ 'args': a:args.cmd,
         \ 'bang': 0,
-        \ 'for': "quickfix",
+        \ 'for': "_job",
         \ }
 
   if has_key(a:args, 'bang')
@@ -52,7 +52,7 @@ function go#job#Spawn(args)
       call self.custom_cb(a:job, a:exitval, self.messages)
     endif
 
-    let l:listtype = go#list#Type(self.for, "quickfix")
+    let l:listtype = go#list#Type(self.for)
     if a:exitval == 0
       call go#list#Clean(l:listtype)
       call go#list#Window(l:listtype)
@@ -74,8 +74,7 @@ function go#job#Spawn(args)
 
     if !len(errors)
       " failed to parse errors, output the original content
-      call go#util#EchoError(join(self.messages, " "))
-      call go#util#EchoError(self.dir)
+      call go#util#EchoError(self.messages + [self.dir])
       return
     endif
 

@@ -6,6 +6,7 @@
 'g:qf_loclist_window_bottom'	qf.txt	/*'g:qf_loclist_window_bottom'*
 'g:qf_mapping_ack_style'	qf.txt	/*'g:qf_mapping_ack_style'*
 'g:qf_max_height'	qf.txt	/*'g:qf_max_height'*
+'g:qf_save_win_view'	qf.txt	/*'g:qf_save_win_view'*
 'g:qf_statusline'	qf.txt	/*'g:qf_statusline'*
 'g:qf_window_bottom'	qf.txt	/*'g:qf_window_bottom'*
 :Dofile	qf.txt	/*:Dofile*
@@ -37,6 +38,7 @@ qf-done	qf.txt	/*qf-done*
 qf-installation	qf.txt	/*qf-installation*
 qf-intro	qf.txt	/*qf-intro*
 qf-named-lists	qf.txt	/*qf-named-lists*
+qf-releases	qf.txt	/*qf-releases*
 qf-todo	qf.txt	/*qf-todo*
 qf-usage	qf.txt	/*qf-usage*
 qf.txt	qf.txt	/*qf.txt*

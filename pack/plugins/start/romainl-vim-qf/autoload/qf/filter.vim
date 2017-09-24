@@ -1,6 +1,6 @@
 " vim-qf - Tame the quickfix window
 " Maintainer:	romainl <romainlafourcade@gmail.com>
-" Version:	0.1.2
+" Version:	0.2.0
 " License:	MIT
 " Location:	autoload/filter.vim
 " Website:	https://github.com/romainl/vim-qf
@@ -33,7 +33,8 @@ function! s:ResetLists()
 endfunction
 
 function! s:SetList(pat, reject, strategy)
-    let operator  = a:reject == 0 ? '=~' : '!~'
+    " decide what regexp operator to use
+    let operator   = a:reject == 0 ? '=~' : '!~'
     " get user-defined maximum height
     let max_height = get(g:, 'qf_max_height', 10) < 1 ? 10 : get(g:, 'qf_max_height', 10)
 
@@ -41,7 +42,7 @@ function! s:SetList(pat, reject, strategy)
         if b:qf_isLoc == 1
             " bufname && text
             if a:strategy == 0
-                call setloclist(0, filter(getloclist(0), "bufname(v:val['bufnr']) " . operator . " a:pat || v:val['text'] " . operator . " a:pat"), "r")
+                call setloclist(0, filter(getloclist(0), "(bufname(v:val['bufnr']) . v:val['text'] " . operator . " a:pat)"), "r")
             endif
 
             " only bufname
@@ -58,7 +59,7 @@ function! s:SetList(pat, reject, strategy)
         else
             " bufname && text
             if a:strategy == 0
-                call setqflist(filter(getqflist(), "bufname(v:val['bufnr']) " . operator . " a:pat || v:val['text'] " . operator . " a:pat"), "r")
+                call setqflist(filter(getqflist(), "(bufname(v:val['bufnr']) . v:val['text'] " . operator . " a:pat)"), "r")
             endif
 
             " only bufname
