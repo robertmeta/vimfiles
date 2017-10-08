@@ -57,6 +57,10 @@ au BufRead,BufNewFile *.ino,*.pde set filetype=arduino
 augroup END
 
 augroup filetypedetect
+" autohotkey:hnamikaw/vim-autohotkey
+augroup END
+
+augroup filetypedetect
 " blade:jwalton512/vim-blade
 autocmd BufNewFile,BufRead *.blade.php set filetype=blade
 augroup END
@@ -147,10 +151,6 @@ endif
 augroup END
 
 augroup filetypedetect
-" css:JulesWang/css.vim
-augroup END
-
-augroup filetypedetect
 " cucumber:tpope/vim-cucumber
 " Cucumber
 autocmd BufNewFile,BufReadPost *.feature,*.story set filetype=cucumber
@@ -183,8 +183,10 @@ endfunction
 augroup END
 
 augroup filetypedetect
-" elm:lambdatoast/elm.vim
-au BufNewFile,BufRead *.elm		set filetype=elm
+" elm:ElmCast/elm-vim
+" detection for Elm (http://elm-lang.org/)
+
+au BufRead,BufNewFile *.elm set filetype=elm
 augroup END
 
 augroup filetypedetect
@@ -258,6 +260,12 @@ autocmd BufNewFile ~/.config/fish/functions/*.fish
 augroup END
 
 augroup filetypedetect
+" fsharp:fsharp/vim-fsharp:_BASIC
+" F#, fsharp
+autocmd BufNewFile,BufRead *.fs,*.fsi,*.fsx set filetype=fsharp
+augroup END
+
+augroup filetypedetect
 " git:tpope/vim-git
 " Git
 autocmd BufNewFile,BufRead *.git/{,modules/**/,worktrees/*/}{COMMIT_EDIT,TAG_EDIT,MERGE_,}MSG set ft=gitcommit
@@ -283,13 +291,24 @@ autocmd BufNewFile,BufRead *
 augroup END
 
 augroup filetypedetect
+" gmpl:maelvalais/gmpl.vim
+au BufRead,BufNewFile *.mod set filetype=gmpl
+augroup END
+
+augroup filetypedetect
+" openscad:sirtaj/vim-openscad
+au BufRead,BufNewFile *.scad    setfiletype openscad
+an 50.80.265 &Syntax.NO.OpenSCAD :cal SetSyn("openscad")<CR>
+augroup END
+
+augroup filetypedetect
 " glsl:tikhomirov/vim-glsl
 " Language: OpenGL Shading Language
 " Maintainer: Sergey Tikhomirov <sergey@tikhomirov.io>
 
-" Extensions supported by Khronos reference compiler
+" Extensions supported by Khronos reference compiler (with one exception, ".glsl")
 " https://github.com/KhronosGroup/glslang
-autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.geom,*.frag,*.comp set filetype=glsl
+autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.glsl,*.geom,*.frag,*.comp set filetype=glsl
 
 " vim:set sts=2 sw=2 :
 augroup END
@@ -331,11 +350,6 @@ au BufReadPost *.s call s:gofiletype_post()
 au BufRead,BufNewFile *.tmpl set filetype=gohtmltmpl
 
 " vim: sw=2 ts=2 et
-augroup END
-
-augroup filetypedetect
-" graphql:jparise/vim-graphql
-au BufRead,BufNewFile *.graphql,*.gql setfiletype graphql
 augroup END
 
 augroup filetypedetect
@@ -387,7 +401,7 @@ augroup END
 
 augroup filetypedetect
 " javascript:pangloss/vim-javascript:_JAVASCRIPT
-au BufNewFile,BufRead *.{js,jsm,es,es6},Jakefile setf javascript
+au BufNewFile,BufRead *.{js,mjs,jsm,es,es6},Jakefile setf javascript
 
 fun! s:SourceFlowSyntax()
   if !exists('javascript_plugin_flow') && !exists('b:flow_active') &&
@@ -404,6 +418,15 @@ fun! s:SelectJavascript()
   endif
 endfun
 au BufNewFile,BufRead * call s:SelectJavascript()
+augroup END
+
+augroup filetypedetect
+" jenkins:martinda/Jenkinsfile-vim-syntax
+" Jenkinsfile
+autocmd BufRead,BufNewFile Jenkinsfile set ft=Jenkinsfile
+autocmd BufRead,BufNewFile Jenkinsfile* setf Jenkinsfile
+autocmd BufRead,BufNewFile *.jenkinsfile set ft=Jenkinsfile
+autocmd BufRead,BufNewFile *.jenkinsfile setf Jenkinsfile
 augroup END
 
 augroup filetypedetect
@@ -442,15 +465,16 @@ if !exists('g:jsx_pragma_required')
   let g:jsx_pragma_required = 0
 endif
 
-if g:jsx_pragma_required
-  " Look for the @jsx pragma.  It must be included in a docblock comment before
-  " anything else in the file (except whitespace).
-  let s:jsx_pragma_pattern = '\%^\_s*\/\*\*\%(\_.\%(\*\/\)\@!\)*@jsx\_.\{-}\*\/'
-  let b:jsx_pragma_found = search(s:jsx_pragma_pattern, 'npw')
-endif
+let s:jsx_pragma_pattern = '\%^\_s*\/\*\*\%(\_.\%(\*\/\)\@!\)*@jsx\_.\{-}\*\/'
 
 " Whether to set the JSX filetype on *.js files.
 fu! <SID>EnableJSX()
+  if g:jsx_pragma_required && !exists('b:jsx_ext_found')
+    " Look for the @jsx pragma.  It must be included in a docblock comment
+    " before anything else in the file (except whitespace).
+    let b:jsx_pragma_found = search(s:jsx_pragma_pattern, 'npw')
+  endif
+
   if g:jsx_pragma_required && !b:jsx_pragma_found | return 0 | endif
   if g:jsx_ext_required && !exists('b:jsx_ext_found') | return 0 | endif
   return 1
@@ -524,6 +548,16 @@ augroup END
 
 augroup filetypedetect
 " mako:sophacles/vim-bundle-mako
+if !exists("g:mako_detect_lang_from_ext")
+  let g:mako_detect_lang_from_ext = 1
+endif
+if g:mako_detect_lang_from_ext
+  au BufNewFile *.*.mako   execute "do BufNewFile filetypedetect " . expand("<afile>:r") | let b:mako_outer_lang = &filetype
+  " it's important to get this before any of the normal BufRead autocmds execute
+  " for this file, otherwise a mako tag at the start of the file can cause the
+  " filetype to be set to mason
+  au BufReadPre *.*.mako   execute "do BufRead filetypedetect " . expand("<afile>:r") | let b:mako_outer_lang = &filetype
+endif
 au BufRead,BufNewFile *.mako     set filetype=mako
 augroup END
 
@@ -703,7 +737,7 @@ au! BufRead,BufNewFile Puppetfile setfiletype ruby
 augroup END
 
 augroup filetypedetect
-" purescript:raichoo/purescript-vim
+" purescript:purescript-contrib/purescript-vim
 au BufNewFile,BufRead *.purs setf purescript
 au FileType purescript let &l:commentstring='{--%s--}'
 augroup END
@@ -755,7 +789,7 @@ augroup filetypedetect
 
 " Support functions {{{
 function! s:setf(filetype) abort
-  if &filetype !=# a:filetype
+  if &filetype !~# '\<'.a:filetype.'\>'
     let &filetype = a:filetype
   endif
 endfunction
@@ -904,7 +938,7 @@ autocmd BufNewFile,BufRead *.slim setfiletype slim
 augroup END
 
 augroup filetypedetect
-" solidity:ethereum/vim-solidity
+" solidity:tomlion/vim-solidity
 au BufNewFile,BufRead *.sol setf solidity
 augroup END
 
@@ -1022,6 +1056,17 @@ augroup END
 augroup filetypedetect
 " vcl:smerrill/vcl-vim-plugin
 au BufRead,BufNewFile *.vcl set filetype=vcl
+augroup END
+
+augroup filetypedetect
+" vifm:vifm/vifm.vim
+autocmd BufRead,BufNewFile vifm.rename* :set filetype=vifm-rename
+augroup END
+
+augroup filetypedetect
+" vifm:vifm/vifm.vim
+autocmd BufRead,BufNewFile vifmrc :set filetype=vifm
+autocmd BufRead,BufNewFile *vifm/colors/* :set filetype=vifm
 augroup END
 
 augroup filetypedetect

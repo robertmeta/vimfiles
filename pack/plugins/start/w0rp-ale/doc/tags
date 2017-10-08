@@ -71,6 +71,9 @@ ale-cpp-cppcheck	ale-cpp.txt	/*ale-cpp-cppcheck*
 ale-cpp-cpplint	ale-cpp.txt	/*ale-cpp-cpplint*
 ale-cpp-gcc	ale-cpp.txt	/*ale-cpp-gcc*
 ale-cpp-options	ale-cpp.txt	/*ale-cpp-options*
+ale-cs-mcs	ale-cs.txt	/*ale-cs-mcs*
+ale-cs-mcsc	ale-cs.txt	/*ale-cs-mcsc*
+ale-cs-options	ale-cs.txt	/*ale-cs-options*
 ale-css-options	ale-css.txt	/*ale-css-options*
 ale-css-prettier	ale-css.txt	/*ale-css-prettier*
 ale-css-stylelint	ale-css.txt	/*ale-css-stylelint*
@@ -96,6 +99,7 @@ ale-fuse-fusionlint	ale-fuse.txt	/*ale-fuse-fusionlint*
 ale-fuse-options	ale-fuse.txt	/*ale-fuse-options*
 ale-glsl-glslang	ale-glsl.txt	/*ale-glsl-glslang*
 ale-glsl-options	ale-glsl.txt	/*ale-glsl-options*
+ale-go-gofmt	ale-go.txt	/*ale-go-gofmt*
 ale-go-gometalinter	ale-go.txt	/*ale-go-gometalinter*
 ale-go-options	ale-go.txt	/*ale-go-options*
 ale-graphql-gqlint	ale-graphql.txt	/*ale-graphql-gqlint*
@@ -265,6 +269,11 @@ b:ale_cpp_cpplint_executable	ale-cpp.txt	/*b:ale_cpp_cpplint_executable*
 b:ale_cpp_cpplint_options	ale-cpp.txt	/*b:ale_cpp_cpplint_options*
 b:ale_cpp_gcc_executable	ale-cpp.txt	/*b:ale_cpp_gcc_executable*
 b:ale_cpp_gcc_options	ale-cpp.txt	/*b:ale_cpp_gcc_options*
+b:ale_cs_mcs_options	ale-cs.txt	/*b:ale_cs_mcs_options*
+b:ale_cs_mcsc_assemblies	ale-cs.txt	/*b:ale_cs_mcsc_assemblies*
+b:ale_cs_mcsc_assembly_path	ale-cs.txt	/*b:ale_cs_mcsc_assembly_path*
+b:ale_cs_mcsc_options	ale-cs.txt	/*b:ale_cs_mcsc_options*
+b:ale_cs_mcsc_source	ale-cs.txt	/*b:ale_cs_mcsc_source*
 b:ale_css_stylelint_executable	ale-css.txt	/*b:ale_css_stylelint_executable*
 b:ale_css_stylelint_options	ale-css.txt	/*b:ale_css_stylelint_options*
 b:ale_css_stylelint_use_global	ale-css.txt	/*b:ale_css_stylelint_use_global*
@@ -289,6 +298,7 @@ b:ale_fuse_fusionlint_executable	ale-fuse.txt	/*b:ale_fuse_fusionlint_executable
 b:ale_fuse_fusionlint_options	ale-fuse.txt	/*b:ale_fuse_fusionlint_options*
 b:ale_glsl_glslang_executable	ale-glsl.txt	/*b:ale_glsl_glslang_executable*
 b:ale_glsl_glslang_options	ale-glsl.txt	/*b:ale_glsl_glslang_options*
+b:ale_go_gofmt_options	ale-go.txt	/*b:ale_go_gofmt_options*
 b:ale_go_gometalinter_executable	ale-go.txt	/*b:ale_go_gometalinter_executable*
 b:ale_go_gometalinter_options	ale-go.txt	/*b:ale_go_gometalinter_options*
 b:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*b:ale_handlebars_embertemplatelint_executable*
@@ -358,6 +368,7 @@ b:ale_php_phpcs_executable	ale-php.txt	/*b:ale_php_phpcs_executable*
 b:ale_php_phpcs_standard	ale-php.txt	/*b:ale_php_phpcs_standard*
 b:ale_php_phpcs_use_global	ale-php.txt	/*b:ale_php_phpcs_use_global*
 b:ale_php_phpmd_ruleset	ale-php.txt	/*b:ale_php_phpmd_ruleset*
+b:ale_php_phpstan_configuration	ale-php.txt	/*b:ale_php_phpstan_configuration*
 b:ale_php_phpstan_executable	ale-php.txt	/*b:ale_php_phpstan_executable*
 b:ale_php_phpstan_level	ale-php.txt	/*b:ale_php_phpstan_level*
 b:ale_pug_puglint_executable	ale-pug.txt	/*b:ale_pug_puglint_executable*
@@ -474,6 +485,11 @@ g:ale_cpp_cpplint_executable	ale-cpp.txt	/*g:ale_cpp_cpplint_executable*
 g:ale_cpp_cpplint_options	ale-cpp.txt	/*g:ale_cpp_cpplint_options*
 g:ale_cpp_gcc_executable	ale-cpp.txt	/*g:ale_cpp_gcc_executable*
 g:ale_cpp_gcc_options	ale-cpp.txt	/*g:ale_cpp_gcc_options*
+g:ale_cs_mcs_options	ale-cs.txt	/*g:ale_cs_mcs_options*
+g:ale_cs_mcsc_assemblies	ale-cs.txt	/*g:ale_cs_mcsc_assemblies*
+g:ale_cs_mcsc_assembly_path	ale-cs.txt	/*g:ale_cs_mcsc_assembly_path*
+g:ale_cs_mcsc_options	ale-cs.txt	/*g:ale_cs_mcsc_options*
+g:ale_cs_mcsc_source	ale-cs.txt	/*g:ale_cs_mcsc_source*
 g:ale_css_stylelint_executable	ale-css.txt	/*g:ale_css_stylelint_executable*
 g:ale_css_stylelint_options	ale-css.txt	/*g:ale_css_stylelint_options*
 g:ale_css_stylelint_use_global	ale-css.txt	/*g:ale_css_stylelint_use_global*
@@ -504,6 +520,7 @@ g:ale_fuse_fusionlint_executable	ale-fuse.txt	/*g:ale_fuse_fusionlint_executable
 g:ale_fuse_fusionlint_options	ale-fuse.txt	/*g:ale_fuse_fusionlint_options*
 g:ale_glsl_glslang_executable	ale-glsl.txt	/*g:ale_glsl_glslang_executable*
 g:ale_glsl_glslang_options	ale-glsl.txt	/*g:ale_glsl_glslang_options*
+g:ale_go_gofmt_options	ale-go.txt	/*g:ale_go_gofmt_options*
 g:ale_go_gometalinter_executable	ale-go.txt	/*g:ale_go_gometalinter_executable*
 g:ale_go_gometalinter_options	ale-go.txt	/*g:ale_go_gometalinter_options*
 g:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*g:ale_handlebars_embertemplatelint_executable*
@@ -594,6 +611,7 @@ g:ale_php_phpcs_executable	ale-php.txt	/*g:ale_php_phpcs_executable*
 g:ale_php_phpcs_standard	ale-php.txt	/*g:ale_php_phpcs_standard*
 g:ale_php_phpcs_use_global	ale-php.txt	/*g:ale_php_phpcs_use_global*
 g:ale_php_phpmd_ruleset	ale-php.txt	/*g:ale_php_phpmd_ruleset*
+g:ale_php_phpstan_configuration	ale-php.txt	/*g:ale_php_phpstan_configuration*
 g:ale_php_phpstan_executable	ale-php.txt	/*g:ale_php_phpstan_executable*
 g:ale_php_phpstan_level	ale-php.txt	/*g:ale_php_phpstan_level*
 g:ale_pug_puglint_executable	ale-pug.txt	/*g:ale_pug_puglint_executable*

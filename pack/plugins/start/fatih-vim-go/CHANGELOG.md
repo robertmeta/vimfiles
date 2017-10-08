@@ -1,5 +1,7 @@
 ## unplanned
 
+## 1.15 - (October 3, 2017)
+
 FEATURES:
 
 * Add `:GoFillStruct` to fill a struct with all fields; uses
@@ -24,14 +26,20 @@ IMPROVEMENTS:
 * Syntax highlighting for variable declarations and assignments (disabled by default)
   [[GH-1426]](https://github.com/fatih/vim-go/pull/1426) and
   [[GH-1458]](https://github.com/fatih/vim-go/pull/1458).
-
-* Add support for `:GoDecls[Dir]` in [unite.vim](https://github.com/Shougo/unite.vim) [[GH-1391]](https://github.com/fatih/vim-go/pull/1391).
+* Add support for `:GoDecls[Dir]` in [unite.vim](https://github.com/Shougo/unite.vim)
+  [[GH-1391]](https://github.com/fatih/vim-go/pull/1391).
+* Add support for [fzf.vim](https://github.com/junegunn/fzf.vim) in
+  `GoDecls[Dir]`.
+  [[GH-1437]](https://github.com/fatih/vim-go/pull/1437).
 * Support relative imports for `:GoImpl` [[GH-1322]](https://github.com/fatih/vim-go/pull/1322).
 * A new `g:go_list_type_commands` setting is added to individually set the list type for each command [[GH-1415]](https://github.com/fatih/vim-go/pull/1415). As en example:
 
         let g:go_list_type_commands = {"GoBuild": "quickfix", "GoTest": "locationlist"}
 * Show unexpected errors better by expanding newlines and tabs
   [[GH-1456]](https://github.com/fatih/vim-go/pull/1456).
+* `:GoInstallBinaries` and `:GoUpdateBinaries` can now install/update only the
+  selected binaries (e.g. `:GoUpdateBinaries guru golint`)
+  [[GH-1467]](https://github.com/fatih/vim-go/pull/1467).
 
 BUG FIXES:
 
@@ -61,6 +69,7 @@ BUG FIXES:
   completion, and some other things work better.
   [[GH-1442]](https://github.com/fatih/vim-go/pull/1442)
 * Fix `:GoBuild` shell escaping [[GH-1450]](https://github.com/fatih/vim-go/pull/1450).
+* Ensure fmt list gets closed when title cannot be checked [[GH-1474]](https://github.com/fatih/vim-go/pull/1474).
 
 BACKWARDS INCOMPATIBILITIES:
 

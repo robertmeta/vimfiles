@@ -113,6 +113,7 @@ PACKS="
   yaml:stephpy/vim-yaml
   ansible:pearofducks/ansible-vim
   arduino:sudar/vim-arduino-syntax
+  autohotkey:hnamikaw/vim-autohotkey
   blade:jwalton512/vim-blade
   c++11:octol/vim-cpp-enhanced-highlight
   c/c++:vim-jp/vim-cpp
@@ -123,21 +124,22 @@ PACKS="
   cryptol:victoredwardocallaghan/cryptol.vim
   crystal:rhysd/vim-crystal
   cql:elubow/cql-vim
-  css:JulesWang/css.vim
   cucumber:tpope/vim-cucumber
   dart:dart-lang/dart-vim-plugin
   dockerfile:docker/docker::/contrib/syntax/vim/
   elixir:elixir-lang/vim-elixir
-  elm:lambdatoast/elm.vim
+  elm:ElmCast/elm-vim
   emberscript:yalesov/vim-ember-script
   emblem:yalesov/vim-emblem
   erlang:vim-erlang/vim-erlang-runtime
   fish:dag/vim-fish
+  fsharp:fsharp/vim-fsharp:_BASIC
   git:tpope/vim-git
+  gmpl:maelvalais/gmpl.vim
+  openscad:sirtaj/vim-openscad
   glsl:tikhomirov/vim-glsl
   gnuplot:vim-scripts/gnuplot-syntax-highlighting
   go:fatih/vim-go:_BASIC
-  graphql:jparise/vim-graphql
   groovy:vim-scripts/groovy.vim
   haml:sheerun/vim-haml
   handlebars:mustache/vim-mustache-handlebars
@@ -147,6 +149,7 @@ PACKS="
   i3:PotatoesMaster/i3-vim-syntax
   jasmine:glanotte/vim-jasmine
   javascript:pangloss/vim-javascript:_JAVASCRIPT
+  jenkins:martinda/Jenkinsfile-vim-syntax
   json:elzr/vim-json
   jst:briancollins/vim-jst
   jsx:mxw/vim-jsx:_ALL
@@ -190,7 +193,7 @@ PACKS="
   scala:derekwyatt/vim-scala
   scss:cakebaker/scss-syntax.vim
   slim:slim-template/vim-slim
-  solidity:ethereum/vim-solidity
+  solidity:tomlion/vim-solidity
   stylus:wavded/vim-stylus
   swift:keith/swift.vim
   sxhkd:baskerville/vim-sxhkdrc
@@ -206,6 +209,7 @@ PACKS="
   vala:arrufat/vala.vim
   vbnet:vim-scripts/vbnet.vim
   vcl:smerrill/vcl-vim-plugin
+  vifm:vifm/vifm.vim
   vue:posva/vim-vue
   vm:lepture/vim-velocity
   xls:vim-scripts/XSLT-syntax
