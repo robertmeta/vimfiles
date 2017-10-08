@@ -22,7 +22,7 @@ filetype plugin indent on " if you are going to steal something from my vimrc, t
 syntax on " syntax highlighting on
 
 " Mappings
-let mapleader='\<space>'
+let mapleader="\<space>"
 
 " Scrolling/Line movement
 nnoremap gj j
