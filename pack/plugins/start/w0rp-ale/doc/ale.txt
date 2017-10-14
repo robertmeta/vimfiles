@@ -95,6 +95,8 @@ CONTENTS                                                         *ale-contents*
     kotlin................................|ale-kotlin-options|
       kotlinc.............................|ale-kotlin-kotlinc|
       ktlint..............................|ale-kotlin-ktlint|
+    llvm..................................|ale-llvm-options|
+      llc.................................|ale-llvm-llc|
     lua...................................|ale-lua-options|
       luacheck............................|ale-lua-luacheck|
     objc..................................|ale-objc-options|
@@ -255,6 +257,7 @@ Notes:
 * JSON: `jsonlint`, `prettier`
 * Kotlin: `kotlinc`, `ktlint`
 * LaTeX (tex): `chktex`, `lacheck`, `proselint`
+* LLVM: `llc`
 * Lua: `luacheck`
 * Markdown: `mdl`, `proselint`, `vale`
 * MATLAB: `mlint`
@@ -536,6 +539,18 @@ g:ale_echo_cursor                                           *g:ale_echo_cursor*
   which contains a warning or error. This option can be set to `0` to disable
   this behaviour.
   The format of the message can be customizable in |g:ale_echo_msg_format|.
+
+
+g:ale_echo_delay                                             *g:ale_echo_delay*
+                                                             *b:ale_echo_delay*
+  Type: |Number|
+  Default: `10`
+
+  Given any integer, this option controls the number of milliseconds before
+  ALE will echo a message for a problem near the cursor.
+
+  The value can be increased to decrease the amount of processing ALE will do
+  for files displaying a large number of problems.
 
 
 g:ale_echo_msg_error_str                             *g:ale_echo_msg_error_str*
@@ -856,6 +871,23 @@ g:ale_max_buffer_history_size                   *g:ale_max_buffer_history_size*
   History can be disabled completely with |g:ale_history_enabled|.
 
 
+g:ale_max_signs                                               *g:ale_max_signs*
+                                                              *b:ale_max_signs*
+  Type: |Number|
+  Default: `-1`
+
+  When set to any positive integer, ALE will not render any more than the
+  given number of signs for any one buffer.
+
+  When set to `0`, no signs will be set, but sign processing will still be
+  done, so existing signs can be removed.
+
+  When set to any other value, no limit will be imposed on the number of signs
+  set.
+
+  For disabling sign processing, see |g:ale_set_signs|.
+
+
 g:ale_maximum_file_size                               *g:ale_maximum_file_size*
                                                       *b:ale_maximum_file_size*
   Type: |Number|
@@ -1002,6 +1034,8 @@ g:ale_set_signs                                               *g:ale_set_signs*
 
   When multiple problems exist on the same line, the signs will take
   precedence in the order above, from highest to lowest.
+
+  To limit the number of signs ALE will set, see |g:ale_max_signs|.
 
 
 g:ale_sign_column_always                             *g:ale_sign_column_always*

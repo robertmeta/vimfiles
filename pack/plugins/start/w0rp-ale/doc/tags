@@ -145,6 +145,8 @@ ale-lint	ale.txt	/*ale-lint*
 ale-lint-file	ale.txt	/*ale-lint-file*
 ale-lint-file-linters	ale.txt	/*ale-lint-file-linters*
 ale-linter-loading-behaviour	ale.txt	/*ale-linter-loading-behaviour*
+ale-llvm-llc	ale-llvm.txt	/*ale-llvm-llc*
+ale-llvm-options	ale-llvm.txt	/*ale-llvm-options*
 ale-loclist-format	ale.txt	/*ale-loclist-format*
 ale-lsp-linters	ale.txt	/*ale-lsp-linters*
 ale-lua-luacheck	ale-lua.txt	/*ale-lua-luacheck*
@@ -282,6 +284,7 @@ b:ale_cuda_nvcc_options	ale-cuda.txt	/*b:ale_cuda_nvcc_options*
 b:ale_dart_dartanalyzer_executable	ale-dart.txt	/*b:ale_dart_dartanalyzer_executable*
 b:ale_dockerfile_hadolint_image	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_image*
 b:ale_dockerfile_hadolint_use_docker	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_use_docker*
+b:ale_echo_delay	ale.txt	/*b:ale_echo_delay*
 b:ale_elm_format_executable	ale-elm.txt	/*b:ale_elm_format_executable*
 b:ale_elm_format_options	ale-elm.txt	/*b:ale_elm_format_options*
 b:ale_elm_format_use_global	ale-elm.txt	/*b:ale_elm_format_use_global*
@@ -348,8 +351,10 @@ b:ale_lacheck_executable	ale-tex.txt	/*b:ale_lacheck_executable*
 b:ale_linter_aliases	ale.txt	/*b:ale_linter_aliases*
 b:ale_linters	ale.txt	/*b:ale_linters*
 b:ale_list_window_size	ale.txt	/*b:ale_list_window_size*
+b:ale_llvm_llc_executable	ale-llvm.txt	/*b:ale_llvm_llc_executable*
 b:ale_lua_luacheck_executable	ale-lua.txt	/*b:ale_lua_luacheck_executable*
 b:ale_lua_luacheck_options	ale-lua.txt	/*b:ale_lua_luacheck_options*
+b:ale_max_signs	ale.txt	/*b:ale_max_signs*
 b:ale_maximum_file_size	ale.txt	/*b:ale_maximum_file_size*
 b:ale_objc_clang_options	ale-objc.txt	/*b:ale_objc_clang_options*
 b:ale_objcpp_clang_options	ale-objcpp.txt	/*b:ale_objcpp_clang_options*
@@ -499,6 +504,7 @@ g:ale_dart_dartanalyzer_executable	ale-dart.txt	/*g:ale_dart_dartanalyzer_execut
 g:ale_dockerfile_hadolint_image	ale-dockerfile.txt	/*g:ale_dockerfile_hadolint_image*
 g:ale_dockerfile_hadolint_use_docker	ale-dockerfile.txt	/*g:ale_dockerfile_hadolint_use_docker*
 g:ale_echo_cursor	ale.txt	/*g:ale_echo_cursor*
+g:ale_echo_delay	ale.txt	/*g:ale_echo_delay*
 g:ale_echo_msg_error_str	ale.txt	/*g:ale_echo_msg_error_str*
 g:ale_echo_msg_format	ale.txt	/*g:ale_echo_msg_format*
 g:ale_echo_msg_warning_str	ale.txt	/*g:ale_echo_msg_warning_str*
@@ -587,9 +593,11 @@ g:ale_lint_on_text_changed	ale.txt	/*g:ale_lint_on_text_changed*
 g:ale_linter_aliases	ale.txt	/*g:ale_linter_aliases*
 g:ale_linters	ale.txt	/*g:ale_linters*
 g:ale_list_window_size	ale.txt	/*g:ale_list_window_size*
+g:ale_llvm_llc_executable	ale-llvm.txt	/*g:ale_llvm_llc_executable*
 g:ale_lua_luacheck_executable	ale-lua.txt	/*g:ale_lua_luacheck_executable*
 g:ale_lua_luacheck_options	ale-lua.txt	/*g:ale_lua_luacheck_options*
 g:ale_max_buffer_history_size	ale.txt	/*g:ale_max_buffer_history_size*
+g:ale_max_signs	ale.txt	/*g:ale_max_signs*
 g:ale_maximum_file_size	ale.txt	/*g:ale_maximum_file_size*
 g:ale_objc_clang_options	ale-objc.txt	/*g:ale_objc_clang_options*
 g:ale_objcpp_clang_options	ale-objcpp.txt	/*g:ale_objcpp_clang_options*
