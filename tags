@@ -552,7 +552,6 @@ Baz	pack/plugins/start/kana-vim-textobj-function/t/fixtures/sample.vim	/^functio
 BeginElementFound	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:BeginElementFound(stack, token, curr_vcol, stored_vcol, end_token, sw)$/;"	f
 BeginElementFoundIfEmpty	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:BeginElementFoundIfEmpty(stack, token, curr_vcol, stored_vcol, sw)$/;"	f
 BeginningOfClauseFound	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:BeginningOfClauseFound(stack, token, stored_vcol, lnum, i)$/;"	f
-Behavior	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### Behavior$/;"	k
 Blame	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Blame(bang,line1,line2,count,args) abort$/;"	f
 BlameCommit	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BlameCommit(cmd) abort$/;"	f
 BlameJump	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BlameJump(suffix) abort$/;"	f
@@ -571,7 +570,7 @@ BufWinId	pack/plugins/start/w0rp-ale/autoload/ale/list.vim	/^function! s:BufWinI
 BufWriteIndexFile	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:BufWriteIndexFile() abort$/;"	f
 BuildClassPathOption	pack/plugins/start/w0rp-ale/ale_linters/java/javac.vim	/^function! s:BuildClassPathOption(buffer, import_paths) abort$/;"	f
 BuildClassPathOption	pack/plugins/start/w0rp-ale/ale_linters/kotlin/kotlinc.vim	/^function! s:BuildClassPathOption(buffer, import_paths) abort$/;"	f
-BuildSignMap	pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^function! s:BuildSignMap(current_sign_list, grouped_items) abort$/;"	f
+BuildSignMap	pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^function! s:BuildSignMap(buffer, current_sign_list, grouped_items) abort$/;"	f
 BuildStructures	pack/plugins/start/sheerun-vim-polyglot/indent/twig.vim	/^fun! s:BuildStructures()$/;"	f
 BuildText	pack/plugins/start/w0rp-ale/ale_linters/ruby/reek.vim	/^function! s:BuildText(buffer, error) abort$/;"	f
 But fear no longer!	pack/plugins/start/wellle-tmux-complete-vim/README.md	/^## But fear no longer!$/;"	i
@@ -727,7 +726,6 @@ EchoGlobalVariables	pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^fun
 EchoImpl	pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! s:EchoImpl() abort$/;"	f
 EchoLinterAliases	pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! s:EchoLinterAliases(all_linters) abort$/;"	f
 EchoLinterVariables	pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! s:EchoLinterVariables(variable_list) abort$/;"	f
-EchoWithDelayImpl	pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! s:EchoWithDelayImpl() abort$/;"	f
 EchoWithShortMess	pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! s:EchoWithShortMess(setting, message) abort$/;"	f
 Edit	pack/plugins/start/sheerun-vim-polyglot/ftplugin/gitrebase.vim	/^command! -buffer -bar -range Edit   :<line1>,<line2>call s:choose('edit')$/;"	c
 Edit	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Edit(cmd,bang,...) abort$/;"	f
@@ -1593,7 +1591,6 @@ StatementStart	pack/plugins/start/sheerun-vim-polyglot/indent/python.vim	/^funct
 Status	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Status() abort$/;"	f
 StatusForListFormat	pack/plugins/start/w0rp-ale/autoload/ale/statusline.vim	/^function! s:StatusForListFormat() abort$/;"	f
 StatusOf	pack/plugins/start/kana-vim-textobj-user/t/plugin.vim	/^function! StatusOf(lhs)$/;"	f
-Steps to reproduce:	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### Steps to reproduce:$/;"	k
 StopCurrentJobs	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:StopCurrentJobs(buffer, include_lint_file_jobs) abort$/;"	f
 StopCursorTimer	pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! s:StopCursorTimer() abort$/;"	f
 StripTrailingWhitespace	vimrc	/^command! StripTrailingWhitespace :call StripTrailingWhitespace()$/;"	c
@@ -1746,6 +1743,9 @@ WWWW	pack/plugins/start/glts-vim-textobj-comment/t/inline.vim	/^    normal! WWWW
 WWhr_h	pack/plugins/start/glts-vim-textobj-comment/t/inline.vim	/^    normal! WWhr_h$/;"	m
 Wall	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -nargs=? Wall$/;"	c
 Wall	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! s:Wall() abort$/;"	f
+What did you do? (required. The issue will be **closed** when not provided.)	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### What did you do? (required. The issue will be **closed** when not provided.)$/;"	k
+What did you expect to happen?	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### What did you expect to happen?$/;"	k
+What happened instead?	pack/plugins/start/fatih-vim-go/.github/ISSUE_TEMPLATE.md	/^### What happened instead?$/;"	k
 What they say about Apprentice.	pack/colors/start/romainl-apprentice/README.md	/^## What they say about Apprentice.$/;"	i
 What?	pack/plugins/start/ludovicchabant-vim-gutentags/README.md	/^## What?$/;"	i
 Why?	pack/plugins/start/ludovicchabant-vim-gutentags/README.md	/^## Why?$/;"	i
@@ -1950,6 +1950,7 @@ ale#fixers#eslint#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/eslint.vim
 ale#fixers#format#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/format.vim	/^function! ale#fixers#format#Fix(buffer) abort$/;"	f
 ale#fixers#format#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/fixers/format.vim	/^function! ale#fixers#format#GetExecutable(buffer) abort$/;"	f
 ale#fixers#generic#RemoveTrailingBlankLines	pack/plugins/start/w0rp-ale/autoload/ale/fixers/generic.vim	/^function! ale#fixers#generic#RemoveTrailingBlankLines(buffer, lines) abort$/;"	f
+ale#fixers#generic#TrimWhitespace	pack/plugins/start/w0rp-ale/autoload/ale/fixers/generic.vim	/^function! ale#fixers#generic#TrimWhitespace(buffer, lines) abort$/;"	f
 ale#fixers#generic_python#AddLinesBeforeControlStatements	pack/plugins/start/w0rp-ale/autoload/ale/fixers/generic_python.vim	/^function! ale#fixers#generic_python#AddLinesBeforeControlStatements(buffer, lines) abort$/;"	f
 ale#fixers#generic_python#BreakUpLongLines	pack/plugins/start/w0rp-ale/autoload/ale/fixers/generic_python.vim	/^function! ale#fixers#generic_python#BreakUpLongLines(buffer, lines) abort$/;"	f
 ale#fixers#gofmt#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/gofmt.vim	/^function! ale#fixers#gofmt#Fix(buffer) abort$/;"	f
@@ -2238,6 +2239,9 @@ ale_linters#kotlin#kotlinc#GetImportPaths	pack/plugins/start/w0rp-ale/ale_linter
 ale_linters#kotlin#kotlinc#Handle	pack/plugins/start/w0rp-ale/ale_linters/kotlin/kotlinc.vim	/^function! ale_linters#kotlin#kotlinc#Handle(buffer, lines) abort$/;"	f
 ale_linters#kotlin#ktlint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/kotlin/ktlint.vim	/^function! ale_linters#kotlin#ktlint#GetCommand(buffer) abort$/;"	f
 ale_linters#kotlin#ktlint#Handle	pack/plugins/start/w0rp-ale/ale_linters/kotlin/ktlint.vim	/^function! ale_linters#kotlin#ktlint#Handle(buffer, lines) abort$/;"	f
+ale_linters#llvm#llc#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/llvm/llc.vim	/^function! ale_linters#llvm#llc#GetCommand(buffer) abort$/;"	f
+ale_linters#llvm#llc#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/llvm/llc.vim	/^function! ale_linters#llvm#llc#GetExecutable(buffer) abort$/;"	f
+ale_linters#llvm#llc#HandleErrors	pack/plugins/start/w0rp-ale/ale_linters/llvm/llc.vim	/^function! ale_linters#llvm#llc#HandleErrors(buffer, lines) abort$/;"	f
 ale_linters#lua#luacheck#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/lua/luacheck.vim	/^function! ale_linters#lua#luacheck#GetCommand(buffer) abort$/;"	f
 ale_linters#lua#luacheck#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/lua/luacheck.vim	/^function! ale_linters#lua#luacheck#GetExecutable(buffer) abort$/;"	f
 ale_linters#lua#luacheck#Handle	pack/plugins/start/w0rp-ale/ale_linters/lua/luacheck.vim	/^function! ale_linters#lua#luacheck#Handle(buffer, lines) abort$/;"	f
@@ -3402,6 +3406,7 @@ g:ale_cs_mcsc_assembly_path	pack/plugins/start/w0rp-ale/ale_linters/cs/mcsc.vim	
 g:ale_cs_mcsc_options	pack/plugins/start/w0rp-ale/ale_linters/cs/mcsc.vim	/^let g:ale_cs_mcsc_options = get(g:, 'ale_cs_mcsc_options', '')$/;"	v
 g:ale_cs_mcsc_source	pack/plugins/start/w0rp-ale/ale_linters/cs/mcsc.vim	/^let g:ale_cs_mcsc_source = get(g:, 'ale_cs_mcsc_source','.')$/;"	v
 g:ale_echo_cursor	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_echo_cursor = get(g:, 'ale_echo_cursor', 1)$/;"	v
+g:ale_echo_delay	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_echo_delay = get(g:, 'ale_echo_delay', 10)$/;"	v
 g:ale_echo_msg_error_str	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_echo_msg_error_str = get(g:, 'ale_echo_msg_error_str', 'Error')$/;"	v
 g:ale_echo_msg_format	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_echo_msg_format = get(g:, 'ale_echo_msg_format', '%s')$/;"	v
 g:ale_echo_msg_warning_str	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_echo_msg_warning_str = get(g:, 'ale_echo_msg_warning_str', 'Warning')$/;"	v
@@ -3452,6 +3457,7 @@ g:ale_lua_luacheck_executable	pack/plugins/start/w0rp-ale/ale_linters/lua/luache
 g:ale_lua_luacheck_options	pack/plugins/start/w0rp-ale/ale_linters/lua/luacheck.vim	/^let g:ale_lua_luacheck_options =$/;"	v
 g:ale_matlab_mlint_executable	pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^let g:ale_matlab_mlint_executable =$/;"	v
 g:ale_max_buffer_history_size	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_max_buffer_history_size = get(g:, 'ale_max_buffer_history_size', 20)$/;"	v
+g:ale_max_signs	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_max_signs = get(g:, 'ale_max_signs', -1)$/;"	v
 g:ale_objc_clang_options	pack/plugins/start/w0rp-ale/ale_linters/objc/clang.vim	/^    let g:ale_objc_clang_options = '-std=c11 -Wall'$/;"	v
 g:ale_objcpp_clang_options	pack/plugins/start/w0rp-ale/ale_linters/objcpp/clang.vim	/^    let g:ale_objcpp_clang_options = '-std=c++14 -Wall'$/;"	v
 g:ale_open_list	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_open_list = get(g:, 'ale_open_list', 0)$/;"	v
@@ -5103,8 +5109,6 @@ s:done	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^  let s:done 
 s:done	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:done = 0$/;"	v
 s:done	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^  let s:done += 1$/;"	v
 s:done	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let s:done = 0$/;"	v
-s:dont_echo_until	pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^    let s:dont_echo_until = -1$/;"	v
-s:dont_queue_until	pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^    let s:dont_queue_until = -1$/;"	v
 s:dot_continuation_regex	pack/plugins/start/sheerun-vim-polyglot/indent/ruby.vim	/^let s:dot_continuation_regex = '%\\@<!\\.\\s*\\%(#.*\\)\\=$'$/;"	v
 s:dotfiles	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let s:dotfiles = '\\(^\\|\\s\\s\\)\\zs\\.\\S\\+'$/;"	v
 s:dummy_sign_id	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^let s:dummy_sign_id = s:first_sign_id - 1$/;"	v
@@ -5125,7 +5129,6 @@ s:env_cache	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^let s:env_cac
 s:envbeginpattern	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:envbeginpattern = s:notcomment . s:notbslash . '\\\\begin\\s*{.\\{-}}'$/;"	v
 s:envendpattern	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^let s:envendpattern = s:notcomment . s:notbslash . '\\\\end\\s*{.\\{-}}'$/;"	v
 s:error_delay_ms	pack/plugins/start/w0rp-ale/autoload/ale.vim	/^let s:error_delay_ms = 1000 * 60 * 2$/;"	v
-s:error_delay_ms	pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^let s:error_delay_ms = 1000 * 60 * 2$/;"	v
 s:error_file	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^let s:error_file = tempname()$/;"	v
 s:error_priority	pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^let s:error_priority = 1$/;"	v
 s:errored	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^      let s:errored = 0$/;"	v

@@ -343,16 +343,13 @@ let g:move_key_modifier='C'
 
 " Adapt for executables
 if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
-    set grepformat=%f:%s:%c:%m,%f:%s:%m
+    set grepprg=ag\ --nogroup\ --nocolor
 endif
 if executable('pt')
-    set grepprg=pt\ --nogroup\ --nocolor\ --ignore-case\ --column
-    set grepformat=%f:%s:%c:%m,%f:%s:%m
+    set grepprg=pt\ --nogroup\ --nocolor\ --ignore-case
 endif
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading
-    set grepformat=%f:%s:%c:%m,%f:%s:%m
 endif
 if executable('ctags-exuberant')
     let g:gutentags_ctags_executable='ctags-exuberant'
