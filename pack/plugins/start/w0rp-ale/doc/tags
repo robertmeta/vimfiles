@@ -196,8 +196,8 @@ ale-rust-rls	ale-rust.txt	/*ale-rust-rls*
 ale-rust-rustc	ale-rust.txt	/*ale-rust-rustc*
 ale-sass-options	ale-sass.txt	/*ale-sass-options*
 ale-sass-stylelint	ale-sass.txt	/*ale-sass-stylelint*
-ale-scala-options	ale-scala-scalastyle.txt	/*ale-scala-options*
-ale-scala-scalastyle	ale-scala-scalastyle.txt	/*ale-scala-scalastyle*
+ale-scala-options	ale-scala.txt	/*ale-scala-options*
+ale-scala-scalastyle	ale-scala.txt	/*ale-scala-scalastyle*
 ale-scss-options	ale-scss.txt	/*ale-scss-options*
 ale-scss-prettier	ale-scss.txt	/*ale-scss-prettier*
 ale-scss-stylelint	ale-scss.txt	/*ale-scss-stylelint*
@@ -658,8 +658,8 @@ g:ale_rust_ignore_error_codes	ale-rust.txt	/*g:ale_rust_ignore_error_codes*
 g:ale_rust_rls_executable	ale-rust.txt	/*g:ale_rust_rls_executable*
 g:ale_sass_stylelint_executable	ale-sass.txt	/*g:ale_sass_stylelint_executable*
 g:ale_sass_stylelint_use_global	ale-sass.txt	/*g:ale_sass_stylelint_use_global*
-g:ale_scala_scalastyle_options	ale-scala-scalastyle.txt	/*g:ale_scala_scalastyle_options*
-g:ale_scalastyle_config_loc	ale-scala-scalastyle.txt	/*g:ale_scalastyle_config_loc*
+g:ale_scala_scalastyle_options	ale-scala.txt	/*g:ale_scala_scalastyle_options*
+g:ale_scalastyle_config_loc	ale-scala.txt	/*g:ale_scalastyle_config_loc*
 g:ale_scss_stylelint_executable	ale-scss.txt	/*g:ale_scss_stylelint_executable*
 g:ale_scss_stylelint_use_global	ale-scss.txt	/*g:ale_scss_stylelint_use_global*
 g:ale_set_balloons	ale.txt	/*g:ale_set_balloons*

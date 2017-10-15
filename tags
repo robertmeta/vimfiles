@@ -3897,7 +3897,6 @@ getHLStack	pack/plugins/start/sheerun-vim-polyglot/indent/haskell.vim	/^function
 getNesting	pack/plugins/start/sheerun-vim-polyglot/indent/haskell.vim	/^function! s:getNesting(hlstack)$/;"	f
 getReceiver	pack/plugins/start/fatih-vim-go/autoload/go/impl.vim	/^function! s:getReceiver()$/;"	f
 get_base_indent	pack/plugins/start/sheerun-vim-polyglot/autoload/elixir/indent.vim	/^function! s:get_base_indent(lnum, text)$/;"	f
-get_browser_command	pack/plugins/start/fatih-vim-go/autoload/go/play.vim	/^function! s:get_browser_command() abort$/;"	f
 get_browser_command	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! s:get_browser_command() abort$/;"	f
 get_browser_command	pack/plugins/start/sheerun-vim-polyglot/autoload/elm/util.vim	/^fun! s:get_browser_command() abort$/;"	f
 get_ctags_executable	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^function! s:get_ctags_executable(proj_dir) abort$/;"	f
@@ -4167,6 +4166,7 @@ go#util#EchoSuccess	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^funct
 go#util#EchoWarning	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#EchoWarning(msg)$/;"	f
 go#util#Exec	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#Exec(cmd, ...) abort$/;"	f
 go#util#GetLines	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#GetLines()$/;"	f
+go#util#IsMac	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#IsMac() abort$/;"	f
 go#util#IsUsingCygwinShell	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#IsUsingCygwinShell()$/;"	f
 go#util#IsWin	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#IsWin() abort$/;"	f
 go#util#Join	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#Join(...) abort$/;"	f

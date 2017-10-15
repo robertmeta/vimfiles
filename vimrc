@@ -145,8 +145,8 @@ set noerrorbells " don't be noisy
 set nofoldenable " Turn off folding by default
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nomore " Scroll away, no pausing
-set number " line numbers
-set relativenumber " relative line numbers
+set nonumber " no line numbers
+set norelativenumber " no relative line numbers
 set nospell " nope nope nope
 set notimeout " better timeout handling
 set novisualbell " don't be noisy
@@ -313,8 +313,8 @@ augroup general
     au FileType markdown setlocal spell
     au FileType svn setlocal spell
     " Cursorline in active file
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
-    au WinLeave * setlocal nocursorline norelativenumber
+    " au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
+    " au WinLeave * setlocal nocursorline norelativenumber
 augroup end
 
 " GUI
