@@ -42,6 +42,8 @@ ale#linter#Define()	ale.txt	/*ale#linter#Define()*
 ale#linter#Get()	ale.txt	/*ale#linter#Get()*
 ale#statusline#Count()	ale.txt	/*ale#statusline#Count()*
 ale-api	ale.txt	/*ale-api*
+ale-asciidoc-options	ale-asciidoc.txt	/*ale-asciidoc-options*
+ale-asciidoc-write-good	ale-asciidoc.txt	/*ale-asciidoc-write-good*
 ale-asm-gcc	ale-asm.txt	/*ale-asm-gcc*
 ale-asm-options	ale-asm.txt	/*ale-asm-options*
 ale-awk-gawk	ale-awk.txt	/*ale-awk-gawk*
@@ -83,6 +85,8 @@ ale-dart-dartanalyzer	ale-dart.txt	/*ale-dart-dartanalyzer*
 ale-dart-options	ale-dart.txt	/*ale-dart-options*
 ale-dockerfile-hadolint	ale-dockerfile.txt	/*ale-dockerfile-hadolint*
 ale-dockerfile-options	ale-dockerfile.txt	/*ale-dockerfile-options*
+ale-elixir-mix	ale-elixir.txt	/*ale-elixir-mix*
+ale-elixir-options	ale-elixir.txt	/*ale-elixir-options*
 ale-elm-elm-format	ale-elm.txt	/*ale-elm-elm-format*
 ale-elm-elm-make	ale-elm.txt	/*ale-elm-elm-make*
 ale-elm-options	ale-elm.txt	/*ale-elm-options*
@@ -107,12 +111,14 @@ ale-graphql-options	ale-graphql.txt	/*ale-graphql-options*
 ale-handlebars-embertemplatelint	ale-handlebars.txt	/*ale-handlebars-embertemplatelint*
 ale-handlebars-options	ale-handlebars.txt	/*ale-handlebars-options*
 ale-haskell-hdevtools	ale-haskell.txt	/*ale-haskell-hdevtools*
+ale-haskell-hfmt	ale-haskell.txt	/*ale-haskell-hfmt*
 ale-haskell-options	ale-haskell.txt	/*ale-haskell-options*
 ale-haskell-stack-build	ale-haskell.txt	/*ale-haskell-stack-build*
 ale-highlights	ale.txt	/*ale-highlights*
 ale-html-htmlhint	ale-html.txt	/*ale-html-htmlhint*
 ale-html-options	ale-html.txt	/*ale-html-options*
 ale-html-tidy	ale-html.txt	/*ale-html-tidy*
+ale-html-write-good	ale-html.txt	/*ale-html-write-good*
 ale-idris-idris	ale-idris.txt	/*ale-idris-idris*
 ale-idris-options	ale-idris.txt	/*ale-idris-options*
 ale-integration-glsl	ale-glsl.txt	/*ale-integration-glsl*
@@ -141,6 +147,10 @@ ale-json-prettier	ale-json.txt	/*ale-json-prettier*
 ale-kotlin-kotlinc	ale-kotlin.txt	/*ale-kotlin-kotlinc*
 ale-kotlin-ktlint	ale-kotlin.txt	/*ale-kotlin-ktlint*
 ale-kotlin-options	ale-kotlin.txt	/*ale-kotlin-options*
+ale-latex-options	ale-latex.txt	/*ale-latex-options*
+ale-latex-write-good	ale-latex.txt	/*ale-latex-write-good*
+ale-less-options	ale-less.txt	/*ale-less-options*
+ale-less-prettier	ale-less.txt	/*ale-less-prettier*
 ale-lint	ale.txt	/*ale-lint*
 ale-lint-file	ale.txt	/*ale-lint-file*
 ale-lint-file-linters	ale.txt	/*ale-lint-file-linters*
@@ -151,7 +161,11 @@ ale-loclist-format	ale.txt	/*ale-loclist-format*
 ale-lsp-linters	ale.txt	/*ale-lsp-linters*
 ale-lua-luacheck	ale-lua.txt	/*ale-lua-luacheck*
 ale-lua-options	ale-lua.txt	/*ale-lua-options*
+ale-markdown-options	ale-markdown.txt	/*ale-markdown-options*
+ale-markdown-write-good	ale-markdown.txt	/*ale-markdown-write-good*
 ale-navigation-commands	ale.txt	/*ale-navigation-commands*
+ale-nroff-options	ale-nroff.txt	/*ale-nroff-options*
+ale-nroff-write-good	ale-nroff.txt	/*ale-nroff-write-good*
 ale-objc-clang	ale-objc.txt	/*ale-objc-clang*
 ale-objc-options	ale-objc.txt	/*ale-objc-options*
 ale-objcpp-clang	ale-objcpp.txt	/*ale-objcpp-clang*
@@ -163,12 +177,16 @@ ale-perl-options	ale-perl.txt	/*ale-perl-options*
 ale-perl-perl	ale-perl.txt	/*ale-perl-perl*
 ale-perl-perlcritic	ale-perl.txt	/*ale-perl-perlcritic*
 ale-php-hack	ale-php.txt	/*ale-php-hack*
+ale-php-hackfmt	ale-php.txt	/*ale-php-hackfmt*
 ale-php-langserver	ale-php.txt	/*ale-php-langserver*
 ale-php-options	ale-php.txt	/*ale-php-options*
+ale-php-phan	ale-php.txt	/*ale-php-phan*
 ale-php-phpcbf	ale-php.txt	/*ale-php-phpcbf*
 ale-php-phpcs	ale-php.txt	/*ale-php-phpcs*
 ale-php-phpmd	ale-php.txt	/*ale-php-phpmd*
 ale-php-phpstan	ale-php.txt	/*ale-php-phpstan*
+ale-pod-options	ale-pod.txt	/*ale-pod-options*
+ale-pod-write-good	ale-pod.txt	/*ale-pod-write-good*
 ale-pug-options	ale-pug.txt	/*ale-pug-options*
 ale-pug-puglint	ale-pug.txt	/*ale-pug-puglint*
 ale-puppet-options	ale-puppet.txt	/*ale-puppet-options*
@@ -185,6 +203,8 @@ ale-r-lintr	ale-r.txt	/*ale-r-lintr*
 ale-r-options	ale-r.txt	/*ale-r-options*
 ale-reasonml-merlin	ale-reasonml.txt	/*ale-reasonml-merlin*
 ale-reasonml-options	ale-reasonml.txt	/*ale-reasonml-options*
+ale-restructuredtext-options	ale-restructuredtext.txt	/*ale-restructuredtext-options*
+ale-restructuredtext-write-good	ale-restructuredtext.txt	/*ale-restructuredtext-write-good*
 ale-ruby-brakeman	ale-ruby.txt	/*ale-ruby-brakeman*
 ale-ruby-options	ale-ruby.txt	/*ale-ruby-options*
 ale-ruby-rails_best_practices	ale-ruby.txt	/*ale-ruby-rails_best_practices*
@@ -194,6 +214,7 @@ ale-rust-cargo	ale-rust.txt	/*ale-rust-cargo*
 ale-rust-options	ale-rust.txt	/*ale-rust-options*
 ale-rust-rls	ale-rust.txt	/*ale-rust-rls*
 ale-rust-rustc	ale-rust.txt	/*ale-rust-rustc*
+ale-rust-rustfmt	ale-rust.txt	/*ale-rust-rustfmt*
 ale-sass-options	ale-sass.txt	/*ale-sass-options*
 ale-sass-stylelint	ale-sass.txt	/*ale-sass-stylelint*
 ale-scala-options	ale-scala.txt	/*ale-scala-options*
@@ -217,9 +238,15 @@ ale-stylus-stylelint	ale-stylus.txt	/*ale-stylus-stylelint*
 ale-support	ale.txt	/*ale-support*
 ale-tcl-nagelfar	ale-tcl.txt	/*ale-tcl-nagelfar*
 ale-tcl-options	ale-tcl.txt	/*ale-tcl-options*
+ale-terraform-options	ale-terraform.txt	/*ale-terraform-options*
+ale-terraform-tflint	ale-terraform.txt	/*ale-terraform-tflint*
 ale-tex-chktex	ale-tex.txt	/*ale-tex-chktex*
 ale-tex-lacheck	ale-tex.txt	/*ale-tex-lacheck*
 ale-tex-options	ale-tex.txt	/*ale-tex-options*
+ale-texinfo-options	ale-texinfo.txt	/*ale-texinfo-options*
+ale-texinfo-write-good	ale-texinfo.txt	/*ale-texinfo-write-good*
+ale-text-options	ale-text.txt	/*ale-text-options*
+ale-text-write-good	ale-text.txt	/*ale-text-write-good*
 ale-thrift-options	ale-thrift.txt	/*ale-thrift-options*
 ale-thrift-thrift	ale-thrift.txt	/*ale-thrift-thrift*
 ale-typescript-eslint	ale-typescript.txt	/*ale-typescript-eslint*
@@ -230,8 +257,13 @@ ale-typescript-tsserver	ale-typescript.txt	/*ale-typescript-tsserver*
 ale-verilog-iverilog	ale-verilog.txt	/*ale-verilog-iverilog*
 ale-verilog-options	ale-verilog.txt	/*ale-verilog-options*
 ale-verilog-verilator	ale-verilog.txt	/*ale-verilog-verilator*
+ale-vim-help-options	ale-vim-help.txt	/*ale-vim-help-options*
+ale-vim-help-write-good	ale-vim-help.txt	/*ale-vim-help-write-good*
 ale-vim-options	ale-vim.txt	/*ale-vim-options*
 ale-vim-vint	ale-vim.txt	/*ale-vim-vint*
+ale-write-good-options	ale.txt	/*ale-write-good-options*
+ale-xhtml-options	ale-xhtml.txt	/*ale-xhtml-options*
+ale-xhtml-write-good	ale-xhtml.txt	/*ale-xhtml-write-good*
 ale-xml-options	ale-xml.txt	/*ale-xml-options*
 ale-xml-xmllint	ale-xml.txt	/*ale-xml-xmllint*
 ale-yaml-options	ale-yaml.txt	/*ale-yaml-options*
@@ -285,6 +317,7 @@ b:ale_dart_dartanalyzer_executable	ale-dart.txt	/*b:ale_dart_dartanalyzer_execut
 b:ale_dockerfile_hadolint_image	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_image*
 b:ale_dockerfile_hadolint_use_docker	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_use_docker*
 b:ale_echo_delay	ale.txt	/*b:ale_echo_delay*
+b:ale_elixir_mix_options	ale-elixir.txt	/*b:ale_elixir_mix_options*
 b:ale_elm_format_executable	ale-elm.txt	/*b:ale_elm_format_executable*
 b:ale_elm_format_options	ale-elm.txt	/*b:ale_elm_format_options*
 b:ale_elm_format_use_global	ale-elm.txt	/*b:ale_elm_format_use_global*
@@ -308,6 +341,7 @@ b:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*b:ale_handleb
 b:ale_handlebars_embertemplatelint_use_global	ale-handlebars.txt	/*b:ale_handlebars_embertemplatelint_use_global*
 b:ale_haskell_hdevtools_executable	ale-haskell.txt	/*b:ale_haskell_hdevtools_executable*
 b:ale_haskell_hdevtools_options	ale-haskell.txt	/*b:ale_haskell_hdevtools_options*
+b:ale_haskell_hfmt_executable	ale-haskell.txt	/*b:ale_haskell_hfmt_executable*
 b:ale_haskell_stack_build_options	ale-haskell.txt	/*b:ale_haskell_stack_build_options*
 b:ale_html_htmlhint_executable	ale-html.txt	/*b:ale_html_htmlhint_executable*
 b:ale_html_htmlhint_options	ale-html.txt	/*b:ale_html_htmlhint_options*
@@ -322,6 +356,7 @@ b:ale_java_javac_options	ale-java.txt	/*b:ale_java_javac_options*
 b:ale_javascript_eslint_executable	ale-javascript.txt	/*b:ale_javascript_eslint_executable*
 b:ale_javascript_eslint_options	ale-javascript.txt	/*b:ale_javascript_eslint_options*
 b:ale_javascript_eslint_suppress_eslintignore	ale-javascript.txt	/*b:ale_javascript_eslint_suppress_eslintignore*
+b:ale_javascript_eslint_suppress_missing_config	ale-javascript.txt	/*b:ale_javascript_eslint_suppress_missing_config*
 b:ale_javascript_eslint_use_global	ale-javascript.txt	/*b:ale_javascript_eslint_use_global*
 b:ale_javascript_flow_executable	ale-javascript.txt	/*b:ale_javascript_flow_executable*
 b:ale_javascript_flow_use_global	ale-javascript.txt	/*b:ale_javascript_flow_use_global*
@@ -364,8 +399,10 @@ b:ale_perl_perl_options	ale-perl.txt	/*b:ale_perl_perl_options*
 b:ale_perl_perlcritic_executable	ale-perl.txt	/*b:ale_perl_perlcritic_executable*
 b:ale_perl_perlcritic_options	ale-perl.txt	/*b:ale_perl_perlcritic_options*
 b:ale_perl_perlcritic_profile	ale-perl.txt	/*b:ale_perl_perlcritic_profile*
+b:ale_php_hackfmt_options	ale-php.txt	/*b:ale_php_hackfmt_options*
 b:ale_php_langserver_executable	ale-php.txt	/*b:ale_php_langserver_executable*
 b:ale_php_langserver_use_global	ale-php.txt	/*b:ale_php_langserver_use_global*
+b:ale_php_phan_minimum_severity	ale-php.txt	/*b:ale_php_phan_minimum_severity*
 b:ale_php_phpcbf_executable	ale-php.txt	/*b:ale_php_phpcbf_executable*
 b:ale_php_phpcbf_standard	ale-php.txt	/*b:ale_php_phpcbf_standard*
 b:ale_php_phpcbf_use_global	ale-php.txt	/*b:ale_php_phpcbf_use_global*
@@ -410,6 +447,7 @@ b:ale_ruby_rubocop_options	ale-ruby.txt	/*b:ale_ruby_rubocop_options*
 b:ale_rust_cargo_use_check	ale-rust.txt	/*b:ale_rust_cargo_use_check*
 b:ale_rust_ignore_error_codes	ale-rust.txt	/*b:ale_rust_ignore_error_codes*
 b:ale_rust_rls_executable	ale-rust.txt	/*b:ale_rust_rls_executable*
+b:ale_rust_rustfmt_options	ale-rust.txt	/*b:ale_rust_rustfmt_options*
 b:ale_sass_stylelint_executable	ale-sass.txt	/*b:ale_sass_stylelint_executable*
 b:ale_sass_stylelint_use_global	ale-sass.txt	/*b:ale_sass_stylelint_use_global*
 b:ale_scss_stylelint_executable	ale-scss.txt	/*b:ale_scss_stylelint_executable*
@@ -426,6 +464,8 @@ b:ale_stylus_stylelint_options	ale-stylus.txt	/*b:ale_stylus_stylelint_options*
 b:ale_stylus_stylelint_use_global	ale-stylus.txt	/*b:ale_stylus_stylelint_use_global*
 b:ale_tcl_nagelfar_executable	ale-tcl.txt	/*b:ale_tcl_nagelfar_executable*
 b:ale_tcl_nagelfar_options	ale-tcl.txt	/*b:ale_tcl_nagelfar_options*
+b:ale_terraform_tflint_executable	ale-terraform.txt	/*b:ale_terraform_tflint_executable*
+b:ale_terraform_tflint_options	ale-terraform.txt	/*b:ale_terraform_tflint_options*
 b:ale_tex_chktex_executable	ale-tex.txt	/*b:ale_tex_chktex_executable*
 b:ale_tex_chktex_options	ale-tex.txt	/*b:ale_tex_chktex_options*
 b:ale_thrift_thrift_executable	ale-thrift.txt	/*b:ale_thrift_thrift_executable*
@@ -446,6 +486,9 @@ b:ale_vim_vint_show_style_issues	ale-vim.txt	/*b:ale_vim_vint_show_style_issues*
 b:ale_virtualenv_dir_names	ale.txt	/*b:ale_virtualenv_dir_names*
 b:ale_warn_about_trailing_whitespace	ale.txt	/*b:ale_warn_about_trailing_whitespace*
 b:ale_windows_node_executable_path	ale.txt	/*b:ale_windows_node_executable_path*
+b:ale_writegood_executable	ale.txt	/*b:ale_writegood_executable*
+b:ale_writegood_options	ale.txt	/*b:ale_writegood_options*
+b:ale_writegood_use_global	ale.txt	/*b:ale_writegood_use_global*
 b:ale_xml_xmllint_executable	ale-xml.txt	/*b:ale_xml_xmllint_executable*
 b:ale_xml_xmllint_options	ale-xml.txt	/*b:ale_xml_xmllint_options*
 b:ale_yaml_swaglint_executable	ale-yaml.txt	/*b:ale_yaml_swaglint_executable*
@@ -508,6 +551,7 @@ g:ale_echo_delay	ale.txt	/*g:ale_echo_delay*
 g:ale_echo_msg_error_str	ale.txt	/*g:ale_echo_msg_error_str*
 g:ale_echo_msg_format	ale.txt	/*g:ale_echo_msg_format*
 g:ale_echo_msg_warning_str	ale.txt	/*g:ale_echo_msg_warning_str*
+g:ale_elixir_mix_options	ale-elixir.txt	/*g:ale_elixir_mix_options*
 g:ale_elm_format_executable	ale-elm.txt	/*g:ale_elm_format_executable*
 g:ale_elm_format_options	ale-elm.txt	/*g:ale_elm_format_options*
 g:ale_elm_format_use_global	ale-elm.txt	/*g:ale_elm_format_use_global*
@@ -533,6 +577,7 @@ g:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*g:ale_handleb
 g:ale_handlebars_embertemplatelint_use_global	ale-handlebars.txt	/*g:ale_handlebars_embertemplatelint_use_global*
 g:ale_haskell_hdevtools_executable	ale-haskell.txt	/*g:ale_haskell_hdevtools_executable*
 g:ale_haskell_hdevtools_options	ale-haskell.txt	/*g:ale_haskell_hdevtools_options*
+g:ale_haskell_hfmt_executable	ale-haskell.txt	/*g:ale_haskell_hfmt_executable*
 g:ale_haskell_stack_build_options	ale-haskell.txt	/*g:ale_haskell_stack_build_options*
 g:ale_history_enabled	ale.txt	/*g:ale_history_enabled*
 g:ale_history_log_output	ale.txt	/*g:ale_history_log_output*
@@ -549,6 +594,7 @@ g:ale_java_javac_options	ale-java.txt	/*g:ale_java_javac_options*
 g:ale_javascript_eslint_executable	ale-javascript.txt	/*g:ale_javascript_eslint_executable*
 g:ale_javascript_eslint_options	ale-javascript.txt	/*g:ale_javascript_eslint_options*
 g:ale_javascript_eslint_suppress_eslintignore	ale-javascript.txt	/*g:ale_javascript_eslint_suppress_eslintignore*
+g:ale_javascript_eslint_suppress_missing_config	ale-javascript.txt	/*g:ale_javascript_eslint_suppress_missing_config*
 g:ale_javascript_eslint_use_global	ale-javascript.txt	/*g:ale_javascript_eslint_use_global*
 g:ale_javascript_flow_executable	ale-javascript.txt	/*g:ale_javascript_flow_executable*
 g:ale_javascript_flow_use_global	ale-javascript.txt	/*g:ale_javascript_flow_use_global*
@@ -610,8 +656,10 @@ g:ale_perl_perlcritic_executable	ale-perl.txt	/*g:ale_perl_perlcritic_executable
 g:ale_perl_perlcritic_options	ale-perl.txt	/*g:ale_perl_perlcritic_options*
 g:ale_perl_perlcritic_profile	ale-perl.txt	/*g:ale_perl_perlcritic_profile*
 g:ale_perl_perlcritic_showrules	ale-perl.txt	/*g:ale_perl_perlcritic_showrules*
+g:ale_php_hackfmt_options	ale-php.txt	/*g:ale_php_hackfmt_options*
 g:ale_php_langserver_executable	ale-php.txt	/*g:ale_php_langserver_executable*
 g:ale_php_langserver_use_global	ale-php.txt	/*g:ale_php_langserver_use_global*
+g:ale_php_phan_minimum_severity	ale-php.txt	/*g:ale_php_phan_minimum_severity*
 g:ale_php_phpcbf_executable	ale-php.txt	/*g:ale_php_phpcbf_executable*
 g:ale_php_phpcbf_standard	ale-php.txt	/*g:ale_php_phpcbf_standard*
 g:ale_php_phpcbf_use_global	ale-php.txt	/*g:ale_php_phpcbf_use_global*
@@ -656,6 +704,7 @@ g:ale_ruby_rubocop_options	ale-ruby.txt	/*g:ale_ruby_rubocop_options*
 g:ale_rust_cargo_use_check	ale-rust.txt	/*g:ale_rust_cargo_use_check*
 g:ale_rust_ignore_error_codes	ale-rust.txt	/*g:ale_rust_ignore_error_codes*
 g:ale_rust_rls_executable	ale-rust.txt	/*g:ale_rust_rls_executable*
+g:ale_rust_rustfmt_options	ale-rust.txt	/*g:ale_rust_rustfmt_options*
 g:ale_sass_stylelint_executable	ale-sass.txt	/*g:ale_sass_stylelint_executable*
 g:ale_sass_stylelint_use_global	ale-sass.txt	/*g:ale_sass_stylelint_use_global*
 g:ale_scala_scalastyle_options	ale-scala.txt	/*g:ale_scala_scalastyle_options*
@@ -686,6 +735,8 @@ g:ale_stylus_stylelint_options	ale-stylus.txt	/*g:ale_stylus_stylelint_options*
 g:ale_stylus_stylelint_use_global	ale-stylus.txt	/*g:ale_stylus_stylelint_use_global*
 g:ale_tcl_nagelfar_executable	ale-tcl.txt	/*g:ale_tcl_nagelfar_executable*
 g:ale_tcl_nagelfar_options	ale-tcl.txt	/*g:ale_tcl_nagelfar_options*
+g:ale_terraform_tflint_executable	ale-terraform.txt	/*g:ale_terraform_tflint_executable*
+g:ale_terraform_tflint_options	ale-terraform.txt	/*g:ale_terraform_tflint_options*
 g:ale_tex_chktex_executable	ale-tex.txt	/*g:ale_tex_chktex_executable*
 g:ale_tex_chktex_options	ale-tex.txt	/*g:ale_tex_chktex_options*
 g:ale_thrift_thrift_executable	ale-thrift.txt	/*g:ale_thrift_thrift_executable*
@@ -706,6 +757,9 @@ g:ale_vim_vint_show_style_issues	ale-vim.txt	/*g:ale_vim_vint_show_style_issues*
 g:ale_virtualenv_dir_names	ale.txt	/*g:ale_virtualenv_dir_names*
 g:ale_warn_about_trailing_whitespace	ale.txt	/*g:ale_warn_about_trailing_whitespace*
 g:ale_windows_node_executable_path	ale.txt	/*g:ale_windows_node_executable_path*
+g:ale_writegood_executable	ale.txt	/*g:ale_writegood_executable*
+g:ale_writegood_options	ale.txt	/*g:ale_writegood_options*
+g:ale_writegood_use_global	ale.txt	/*g:ale_writegood_use_global*
 g:ale_xml_xmllint_executable	ale-xml.txt	/*g:ale_xml_xmllint_executable*
 g:ale_xml_xmllint_options	ale-xml.txt	/*g:ale_xml_xmllint_options*
 g:ale_yaml_swaglint_executable	ale-yaml.txt	/*g:ale_yaml_swaglint_executable*
