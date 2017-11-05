@@ -2,7 +2,9 @@
 :ALELint	ale.txt	/*:ALELint*
 ALEDetail	ale.txt	/*ALEDetail*
 ALEDisable	ale.txt	/*ALEDisable*
+ALEDisableBuffer	ale.txt	/*ALEDisableBuffer*
 ALEEnable	ale.txt	/*ALEEnable*
+ALEEnableBuffer	ale.txt	/*ALEEnableBuffer*
 ALEError	ale.txt	/*ALEError*
 ALEErrorLine	ale.txt	/*ALEErrorLine*
 ALEErrorSign	ale.txt	/*ALEErrorSign*
@@ -22,11 +24,14 @@ ALENext	ale.txt	/*ALENext*
 ALENextWrap	ale.txt	/*ALENextWrap*
 ALEPrevious	ale.txt	/*ALEPrevious*
 ALEPreviousWrap	ale.txt	/*ALEPreviousWrap*
+ALEReset	ale.txt	/*ALEReset*
+ALEResetBuffer	ale.txt	/*ALEResetBuffer*
 ALEStyleError	ale.txt	/*ALEStyleError*
 ALEStyleErrorSign	ale.txt	/*ALEStyleErrorSign*
 ALEStyleWarning	ale.txt	/*ALEStyleWarning*
 ALEStyleWarningSign	ale.txt	/*ALEStyleWarningSign*
 ALEToggle	ale.txt	/*ALEToggle*
+ALEToggleBuffer	ale.txt	/*ALEToggleBuffer*
 ALEWarning	ale.txt	/*ALEWarning*
 ALEWarningLine	ale.txt	/*ALEWarningLine*
 ALEWarningSign	ale.txt	/*ALEWarningSign*
@@ -203,6 +208,7 @@ ale-r-lintr	ale-r.txt	/*ale-r-lintr*
 ale-r-options	ale-r.txt	/*ale-r-options*
 ale-reasonml-merlin	ale-reasonml.txt	/*ale-reasonml-merlin*
 ale-reasonml-options	ale-reasonml.txt	/*ale-reasonml-options*
+ale-reasonml-refmt	ale-reasonml.txt	/*ale-reasonml-refmt*
 ale-restructuredtext-options	ale-restructuredtext.txt	/*ale-restructuredtext-options*
 ale-restructuredtext-write-good	ale-restructuredtext.txt	/*ale-restructuredtext-write-good*
 ale-ruby-brakeman	ale-ruby.txt	/*ale-ruby-brakeman*
@@ -326,6 +332,7 @@ b:ale_elm_make_use_global	ale-elm.txt	/*b:ale_elm_make_use_global*
 b:ale_enabled	ale.txt	/*b:ale_enabled*
 b:ale_erlang_erlc_options	ale-erlang.txt	/*b:ale_erlang_erlc_options*
 b:ale_erlang_syntaxerl_executable	ale-erlang.txt	/*b:ale_erlang_syntaxerl_executable*
+b:ale_fix_on_save	ale.txt	/*b:ale_fix_on_save*
 b:ale_fixers	ale.txt	/*b:ale_fixers*
 b:ale_fortran_gcc_executable	ale-fortran.txt	/*b:ale_fortran_gcc_executable*
 b:ale_fortran_gcc_options	ale-fortran.txt	/*b:ale_fortran_gcc_options*
@@ -438,6 +445,8 @@ b:ale_python_pylint_use_global	ale-python.txt	/*b:ale_python_pylint_use_global*
 b:ale_python_yapf_executable	ale-python.txt	/*b:ale_python_yapf_executable*
 b:ale_python_yapf_use_global	ale-python.txt	/*b:ale_python_yapf_use_global*
 b:ale_r_lintr_options	ale-r.txt	/*b:ale_r_lintr_options*
+b:ale_reasonml_refmt_executable	ale-reasonml.txt	/*b:ale_reasonml_refmt_executable*
+b:ale_reasonml_refmt_options	ale-reasonml.txt	/*b:ale_reasonml_refmt_options*
 b:ale_ruby_brakeman_options	ale-ruby.txt	/*b:ale_ruby_brakeman_options*
 b:ale_ruby_rails_best_practices_executable	ale-ruby.txt	/*b:ale_ruby_rails_best_practices_executable*
 b:ale_ruby_rails_best_practices_options	ale-ruby.txt	/*b:ale_ruby_rails_best_practices_options*
@@ -695,6 +704,8 @@ g:ale_python_pylint_use_global	ale-python.txt	/*g:ale_python_pylint_use_global*
 g:ale_python_yapf_executable	ale-python.txt	/*g:ale_python_yapf_executable*
 g:ale_python_yapf_use_global	ale-python.txt	/*g:ale_python_yapf_use_global*
 g:ale_r_lintr_options	ale-r.txt	/*g:ale_r_lintr_options*
+g:ale_reasonml_refmt_executable	ale-reasonml.txt	/*g:ale_reasonml_refmt_executable*
+g:ale_reasonml_refmt_options	ale-reasonml.txt	/*g:ale_reasonml_refmt_options*
 g:ale_ruby_brakeman_options	ale-ruby.txt	/*g:ale_ruby_brakeman_options*
 g:ale_ruby_rails_best_practices_executable	ale-ruby.txt	/*g:ale_ruby_rails_best_practices_executable*
 g:ale_ruby_rails_best_practices_options	ale-ruby.txt	/*g:ale_ruby_rails_best_practices_options*
