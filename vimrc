@@ -1,4 +1,4 @@
-" Informational
+" Information {{{
 "   This is my personal .vimrc, I don't recommend you copy it, just
 "   use the pieces you want (and understand!).  When you copy a
 "   .vimrc in its entirety, weird and unexpected things can happen!
@@ -7,19 +7,23 @@
 "   https://www.robertmelton.com/contact-me/
 "
 "   source: https://github.com/robertmeta/vimfiles
+" }}}
 
-" Baseline
+" Baseline {{{
 set encoding=utf-8
 scriptencoding utf-8
+" }}}
 
-" Helpers
+" Helpers {{{
 let s:running_windows=has('win16') || has('win32') || has('win64')
 let s:colorful_term=(&term=~?'xterm') || (&term=~?'screen')
+" }}}
 
-" Loading Settings
+" Loading Settings {{{
 let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 syntax on " syntax highlighting on
+" }}}
 
 " Mappings {{{
 let g:mapleader="\<space>"
@@ -312,15 +316,16 @@ augroup general
 augroup end
 " }}}
 
-" GUI
+" GUI {{{
 if has('gui_running')
     set guioptions=cm " use simple dialogs rather than pop-ups & show menu
     if s:running_windows
         set guifont=Hack,Consolas
     endif
 endif
+" }}}
 
-" Mousing
+" Mousing {{{
 if has('mouse')
     set mouse=a " use mouse everywhere
     set nomousehide " don't hide the mouse
@@ -332,11 +337,9 @@ if has('mouse')
         set ttymouse=sgr
     endif
 endif
+" }}}
 
-" Vim-Move
-let g:move_key_modifier='C'
-
-" Adapt for executables
+" Adapt for executables {{{
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 endif
@@ -349,12 +352,14 @@ endif
 if executable('ctags-exuberant')
     let g:gutentags_ctags_executable='ctags-exuberant'
 endif
+" }}}
 
-" Markdown
+" Markdown {{{
 let g:vim_markdown_folding_disabled=0
 let g:vim_markdown_frontmatter=1
+" }}}
 
-" Vim-go
+" Vim-go {{{
 let g:go_autodetect_gopath=1
 let g:go_auto_type_info=0
 let g:go_bin_path=$HOME.'/go/bin'
@@ -383,19 +388,17 @@ let g:go_info_mode='guru'
 let g:go_jump_to_error=0
 let g:go_template_autocreate=0
 let g:go_textobj_enabled=1
+" }}}
 
-" Tmuxify
-let g:tmuxify_custom_command='tmux split-window -d -l 10'
-let g:tmuxify_map_prefix=''
-let g:tmuxify_global_maps=1
-
-" Netrw
+" Netrw {{{
 let g:netrw_altfile=1
+" }}}
 
-" Mucomplete
+" Mucomplete {{{
 let g:mucomplete#enable_auto_at_startup=0
+" }}}
 
-" Nofrils
+" Nofrils {{{
 let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
 let g:nofrils_heavycomments=0 " bright comments off
 let g:nofrils_heavylinenumbers=0 " heavy line numbers off
@@ -417,8 +420,9 @@ else " MacOSX/Linux
         colo nofrils-acme
     endif
 endif
+" }}}
 
-" Functions
+" Functions {{{
 function! ExecuteMacroOverVisualRange()
     echo '@'.getcmdline()
     execute ":'<,'>normal @".nr2char(getchar())
@@ -521,5 +525,6 @@ endfunction
 
 nnoremap <S-h> :call ToggleHiddenAll()
 call ToggleHiddenAll()
+" }}}
 
 " vim: foldmethod=marker:foldlevel=0
