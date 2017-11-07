@@ -173,7 +173,7 @@
         set splitright " split right
         set startofline " do reset to start of line on events
         set switchbuf=useopen " when working with quickfix use new splits
-        set synmaxcol=500 " Don't try to highlight lines longer than X characters.
+        set synmaxcol=2500 " Don't try to highlight lines longer than X characters, made larger for long strings (consistent background highlight)
         set tabstop=8 " real tabs should be 8, and they will show with set list on
         set tags=./tags;,tags; " interesting!
         set textwidth=0 " No autowrapping
