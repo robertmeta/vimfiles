@@ -21,7 +21,7 @@ let g:skip_loading_mswin=1 " Just in case :)
 filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
 syntax on " syntax highlighting on
 
-" Mappings
+" Mappings {{{
 let g:mapleader="\<space>"
 
 " Scrolling/Line movement
@@ -33,7 +33,7 @@ nnoremap k gk
 " Clear highlight
 nnoremap <silent> <backspace> :noh<cr>:QuickhlManualReset<cr>
 
-" Mappings
+" Autocomplete
 inoremap <silent> ;f <c-x><c-f>
 inoremap <silent> ;i <c-x><c-i>
 inoremap <silent> ;l <c-x><c-l>
@@ -96,8 +96,9 @@ nnoremap Y y$
 cnoremap %% <c-r>=fnameescape(expand('%'))<cr>
 cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>/
 cnoremap <c-r><c-l> <c-r>=getline('.')<cr>
+" }}}
 
-" Basics Settings
+" Basics Settings {{{
 set backspace=indent,eol,start " make backspace a more flexible
 set backupdir=~/.vim/backup/,~/vimfiles/backup/ " where to put backup files
 set backup " make backup files
@@ -106,7 +107,7 @@ set cmdheight=2 " Gets rid of all the press enter to continue
 set completeopt=menu,menuone,noselect,noinsert
 set complete=.,w,b,u,U,i,t " complete options
 set conceallevel=0 " Don't hide from me!
-set cursorline " cursor line highlight
+set nocursorline " no cursor line highlight
 set diffopt=vertical,filler,iwhite " filler and whitespace
 set directory=~/.vim/temp/,~/vimfiles/temp/ " directory to place swap files in
 set expandtab " no real tabs please!
@@ -115,7 +116,7 @@ set fileencoding=utf-8 " UTF-8
 set fileformats=unix,dos,mac " support all three, in this order
 set foldcolumn=1 " I can see fold fine thank you
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-set foldmethod=syntax " Fold on the syntax
+set foldmethod=indent " Fold on the indent
 set foldnestmax=1 " I only like to fold outer functions
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
@@ -129,7 +130,7 @@ set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
-set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:‡,trail:•,eol:↲
+set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:‡,trail:•
 set list " show listchars
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
@@ -184,8 +185,9 @@ set undolevels=1000 " persistent undo
 set undoreload=10000 " to undo forced reload with :e!
 set virtualedit=block " block mode, yey (onemore is evil)
 set wrap " wrap forever!
+" }}}
 
-" Wildmenu
+" Wildmenu {{{
 set wildmenu " turn on command line completion wild style
 set wildignore=*.a,*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
@@ -206,19 +208,25 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/bin/*,*/pkg/*,*/vendor/*
 endif
 set wildmode=list:longest " turn on wild mode full match only
+" }}}
 
+" VimInfo {{{
 set viminfo=!,h,'500 " include uppercase registers, disable hlsearch while loading viminfo, remember marks for last 500 files
 set viminfo+=<10000 " remember up to 10000 lines in each register
 set viminfo+=s1000 " remember up to 1MB in each register
 set viminfo+=/1000 " remember last 1000 search patterns
 set viminfo+=:1000 " remember last 1000 commands
+" }}}
 
+" FormatOptions {{{
 set formatoptions=q " allow gq to work on comment
 set formatoptions+=r " enter extends comments
 set formatoptions+=n " format numbered lists using 'formatlistpat'
 set formatoptions+=1 " don't break after one letter word
 set formatoptions+=j " remove comment when joining lines
+" }}}
 
+" ShowMess {{{
 set shortmess=a " use every short text trick
 set shortmess+=O " file read message overwrites subsequent
 set shortmess+=s " no search hit bottom crap
@@ -226,7 +234,9 @@ set shortmess+=t " truncate file message
 set shortmess+=T " truncate messages in the middle
 set shortmess+=I " no intro message
 set shortmess+=c " no ins-completion messages
+" }}}
 
+" StatusLine {{{
 set statusline=%{PasteForStatusline()} " paste status
 set statusline+=[%{getcwd()}] " working directory
 set statusline+=[%f] " full path to file 
@@ -239,7 +249,9 @@ set statusline+=[%P] " percentage through file
 set statusline+=[%l:%c] " line number : column number
 set statusline+=%{gutentags#statusline('[Generating\ Tags...]')} " Lets me know if generating tags
 set statusline+=[%{mode()}] " current mode
+" }}}
 
+" CpOptions {{{
 set cpoptions=a " read updates alternative file name
 set cpoptions+=A " write updates alternative file name
 set cpoptions+=B " backslash has no special meaning in mappings
@@ -250,7 +262,9 @@ set cpoptions+=F " write command updates current file name
 set cpoptions+=P " write command updates current file name on append
 set cpoptions+=q " when joining lines, leave the cursor between joined lines
 set cpoptions+=t " search pattern for tag command is remember for n command
+" }}}
 
+" WhichWrap {{{
 set whichwrap=b " <bs> normal and visual
 set whichwrap+=s " <space> normal and visual
 set whichwrap+=h " normal and visual (not recommended)
@@ -260,25 +274,9 @@ set whichwrap+=> " <right> normal and visual
 set whichwrap+=~ " normal
 set whichwrap+=[ " insert and replace
 set whichwrap+=] " insert and replace
+" }}}
 
-" Additional text objects (stolen from romainl)
-for s:char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '`' ]
-    execute 'xnoremap i' . s:char . ' :<C-u>normal! T' . s:char . 'vt' . s:char . '<cr>'
-    execute 'onoremap i' . s:char . ' :normal vi' . s:char . '<cr>'
-    execute 'xnoremap a' . s:char . ' :<C-u>normal! F' . s:char . 'vf' . s:char . '<cr>'
-    execute 'onoremap a' . s:char . ' :normal va' . s:char . '<cr>'
-endfor
-
-" line text-objects
-xnoremap il g_o0
-omap il :<c-u>normal vil<cr>
-xnoremap al $o0
-omap al :<c-u>normal val<cr>
-
-" buffer text-object
-xnoremap i% GoggV
-omap i% :<c-u>normal vi%<cr>
-
+" AutoCommands {{{
 augroup general
     " Clear!
     au!
@@ -312,6 +310,7 @@ augroup general
     " au VimEnter,WinEnter,BufWinEnter * setlocal cursorline relativenumber
     " au WinLeave * setlocal nocursorline norelativenumber
 augroup end
+" }}}
 
 " GUI
 if has('gui_running')
@@ -522,3 +521,5 @@ endfunction
 
 nnoremap <S-h> :call ToggleHiddenAll()
 call ToggleHiddenAll()
+
+" vim: foldmethod=marker:foldlevel=0
