@@ -25,7 +25,6 @@ func main() {
 		"fatih/vim-go",
 		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
-		// "mhinz/vim-tmuxify",
 		"romainl/vim-qf",
 		"romainl/vim-qlist",
 		"t9md/vim-quickhl",

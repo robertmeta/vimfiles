@@ -22,7 +22,7 @@
 " Loading Settings {{{
         let g:skip_loading_mswin=1 " Just in case :)
         filetype plugin indent on " if you are going to steal something from my vimrc, this should be it
-        syntax on " syntax highlighting on
+        syntax enable " syntax highlighting on
 " }}}
 
 " Mappings {{{
@@ -291,7 +291,7 @@
                 " Things that use two spaces rather than four
                 au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
                 au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
-                au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete
+                au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete foldmethod=syntax
                 au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<cr>
                 au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<cr>
                 au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<cr>
