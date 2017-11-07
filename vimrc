@@ -102,7 +102,7 @@
         cnoremap <c-r><c-l> <c-r>=getline('.')<cr>
 " }}}
 
-" Basics Settings {{{
+" Basic Settings {{{
         set backspace=indent,eol,start " make backspace a more flexible
         set backupdir=~/.vim/backup/,~/vimfiles/backup/ " where to put backup files
         set backup " make backup files
@@ -144,6 +144,7 @@
         set noautowrite " nope
         set noautowriteall " nope
         set nocursorcolumn " no cursor column
+        set pastetoggle=<F12> " maybe I can remember F12
         set nocursorline " no cursor line highlight
         set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
         set nomore " Scroll away, no pausing
