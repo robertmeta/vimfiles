@@ -123,7 +123,7 @@
         set foldlevel=100 " Don't autofold anything (but I can still fold manually)
         set foldmethod=indent " Fold on the indent
         set foldnestmax=1 " I only like to fold outer functions
-        set foldopen=all " what movements open folds
+        set foldopen=block,hor,mark,percent,quickfix,tag,search " what movements open folds
         set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
         set hidden " load files in background
         set history=9999 " big old history
