@@ -1291,6 +1291,9 @@ ale_linters#d#dmd#Handle	pack/plugins/start/w0rp-ale/ale_linters/d/dmd.vim	/^fun
 ale_linters#dart#dartanalyzer#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/dart/dartanalyzer.vim	/^function! ale_linters#dart#dartanalyzer#GetCommand(buffer) abort$/;"	f
 ale_linters#dart#dartanalyzer#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/dart/dartanalyzer.vim	/^function! ale_linters#dart#dartanalyzer#GetExecutable(buffer) abort$/;"	f
 ale_linters#dart#dartanalyzer#Handle	pack/plugins/start/w0rp-ale/ale_linters/dart/dartanalyzer.vim	/^function! ale_linters#dart#dartanalyzer#Handle(buffer, lines) abort$/;"	f
+ale_linters#dart#language_server#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/dart/language_server.vim	/^function! ale_linters#dart#language_server#GetExecutable(buffer) abort$/;"	f
+ale_linters#dart#language_server#GetLanguage	pack/plugins/start/w0rp-ale/ale_linters/dart/language_server.vim	/^function! ale_linters#dart#language_server#GetLanguage(buffer) abort$/;"	f
+ale_linters#dart#language_server#GetProjectRoot	pack/plugins/start/w0rp-ale/ale_linters/dart/language_server.vim	/^function! ale_linters#dart#language_server#GetProjectRoot(buffer) abort$/;"	f
 ale_linters#dockerfile#hadolint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/dockerfile/hadolint.vim	/^function! ale_linters#dockerfile#hadolint#GetCommand(buffer) abort$/;"	f
 ale_linters#dockerfile#hadolint#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/dockerfile/hadolint.vim	/^function! ale_linters#dockerfile#hadolint#GetExecutable(buffer) abort$/;"	f
 ale_linters#dockerfile#hadolint#Handle	pack/plugins/start/w0rp-ale/ale_linters/dockerfile/hadolint.vim	/^function! ale_linters#dockerfile#hadolint#Handle(buffer, lines) abort$/;"	f
@@ -2020,7 +2023,7 @@ g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-acm
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
-g:nofrils_strbackgrounds	vimrc	/^        let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds$/;"	v
+g:nofrils_strbackgrounds	vimrc	/^        let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds$/;"	v
 g:quickhl_debug	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_debug = 0$/;"	v
 g:quickhl_manual_colors	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_manual_colors = [$/;"	v
 g:quickhl_manual_colors	vimrc	/^        let g:quickhl_manual_colors=['gui=bold ctermfg=16 ctermbg=153 guifg=#ffffff guibg=#0a7383', 'gui=bold ctermfg=black ctermbg=2 guibg=#4070a0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=3 guibg=#40a070 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=4 guibg=#70a040 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=5 guibg=#0070e0 guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=6 guibg=#007020 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=21 guibg=#d4a00d guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=22 guibg=#06287e guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=45 guibg=#5b3674 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=16 guibg=#4c8f2f guifg=#ffffff', 'gui=bold ctermfg=black ctermbg=50 guibg=#1060a0 guifg=#ffffff', 'gui=bold ctermfg=7 ctermbg=56 guibg=#a0b0c0 guifg=black', 'gui=bold ctermfg=black ctermbg=1 guibg=#a07040 guifg=#ffffff']$/;"	v
