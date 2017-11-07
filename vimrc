@@ -390,6 +390,19 @@
 
 " Netrw {{{
         let g:netrw_altfile=1
+        let g:netrw_banner=0
+        let g:netrw_cursor=0
+        let g:netrw_keepdir=1
+        let g:netrw_liststyle=1
+        let g:netrw_sizestyle='H'
+        let g:netrw_winsize='30'
+" }}}
+
+" HTML {{{
+        let g:html_indent_script1='inc'
+        let g:html_indent_style1='inc'
+        let g:html_indent_inctags='html,body,head,tbody,p,li,dd,dt,h1,h2,h3,h4,h5,h6,blockquote,section'
+        let g:html_wrong_comments=1
 " }}}
 
 " Mucomplete {{{

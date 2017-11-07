@@ -1967,6 +1967,10 @@ g:gutentags_scopefile	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/g
 g:gutentags_script_ext	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^    let g:gutentags_script_ext = '.cmd'$/;"	v
 g:gutentags_script_ext	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^    let g:gutentags_script_ext = '.sh'$/;"	v
 g:gutentags_trace	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_trace = get(g:, 'gutentags_trace', 0)$/;"	v
+g:html_indent_inctags	vimrc	/^        let g:html_indent_inctags='html,body,head,tbody,p,li,dd,dt,h1,h2,h3,h4,h5,h6,blockquote,section'$/;"	v
+g:html_indent_script1	vimrc	/^        let g:html_indent_script1='inc'$/;"	v
+g:html_indent_style1	vimrc	/^        let g:html_indent_style1='inc'$/;"	v
+g:html_wrong_comments	vimrc	/^        let g:html_wrong_comments=1$/;"	v
 g:loaded_abolish	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^let g:loaded_abolish = 1$/;"	v
 g:loaded_ale	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:loaded_ale = 1$/;"	v
 g:loaded_ale_after	pack/plugins/start/w0rp-ale/after/plugin/ale.vim	/^let g:loaded_ale_after = 1$/;"	v
@@ -1994,8 +1998,14 @@ g:mucomplete#chains	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomp
 g:mucomplete#enable_auto_at_startup	vimrc	/^        let g:mucomplete#enable_auto_at_startup=0$/;"	v
 g:netrw_altfile	vimrc	/^        let g:netrw_altfile=1$/;"	v
 g:netrw_banner	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^  let g:netrw_banner = 0$/;"	v
+g:netrw_banner	vimrc	/^        let g:netrw_banner=0$/;"	v
+g:netrw_cursor	vimrc	/^        let g:netrw_cursor=0$/;"	v
+g:netrw_keepdir	vimrc	/^        let g:netrw_keepdir=1$/;"	v
 g:netrw_list_hide	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:netrw_list_hide =$/;"	v
+g:netrw_liststyle	vimrc	/^        let g:netrw_liststyle=1$/;"	v
+g:netrw_sizestyle	vimrc	/^        let g:netrw_sizestyle='H'$/;"	v
 g:netrw_sort_sequence	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:netrw_sort_sequence = '[\\\/]$,*,\\%(' . join(map(split(&suffixes, ','), 'escape(v:val, ".*$~")'), '\\|') . '\\)[*@]\\=$'$/;"	v
+g:netrw_winsize	vimrc	/^        let g:netrw_winsize='30'$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
