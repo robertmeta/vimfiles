@@ -604,6 +604,8 @@ CTAGS_EXE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags
 CTAGS_EXE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^set CTAGS_EXE=ctags$/;"	v
 CalcVCol	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:CalcVCol(line, first_index, last_index, vcol, tabstop)$/;"	f
 CallBaseIndent	pack/plugins/start/sheerun-vim-polyglot/indent/twig.vim	/^function! s:CallBaseIndent()$/;"	f
+CanUseAllTargets	pack/plugins/start/w0rp-ale/ale_linters/rust/cargo.vim	/^function! s:CanUseAllTargets(buffer, version) abort$/;"	f
+CanUseCargoCheck	pack/plugins/start/w0rp-ale/ale_linters/rust/cargo.vim	/^function! s:CanUseCargoCheck(buffer, version) abort$/;"	f
 CanUseExternalOption	pack/plugins/start/w0rp-ale/ale_linters/sh/shellcheck.vim	/^function! s:CanUseExternalOption(version) abort$/;"	f
 CannotSelect	pack/plugins/start/kana-vim-textobj-user/t/failed-selection.vim	/^function! CannotSelect()$/;"	f
 CaptionEnv	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/folding.vim	/^function! s:CaptionEnv()$/;"	f
@@ -954,6 +956,7 @@ GetTypescriptIndent	pack/plugins/start/sheerun-vim-polyglot/indent/typescript.vi
 GetValaIndent	pack/plugins/start/sheerun-vim-polyglot/indent/vala.vim	/^function GetValaIndent(lnum)$/;"	f
 GetVarIndent	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^function s:GetVarIndent(lnum)$/;"	f
 GetVersion	pack/plugins/start/w0rp-ale/ale_linters/python/flake8.vim	/^function! s:GetVersion(buffer, version_output) abort$/;"	f
+GetVersion	pack/plugins/start/w0rp-ale/ale_linters/rust/cargo.vim	/^function! s:GetVersion(executable, output) abort$/;"	f
 GetVersion	pack/plugins/start/w0rp-ale/ale_linters/sh/shellcheck.vim	/^function! s:GetVersion(executable, output) abort$/;"	f
 GetVueIndent	pack/plugins/start/sheerun-vim-polyglot/indent/vue.vim	/^function! GetVueIndent()$/;"	f
 Getting Started	pack/plugins/start/lifepillar-vim-mucomplete/Readme.md	/^# Getting Started$/;"	h
@@ -1996,6 +1999,7 @@ ale#fixers#refmt#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/refmt.vim	/
 ale#fixers#rubocop#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/rubocop.vim	/^function! ale#fixers#rubocop#Fix(buffer) abort$/;"	f
 ale#fixers#rubocop#GetCommand	pack/plugins/start/w0rp-ale/autoload/ale/fixers/rubocop.vim	/^function! ale#fixers#rubocop#GetCommand(buffer) abort$/;"	f
 ale#fixers#rustfmt#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/rustfmt.vim	/^function! ale#fixers#rustfmt#Fix(buffer) abort$/;"	f
+ale#fixers#shfmt#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/shfmt.vim	/^function! ale#fixers#shfmt#Fix(buffer) abort$/;"	f
 ale#fixers#standard#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/standard.vim	/^function! ale#fixers#standard#Fix(buffer) abort$/;"	f
 ale#fixers#standard#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/fixers/standard.vim	/^function! ale#fixers#standard#GetExecutable(buffer) abort$/;"	f
 ale#fixers#stylelint#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/stylelint.vim	/^function! ale#fixers#stylelint#Fix(buffer) abort$/;"	f
@@ -2319,6 +2323,7 @@ ale_linters#php#phpcs#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/php/php
 ale_linters#php#phpcs#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/php/phpcs.vim	/^function! ale_linters#php#phpcs#GetExecutable(buffer) abort$/;"	f
 ale_linters#php#phpcs#Handle	pack/plugins/start/w0rp-ale/ale_linters/php/phpcs.vim	/^function! ale_linters#php#phpcs#Handle(buffer, lines) abort$/;"	f
 ale_linters#php#phpmd#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/php/phpmd.vim	/^function! ale_linters#php#phpmd#GetCommand(buffer) abort$/;"	f
+ale_linters#php#phpmd#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/php/phpmd.vim	/^function! ale_linters#php#phpmd#GetExecutable(buffer) abort$/;"	f
 ale_linters#php#phpmd#Handle	pack/plugins/start/w0rp-ale/ale_linters/php/phpmd.vim	/^function! ale_linters#php#phpmd#Handle(buffer, lines) abort$/;"	f
 ale_linters#php#phpstan#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/php/phpstan.vim	/^function! ale_linters#php#phpstan#GetCommand(buffer) abort$/;"	f
 ale_linters#php#phpstan#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/php/phpstan.vim	/^function! ale_linters#php#phpstan#GetExecutable(buffer) abort$/;"	f
@@ -2353,7 +2358,8 @@ ale_linters#ruby#rubocop#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/ruby
 ale_linters#ruby#rubocop#GetType	pack/plugins/start/w0rp-ale/ale_linters/ruby/rubocop.vim	/^function! ale_linters#ruby#rubocop#GetType(severity) abort$/;"	f
 ale_linters#ruby#rubocop#Handle	pack/plugins/start/w0rp-ale/ale_linters/ruby/rubocop.vim	/^function! ale_linters#ruby#rubocop#Handle(buffer, lines) abort$/;"	f
 ale_linters#rust#cargo#GetCargoExecutable	pack/plugins/start/w0rp-ale/ale_linters/rust/cargo.vim	/^function! ale_linters#rust#cargo#GetCargoExecutable(bufnr) abort$/;"	f
-ale_linters#rust#cargo#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/rust/cargo.vim	/^function! ale_linters#rust#cargo#GetCommand(buffer) abort$/;"	f
+ale_linters#rust#cargo#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/rust/cargo.vim	/^function! ale_linters#rust#cargo#GetCommand(buffer, version_output) abort$/;"	f
+ale_linters#rust#cargo#VersionCheck	pack/plugins/start/w0rp-ale/ale_linters/rust/cargo.vim	/^function! ale_linters#rust#cargo#VersionCheck(buffer) abort$/;"	f
 ale_linters#rust#rls#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/rust/rls.vim	/^function! ale_linters#rust#rls#GetCommand(buffer) abort$/;"	f
 ale_linters#rust#rls#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/rust/rls.vim	/^function! ale_linters#rust#rls#GetExecutable(buffer) abort$/;"	f
 ale_linters#rust#rls#GetLanguage	pack/plugins/start/w0rp-ale/ale_linters/rust/rls.vim	/^function! ale_linters#rust#rls#GetLanguage(buffer) abort$/;"	f
@@ -3518,6 +3524,7 @@ g:ale_perl_perlcritic_profile	pack/plugins/start/w0rp-ale/ale_linters/perl/perlc
 g:ale_perl_perlcritic_showrules	pack/plugins/start/w0rp-ale/ale_linters/perl/perlcritic.vim	/^let g:ale_perl_perlcritic_showrules =$/;"	v
 g:ale_php_phan_minimum_severity	pack/plugins/start/w0rp-ale/ale_linters/php/phan.vim	/^let g:ale_php_phan_minimum_severity = get(g:, 'ale_php_phan_minimum_severity', 0)$/;"	v
 g:ale_php_phpcs_standard	pack/plugins/start/w0rp-ale/ale_linters/php/phpcs.vim	/^let g:ale_php_phpcs_standard = get(g:, 'ale_php_phpcs_standard', '')$/;"	v
+g:ale_php_phpmd_executable	pack/plugins/start/w0rp-ale/ale_linters/php/phpmd.vim	/^let g:ale_php_phpmd_executable = get(g:, 'ale_php_phpmd_executable', 'phpmd')$/;"	v
 g:ale_php_phpmd_ruleset	pack/plugins/start/w0rp-ale/ale_linters/php/phpmd.vim	/^let g:ale_php_phpmd_ruleset = get(g:, 'ale_php_phpmd_ruleset', 'cleancode,codesize,controversial,design,naming,unusedcode')$/;"	v
 g:ale_php_phpstan_configuration	pack/plugins/start/w0rp-ale/ale_linters/php/phpstan.vim	/^let g:ale_php_phpstan_configuration = get(g:, 'ale_php_phpstan_configuration', '')$/;"	v
 g:ale_php_phpstan_executable	pack/plugins/start/w0rp-ale/ale_linters/php/phpstan.vim	/^let g:ale_php_phpstan_executable = get(g:, 'ale_php_phpstan_executable', 'phpstan')$/;"	v
@@ -3538,7 +3545,6 @@ g:ale_python_pylint_use_global	pack/plugins/start/w0rp-ale/ale_linters/python/py
 g:ale_r_lintr_options	pack/plugins/start/w0rp-ale/ale_linters/r/lintr.vim	/^let g:ale_r_lintr_options =$/;"	v
 g:ale_ruby_brakeman_options	pack/plugins/start/w0rp-ale/ale_linters/ruby/brakeman.vim	/^let g:ale_ruby_brakeman_options =$/;"	v
 g:ale_ruby_rails_best_practices_options	pack/plugins/start/w0rp-ale/ale_linters/ruby/rails_best_practices.vim	/^let g:ale_ruby_rails_best_practices_options =$/;"	v
-g:ale_rust_cargo_use_check	pack/plugins/start/w0rp-ale/ale_linters/rust/cargo.vim	/^let g:ale_rust_cargo_use_check = get(g:, 'ale_rust_cargo_use_check', 0)$/;"	v
 g:ale_rust_ignore_error_codes	pack/plugins/start/w0rp-ale/autoload/ale/handlers/rust.vim	/^    let g:ale_rust_ignore_error_codes = []$/;"	v
 g:ale_scala_scalastyle_options	pack/plugins/start/w0rp-ale/ale_linters/scala/scalastyle.vim	/^let g:ale_scala_scalastyle_options =$/;"	v
 g:ale_scalastyle_config_loc	pack/plugins/start/w0rp-ale/ale_linters/scala/scalastyle.vim	/^let g:ale_scalastyle_config_loc =$/;"	v
@@ -3818,6 +3824,7 @@ g:main_syntax	pack/plugins/start/sheerun-vim-polyglot/syntax/dart.vim	/^  let g:
 g:mako_detect_lang_from_ext	pack/plugins/start/sheerun-vim-polyglot/ftdetect/polyglot.vim	/^  let g:mako_detect_lang_from_ext = 1$/;"	v
 g:mapleader	pack/plugins/start/w0rp-ale/test/.config/nvim/init.vim	/^let g:mapleader=','$/;"	v
 g:mapleader	pack/plugins/start/w0rp-ale/test/vimrc	/^let g:mapleader=','$/;"	v
+g:mapleader	vimrc	/^let g:mapleader="\\<space>"$/;"	v
 g:maps	pack/plugins/start/glts-vim-textobj-comment/t/plugin.vim	/^let g:maps = { 'ac': '<Plug>(textobj-comment-a)',$/;"	v
 g:move_key_modifier	vimrc	/^let g:move_key_modifier='C'$/;"	v
 g:mucomplete#can_complete	pack/plugins/start/lifepillar-vim-mucomplete/autoload/mucomplete.vim	/^  let g:mucomplete#can_complete = extend({$/;"	v
@@ -4514,7 +4521,6 @@ map_accum	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/L
 mapargs_pair_select	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_pair_select(lhs, pattern1, pattern2, flags, previous_mode)$/;"	f
 mapargs_single_move	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_single_move(lhs, pattern, flags, previous_mode)$/;"	f
 mapargs_single_select	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^function! s:mapargs_single_select(lhs, pattern, flags, previous_mode)$/;"	f
-mapleader	vimrc	/^let mapleader="\\<space>"$/;"	v
 match_one	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:match_one(patterns, string)$/;"	f
 match_pairs	pack/plugins/start/sheerun-vim-polyglot/indent/clojure.vim	/^	function! s:match_pairs(open, close, stopat)$/;"	f
 max_by	pack/plugins/start/sheerun-vim-polyglot/autoload/vital/_crystal/Data/List.vim	/^function! s:max_by(list, expr) abort$/;"	f
@@ -5579,6 +5585,7 @@ s:vala_cpo_save	pack/plugins/start/sheerun-vim-polyglot/syntax/vala.vim	/^let s:
 s:var_stmt	pack/plugins/start/sheerun-vim-polyglot/indent/solidity.vim	/^let s:var_stmt = '^\\s*var'$/;"	v
 s:version	pack/colors/start/nlknguyen-papercolor-theme/colors/PaperColor.vim	/^let s:version = '0.9.x'$/;"	v
 s:version_cache	pack/plugins/start/w0rp-ale/ale_linters/python/flake8.vim	/^let s:version_cache = {}$/;"	v
+s:version_cache	pack/plugins/start/w0rp-ale/ale_linters/rust/cargo.vim	/^let s:version_cache = {}$/;"	v
 s:version_cache	pack/plugins/start/w0rp-ale/ale_linters/sh/shellcheck.vim	/^let s:version_cache = {}$/;"	v
 s:version_file	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  let s:version_file = findfile('.ruby-version', '.;')$/;"	v
 s:viewer	pack/plugins/start/sheerun-vim-polyglot/ftplugin/latex-box/common.vim	/^		  let s:viewer = 'open'$/;"	v

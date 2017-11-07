@@ -1,7 +1,7 @@
 " Informational
 "   This is my personal .vimrc, I don't recommend you copy it, just
 "   use the pieces you want (and understand!).  When you copy a
-"   .vimrc in its entirety, weird and unexpected things can happen
+"   .vimrc in its entirety, weird and unexpected things can happen!
 "
 "   If you find an obvious mistake hit me up at:
 "   https://www.robertmelton.com/contact-me/
@@ -22,7 +22,7 @@ filetype plugin indent on " if you are going to steal something from my vimrc, t
 syntax on " syntax highlighting on
 
 " Mappings
-let mapleader="\<space>"
+let g:mapleader="\<space>"
 
 " Scrolling/Line movement
 nnoremap gj j
@@ -129,11 +129,7 @@ set laststatus=2 " always show the status line
 set lazyredraw " do not redraw while running macros
 set linebreak " break on words not mid-word
 set linespace=0 " don't insert any extra pixel lines betweens rows
-set listchars=extends:⟩
-set listchars+=nbsp:‡
-set listchars+=precedes:⟨
-set listchars+=tab:\ \ 
-set listchars+=trail:•
+set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:‡,trail:•,eol:↲
 set list " show listchars
 set modeline " I have started using modelines (risky business!)
 set modelines=5 " Search for 5 lines for modelines
@@ -425,7 +421,7 @@ endif
 
 " Functions
 function! ExecuteMacroOverVisualRange()
-    echo "@".getcmdline()
+    echo '@'.getcmdline()
     execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
@@ -445,6 +441,7 @@ endfunction
 
 function! StripTrailingWhitespace()
     if !&binary && &filetype !=? 'diff'
+        " This is fragile due to depending on settings
         normal mz
         normal Hmy
         %s/\s\+$//e
@@ -498,6 +495,7 @@ endfunction
 command! -nargs=1 Redir silent call Redir(<f-args>)
 
 function! BreakHere()
+    " This is fragile due to depending on settings
     s/^\(\s*\)\(.\{-}\)\(\s*\)\(\%#\)\(\s*\)\(.*\)/\1\2\r\1\4\6
     call histdel('/', -1)
 endfunction
@@ -511,12 +509,14 @@ function! ToggleHiddenAll()
         set noruler
         set laststatus=0
         set noshowcmd
+        set cmdheight=1
     else
         let s:hidden_all = 0
         set showmode
         set ruler
         set laststatus=2
         set showcmd
+        set cmdheight=2
     endif
 endfunction
 
