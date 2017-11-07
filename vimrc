@@ -524,4 +524,4 @@
         call ToggleHiddenAll()
 " }}}
 
-" vim: foldmethod=marker:foldlevel=0:foldenable:sw=8:
+" vim: foldmethod=marker:foldlevel=0:sw=8:
