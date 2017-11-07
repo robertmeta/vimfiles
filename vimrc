@@ -106,12 +106,12 @@
         set backspace=indent,eol,start " make backspace a more flexible
         set backupdir=~/.vim/backup/,~/vimfiles/backup/ " where to put backup files
         set backup " make backup files
+        set belloff=all " no noises!
         set breakindent " this is just awesome (best patch in a long time)
         set cmdheight=2 " Gets rid of all the press enter to continue
         set completeopt=menu,menuone,noselect,noinsert
         set complete=.,w,b,u,U,i,t " complete options
         set conceallevel=0 " Don't hide from me!
-        set nocursorline " no cursor line highlight
         set diffopt=vertical,filler,iwhite " filler and whitespace
         set directory=~/.vim/temp/,~/vimfiles/temp/ " directory to place swap files in
         set expandtab " no real tabs please!
@@ -142,7 +142,7 @@
         set noautowriteall " nope
         set noautowrite " nope
         set nocursorcolumn " no cursor column
-        set noerrorbells " don't be noisy
+        set nocursorline " no cursor line highlight
         set nofoldenable " Turn off folding by default
         set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
         set nomore " Scroll away, no pausing
