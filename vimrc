@@ -119,6 +119,7 @@
         set fileencoding=utf-8 " UTF-8
         set fileformats=unix,dos,mac " support all three, in this order
         set foldcolumn=1 " I can see fold fine thank you
+        set foldenable " Turn on folding by default
         set foldlevel=100 " Don't autofold anything (but I can still fold manually)
         set foldmethod=indent " Fold on the indent
         set foldnestmax=1 " I only like to fold outer functions
@@ -134,16 +135,15 @@
         set lazyredraw " do not redraw while running macros
         set linebreak " break on words not mid-word
         set linespace=0 " don't insert any extra pixel lines betweens rows
-        set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:‡,trail:•
         set list " show listchars
+        set listchars=tab:→\ ,extends:›,precedes:‹,nbsp:‡,trail:•
         set modeline " I have started using modelines (risky business!)
         set modelines=5 " Search for 5 lines for modelines
         set noautoread " nope
-        set noautowriteall " nope
         set noautowrite " nope
+        set noautowriteall " nope
         set nocursorcolumn " no cursor column
         set nocursorline " no cursor line highlight
-        set nofoldenable " Turn off folding by default
         set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
         set nomore " Scroll away, no pausing
         set nonumber " no line numbers
