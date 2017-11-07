@@ -425,6 +425,7 @@ $TMPDIR	pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 <Plug>unimpairedPaste	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedPaste :call <SID>setup_paste()<CR>$/;"	m
 <Plug>unimpairedPutAbove	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedPutAbove :call <SID>putline('[p', 'Above')<CR>$/;"	m
 <Plug>unimpairedPutBelow	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedPutBelow :call <SID>putline(']p', 'Below')<CR>$/;"	m
+<S-h>	vimrc	/^nnoremap <S-h> :call ToggleHiddenAll()$/;"	m
 <SID>	pack/plugins/start/kana-vim-textobj-user/autoload/textobj/user.vim	/^nnoremap <SID>  <SID>$/;"	m
 <SID>:	pack/plugins/start/sheerun-vim-polyglot/ftplugin/ruby.vim	/^  nmap <buffer><script> <SID>:  :<C-U>$/;"	m
 <SID>:	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^nnoremap <SID>: :<C-U><C-R>=v:count ? v:count : ''<CR>$/;"	m
@@ -1720,6 +1721,7 @@ ToHaveColumns	pack/plugins/start/glts-vim-textobj-comment/t/util/helpers.vim	/^f
 ToHaveLineNumbers	pack/plugins/start/glts-vim-textobj-comment/t/util/helpers.vim	/^function! ToHaveLineNumbers(actual, lnum1, lnum2)$/;"	f
 ToHavePositions	pack/plugins/start/glts-vim-textobj-comment/t/util/helpers.vim	/^function! ToHavePositions(actual, pos1, pos2)$/;"	f
 ToggleFolds	vimrc	/^function! ToggleFolds()$/;"	f
+ToggleHiddenAll	vimrc	/^function! ToggleHiddenAll()$/;"	f
 Token	pack/plugins/start/sheerun-vim-polyglot/indent/javascript.vim	/^function s:Token()$/;"	f
 TokenizeLine	pack/plugins/start/sheerun-vim-polyglot/indent/erlang.vim	/^function! s:TokenizeLine(lnum, direction)$/;"	f
 Transform	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:Transform(algorithm,type)$/;"	f
@@ -5256,6 +5258,7 @@ s:handlers	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^let s:ha
 s:has_features	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^    let s:has_features = has('timers') && exists('*job_start') && exists('*ch_close_in')$/;"	v
 s:has_features	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^    let s:has_features = has('timers')$/;"	v
 s:hash_colors	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:hash_colors = {}$/;"	v
+s:hidden_all	vimrc	/^let s:hidden_all = 0$/;"	v
 s:htmlIndentExpr	pack/plugins/start/sheerun-vim-polyglot/after/indent/html.vim	/^let s:htmlIndentExpr = &l:indentexpr$/;"	v
 s:html_indent	pack/plugins/start/sheerun-vim-polyglot/indent/vue.vim	/^let s:html_indent = s:get_indentexpr('html')$/;"	v
 s:html_indent_tags	pack/plugins/start/sheerun-vim-polyglot/indent/html.vim	/^let s:html_indent_tags = '[a-z_][a-z0-9_.-]*'$/;"	v

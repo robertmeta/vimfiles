@@ -231,6 +231,7 @@ ale-scss-stylelint	ale-scss.txt	/*ale-scss-stylelint*
 ale-sh-options	ale-sh.txt	/*ale-sh-options*
 ale-sh-shell	ale-sh.txt	/*ale-sh-shell*
 ale-sh-shellcheck	ale-sh.txt	/*ale-sh-shellcheck*
+ale-sh-shfmt	ale-sh.txt	/*ale-sh-shfmt*
 ale-sml-options	ale-sml.txt	/*ale-sml-options*
 ale-sml-smlnj	ale-sml.txt	/*ale-sml-smlnj*
 ale-sml-smlnj-cm	ale-sml.txt	/*ale-sml-smlnj-cm*
@@ -416,6 +417,7 @@ b:ale_php_phpcbf_use_global	ale-php.txt	/*b:ale_php_phpcbf_use_global*
 b:ale_php_phpcs_executable	ale-php.txt	/*b:ale_php_phpcs_executable*
 b:ale_php_phpcs_standard	ale-php.txt	/*b:ale_php_phpcs_standard*
 b:ale_php_phpcs_use_global	ale-php.txt	/*b:ale_php_phpcs_use_global*
+b:ale_php_phpmd_executable	ale-php.txt	/*b:ale_php_phpmd_executable*
 b:ale_php_phpmd_ruleset	ale-php.txt	/*b:ale_php_phpmd_ruleset*
 b:ale_php_phpstan_configuration	ale-php.txt	/*b:ale_php_phpstan_configuration*
 b:ale_php_phpstan_executable	ale-php.txt	/*b:ale_php_phpstan_executable*
@@ -453,6 +455,7 @@ b:ale_ruby_rails_best_practices_options	ale-ruby.txt	/*b:ale_ruby_rails_best_pra
 b:ale_ruby_reek_show_context	ale-ruby.txt	/*b:ale_ruby_reek_show_context*
 b:ale_ruby_reek_show_wiki_link	ale-ruby.txt	/*b:ale_ruby_reek_show_wiki_link*
 b:ale_ruby_rubocop_options	ale-ruby.txt	/*b:ale_ruby_rubocop_options*
+b:ale_rust_cargo_check_all_targets	ale-rust.txt	/*b:ale_rust_cargo_check_all_targets*
 b:ale_rust_cargo_use_check	ale-rust.txt	/*b:ale_rust_cargo_use_check*
 b:ale_rust_ignore_error_codes	ale-rust.txt	/*b:ale_rust_ignore_error_codes*
 b:ale_rust_rls_executable	ale-rust.txt	/*b:ale_rust_rls_executable*
@@ -465,6 +468,7 @@ b:ale_sh_shell_default_shell	ale-sh.txt	/*b:ale_sh_shell_default_shell*
 b:ale_sh_shellcheck_exclusions	ale-sh.txt	/*b:ale_sh_shellcheck_exclusions*
 b:ale_sh_shellcheck_executable	ale-sh.txt	/*b:ale_sh_shellcheck_executable*
 b:ale_sh_shellcheck_options	ale-sh.txt	/*b:ale_sh_shellcheck_options*
+b:ale_sh_shfmt_options	ale-sh.txt	/*b:ale_sh_shfmt_options*
 b:ale_sml_smlnj_cm_file	ale-sml.txt	/*b:ale_sml_smlnj_cm_file*
 b:ale_spec_rpmlint_executable	ale-spec.txt	/*b:ale_spec_rpmlint_executable*
 b:ale_spec_rpmlint_options	ale-spec.txt	/*b:ale_spec_rpmlint_options*
@@ -675,6 +679,7 @@ g:ale_php_phpcbf_use_global	ale-php.txt	/*g:ale_php_phpcbf_use_global*
 g:ale_php_phpcs_executable	ale-php.txt	/*g:ale_php_phpcs_executable*
 g:ale_php_phpcs_standard	ale-php.txt	/*g:ale_php_phpcs_standard*
 g:ale_php_phpcs_use_global	ale-php.txt	/*g:ale_php_phpcs_use_global*
+g:ale_php_phpmd_executable	ale-php.txt	/*g:ale_php_phpmd_executable*
 g:ale_php_phpmd_ruleset	ale-php.txt	/*g:ale_php_phpmd_ruleset*
 g:ale_php_phpstan_configuration	ale-php.txt	/*g:ale_php_phpstan_configuration*
 g:ale_php_phpstan_executable	ale-php.txt	/*g:ale_php_phpstan_executable*
@@ -712,6 +717,7 @@ g:ale_ruby_rails_best_practices_options	ale-ruby.txt	/*g:ale_ruby_rails_best_pra
 g:ale_ruby_reek_show_context	ale-ruby.txt	/*g:ale_ruby_reek_show_context*
 g:ale_ruby_reek_show_wiki_link	ale-ruby.txt	/*g:ale_ruby_reek_show_wiki_link*
 g:ale_ruby_rubocop_options	ale-ruby.txt	/*g:ale_ruby_rubocop_options*
+g:ale_rust_cargo_check_all_targets	ale-rust.txt	/*g:ale_rust_cargo_check_all_targets*
 g:ale_rust_cargo_use_check	ale-rust.txt	/*g:ale_rust_cargo_use_check*
 g:ale_rust_ignore_error_codes	ale-rust.txt	/*g:ale_rust_ignore_error_codes*
 g:ale_rust_rls_executable	ale-rust.txt	/*g:ale_rust_rls_executable*
@@ -731,6 +737,7 @@ g:ale_sh_shell_default_shell	ale-sh.txt	/*g:ale_sh_shell_default_shell*
 g:ale_sh_shellcheck_exclusions	ale-sh.txt	/*g:ale_sh_shellcheck_exclusions*
 g:ale_sh_shellcheck_executable	ale-sh.txt	/*g:ale_sh_shellcheck_executable*
 g:ale_sh_shellcheck_options	ale-sh.txt	/*g:ale_sh_shellcheck_options*
+g:ale_sh_shfmt_options	ale-sh.txt	/*g:ale_sh_shfmt_options*
 g:ale_sign_column_always	ale.txt	/*g:ale_sign_column_always*
 g:ale_sign_error	ale.txt	/*g:ale_sign_error*
 g:ale_sign_info	ale.txt	/*g:ale_sign_info*
