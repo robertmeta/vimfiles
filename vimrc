@@ -121,8 +121,8 @@
         set foldclose=all " Open folds if you leave them in any way
         set foldcolumn=1 " I can see fold fine thank you
         set foldenable " Turn on folding by default
-        set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-        set foldmethod=indent " Fold on the indent
+        set foldlevel=0 " Autofold everything by default
+        set foldmethod=syntax " Fold on the syntax
         set foldnestmax=1 " I only like to fold outer functions
         set foldopen=all " Open folds if you touch them in any way
         set formatlistpat=^\\s*\\(\\d\\\|[-*]\\)\\+[\\]:.)}\\t\ ]\\s* " and bullets, too
