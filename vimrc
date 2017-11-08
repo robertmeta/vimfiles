@@ -137,7 +137,7 @@
         set linebreak " break on words not mid-word
         set linespace=0 " don't insert any extra pixel lines betweens rows
         set list " show listchars
-        set listchars=tab: \ ,extends:›,precedes:‹,nbsp:‡,trail:•
+        set listchars=tab:\ \ ,extends:›,precedes:‹,nbsp:‡,trail:•
         set modeline " I have started using modelines (risky business!)
         set modelines=5 " Search for 5 lines for modelines
         set noautoread " nope
