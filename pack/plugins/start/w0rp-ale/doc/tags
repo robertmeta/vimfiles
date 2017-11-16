@@ -1,3 +1,4 @@
+:ALEDetail	ale.txt	/*:ALEDetail*
 :ALEInfo	ale.txt	/*:ALEInfo*
 :ALELint	ale.txt	/*:ALELint*
 ALEDetail	ale.txt	/*ALEDetail*
@@ -154,8 +155,10 @@ ale-kotlin-ktlint	ale-kotlin.txt	/*ale-kotlin-ktlint*
 ale-kotlin-options	ale-kotlin.txt	/*ale-kotlin-options*
 ale-latex-options	ale-latex.txt	/*ale-latex-options*
 ale-latex-write-good	ale-latex.txt	/*ale-latex-write-good*
+ale-less-lessc	ale-less.txt	/*ale-less-lessc*
 ale-less-options	ale-less.txt	/*ale-less-options*
 ale-less-prettier	ale-less.txt	/*ale-less-prettier*
+ale-less-stylelint	ale-less.txt	/*ale-less-stylelint*
 ale-lint	ale.txt	/*ale-lint*
 ale-lint-file	ale.txt	/*ale-lint-file*
 ale-lint-file-linters	ale.txt	/*ale-lint-file-linters*
@@ -176,6 +179,7 @@ ale-objc-options	ale-objc.txt	/*ale-objc-options*
 ale-objcpp-clang	ale-objcpp.txt	/*ale-objcpp-clang*
 ale-objcpp-options	ale-objcpp.txt	/*ale-objcpp-options*
 ale-ocaml-merlin	ale-ocaml.txt	/*ale-ocaml-merlin*
+ale-ocaml-ols	ale-ocaml.txt	/*ale-ocaml-ols*
 ale-ocaml-options	ale-ocaml.txt	/*ale-ocaml-options*
 ale-options	ale.txt	/*ale-options*
 ale-perl-options	ale-perl.txt	/*ale-perl-options*
@@ -192,6 +196,8 @@ ale-php-phpmd	ale-php.txt	/*ale-php-phpmd*
 ale-php-phpstan	ale-php.txt	/*ale-php-phpstan*
 ale-pod-options	ale-pod.txt	/*ale-pod-options*
 ale-pod-write-good	ale-pod.txt	/*ale-pod-write-good*
+ale-proto-options	ale-proto.txt	/*ale-proto-options*
+ale-proto-protoc-gen-lint	ale-proto.txt	/*ale-proto-protoc-gen-lint*
 ale-pug-options	ale-pug.txt	/*ale-pug-options*
 ale-pug-puglint	ale-pug.txt	/*ale-pug-puglint*
 ale-puppet-options	ale-puppet.txt	/*ale-puppet-options*
@@ -203,10 +209,12 @@ ale-python-mypy	ale-python.txt	/*ale-python-mypy*
 ale-python-options	ale-python.txt	/*ale-python-options*
 ale-python-pycodestyle	ale-python.txt	/*ale-python-pycodestyle*
 ale-python-pylint	ale-python.txt	/*ale-python-pylint*
+ale-python-pyls	ale-python.txt	/*ale-python-pyls*
 ale-python-yapf	ale-python.txt	/*ale-python-yapf*
 ale-r-lintr	ale-r.txt	/*ale-r-lintr*
 ale-r-options	ale-r.txt	/*ale-r-options*
 ale-reasonml-merlin	ale-reasonml.txt	/*ale-reasonml-merlin*
+ale-reasonml-ols	ale-reasonml.txt	/*ale-reasonml-ols*
 ale-reasonml-options	ale-reasonml.txt	/*ale-reasonml-options*
 ale-reasonml-refmt	ale-reasonml.txt	/*ale-reasonml-refmt*
 ale-restructuredtext-options	ale-restructuredtext.txt	/*ale-restructuredtext-options*
@@ -391,6 +399,12 @@ b:ale_javascript_xo_options	ale-javascript.txt	/*b:ale_javascript_xo_options*
 b:ale_javascript_xo_use_global	ale-javascript.txt	/*b:ale_javascript_xo_use_global*
 b:ale_keep_list_window_open	ale.txt	/*b:ale_keep_list_window_open*
 b:ale_lacheck_executable	ale-tex.txt	/*b:ale_lacheck_executable*
+b:ale_less_lessc_executable	ale-less.txt	/*b:ale_less_lessc_executable*
+b:ale_less_lessc_options	ale-less.txt	/*b:ale_less_lessc_options*
+b:ale_less_lessc_use_global	ale-less.txt	/*b:ale_less_lessc_use_global*
+b:ale_less_stylelint_executable	ale-less.txt	/*b:ale_less_stylelint_executable*
+b:ale_less_stylelint_options	ale-less.txt	/*b:ale_less_stylelint_options*
+b:ale_less_stylelint_use_global	ale-less.txt	/*b:ale_less_stylelint_use_global*
 b:ale_linter_aliases	ale.txt	/*b:ale_linter_aliases*
 b:ale_linters	ale.txt	/*b:ale_linters*
 b:ale_list_window_size	ale.txt	/*b:ale_list_window_size*
@@ -401,6 +415,8 @@ b:ale_max_signs	ale.txt	/*b:ale_max_signs*
 b:ale_maximum_file_size	ale.txt	/*b:ale_maximum_file_size*
 b:ale_objc_clang_options	ale-objc.txt	/*b:ale_objc_clang_options*
 b:ale_objcpp_clang_options	ale-objcpp.txt	/*b:ale_objcpp_clang_options*
+b:ale_ocaml_ols_executable	ale-ocaml.txt	/*b:ale_ocaml_ols_executable*
+b:ale_ocaml_ols_use_global	ale-ocaml.txt	/*b:ale_ocaml_ols_use_global*
 b:ale_open_list	ale.txt	/*b:ale_open_list*
 b:ale_perl_perl_executable	ale-perl.txt	/*b:ale_perl_perl_executable*
 b:ale_perl_perl_options	ale-perl.txt	/*b:ale_perl_perl_options*
@@ -444,9 +460,12 @@ b:ale_python_pycodestyle_use_global	ale-python.txt	/*b:ale_python_pycodestyle_us
 b:ale_python_pylint_executable	ale-python.txt	/*b:ale_python_pylint_executable*
 b:ale_python_pylint_options	ale-python.txt	/*b:ale_python_pylint_options*
 b:ale_python_pylint_use_global	ale-python.txt	/*b:ale_python_pylint_use_global*
+b:ale_python_pyls_executable	ale-python.txt	/*b:ale_python_pyls_executable*
 b:ale_python_yapf_executable	ale-python.txt	/*b:ale_python_yapf_executable*
 b:ale_python_yapf_use_global	ale-python.txt	/*b:ale_python_yapf_use_global*
 b:ale_r_lintr_options	ale-r.txt	/*b:ale_r_lintr_options*
+b:ale_reason_ols_executable	ale-reasonml.txt	/*b:ale_reason_ols_executable*
+b:ale_reason_ols_use_global	ale-reasonml.txt	/*b:ale_reason_ols_use_global*
 b:ale_reasonml_refmt_executable	ale-reasonml.txt	/*b:ale_reasonml_refmt_executable*
 b:ale_reasonml_refmt_options	ale-reasonml.txt	/*b:ale_reasonml_refmt_options*
 b:ale_ruby_brakeman_options	ale-ruby.txt	/*b:ale_ruby_brakeman_options*
@@ -563,6 +582,7 @@ g:ale_echo_cursor	ale.txt	/*g:ale_echo_cursor*
 g:ale_echo_delay	ale.txt	/*g:ale_echo_delay*
 g:ale_echo_msg_error_str	ale.txt	/*g:ale_echo_msg_error_str*
 g:ale_echo_msg_format	ale.txt	/*g:ale_echo_msg_format*
+g:ale_echo_msg_info_str	ale.txt	/*g:ale_echo_msg_info_str*
 g:ale_echo_msg_warning_str	ale.txt	/*g:ale_echo_msg_warning_str*
 g:ale_elixir_mix_options	ale-elixir.txt	/*g:ale_elixir_mix_options*
 g:ale_elm_format_executable	ale-elm.txt	/*g:ale_elm_format_executable*
@@ -643,6 +663,12 @@ g:ale_kotlin_kotlinc_use_module_file	ale-kotlin.txt	/*g:ale_kotlin_kotlinc_use_m
 g:ale_kotlin_ktlint_executable	ale-kotlin.txt	/*g:ale_kotlin_ktlint_executable*
 g:ale_kotlin_ktlint_rulesets	ale-kotlin.txt	/*g:ale_kotlin_ktlint_rulesets*
 g:ale_lacheck_executable	ale-tex.txt	/*g:ale_lacheck_executable*
+g:ale_less_lessc_executable	ale-less.txt	/*g:ale_less_lessc_executable*
+g:ale_less_lessc_options	ale-less.txt	/*g:ale_less_lessc_options*
+g:ale_less_lessc_use_global	ale-less.txt	/*g:ale_less_lessc_use_global*
+g:ale_less_stylelint_executable	ale-less.txt	/*g:ale_less_stylelint_executable*
+g:ale_less_stylelint_options	ale-less.txt	/*g:ale_less_stylelint_options*
+g:ale_less_stylelint_use_global	ale-less.txt	/*g:ale_less_stylelint_use_global*
 g:ale_lint_delay	ale.txt	/*g:ale_lint_delay*
 g:ale_lint_on_enter	ale.txt	/*g:ale_lint_on_enter*
 g:ale_lint_on_filetype_changed	ale.txt	/*g:ale_lint_on_filetype_changed*
@@ -651,8 +677,10 @@ g:ale_lint_on_save	ale.txt	/*g:ale_lint_on_save*
 g:ale_lint_on_text_changed	ale.txt	/*g:ale_lint_on_text_changed*
 g:ale_linter_aliases	ale.txt	/*g:ale_linter_aliases*
 g:ale_linters	ale.txt	/*g:ale_linters*
+g:ale_linters_explicit	ale.txt	/*g:ale_linters_explicit*
 g:ale_list_window_size	ale.txt	/*g:ale_list_window_size*
 g:ale_llvm_llc_executable	ale-llvm.txt	/*g:ale_llvm_llc_executable*
+g:ale_loclist_msg_format	ale.txt	/*g:ale_loclist_msg_format*
 g:ale_lua_luacheck_executable	ale-lua.txt	/*g:ale_lua_luacheck_executable*
 g:ale_lua_luacheck_options	ale-lua.txt	/*g:ale_lua_luacheck_options*
 g:ale_max_buffer_history_size	ale.txt	/*g:ale_max_buffer_history_size*
@@ -660,6 +688,8 @@ g:ale_max_signs	ale.txt	/*g:ale_max_signs*
 g:ale_maximum_file_size	ale.txt	/*g:ale_maximum_file_size*
 g:ale_objc_clang_options	ale-objc.txt	/*g:ale_objc_clang_options*
 g:ale_objcpp_clang_options	ale-objcpp.txt	/*g:ale_objcpp_clang_options*
+g:ale_ocaml_ols_executable	ale-ocaml.txt	/*g:ale_ocaml_ols_executable*
+g:ale_ocaml_ols_use_global	ale-ocaml.txt	/*g:ale_ocaml_ols_use_global*
 g:ale_open_list	ale.txt	/*g:ale_open_list*
 g:ale_pattern_options	ale.txt	/*g:ale_pattern_options*
 g:ale_pattern_options_enabled	ale.txt	/*g:ale_pattern_options_enabled*
@@ -706,9 +736,12 @@ g:ale_python_pycodestyle_use_global	ale-python.txt	/*g:ale_python_pycodestyle_us
 g:ale_python_pylint_executable	ale-python.txt	/*g:ale_python_pylint_executable*
 g:ale_python_pylint_options	ale-python.txt	/*g:ale_python_pylint_options*
 g:ale_python_pylint_use_global	ale-python.txt	/*g:ale_python_pylint_use_global*
+g:ale_python_pyls_executable	ale-python.txt	/*g:ale_python_pyls_executable*
 g:ale_python_yapf_executable	ale-python.txt	/*g:ale_python_yapf_executable*
 g:ale_python_yapf_use_global	ale-python.txt	/*g:ale_python_yapf_use_global*
 g:ale_r_lintr_options	ale-r.txt	/*g:ale_r_lintr_options*
+g:ale_reason_ols_executable	ale-reasonml.txt	/*g:ale_reason_ols_executable*
+g:ale_reason_ols_use_global	ale-reasonml.txt	/*g:ale_reason_ols_use_global*
 g:ale_reasonml_refmt_executable	ale-reasonml.txt	/*g:ale_reasonml_refmt_executable*
 g:ale_reasonml_refmt_options	ale-reasonml.txt	/*g:ale_reasonml_refmt_options*
 g:ale_ruby_brakeman_options	ale-ruby.txt	/*g:ale_ruby_brakeman_options*

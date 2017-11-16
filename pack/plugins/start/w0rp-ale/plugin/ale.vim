@@ -24,8 +24,8 @@ endif
 if !s:has_features
     " Only output a warning if editing some special files.
     if index(['', 'gitcommit'], &filetype) == -1
-        echoerr 'ALE requires NeoVim >= 0.1.5 or Vim 8 with +timers +job +channel'
-        echoerr 'Please update your editor appropriately.'
+        execute 'echoerr ''ALE requires NeoVim >= 0.1.5 or Vim 8 with +timers +job +channel'''
+        execute 'echoerr ''Please update your editor appropriately.'''
     endif
 
     " Stop here, as it won't work.
@@ -68,7 +68,9 @@ let g:ale_filetype_blacklist = [
 \]
 
 " This Dictionary configures which linters are enabled for which languages.
-let g:ale_linters = get(g:, 'ale_linters', {})
+call ale#Set('linters', {})
+" This option can be changed to only enable explicitly selected linters.
+call ale#Set('linters_explicit', 0)
 
 " This Dictionary configures which functions will be used for fixing problems.
 let g:ale_fixers = get(g:, 'ale_fixers', {})
@@ -148,13 +150,14 @@ let g:ale_sign_offset = get(g:, 'ale_sign_offset', 1000000)
 " This flag can be set to 1 to keep sign gutter always open
 let g:ale_sign_column_always = get(g:, 'ale_sign_column_always', 0)
 
-" String format for the echoed message
-" A %s is mandatory
-" It can contain 2 handlers: %linter%, %severity%
-let g:ale_echo_msg_format = get(g:, 'ale_echo_msg_format', '%s')
+" A string format for the echoed message
+call ale#Set('echo_msg_format', '%code: %%s')
+" The same for the loclist.
+call ale#Set('loclist_msg_format', g:ale_echo_msg_format)
 
 " Strings used for severity in the echoed message
 let g:ale_echo_msg_error_str = get(g:, 'ale_echo_msg_error_str', 'Error')
+let g:ale_echo_msg_info_str = get(g:, 'ale_echo_msg_info_str', 'Info')
 let g:ale_echo_msg_warning_str = get(g:, 'ale_echo_msg_warning_str', 'Warning')
 
 " This flag can be set to 0 to disable echoing when the cursor moves.

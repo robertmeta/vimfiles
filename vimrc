@@ -67,7 +67,6 @@
         nmap <silent> <up> <esc>:cprev<cr>
         nmap <silent> <down> <esc>:cnext<cr>
 
-        " Mappings
         nnoremap <f5> "=strftime("%c")<cr>P
         nnoremap <leader>A :argadd **/*
         nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
