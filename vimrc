@@ -85,7 +85,7 @@
         nnoremap <leader>o <c-w>o
         nnoremap <leader>p :find *
         nnoremap <leader>q :b#<cr>
-        nnoremap <leader>r :let cmds = input('command: ') \| call system('tmux send-keys -t +1 "' . cmds . '" Enter')<cr>
+        nnoremap <leader>r :let cmds = input('command: ', cmds) \| call system('tmux send-keys -t +1 "' . cmds . '" Enter')<cr>
         nnoremap <leader>R :call system('tmux split -v -p 20\; last-pane')<cr>
         nnoremap <leader>" :split<cr>
         nnoremap <leader>t :ltag<space>/ \| lop<left><left><left><left><left><left>

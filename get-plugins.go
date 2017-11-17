@@ -14,16 +14,13 @@ func main() {
 
 	// assumes github.com
 	colors := []string{
-		"NLKNguyen/papercolor-theme",
 		"robertmeta/nofrils",
 		"romainl/Apprentice",
 		"romainl/Disciple",
-		"tomasr/molokai",
 	}
 	plugins := []string{
 		"airblade/vim-gitgutter",
 		"fatih/vim-go",
-		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
 		"romainl/vim-qf",
 		"romainl/vim-qlist",
