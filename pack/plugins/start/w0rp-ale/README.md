@@ -72,7 +72,7 @@ formatting.
 | -------- | ----- |
 | ASM | [gcc](https://gcc.gnu.org) |
 | Ansible | [ansible-lint](https://github.com/willthames/ansible-lint) |
-| AsciiDoc | [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good)|
+| AsciiDoc | [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good), [redpen](http://redpen.cc/)|
 | Awk | [gawk](https://www.gnu.org/software/gawk/)|
 | Bash | shell [-n flag](https://www.gnu.org/software/bash/manual/bash.html#index-set), [shellcheck](https://www.shellcheck.net/), [shfmt](https://github.com/mvdan/sh) |
 | Bourne Shell | shell [-n flag](http://linux.die.net/man/1/sh), [shellcheck](https://www.shellcheck.net/), [shfmt](https://github.com/mvdan/sh) |
@@ -81,6 +81,7 @@ formatting.
 | CUDA | [nvcc](http://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html) |
 | C# | [mcs](http://www.mono-project.com/docs/about-mono/languages/csharp/) see:`help ale-cs-mcs` for details, [mcsc](http://www.mono-project.com/docs/about-mono/languages/csharp/) !! see:`help ale-cs-mcsc` for details and configuration|
 | Chef | [foodcritic](http://www.foodcritic.io/) |
+| Clojure | [joker](https://github.com/candid82/joker) |
 | CMake | [cmakelint](https://github.com/richq/cmake-lint) |
 | CoffeeScript | [coffee](http://coffeescript.org/), [coffeelint](https://www.npmjs.com/package/coffeelint) |
 | Crystal | [crystal](https://crystal-lang.org/) !! |
@@ -108,13 +109,13 @@ formatting.
 | JavaScript | [eslint](http://eslint.org/), [flow](https://flowtype.org/), [jscs](http://jscs.info/), [jshint](http://jshint.com/), [prettier](https://github.com/prettier/prettier), prettier-eslint >= 4.2.0, prettier-standard, [standard](http://standardjs.com/), [xo](https://github.com/sindresorhus/xo)
 | JSON | [jsonlint](http://zaa.ch/jsonlint/), [prettier](https://github.com/prettier/prettier) |
 | Kotlin | [kotlinc](https://kotlinlang.org) !!, [ktlint](https://ktlint.github.io) !! see `:help ale-integration-kotlin` for configuration instructions |
-| LaTeX | [chktex](http://www.nongnu.org/chktex/), [lacheck](https://www.ctan.org/pkg/lacheck), [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good) |
+| LaTeX | [chktex](http://www.nongnu.org/chktex/), [lacheck](https://www.ctan.org/pkg/lacheck), [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good), [redpen](http://redpen.cc/) |
 | Less | [lessc](https://www.npmjs.com/package/less), [prettier](https://github.com/prettier/prettier), [stylelint](https://github.com/stylelint/stylelint) |
 | LLVM | [llc](https://llvm.org/docs/CommandGuide/llc.html) |
 | Lua | [luacheck](https://github.com/mpeterv/luacheck) |
 | Mail | [proselint](http://proselint.com/), [vale](https://github.com/ValeLint/vale) |
 | Make | [checkmake](https://github.com/mrtazz/checkmake) |
-| Markdown | [mdl](https://github.com/mivok/markdownlint), [proselint](http://proselint.com/), [vale](https://github.com/ValeLint/vale), [remark-lint](https://github.com/wooorm/remark-lint) !!, [write-good](https://github.com/btford/write-good) |
+| Markdown | [mdl](https://github.com/mivok/markdownlint), [proselint](http://proselint.com/), [vale](https://github.com/ValeLint/vale), [remark-lint](https://github.com/wooorm/remark-lint) !!, [write-good](https://github.com/btford/write-good), [redpen](http://redpen.cc/) |
 | MATLAB | [mlint](https://www.mathworks.com/help/matlab/ref/mlint.html) |
 | Nim | [nim check](https://nim-lang.org/docs/nimc.html) !! |
 | nix | [nix-instantiate](http://nixos.org/nix/manual/#sec-nix-instantiate) |
@@ -131,7 +132,8 @@ formatting.
 | Python | [autopep8](https://github.com/hhatto/autopep8), [flake8](http://flake8.pycqa.org/en/latest/), [isort](https://github.com/timothycrosley/isort), [mypy](http://mypy-lang.org/), [pycodestyle](https://github.com/PyCQA/pycodestyle), [pyls](https://github.com/palantir/python-language-server), [pylint](https://www.pylint.org/) !!, [yapf](https://github.com/google/yapf) |
 | R | [lintr](https://github.com/jimhester/lintr) |
 | ReasonML | [merlin](https://github.com/the-lambda-church/merlin) see `:help ale-integration-reason-merlin` for configuration instructions, [ols](https://github.com/freebroccolo/ocaml-language-server), [refmt](https://github.com/reasonml/reason-cli) |
-| reStructuredText | [proselint](http://proselint.com/), [rstcheck](https://github.com/myint/rstcheck), [write-good](https://github.com/btford/write-good) |
+| reStructuredText | [proselint](http://proselint.com/), [rstcheck](https://github.com/myint/rstcheck), [write-good](https://github.com/btford/write-good), [redpen](http://redpen.cc/) |
+| Re:VIEW | [redpen](http://redpen.cc/) |
 | RPM spec | [rpmlint](https://github.com/rpm-software-management/rpmlint) (disabled by default; see `:help ale-integration-spec`) |
 | Ruby | [brakeman](http://brakemanscanner.org/) !!, [rails_best_practices](https://github.com/flyerhzm/rails_best_practices) !!, [reek](https://github.com/troessner/reek), [rubocop](https://github.com/bbatsov/rubocop), [ruby](https://www.ruby-lang.org) |
 | Rust |  cargo !! (see `:help ale-integration-rust` for configuration instructions), [rls](https://github.com/rust-lang-nursery/rls), [rustc](https://www.rust-lang.org/), [rustfmt](https://github.com/rust-lang-nursery/rustfmt) |
@@ -147,7 +149,7 @@ formatting.
 | Tcl | [nagelfar](http://nagelfar.sourceforge.net) !! |
 | Terraform | [tflint](https://github.com/wata727/tflint) |
 | Texinfo | [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good)|
-| Text^ | [proselint](http://proselint.com/), [vale](https://github.com/ValeLint/vale), [write-good](https://github.com/btford/write-good) |
+| Text^ | [proselint](http://proselint.com/), [vale](https://github.com/ValeLint/vale), [write-good](https://github.com/btford/write-good), [redpen](http://redpen.cc/) |
 | Thrift | [thrift](http://thrift.apache.org/) |
 | TypeScript | [eslint](http://eslint.org/), [prettier](https://github.com/prettier/prettier), [tslint](https://github.com/palantir/tslint), tsserver, typecheck |
 | Verilog | [iverilog](https://github.com/steveicarus/iverilog), [verilator](http://www.veripool.org/projects/verilator/wiki/Intro) |

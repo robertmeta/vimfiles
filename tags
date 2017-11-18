@@ -1863,7 +1863,7 @@ g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-acm
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
 g:nofrils_strbackgrounds	pack/colors/start/robertmeta-nofrils/colors/nofrils-sepia.vim	/^    let g:nofrils_strbackgrounds = 0$/;"	v
-g:nofrils_strbackgrounds	vimrc	/^        let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds$/;"	v
+g:nofrils_strbackgrounds	vimrc	/^        let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds$/;"	v
 g:op1	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  let g:op1 = copy(opts)$/;"	v
 g:op2	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  let g:op2 = copy(opts)$/;"	v
 g:qf_quickfix_lists	pack/plugins/start/romainl-vim-qf/autoload/qf/filter.vim	/^                let g:qf_quickfix_lists = [getqflist()]$/;"	v

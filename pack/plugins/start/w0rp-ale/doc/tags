@@ -62,6 +62,8 @@ ale-c-gcc	ale-c.txt	/*ale-c-gcc*
 ale-c-options	ale-c.txt	/*ale-c-options*
 ale-chef-foodcritic	ale-chef.txt	/*ale-chef-foodcritic*
 ale-chef-options	ale-chef.txt	/*ale-chef-options*
+ale-clojure-joker	ale-clojure.txt	/*ale-clojure-joker*
+ale-clojure-options	ale-clojure.txt	/*ale-clojure-options*
 ale-cmake-cmakelint	ale-cmake.txt	/*ale-cmake-cmakelint*
 ale-cmake-options	ale-cmake.txt	/*ale-cmake-options*
 ale-command-chain	ale.txt	/*ale-command-chain*
@@ -285,6 +287,7 @@ ale-yaml-options	ale-yaml.txt	/*ale-yaml-options*
 ale-yaml-swaglint	ale-yaml.txt	/*ale-yaml-swaglint*
 ale-yaml-yamllint	ale-yaml.txt	/*ale-yaml-yamllint*
 ale.txt	ale.txt	/*ale.txt*
+b:ale_asm_gcc_executable	ale-asm.txt	/*b:ale_asm_gcc_executable*
 b:ale_asm_gcc_options	ale-asm.txt	/*b:ale_asm_gcc_options*
 b:ale_awk_gawk_executable	ale-awk.txt	/*b:ale_awk_gawk_executable*
 b:ale_awk_gawk_options	ale-awk.txt	/*b:ale_awk_gawk_options*
@@ -528,6 +531,7 @@ b:ale_yaml_swaglint_use_global	ale-yaml.txt	/*b:ale_yaml_swaglint_use_global*
 b:ale_yaml_yamllint_executable	ale-yaml.txt	/*b:ale_yaml_yamllint_executable*
 b:ale_yaml_yamllint_options	ale-yaml.txt	/*b:ale_yaml_yamllint_options*
 g:airline#extensions#ale#enabled	ale.txt	/*g:airline#extensions#ale#enabled*
+g:ale_asm_gcc_executable	ale-asm.txt	/*g:ale_asm_gcc_executable*
 g:ale_asm_gcc_options	ale-asm.txt	/*g:ale_asm_gcc_options*
 g:ale_awk_gawk_executable	ale-awk.txt	/*g:ale_awk_gawk_executable*
 g:ale_awk_gawk_options	ale-awk.txt	/*g:ale_awk_gawk_options*

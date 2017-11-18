@@ -120,7 +120,7 @@
         set foldclose=all " Open folds if you leave them in any way
         set foldcolumn=1 " I can see fold fine thank you
         set foldenable " Turn on folding by default
-        set foldlevel=0 " Autofold everything by default
+        set foldlevel=10 " Autofold nothing by default
         set foldmethod=syntax " Fold on the syntax
         set foldnestmax=1 " I only like to fold outer functions
         set foldopen=all " Open folds if you touch them in any way
@@ -410,7 +410,7 @@
 " }}}
 
 " Nofrils {{{
-        let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
+        let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
         let g:nofrils_heavycomments=0 " bright comments off
         let g:nofrils_heavylinenumbers=0 " heavy line numbers off
         if s:running_windows
