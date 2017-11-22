@@ -41,6 +41,10 @@ After:
 
   delfunction CheckCompletionCalled
 
+  " Stop any timers we left behind.
+  " This stops the tests from failing randomly.
+  call ale#completion#StopTimer()
+
   runtime autoload/ale/completion.vim
   runtime autoload/ale/lsp.vim
 
@@ -225,6 +229,9 @@ Execute(Completion should be done after words in parens in TypeScript):
 
 Execute(Completion should not be done after parens in TypeScript):
   AssertEqual '', ale#completion#GetPrefix(&filetype, 3, 15)
+
+Execute(Completion prefixes should work for other filetypes):
+  AssertEqual 'ab', ale#completion#GetPrefix('xxxyyyzzz', 3, 14)
 
 Execute(ale#completion#Show() should remember the omnifunc setting and replace it):
   let &l:omnifunc = 'FooBar'

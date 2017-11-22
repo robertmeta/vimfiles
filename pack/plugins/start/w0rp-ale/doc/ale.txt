@@ -264,6 +264,7 @@ Notes:
 
 * ASM: `gcc`
 * Ansible: `ansible-lint`
+* API Blueprint: `drafter`
 * AsciiDoc: `proselint`, `write-good`, `redpen`
 * Awk: `gawk`
 * Bash: `shell` (-n flag), `shellcheck`, `shfmt`
@@ -414,7 +415,8 @@ including disabling ALE for certain buffers with |b:ale_enabled|. The
 |g:ale_pattern_options| setting can be used to configure files differently
 based on regular expressions for filenames. For configuring entire projects,
 the buffer-local options can be used with external plugins for reading Vim
-project configuration files.
+project configuration files. Buffer-local settings can also be used in
+ftplugin files for different filetypes.
 
 
 ===============================================================================
@@ -476,6 +478,18 @@ are supported for running the commands.
                       This allows commands to be skipped, like version checks
                       that are cached. An empty List will be passed to the
                       next callback in the chain for the `output`.
+
+  `read_buffer`         An optional key for disabling reading the buffer.
+
+                      When set to `0`, ALE will not pipe the buffer's data
+                      into the command via stdin. This option is ignored and
+                      the buffer is not read when `read_temporary_file` is
+                      `1`.
+
+                      This option defaults to `0` when `chain_with` is defined
+                      as anything other than `v:null`, and defaults to `1`
+                      otherwise. This is so earlier commands in a chain
+                      do not receive the buffer's data by default.
 
                                                         *ale-fix-configuration*
 
@@ -645,6 +659,7 @@ g:ale_echo_msg_error_str                             *g:ale_echo_msg_error_str*
 
 
 g:ale_echo_msg_format                                   *g:ale_echo_msg_format*
+b:ale_echo_msg_format                                   *b:ale_echo_msg_format*
 
   Type: |String|
   Default: `'%code: %%s'`
@@ -670,6 +685,10 @@ g:ale_echo_msg_format                                   *g:ale_echo_msg_format*
   message will be printed when there is no code.
 
   |g:ale_echo_cursor| needs to be set to 1 for messages to be displayed.
+
+  The echo message format can also be configured separately for each buffer,
+  so different formats can be used for differnt languages. (Say in ftplugin
+  files.)
 
 
 g:ale_echo_msg_info_str                               *g:ale_echo_msg_info_str*
@@ -1016,6 +1035,7 @@ g:ale_linters_explicit                                 *g:ale_linters_explicit*
 
 
 g:ale_loclist_msg_format                             *g:ale_loclist_msg_format*
+b:ale_loclist_msg_format                             *b:ale_loclist_msg_format*
 
   Type: |String|
   Default: `g:ale_echo_msg_format`
@@ -1760,7 +1780,8 @@ ale#engine#ManageDirectory(buffer, directory)    *ale#engine#ManageDirectory()*
   files.
 
 
-ale#fix#registry#Add(name, func, filetypes, desc)      *ale#fix#registry#Add()*
+ale#fix#registry#Add(name, func, filetypes, desc, [aliases])
+                                                       *ale#fix#registry#Add()*
 
   Given a |String| `name` for a name to add to the registry, a |String| `func`
   for a function name, a |List| `filetypes` for a list of filetypes to
@@ -1769,6 +1790,11 @@ ale#fix#registry#Add(name, func, filetypes, desc)      *ale#fix#registry#Add()*
 
   The `name` can then be used for |g:ale_fixers| in place of the function
   name, and suggested for fixing files.
+
+  An optional |List| of |String|s for aliases can be passed as the `aliases`
+  argument. These aliases can also be used for looking up a fixer function.
+  ALE will search for fixers in the registry first by `name`, then by their
+  `aliases`.
 
 
 ale#linter#Define(filetype, linter)                       *ale#linter#Define()*

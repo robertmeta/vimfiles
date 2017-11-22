@@ -46,6 +46,8 @@ servers with similar enough protocols, like `tsserver`.
     11. [How can I use the quickfix list instead of the loclist?](#faq-quickfix)
     12. [How can I check JSX files with both stylelint and eslint?](#faq-jsx-stylelint-eslint)
     13. [Will this plugin eat all of my laptop battery power?](#faq-my-battery-is-sad)
+    14. [How can I configure my C or C++ project?](#faq-c-configuration)
+    15. [How can I configure ALE differently for different buffers?](#faq-buffer-configuration)
 
 <a name="supported-languages"></a>
 
@@ -72,6 +74,7 @@ formatting.
 | -------- | ----- |
 | ASM | [gcc](https://gcc.gnu.org) |
 | Ansible | [ansible-lint](https://github.com/willthames/ansible-lint) |
+| API Blueprint | [drafter](https://github.com/apiaryio/drafter) |
 | AsciiDoc | [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good), [redpen](http://redpen.cc/)|
 | Awk | [gawk](https://www.gnu.org/software/gawk/)|
 | Bash | shell [-n flag](https://www.gnu.org/software/bash/manual/bash.html#index-set), [shellcheck](https://www.shellcheck.net/), [shfmt](https://github.com/mvdan/sh) |
@@ -614,3 +617,64 @@ still be an advantage.
 If you are still concerned, you can turn the automatic linting off altogether,
 including the option `g:ale_lint_on_enter`, and you can run ALE manually with
 `:ALELint`.
+
+<a name="faq-c-configuration"></a>
+
+### 5.xiv. How can I configure my C or C++ project?
+
+The structure of C and C++ projects varies wildly from project to project, with
+many different build tools being used for building them, and many different
+formats for project configuration files. ALE can run compilers easily, but
+ALE cannot easily detect which compiler flags to use.
+
+Some tools and build configurations can generate
+[compile_commands.json](https://clang.llvm.org/docs/JSONCompilationDatabase.html)
+files. The `cppcheck`, `clangcheck` and `clangtidy` linters can read these
+files for automatically determining the appropriate compiler flags to use.
+
+For linting with compilers like `gcc` and `clang`, and with other tools, you
+will need to tell ALE which compiler flags to use yourself. You can use
+different options for different projects with the `g:ale_pattern_options`
+setting.  Consult the documentation for that setting for more information.
+`b:ale_linters` can be used to select which tools you want to run, say if you
+want to use only `gcc` for one project, and only `clang` for another.
+
+You may also configure buffer-local settings for linters with project-specific
+vimrc files. [local_vimrc](https://github.com/LucHermitte/local_vimrc) can be
+used for executing local vimrc files which can be shared in your project.
+
+<a name="faq-buffer-configuration"></a>
+
+### 5.xv. How can I configure ALE differently for different buffers?
+
+ALE offers various ways to configure which linters or fixers are run, and
+other settings. For the majority of ALE's settings, they can either be
+configured globally with a `g:` variable prefix, or for a specific buffer
+with a `b:` variable prefix. For example, you can configure a Python ftplugin
+file like so.
+
+```vim
+" In ~/.vim/ftplugin/python.vim
+
+" Check Python files with flake8 and pylint.
+let b:ale_linters = ['flake8', 'pylint']
+" Fix Python files with autopep8 and yapf.
+let b:ale_fixers = ['autopep8', 'yapf']
+" Disable warnings about trailing whitespace for Python files.
+let b:ale_warn_about_trailing_whitespace = 0
+```
+
+For configuring files based on regular expression patterns matched against the
+absolute path to a file, you can use `g:ale_pattern_options`.
+
+```vim
+" Do not lint or fix minified files.
+let g:ale_pattern_options = {
+\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+\}
+" If you configure g:ale_pattern_options outside of vimrc, you need this.
+let g:ale_pattern_options_enabled = 1
+```
+
+Buffer-local variables for settings always override the global settings.
