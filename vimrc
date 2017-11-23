@@ -121,7 +121,7 @@
         set foldclose=all " Open folds if you leave them in any way
         set foldcolumn=1 " I can see fold fine thank you
         set foldenable " Turn on folding by default
-        set foldlevel=0 " Autofold everything by default
+        set foldlevel=1 " Don't autofold everything by default
         set foldmethod=syntax " Fold on the syntax
         set foldnestmax=1 " I only like to fold outer functions
         set foldopen=all " Open folds if you touch them in any way
@@ -291,13 +291,6 @@
                 " Things that use two spaces rather than four
                 au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
                 au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
-                au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete foldmethod=syntax
-                au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<cr>
-                au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<cr>
-                au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<cr>
-                au BufRead,BufNewFile *.go nnoremap <buffer> gr :GoRename<cr>
-                au BufRead,BufNewFile *.go nnoremap <buffer> gt :GoTest<cr>
-                au BufRead,BufNewFile *.go nnoremap <buffer> ga :GoAlternate!<cr>
                 au BufRead,BufNewFile MakeFile,Makefile,makefile setlocal noexpandtab sw=8 sts=8 syntax=make
                 " Some JS awesome via romainl
                 au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<cr><cr>
@@ -358,36 +351,6 @@
         let g:vim_markdown_frontmatter=1
 " }}}
 
-" Vim-go {{{
-        let g:go_autodetect_gopath=1
-        let g:go_auto_type_info=0
-        let g:go_bin_path=$HOME.'/go/bin'
-        let g:go_def_mapping_enabled=1
-        let g:go_def_mode='guru'
-        let g:go_def_reuse_buffer=1
-        let g:go_doc_command='godoc'
-        let g:go_fmt_autosave=1
-        let g:go_fmt_command='goimports'
-        let g:go_fmt_experimental=1
-        let g:go_highlight_array_whitespace_error=1
-        let g:go_highlight_build_constraints=1
-        let g:go_highlight_chan_whitespace_error=1
-        let g:go_highlight_extra_types=1
-        let g:go_highlight_fields=1
-        let g:go_highlight_format_strings=1
-        let g:go_highlight_functions=1
-        let g:go_highlight_generate_tags=1
-        let g:go_highlight_methods=1
-        let g:go_highlight_operators=1
-        let g:go_highlight_space_tab_error=1
-        let g:go_highlight_string_spellcheck=1
-        let g:go_highlight_trailing_whitespace_error=1
-        let g:go_highlight_types=1
-        let g:go_info_mode='guru'
-        let g:go_jump_to_error=0
-        let g:go_template_autocreate=0
-        let g:go_textobj_enabled=1
-" }}}
 
 " Netrw {{{
         let g:netrw_altfile=1
