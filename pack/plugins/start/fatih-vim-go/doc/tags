@@ -69,6 +69,7 @@
 'g:go_term_height'	vim-go.txt	/*'g:go_term_height'*
 'g:go_term_mode'	vim-go.txt	/*'g:go_term_mode'*
 'g:go_term_width'	vim-go.txt	/*'g:go_term_width'*
+'g:go_test_prepend_name'	vim-go.txt	/*'g:go_test_prepend_name'*
 'g:go_test_timeout'	vim-go.txt	/*'g:go_test_timeout'*
 'g:go_textobj_enabled'	vim-go.txt	/*'g:go_textobj_enabled'*
 'g:go_textobj_include_function_doc'	vim-go.txt	/*'g:go_textobj_include_function_doc'*

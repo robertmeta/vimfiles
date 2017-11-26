@@ -6,6 +6,14 @@ BACKWARDS INCOMPATIBILITIES:
   still work, but are not supported. You can use `let g:go_version_warning = 0`
   to disable the warning.
   [[GH-1524]](https://github.com/fatih/vim-go/pull/1524).
+* `g:go_autodetect_gopath` is *disabled* by default, as support for `vendor` has
+  been in Go for a while.<br>
+  Also change the implementation for `g:go_autodetect_gopath`; instead of manually
+  setting it before every command it will now be set with the `BufEnter` event,
+  and reset with the `BufLeave` event. This means that `$GOPATH` will be
+  changed for all commands run from Vim.
+  [[GH-1461]](https://github.com/fatih/vim-go/pull/1461) and
+  [[GH-1525]](https://github.com/fatih/vim-go/pull/1525).
 
 BUG FIXES:
 
@@ -21,6 +29,10 @@ BUG FIXES:
   [[GH-1538]](https://github.com/fatih/vim-go/pull/1538)
 * Fix `gpl` snippet for UltiSnips.
   [[GH-1535]](https://github.com/fatih/vim-go/pull/1535)
+* Fix test output processing to correctly handle panics and log statements.
+  [[GH-1513]](https://github.com/fatih/vim-go/pull/1513)
+* `:GoImpl` tab-completion would sometimes stop working
+  [[GH-1581]](https://github.com/fatih/vim-go/pull/1581).
 
 IMPROVEMENTS:
 
@@ -28,14 +40,19 @@ IMPROVEMENTS:
   gets pre-filled can be configured with `g:go_gorename_prefill` option.
   In addition `:GoRename <Tab>` now lists some common options.
   [[GH-1465]](https://github.com/fatih/vim-go/pull/1465).
-* Disable `g:go_autodetect_gopath` by default. [[GH-1461]](https://github.com/fatih/vim-go/pull/1461).
-* Add support for 'g:go_build_tags' to the `:GoTest` family of functions.
+* Add support for `g:go_build_tags` to the `:GoTest` family of functions.
   [[GH-1562]](https://github.com/fatih/vim-go/pull/1562).
 * Pass `--tests` to gometalinter when autosaving and when a custom gometalinter
   command has not been set.
   [[GH-1563]](https://github.com/fatih/vim-go/pull/1563).
 * Do not spam messages when command is run in a directory that does not exist.
-  [[GH-1527]](https://github.com/fatih/vim-go/pull/1527)
+  [[GH-1527]](https://github.com/fatih/vim-go/pull/1527).
+* New setting `g:go_test_prepend_name` (off by default) to add the failing test
+  name to the output of `:GoTest`
+  [[GH-1578]](https://github.com/fatih/vim-go/pull/1578).
+* Run `syntax sync fromstart` after `:GoFmt`; this should make syntax
+  highlighting break slightly less often after formatting code
+  [[GH-1582]](https://github.com/fatih/vim-go/pull/1582).
 
 ## 1.15 - (October 3, 2017)
 
