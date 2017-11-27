@@ -144,7 +144,7 @@
         set noautowriteall " nope
         set nocursorcolumn " no cursor column
         set pastetoggle=<F12> " maybe I can remember F12
-        set nocursorline " no cursor line highlight
+        set cursorline " cursor line highlight
         set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
         set nomore " Scroll away, no pausing
         set nonumber " no line numbers
@@ -312,6 +312,11 @@
                 au FileType markdown setlocal spell
                 au FileType svn setlocal spell
         augroup end
+	augroup CursorLineOnlyInActiveWindow
+	autocmd!
+	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+	autocmd WinLeave * setlocal nocursorline
+	augroup END
 " }}}
 
 " GUI {{{

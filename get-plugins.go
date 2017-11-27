@@ -1,11 +1,13 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 	"os/exec"
 	"strings"
 	"sync"
+	"time"
 )
 
 func main() {
@@ -23,7 +25,7 @@ func main() {
 	plugins := []string{
 		"airblade/vim-gitgutter",
 		"fatih/vim-go",
-		"hauleth/asyncdo.vim",
+		//"hauleth/asyncdo.vim",
 		"KeyboardFire/vim-minisnip",
 		"kopischke/vim-fetch",
 		"lifepillar/vim-mucomplete",
@@ -70,10 +72,17 @@ func clearPack() {
 func updatePlugin(wg *sync.WaitGroup, org, plugin string) {
 	fullURL := "https://github.com/" + plugin
 	localPath := "pack/" + org + "/start/" + strings.Replace(strings.Replace(strings.Replace(strings.ToLower(plugin), `/`, `-`, -1), `.vim`, `-vim`, 1), `_`, `-`, -1)
+	log.Println(localPath, "started")
 
 	mustNotError(os.MkdirAll(localPath, 0777))
 
-	_, err := exec.Command("git", "clone", fullURL, localPath).CombinedOutput()
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	_, err := exec.CommandContext(ctx, "git", "clone", fullURL, localPath).CombinedOutput()
+	if err != nil {
+		log.Println("hi", localPath)
+	}
 	mustNotError(err)
 
 	mustNotError(os.RemoveAll(localPath + "/.git"))
@@ -85,7 +94,6 @@ func updatePlugin(wg *sync.WaitGroup, org, plugin string) {
 	if docsExist {
 		_, err := exec.Command("vim", "-c", "helptags "+docsPath+" | q").CombinedOutput()
 		mustNotError(err)
-
 	}
 
 	log.Println(localPath, "done")
