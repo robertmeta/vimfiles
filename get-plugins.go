@@ -1,11 +1,13 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 	"os/exec"
 	"strings"
 	"sync"
+	"time"
 )
 
 func main() {
@@ -23,8 +25,13 @@ func main() {
 	plugins := []string{
 		"airblade/vim-gitgutter",
 		"fatih/vim-go",
-		"lifepillar/vim-mucomplete",
+		"hauleth/asyncdo.vim",
+		"KeyboardFire/vim-minisnip",
+		"kopischke/vim-fetch",
+		//"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
+		"machakann/vim-sandwich",
+		"Olical/vim-enmasse",
 		"romainl/vim-qf",
 		"romainl/vim-qlist",
 		"t9md/vim-quickhl",
@@ -34,11 +41,11 @@ func main() {
 		"tpope/vim-fugitive",
 		"tpope/vim-repeat",
 		"tpope/vim-rsi",
-		"tpope/vim-surround",
 		"tpope/vim-unimpaired",
 		"tpope/vim-vinegar",
 		"w0rp/ale",
 		"wellle/tmux-complete.vim",
+		"xtal8/traces.vim",
 	}
 
 	clearPack()
@@ -57,38 +64,45 @@ func main() {
 }
 
 func clearPack() {
-	mustNotError(os.RemoveAll("pack/"))
-	mustNotError(os.MkdirAll("pack/", 0777))
+	mustNotError(os.RemoveAll("pack/"), "on pack")
+	mustNotError(os.MkdirAll("pack/", 0777), "on mkdir2")
 }
 
 // TODO: use os.PathSeperator
 func updatePlugin(wg *sync.WaitGroup, org, plugin string) {
 	fullURL := "https://github.com/" + plugin
 	localPath := "pack/" + org + "/start/" + strings.Replace(strings.Replace(strings.Replace(strings.ToLower(plugin), `/`, `-`, -1), `.vim`, `-vim`, 1), `_`, `-`, -1)
+	log.Println(localPath, "started")
 
-	mustNotError(os.MkdirAll(localPath, 0777))
+	mustNotError(os.MkdirAll(localPath, 0777), "on mkdir")
 
-	_, err := exec.Command("git", "clone", fullURL, localPath).CombinedOutput()
-	mustNotError(err)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
 
-	mustNotError(os.RemoveAll(localPath + "/.git"))
+	x, err := exec.CommandContext(ctx, "git", "clone", fullURL, localPath).CombinedOutput()
+	mustNotError(err, "on clone:"+string(x))
+
+	mustNotError(os.RemoveAll(localPath + "/.git"), "on removeall")
 	os.RemoveAll(localPath + "/.gitignore")
 
 	docsPath := localPath + "/doc"
 	docsExist, err := exists(docsPath)
-	mustNotError(err)
+	mustNotError(err, "on exists")
 	if docsExist {
-		_, err := exec.Command("vim", "-c", "helptags "+docsPath+" | q").CombinedOutput()
-		mustNotError(err)
-
+		x, err := exec.CommandContext(ctx, "vim", "-c", "helptags "+docsPath+" | q").CombinedOutput()
+		if err != nil { // don't crash, just error
+			log.Println(string(x))
+			log.Println(err)
+		}
 	}
 
 	log.Println(localPath, "done")
 	wg.Done()
 }
 
-func mustNotError(err error) {
+func mustNotError(err error, note string) {
 	if err != nil {
+		log.Println(note)
 		log.Fatal(err)
 	}
 }

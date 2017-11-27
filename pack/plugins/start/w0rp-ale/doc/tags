@@ -12,6 +12,8 @@ ALEErrorSign	ale.txt	/*ALEErrorSign*
 ALEFirst	ale.txt	/*ALEFirst*
 ALEFix	ale.txt	/*ALEFix*
 ALEFixSuggest	ale.txt	/*ALEFixSuggest*
+ALEGoToDefinition	ale.txt	/*ALEGoToDefinition*
+ALEGoToDefinitionInTab	ale.txt	/*ALEGoToDefinitionInTab*
 ALEInfo	ale.txt	/*ALEInfo*
 ALEInfo-highlight	ale.txt	/*ALEInfo-highlight*
 ALEInfo.	ale.txt	/*ALEInfo.*
@@ -114,6 +116,7 @@ ale-glsl-options	ale-glsl.txt	/*ale-glsl-options*
 ale-go-gofmt	ale-go.txt	/*ale-go-gofmt*
 ale-go-gometalinter	ale-go.txt	/*ale-go-gometalinter*
 ale-go-options	ale-go.txt	/*ale-go-options*
+ale-go-to-definition	ale.txt	/*ale-go-to-definition*
 ale-graphql-gqlint	ale-graphql.txt	/*ale-graphql-gqlint*
 ale-graphql-options	ale-graphql.txt	/*ale-graphql-options*
 ale-handlebars-embertemplatelint	ale-handlebars.txt	/*ale-handlebars-embertemplatelint*
@@ -168,6 +171,7 @@ ale-linter-loading-behaviour	ale.txt	/*ale-linter-loading-behaviour*
 ale-llvm-llc	ale-llvm.txt	/*ale-llvm-llc*
 ale-llvm-options	ale-llvm.txt	/*ale-llvm-options*
 ale-loclist-format	ale.txt	/*ale-loclist-format*
+ale-lsp	ale.txt	/*ale-lsp*
 ale-lsp-linters	ale.txt	/*ale-lsp-linters*
 ale-lua-luacheck	ale-lua.txt	/*ale-lua-luacheck*
 ale-lua-options	ale-lua.txt	/*ale-lua-options*
