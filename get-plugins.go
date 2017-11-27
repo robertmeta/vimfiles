@@ -23,8 +23,13 @@ func main() {
 	plugins := []string{
 		"airblade/vim-gitgutter",
 		"fatih/vim-go",
+		"hauleth/asyncdo.vim",
+		"KeyboardFire/vim-minisnip",
+		"kopischke/vim-fetch",
 		"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
+		"machakann/vim-sandwich",
+		"Olical/vim-enmasse",
 		"romainl/vim-qf",
 		"romainl/vim-qlist",
 		"t9md/vim-quickhl",
@@ -34,11 +39,11 @@ func main() {
 		"tpope/vim-fugitive",
 		"tpope/vim-repeat",
 		"tpope/vim-rsi",
-		"tpope/vim-surround",
 		"tpope/vim-unimpaired",
 		"tpope/vim-vinegar",
 		"w0rp/ale",
 		"wellle/tmux-complete.vim",
+		"xtal8/traces.vim",
 	}
 
 	clearPack()
