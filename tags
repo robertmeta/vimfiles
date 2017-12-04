@@ -2757,6 +2757,8 @@ main	pack/plugins/start/fatih-vim-go/templates/hello_world.go	/^func main() {$/;
 main	pack/plugins/start/fatih-vim-go/templates/hello_world.go	/^package main$/;"	p
 main	pack/plugins/start/fatih-vim-go/templates/hello_world_test.go	/^package main$/;"	p
 main	pack/plugins/start/xtal8-traces-vim/plugin/traces.vim	/^function! s:main(...) abort$/;"	f
+main	test.go	/^func main  {$/;"	f
+main	test.go	/^package main$/;"	p
 manual._inject_keywords	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual._inject_keywords(keywords) "{{{$/;"	f
 manual.add	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.add(pattern, escaped) "{{{$/;"	f
 manual.clear	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.clear() "{{{$/;"	f
