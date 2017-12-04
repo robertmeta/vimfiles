@@ -502,7 +502,6 @@ CreateEnMasseBuffer	pack/plugins/start/olical-vim-enmasse/autoload/enmasse.vim	/
 CreateTSServerMessageData	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^function! s:CreateTSServerMessageData(message) abort$/;"	f
 CreateTemporaryFileForJob	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:CreateTemporaryFileForJob(buffer, temporary_file) abort$/;"	f
 CreateTemporaryFileForJob	pack/plugins/start/w0rp-ale/autoload/ale/fix.vim	/^function! s:CreateTemporaryFileForJob(buffer, temporary_file, input) abort$/;"	f
-CursorLineOnlyInActiveWindow	vimrc	/^	augroup CursorLineOnlyInActiveWindow$/;"	a
 DB_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^    set DB_FILE=%~2$/;"	v
 DB_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^set DB_FILE=cscope.out$/;"	v
 DONE	pack/plugins/start/romainl-vim-qf/README.md	/^## DONE$/;"	i
@@ -524,7 +523,6 @@ Doline	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffe
 DoneParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^:DoneParseArgs$/;"	l
 DoneParseArgs	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:DoneParseArgs$/;"	l
 ERROR	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.bat	/^:ERROR$/;"	l
-Eatchar	ftplugin/go.vim	/^func! Eatchar(pat)$/;"	f
 Echo	pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! s:Echo(message) abort$/;"	f
 EchoCommand	pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! s:EchoCommand(item) abort$/;"	f
 EchoCommandHistory	pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! s:EchoCommandHistory() abort$/;"	f
@@ -2074,58 +2072,32 @@ g:gitgutter_eager	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim
 g:gitgutter_realtime	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^  let g:gitgutter_realtime = 0$/;"	v
 g:gitgutter_sign_column_always	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^  let g:gitgutter_sign_column_always = 0$/;"	v
 g:gitgutter_sign_removed_first_line	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^  let g:gitgutter_sign_removed_first_line = '_^'$/;"	v
-g:go_auto_type_info	ftplugin/go.vim	/^let g:go_auto_type_info=0$/;"	v
-g:go_autodetect_gopath	ftplugin/go.vim	/^let g:go_autodetect_gopath=1$/;"	v
-g:go_bin_path	ftplugin/go.vim	/^let g:go_bin_path=$HOME.'\/go\/bin'$/;"	v
 g:go_decls_mode	pack/plugins/start/fatih-vim-go/autoload/go/decls.vim	/^  let g:go_decls_mode = ''$/;"	v
-g:go_def_mapping_enabled	ftplugin/go.vim	/^let g:go_def_mapping_enabled=1$/;"	v
-g:go_def_mode	ftplugin/go.vim	/^let g:go_def_mode='guru'$/;"	v
-g:go_def_reuse_buffer	ftplugin/go.vim	/^let g:go_def_reuse_buffer=1$/;"	v
-g:go_doc_command	ftplugin/go.vim	/^let g:go_doc_command='godoc'$/;"	v
 g:go_doc_command	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^  let g:go_doc_command = ["godoc"]$/;"	v
 g:go_errcheck_bin	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let g:go_errcheck_bin = "errcheck"$/;"	v
-g:go_fmt_autosave	ftplugin/go.vim	/^let g:go_fmt_autosave=1$/;"	v
-g:go_fmt_command	ftplugin/go.vim	/^let g:go_fmt_command='goimports'$/;"	v
 g:go_fmt_command	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_command = "gofmt"$/;"	v
-g:go_fmt_experimental	ftplugin/go.vim	/^let g:go_fmt_experimental=1$/;"	v
 g:go_fmt_experimental	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_experimental = 0$/;"	v
 g:go_fmt_fail_silently	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_fail_silently = 0$/;"	v
 g:go_fmt_options	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^  let g:go_fmt_options = ''$/;"	v
 g:go_golint_bin	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let g:go_golint_bin = "golint"$/;"	v
 g:go_gorename_bin	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let g:go_gorename_bin = "gorename"$/;"	v
 g:go_gotags_bin	pack/plugins/start/fatih-vim-go/ftplugin/go/tagbar.vim	/^  let g:go_gotags_bin = "gotags"$/;"	v
-g:go_highlight_array_whitespace_error	ftplugin/go.vim	/^let g:go_highlight_array_whitespace_error=1$/;"	v
 g:go_highlight_array_whitespace_error	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_array_whitespace_error = 0$/;"	v
-g:go_highlight_build_constraints	ftplugin/go.vim	/^let g:go_highlight_build_constraints=1$/;"	v
 g:go_highlight_build_constraints	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_build_constraints = 0$/;"	v
-g:go_highlight_chan_whitespace_error	ftplugin/go.vim	/^let g:go_highlight_chan_whitespace_error=1$/;"	v
 g:go_highlight_chan_whitespace_error	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_chan_whitespace_error = 0$/;"	v
-g:go_highlight_extra_types	ftplugin/go.vim	/^let g:go_highlight_extra_types=1$/;"	v
 g:go_highlight_extra_types	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_extra_types = 0$/;"	v
-g:go_highlight_fields	ftplugin/go.vim	/^let g:go_highlight_fields=1$/;"	v
 g:go_highlight_fields	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_fields = 0$/;"	v
-g:go_highlight_format_strings	ftplugin/go.vim	/^let g:go_highlight_format_strings=1$/;"	v
 g:go_highlight_format_strings	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_format_strings = 1$/;"	v
-g:go_highlight_functions	ftplugin/go.vim	/^let g:go_highlight_functions=1$/;"	v
 g:go_highlight_functions	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_functions = 0$/;"	v
-g:go_highlight_generate_tags	ftplugin/go.vim	/^let g:go_highlight_generate_tags=1$/;"	v
 g:go_highlight_generate_tags	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_generate_tags = 0$/;"	v
-g:go_highlight_methods	ftplugin/go.vim	/^let g:go_highlight_methods=1$/;"	v
 g:go_highlight_methods	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_methods = 0$/;"	v
-g:go_highlight_operators	ftplugin/go.vim	/^let g:go_highlight_operators=1$/;"	v
 g:go_highlight_operators	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_operators = 0$/;"	v
-g:go_highlight_space_tab_error	ftplugin/go.vim	/^let g:go_highlight_space_tab_error=1$/;"	v
 g:go_highlight_space_tab_error	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_space_tab_error = 0$/;"	v
-g:go_highlight_string_spellcheck	ftplugin/go.vim	/^let g:go_highlight_string_spellcheck=1$/;"	v
 g:go_highlight_string_spellcheck	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_string_spellcheck = 1$/;"	v
-g:go_highlight_trailing_whitespace_error	ftplugin/go.vim	/^let g:go_highlight_trailing_whitespace_error=1$/;"	v
 g:go_highlight_trailing_whitespace_error	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_trailing_whitespace_error = 0$/;"	v
-g:go_highlight_types	ftplugin/go.vim	/^let g:go_highlight_types=1$/;"	v
 g:go_highlight_types	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_types = 0$/;"	v
 g:go_highlight_variable_assignments	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_variable_assignments = 0$/;"	v
 g:go_highlight_variable_declarations	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^  let g:go_highlight_variable_declarations = 0$/;"	v
-g:go_info_mode	ftplugin/go.vim	/^let g:go_info_mode='guru'$/;"	v
-g:go_jump_to_error	ftplugin/go.vim	/^let g:go_jump_to_error=0$/;"	v
 g:go_jump_to_error	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^  let g:go_jump_to_error = 1$/;"	v
 g:go_list_type	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^  let g:go_list_type = ""$/;"	v
 g:go_list_type_commands	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^  let g:go_list_type_commands = {}$/;"	v
@@ -2140,11 +2112,9 @@ g:go_metalinter_excludes	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^
 g:go_play_open_browser	pack/plugins/start/fatih-vim-go/autoload/go/play.vim	/^  let g:go_play_open_browser = 1$/;"	v
 g:go_running_tests	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let g:go_running_tests = 1$/;"	v
 g:go_snippet_engine	pack/plugins/start/fatih-vim-go/ftplugin/go/snippets.vim	/^  let g:go_snippet_engine = "ultisnips"$/;"	v
-g:go_template_autocreate	ftplugin/go.vim	/^let g:go_template_autocreate=0$/;"	v
 g:go_term_mode	pack/plugins/start/fatih-vim-go/autoload/go/term.vim	/^  let g:go_term_mode = 'vsplit'$/;"	v
 g:go_test_verbose	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^  let g:go_test_verbose = 0$/;"	v
 g:go_testdir	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let g:go_testdir = '\/tmp\/vim-go-test\/testrun'$/;"	v
-g:go_textobj_enabled	ftplugin/go.vim	/^let g:go_textobj_enabled=1$/;"	v
 g:go_textobj_enabled	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^  let g:go_textobj_enabled = 1$/;"	v
 g:go_textobj_include_function_doc	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^  let g:go_textobj_include_function_doc = 1$/;"	v
 g:go_textobj_include_variable	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^  let g:go_textobj_include_variable = 1$/;"	v
@@ -2462,7 +2432,6 @@ gitgutter#utility#warn_once	pack/plugins/start/airblade-vim-gitgutter/autoload/g
 github_url	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:github_url(opts, ...) abort$/;"	f
 gj	vimrc	/^        nnoremap gj j$/;"	m
 gk	vimrc	/^        nnoremap gk k$/;"	m
-go	ftplugin/go.vim	/^augroup go$/;"	a
 go	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^function! s:go(type,...) abort$/;"	f
 go#alternate#Switch	pack/plugins/start/fatih-vim-go/autoload/go/alternate.vim	/^function! go#alternate#Switch(bang, cmd)$/;"	f
 go#asmfmt#Format	pack/plugins/start/fatih-vim-go/autoload/go/asmfmt.vim	/^function! go#asmfmt#Format() abort$/;"	f

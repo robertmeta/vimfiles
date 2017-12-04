@@ -144,7 +144,7 @@
         set noautowriteall " nope
         set nocursorcolumn " no cursor column
         set pastetoggle=<F12> " maybe I can remember F12
-        set cursorline " cursor line highlight
+        set nocursorline " no cursor line highlight
         set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
         set nomore " Scroll away, no pausing
         set nonumber " no line numbers
@@ -285,8 +285,6 @@
         augroup general
                 " Clear!
                 au!
-                " Resize windows automagically
-                au VimResized * :wincmd =
                 " Things that use two spaces rather than four
                 au BufRead,BufNewFile *.rb,*.rhtml setlocal sw=2 sts=2 " ruby likes two
                 au BufRead,BufNewFile *.yaml setlocal sw=2 sts=2 " ruby likes two
@@ -305,11 +303,6 @@
                 au FileType markdown setlocal spell
                 au FileType svn setlocal spell
         augroup end
-	augroup CursorLineOnlyInActiveWindow
-	autocmd!
-	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-	autocmd WinLeave * setlocal nocursorline
-	augroup END
 " }}}
 
 " GUI {{{
@@ -354,7 +347,6 @@
         let g:vim_markdown_folding_disabled=0
         let g:vim_markdown_frontmatter=1
 " }}}
-
 
 " Netrw {{{
         let g:netrw_altfile=1
