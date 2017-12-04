@@ -1,0 +1,9 @@
+g:traces_preserve_view_state	traces.txt	/*g:traces_preserve_view_state*
+g:traces_whole_file_range	traces.txt	/*g:traces_whole_file_range*
+traces-bugs	traces.txt	/*traces-bugs*
+traces-changelog	traces.txt	/*traces-changelog*
+traces-contents	traces.txt	/*traces-contents*
+traces-introduction	traces.txt	/*traces-introduction*
+traces-requirements	traces.txt	/*traces-requirements*
+traces-settings	traces.txt	/*traces-settings*
+traces.txt	traces.txt	/*traces.txt*

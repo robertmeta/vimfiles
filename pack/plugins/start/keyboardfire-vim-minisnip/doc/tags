@@ -1,0 +1,12 @@
+'g:minisnip_backrefmarker'	minisnip.txt	/*'g:minisnip_backrefmarker'*
+'g:minisnip_dir'	minisnip.txt	/*'g:minisnip_dir'*
+'g:minisnip_enddelim'	minisnip.txt	/*'g:minisnip_enddelim'*
+'g:minisnip_evalmarker'	minisnip.txt	/*'g:minisnip_evalmarker'*
+'g:minisnip_startdelim'	minisnip.txt	/*'g:minisnip_startdelim'*
+'g:minisnip_trigger'	minisnip.txt	/*'g:minisnip_trigger'*
+minisnip	minisnip.txt	/*minisnip*
+minisnip-configuration	minisnip.txt	/*minisnip-configuration*
+minisnip-mappings	minisnip.txt	/*minisnip-mappings*
+minisnip-overview	minisnip.txt	/*minisnip-overview*
+minisnip.txt	minisnip.txt	/*minisnip.txt*
+minisnip_<Tab>	minisnip.txt	/*minisnip_<Tab>*

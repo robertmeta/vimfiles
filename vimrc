@@ -67,7 +67,6 @@
         nmap <silent> <up> <esc>:cprev<cr>
         nmap <silent> <down> <esc>:cnext<cr>
 
-        " Mappings
         nnoremap <f5> "=strftime("%c")<cr>P
         nnoremap <leader>A :argadd **/*
         nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
@@ -121,7 +120,11 @@
         set foldclose=all " Open folds if you leave them in any way
         set foldcolumn=1 " I can see fold fine thank you
         set foldenable " Turn on folding by default
+<<<<<<< HEAD
         set foldlevel=1 " Don't autofold everything by default
+=======
+        set foldlevel=10 " Autofold nothing by default
+>>>>>>> dc52c7758bbd32712656c701abcb1bd022ba89e7
         set foldmethod=syntax " Fold on the syntax
         set foldnestmax=1 " I only like to fold outer functions
         set foldopen=all " Open folds if you touch them in any way
@@ -145,7 +148,7 @@
         set noautowriteall " nope
         set nocursorcolumn " no cursor column
         set pastetoggle=<F12> " maybe I can remember F12
-        set nocursorline " no cursor line highlight
+        set cursorline " cursor line highlight
         set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
         set nomore " Scroll away, no pausing
         set nonumber " no line numbers
@@ -306,6 +309,11 @@
                 au FileType markdown setlocal spell
                 au FileType svn setlocal spell
         augroup end
+	augroup CursorLineOnlyInActiveWindow
+	autocmd!
+	autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+	autocmd WinLeave * setlocal nocursorline
+	augroup END
 " }}}
 
 " GUI {{{
@@ -374,7 +382,7 @@
 " }}}
 
 " Nofrils {{{
-        let g:nofrils_strbackgrounds=0 " to turn off highlighted string backgrounds
+        let g:nofrils_strbackgrounds=1 " to turn off highlighted string backgrounds
         let g:nofrils_heavycomments=0 " bright comments off
         let g:nofrils_heavylinenumbers=0 " heavy line numbers off
         if s:running_windows
@@ -500,6 +508,16 @@
 
         nnoremap <S-h> :call ToggleHiddenAll()
         call ToggleHiddenAll()
+
+	function! ZeroPaste(p)
+		let l:original_reg = getreg(v:register)
+		let l:stripped_reg = substitute(l:original_reg, '\v^%(\n|\s)*(.{-})%(\n|\s)*$', '\1', '')
+		call setreg(v:register, l:stripped_reg, 'c')
+		exe 'normal "' . v:register . a:p
+		call setreg(v:register, l:original_reg)
+	endfunction
+	nnoremap <silent> zp :<c-u>call ZeroPaste('p')<cr>
+	nnoremap <silent> zP :<c-u>call ZeroPaste('P')<cr>
 " }}}
 
 " vim: foldmethod=marker:sw=8:

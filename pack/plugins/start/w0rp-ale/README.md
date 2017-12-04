@@ -17,8 +17,7 @@ back to a filesystem.
 In other words, this plugin allows you to lint while you type.
 
 In addition to linting support, ALE offers some support for fixing code with
-formatting tools, and completion via Language Server Protocol servers, or
-servers with similar enough protocols, like `tsserver`.
+formatting tools, and some Language Server Protocol and `tsserver` features.
 
 ## Table of Contents
 
@@ -27,6 +26,7 @@ servers with similar enough protocols, like `tsserver`.
     1. [Linting](#usage-linting)
     2. [Fixing](#usage-fixing)
     3. [Completion](#usage-completion)
+    4. [Go To Definition](#usage-go-to-definition)
 3. [Installation](#installation)
     1. [Installation with Vim package management](#standard-installation)
     2. [Installation with Pathogen](#installation-with-pathogen)
@@ -46,6 +46,8 @@ servers with similar enough protocols, like `tsserver`.
     11. [How can I use the quickfix list instead of the loclist?](#faq-quickfix)
     12. [How can I check JSX files with both stylelint and eslint?](#faq-jsx-stylelint-eslint)
     13. [Will this plugin eat all of my laptop battery power?](#faq-my-battery-is-sad)
+    14. [How can I configure my C or C++ project?](#faq-c-configuration)
+    15. [How can I configure ALE differently for different buffers?](#faq-buffer-configuration)
 
 <a name="supported-languages"></a>
 
@@ -72,6 +74,7 @@ formatting.
 | -------- | ----- |
 | ASM | [gcc](https://gcc.gnu.org) |
 | Ansible | [ansible-lint](https://github.com/willthames/ansible-lint) |
+| API Blueprint | [drafter](https://github.com/apiaryio/drafter) |
 | AsciiDoc | [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good), [redpen](http://redpen.cc/)|
 | Awk | [gawk](https://www.gnu.org/software/gawk/)|
 | Bash | shell [-n flag](https://www.gnu.org/software/bash/manual/bash.html#index-set), [shellcheck](https://www.shellcheck.net/), [shfmt](https://github.com/mvdan/sh) |
@@ -97,9 +100,9 @@ formatting.
 | Erlang | [erlc](http://erlang.org/doc/man/erlc.html), [SyntaxErl](https://github.com/ten0s/syntaxerl) |
 | Fortran | [gcc](https://gcc.gnu.org/) |
 | FusionScript | [fusion-lint](https://github.com/RyanSquared/fusionscript) |
-| GLSL | [glslang](https://github.com/KhronosGroup/glslang) |
+| GLSL | [glslang](https://github.com/KhronosGroup/glslang), [glslls](https://github.com/svenstaro/glsl-language-server) |
 | Go | [gofmt](https://golang.org/cmd/gofmt/), [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports), [go vet](https://golang.org/cmd/vet/), [golint](https://godoc.org/github.com/golang/lint), [gometalinter](https://github.com/alecthomas/gometalinter) !!, [go build](https://golang.org/cmd/go/) !!, [gosimple](https://github.com/dominikh/go-tools/tree/master/cmd/gosimple) !!, [staticcheck](https://github.com/dominikh/go-tools/tree/master/cmd/staticcheck) !! |
-| GraphQL | [gqlint](https://github.com/happylinks/gqlint) |
+| GraphQL | [eslint](http://eslint.org/), [gqlint](https://github.com/happylinks/gqlint) |
 | Haml | [haml-lint](https://github.com/brigade/haml-lint) |
 | Handlebars | [ember-template-lint](https://github.com/rwjblue/ember-template-lint) |
 | Haskell | [ghc](https://www.haskell.org/ghc/), [stack-ghc](https://haskellstack.org/), [stack-build](https://haskellstack.org/) !!, [ghc-mod](https://github.com/DanielG/ghc-mod), [stack-ghc-mod](https://github.com/DanielG/ghc-mod), [hlint](https://hackage.haskell.org/package/hlint), [hdevtools](https://hackage.haskell.org/package/hdevtools), [hfmt](https://github.com/danstiner/hfmt) |
@@ -129,7 +132,7 @@ formatting.
 | proto | [protoc-gen-lint](https://github.com/ckaznocha/protoc-gen-lint) |
 | Pug | [pug-lint](https://github.com/pugjs/pug-lint) |
 | Puppet | [puppet](https://puppet.com), [puppet-lint](https://puppet-lint.com) |
-| Python | [autopep8](https://github.com/hhatto/autopep8), [flake8](http://flake8.pycqa.org/en/latest/), [isort](https://github.com/timothycrosley/isort), [mypy](http://mypy-lang.org/), [pycodestyle](https://github.com/PyCQA/pycodestyle), [pyls](https://github.com/palantir/python-language-server), [pylint](https://www.pylint.org/) !!, [yapf](https://github.com/google/yapf) |
+| Python | [autopep8](https://github.com/hhatto/autopep8), [flake8](http://flake8.pycqa.org/en/latest/), [isort](https://github.com/timothycrosley/isort), [mypy](http://mypy-lang.org/), [prospector](http://github.com/landscapeio/prospector), [pycodestyle](https://github.com/PyCQA/pycodestyle), [pyls](https://github.com/palantir/python-language-server), [pylint](https://www.pylint.org/) !!, [yapf](https://github.com/google/yapf) |
 | R | [lintr](https://github.com/jimhester/lintr) |
 | ReasonML | [merlin](https://github.com/the-lambda-church/merlin) see `:help ale-integration-reason-merlin` for configuration instructions, [ols](https://github.com/freebroccolo/ocaml-language-server), [refmt](https://github.com/reasonml/reason-cli) |
 | reStructuredText | [proselint](http://proselint.com/), [rstcheck](https://github.com/myint/rstcheck), [write-good](https://github.com/btford/write-good), [redpen](http://redpen.cc/) |
@@ -219,6 +222,15 @@ let g:ale_completion_enabled = 1
 ```
 
 See `:help ale-completion` for more information.
+
+<a name="usage-go-to-definition"></a>
+
+### 2.iv Go To Definition
+
+ALE supports jumping to the definition of words under your cursor with the
+`:ALEGoToDefinition` command using any enabled LSP linters and `tsserver`.
+
+See `:help ale-go-to-definition` for more information.
 
 <a name="installation"></a>
 
@@ -614,3 +626,64 @@ still be an advantage.
 If you are still concerned, you can turn the automatic linting off altogether,
 including the option `g:ale_lint_on_enter`, and you can run ALE manually with
 `:ALELint`.
+
+<a name="faq-c-configuration"></a>
+
+### 5.xiv. How can I configure my C or C++ project?
+
+The structure of C and C++ projects varies wildly from project to project, with
+many different build tools being used for building them, and many different
+formats for project configuration files. ALE can run compilers easily, but
+ALE cannot easily detect which compiler flags to use.
+
+Some tools and build configurations can generate
+[compile_commands.json](https://clang.llvm.org/docs/JSONCompilationDatabase.html)
+files. The `cppcheck`, `clangcheck` and `clangtidy` linters can read these
+files for automatically determining the appropriate compiler flags to use.
+
+For linting with compilers like `gcc` and `clang`, and with other tools, you
+will need to tell ALE which compiler flags to use yourself. You can use
+different options for different projects with the `g:ale_pattern_options`
+setting.  Consult the documentation for that setting for more information.
+`b:ale_linters` can be used to select which tools you want to run, say if you
+want to use only `gcc` for one project, and only `clang` for another.
+
+You may also configure buffer-local settings for linters with project-specific
+vimrc files. [local_vimrc](https://github.com/LucHermitte/local_vimrc) can be
+used for executing local vimrc files which can be shared in your project.
+
+<a name="faq-buffer-configuration"></a>
+
+### 5.xv. How can I configure ALE differently for different buffers?
+
+ALE offers various ways to configure which linters or fixers are run, and
+other settings. For the majority of ALE's settings, they can either be
+configured globally with a `g:` variable prefix, or for a specific buffer
+with a `b:` variable prefix. For example, you can configure a Python ftplugin
+file like so.
+
+```vim
+" In ~/.vim/ftplugin/python.vim
+
+" Check Python files with flake8 and pylint.
+let b:ale_linters = ['flake8', 'pylint']
+" Fix Python files with autopep8 and yapf.
+let b:ale_fixers = ['autopep8', 'yapf']
+" Disable warnings about trailing whitespace for Python files.
+let b:ale_warn_about_trailing_whitespace = 0
+```
+
+For configuring files based on regular expression patterns matched against the
+absolute path to a file, you can use `g:ale_pattern_options`.
+
+```vim
+" Do not lint or fix minified files.
+let g:ale_pattern_options = {
+\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+\}
+" If you configure g:ale_pattern_options outside of vimrc, you need this.
+let g:ale_pattern_options_enabled = 1
+```
+
+Buffer-local variables for settings always override the global settings.

@@ -12,6 +12,8 @@ ALEErrorSign	ale.txt	/*ALEErrorSign*
 ALEFirst	ale.txt	/*ALEFirst*
 ALEFix	ale.txt	/*ALEFix*
 ALEFixSuggest	ale.txt	/*ALEFixSuggest*
+ALEGoToDefinition	ale.txt	/*ALEGoToDefinition*
+ALEGoToDefinitionInTab	ale.txt	/*ALEGoToDefinitionInTab*
 ALEInfo	ale.txt	/*ALEInfo*
 ALEInfo-highlight	ale.txt	/*ALEInfo-highlight*
 ALEInfo.	ale.txt	/*ALEInfo.*
@@ -110,10 +112,13 @@ ale-fortran-options	ale-fortran.txt	/*ale-fortran-options*
 ale-fuse-fusionlint	ale-fuse.txt	/*ale-fuse-fusionlint*
 ale-fuse-options	ale-fuse.txt	/*ale-fuse-options*
 ale-glsl-glslang	ale-glsl.txt	/*ale-glsl-glslang*
+ale-glsl-glslls	ale-glsl.txt	/*ale-glsl-glslls*
 ale-glsl-options	ale-glsl.txt	/*ale-glsl-options*
 ale-go-gofmt	ale-go.txt	/*ale-go-gofmt*
 ale-go-gometalinter	ale-go.txt	/*ale-go-gometalinter*
 ale-go-options	ale-go.txt	/*ale-go-options*
+ale-go-to-definition	ale.txt	/*ale-go-to-definition*
+ale-graphql-eslint	ale-graphql.txt	/*ale-graphql-eslint*
 ale-graphql-gqlint	ale-graphql.txt	/*ale-graphql-gqlint*
 ale-graphql-options	ale-graphql.txt	/*ale-graphql-options*
 ale-handlebars-embertemplatelint	ale-handlebars.txt	/*ale-handlebars-embertemplatelint*
@@ -168,6 +173,7 @@ ale-linter-loading-behaviour	ale.txt	/*ale-linter-loading-behaviour*
 ale-llvm-llc	ale-llvm.txt	/*ale-llvm-llc*
 ale-llvm-options	ale-llvm.txt	/*ale-llvm-options*
 ale-loclist-format	ale.txt	/*ale-loclist-format*
+ale-lsp	ale.txt	/*ale-lsp*
 ale-lsp-linters	ale.txt	/*ale-lsp-linters*
 ale-lua-luacheck	ale-lua.txt	/*ale-lua-luacheck*
 ale-lua-options	ale-lua.txt	/*ale-lua-options*
@@ -209,6 +215,7 @@ ale-python-flake8	ale-python.txt	/*ale-python-flake8*
 ale-python-isort	ale-python.txt	/*ale-python-isort*
 ale-python-mypy	ale-python.txt	/*ale-python-mypy*
 ale-python-options	ale-python.txt	/*ale-python-options*
+ale-python-prospector	ale-python.txt	/*ale-python-prospector*
 ale-python-pycodestyle	ale-python.txt	/*ale-python-pycodestyle*
 ale-python-pylint	ale-python.txt	/*ale-python-pylint*
 ale-python-pyls	ale-python.txt	/*ale-python-pyls*
@@ -226,6 +233,7 @@ ale-ruby-options	ale-ruby.txt	/*ale-ruby-options*
 ale-ruby-rails_best_practices	ale-ruby.txt	/*ale-ruby-rails_best_practices*
 ale-ruby-reek	ale-ruby.txt	/*ale-ruby-reek*
 ale-ruby-rubocop	ale-ruby.txt	/*ale-ruby-rubocop*
+ale-ruby-ruby	ale-ruby.txt	/*ale-ruby-ruby*
 ale-rust-cargo	ale-rust.txt	/*ale-rust-cargo*
 ale-rust-options	ale-rust.txt	/*ale-rust-options*
 ale-rust-rls	ale-rust.txt	/*ale-rust-rls*
@@ -335,6 +343,7 @@ b:ale_dart_dartanalyzer_executable	ale-dart.txt	/*b:ale_dart_dartanalyzer_execut
 b:ale_dockerfile_hadolint_image	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_image*
 b:ale_dockerfile_hadolint_use_docker	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_use_docker*
 b:ale_echo_delay	ale.txt	/*b:ale_echo_delay*
+b:ale_echo_msg_format	ale.txt	/*b:ale_echo_msg_format*
 b:ale_elixir_mix_options	ale-elixir.txt	/*b:ale_elixir_mix_options*
 b:ale_elm_format_executable	ale-elm.txt	/*b:ale_elm_format_executable*
 b:ale_elm_format_options	ale-elm.txt	/*b:ale_elm_format_options*
@@ -353,6 +362,8 @@ b:ale_fuse_fusionlint_executable	ale-fuse.txt	/*b:ale_fuse_fusionlint_executable
 b:ale_fuse_fusionlint_options	ale-fuse.txt	/*b:ale_fuse_fusionlint_options*
 b:ale_glsl_glslang_executable	ale-glsl.txt	/*b:ale_glsl_glslang_executable*
 b:ale_glsl_glslang_options	ale-glsl.txt	/*b:ale_glsl_glslang_options*
+b:ale_glsl_glslls_executable	ale-glsl.txt	/*b:ale_glsl_glslls_executable*
+b:ale_glsl_glslls_logfile	ale-glsl.txt	/*b:ale_glsl_glslls_logfile*
 b:ale_go_gofmt_options	ale-go.txt	/*b:ale_go_gofmt_options*
 b:ale_go_gometalinter_executable	ale-go.txt	/*b:ale_go_gometalinter_executable*
 b:ale_go_gometalinter_options	ale-go.txt	/*b:ale_go_gometalinter_options*
@@ -379,12 +390,12 @@ b:ale_javascript_eslint_suppress_missing_config	ale-javascript.txt	/*b:ale_javas
 b:ale_javascript_eslint_use_global	ale-javascript.txt	/*b:ale_javascript_eslint_use_global*
 b:ale_javascript_flow_executable	ale-javascript.txt	/*b:ale_javascript_flow_executable*
 b:ale_javascript_flow_use_global	ale-javascript.txt	/*b:ale_javascript_flow_use_global*
+b:ale_javascript_flow_use_home_config	ale-javascript.txt	/*b:ale_javascript_flow_use_home_config*
 b:ale_javascript_jscs_executable	ale-javascript.txt	/*b:ale_javascript_jscs_executable*
 b:ale_javascript_jscs_use_global	ale-javascript.txt	/*b:ale_javascript_jscs_use_global*
 b:ale_javascript_jshint_executable	ale-javascript.txt	/*b:ale_javascript_jshint_executable*
 b:ale_javascript_jshint_use_global	ale-javascript.txt	/*b:ale_javascript_jshint_use_global*
 b:ale_javascript_prettier_eslint_executable	ale-javascript.txt	/*b:ale_javascript_prettier_eslint_executable*
-b:ale_javascript_prettier_eslint_legacy	ale-javascript.txt	/*b:ale_javascript_prettier_eslint_legacy*
 b:ale_javascript_prettier_eslint_options	ale-javascript.txt	/*b:ale_javascript_prettier_eslint_options*
 b:ale_javascript_prettier_eslint_use_global	ale-javascript.txt	/*b:ale_javascript_prettier_eslint_use_global*
 b:ale_javascript_prettier_executable	ale-javascript.txt	/*b:ale_javascript_prettier_executable*
@@ -393,7 +404,6 @@ b:ale_javascript_prettier_standard_executable	ale-javascript.txt	/*b:ale_javascr
 b:ale_javascript_prettier_standard_options	ale-javascript.txt	/*b:ale_javascript_prettier_standard_options*
 b:ale_javascript_prettier_standard_use_global	ale-javascript.txt	/*b:ale_javascript_prettier_standard_use_global*
 b:ale_javascript_prettier_use_global	ale-javascript.txt	/*b:ale_javascript_prettier_use_global*
-b:ale_javascript_prettier_use_local_config	ale-javascript.txt	/*b:ale_javascript_prettier_use_local_config*
 b:ale_javascript_standard_executable	ale-javascript.txt	/*b:ale_javascript_standard_executable*
 b:ale_javascript_standard_options	ale-javascript.txt	/*b:ale_javascript_standard_options*
 b:ale_javascript_standard_use_global	ale-javascript.txt	/*b:ale_javascript_standard_use_global*
@@ -412,6 +422,7 @@ b:ale_linter_aliases	ale.txt	/*b:ale_linter_aliases*
 b:ale_linters	ale.txt	/*b:ale_linters*
 b:ale_list_window_size	ale.txt	/*b:ale_list_window_size*
 b:ale_llvm_llc_executable	ale-llvm.txt	/*b:ale_llvm_llc_executable*
+b:ale_loclist_msg_format	ale.txt	/*b:ale_loclist_msg_format*
 b:ale_lua_luacheck_executable	ale-lua.txt	/*b:ale_lua_luacheck_executable*
 b:ale_lua_luacheck_options	ale-lua.txt	/*b:ale_lua_luacheck_options*
 b:ale_max_signs	ale.txt	/*b:ale_max_signs*
@@ -457,6 +468,9 @@ b:ale_python_isort_use_global	ale-python.txt	/*b:ale_python_isort_use_global*
 b:ale_python_mypy_executable	ale-python.txt	/*b:ale_python_mypy_executable*
 b:ale_python_mypy_options	ale-python.txt	/*b:ale_python_mypy_options*
 b:ale_python_mypy_use_global	ale-python.txt	/*b:ale_python_mypy_use_global*
+b:ale_python_prospector_executable	ale-python.txt	/*b:ale_python_prospector_executable*
+b:ale_python_prospector_options	ale-python.txt	/*b:ale_python_prospector_options*
+b:ale_python_prospector_use_global	ale-python.txt	/*b:ale_python_prospector_use_global*
 b:ale_python_pycodestyle_executable	ale-python.txt	/*b:ale_python_pycodestyle_executable*
 b:ale_python_pycodestyle_options	ale-python.txt	/*b:ale_python_pycodestyle_options*
 b:ale_python_pycodestyle_use_global	ale-python.txt	/*b:ale_python_pycodestyle_use_global*
@@ -464,6 +478,7 @@ b:ale_python_pylint_executable	ale-python.txt	/*b:ale_python_pylint_executable*
 b:ale_python_pylint_options	ale-python.txt	/*b:ale_python_pylint_options*
 b:ale_python_pylint_use_global	ale-python.txt	/*b:ale_python_pylint_use_global*
 b:ale_python_pyls_executable	ale-python.txt	/*b:ale_python_pyls_executable*
+b:ale_python_pyls_use_global	ale-python.txt	/*b:ale_python_pyls_use_global*
 b:ale_python_yapf_executable	ale-python.txt	/*b:ale_python_yapf_executable*
 b:ale_python_yapf_use_global	ale-python.txt	/*b:ale_python_yapf_use_global*
 b:ale_r_lintr_options	ale-r.txt	/*b:ale_r_lintr_options*
@@ -476,11 +491,14 @@ b:ale_ruby_rails_best_practices_executable	ale-ruby.txt	/*b:ale_ruby_rails_best_
 b:ale_ruby_rails_best_practices_options	ale-ruby.txt	/*b:ale_ruby_rails_best_practices_options*
 b:ale_ruby_reek_show_context	ale-ruby.txt	/*b:ale_ruby_reek_show_context*
 b:ale_ruby_reek_show_wiki_link	ale-ruby.txt	/*b:ale_ruby_reek_show_wiki_link*
+b:ale_ruby_rubocop_executable	ale-ruby.txt	/*b:ale_ruby_rubocop_executable*
 b:ale_ruby_rubocop_options	ale-ruby.txt	/*b:ale_ruby_rubocop_options*
+b:ale_ruby_ruby_executable	ale-ruby.txt	/*b:ale_ruby_ruby_executable*
 b:ale_rust_cargo_check_all_targets	ale-rust.txt	/*b:ale_rust_cargo_check_all_targets*
 b:ale_rust_cargo_use_check	ale-rust.txt	/*b:ale_rust_cargo_use_check*
 b:ale_rust_ignore_error_codes	ale-rust.txt	/*b:ale_rust_ignore_error_codes*
 b:ale_rust_rls_executable	ale-rust.txt	/*b:ale_rust_rls_executable*
+b:ale_rust_rls_toolchain	ale-rust.txt	/*b:ale_rust_rls_toolchain*
 b:ale_rust_rustfmt_options	ale-rust.txt	/*b:ale_rust_rustfmt_options*
 b:ale_sass_stylelint_executable	ale-sass.txt	/*b:ale_sass_stylelint_executable*
 b:ale_sass_stylelint_use_global	ale-sass.txt	/*b:ale_sass_stylelint_use_global*
@@ -519,6 +537,7 @@ b:ale_typescript_tsserver_use_global	ale-typescript.txt	/*b:ale_typescript_tsser
 b:ale_verilog_verilator_options	ale-verilog.txt	/*b:ale_verilog_verilator_options*
 b:ale_vim_vint_show_style_issues	ale-vim.txt	/*b:ale_vim_vint_show_style_issues*
 b:ale_virtualenv_dir_names	ale.txt	/*b:ale_virtualenv_dir_names*
+b:ale_warn_about_trailing_blank_lines	ale.txt	/*b:ale_warn_about_trailing_blank_lines*
 b:ale_warn_about_trailing_whitespace	ale.txt	/*b:ale_warn_about_trailing_whitespace*
 b:ale_windows_node_executable_path	ale.txt	/*b:ale_windows_node_executable_path*
 b:ale_writegood_executable	ale.txt	/*b:ale_writegood_executable*
@@ -548,6 +567,7 @@ g:ale_c_cppcheck_executable	ale-c.txt	/*g:ale_c_cppcheck_executable*
 g:ale_c_cppcheck_options	ale-c.txt	/*g:ale_c_cppcheck_options*
 g:ale_c_gcc_executable	ale-c.txt	/*g:ale_c_gcc_executable*
 g:ale_c_gcc_options	ale-c.txt	/*g:ale_c_gcc_options*
+g:ale_cache_executable_check_failures	ale.txt	/*g:ale_cache_executable_check_failures*
 g:ale_change_sign_column_color	ale.txt	/*g:ale_change_sign_column_color*
 g:ale_chef_foodcritic_executable	ale-chef.txt	/*g:ale_chef_foodcritic_executable*
 g:ale_chef_foodcritic_options	ale-chef.txt	/*g:ale_chef_foodcritic_options*
@@ -607,6 +627,8 @@ g:ale_fuse_fusionlint_executable	ale-fuse.txt	/*g:ale_fuse_fusionlint_executable
 g:ale_fuse_fusionlint_options	ale-fuse.txt	/*g:ale_fuse_fusionlint_options*
 g:ale_glsl_glslang_executable	ale-glsl.txt	/*g:ale_glsl_glslang_executable*
 g:ale_glsl_glslang_options	ale-glsl.txt	/*g:ale_glsl_glslang_options*
+g:ale_glsl_glslls_executable	ale-glsl.txt	/*g:ale_glsl_glslls_executable*
+g:ale_glsl_glslls_logfile	ale-glsl.txt	/*g:ale_glsl_glslls_logfile*
 g:ale_go_gofmt_options	ale-go.txt	/*g:ale_go_gofmt_options*
 g:ale_go_gometalinter_executable	ale-go.txt	/*g:ale_go_gometalinter_executable*
 g:ale_go_gometalinter_options	ale-go.txt	/*g:ale_go_gometalinter_options*
@@ -635,12 +657,12 @@ g:ale_javascript_eslint_suppress_missing_config	ale-javascript.txt	/*g:ale_javas
 g:ale_javascript_eslint_use_global	ale-javascript.txt	/*g:ale_javascript_eslint_use_global*
 g:ale_javascript_flow_executable	ale-javascript.txt	/*g:ale_javascript_flow_executable*
 g:ale_javascript_flow_use_global	ale-javascript.txt	/*g:ale_javascript_flow_use_global*
+g:ale_javascript_flow_use_home_config	ale-javascript.txt	/*g:ale_javascript_flow_use_home_config*
 g:ale_javascript_jscs_executable	ale-javascript.txt	/*g:ale_javascript_jscs_executable*
 g:ale_javascript_jscs_use_global	ale-javascript.txt	/*g:ale_javascript_jscs_use_global*
 g:ale_javascript_jshint_executable	ale-javascript.txt	/*g:ale_javascript_jshint_executable*
 g:ale_javascript_jshint_use_global	ale-javascript.txt	/*g:ale_javascript_jshint_use_global*
 g:ale_javascript_prettier_eslint_executable	ale-javascript.txt	/*g:ale_javascript_prettier_eslint_executable*
-g:ale_javascript_prettier_eslint_legacy	ale-javascript.txt	/*g:ale_javascript_prettier_eslint_legacy*
 g:ale_javascript_prettier_eslint_options	ale-javascript.txt	/*g:ale_javascript_prettier_eslint_options*
 g:ale_javascript_prettier_eslint_use_global	ale-javascript.txt	/*g:ale_javascript_prettier_eslint_use_global*
 g:ale_javascript_prettier_executable	ale-javascript.txt	/*g:ale_javascript_prettier_executable*
@@ -649,7 +671,6 @@ g:ale_javascript_prettier_standard_executable	ale-javascript.txt	/*g:ale_javascr
 g:ale_javascript_prettier_standard_options	ale-javascript.txt	/*g:ale_javascript_prettier_standard_options*
 g:ale_javascript_prettier_standard_use_global	ale-javascript.txt	/*g:ale_javascript_prettier_standard_use_global*
 g:ale_javascript_prettier_use_global	ale-javascript.txt	/*g:ale_javascript_prettier_use_global*
-g:ale_javascript_prettier_use_local_config	ale-javascript.txt	/*g:ale_javascript_prettier_use_local_config*
 g:ale_javascript_standard_executable	ale-javascript.txt	/*g:ale_javascript_standard_executable*
 g:ale_javascript_standard_options	ale-javascript.txt	/*g:ale_javascript_standard_options*
 g:ale_javascript_standard_use_global	ale-javascript.txt	/*g:ale_javascript_standard_use_global*
@@ -734,6 +755,9 @@ g:ale_python_isort_use_global	ale-python.txt	/*g:ale_python_isort_use_global*
 g:ale_python_mypy_executable	ale-python.txt	/*g:ale_python_mypy_executable*
 g:ale_python_mypy_options	ale-python.txt	/*g:ale_python_mypy_options*
 g:ale_python_mypy_use_global	ale-python.txt	/*g:ale_python_mypy_use_global*
+g:ale_python_prospector_executable	ale-python.txt	/*g:ale_python_prospector_executable*
+g:ale_python_prospector_options	ale-python.txt	/*g:ale_python_prospector_options*
+g:ale_python_prospector_use_global	ale-python.txt	/*g:ale_python_prospector_use_global*
 g:ale_python_pycodestyle_executable	ale-python.txt	/*g:ale_python_pycodestyle_executable*
 g:ale_python_pycodestyle_options	ale-python.txt	/*g:ale_python_pycodestyle_options*
 g:ale_python_pycodestyle_use_global	ale-python.txt	/*g:ale_python_pycodestyle_use_global*
@@ -741,6 +765,7 @@ g:ale_python_pylint_executable	ale-python.txt	/*g:ale_python_pylint_executable*
 g:ale_python_pylint_options	ale-python.txt	/*g:ale_python_pylint_options*
 g:ale_python_pylint_use_global	ale-python.txt	/*g:ale_python_pylint_use_global*
 g:ale_python_pyls_executable	ale-python.txt	/*g:ale_python_pyls_executable*
+g:ale_python_pyls_use_global	ale-python.txt	/*g:ale_python_pyls_use_global*
 g:ale_python_yapf_executable	ale-python.txt	/*g:ale_python_yapf_executable*
 g:ale_python_yapf_use_global	ale-python.txt	/*g:ale_python_yapf_use_global*
 g:ale_r_lintr_options	ale-r.txt	/*g:ale_r_lintr_options*
@@ -753,11 +778,14 @@ g:ale_ruby_rails_best_practices_executable	ale-ruby.txt	/*g:ale_ruby_rails_best_
 g:ale_ruby_rails_best_practices_options	ale-ruby.txt	/*g:ale_ruby_rails_best_practices_options*
 g:ale_ruby_reek_show_context	ale-ruby.txt	/*g:ale_ruby_reek_show_context*
 g:ale_ruby_reek_show_wiki_link	ale-ruby.txt	/*g:ale_ruby_reek_show_wiki_link*
+g:ale_ruby_rubocop_executable	ale-ruby.txt	/*g:ale_ruby_rubocop_executable*
 g:ale_ruby_rubocop_options	ale-ruby.txt	/*g:ale_ruby_rubocop_options*
+g:ale_ruby_ruby_executable	ale-ruby.txt	/*g:ale_ruby_ruby_executable*
 g:ale_rust_cargo_check_all_targets	ale-rust.txt	/*g:ale_rust_cargo_check_all_targets*
 g:ale_rust_cargo_use_check	ale-rust.txt	/*g:ale_rust_cargo_use_check*
 g:ale_rust_ignore_error_codes	ale-rust.txt	/*g:ale_rust_ignore_error_codes*
 g:ale_rust_rls_executable	ale-rust.txt	/*g:ale_rust_rls_executable*
+g:ale_rust_rls_toolchain	ale-rust.txt	/*g:ale_rust_rls_toolchain*
 g:ale_rust_rustfmt_options	ale-rust.txt	/*g:ale_rust_rustfmt_options*
 g:ale_sass_stylelint_executable	ale-sass.txt	/*g:ale_sass_stylelint_executable*
 g:ale_sass_stylelint_use_global	ale-sass.txt	/*g:ale_sass_stylelint_use_global*
@@ -810,6 +838,7 @@ g:ale_typescript_tsserver_use_global	ale-typescript.txt	/*g:ale_typescript_tsser
 g:ale_verilog_verilator_options	ale-verilog.txt	/*g:ale_verilog_verilator_options*
 g:ale_vim_vint_show_style_issues	ale-vim.txt	/*g:ale_vim_vint_show_style_issues*
 g:ale_virtualenv_dir_names	ale.txt	/*g:ale_virtualenv_dir_names*
+g:ale_warn_about_trailing_blank_lines	ale.txt	/*g:ale_warn_about_trailing_blank_lines*
 g:ale_warn_about_trailing_whitespace	ale.txt	/*g:ale_warn_about_trailing_whitespace*
 g:ale_windows_node_executable_path	ale.txt	/*g:ale_windows_node_executable_path*
 g:ale_writegood_executable	ale.txt	/*g:ale_writegood_executable*

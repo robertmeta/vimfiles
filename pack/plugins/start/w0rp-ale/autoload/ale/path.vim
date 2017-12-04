@@ -31,6 +31,7 @@ endfunction
 " through the paths relative to the given buffer.
 function! ale#path#FindNearestFile(buffer, filename) abort
     let l:buffer_filename = fnamemodify(bufname(a:buffer), ':p')
+    let l:buffer_filename = fnameescape(l:buffer_filename)
 
     let l:relative_path = findfile(a:filename, l:buffer_filename . ';')
 
@@ -45,6 +46,7 @@ endfunction
 " through the paths relative to the given buffer.
 function! ale#path#FindNearestDirectory(buffer, directory_name) abort
     let l:buffer_filename = fnamemodify(bufname(a:buffer), ':p')
+    let l:buffer_filename = fnameescape(l:buffer_filename)
 
     let l:relative_path = finddir(a:directory_name, l:buffer_filename . ';')
 
@@ -185,5 +187,12 @@ function! ale#path#FromURI(uri) abort
     let l:i = len('file://')
     let l:encoded_path = a:uri[: l:i - 1] is# 'file://' ? a:uri[l:i :] : a:uri
 
-    return ale#uri#Decode(l:encoded_path)
+    let l:path = ale#uri#Decode(l:encoded_path)
+
+    " If the path is like /C:/foo/bar, it should be C:\foo\bar instead.
+    if l:path =~# '^/[a-zA-Z]:'
+        let l:path = substitute(l:path[1:], '/', '\\', 'g')
+    endif
+
+    return l:path
 endfunction

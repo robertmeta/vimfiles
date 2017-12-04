@@ -101,6 +101,49 @@ Execute(ale#lsp#message#DidClose() should return correct messages):
   \ ],
   \ ale#lsp#message#DidClose(bufnr(''))
 
+Execute(ale#lsp#message#Completion() should return correct messages):
+  AssertEqual
+  \ [
+  \   0,
+  \   'textDocument/completion',
+  \   {
+  \     'textDocument': {
+  \         'uri': ale#path#ToURI(g:dir . '/foo/bar.ts'),
+  \     },
+  \     'position': {'line': 11, 'character': 34},
+  \   }
+  \ ],
+  \ ale#lsp#message#Completion(bufnr(''), 12, 34, '')
+
+Execute(ale#lsp#message#Completion() should return correct messages with a trigger charaacter):
+  AssertEqual
+  \ [
+  \   0,
+  \   'textDocument/completion',
+  \   {
+  \     'textDocument': {
+  \         'uri': ale#path#ToURI(g:dir . '/foo/bar.ts'),
+  \     },
+  \     'position': {'line': 11, 'character': 34},
+  \     'context': {'triggerKind': 2, 'triggerCharacter': '.'},
+  \   }
+  \ ],
+  \ ale#lsp#message#Completion(bufnr(''), 12, 34, '.')
+  \
+Execute(ale#lsp#message#Definition() should return correct messages):
+  AssertEqual
+  \ [
+  \   0,
+  \   'textDocument/definition',
+  \   {
+  \     'textDocument': {
+  \         'uri': ale#path#ToURI(g:dir . '/foo/bar.ts'),
+  \     },
+  \     'position': {'line': 11, 'character': 34},
+  \   }
+  \ ],
+  \ ale#lsp#message#Definition(bufnr(''), 12, 34)
+
 Execute(ale#lsp#tsserver_message#Open() should return correct messages):
   AssertEqual
   \ [
@@ -177,3 +220,16 @@ Execute(ale#lsp#tsserver_message#CompletionEntryDetails() should return correct 
   \   }
   \ ],
   \ ale#lsp#tsserver_message#CompletionEntryDetails(bufnr(''), 347, 12, ['foo', 'bar'])
+
+Execute(ale#lsp#tsserver_message#Definition() should return correct messages):
+  AssertEqual
+  \ [
+  \   0,
+  \   'ts@definition',
+  \   {
+  \     'file': ale#path#Winify(g:dir . '/foo/bar.ts'),
+  \     'line': 347,
+  \     'offset': 12,
+  \   }
+  \ ],
+  \ ale#lsp#tsserver_message#Definition(bufnr(''), 347, 12)

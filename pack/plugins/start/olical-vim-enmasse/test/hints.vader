@@ -1,0 +1,31 @@
+Before (read the example grepable file and grep for quickfix):
+  let lines = readfile("test/grepable.txt", "b")
+  silent grep! quickfix test/grepable.txt
+
+Execute (when the cursor is moved, the hint updates):
+  EnMasse
+  normal j
+
+  redir => messages
+  doautocmd CursorMoved
+  redir END
+
+  quit
+  let result = get(split(messages, "\n"), -1, "")
+
+  AssertEqual lines[3], result
+
+Execute (when lines have been joined, the hint contains both of the results seperated with a pipe):
+  silent grep! "Dupe!" test/grepable.txt
+  silent grepadd! "Dupe!" test/grepable.txt
+  EnMasse
+  normal jk
+
+  redir => messages
+  doautocmd CursorMoved
+  redir END
+
+  quit
+  let result = get(split(messages, "\n"), -1, "")
+
+  AssertEqual join([lines[5], lines[5]], " | "), result
