@@ -120,11 +120,7 @@
         set foldclose=all " Open folds if you leave them in any way
         set foldcolumn=1 " I can see fold fine thank you
         set foldenable " Turn on folding by default
-<<<<<<< HEAD
-        set foldlevel=1 " Don't autofold everything by default
-=======
         set foldlevel=10 " Autofold nothing by default
->>>>>>> dc52c7758bbd32712656c701abcb1bd022ba89e7
         set foldmethod=syntax " Fold on the syntax
         set foldnestmax=1 " I only like to fold outer functions
         set foldopen=all " Open folds if you touch them in any way
