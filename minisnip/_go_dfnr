@@ -1,0 +1,6 @@
+defer func() {
+	err := recover()
+	if err != nil {
+		{{++}}
+	}
+}()

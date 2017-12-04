@@ -361,8 +361,6 @@ $TMPDIR	pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 <backspace>	vimrc	/^        nnoremap <silent> <backspace> :noh<cr>:QuickhlManualReset<cr>$/;"	m
 <c-r><c-l>	vimrc	/^        cnoremap <c-r><c-l> <c-r>=getline('.')<cr>$/;"	m
 <down>	vimrc	/^        nmap <silent> <down> <esc>:cnext<cr>$/;"	m
-<f5>	vimrc	/^        inoremap <f5> <c-r>=strftime("%c")<cr>$/;"	m
-<f5>	vimrc	/^        nnoremap <f5> "=strftime("%c")<cr>P$/;"	m
 <leader>"	vimrc	/^        nnoremap <leader>" :split<cr>$/;"	m
 <leader>%	vimrc	/^        nnoremap <leader>% :vsplit<cr>$/;"	m
 <leader>A	vimrc	/^        nnoremap <leader>A :argadd **\/*$/;"	m

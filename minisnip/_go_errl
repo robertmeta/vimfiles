@@ -1,0 +1,4 @@
+if err != nil {
+	log.Println("{{++}}")
+	log.Fatal(err)
+}

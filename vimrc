@@ -46,7 +46,6 @@
         inoremap <silent> ;p <c-x><c-p>
         inoremap <silent> ;t <c-x><c-]>
         inoremap <silent> ;u <c-x><c-u>
-        inoremap <f5> <c-r>=strftime("%c")<cr>
 
         " Make @ . work on selected text
         xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
@@ -67,7 +66,6 @@
         nmap <silent> <up> <esc>:cprev<cr>
         nmap <silent> <down> <esc>:cnext<cr>
 
-        nnoremap <f5> "=strftime("%c")<cr>P
         nnoremap <leader>A :argadd **/*
         nnoremap <leader>a :argadd <c-r>=fnameescape(expand('%:p:h'))<cr>/*<C-d>
         nnoremap <leader>b :b <C-d>
