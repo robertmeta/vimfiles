@@ -346,16 +346,6 @@
         let g:vim_markdown_frontmatter=1
 " }}}
 
-" Netrw {{{
-        let g:netrw_altfile=1
-        let g:netrw_banner=0
-        let g:netrw_cursor=0
-        let g:netrw_keepdir=1
-        let g:netrw_liststyle=1
-        let g:netrw_sizestyle='H'
-        let g:netrw_winsize='30'
-" }}}
-
 " HTML {{{
         let g:html_indent_script1='inc'
         let g:html_indent_style1='inc'

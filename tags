@@ -2200,16 +2200,9 @@ g:minisnip_evalmarker	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-mi
 g:minisnip_startdelim	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^let g:minisnip_startdelim = get(g:, 'minisnip_startdelim', '{{+')$/;"	v
 g:minisnip_trigger	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^let g:minisnip_trigger = get(g:, 'minisnip_trigger', '<Tab>')$/;"	v
 g:mucomplete#enable_auto_at_startup	vimrc	/^        let g:mucomplete#enable_auto_at_startup=0$/;"	v
-g:netrw_altfile	vimrc	/^        let g:netrw_altfile=1$/;"	v
 g:netrw_banner	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^  let g:netrw_banner = 0$/;"	v
-g:netrw_banner	vimrc	/^        let g:netrw_banner=0$/;"	v
-g:netrw_cursor	vimrc	/^        let g:netrw_cursor=0$/;"	v
-g:netrw_keepdir	vimrc	/^        let g:netrw_keepdir=1$/;"	v
 g:netrw_list_hide	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:netrw_list_hide =$/;"	v
-g:netrw_liststyle	vimrc	/^        let g:netrw_liststyle=1$/;"	v
-g:netrw_sizestyle	vimrc	/^        let g:netrw_sizestyle='H'$/;"	v
 g:netrw_sort_sequence	pack/plugins/start/tpope-vim-vinegar/plugin/vinegar.vim	/^let g:netrw_sort_sequence = '[\\\/]$,*,\\%(' . join(map(split(&suffixes, ','), 'escape(v:val, ".*$~")'), '\\|') . '\\)[*@]\\=$'$/;"	v
-g:netrw_winsize	vimrc	/^        let g:netrw_winsize='30'$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-light.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
@@ -2757,8 +2750,6 @@ main	pack/plugins/start/fatih-vim-go/templates/hello_world.go	/^func main() {$/;
 main	pack/plugins/start/fatih-vim-go/templates/hello_world.go	/^package main$/;"	p
 main	pack/plugins/start/fatih-vim-go/templates/hello_world_test.go	/^package main$/;"	p
 main	pack/plugins/start/xtal8-traces-vim/plugin/traces.vim	/^function! s:main(...) abort$/;"	f
-main	test.go	/^func main  {$/;"	f
-main	test.go	/^package main$/;"	p
 manual._inject_keywords	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual._inject_keywords(keywords) "{{{$/;"	f
 manual.add	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.add(pattern, escaped) "{{{$/;"	f
 manual.clear	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:manual.clear() "{{{$/;"	f
