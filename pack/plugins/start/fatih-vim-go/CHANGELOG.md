@@ -33,6 +33,8 @@ BUG FIXES:
   [[GH-1513]](https://github.com/fatih/vim-go/pull/1513)
 * `:GoImpl` tab-completion would sometimes stop working
   [[GH-1581]](https://github.com/fatih/vim-go/pull/1581).
+* Add `g:go_highlight_function_arguments` to highlight function arguments.
+  [[GH-1587]](https://github.com/fatih/vim-go/pull/1587).
 
 IMPROVEMENTS:
 
@@ -55,6 +57,14 @@ IMPROVEMENTS:
 * Run `syntax sync fromstart` after `:GoFmt`; this should make syntax
   highlighting break slightly less often after formatting code
   [[GH-1582]](https://github.com/fatih/vim-go/pull/1582).
+* `:GoDescribe` doesn't require a scope anymore
+  [[GH-1596]](https://github.com/fatih/vim-go/pull/1596).
+* Add some standard snippets for
+  [vim-minisnip](https://github.com/joereynolds/vim-minisnip)
+  [[GH-1589]](https://github.com/fatih/vim-go/pull/1589).
+* `g:go_snippet_engine` now defaults to `automatic` to use the first installed
+  snippet engine it can find.
+  [[GH-1589]](https://github.com/fatih/vim-go/pull/1589).
 
 ## 1.15 - (October 3, 2017)
 

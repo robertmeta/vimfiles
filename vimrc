@@ -116,7 +116,7 @@
         set fileencoding=utf-8 " UTF-8
         set fileformats=unix,dos,mac " support all three, in this order
         set foldclose=all " Open folds if you leave them in any way
-        set foldcolumn=1 " I can see fold fine thank you
+        set foldcolumn=0 " I can see fold fine thank you
         set foldenable " Turn on folding by default
         set foldlevel=10 " Autofold nothing by default
         set foldmethod=syntax " Fold on the syntax
@@ -307,7 +307,7 @@
         if has('gui_running')
                 set guioptions=cm " use simple dialogs rather than pop-ups & show menu
                 if s:running_windows
-                        set guifont=Hack,Consolas
+                        set guifont=Fira_Code_Retina:h12:cANSI:qDRAFT,Hack,Consolas
                 endif
         endif
 " }}}
@@ -355,6 +355,16 @@
 
 " Mucomplete {{{
         let g:mucomplete#enable_auto_at_startup=0
+" }}}
+
+" Nerdtree {{{
+        nnoremap - :NERDTreeFocus<cr>
+        let g:NERDTreeHijackNetrw=1
+        let g:NERDTreeQuitOnOpen=1
+        let g:NERDTreeMinimalUI=1
+        let g:NERDTreeAutoDeleteBuffer=1
+        let g:NERDTreeDirArrowExpandable="+"
+        let g:NERDTreeDirArrowCollapsible="-"
 " }}}
 
 " Nofrils {{{

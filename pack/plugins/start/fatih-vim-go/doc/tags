@@ -35,6 +35,7 @@
 'g:go_highlight_extra_types'	vim-go.txt	/*'g:go_highlight_extra_types'*
 'g:go_highlight_fields'	vim-go.txt	/*'g:go_highlight_fields'*
 'g:go_highlight_format_strings'	vim-go.txt	/*'g:go_highlight_format_strings'*
+'g:go_highlight_function_arguments'	vim-go.txt	/*'g:go_highlight_function_arguments'*
 'g:go_highlight_functions'	vim-go.txt	/*'g:go_highlight_functions'*
 'g:go_highlight_generate_tags'	vim-go.txt	/*'g:go_highlight_generate_tags'*
 'g:go_highlight_methods'	vim-go.txt	/*'g:go_highlight_methods'*

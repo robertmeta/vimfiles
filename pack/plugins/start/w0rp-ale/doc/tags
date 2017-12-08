@@ -123,6 +123,7 @@ ale-graphql-gqlint	ale-graphql.txt	/*ale-graphql-gqlint*
 ale-graphql-options	ale-graphql.txt	/*ale-graphql-options*
 ale-handlebars-embertemplatelint	ale-handlebars.txt	/*ale-handlebars-embertemplatelint*
 ale-handlebars-options	ale-handlebars.txt	/*ale-handlebars-options*
+ale-haskell-brittany	ale-haskell.txt	/*ale-haskell-brittany*
 ale-haskell-hdevtools	ale-haskell.txt	/*ale-haskell-hdevtools*
 ale-haskell-hfmt	ale-haskell.txt	/*ale-haskell-hfmt*
 ale-haskell-options	ale-haskell.txt	/*ale-haskell-options*
@@ -255,6 +256,7 @@ ale-sml-options	ale-sml.txt	/*ale-sml-options*
 ale-sml-smlnj	ale-sml.txt	/*ale-sml-smlnj*
 ale-sml-smlnj-cm	ale-sml.txt	/*ale-sml-smlnj-cm*
 ale-solidity-options	ale-solidity.txt	/*ale-solidity-options*
+ale-solidity-solhint	ale-solidity.txt	/*ale-solidity-solhint*
 ale-solidity-solium	ale-solidity.txt	/*ale-solidity-solium*
 ale-spec-options	ale-spec.txt	/*ale-spec-options*
 ale-spec-rpmlint	ale-spec.txt	/*ale-spec-rpmlint*
@@ -370,6 +372,7 @@ b:ale_go_gometalinter_executable	ale-go.txt	/*b:ale_go_gometalinter_executable*
 b:ale_go_gometalinter_options	ale-go.txt	/*b:ale_go_gometalinter_options*
 b:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*b:ale_handlebars_embertemplatelint_executable*
 b:ale_handlebars_embertemplatelint_use_global	ale-handlebars.txt	/*b:ale_handlebars_embertemplatelint_use_global*
+b:ale_haskell_brittany_executable	ale-haskell.txt	/*b:ale_haskell_brittany_executable*
 b:ale_haskell_hdevtools_executable	ale-haskell.txt	/*b:ale_haskell_hdevtools_executable*
 b:ale_haskell_hdevtools_options	ale-haskell.txt	/*b:ale_haskell_hdevtools_options*
 b:ale_haskell_hfmt_executable	ale-haskell.txt	/*b:ale_haskell_hfmt_executable*
@@ -636,6 +639,7 @@ g:ale_go_gometalinter_executable	ale-go.txt	/*g:ale_go_gometalinter_executable*
 g:ale_go_gometalinter_options	ale-go.txt	/*g:ale_go_gometalinter_options*
 g:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*g:ale_handlebars_embertemplatelint_executable*
 g:ale_handlebars_embertemplatelint_use_global	ale-handlebars.txt	/*g:ale_handlebars_embertemplatelint_use_global*
+g:ale_haskell_brittany_executable	ale-haskell.txt	/*g:ale_haskell_brittany_executable*
 g:ale_haskell_hdevtools_executable	ale-haskell.txt	/*g:ale_haskell_hdevtools_executable*
 g:ale_haskell_hdevtools_options	ale-haskell.txt	/*g:ale_haskell_hdevtools_options*
 g:ale_haskell_hfmt_executable	ale-haskell.txt	/*g:ale_haskell_hfmt_executable*
