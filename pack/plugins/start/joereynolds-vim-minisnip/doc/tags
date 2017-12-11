@@ -9,4 +9,5 @@ minisnip-configuration	minisnip.txt	/*minisnip-configuration*
 minisnip-mappings	minisnip.txt	/*minisnip-mappings*
 minisnip-overview	minisnip.txt	/*minisnip-overview*
 minisnip.txt	minisnip.txt	/*minisnip.txt*
+minisnip_<C-x><C-t>	minisnip.txt	/*minisnip_<C-x><C-t>*
 minisnip_<Tab>	minisnip.txt	/*minisnip_<Tab>*

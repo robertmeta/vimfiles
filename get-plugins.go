@@ -24,7 +24,7 @@ func main() {
 		"airblade/vim-gitgutter",
 		"fatih/vim-go",
 		"hauleth/asyncdo.vim",
-		"KeyboardFire/vim-minisnip",
+		"joereynolds/vim-minisnip",
 		"kopischke/vim-fetch",
 		//"lifepillar/vim-mucomplete",
 		"ludovicchabant/vim-gutentags",
