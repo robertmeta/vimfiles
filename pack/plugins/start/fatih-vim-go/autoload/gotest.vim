@@ -20,10 +20,10 @@ fun! gotest#write_file(path, contents) abort
   " Set cursor.
   let l:lnum = 1
   for l:line in a:contents
-    let l:m = match(l:line, '')
+    let l:m = match(l:line, "\x1f")
     if l:m > -1
       call setpos('.', [0, l:lnum, l:m, 0])
-      call setline('.', substitute(getline('.'), '', '', ''))
+      call setline('.', substitute(getline('.'), "\x1f", '', ''))
       break
     endif
 
@@ -101,6 +101,5 @@ fun! gotest#assert_fixture(path) abort
   let l:want = readfile(printf('%s/test-fixtures/%s', g:vim_go_root, a:path))
   call gotest#assert_buffer(0, l:want)
 endfun
-
 
 " vim: sw=2 ts=2 et

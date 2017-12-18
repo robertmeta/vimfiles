@@ -22,7 +22,8 @@ ALEInfoSign	ale.txt	/*ALEInfoSign*
 ALEInfoToClipboard	ale.txt	/*ALEInfoToClipboard*
 ALELast	ale.txt	/*ALELast*
 ALELint	ale.txt	/*ALELint*
-ALELint-autocmd	ale.txt	/*ALELint-autocmd*
+ALELintPost-autocmd	ale.txt	/*ALELintPost-autocmd*
+ALELintPre-autocmd	ale.txt	/*ALELintPre-autocmd*
 ALENext	ale.txt	/*ALENext*
 ALENextWrap	ale.txt	/*ALENextWrap*
 ALEPrevious	ale.txt	/*ALEPrevious*
@@ -143,6 +144,7 @@ ale-integrations	ale.txt	/*ale-integrations*
 ale-integrations-local-executables	ale.txt	/*ale-integrations-local-executables*
 ale-introduction	ale.txt	/*ale-introduction*
 ale-java-checkstyle	ale-java.txt	/*ale-java-checkstyle*
+ale-java-google-java-format	ale-java.txt	/*ale-java-google-java-format*
 ale-java-javac	ale-java.txt	/*ale-java-javac*
 ale-java-options	ale-java.txt	/*ale-java-options*
 ale-javascript-eslint	ale-javascript.txt	/*ale-javascript-eslint*
@@ -385,6 +387,8 @@ b:ale_html_tidy_options	ale-html.txt	/*b:ale_html_tidy_options*
 b:ale_idris_idris_executable	ale-idris.txt	/*b:ale_idris_idris_executable*
 b:ale_idris_idris_options	ale-idris.txt	/*b:ale_idris_idris_options*
 b:ale_java_checkstyle_options	ale-java.txt	/*b:ale_java_checkstyle_options*
+b:ale_java_google_java_format_executable	ale-java.txt	/*b:ale_java_google_java_format_executable*
+b:ale_java_google_java_format_options	ale-java.txt	/*b:ale_java_google_java_format_options*
 b:ale_java_javac_classpath	ale-java.txt	/*b:ale_java_javac_classpath*
 b:ale_java_javac_options	ale-java.txt	/*b:ale_java_javac_options*
 b:ale_javascript_eslint_executable	ale-javascript.txt	/*b:ale_javascript_eslint_executable*
@@ -654,6 +658,8 @@ g:ale_html_tidy_options	ale-html.txt	/*g:ale_html_tidy_options*
 g:ale_idris_idris_executable	ale-idris.txt	/*g:ale_idris_idris_executable*
 g:ale_idris_idris_options	ale-idris.txt	/*g:ale_idris_idris_options*
 g:ale_java_checkstyle_options	ale-java.txt	/*g:ale_java_checkstyle_options*
+g:ale_java_google_java_format_executable	ale-java.txt	/*g:ale_java_google_java_format_executable*
+g:ale_java_google_java_format_options	ale-java.txt	/*g:ale_java_google_java_format_options*
 g:ale_java_javac_classpath	ale-java.txt	/*g:ale_java_javac_classpath*
 g:ale_java_javac_options	ale-java.txt	/*g:ale_java_javac_options*
 g:ale_javascript_eslint_executable	ale-javascript.txt	/*g:ale_javascript_eslint_executable*

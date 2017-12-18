@@ -137,8 +137,11 @@ $TMPDIR	pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 <C-X><C-A>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^inoremap   <C-X><C-A> <C-A>$/;"	m
 <C-]>	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> <C-]> :GoDef<cr>$/;"	m
 <C-t>	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> <C-t> :<C-U>call go#def#StackPop(v:count1)<cr>$/;"	m
+<C-t>	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^    inoremap <expr> <C-t> pumvisible() ?  "\\<C-n>" : "\\<C-t>"$/;"	m
 <C-w><C-]>	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> <C-w><C-]> :<C-u>call go#def#Jump("split")<CR>$/;"	m
 <C-w>]	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> <C-w>] :<C-u>call go#def#Jump("split")<CR>$/;"	m
+<C-x><C-t>	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^    imap <C-x><C-t> <Plug>(minisnip-complete)$/;"	m
+<CR>	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^    imap <expr> <CR> pumvisible() ? "\\<Tab>" : "\\<CR>"$/;"	m
 <F31>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^  map <F31> <M-d>$/;"	m
 <F31>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^  map! <F31> <M-d>$/;"	m
 <F32>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^  map <F32> <M-n>$/;"	m
@@ -231,6 +234,8 @@ $TMPDIR	pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 <Plug>(go-test-func)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-test-func) :<C-u>call go#test#Func(!g:go_jump_to_error)<CR>$/;"	m
 <Plug>(go-vet)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-vet) :<C-u>call go#lint#Vet(!g:go_jump_to_error)<CR>$/;"	m
 <Plug>(go-whicherrs)	pack/plugins/start/fatih-vim-go/ftplugin/go/mappings.vim	/^nnoremap <silent> <Plug>(go-whicherrs) :<C-u>call go#guru#Whicherrs(-1)<CR>$/;"	m
+<Plug>(minisnip)	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^inoremap <script> <expr> <Plug>(minisnip) minisnip#ShouldTrigger() ?$/;"	m
+<Plug>(minisnip-complete)	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^inoremap <silent> <Plug>(minisnip-complete) <C-r>=minisnip#complete()<CR>$/;"	m
 <Plug>(operator-sandwich-add)	pack/plugins/start/machakann-vim-sandwich/plugin/operator/sandwich.vim	/^nmap <silent> <Plug>(operator-sandwich-add)     <Plug>(operator-sandwich-add-pre)<Plug>(operator-sandwich-g@)$/;"	m
 <Plug>(operator-sandwich-add)	pack/plugins/start/machakann-vim-sandwich/plugin/operator/sandwich.vim	/^omap <silent> <Plug>(operator-sandwich-add)     <Plug>(operator-sandwich-g@)$/;"	m
 <Plug>(operator-sandwich-add-pre)	pack/plugins/start/machakann-vim-sandwich/plugin/operator/sandwich.vim	/^nnoremap <silent> <Plug>(operator-sandwich-add-pre)     :<C-u>call operator#sandwich#prerequisite('add', 'n')<CR>$/;"	m
@@ -311,7 +316,6 @@ $TMPDIR	pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 <Plug>GitGutterTextObjectInnerPending	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^onoremap <silent> <Plug>GitGutterTextObjectInnerPending :<C-U>call gitgutter#hunk#text_object(1)<CR>$/;"	m
 <Plug>GitGutterTextObjectOuterPending	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^onoremap <silent> <Plug>GitGutterTextObjectOuterPending :<C-U>call gitgutter#hunk#text_object(0)<CR>$/;"	m
 <Plug>GitGutterUndoHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^nnoremap <silent> <Plug>GitGutterUndoHunk    :GitGutterUndoHunk<CR>$/;"	m
-<Plug>Minisnip	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^inoremap <script> <expr> <Plug>Minisnip <SID>ShouldTrigger() ?$/;"	m
 <Plug>QfCnext	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfCnext     <Plug>qf_qf_next$/;"	m
 <Plug>QfCprevious	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfCprevious <Plug>qf_qf_previous$/;"	m
 <Plug>QfCtoggle	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfCtoggle   <Plug>qf_qf_toggle$/;"	m
@@ -788,6 +792,7 @@ Information	pack/plugins/start/w0rp-ale/ISSUE_TEMPLATE.md	/^## Information$/;"	i
 Inspiration	pack/plugins/start/xtal8-traces-vim/README.md	/^## Inspiration$/;"	i
 Install	pack/plugins/start/fatih-vim-go/README.md	/^## Install$/;"	i
 Installation	pack/plugins/start/hauleth-asyncdo-vim/README.md	/^## Installation$/;"	i
+Installation	pack/plugins/start/joereynolds-vim-minisnip/README.md	/^## Installation$/;"	i
 Installation	pack/plugins/start/kopischke-vim-fetch/README.md	/^### Installation$/;"	k
 Installation	pack/plugins/start/olical-vim-enmasse/README.md	/^## Installation$/;"	i
 Installation	pack/plugins/start/romainl-vim-qf/README.md	/^## Installation$/;"	i
@@ -863,7 +868,6 @@ MenuItem.isSeparator	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/menu_it
 MenuItem.isSubmenu	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/menu_item.vim	/^function! s:MenuItem.isSubmenu()$/;"	f
 Merge	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Merge(cmd, bang, args) abort$/;"	f
 MergeChangesUnderPaths	pack/plugins/start/olical-vim-enmasse/autoload/enmasse.vim	/^function! s:MergeChangesUnderPaths(list, sourceLines)$/;"	f
-Minisnip	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^function! <SID>Minisnip()$/;"	f
 Mkdir	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -bang -nargs=? -complete=dir Mkdir$/;"	c
 Motivation	pack/plugins/start/wellle-tmux-complete-vim/README.md	/^## Motivation$/;"	i
 Move	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -nargs=1 -bang -complete=file Move :$/;"	c
@@ -1095,7 +1099,7 @@ SID	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highlight.vim	/^
 SID	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function s:SID()$/;"	f
 SaveList	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=? -complete=customlist,qf#namedlist#CompleteList SaveList    call qf#namedlist#SaveList(0, <q-args>)$/;"	c
 SaveListAdd	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=? -complete=customlist,qf#namedlist#CompleteList SaveListAdd call qf#namedlist#SaveList(1, <q-args>)$/;"	c
-SelectPlaceholder	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^function! s:SelectPlaceholder()$/;"	f
+SelectPlaceholder	pack/plugins/start/joereynolds-vim-minisnip/autoload/minisnip.vim	/^function! s:SelectPlaceholder() abort$/;"	f
 SendMessageData	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^function! s:SendMessageData(conn, data) abort$/;"	f
 SetList	pack/plugins/start/romainl-vim-qf/autoload/qf/filter.vim	/^function! s:SetList(pat, reject, strategy)$/;"	f
 SetListsImpl	pack/plugins/start/w0rp-ale/autoload/ale/list.vim	/^function! s:SetListsImpl(timer_id, buffer, loclist) abort$/;"	f
@@ -1107,7 +1111,6 @@ Settings	pack/plugins/start/wellle-tmux-complete-vim/README.md	/^## Settings$/;"
 Setup	pack/plugins/start/w0rp-ale/autoload/ale/completion.vim	/^function! s:Setup(enabled) abort$/;"	f
 ShouldOpen	pack/plugins/start/w0rp-ale/autoload/ale/list.vim	/^function! s:ShouldOpen(buffer) abort$/;"	f
 ShouldSuggestForType	pack/plugins/start/w0rp-ale/autoload/ale/fix/registry.vim	/^function! s:ShouldSuggestForType(suggested_filetypes, type_list) abort$/;"	f
-ShouldTrigger	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^function! <SID>ShouldTrigger()$/;"	f
 ShowUsage	pack/plugins/start/ludovicchabant-vim-gutentags/plat/unix/update_scopedb.sh	/^ShowUsage() {$/;"	f
 ShowUsage	pack/plugins/start/ludovicchabant-vim-gutentags/plat/unix/update_tags.sh	/^ShowUsage() {$/;"	f
 Shuffle	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^function Shuffle(list)$/;"	f
@@ -1298,6 +1301,7 @@ Unlink	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -ba
 Unlock	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:Unlock$/;"	l
 UpdateLineNumbers	pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^function! s:UpdateLineNumbers(buffer, current_sign_list, loclist) abort$/;"	f
 Usage	pack/plugins/start/fatih-vim-go/README.md	/^## Usage$/;"	i
+Usage	pack/plugins/start/joereynolds-vim-minisnip/README.md	/^## Usage$/;"	i
 Usage	pack/plugins/start/kopischke-vim-fetch/README.md	/^### Usage$/;"	k
 Usage	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^:Usage$/;"	l
 Usage	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^:Usage$/;"	l
@@ -1988,6 +1992,7 @@ b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/godefstack.vim	/^let b:c
 b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/gohtmltmpl.vim	/^let b:current_syntax = "gohtmltmpl"$/;"	v
 b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/gotexttmpl.vim	/^let b:current_syntax = "gotexttmpl"$/;"	v
 b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/vimgo.vim	/^let b:current_syntax = "vimgo"$/;"	v
+b:current_syntax	pack/plugins/start/joereynolds-vim-minisnip/syntax/minisnip.vim	/^let b:current_syntax = "minisnip"$/;"	v
 b:current_syntax	pack/plugins/start/w0rp-ale/syntax/ale-fix-suggest.vim	/^let b:current_syntax = 'ale-fix-suggest'$/;"	v
 b:did_ftplugin	pack/plugins/start/fatih-vim-go/ftplugin/asm.vim	/^let b:did_ftplugin = 1$/;"	v
 b:did_ftplugin	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^let b:did_ftplugin = 1$/;"	v
@@ -2194,7 +2199,7 @@ ffsda[	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^
 ffsra(c	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^normal ffsra(c$/;"	m
 filter	pack/plugins/start/w0rp-ale/test/script/run-vader-tests	/^function filter-vader-output() {$/;"	f
 finalize	pack/plugins/start/hauleth-asyncdo-vim/autoload/asyncdo.vim	/^func! s:finalize(scope, prefix, settitle) abort$/;"	f
-findAndRevealPath	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:findAndRevealPath()$/;"	f
+findAndRevealPath	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:findAndRevealPath(path)$/;"	f
 find_command	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:find_command(cmd,flags,word)$/;"	f
 fmt_autosave	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:fmt_autosave()$/;"	f
 fmt_cmd	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^function! s:fmt_cmd(bin_name, source, target)$/;"	f
@@ -2500,6 +2505,7 @@ g:loaded_eunuch	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^let g:lo
 g:loaded_fugitive	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let g:loaded_fugitive = 1$/;"	v
 g:loaded_gitgutter	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^let g:loaded_gitgutter = 1$/;"	v
 g:loaded_gutentags	pack/plugins/start/ludovicchabant-vim-gutentags/plugin/gutentags.vim	/^let g:loaded_gutentags = 1$/;"	v
+g:loaded_minisnip	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^let g:loaded_minisnip = 1$/;"	v
 g:loaded_nerdtree_autoload	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree.vim	/^let g:loaded_nerdtree_autoload = 1$/;"	v
 g:loaded_nerdtree_exec_menuitem	pack/plugins/start/scrooloose-nerdtree/nerdtree_plugin/exec_menuitem.vim	/^let g:loaded_nerdtree_exec_menuitem = 1$/;"	v
 g:loaded_nerdtree_fs_menu	pack/plugins/start/scrooloose-nerdtree/nerdtree_plugin/fs_menu.vim	/^let g:loaded_nerdtree_fs_menu = 1$/;"	v
@@ -2518,12 +2524,13 @@ g:main_syntax	pack/plugins/start/fatih-vim-go/syntax/gohtmltmpl.vim	/^  let g:ma
 g:mapleader	pack/plugins/start/w0rp-ale/test/.config/nvim/init.vim	/^let g:mapleader=','$/;"	v
 g:mapleader	pack/plugins/start/w0rp-ale/test/vimrc	/^let g:mapleader=','$/;"	v
 g:mapleader	vimrc	/^        let g:mapleader="\\<space>"$/;"	v
-g:minisnip_backrefmarker	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^let g:minisnip_backrefmarker = get(g:, 'minisnip_backrefmarker', '\\\\~')$/;"	v
-g:minisnip_dir	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^let g:minisnip_dir = fnamemodify(get(g:, 'minisnip_dir', '~\/.vim\/minisnip'), ':p')$/;"	v
-g:minisnip_enddelim	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^let g:minisnip_enddelim = get(g:, 'minisnip_enddelim', '+}}')$/;"	v
-g:minisnip_evalmarker	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^let g:minisnip_evalmarker = get(g:, 'minisnip_evalmarker', '~')$/;"	v
-g:minisnip_startdelim	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^let g:minisnip_startdelim = get(g:, 'minisnip_startdelim', '{{+')$/;"	v
-g:minisnip_trigger	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^let g:minisnip_trigger = get(g:, 'minisnip_trigger', '<Tab>')$/;"	v
+g:minisnip_backrefmarker	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^let g:minisnip_backrefmarker = get(g:, 'minisnip_backrefmarker', '\\\\~')$/;"	v
+g:minisnip_delimpat	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^let g:minisnip_delimpat = '\\V' . g:minisnip_startdelim . '\\.\\{-}' . g:minisnip_enddelim$/;"	v
+g:minisnip_dir	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^let g:minisnip_dir = fnamemodify(get(g:, 'minisnip_dir', '~\/.vim\/minisnip'), ':p')$/;"	v
+g:minisnip_enddelim	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^let g:minisnip_enddelim = get(g:, 'minisnip_enddelim', '+}}')$/;"	v
+g:minisnip_evalmarker	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^let g:minisnip_evalmarker = get(g:, 'minisnip_evalmarker', '~')$/;"	v
+g:minisnip_startdelim	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^let g:minisnip_startdelim = get(g:, 'minisnip_startdelim', '{{+')$/;"	v
+g:minisnip_trigger	pack/plugins/start/joereynolds-vim-minisnip/plugin/minisnip.vim	/^let g:minisnip_trigger = get(g:, 'minisnip_trigger', '<Tab>')$/;"	v
 g:mucomplete#enable_auto_at_startup	vimrc	/^        let g:mucomplete#enable_auto_at_startup=0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-acme.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
 g:nofrils_heavycomments	pack/colors/start/robertmeta-nofrils/colors/nofrils-dark.vim	/^    let g:nofrils_heavycomments = 0$/;"	v
@@ -3117,6 +3124,9 @@ messenger_prototype.notice.echo	pack/plugins/start/machakann-vim-sandwich/autolo
 messenger_prototype.notice.queue	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/messenger.vim	/^function! s:messenger_prototype.notice.queue(line) dict abort "{{{$/;"	f
 messenger_prototype.notify	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/messenger.vim	/^function! s:messenger_prototype.notify(prefix) dict abort "{{{$/;"	f
 metalinter_autosave	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:metalinter_autosave()$/;"	f
+minisnip#Minisnip	pack/plugins/start/joereynolds-vim-minisnip/autoload/minisnip.vim	/^function! minisnip#Minisnip() abort$/;"	f
+minisnip#ShouldTrigger	pack/plugins/start/joereynolds-vim-minisnip/autoload/minisnip.vim	/^function! minisnip#ShouldTrigger() abort$/;"	f
+minisnip#complete	pack/plugins/start/joereynolds-vim-minisnip/autoload/minisnip.vim	/^function! minisnip#complete() abort$/;"	f
 mixedcase	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:mixedcase(word)$/;"	f
 mustNotError	get-plugins.go	/^func mustNotError(err error, note string) {$/;"	f
 neocomplcache#sources#tmuxcomplete#define	pack/plugins/start/wellle-tmux-complete-vim/autoload/neocomplcache/sources/tmuxcomplete.vim	/^function! neocomplcache#sources#tmuxcomplete#define()$/;"	f
@@ -3505,7 +3515,6 @@ s:default_values	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/opt
 s:default_values	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/opt.vim	/^let s:default_values.textobj.query = {$/;"	v
 s:defaultconfig	pack/plugins/start/wellle-tmux-complete-vim/autoload/asyncomplete/sources/tmuxcomplete.vim	/^let s:defaultconfig = {$/;"	v
 s:defaultopts	pack/plugins/start/wellle-tmux-complete-vim/autoload/asyncomplete/sources/tmuxcomplete.vim	/^let s:defaultopts = {$/;"	v
-s:delimpat	pack/plugins/start/keyboardfire-vim-minisnip/plugin/vim-minisnip.vim	/^let s:delimpat = '\\V' . g:minisnip_startdelim . '\\.\\{-}' . g:minisnip_enddelim$/;"	v
 s:did_check_exe	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/ctags.vim	/^let s:did_check_exe = 0$/;"	v
 s:dirArrows	pack/plugins/start/scrooloose-nerdtree/syntax/nerdtree.vim	/^let s:dirArrows = escape(g:NERDTreeDirArrowCollapsible, '~]\\-').escape(g:NERDTreeDirArrowExpandable, '~]\\-')$/;"	v
 s:dir_for_worktree	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:dir_for_worktree = {}$/;"	v
@@ -3690,6 +3699,7 @@ s:patterns	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar
 s:patterns	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/f.vim	/^let s:patterns['julia'] = [$/;"	v
 s:patterns	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/f.vim	/^let s:patterns['vim'] = [$/;"	v
 s:paused	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highlight.vim	/^let s:paused = []$/;"	v
+s:placeholder_texts	pack/plugins/start/joereynolds-vim-minisnip/autoload/minisnip.vim	/^let s:placeholder_texts = []$/;"	v
 s:plugin_dir	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^let s:plugin_dir  = expand('<sfile>:p:h:h:h').'\/'$/;"	v
 s:pragma_error	pack/plugins/start/w0rp-ale/autoload/ale/handlers/gcc.vim	/^let s:pragma_error = '#pragma once in main file'$/;"	v
 s:qf	pack/plugins/start/hauleth-asyncdo-vim/autoload/asyncdo.vim	/^let s:qf = s:build(g:, 'c', {nr -> setqflist([], 'r')},$/;"	v
