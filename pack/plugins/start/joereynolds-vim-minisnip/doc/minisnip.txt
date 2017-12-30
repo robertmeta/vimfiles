@@ -52,8 +52,8 @@ CONFIGURATION                                          *minisnip-configuration*
                                                              *'g:minisnip_dir'*
 Default: '~/.vim/minisnip'
 
-A colon-separated list of directories to look for snippet files, similar to
-`$PATH`. The first match will be used.
+A list of directories to look for snippet files. The list is separated by
+colons on Unix platforms, and semicolons on Windows, similar to `$PATH`.
 
 For example to share system-wide snippets: >
     let g:minisnip_dir = '/usr/share/minisnip:~/.vim/minisnip'

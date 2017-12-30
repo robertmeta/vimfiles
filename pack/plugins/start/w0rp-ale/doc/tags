@@ -112,6 +112,8 @@ ale-fortran-gcc	ale-fortran.txt	/*ale-fortran-gcc*
 ale-fortran-options	ale-fortran.txt	/*ale-fortran-options*
 ale-fuse-fusionlint	ale-fuse.txt	/*ale-fuse-fusionlint*
 ale-fuse-options	ale-fuse.txt	/*ale-fuse-options*
+ale-gitcommit-gitlint	ale-gitcommit.txt	/*ale-gitcommit-gitlint*
+ale-gitcommit-options	ale-gitcommit.txt	/*ale-gitcommit-options*
 ale-glsl-glslang	ale-glsl.txt	/*ale-glsl-glslang*
 ale-glsl-glslls	ale-glsl.txt	/*ale-glsl-glslls*
 ale-glsl-options	ale-glsl.txt	/*ale-glsl-options*
@@ -321,6 +323,7 @@ b:ale_chef_foodcritic_executable	ale-chef.txt	/*b:ale_chef_foodcritic_executable
 b:ale_chef_foodcritic_options	ale-chef.txt	/*b:ale_chef_foodcritic_options*
 b:ale_cmake_cmakelint_executable	ale-cmake.txt	/*b:ale_cmake_cmakelint_executable*
 b:ale_cmake_cmakelint_options	ale-cmake.txt	/*b:ale_cmake_cmakelint_options*
+b:ale_command_wrapper	ale.txt	/*b:ale_command_wrapper*
 b:ale_cpp_clang_executable	ale-cpp.txt	/*b:ale_cpp_clang_executable*
 b:ale_cpp_clang_options	ale-cpp.txt	/*b:ale_cpp_clang_options*
 b:ale_cpp_clangcheck_executable	ale-cpp.txt	/*b:ale_cpp_clangcheck_executable*
@@ -365,6 +368,9 @@ b:ale_fortran_gcc_options	ale-fortran.txt	/*b:ale_fortran_gcc_options*
 b:ale_fortran_gcc_use_free_form	ale-fortran.txt	/*b:ale_fortran_gcc_use_free_form*
 b:ale_fuse_fusionlint_executable	ale-fuse.txt	/*b:ale_fuse_fusionlint_executable*
 b:ale_fuse_fusionlint_options	ale-fuse.txt	/*b:ale_fuse_fusionlint_options*
+b:ale_gitcommit_gitlint_executable	ale-gitcommit.txt	/*b:ale_gitcommit_gitlint_executable*
+b:ale_gitcommit_gitlint_options	ale-gitcommit.txt	/*b:ale_gitcommit_gitlint_options*
+b:ale_gitcommit_gitlint_use_global	ale-gitcommit.txt	/*b:ale_gitcommit_gitlint_use_global*
 b:ale_glsl_glslang_executable	ale-glsl.txt	/*b:ale_glsl_glslang_executable*
 b:ale_glsl_glslang_options	ale-glsl.txt	/*b:ale_glsl_glslang_options*
 b:ale_glsl_glslls_executable	ale-glsl.txt	/*b:ale_glsl_glslls_executable*
@@ -508,6 +514,7 @@ b:ale_rust_cargo_use_check	ale-rust.txt	/*b:ale_rust_cargo_use_check*
 b:ale_rust_ignore_error_codes	ale-rust.txt	/*b:ale_rust_ignore_error_codes*
 b:ale_rust_rls_executable	ale-rust.txt	/*b:ale_rust_rls_executable*
 b:ale_rust_rls_toolchain	ale-rust.txt	/*b:ale_rust_rls_toolchain*
+b:ale_rust_rustc_options	ale-rust.txt	/*b:ale_rust_rustc_options*
 b:ale_rust_rustfmt_options	ale-rust.txt	/*b:ale_rust_rustfmt_options*
 b:ale_sass_stylelint_executable	ale-sass.txt	/*b:ale_sass_stylelint_executable*
 b:ale_sass_stylelint_use_global	ale-sass.txt	/*b:ale_sass_stylelint_use_global*
@@ -582,6 +589,7 @@ g:ale_chef_foodcritic_executable	ale-chef.txt	/*g:ale_chef_foodcritic_executable
 g:ale_chef_foodcritic_options	ale-chef.txt	/*g:ale_chef_foodcritic_options*
 g:ale_cmake_cmakelint_executable	ale-cmake.txt	/*g:ale_cmake_cmakelint_executable*
 g:ale_cmake_cmakelint_options	ale-cmake.txt	/*g:ale_cmake_cmakelint_options*
+g:ale_command_wrapper	ale.txt	/*g:ale_command_wrapper*
 g:ale_completion_delay	ale.txt	/*g:ale_completion_delay*
 g:ale_completion_enabled	ale.txt	/*g:ale_completion_enabled*
 g:ale_completion_max_suggestions	ale.txt	/*g:ale_completion_max_suggestions*
@@ -634,6 +642,9 @@ g:ale_fortran_gcc_options	ale-fortran.txt	/*g:ale_fortran_gcc_options*
 g:ale_fortran_gcc_use_free_form	ale-fortran.txt	/*g:ale_fortran_gcc_use_free_form*
 g:ale_fuse_fusionlint_executable	ale-fuse.txt	/*g:ale_fuse_fusionlint_executable*
 g:ale_fuse_fusionlint_options	ale-fuse.txt	/*g:ale_fuse_fusionlint_options*
+g:ale_gitcommit_gitlint_executable	ale-gitcommit.txt	/*g:ale_gitcommit_gitlint_executable*
+g:ale_gitcommit_gitlint_options	ale-gitcommit.txt	/*g:ale_gitcommit_gitlint_options*
+g:ale_gitcommit_gitlint_use_global	ale-gitcommit.txt	/*g:ale_gitcommit_gitlint_use_global*
 g:ale_glsl_glslang_executable	ale-glsl.txt	/*g:ale_glsl_glslang_executable*
 g:ale_glsl_glslang_options	ale-glsl.txt	/*g:ale_glsl_glslang_options*
 g:ale_glsl_glslls_executable	ale-glsl.txt	/*g:ale_glsl_glslls_executable*
@@ -799,6 +810,7 @@ g:ale_rust_cargo_use_check	ale-rust.txt	/*g:ale_rust_cargo_use_check*
 g:ale_rust_ignore_error_codes	ale-rust.txt	/*g:ale_rust_ignore_error_codes*
 g:ale_rust_rls_executable	ale-rust.txt	/*g:ale_rust_rls_executable*
 g:ale_rust_rls_toolchain	ale-rust.txt	/*g:ale_rust_rls_toolchain*
+g:ale_rust_rustc_options	ale-rust.txt	/*g:ale_rust_rustc_options*
 g:ale_rust_rustfmt_options	ale-rust.txt	/*g:ale_rust_rustfmt_options*
 g:ale_sass_stylelint_executable	ale-sass.txt	/*g:ale_sass_stylelint_executable*
 g:ale_sass_stylelint_use_global	ale-sass.txt	/*g:ale_sass_stylelint_use_global*

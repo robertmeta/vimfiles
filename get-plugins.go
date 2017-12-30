@@ -30,6 +30,7 @@ func main() {
 		"ludovicchabant/vim-gutentags",
 		"machakann/vim-sandwich",
 		"Olical/vim-enmasse",
+		"prettier/vim-prettier",
 		"romainl/vim-qf",
 		"romainl/vim-qlist",
 		"scrooloose/nerdtree",
@@ -44,6 +45,7 @@ func main() {
 		//"tpope/vim-vinegar",
 		"w0rp/ale",
 		"wellle/tmux-complete.vim",
+		"wincent/terminus",
 		"xtal8/traces.vim",
 	}
 
