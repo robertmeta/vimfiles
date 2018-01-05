@@ -1,5 +1,17 @@
 ## unplanned
 
+BUG FIXES:
+
+* Create quickfix list correctly when tests timeout.
+  [[GH-1633]](https://github.com/fatih/vim-go/pull/1633)
+* Apply `g:go_test_timeout` when running `:GoTestFunc`.
+  [[GH-1631]](https://github.com/fatih/vim-go/pull/1631)
+* The user's configured `g:go_doc_url` variable wasn't working correctly in the
+  case when the "gogetdoc" command isn't installed.
+  [[GH-1629]](https://github.com/fatih/vim-go/pull/1629)
+* Highlight format specifiers with an index (e.g. `%[2]d`).
+  [[GH-1634]](https://github.com/fatih/vim-go/pull/1634)
+
 ## 1.16 - (December 29, 2017)
 
 FEATURES:

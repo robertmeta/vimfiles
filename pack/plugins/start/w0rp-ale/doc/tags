@@ -106,10 +106,12 @@ ale-erlang-options	ale-erlang.txt	/*ale-erlang-options*
 ale-erlang-syntaxerl	ale-erlang.txt	/*ale-erlang-syntaxerl*
 ale-eruby-options	ale-eruby.txt	/*ale-eruby-options*
 ale-eslint-nested-configuration-files	ale-javascript.txt	/*ale-eslint-nested-configuration-files*
+ale-fish-options	ale-fish.txt	/*ale-fish-options*
 ale-fix	ale.txt	/*ale-fix*
 ale-fix-configuration	ale.txt	/*ale-fix-configuration*
 ale-fortran-gcc	ale-fortran.txt	/*ale-fortran-gcc*
 ale-fortran-options	ale-fortran.txt	/*ale-fortran-options*
+ale-fountain-options	ale-fountain.txt	/*ale-fountain-options*
 ale-fuse-fusionlint	ale-fuse.txt	/*ale-fuse-fusionlint*
 ale-fuse-options	ale-fuse.txt	/*ale-fuse-options*
 ale-gitcommit-gitlint	ale-gitcommit.txt	/*ale-gitcommit-gitlint*
@@ -127,6 +129,7 @@ ale-graphql-options	ale-graphql.txt	/*ale-graphql-options*
 ale-handlebars-embertemplatelint	ale-handlebars.txt	/*ale-handlebars-embertemplatelint*
 ale-handlebars-options	ale-handlebars.txt	/*ale-handlebars-options*
 ale-haskell-brittany	ale-haskell.txt	/*ale-haskell-brittany*
+ale-haskell-ghc	ale-haskell.txt	/*ale-haskell-ghc*
 ale-haskell-hdevtools	ale-haskell.txt	/*ale-haskell-hdevtools*
 ale-haskell-hfmt	ale-haskell.txt	/*ale-haskell-hfmt*
 ale-haskell-options	ale-haskell.txt	/*ale-haskell-options*
@@ -381,6 +384,7 @@ b:ale_go_gometalinter_options	ale-go.txt	/*b:ale_go_gometalinter_options*
 b:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*b:ale_handlebars_embertemplatelint_executable*
 b:ale_handlebars_embertemplatelint_use_global	ale-handlebars.txt	/*b:ale_handlebars_embertemplatelint_use_global*
 b:ale_haskell_brittany_executable	ale-haskell.txt	/*b:ale_haskell_brittany_executable*
+b:ale_haskell_ghc_options	ale-haskell.txt	/*b:ale_haskell_ghc_options*
 b:ale_haskell_hdevtools_executable	ale-haskell.txt	/*b:ale_haskell_hdevtools_executable*
 b:ale_haskell_hdevtools_options	ale-haskell.txt	/*b:ale_haskell_hdevtools_options*
 b:ale_haskell_hfmt_executable	ale-haskell.txt	/*b:ale_haskell_hfmt_executable*
@@ -655,6 +659,7 @@ g:ale_go_gometalinter_options	ale-go.txt	/*g:ale_go_gometalinter_options*
 g:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*g:ale_handlebars_embertemplatelint_executable*
 g:ale_handlebars_embertemplatelint_use_global	ale-handlebars.txt	/*g:ale_handlebars_embertemplatelint_use_global*
 g:ale_haskell_brittany_executable	ale-haskell.txt	/*g:ale_haskell_brittany_executable*
+g:ale_haskell_ghc_options	ale-haskell.txt	/*g:ale_haskell_ghc_options*
 g:ale_haskell_hdevtools_executable	ale-haskell.txt	/*g:ale_haskell_hdevtools_executable*
 g:ale_haskell_hdevtools_options	ale-haskell.txt	/*g:ale_haskell_hdevtools_options*
 g:ale_haskell_hfmt_executable	ale-haskell.txt	/*g:ale_haskell_hfmt_executable*
