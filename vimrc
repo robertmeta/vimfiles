@@ -290,6 +290,14 @@
                 " Some JS awesome via romainl
                 au BufRead,BufNewFile *.js nnoremap <C-}> :ptjump /<c-r>=expand('<cword>')<cr><cr>
                 au BufRead,BufNewFile *.js nnoremap <C-]> :tjump /<c-r>=expand('<cword>')<cr><cr>
+                " Go!
+                au BufRead,BufNewFile *.go setlocal syntax=go ft=go noexpandtab sw=8 sts=8 omnifunc=go#complete#Complete
+                au BufRead,BufNewFile *.go nnoremap <buffer> gd :GoDef<cr>
+                au BufRead,BufNewFile *.go nnoremap <buffer> gD :GoDoc<cr>
+                au BufRead,BufNewFile *.go nnoremap <buffer> gi :GoInfo<cr>
+                au BufRead,BufNewFile *.go nnoremap <buffer> gr :GoRename<cr>
+                au BufRead,BufNewFile *.go nnoremap <buffer> gt :GoTest<cr>
+                au BufRead,BufNewFile *.go nnoremap <buffer> ga :GoAlternate!<cr>
                 " Override types
                 au BufNewFile,BufRead *.ahk setlocal filetype=autohotkey " Autohotkey
                 au BufNewFile,BufRead *.dtl setlocal filetype=htmldjango " Django Templates
