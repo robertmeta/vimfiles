@@ -485,6 +485,7 @@ b:ale_python_flake8_use_global	ale-python.txt	/*b:ale_python_flake8_use_global*
 b:ale_python_isort_executable	ale-python.txt	/*b:ale_python_isort_executable*
 b:ale_python_isort_use_global	ale-python.txt	/*b:ale_python_isort_use_global*
 b:ale_python_mypy_executable	ale-python.txt	/*b:ale_python_mypy_executable*
+b:ale_python_mypy_ignore_invalid_syntax	ale-python.txt	/*b:ale_python_mypy_ignore_invalid_syntax*
 b:ale_python_mypy_options	ale-python.txt	/*b:ale_python_mypy_options*
 b:ale_python_mypy_use_global	ale-python.txt	/*b:ale_python_mypy_use_global*
 b:ale_python_prospector_executable	ale-python.txt	/*b:ale_python_prospector_executable*
@@ -514,6 +515,8 @@ b:ale_ruby_rubocop_executable	ale-ruby.txt	/*b:ale_ruby_rubocop_executable*
 b:ale_ruby_rubocop_options	ale-ruby.txt	/*b:ale_ruby_rubocop_options*
 b:ale_ruby_ruby_executable	ale-ruby.txt	/*b:ale_ruby_ruby_executable*
 b:ale_rust_cargo_check_all_targets	ale-rust.txt	/*b:ale_rust_cargo_check_all_targets*
+b:ale_rust_cargo_default_feature_behavior	ale-rust.txt	/*b:ale_rust_cargo_default_feature_behavior*
+b:ale_rust_cargo_include_features	ale-rust.txt	/*b:ale_rust_cargo_include_features*
 b:ale_rust_cargo_use_check	ale-rust.txt	/*b:ale_rust_cargo_use_check*
 b:ale_rust_ignore_error_codes	ale-rust.txt	/*b:ale_rust_ignore_error_codes*
 b:ale_rust_rls_executable	ale-rust.txt	/*b:ale_rust_rls_executable*
@@ -782,6 +785,7 @@ g:ale_python_flake8_use_global	ale-python.txt	/*g:ale_python_flake8_use_global*
 g:ale_python_isort_executable	ale-python.txt	/*g:ale_python_isort_executable*
 g:ale_python_isort_use_global	ale-python.txt	/*g:ale_python_isort_use_global*
 g:ale_python_mypy_executable	ale-python.txt	/*g:ale_python_mypy_executable*
+g:ale_python_mypy_ignore_invalid_syntax	ale-python.txt	/*g:ale_python_mypy_ignore_invalid_syntax*
 g:ale_python_mypy_options	ale-python.txt	/*g:ale_python_mypy_options*
 g:ale_python_mypy_use_global	ale-python.txt	/*g:ale_python_mypy_use_global*
 g:ale_python_prospector_executable	ale-python.txt	/*g:ale_python_prospector_executable*
@@ -811,6 +815,8 @@ g:ale_ruby_rubocop_executable	ale-ruby.txt	/*g:ale_ruby_rubocop_executable*
 g:ale_ruby_rubocop_options	ale-ruby.txt	/*g:ale_ruby_rubocop_options*
 g:ale_ruby_ruby_executable	ale-ruby.txt	/*g:ale_ruby_ruby_executable*
 g:ale_rust_cargo_check_all_targets	ale-rust.txt	/*g:ale_rust_cargo_check_all_targets*
+g:ale_rust_cargo_default_feature_behavior	ale-rust.txt	/*g:ale_rust_cargo_default_feature_behavior*
+g:ale_rust_cargo_include_features	ale-rust.txt	/*g:ale_rust_cargo_include_features*
 g:ale_rust_cargo_use_check	ale-rust.txt	/*g:ale_rust_cargo_use_check*
 g:ale_rust_ignore_error_codes	ale-rust.txt	/*g:ale_rust_ignore_error_codes*
 g:ale_rust_rls_executable	ale-rust.txt	/*g:ale_rust_rls_executable*

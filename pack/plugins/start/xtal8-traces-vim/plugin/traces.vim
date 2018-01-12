@@ -557,11 +557,19 @@ function! s:position(input) abort
 endfunction
 
 function! s:highlight(group, pattern, priority) abort
+  let cur_win = win_getid()
+  if exists('s:win[cur_win].hlight[a:group].pattern') && s:win[cur_win].hlight[a:group].pattern ==# a:pattern
+    return
+  endif
+
   if &hlsearch && a:pattern !=# '' && a:group ==# 'Search'
     let &hlsearch = 0
   endif
+  if &scrolloff !=# 0
+    let scrolloff = &scrolloff
+    let &scrolloff = 0
+  endif
 
-  let cur_win = win_getid()
   let alt_win = win_getid(winnr('#'))
   let windows = filter(win_findbuf(s:nr), {_, val -> win_id2win(val)})
   for id in windows
@@ -593,6 +601,9 @@ function! s:highlight(group, pattern, priority) abort
   if bufname('%') !=# '[Command Line]'
     noautocmd call win_gotoid(alt_win)
     noautocmd call win_gotoid(cur_win)
+  endif
+  if exists('scrolloff')
+    let &scrolloff = scrolloff
   endif
 endfunction
 
@@ -681,7 +692,7 @@ function! s:cmdl_leave() abort
   " changes
   if exists('s:buf[s:nr].changed')
     if s:buf[s:nr].changed
-      silent undo
+      noautocmd keepjumps silent undo
     endif
     if bufname('%') !=# '[Command Line]'
       try
@@ -691,7 +702,12 @@ function! s:cmdl_leave() abort
     endif
   endif
 
+
   " highlights
+  if &scrolloff !=# 0
+    let scrolloff = &scrolloff
+    let &scrolloff = 0
+  endif
   let cur_win = win_getid()
   let alt_win = win_getid(winnr('#'))
   let windows = filter(win_findbuf(s:nr), {_, val -> win_id2win(val)})
@@ -716,6 +732,9 @@ function! s:cmdl_leave() abort
   if bufname('%') !=# '[Command Line]'
     noautocmd call win_gotoid(alt_win)
     noautocmd call win_gotoid(cur_win)
+  endif
+  if exists('scrolloff')
+    let &scrolloff = scrolloff
   endif
 
   let &hlsearch = s:buf[s:nr].hlsearch
@@ -776,7 +795,7 @@ function! s:init(...) abort
   endif
 
   if exists('s:buf[s:nr].changed') && s:buf[s:nr].changed
-    noautocmd silent undo
+    noautocmd keepjumps silent undo
     let s:buf[s:nr].changed = 0
   endif
   call s:restore_marks()
@@ -790,7 +809,9 @@ function! s:init(...) abort
   if (cmdl.cmd.name !=# '' || s:buf[s:nr].show_range) &&
         \ !(get(s:, 'keep_pos') && g:traces_whole_file_range == 0)
     call s:highlight('Visual', cmdl.range.pattern, 100)
-    call s:highlight('Search', cmdl.range.specifier, 101)
+    if cmdl.cmd.name ==# ''
+      call s:highlight('Search', cmdl.range.specifier, 101)
+    endif
     call s:position(cmdl.range.abs)
   endif
 
