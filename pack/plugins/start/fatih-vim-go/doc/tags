@@ -37,9 +37,9 @@
 'g:go_highlight_fields'	vim-go.txt	/*'g:go_highlight_fields'*
 'g:go_highlight_format_strings'	vim-go.txt	/*'g:go_highlight_format_strings'*
 'g:go_highlight_function_arguments'	vim-go.txt	/*'g:go_highlight_function_arguments'*
+'g:go_highlight_function_calls'	vim-go.txt	/*'g:go_highlight_function_calls'*
 'g:go_highlight_functions'	vim-go.txt	/*'g:go_highlight_functions'*
 'g:go_highlight_generate_tags'	vim-go.txt	/*'g:go_highlight_generate_tags'*
-'g:go_highlight_methods'	vim-go.txt	/*'g:go_highlight_methods'*
 'g:go_highlight_operators'	vim-go.txt	/*'g:go_highlight_operators'*
 'g:go_highlight_space_tab_error'	vim-go.txt	/*'g:go_highlight_space_tab_error'*
 'g:go_highlight_string_spellcheck'	vim-go.txt	/*'g:go_highlight_string_spellcheck'*
@@ -57,8 +57,8 @@
 'g:go_metalinter_autosave_enabled'	vim-go.txt	/*'g:go_metalinter_autosave_enabled'*
 'g:go_metalinter_command'	vim-go.txt	/*'g:go_metalinter_command'*
 'g:go_metalinter_deadline'	vim-go.txt	/*'g:go_metalinter_deadline'*
+'g:go_metalinter_disabled'	vim-go.txt	/*'g:go_metalinter_disabled'*
 'g:go_metalinter_enabled'	vim-go.txt	/*'g:go_metalinter_enabled'*
-'g:go_metalinter_excludes'	vim-go.txt	/*'g:go_metalinter_excludes'*
 'g:go_play_browser_command'	vim-go.txt	/*'g:go_play_browser_command'*
 'g:go_play_open_browser'	vim-go.txt	/*'g:go_play_open_browser'*
 'g:go_snippet_engine'	vim-go.txt	/*'g:go_snippet_engine'*

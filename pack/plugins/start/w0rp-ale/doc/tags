@@ -184,9 +184,11 @@ ale-llvm-options	ale-llvm.txt	/*ale-llvm-options*
 ale-loclist-format	ale.txt	/*ale-loclist-format*
 ale-lsp	ale.txt	/*ale-lsp*
 ale-lsp-linters	ale.txt	/*ale-lsp-linters*
+ale-lua-luac	ale-lua.txt	/*ale-lua-luac*
 ale-lua-luacheck	ale-lua.txt	/*ale-lua-luacheck*
 ale-lua-options	ale-lua.txt	/*ale-lua-options*
 ale-markdown-options	ale-markdown.txt	/*ale-markdown-options*
+ale-markdown-prettier	ale-markdown.txt	/*ale-markdown-prettier*
 ale-markdown-write-good	ale-markdown.txt	/*ale-markdown-write-good*
 ale-navigation-commands	ale.txt	/*ale-navigation-commands*
 ale-nroff-options	ale-nroff.txt	/*ale-nroff-options*
@@ -442,6 +444,7 @@ b:ale_linters	ale.txt	/*b:ale_linters*
 b:ale_list_window_size	ale.txt	/*b:ale_list_window_size*
 b:ale_llvm_llc_executable	ale-llvm.txt	/*b:ale_llvm_llc_executable*
 b:ale_loclist_msg_format	ale.txt	/*b:ale_loclist_msg_format*
+b:ale_lua_luac_executable	ale-lua.txt	/*b:ale_lua_luac_executable*
 b:ale_lua_luacheck_executable	ale-lua.txt	/*b:ale_lua_luacheck_executable*
 b:ale_lua_luacheck_options	ale-lua.txt	/*b:ale_lua_luacheck_options*
 b:ale_max_signs	ale.txt	/*b:ale_max_signs*
@@ -738,6 +741,7 @@ g:ale_linters_explicit	ale.txt	/*g:ale_linters_explicit*
 g:ale_list_window_size	ale.txt	/*g:ale_list_window_size*
 g:ale_llvm_llc_executable	ale-llvm.txt	/*g:ale_llvm_llc_executable*
 g:ale_loclist_msg_format	ale.txt	/*g:ale_loclist_msg_format*
+g:ale_lua_luac_executable	ale-lua.txt	/*g:ale_lua_luac_executable*
 g:ale_lua_luacheck_executable	ale-lua.txt	/*g:ale_lua_luacheck_executable*
 g:ale_lua_luacheck_options	ale-lua.txt	/*g:ale_lua_luacheck_options*
 g:ale_max_buffer_history_size	ale.txt	/*g:ale_max_buffer_history_size*
@@ -771,6 +775,7 @@ g:ale_php_phpmd_ruleset	ale-php.txt	/*g:ale_php_phpmd_ruleset*
 g:ale_php_phpstan_configuration	ale-php.txt	/*g:ale_php_phpstan_configuration*
 g:ale_php_phpstan_executable	ale-php.txt	/*g:ale_php_phpstan_executable*
 g:ale_php_phpstan_level	ale-php.txt	/*g:ale_php_phpstan_level*
+g:ale_proto_protoc_gen_lint_options	ale-proto.txt	/*g:ale_proto_protoc_gen_lint_options*
 g:ale_pug_puglint_executable	ale-pug.txt	/*g:ale_pug_puglint_executable*
 g:ale_pug_puglint_options	ale-pug.txt	/*g:ale_pug_puglint_options*
 g:ale_pug_puglint_use_global	ale-pug.txt	/*g:ale_pug_puglint_use_global*

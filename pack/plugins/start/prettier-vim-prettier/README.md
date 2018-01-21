@@ -1,4 +1,4 @@
-## vim-prettier
+## vim-prettier [![Travis CI Build Status](https://travis-ci.org/prettier/vim-prettier.svg?branch=master)](https://travis-ci.org/prettier/vim-prettier)
 
 A vim plugin wrapper for prettier, pre-configured with custom default prettier
 settings.
@@ -9,7 +9,7 @@ By default it will auto format **javascript**, **typescript**, **less**,
 **scss**, **css**, **json**, **graphql** and **markdown** files if they
 have/support the "@format" pragma annotation in the header of the file.
 
-![vim-prettier](/media/vim-prettier.gif?raw=true "vim-prettier")
+![vim-prettier](/media/vim-prettier.gif?raw=true 'vim-prettier')
 
 ### INSTALL
 
@@ -189,6 +189,10 @@ g:prettier#config#bracket_spacing = 'false'
 " put > on the last line instead of new line
 " Prettier default: false
 g:prettier#config#jsx_bracket_same_line = 'true'
+
+" avoid|always
+" Prettier default: avoid
+g:prettier#config#arrow_parens = 'always'
 
 " none|es5|all
 " Prettier default: none

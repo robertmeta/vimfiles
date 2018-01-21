@@ -20,6 +20,9 @@ let g:loaded_prettier = 1
 " autoformating enabled by default upon saving
 let g:prettier#autoformat = get(g:, 'prettier#autoformat', 1)
 
+" experimental async flag will be disabled by default until is stable
+let g:prettier#nvim_unstable_async = get(g:,'prettier#nvim_unstable_async', 0)
+
 " path to prettier cli
 let g:prettier#exec_cmd_path = get(g:, 'prettier#exec_cmd_path', 0)
 
@@ -50,6 +53,9 @@ let g:prettier#config#bracket_spacing = get(g:,'prettier#config#bracket_spacing'
 
 " put > on the last line instead of new line
 let g:prettier#config#jsx_bracket_same_line = get(g:,'prettier#config#jsx_bracket_same_line', 'true')
+
+" avoid wrapping a single arrow function param in parens
+let g:prettier#config#arrow_parens = get(g:,'prettier#config#arrow_parens', 'avoid')
 
 " none|es5|all
 let g:prettier#config#trailing_comma = get(g:,'prettier#config#trailing_comma', 'all')

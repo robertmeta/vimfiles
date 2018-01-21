@@ -124,6 +124,15 @@ function! s:SelectPlaceholder() abort
     let @s=substitute(@s, '\V' . g:minisnip_startdelim, '', '')
     let @s=substitute(@s, '\V' . g:minisnip_enddelim, '', '')
 
+    if @s =~ '\V\^' . g:minisnip_evalmarker
+       let l:skip = 1
+    elseif @s =~ '\V\^' . g:minisnip_donotskipmarker . g:minisnip_evalmarker
+       let @s=substitute(@s, '\V\^' . g:minisnip_donotskipmarker , '', '')
+       let l:skip = 0
+    else
+       let l:skip = 0
+    endif
+
     " is this placeholder marked as 'evaluate'?
     if @s =~ '\V\^' . g:minisnip_evalmarker
         " remove the marker
@@ -142,6 +151,10 @@ function! s:SelectPlaceholder() abort
         " the placeholder was empty, so just enter insert mode directly
         normal! gvd
         call feedkeys(col("'>") - l:slen >= col('$') - 1 ? 'a' : 'i', 'n')
+    elseif l:skip == 1
+       normal! gv"sp
+       let @s = l:old_s
+       call s:SelectPlaceholder()
     else
         " paste the placeholder's default value in and enter select mode on it
         execute "normal! gv\"spgv\<C-g>"
