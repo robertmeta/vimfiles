@@ -96,6 +96,7 @@ ale-dart-dartanalyzer	ale-dart.txt	/*ale-dart-dartanalyzer*
 ale-dart-options	ale-dart.txt	/*ale-dart-options*
 ale-dockerfile-hadolint	ale-dockerfile.txt	/*ale-dockerfile-hadolint*
 ale-dockerfile-options	ale-dockerfile.txt	/*ale-dockerfile-options*
+ale-elixir-dialyxir	ale-elixir.txt	/*ale-elixir-dialyxir*
 ale-elixir-mix	ale-elixir.txt	/*ale-elixir-mix*
 ale-elixir-options	ale-elixir.txt	/*ale-elixir-options*
 ale-elm-elm-format	ale-elm.txt	/*ale-elm-elm-format*
