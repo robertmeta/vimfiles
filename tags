@@ -1878,6 +1878,7 @@ ale_linters#dockerfile#hadolint#GetCommand	pack/plugins/start/w0rp-ale/ale_linte
 ale_linters#dockerfile#hadolint#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/dockerfile/hadolint.vim	/^function! ale_linters#dockerfile#hadolint#GetExecutable(buffer) abort$/;"	f
 ale_linters#dockerfile#hadolint#Handle	pack/plugins/start/w0rp-ale/ale_linters/dockerfile/hadolint.vim	/^function! ale_linters#dockerfile#hadolint#Handle(buffer, lines) abort$/;"	f
 ale_linters#elixir#credo#Handle	pack/plugins/start/w0rp-ale/ale_linters/elixir/credo.vim	/^function! ale_linters#elixir#credo#Handle(buffer, lines) abort$/;"	f
+ale_linters#elixir#dialyxir#Handle	pack/plugins/start/w0rp-ale/ale_linters/elixir/dialyxir.vim	/^function! ale_linters#elixir#dialyxir#Handle(buffer, lines) abort$/;"	f
 ale_linters#elixir#dogma#Handle	pack/plugins/start/w0rp-ale/ale_linters/elixir/dogma.vim	/^function! ale_linters#elixir#dogma#Handle(buffer, lines) abort$/;"	f
 ale_linters#elm#make#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/elm/make.vim	/^function! ale_linters#elm#make#GetCommand(buffer) abort$/;"	f
 ale_linters#elm#make#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/elm/make.vim	/^function! ale_linters#elm#make#GetExecutable(buffer) abort$/;"	f
