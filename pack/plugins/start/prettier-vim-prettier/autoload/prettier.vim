@@ -82,7 +82,7 @@ function! s:Prettier_Exec_Async_Nvim(cmd, startSelection, endSelection) abort
   let l:out = []
   let l:err = []
 
-  let l:job = jobstart(l:async_cmd, {
+  let l:job = jobstart([&shell, &shellcmdflag, l:async_cmd], {
     \ 'on_stdout': {job_id, data, event -> extend(l:out, data)},
     \ 'on_stderr': {job_id, data, event -> extend(l:err, data)},
     \ 'on_exit': {job_id, status, event -> s:Prettier_Job_Nvim_Exit(status, l:dict, l:out, l:err)},
@@ -168,7 +168,7 @@ function! s:Prettier_Exec_Async(cmd, startSelection, endSelection) abort
 
   if s:prettier_job_running != 1
       let s:prettier_job_running = 1
-      call job_start(l:async_cmd, {
+      call job_start([&shell, &shellcmdflag, l:async_cmd], {
         \ 'in_io': 'buffer',
         \ 'in_top': a:startSelection,
         \ 'in_bot': a:endSelection,
@@ -333,17 +333,17 @@ function! s:Get_Prettier_Exec() abort
 
   let l:local_exec = s:Get_Prettier_Local_Exec()
   if executable(l:local_exec)
-    return l:local_exec
+    return fnameescape(l:local_exec)
   endif
 
   let l:global_exec = s:Get_Prettier_Global_Exec()
   if executable(l:global_exec)
-    return l:global_exec
+    return fnameescape(l:global_exec)
   endif
 
   let l:plugin_exec = s:Get_Prettier_Plugin_Exec()
   if executable(l:plugin_exec)
-    return l:plugin_exec
+    return fnameescape(l:plugin_exec)
   endif
 
   return -1

@@ -637,11 +637,20 @@ function! s:highlight(group, pattern, priority) abort
       let s:highlighted = 1
     endif
     if (&conceallevel !=# 2 || &concealcursor !=# 'c') && a:group ==# 'Conceal'
-      let s:win[id].options = {}
+      let s:win[id].options = get(s:win[id], 'options', {})
       let s:win[id].options.conceallevel = &conceallevel
       let s:win[id].options.concealcursor = &concealcursor
       set conceallevel=2
       set concealcursor=c
+    endif
+    " highglighting doesn't work properly when cursorline or cursorcolumn is
+    " enabled
+    if &cursorcolumn || &cursorline
+      let s:win[id].options = get(s:win[id], 'options', {})
+      let s:win[id].options.cursorcolumn = &cursorcolumn
+      let s:win[id].options.cursorline = &cursorline
+      set nocursorcolumn
+      set nocursorline
     endif
   endfor
   if bufname('%') !=# '[Command Line]'
@@ -745,11 +754,14 @@ function! s:cmdl_enter() abort
   let s:buf[s:nr].cWORD = expand('<cWORD>')
   let s:buf[s:nr].cfile = expand('<cfile>')
   let s:buf[s:nr].cur_init_pos = [line('.'), col('.')]
-  let s:buf[s:nr].redraw = 1
   call s:save_marks()
 endfunction
 
 function! s:cmdl_leave() abort
+  if exists('s:start_init_timer')
+    call timer_stop(s:start_init_timer)
+    unlet s:start_init_timer
+  endif
   let s:nr = bufnr('%')
   if !exists('s:buf[s:nr]')
     return
@@ -786,7 +798,7 @@ function! s:cmdl_leave() abort
         endif
         if exists('s:win[id].options')
           for option in keys(s:win[id].options)
-            execute 'set ' . option . '=' . s:win[id].options[option]
+            execute 'let &' . option . '="' . s:win[id].options[option] . '"'
           endfor
         endif
         unlet s:win[id]
@@ -911,11 +923,11 @@ function! s:init(...) abort
   if s:highlighted
     if has('nvim')
       redraw
-    elseif s:buf[s:nr].redraw
-      redraw
-      let s:buf[s:nr].redraw = 0
     else
       call winline()
+      " after patch 8.0.1449, necessary for linux cui, otherwise highlighting
+      " is not drawn properly
+      silent! call feedkeys("\<left>\<right>", 'tn')
     endif
   endif
 
@@ -930,6 +942,15 @@ function! s:track_cmdl(...) abort
     let s:cmdl = current_cmd
     call s:init()
   endif
+endfunction
+
+function! s:cmdline_changed() abort
+  let s:cmdl = getcmdline()
+  if exists('s:start_init_timer')
+    call timer_stop(s:start_init_timer)
+    unlet s:start_init_timer
+  endif
+  let s:start_init_timer = timer_start(1,function('s:init'))
 endfunction
 
 function! s:t_start() abort
@@ -989,8 +1010,12 @@ silent! cnoremap <unique> <expr> <c-r><c-o><c-p> <sid>check_b() ? "\<c-r>\<c-r>=
 
 augroup traces_augroup
   autocmd!
-  autocmd CmdlineEnter,CmdwinLeave : call s:t_start()
-  autocmd CmdlineLeave,CmdwinEnter : call s:t_stop()
+  if exists('##CmdlineChanged')
+    autocmd CmdlineChanged : call s:cmdline_changed()
+  else
+    autocmd CmdlineEnter,CmdwinLeave : call s:t_start()
+    autocmd CmdlineLeave,CmdwinEnter : call s:t_stop()
+  endif
   autocmd CmdlineLeave : call s:cmdl_leave()
 augroup END
 
