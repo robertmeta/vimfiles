@@ -2253,6 +2253,7 @@ closed	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  let closed = 0$/
 cmd_job	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^function s:cmd_job(args) abort$/;"	f
 cmdl_enter	pack/plugins/start/xtal8-traces-vim/plugin/traces.vim	/^function! s:cmdl_enter() abort$/;"	f
 cmdl_leave	pack/plugins/start/xtal8-traces-vim/plugin/traces.vim	/^function! s:cmdl_leave() abort$/;"	f
+cmdline_changed	pack/plugins/start/xtal8-traces-vim/plugin/traces.vim	/^function! s:cmdline_changed() abort$/;"	f
 co	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^  nmap co =o$/;"	m
 code	pack/plugins/start/fatih-vim-go/autoload/fzf/decls.vim	/^function! s:code(group, attr) abort$/;"	f
 coerce	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:coerce(transformation)$/;"	f

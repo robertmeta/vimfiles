@@ -120,6 +120,7 @@ ale-gitcommit-options	ale-gitcommit.txt	/*ale-gitcommit-options*
 ale-glsl-glslang	ale-glsl.txt	/*ale-glsl-glslang*
 ale-glsl-glslls	ale-glsl.txt	/*ale-glsl-glslls*
 ale-glsl-options	ale-glsl.txt	/*ale-glsl-options*
+ale-go-gobuild	ale-go.txt	/*ale-go-gobuild*
 ale-go-gofmt	ale-go.txt	/*ale-go-gofmt*
 ale-go-gometalinter	ale-go.txt	/*ale-go-gometalinter*
 ale-go-options	ale-go.txt	/*ale-go-options*
@@ -304,6 +305,8 @@ ale-vim-help-options	ale-vim-help.txt	/*ale-vim-help-options*
 ale-vim-help-write-good	ale-vim-help.txt	/*ale-vim-help-write-good*
 ale-vim-options	ale-vim.txt	/*ale-vim-options*
 ale-vim-vint	ale-vim.txt	/*ale-vim-vint*
+ale-vue-options	ale-vue.txt	/*ale-vue-options*
+ale-vue-prettier	ale-vue.txt	/*ale-vue-prettier*
 ale-write-good-options	ale.txt	/*ale-write-good-options*
 ale-xhtml-options	ale-xhtml.txt	/*ale-xhtml-options*
 ale-xhtml-write-good	ale-xhtml.txt	/*ale-xhtml-write-good*
@@ -386,6 +389,7 @@ b:ale_glsl_glslang_executable	ale-glsl.txt	/*b:ale_glsl_glslang_executable*
 b:ale_glsl_glslang_options	ale-glsl.txt	/*b:ale_glsl_glslang_options*
 b:ale_glsl_glslls_executable	ale-glsl.txt	/*b:ale_glsl_glslls_executable*
 b:ale_glsl_glslls_logfile	ale-glsl.txt	/*b:ale_glsl_glslls_logfile*
+b:ale_go_gobuild_options	ale-go.txt	/*b:ale_go_gobuild_options*
 b:ale_go_gofmt_options	ale-go.txt	/*b:ale_go_gofmt_options*
 b:ale_go_gometalinter_executable	ale-go.txt	/*b:ale_go_gometalinter_executable*
 b:ale_go_gometalinter_options	ale-go.txt	/*b:ale_go_gometalinter_options*
@@ -515,6 +519,7 @@ b:ale_python_pyls_executable	ale-python.txt	/*b:ale_python_pyls_executable*
 b:ale_python_pyls_use_global	ale-python.txt	/*b:ale_python_pyls_use_global*
 b:ale_python_yapf_executable	ale-python.txt	/*b:ale_python_yapf_executable*
 b:ale_python_yapf_use_global	ale-python.txt	/*b:ale_python_yapf_use_global*
+b:ale_r_lintr_lint_package	ale-r.txt	/*b:ale_r_lintr_lint_package*
 b:ale_r_lintr_options	ale-r.txt	/*b:ale_r_lintr_options*
 b:ale_reason_ols_executable	ale-reasonml.txt	/*b:ale_reason_ols_executable*
 b:ale_reason_ols_use_global	ale-reasonml.txt	/*b:ale_reason_ols_use_global*
@@ -670,6 +675,7 @@ g:ale_glsl_glslang_executable	ale-glsl.txt	/*g:ale_glsl_glslang_executable*
 g:ale_glsl_glslang_options	ale-glsl.txt	/*g:ale_glsl_glslang_options*
 g:ale_glsl_glslls_executable	ale-glsl.txt	/*g:ale_glsl_glslls_executable*
 g:ale_glsl_glslls_logfile	ale-glsl.txt	/*g:ale_glsl_glslls_logfile*
+g:ale_go_gobuild_options	ale-go.txt	/*g:ale_go_gobuild_options*
 g:ale_go_gofmt_options	ale-go.txt	/*g:ale_go_gofmt_options*
 g:ale_go_gometalinter_executable	ale-go.txt	/*g:ale_go_gometalinter_executable*
 g:ale_go_gometalinter_options	ale-go.txt	/*g:ale_go_gometalinter_options*
@@ -822,6 +828,7 @@ g:ale_python_pyls_executable	ale-python.txt	/*g:ale_python_pyls_executable*
 g:ale_python_pyls_use_global	ale-python.txt	/*g:ale_python_pyls_use_global*
 g:ale_python_yapf_executable	ale-python.txt	/*g:ale_python_yapf_executable*
 g:ale_python_yapf_use_global	ale-python.txt	/*g:ale_python_yapf_use_global*
+g:ale_r_lintr_lint_package	ale-r.txt	/*g:ale_r_lintr_lint_package*
 g:ale_r_lintr_options	ale-r.txt	/*g:ale_r_lintr_options*
 g:ale_reason_ols_executable	ale-reasonml.txt	/*g:ale_reason_ols_executable*
 g:ale_reason_ols_use_global	ale-reasonml.txt	/*g:ale_reason_ols_use_global*
