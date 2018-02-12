@@ -1,0 +1,86 @@
+" Name: {{.Name}} Colorscheme
+" Author: robertmeta (on Github)
+" URL: https://github.com/robertmeta/nofrils
+" (see this url for latest release & screenshots)
+" License: OSI approved MIT license
+
+hi clear
+if exists("syntax_on")
+    syntax reset
+endif
+
+let g:colors_name = "{{.Slug}}"
+
+if !exists("g:nofrils_strbackgrounds")
+    let g:nofrils_strbackgrounds = 0
+endif
+if !exists("g:nofrils_heavycomments")
+    let g:nofrils_heavycomments = 0
+endif
+if !exists("g:nofrils_heavylinenumbers")
+    let g:nofrils_heavylinenumbers = 0
+endif
+
+" Baseline{{range .Rows}}
+hi {{.Name}} {{if .FG.TermCode}}ctermfg={{.FG.TermCode}} {{end}}{{if .BG.TermCode}}ctermbg={{.BG.TermCode}} {{end}}{{if .FG.GuiCode}}guifg={{.FG.GuiCode}} {{end}}{{if .BG.GuiCode}}guibg={{.BG.GuiCode}} {{end}}{{if .Attr}}term={{.Attr}} cterm={{.Attr}} gui={{.Attr}}{{end}}{{end}}
+
+" Helper Functions
+function! NofrilsFocusComments()
+    hi Comment {{if .NormalRow.FG.TermCode}}ctermfg={{.NormalRow.FG.TermCode}} {{end}}{{if .NormalRow.BG.TermCode}}ctermbg={{.NormalRow.BG.TermCode}} {{end}}{{if .NormalRow.FG.GuiCode}}guifg={{.NormalRow.FG.GuiCode}} {{end}}{{if .NormalRow.BG.GuiCode}}guibg={{.NormalRow.BG.GuiCode}} {{end}}{{if .NormalRow.Attr}}term={{.NormalRow.Attr}} cterm={{.NormalRow.Attr}} gui={{.NormalRow.Attr}}{{end}}
+    if g:nofrils_heavycomments
+        hi Comment {{if .HeavyCommentRow.FG.TermCode}}ctermfg={{.HeavyCommentRow.FG.TermCode}} {{end}}{{if .HeavyCommentRow.BG.TermCode}}ctermbg={{.HeavyCommentRow.BG.TermCode}} {{end}}{{if .HeavyCommentRow.FG.GuiCode}}guifg={{.HeavyCommentRow.FG.GuiCode}} {{end}}{{if .HeavyCommentRow.BG.GuiCode}}guibg={{.HeavyCommentRow.BG.GuiCode}} {{end}}{{if .HeavyCommentRow.Attr}}term={{.HeavyCommentRow.Attr}} cterm={{.HeavyCommentRow.Attr}} gui={{.HeavyCommentRow.Attr}}{{end}}
+    end
+
+    hi Normal {{if .FadedRow.FG.TermCode}}ctermfg={{.FadedRow.FG.TermCode}} {{end}}{{if .FadedRow.BG.TermCode}}ctermbg={{.FadedRow.BG.TermCode}} {{end}}{{if .FadedRow.FG.GuiCode}}guifg={{.FadedRow.FG.GuiCode}} {{end}}{{if .FadedRow.BG.GuiCode}}guibg={{.FadedRow.BG.GuiCode}} {{end}}{{if .FadedRow.Attr}}term={{.FadedRow.Attr}} cterm={{.FadedRow.Attr}} gui={{.FadedRow.Attr}}{{end}}
+    hi LineNr {{if .FadedRow.FG.TermCode}}ctermfg={{.FadedRow.FG.TermCode}} {{end}}{{if .FadedRow.BG.TermCode}}ctermbg={{.FadedRow.BG.TermCode}} {{end}}{{if .FadedRow.FG.GuiCode}}guifg={{.FadedRow.FG.GuiCode}} {{end}}{{if .FadedRow.BG.GuiCode}}guibg={{.FadedRow.BG.GuiCode}} {{end}}{{if .FadedRow.Attr}}term={{.FadedRow.Attr}} cterm={{.FadedRow.Attr}} gui={{.FadedRow.Attr}}{{end}}
+    hi Character {{if .FadedRow.FG.TermCode}}ctermfg={{.FadedRow.FG.TermCode}} {{end}}{{if .FadedRow.BG.TermCode}}ctermbg={{.FadedRow.BG.TermCode}} {{end}}{{if .FadedRow.FG.GuiCode}}guifg={{.FadedRow.FG.GuiCode}} {{end}}{{if .FadedRow.BG.GuiCode}}guibg={{.FadedRow.BG.GuiCode}} {{end}}{{if .FadedRow.Attr}}term={{.FadedRow.Attr}} cterm={{.FadedRow.Attr}} gui={{.FadedRow.Attr}}{{end}}
+    hi String {{if .FadedRow.FG.TermCode}}ctermfg={{.FadedRow.FG.TermCode}} {{end}}{{if .FadedRow.BG.TermCode}}ctermbg={{.FadedRow.BG.TermCode}} {{end}}{{if .FadedRow.FG.GuiCode}}guifg={{.FadedRow.FG.GuiCode}} {{end}}{{if .FadedRow.BG.GuiCode}}guibg={{.FadedRow.BG.GuiCode}} {{end}}{{if .FadedRow.Attr}}term={{.FadedRow.Attr}} cterm={{.FadedRow.Attr}} gui={{.FadedRow.Attr}}{{end}}
+endfunction
+
+function! NofrilsFocusCode()
+    hi Normal {{if .NormalRow.FG.TermCode}}ctermfg={{.NormalRow.FG.TermCode}} {{end}}{{if .NormalRow.BG.TermCode}}ctermbg={{.NormalRow.BG.TermCode}} {{end}}{{if .NormalRow.FG.GuiCode}}guifg={{.NormalRow.FG.GuiCode}} {{end}}{{if .NormalRow.BG.GuiCode}}guibg={{.NormalRow.BG.GuiCode}} {{end}}{{if .NormalRow.Attr}}term={{.NormalRow.Attr}} cterm={{.NormalRow.Attr}} gui={{.NormalRow.Attr}}{{end}}
+    if g:nofrils_strbackgrounds
+        hi Character {{if .HeavyStringRow.FG.TermCode}}ctermfg={{.HeavyStringRow.FG.TermCode}} {{end}}{{if .HeavyStringRow.BG.TermCode}}ctermbg={{.HeavyStringRow.BG.TermCode}} {{end}}{{if .HeavyStringRow.FG.GuiCode}}guifg={{.HeavyStringRow.FG.GuiCode}} {{end}}{{if .HeavyStringRow.BG.GuiCode}}guibg={{.HeavyStringRow.BG.GuiCode}} {{end}}{{if .HeavyStringRow.Attr}}term={{.HeavyStringRow.Attr}} cterm={{.HeavyStringRow.Attr}} gui={{.HeavyStringRow.Attr}}{{end}}
+        hi String {{if .HeavyStringRow.FG.TermCode}}ctermfg={{.HeavyStringRow.FG.TermCode}} {{end}}{{if .HeavyStringRow.BG.TermCode}}ctermbg={{.HeavyStringRow.BG.TermCode}} {{end}}{{if .HeavyStringRow.FG.GuiCode}}guifg={{.HeavyStringRow.FG.GuiCode}} {{end}}{{if .HeavyStringRow.BG.GuiCode}}guibg={{.HeavyStringRow.BG.GuiCode}} {{end}}{{if .HeavyStringRow.Attr}}term={{.HeavyStringRow.Attr}} cterm={{.HeavyStringRow.Attr}} gui={{.HeavyStringRow.Attr}}{{end}}
+    end
+
+    hi Comment {{if .FadedRow.FG.TermCode}}ctermfg={{.FadedRow.FG.TermCode}} {{end}}{{if .FadedRow.BG.TermCode}}ctermbg={{.FadedRow.BG.TermCode}} {{end}}{{if .FadedRow.FG.GuiCode}}guifg={{.FadedRow.FG.GuiCode}} {{end}}{{if .FadedRow.BG.GuiCode}}guibg={{.FadedRow.BG.GuiCode}} {{end}}{{if .FadedRow.Attr}}term={{.FadedRow.Attr}} cterm={{.FadedRow.Attr}} gui={{.FadedRow.Attr}}{{end}}
+    hi LineNr {{if .FadedRow.FG.TermCode}}ctermfg={{.FadedRow.FG.TermCode}} {{end}}{{if .FadedRow.BG.TermCode}}ctermbg={{.FadedRow.BG.TermCode}} {{end}}{{if .FadedRow.FG.GuiCode}}guifg={{.FadedRow.FG.GuiCode}} {{end}}{{if .FadedRow.BG.GuiCode}}guibg={{.FadedRow.BG.GuiCode}} {{end}}{{if .FadedRow.Attr}}term={{.FadedRow.Attr}} cterm={{.FadedRow.Attr}} gui={{.FadedRow.Attr}}{{end}}
+    hi Character {{if .FadedRow.FG.TermCode}}ctermfg={{.FadedRow.FG.TermCode}} {{end}}{{if .FadedRow.BG.TermCode}}ctermbg={{.FadedRow.BG.TermCode}} {{end}}{{if .FadedRow.FG.GuiCode}}guifg={{.FadedRow.FG.GuiCode}} {{end}}{{if .FadedRow.BG.GuiCode}}guibg={{.FadedRow.BG.GuiCode}} {{end}}{{if .FadedRow.Attr}}term={{.FadedRow.Attr}} cterm={{.FadedRow.Attr}} gui={{.FadedRow.Attr}}{{end}}
+    hi String {{if .FadedRow.FG.TermCode}}ctermfg={{.FadedRow.FG.TermCode}} {{end}}{{if .FadedRow.BG.TermCode}}ctermbg={{.FadedRow.BG.TermCode}} {{end}}{{if .FadedRow.FG.GuiCode}}guifg={{.FadedRow.FG.GuiCode}} {{end}}{{if .FadedRow.BG.GuiCode}}guibg={{.FadedRow.BG.GuiCode}} {{end}}{{if .FadedRow.Attr}}term={{.FadedRow.Attr}} cterm={{.FadedRow.Attr}} gui={{.FadedRow.Attr}}{{end}}
+
+endfunction
+
+function! NofrilsNormal()
+    hi Normal {{if .NormalRow.FG.TermCode}}ctermfg={{.NormalRow.FG.TermCode}} {{end}}{{if .NormalRow.BG.TermCode}}ctermbg={{.NormalRow.BG.TermCode}} {{end}}{{if .NormalRow.FG.GuiCode}}guifg={{.NormalRow.FG.GuiCode}} {{end}}{{if .NormalRow.BG.GuiCode}}guibg={{.NormalRow.BG.GuiCode}} {{end}}{{if .NormalRow.Attr}}term={{.NormalRow.Attr}} cterm={{.NormalRow.Attr}} gui={{.NormalRow.Attr}}{{end}}
+
+    hi Character {{if .NormalRow.FG.TermCode}}ctermfg={{.NormalRow.FG.TermCode}} {{end}}{{if .NormalRow.BG.TermCode}}ctermbg={{.NormalRow.BG.TermCode}} {{end}}{{if .NormalRow.FG.GuiCode}}guifg={{.NormalRow.FG.GuiCode}} {{end}}{{if .NormalRow.BG.GuiCode}}guibg={{.NormalRow.BG.GuiCode}} {{end}}{{if .NormalRow.Attr}}term={{.NormalRow.Attr}} cterm={{.NormalRow.Attr}} gui={{.NormalRow.Attr}}{{end}}
+    hi String {{if .NormalRow.FG.TermCode}}ctermfg={{.NormalRow.FG.TermCode}} {{end}}{{if .NormalRow.BG.TermCode}}ctermbg={{.NormalRow.BG.TermCode}} {{end}}{{if .NormalRow.FG.GuiCode}}guifg={{.NormalRow.FG.GuiCode}} {{end}}{{if .NormalRow.BG.GuiCode}}guibg={{.NormalRow.BG.GuiCode}} {{end}}{{if .NormalRow.Attr}}term={{.NormalRow.Attr}} cterm={{.NormalRow.Attr}} gui={{.NormalRow.Attr}}{{end}}
+    " Optional Syntax Features
+    if g:nofrils_strbackgrounds
+        hi Character {{if .HeavyStringRow.FG.TermCode}}ctermfg={{.HeavyStringRow.FG.TermCode}} {{end}}{{if .HeavyStringRow.BG.TermCode}}ctermbg={{.HeavyStringRow.BG.TermCode}} {{end}}{{if .HeavyStringRow.FG.GuiCode}}guifg={{.HeavyStringRow.FG.GuiCode}} {{end}}{{if .HeavyStringRow.BG.GuiCode}}guibg={{.HeavyStringRow.BG.GuiCode}} {{end}}{{if .HeavyStringRow.Attr}}term={{.HeavyStringRow.Attr}} cterm={{.HeavyStringRow.Attr}} gui={{.HeavyStringRow.Attr}}{{end}}
+        hi String {{if .HeavyStringRow.FG.TermCode}}ctermfg={{.HeavyStringRow.FG.TermCode}} {{end}}{{if .HeavyStringRow.BG.TermCode}}ctermbg={{.HeavyStringRow.BG.TermCode}} {{end}}{{if .HeavyStringRow.FG.GuiCode}}guifg={{.HeavyStringRow.FG.GuiCode}} {{end}}{{if .HeavyStringRow.BG.GuiCode}}guibg={{.HeavyStringRow.BG.GuiCode}} {{end}}{{if .HeavyStringRow.Attr}}term={{.HeavyStringRow.Attr}} cterm={{.HeavyStringRow.Attr}} gui={{.HeavyStringRow.Attr}}{{end}}
+    end
+
+    hi Comment {{if .FadedRow.FG.TermCode}}ctermfg={{.FadedRow.FG.TermCode}} {{end}}{{if .FadedRow.BG.TermCode}}ctermbg={{.FadedRow.BG.TermCode}} {{end}}{{if .FadedRow.FG.GuiCode}}guifg={{.FadedRow.FG.GuiCode}} {{end}}{{if .FadedRow.BG.GuiCode}}guibg={{.FadedRow.BG.GuiCode}} {{end}}{{if .FadedRow.Attr}}term={{.FadedRow.Attr}} cterm={{.FadedRow.Attr}} gui={{.FadedRow.Attr}}{{end}}
+    if g:nofrils_heavycomments
+        hi Comment {{if .HeavyCommentRow.FG.TermCode}}ctermfg={{.HeavyCommentRow.FG.TermCode}} {{end}}{{if .HeavyCommentRow.BG.TermCode}}ctermbg={{.HeavyCommentRow.BG.TermCode}} {{end}}{{if .HeavyCommentRow.FG.GuiCode}}guifg={{.HeavyCommentRow.FG.GuiCode}} {{end}}{{if .HeavyCommentRow.BG.GuiCode}}guibg={{.HeavyCommentRow.BG.GuiCode}} {{end}}{{if .HeavyCommentRow.Attr}}term={{.HeavyCommentRow.Attr}} cterm={{.HeavyCommentRow.Attr}} gui={{.HeavyCommentRow.Attr}}{{end}}
+    end
+
+    hi LineNr {{if .FadedRow.FG.TermCode}}ctermfg={{.FadedRow.FG.TermCode}} {{end}}{{if .FadedRow.BG.TermCode}}ctermbg={{.FadedRow.BG.TermCode}} {{end}}{{if .FadedRow.FG.GuiCode}}guifg={{.FadedRow.FG.GuiCode}} {{end}}{{if .FadedRow.BG.GuiCode}}guibg={{.FadedRow.BG.GuiCode}} {{end}}{{if .FadedRow.Attr}}term={{.FadedRow.Attr}} cterm={{.FadedRow.Attr}} gui={{.FadedRow.Attr}}{{end}}
+    if g:nofrils_heavylinenumbers
+        hi LineNr {{if .HeavyLineRow.FG.TermCode}}ctermfg={{.HeavyLineRow.FG.TermCode}} {{end}}{{if .HeavyLineRow.BG.TermCode}}ctermbg={{.HeavyLineRow.BG.TermCode}} {{end}}{{if .HeavyLineRow.FG.GuiCode}}guifg={{.HeavyLineRow.FG.GuiCode}} {{end}}{{if .HeavyLineRow.BG.GuiCode}}guibg={{.HeavyLineRow.BG.GuiCode}} {{end}}{{if .HeavyLineRow.Attr}}term={{.HeavyLineRow.Attr}} cterm={{.HeavyLineRow.Attr}} gui={{.HeavyLineRow.Attr}}{{end}}
+    end
+endfunction
+
+" Command mappings
+command! NofrilsDark :colo nofrils-dark
+command! NofrilsLight :colo nofrils-light
+command! NofrilsSepia :colo nofrils-sepia
+command! NofrilsAcme :colo nofrils-acme
+command! NofrilsFocusNormal :call NofrilsNormal()
+command! NofrilsFocusCode :call NofrilsFocusCode()
+command! NofrilsFocusComments :call NofrilsFocusComments()
+
+" Setup normal settings
+call NofrilsNormal()

@@ -1,0 +1,130 @@
+Before (set the minisnip dir to a local one for testing):
+  let g:minisnip_dir = './snippets'
+
+Execute (to check the build is working):
+  AssertEqual 1, 1
+
+Given (A buffer with one minisnip placeholder):
+  test
+
+Do (Perform the replacement):
+  A\<Tab>
+
+Expect (The buffer to have the replacement text inside):
+  This is a test snippet
+
+Given (A buffer with a named placeholder):
+  namedplaceholder
+
+Do (Press tab to get to the placeholder text):
+  A\<Tab>
+
+Expect (Only the placeholder text to remain):
+  This is a test
+
+Given (A buffer with a named skipped placeholder):
+  skipme
+
+Do (Press tab to get to the placeholder text):
+  A\<Tab>double\<Tab>single
+
+Expect (Only the placeholder text to remain):
+  double double single
+
+Given php (A buffer with a php filetype):
+  placeholder
+
+Do (Press tab to get the placeholder text):
+  A\<Tab>
+
+Expect (A replacement to have taken place):
+  I am in php!
+
+Given lua (A buffer with a lua filetype and a php snippet):
+  placeholder
+
+Do (Press tab to get the placeholder text):
+  A\<Tab>\<Bs>
+
+Expect (No replacements to have taken place):
+  placeholder
+
+Given (A buffer with one multiline minisnip placeholder):
+  multilinetest
+
+Do (Perform the replacement):
+  A\<Tab>
+
+Expect (The buffer to have the multiline replacement text inside):
+  This is a multiline
+  test snippet!
+
+Given (A buffer with one prefixed multiline minisnip placeholder):
+  |multilinetest
+
+Do (Perform the replacement):
+  A\<Tab>
+
+Expect (The buffer to have the prefixed and suffixed multiline replacement text inside):
+  |This is a multiline
+  test snippet!
+
+Given (A buffer with one suffixed multiline minisnip placeholder):
+  multilinetestX
+
+Do (Perform the replacement):
+  $i\<Tab>
+
+Expect (The buffer to have the prefixed and suffixed multiline replacement text inside):
+  This is a multiline
+  test snippet!X
+
+Given (A buffer with one prefixed and suffixed multiline minisnip placeholder):
+  |multilinetestX
+
+Do (Perform the replacement):
+  $i\<Tab>
+
+Expect (The buffer to have the prefixed and suffixed multiline replacement text inside):
+  |This is a multiline
+  test snippet!X
+
+Given (A buffer with one indented multiline minisnip placeholder):
+   multilinetest
+
+Do (Perform the replacement):
+  A\<Tab>
+
+Expect (The buffer to have the prefixed and suffixed multiline replacement text inside):
+   This is a multiline
+   test snippet!
+
+Given (A buffer with one indented and prefixed multiline minisnip placeholder):
+   |multilinetest
+
+Do (Perform the replacement):
+  A\<Tab>
+
+Expect (The buffer to have the prefixed and suffixed multiline replacement text inside):
+   |This is a multiline
+   test snippet!
+
+Given (A buffer with one indented and suffixed multiline minisnip placeholder):
+   multilinetestX
+
+Do (Perform the replacement):
+  $i\<Tab>
+
+Expect (The buffer to have the prefixed and suffixed multiline replacement text inside):
+   This is a multiline
+   test snippet!X
+
+Given (A buffer with one prefixed and suffixed multiline minisnip placeholder):
+   |multilinetestX
+
+Do (Perform the replacement):
+  $i\<Tab>
+
+Expect (The buffer to have the prefixed and suffixed multiline replacement text inside):
+   |This is a multiline
+   test snippet!X
