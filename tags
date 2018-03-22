@@ -112,6 +112,7 @@ $TMPDIR	pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 5.xiii. Will this plugin eat all of my laptop battery power?	pack/plugins/start/w0rp-ale/README.md	/^### 5.xiii. Will this plugin eat all of my laptop battery power?$/;"	k
 5.xiv. How can I configure my C or C++ project?	pack/plugins/start/w0rp-ale/README.md	/^### 5.xiv. How can I configure my C or C++ project?$/;"	k
 5.xv. How can I configure ALE differently for different buffers?	pack/plugins/start/w0rp-ale/README.md	/^### 5.xv. How can I configure ALE differently for different buffers?$/;"	k
+5.xvi. How can I configure the height of the list in which ALE displays errors?	pack/plugins/start/w0rp-ale/README.md	/^### 5.xvi. How can I configure the height of the list in which ALE displays errors?$/;"	k
 ::	vimrc	/^        cnoremap :: <c-r>=fnameescape(expand('%:p:h'))<cr>\/$/;"	m
 :ALEInfo	pack/plugins/start/w0rp-ale/ISSUE_TEMPLATE.md	/^### :ALEInfo$/;"	k
 ;f	vimrc	/^        inoremap <silent> ;f <c-x><c-f>$/;"	m
@@ -131,7 +132,6 @@ $TMPDIR	pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 <C-E>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^inoremap <expr> <C-E> col('.')>strlen(getline('.'))<bar><bar>pumvisible()?"\\<Lt>C-E>":"\\<Lt>End>"$/;"	m
 <C-F>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^cnoremap <expr> <C-F> getcmdpos()>strlen(getcmdline())?&cedit:"\\<Lt>Right>"$/;"	m
 <C-F>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^inoremap <expr> <C-F> col('.')>strlen(getline('.'))?"\\<Lt>C-F>":"\\<Lt>Right>"$/;"	m
-<C-G>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^  cmap <script> <C-G> <C-C>$/;"	m
 <C-LeftMouse>	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> <C-LeftMouse> <LeftMouse>:GoDef<cr>$/;"	m
 <C-R>	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^    nmap <C-R> <Plug>(RepeatRedo)$/;"	m
 <C-T>	pack/plugins/start/tpope-vim-rsi/plugin/rsi.vim	/^cmap   <script> <C-T> <SID>transposition<SID>transpose$/;"	m
@@ -451,6 +451,7 @@ ALEPreviousWrap	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! -bar ALEPr
 ALEQueueImpl	pack/plugins/start/w0rp-ale/autoload/ale.vim	/^function! s:ALEQueueImpl(delay, linting_flag, buffer) abort$/;"	f
 ALEReset	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! -bar ALEReset :call ale#toggle#Reset()$/;"	c
 ALEResetBuffer	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! -bar ALEResetBuffer :call ale#toggle#ResetBuffer(bufnr(''))$/;"	c
+ALEStopAllLSPs	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! -bar ALEStopAllLSPs :call ale#lsp#reset#StopAllLSPs()$/;"	c
 ALEToggle	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! -bar ALEToggle :call ale#toggle#Toggle()$/;"	c
 ALEToggleBuffer	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^command! -bar ALEToggleBuffer :call ale#toggle#ToggleBuffer(bufnr(''))$/;"	c
 Abolish	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^  let Abolish = {}$/;"	v
@@ -472,6 +473,7 @@ AsyncDo	pack/plugins/start/hauleth-asyncdo-vim/README.md	/^# AsyncDo$/;"	h
 AsyncDo	pack/plugins/start/hauleth-asyncdo-vim/plugin/asyncdo.vim	/^command! -bang -nargs=+ AsyncDo   call asyncdo#run(<bang>0, <f-args>)$/;"	c
 AsyncStop	pack/plugins/start/hauleth-asyncdo-vim/plugin/asyncdo.vim	/^command!       -nargs=0 AsyncStop call asyncdo#stop()$/;"	c
 Asynchronous Lint Engine [![Travis CI Build Status](https://travis-ci.org/w0rp/ale.svg?branch=master)](https://travis-ci.org/w0rp/ale) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/r0ef1xu8xjmik58d/branch/master?svg=true)](https://ci.appveyor.com/project/w0rp/ale)	pack/plugins/start/w0rp-ale/README.md	/^# Asynchronous Lint Engine [![Travis CI Build Status](https:\/\/travis-ci.org\/w0rp\/ale.svg?branch=master)](https:\/\/travis-ci.org\/w0rp\/ale) [![AppVeyor Build Status](https:\/\/ci.appveyor.com\/api\/projects\/status\/r0ef1xu8xjmik58d\/branch\/master?svg=true)](https:\/\/ci.appveyor.com\/project\/w0rp\/ale)$/;"	h
+Attribution	pack/plugins/start/kopischke-vim-fetch/CODE_OF_CONDUCT.md	/^## Attribution$/;"	i
 Author	pack/plugins/start/olical-vim-enmasse/README.md	/^## Author$/;"	i
 AutoMkdir	vimrc	/^        augroup AutoMkdir$/;"	a
 AutoMkdir	vimrc	/^        function! <SID>AutoMkdir() abort$/;"	f
@@ -545,8 +547,6 @@ Commentary	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^comma
 Commit	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Commit(args, ...) abort$/;"	f
 CommitComplete	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:CommitComplete(A,L,P) abort$/;"	f
 CompilerSet	pack/plugins/start/fatih-vim-go/compiler/go.vim	/^  command -nargs=* CompilerSet setlocal <args>$/;"	c
-Complete	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^    let Complete = a:args.complete$/;"	v
-Complete	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  let Complete = funcref('s:NopComplete')$/;"	v
 Complete	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:Complete(A,L,P)$/;"	f
 CompletionStillValid	pack/plugins/start/w0rp-ale/autoload/ale/completion.vim	/^function! s:CompletionStillValid(request_id) abort$/;"	f
 Config	pack/plugins/start/t9md-vim-quickhl/README.md	/^# Config$/;"	h
@@ -557,6 +557,7 @@ Context	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function
 ContextMotion	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:ContextMotion(reverse)$/;"	f
 Contributing	pack/plugins/start/ludovicchabant-vim-gutentags/CONTRIBUTING.md	/^# Contributing$/;"	h
 Contributing to ALE	pack/plugins/start/w0rp-ale/CONTRIBUTING.md	/^# Contributing to ALE$/;"	h
+Contributor Covenant Code of Conduct	pack/plugins/start/kopischke-vim-fetch/CODE_OF_CONDUCT.md	/^# Contributor Covenant Code of Conduct$/;"	h
 Count	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^function! Count(...) abort$/;"	f
 CreateCountDict	pack/plugins/start/w0rp-ale/autoload/ale/statusline.vim	/^function! s:CreateCountDict() abort$/;"	f
 CreateEnMasseBuffer	pack/plugins/start/olical-vim-enmasse/autoload/enmasse.vim	/^function! s:CreateEnMasseBuffer(list, sourceLines)$/;"	f
@@ -586,6 +587,7 @@ Creator.createMirror	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/creator
 Creator.createTabTree	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/creator.vim	/^function! s:Creator.createTabTree(name)$/;"	f
 Creator.createWindowTree	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/creator.vim	/^function! s:Creator.createWindowTree(dir)$/;"	f
 Creator.toggleTabTree	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/creator.vim	/^function! s:Creator.toggleTabTree(dir)$/;"	f
+Current Result	pack/plugins/start/scrooloose-nerdtree/.github/ISSUE_TEMPLATE.md	/^### Current Result$/;"	k
 Cursor shape change in insert and replace mode	pack/plugins/start/wincent-terminus/README.md	/^## Cursor shape change in insert and replace mode$/;"	i
 CygwinPath	pack/plugins/start/fatih-vim-go/autoload/go/path.vim	/^function! s:CygwinPath(path)$/;"	f
 DB_FILE	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^    set DB_FILE=%~2$/;"	v
@@ -630,6 +632,8 @@ EnMasseVersion	pack/plugins/start/olical-vim-enmasse/plugin/enmasse.vim	/^comman
 EnablePreamble	pack/plugins/start/w0rp-ale/autoload/ale/toggle.vim	/^function! s:EnablePreamble() abort$/;"	f
 Enabling Apprentice.	pack/colors/start/romainl-apprentice/README.md	/^## Enabling Apprentice.$/;"	i
 Enabling Disciple.	pack/colors/start/romainl-disciple/README.md	/^## Enabling Disciple.$/;"	i
+Enforcement	pack/plugins/start/kopischke-vim-fetch/CODE_OF_CONDUCT.md	/^## Enforcement$/;"	i
+Environment	pack/plugins/start/scrooloose-nerdtree/.github/ISSUE_TEMPLATE.md	/^### Environment$/;"	k
 Error	pack/plugins/start/fatih-vim-go/autoload/go/import.vim	/^function! s:Error(s) abort$/;"	f
 Event.New	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/event.vim	/^function! s:Event.New(nerdtree, subject, action, params) abort$/;"	f
 Example	pack/plugins/start/xtal8-traces-vim/README.md	/^## Example$/;"	i
@@ -637,6 +641,7 @@ Exception	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^function E
 ExecMove	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:ExecMove(cmd) abort$/;"	f
 ExecuteInTree	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:ExecuteInTree(cmd) abort$/;"	f
 ExecuteMacroOverVisualRange	vimrc	/^        function! ExecuteMacroOverVisualRange()$/;"	f
+Expected Result	pack/plugins/start/scrooloose-nerdtree/.github/ISSUE_TEMPLATE.md	/^### Expected Result$/;"	k
 Expression surroundings and regular expression matching	pack/plugins/start/machakann-vim-sandwich/README.md	/^### Expression surroundings and regular expression matching$/;"	k
 ExtraErrorMsg	pack/plugins/start/w0rp-ale/ale_linters/javascript/flow.vim	/^function! s:ExtraErrorMsg(current, new) abort$/;"	f
 FILE_LIST_CMD	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_scopedb.cmd	/^    set FILE_LIST_CMD=%~2$/;"	v
@@ -649,6 +654,7 @@ Fail	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/test/src/play/moc
 Features	pack/plugins/start/fatih-vim-go/README.md	/^## Features$/;"	i
 Features	pack/plugins/start/machakann-vim-sandwich/README.md	/^# Features$/;"	h
 Features	pack/plugins/start/romainl-vim-qf/README.md	/^## Features$/;"	i
+Fetch	pack/plugins/start/kopischke-vim-fetch/plugin/fetch.vim	/^  command Fetch -bar -nargs=0 call fetch#buffer(bufname('%'))$/;"	c
 Fetch that line and column, boy!	pack/plugins/start/kopischke-vim-fetch/README.md	/^## Fetch that line and column, boy!$/;"	i
 FileByOffset	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:FileByOffset(num)$/;"	f
 FileRead	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:FileRead() abort$/;"	f
@@ -720,26 +726,25 @@ Get_Prettier_Local_Exec	pack/plugins/start/prettier-vim-prettier/autoload/pretti
 Get_Prettier_Plugin_Exec	pack/plugins/start/prettier-vim-prettier/autoload/prettier.vim	/^function! s:Get_Prettier_Plugin_Exec() abort$/;"	f
 Git	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Git(bang, args) abort$/;"	f
 GitComplete	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:GitComplete(A, L, P) abort$/;"	f
-GitGutter	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutter    call gitgutter#process_buffer(bufnr(''), 1)$/;"	c
-GitGutterAll	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterAll call gitgutter#all(1)$/;"	c
-GitGutterDebug	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterDebug call gitgutter#debug#debug()$/;"	c
-GitGutterDisable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterDisable call gitgutter#disable()$/;"	c
-GitGutterEnable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterEnable  call gitgutter#enable()$/;"	c
+GitGutter	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutter    call gitgutter#process_buffer(bufnr(''), 1)$/;"	c
+GitGutterAll	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterAll call gitgutter#all(1)$/;"	c
+GitGutterDebug	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterDebug call gitgutter#debug#debug()$/;"	c
+GitGutterDisable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterDisable call gitgutter#disable()$/;"	c
+GitGutterEnable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterEnable  call gitgutter#enable()$/;"	c
 GitGutterGetHunkSummary	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^function! GitGutterGetHunkSummary()$/;"	f
 GitGutterGetHunks	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^function! GitGutterGetHunks()$/;"	f
-GitGutterLineHighlightsDisable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterLineHighlightsDisable call gitgutter#highlight#line_disable()$/;"	c
-GitGutterLineHighlightsEnable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterLineHighlightsEnable  call gitgutter#highlight#line_enable()$/;"	c
-GitGutterLineHighlightsToggle	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterLineHighlightsToggle  call gitgutter#highlight#line_toggle()$/;"	c
-GitGutterNextHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar -count=1 GitGutterNextHunk call gitgutter#hunk#next_hunk(<count>)$/;"	c
-GitGutterPrevHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar -count=1 GitGutterPrevHunk call gitgutter#hunk#prev_hunk(<count>)$/;"	c
-GitGutterPreviewHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterPreviewHunk call gitgutter#hunk#preview()$/;"	c
-GitGutterRevertHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterRevertHunk  echomsg 'GitGutterRevertHunk is deprecated. Use GitGutterUndoHunk'<Bar>call gitgutter#hunk#undo()$/;"	c
-GitGutterSignsDisable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterSignsDisable call gitgutter#sign#disable()$/;"	c
-GitGutterSignsEnable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterSignsEnable  call gitgutter#sign#enable()$/;"	c
-GitGutterSignsToggle	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterSignsToggle  call gitgutter#sign#toggle()$/;"	c
-GitGutterStageHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterStageHunk   call gitgutter#hunk#stage()$/;"	c
-GitGutterToggle	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterToggle  call gitgutter#toggle()$/;"	c
-GitGutterUndoHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command -bar GitGutterUndoHunk    call gitgutter#hunk#undo()$/;"	c
+GitGutterLineHighlightsDisable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterLineHighlightsDisable call gitgutter#highlight#line_disable()$/;"	c
+GitGutterLineHighlightsEnable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterLineHighlightsEnable  call gitgutter#highlight#line_enable()$/;"	c
+GitGutterLineHighlightsToggle	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterLineHighlightsToggle  call gitgutter#highlight#line_toggle()$/;"	c
+GitGutterNextHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar -count=1 GitGutterNextHunk call gitgutter#hunk#next_hunk(<count>)$/;"	c
+GitGutterPrevHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar -count=1 GitGutterPrevHunk call gitgutter#hunk#prev_hunk(<count>)$/;"	c
+GitGutterPreviewHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterPreviewHunk call gitgutter#hunk#preview()$/;"	c
+GitGutterSignsDisable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterSignsDisable call gitgutter#sign#disable()$/;"	c
+GitGutterSignsEnable	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterSignsEnable  call gitgutter#sign#enable()$/;"	c
+GitGutterSignsToggle	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterSignsToggle  call gitgutter#sign#toggle()$/;"	c
+GitGutterStageHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterStageHunk   call gitgutter#hunk#stage()$/;"	c
+GitGutterToggle	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterToggle  call gitgutter#toggle()$/;"	c
+GitGutterUndoHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^command! -bar GitGutterUndoHunk    call gitgutter#hunk#undo()$/;"	c
 Global features (available from any window)	pack/plugins/start/romainl-vim-qf/README.md	/^### Global features (available from any window)$/;"	k
 GoAddTags	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -range GoAddTags call go#tags#Add(<line1>, <line2>, <count>, <f-args>)$/;"	c
 GoAlternate	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -bang GoAlternate call go#alternate#Switch(<bang>0, '')$/;"	c
@@ -755,6 +760,8 @@ GoCoverage	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -
 GoCoverageBrowser	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -bang GoCoverageBrowser call go#coverage#Browser(<bang>0, <f-args>)$/;"	c
 GoCoverageClear	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -bang GoCoverageClear call go#coverage#Clear()$/;"	c
 GoCoverageToggle	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -bang GoCoverageToggle call go#coverage#BufferToggle(<bang>0, <f-args>)$/;"	c
+GoDebugBreakpoint	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^  command! -nargs=? GoDebugBreakpoint call go#debug#Breakpoint(<f-args>)$/;"	c
+GoDebugStart	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^  command! -nargs=* -complete=customlist,go#package#Complete GoDebugStart call go#debug#Start(<f-args>)$/;"	c
 GoDecls	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=? -complete=file GoDecls call go#decls#Decls(0, <q-args>)$/;"	c
 GoDeclsDir	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=? -complete=dir GoDeclsDir call go#decls#Decls(1, <q-args>)$/;"	c
 GoDef	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -range GoDef :call go#def#Jump('')$/;"	c
@@ -825,7 +832,6 @@ HandleExit	pack/plugins/start/w0rp-ale/autoload/ale/fix.vim	/^function! s:Handle
 HandleInitializeResponse	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^function! s:HandleInitializeResponse(conn, response) abort$/;"	f
 HandleLSPDiagnostics	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:HandleLSPDiagnostics(conn_id, response) abort$/;"	f
 HandleLSPErrorMessage	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:HandleLSPErrorMessage(error_message) abort$/;"	f
-HandleLoclist	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:HandleLoclist(linter_name, buffer, loclist) abort$/;"	f
 HandleSyntaxError	pack/plugins/start/w0rp-ale/autoload/ale/handlers/ruby.vim	/^function! s:HandleSyntaxError(buffer, lines) abort$/;"	f
 HandleTSServerDiagnostics	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:HandleTSServerDiagnostics(response, error_type) abort$/;"	f
 HandleUnixFormat	pack/plugins/start/w0rp-ale/autoload/ale/handlers/unix.vim	/^function! s:HandleUnixFormat(buffer, lines, type) abort$/;"	f
@@ -1040,6 +1046,9 @@ Opener._restoreCursorPos	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/ope
 Opener._reuseWindow	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/opener.vim	/^function! s:Opener._reuseWindow()$/;"	f
 Opener._saveCursorPos	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/opener.vim	/^function! s:Opener._saveCursorPos()$/;"	f
 Opener.open	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/opener.vim	/^function! s:Opener.open(target)$/;"	f
+Our Pledge	pack/plugins/start/kopischke-vim-fetch/CODE_OF_CONDUCT.md	/^## Our Pledge$/;"	i
+Our Responsibilities	pack/plugins/start/kopischke-vim-fetch/CODE_OF_CONDUCT.md	/^## Our Responsibilities$/;"	i
+Our Standards	pack/plugins/start/kopischke-vim-fetch/CODE_OF_CONDUCT.md	/^## Our Standards$/;"	i
 Overview	pack/plugins/start/xtal8-traces-vim/README.md	/^## Overview$/;"	i
 Overwrite default prettier configuration	pack/plugins/start/prettier-vim-prettier/README.md	/^### Overwrite default prettier configuration$/;"	k
 PAUSE_BEFORE_EXIT	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_tags.cmd	/^    set PAUSE_BEFORE_EXIT=1$/;"	v
@@ -1100,6 +1109,7 @@ Path.str	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/path.vim	/^function
 Path.strTrunk	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/path.vim	/^function! s:Path.strTrunk()$/;"	f
 Path.tabnr	pack/plugins/start/scrooloose-nerdtree/lib/nerdtree/path.vim	/^function! s:Path.tabnr()$/;"	f
 Pioneers	pack/plugins/start/machakann-vim-sandwich/README.md	/^# Pioneers$/;"	h
+Possible Fix	pack/plugins/start/scrooloose-nerdtree/.github/ISSUE_TEMPLATE.md	/^### Possible Fix$/;"	k
 PrepareWrappedCommand	pack/plugins/start/w0rp-ale/autoload/ale/job.vim	/^function! s:PrepareWrappedCommand(original_wrapper, command) abort$/;"	f
 Preparing your environment.	pack/colors/start/romainl-apprentice/README.md	/^## Preparing your environment.$/;"	i
 Preparing your environment.	pack/colors/start/romainl-disciple/README.md	/^## Preparing your environment.$/;"	i
@@ -1127,6 +1137,7 @@ Prettier_Job_Close	pack/plugins/start/prettier-vim-prettier/autoload/prettier.vi
 Prettier_Job_Error	pack/plugins/start/prettier-vim-prettier/autoload/prettier.vim	/^function! s:Prettier_Job_Error(msg) abort$/;"	f
 Prettier_Job_Nvim_Exit	pack/plugins/start/prettier-vim-prettier/autoload/prettier.vim	/^function! s:Prettier_Job_Nvim_Exit(status, info, out, err) abort$/;"	f
 Prettier_Parse_Error	pack/plugins/start/prettier-vim-prettier/autoload/prettier.vim	/^function! s:Prettier_Parse_Error(errors) abort$/;"	f
+Process	pack/plugins/start/scrooloose-nerdtree/.github/ISSUE_TEMPLATE.md	/^### Process$/;"	k
 Pushing	pack/plugins/start/ludovicchabant-vim-gutentags/CONTRIBUTING.md	/^## Pushing$/;"	i
 Qlist	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^function! s:Qlist(command, selection, start_at_cursor, force, ...)$/;"	f
 Quick start	pack/plugins/start/machakann-vim-sandwich/README.md	/^# Quick start$/;"	h
@@ -1162,6 +1173,7 @@ Remove	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -ba
 Remove	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:Remove(after, force) abort$/;"	f
 RemoveList	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=* -bang -complete=customlist,qf#namedlist#CompleteList RemoveList call qf#namedlist#RemoveList(expand("<bang>") == "!" ? 1 : 0, <q-args>)$/;"	c
 RemoveProblemsForDisabledLinters	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! s:RemoveProblemsForDisabledLinters(buffer, linters) abort$/;"	f
+RemoveUnicodeQuotes	pack/plugins/start/w0rp-ale/autoload/ale/handlers/flawfinder.vim	/^function! s:RemoveUnicodeQuotes(text) abort$/;"	f
 RemoveUnicodeQuotes	pack/plugins/start/w0rp-ale/autoload/ale/handlers/gcc.vim	/^function! s:RemoveUnicodeQuotes(text) abort$/;"	f
 RemoveUnicodeQuotes	pack/plugins/start/w0rp-ale/autoload/ale/handlers/pony.vim	/^function! s:RemoveUnicodeQuotes(text) abort$/;"	f
 Rename	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^command! -bar -nargs=1 -bang -complete=custom,s:Rename_complete Rename$/;"	c
@@ -1185,6 +1197,8 @@ SID	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highlight.vim	/^
 SID	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function s:SID()$/;"	f
 SaveList	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=? -complete=customlist,qf#namedlist#CompleteList SaveList    call qf#namedlist#SaveList(0, <q-args>)$/;"	c
 SaveListAdd	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^command! -buffer -nargs=? -complete=customlist,qf#namedlist#CompleteList SaveListAdd call qf#namedlist#SaveList(1, <q-args>)$/;"	c
+Scope	pack/plugins/start/kopischke-vim-fetch/CODE_OF_CONDUCT.md	/^## Scope$/;"	i
+Screenshot(s)	pack/plugins/start/scrooloose-nerdtree/.github/ISSUE_TEMPLATE.md	/^### Screenshot(s)$/;"	k
 SelectPlaceholder	pack/plugins/start/joereynolds-vim-minisnip/autoload/minisnip.vim	/^function! s:SelectPlaceholder() abort$/;"	f
 SendMessageData	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^function! s:SendMessageData(conn, data) abort$/;"	f
 SetList	pack/plugins/start/romainl-vim-qf/autoload/qf/filter.vim	/^function! s:SetList(pat, reject, strategy)$/;"	f
@@ -1257,6 +1271,9 @@ Test_Detect_Gopath	pack/plugins/start/fatih-vim-go/test/gopath_test.vim	/^fun! T
 Test_Detect_Gopath_disabled	pack/plugins/start/fatih-vim-go/test/gopath_test.vim	/^fun! Test_Detect_Gopath_disabled() abort$/;"	f
 Test_ExecuteInDir	pack/plugins/start/fatih-vim-go/autoload/go/tool_test.vim	/^func! Test_ExecuteInDir() abort$/;"	f
 Test_ExecuteInDir_nodir	pack/plugins/start/fatih-vim-go/autoload/go/tool_test.vim	/^func! Test_ExecuteInDir_nodir() abort$/;"	f
+Test_GoBuildErrors	pack/plugins/start/fatih-vim-go/autoload/go/cmd_test.vim	/^func! Test_GoBuildErrors()$/;"	f
+Test_GoTermNewMode	pack/plugins/start/fatih-vim-go/autoload/go/term_test.vim	/^func! Test_GoTermNewMode()$/;"	f
+Test_GoTermNewMode_SplitRight	pack/plugins/start/fatih-vim-go/autoload/go/term_test.vim	/^func! Test_GoTermNewMode_SplitRight()$/;"	f
 Test_GoTest	pack/plugins/start/fatih-vim-go/autoload/go/test_test.vim	/^func! Test_GoTest() abort$/;"	f
 Test_GoTestCompilerError	pack/plugins/start/fatih-vim-go/autoload/go/test_test.vim	/^func! Test_GoTestCompilerError() abort$/;"	f
 Test_GoTestConcurrentPanic	pack/plugins/start/fatih-vim-go/autoload/go/test_test.vim	/^func! Test_GoTestConcurrentPanic()$/;"	f
@@ -1266,11 +1283,13 @@ Test_GoTestVerbose	pack/plugins/start/fatih-vim-go/autoload/go/test_test.vim	/^f
 Test_Gometa	pack/plugins/start/fatih-vim-go/autoload/go/lint_test.vim	/^func! Test_Gometa() abort$/;"	f
 Test_GometaAutoSave	pack/plugins/start/fatih-vim-go/autoload/go/lint_test.vim	/^func! Test_GometaAutoSave() abort$/;"	f
 Test_GometaWithDisabled	pack/plugins/start/fatih-vim-go/autoload/go/lint_test.vim	/^func! Test_GometaWithDisabled() abort$/;"	f
+Test_Vet	pack/plugins/start/fatih-vim-go/autoload/go/lint_test.vim	/^func! Test_Vet()$/;"	f
 Test_add_lines	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_add_lines()$/;"	f
 Test_add_lines_fish	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_add_lines_fish()$/;"	f
 Test_add_tags	pack/plugins/start/fatih-vim-go/autoload/go/tags_test.vim	/^func! Test_add_tags() abort$/;"	f
 Test_around_text_object	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_around_text_object()$/;"	f
 Test_edit_file_with_same_name_as_a_branch	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_edit_file_with_same_name_as_a_branch()$/;"	f
+Test_encoding	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_encoding()$/;"	f
 Test_file_added_to_git	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_file_added_to_git()$/;"	f
 Test_filename_with_equals	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_filename_with_equals()$/;"	f
 Test_filename_with_square_brackets	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_filename_with_square_brackets()$/;"	f
@@ -1278,6 +1297,7 @@ Test_fillstruct	pack/plugins/start/fatih-vim-go/autoload/go/fillstruct_test.vim	
 Test_fillstruct_line	pack/plugins/start/fatih-vim-go/autoload/go/fillstruct_test.vim	/^func! Test_fillstruct_line() abort$/;"	f
 Test_fillstruct_two_cursor	pack/plugins/start/fatih-vim-go/autoload/go/fillstruct_test.vim	/^func! Test_fillstruct_two_cursor() abort$/;"	f
 Test_fillstruct_two_line	pack/plugins/start/fatih-vim-go/autoload/go/fillstruct_test.vim	/^func! Test_fillstruct_two_line() abort$/;"	f
+Test_fix_file_references	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_fix_file_references()$/;"	f
 Test_follow_symlink	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_follow_symlink()$/;"	f
 Test_goimports	pack/plugins/start/fatih-vim-go/autoload/go/fmt_test.vim	/^func! Test_goimports() abort$/;"	f
 Test_hunk_outside_noop	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_hunk_outside_noop()$/;"	f
@@ -1304,6 +1324,7 @@ Test_untracked_file_outside_repo	pack/plugins/start/airblade-vim-gitgutter/test/
 Test_untracked_file_square_brackets_within_repo	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_untracked_file_square_brackets_within_repo()$/;"	f
 Test_untracked_file_within_repo	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_untracked_file_within_repo()$/;"	f
 Test_update_file	pack/plugins/start/fatih-vim-go/autoload/go/fmt_test.vim	/^func! Test_update_file() abort$/;"	f
+Test_user_autocmd	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_user_autocmd()$/;"	f
 Test_write_option	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function Test_write_option()$/;"	f
 Testing	pack/plugins/start/ludovicchabant-vim-gutentags/CONTRIBUTING.md	/^## Testing$/;"	i
 Tests	pack/plugins/start/olical-vim-enmasse/README.md	/^## Tests$/;"	i
@@ -1563,6 +1584,7 @@ ale#cursor#ShowCursorDetail	pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	
 ale#cursor#TruncatedEcho	pack/plugins/start/w0rp-ale/autoload/ale/cursor.vim	/^function! ale#cursor#TruncatedEcho(original_message) abort$/;"	f
 ale#debugging#Info	pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! ale#debugging#Info() abort$/;"	f
 ale#debugging#InfoToClipboard	pack/plugins/start/w0rp-ale/autoload/ale/debugging.vim	/^function! ale#debugging#InfoToClipboard() abort$/;"	f
+ale#definition#ClearLSPData	pack/plugins/start/w0rp-ale/autoload/ale/definition.vim	/^function! ale#definition#ClearLSPData() abort$/;"	f
 ale#definition#Execute	pack/plugins/start/w0rp-ale/autoload/ale/definition.vim	/^function! ale#definition#Execute(expr) abort$/;"	f
 ale#definition#GetMap	pack/plugins/start/w0rp-ale/autoload/ale/definition.vim	/^function! ale#definition#GetMap() abort$/;"	f
 ale#definition#GoTo	pack/plugins/start/w0rp-ale/autoload/ale/definition.vim	/^function! ale#definition#GoTo(options) abort$/;"	f
@@ -1571,11 +1593,13 @@ ale#definition#HandleTSServerResponse	pack/plugins/start/w0rp-ale/autoload/ale/d
 ale#definition#Open	pack/plugins/start/w0rp-ale/autoload/ale/definition.vim	/^function! ale#definition#Open(options, filename, line, column) abort$/;"	f
 ale#definition#SetMap	pack/plugins/start/w0rp-ale/autoload/ale/definition.vim	/^function! ale#definition#SetMap(map) abort$/;"	f
 ale#engine#Cleanup	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#Cleanup(buffer) abort$/;"	f
+ale#engine#ClearLSPData	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#ClearLSPData() abort$/;"	f
 ale#engine#CreateDirectory	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#CreateDirectory(buffer) abort$/;"	f
 ale#engine#EscapeCommandPart	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#EscapeCommandPart(command_part) abort$/;"	f
 ale#engine#FixLocList	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#FixLocList(buffer, linter_name, loclist) abort$/;"	f
 ale#engine#GetLoclist	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#GetLoclist(buffer) abort$/;"	f
 ale#engine#HandleLSPResponse	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#HandleLSPResponse(conn_id, response) abort$/;"	f
+ale#engine#HandleLoclist	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#HandleLoclist(linter_name, buffer, loclist) abort$/;"	f
 ale#engine#InitBufferInfo	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#InitBufferInfo(buffer) abort$/;"	f
 ale#engine#IsCheckingBuffer	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#IsCheckingBuffer(buffer) abort$/;"	f
 ale#engine#IsExecutable	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^function! ale#engine#IsExecutable(buffer, executable) abort$/;"	f
@@ -1610,14 +1634,14 @@ ale#fixers#autopep8#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/autopep8
 ale#fixers#brittany#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/brittany.vim	/^function! ale#fixers#brittany#Fix(buffer) abort$/;"	f
 ale#fixers#clangformat#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/clangformat.vim	/^function! ale#fixers#clangformat#Fix(buffer) abort$/;"	f
 ale#fixers#clangformat#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/fixers/clangformat.vim	/^function! ale#fixers#clangformat#GetExecutable(buffer) abort$/;"	f
+ale#fixers#elm_format#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/elm_format.vim	/^function! ale#fixers#elm_format#Fix(buffer) abort$/;"	f
+ale#fixers#elm_format#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/fixers/elm_format.vim	/^function! ale#fixers#elm_format#GetExecutable(buffer) abort$/;"	f
 ale#fixers#eslint#ApplyFixForVersion	pack/plugins/start/w0rp-ale/autoload/ale/fixers/eslint.vim	/^function! ale#fixers#eslint#ApplyFixForVersion(buffer, version_output) abort$/;"	f
 ale#fixers#eslint#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/eslint.vim	/^function! ale#fixers#eslint#Fix(buffer) abort$/;"	f
 ale#fixers#eslint#ProcessEslintDOutput	pack/plugins/start/w0rp-ale/autoload/ale/fixers/eslint.vim	/^function! ale#fixers#eslint#ProcessEslintDOutput(buffer, output) abort$/;"	f
 ale#fixers#eslint#ProcessFixDryRunOutput	pack/plugins/start/w0rp-ale/autoload/ale/fixers/eslint.vim	/^function! ale#fixers#eslint#ProcessFixDryRunOutput(buffer, output) abort$/;"	f
 ale#fixers#fixjson#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/fixjson.vim	/^function! ale#fixers#fixjson#Fix(buffer) abort$/;"	f
 ale#fixers#fixjson#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/fixers/fixjson.vim	/^function! ale#fixers#fixjson#GetExecutable(buffer) abort$/;"	f
-ale#fixers#format#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/format.vim	/^function! ale#fixers#format#Fix(buffer) abort$/;"	f
-ale#fixers#format#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/fixers/format.vim	/^function! ale#fixers#format#GetExecutable(buffer) abort$/;"	f
 ale#fixers#generic#RemoveTrailingBlankLines	pack/plugins/start/w0rp-ale/autoload/ale/fixers/generic.vim	/^function! ale#fixers#generic#RemoveTrailingBlankLines(buffer, lines) abort$/;"	f
 ale#fixers#generic#TrimWhitespace	pack/plugins/start/w0rp-ale/autoload/ale/fixers/generic.vim	/^function! ale#fixers#generic#TrimWhitespace(buffer, lines) abort$/;"	f
 ale#fixers#generic_python#AddLinesBeforeControlStatements	pack/plugins/start/w0rp-ale/autoload/ale/fixers/generic_python.vim	/^function! ale#fixers#generic_python#AddLinesBeforeControlStatements(buffer, lines) abort$/;"	f
@@ -1634,7 +1658,10 @@ ale#fixers#isort#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/isort.vim	/
 ale#fixers#jq#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/jq.vim	/^function! ale#fixers#jq#Fix(buffer) abort$/;"	f
 ale#fixers#jq#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/fixers/jq.vim	/^function! ale#fixers#jq#GetExecutable(buffer) abort$/;"	f
 ale#fixers#mix_format#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/mix_format.vim	/^function! ale#fixers#mix_format#Fix(buffer) abort$/;"	f
+ale#fixers#mix_format#GetCommand	pack/plugins/start/w0rp-ale/autoload/ale/fixers/mix_format.vim	/^function! ale#fixers#mix_format#GetCommand(buffer) abort$/;"	f
 ale#fixers#mix_format#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/fixers/mix_format.vim	/^function! ale#fixers#mix_format#GetExecutable(buffer) abort$/;"	f
+ale#fixers#php_cs_fixer#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/php_cs_fixer.vim	/^function! ale#fixers#php_cs_fixer#Fix(buffer) abort$/;"	f
+ale#fixers#php_cs_fixer#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/fixers/php_cs_fixer.vim	/^function! ale#fixers#php_cs_fixer#GetExecutable(buffer) abort$/;"	f
 ale#fixers#phpcbf#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/phpcbf.vim	/^function! ale#fixers#phpcbf#Fix(buffer) abort$/;"	f
 ale#fixers#phpcbf#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/fixers/phpcbf.vim	/^function! ale#fixers#phpcbf#GetExecutable(buffer) abort$/;"	f
 ale#fixers#prettier#ApplyFixForVersion	pack/plugins/start/w0rp-ale/autoload/ale/fixers/prettier.vim	/^function! ale#fixers#prettier#ApplyFixForVersion(buffer, version_output) abort$/;"	f
@@ -1650,6 +1677,8 @@ ale#fixers#puppetlint#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/puppet
 ale#fixers#refmt#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/refmt.vim	/^function! ale#fixers#refmt#Fix(buffer) abort$/;"	f
 ale#fixers#rubocop#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/rubocop.vim	/^function! ale#fixers#rubocop#Fix(buffer) abort$/;"	f
 ale#fixers#rubocop#GetCommand	pack/plugins/start/w0rp-ale/autoload/ale/fixers/rubocop.vim	/^function! ale#fixers#rubocop#GetCommand(buffer) abort$/;"	f
+ale#fixers#rufo#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/rufo.vim	/^function! ale#fixers#rufo#Fix(buffer) abort$/;"	f
+ale#fixers#rufo#GetCommand	pack/plugins/start/w0rp-ale/autoload/ale/fixers/rufo.vim	/^function! ale#fixers#rufo#GetCommand(buffer) abort$/;"	f
 ale#fixers#rustfmt#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/rustfmt.vim	/^function! ale#fixers#rustfmt#Fix(buffer) abort$/;"	f
 ale#fixers#shfmt#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/shfmt.vim	/^function! ale#fixers#shfmt#Fix(buffer) abort$/;"	f
 ale#fixers#standard#Fix	pack/plugins/start/w0rp-ale/autoload/ale/fixers/standard.vim	/^function! ale#fixers#standard#Fix(buffer) abort$/;"	f
@@ -1673,8 +1702,12 @@ ale#handlers#eslint#FindConfig	pack/plugins/start/w0rp-ale/autoload/ale/handlers
 ale#handlers#eslint#GetCommand	pack/plugins/start/w0rp-ale/autoload/ale/handlers/eslint.vim	/^function! ale#handlers#eslint#GetCommand(buffer) abort$/;"	f
 ale#handlers#eslint#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/handlers/eslint.vim	/^function! ale#handlers#eslint#GetExecutable(buffer) abort$/;"	f
 ale#handlers#eslint#Handle	pack/plugins/start/w0rp-ale/autoload/ale/handlers/eslint.vim	/^function! ale#handlers#eslint#Handle(buffer, lines) abort$/;"	f
+ale#handlers#flawfinder#HandleFlawfinderFormat	pack/plugins/start/w0rp-ale/autoload/ale/handlers/flawfinder.vim	/^function! ale#handlers#flawfinder#HandleFlawfinderFormat(buffer, lines) abort$/;"	f
+ale#handlers#gawk#HandleGawkFormat	pack/plugins/start/w0rp-ale/autoload/ale/handlers/gawk.vim	/^function! ale#handlers#gawk#HandleGawkFormat(buffer, lines) abort$/;"	f
 ale#handlers#gcc#HandleGCCFormat	pack/plugins/start/w0rp-ale/autoload/ale/handlers/gcc.vim	/^function! ale#handlers#gcc#HandleGCCFormat(buffer, lines) abort$/;"	f
+ale#handlers#go#Handler	pack/plugins/start/w0rp-ale/autoload/ale/handlers/go.vim	/^function! ale#handlers#go#Handler(buffer, lines) abort$/;"	f
 ale#handlers#haskell#HandleGHCFormat	pack/plugins/start/w0rp-ale/autoload/ale/handlers/haskell.vim	/^function! ale#handlers#haskell#HandleGHCFormat(buffer, lines) abort$/;"	f
+ale#handlers#markdownlint#Handle	pack/plugins/start/w0rp-ale/autoload/ale/handlers/markdownlint.vim	/^function! ale#handlers#markdownlint#Handle(buffer, lines) abort$/;"	f
 ale#handlers#ols#GetCommand	pack/plugins/start/w0rp-ale/autoload/ale/handlers/ols.vim	/^function! ale#handlers#ols#GetCommand(buffer) abort$/;"	f
 ale#handlers#ols#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/handlers/ols.vim	/^function! ale#handlers#ols#GetExecutable(buffer) abort$/;"	f
 ale#handlers#ols#GetLanguage	pack/plugins/start/w0rp-ale/autoload/ale/handlers/ols.vim	/^function! ale#handlers#ols#GetLanguage(buffer) abort$/;"	f
@@ -1690,6 +1723,7 @@ ale#handlers#sml#GetCmFile	pack/plugins/start/w0rp-ale/autoload/ale/handlers/sml
 ale#handlers#sml#GetExecutableSmlnjCm	pack/plugins/start/w0rp-ale/autoload/ale/handlers/sml.vim	/^function! ale#handlers#sml#GetExecutableSmlnjCm(buffer) abort$/;"	f
 ale#handlers#sml#GetExecutableSmlnjFile	pack/plugins/start/w0rp-ale/autoload/ale/handlers/sml.vim	/^function! ale#handlers#sml#GetExecutableSmlnjFile(buffer) abort$/;"	f
 ale#handlers#sml#Handle	pack/plugins/start/w0rp-ale/autoload/ale/handlers/sml.vim	/^function! ale#handlers#sml#Handle(buffer, lines) abort$/;"	f
+ale#handlers#textlint#HandleTextlintOutput	pack/plugins/start/w0rp-ale/autoload/ale/handlers/textlint.vim	/^function! ale#handlers#textlint#HandleTextlintOutput(buffer, lines) abort$/;"	f
 ale#handlers#unix#HandleAsError	pack/plugins/start/w0rp-ale/autoload/ale/handlers/unix.vim	/^function! ale#handlers#unix#HandleAsError(buffer, lines) abort$/;"	f
 ale#handlers#unix#HandleAsWarning	pack/plugins/start/w0rp-ale/autoload/ale/handlers/unix.vim	/^function! ale#handlers#unix#HandleAsWarning(buffer, lines) abort$/;"	f
 ale#handlers#vale#GetType	pack/plugins/start/w0rp-ale/autoload/ale/handlers/vale.vim	/^function! ale#handlers#vale#GetType(severity) abort$/;"	f
@@ -1742,6 +1776,7 @@ ale#lsp#ReadMessageData	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^funct
 ale#lsp#RegisterProject	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^function! ale#lsp#RegisterProject(conn, project_root) abort$/;"	f
 ale#lsp#Send	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^function! ale#lsp#Send(conn_id, message, ...) abort$/;"	f
 ale#lsp#StartProgram	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^function! ale#lsp#StartProgram(executable, command, project_root, callback) abort$/;"	f
+ale#lsp#StopAll	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^function! ale#lsp#StopAll() abort$/;"	f
 ale#lsp#message#Completion	pack/plugins/start/w0rp-ale/autoload/ale/lsp/message.vim	/^function! ale#lsp#message#Completion(buffer, line, column, trigger_character) abort$/;"	f
 ale#lsp#message#Definition	pack/plugins/start/w0rp-ale/autoload/ale/lsp/message.vim	/^function! ale#lsp#message#Definition(buffer, line, column) abort$/;"	f
 ale#lsp#message#DidChange	pack/plugins/start/w0rp-ale/autoload/ale/lsp/message.vim	/^function! ale#lsp#message#DidChange(buffer) abort$/;"	f
@@ -1753,6 +1788,7 @@ ale#lsp#message#GetNextVersionID	pack/plugins/start/w0rp-ale/autoload/ale/lsp/me
 ale#lsp#message#Initialize	pack/plugins/start/w0rp-ale/autoload/ale/lsp/message.vim	/^function! ale#lsp#message#Initialize(root_path) abort$/;"	f
 ale#lsp#message#Initialized	pack/plugins/start/w0rp-ale/autoload/ale/lsp/message.vim	/^function! ale#lsp#message#Initialized() abort$/;"	f
 ale#lsp#message#Shutdown	pack/plugins/start/w0rp-ale/autoload/ale/lsp/message.vim	/^function! ale#lsp#message#Shutdown() abort$/;"	f
+ale#lsp#reset#StopAllLSPs	pack/plugins/start/w0rp-ale/autoload/ale/lsp/reset.vim	/^function! ale#lsp#reset#StopAllLSPs() abort$/;"	f
 ale#lsp#response#ReadDiagnostics	pack/plugins/start/w0rp-ale/autoload/ale/lsp/response.vim	/^function! ale#lsp#response#ReadDiagnostics(response) abort$/;"	f
 ale#lsp#response#ReadTSServerDiagnostics	pack/plugins/start/w0rp-ale/autoload/ale/lsp/response.vim	/^function! ale#lsp#response#ReadTSServerDiagnostics(response) abort$/;"	f
 ale#lsp#tsserver_message#Change	pack/plugins/start/w0rp-ale/autoload/ale/lsp/tsserver_message.vim	/^function! ale#lsp#tsserver_message#Change(buffer) abort$/;"	f
@@ -1841,6 +1877,8 @@ ale_linters#c#clangtidy#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/cla
 ale_linters#c#clangtidy#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/c/clangtidy.vim	/^function! ale_linters#c#clangtidy#GetExecutable(buffer) abort$/;"	f
 ale_linters#c#cppcheck#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/cppcheck.vim	/^function! ale_linters#c#cppcheck#GetCommand(buffer) abort$/;"	f
 ale_linters#c#cppcheck#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/c/cppcheck.vim	/^function! ale_linters#c#cppcheck#GetExecutable(buffer) abort$/;"	f
+ale_linters#c#flawfinder#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/flawfinder.vim	/^function! ale_linters#c#flawfinder#GetCommand(buffer) abort$/;"	f
+ale_linters#c#flawfinder#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/c/flawfinder.vim	/^function! ale_linters#c#flawfinder#GetExecutable(buffer) abort$/;"	f
 ale_linters#c#gcc#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/gcc.vim	/^function! ale_linters#c#gcc#GetCommand(buffer) abort$/;"	f
 ale_linters#c#gcc#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/c/gcc.vim	/^function! ale_linters#c#gcc#GetExecutable(buffer) abort$/;"	f
 ale_linters#chef#foodcritic#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/chef/foodcritic.vim	/^function! ale_linters#chef#foodcritic#GetCommand(buffer) abort$/;"	f
@@ -1864,6 +1902,8 @@ ale_linters#cpp#cppcheck#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/
 ale_linters#cpp#cppcheck#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/cpp/cppcheck.vim	/^function! ale_linters#cpp#cppcheck#GetExecutable(buffer) abort$/;"	f
 ale_linters#cpp#cpplint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/cpplint.vim	/^function! ale_linters#cpp#cpplint#GetCommand(buffer) abort$/;"	f
 ale_linters#cpp#cpplint#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/cpp/cpplint.vim	/^function! ale_linters#cpp#cpplint#GetExecutable(buffer) abort$/;"	f
+ale_linters#cpp#flawfinder#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/flawfinder.vim	/^function! ale_linters#cpp#flawfinder#GetCommand(buffer) abort$/;"	f
+ale_linters#cpp#flawfinder#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/cpp/flawfinder.vim	/^function! ale_linters#cpp#flawfinder#GetExecutable(buffer) abort$/;"	f
 ale_linters#cpp#gcc#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/gcc.vim	/^function! ale_linters#cpp#gcc#GetCommand(buffer) abort$/;"	f
 ale_linters#cpp#gcc#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/cpp/gcc.vim	/^function! ale_linters#cpp#gcc#GetExecutable(buffer) abort$/;"	f
 ale_linters#crystal#crystal#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/crystal/crystal.vim	/^function! ale_linters#crystal#crystal#GetCommand(buffer) abort$/;"	f
@@ -1933,7 +1973,10 @@ ale_linters#go#gometalinter#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/g
 ale_linters#go#gometalinter#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/go/gometalinter.vim	/^function! ale_linters#go#gometalinter#GetExecutable(buffer) abort$/;"	f
 ale_linters#go#gometalinter#GetMatches	pack/plugins/start/w0rp-ale/ale_linters/go/gometalinter.vim	/^function! ale_linters#go#gometalinter#GetMatches(lines) abort$/;"	f
 ale_linters#go#gometalinter#Handler	pack/plugins/start/w0rp-ale/ale_linters/go/gometalinter.vim	/^function! ale_linters#go#gometalinter#Handler(buffer, lines) abort$/;"	f
+ale_linters#go#gosimple#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/go/gosimple.vim	/^function! ale_linters#go#gosimple#GetCommand(buffer) abort$/;"	f
 ale_linters#go#gotype#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/go/gotype.vim	/^function! ale_linters#go#gotype#GetCommand(buffer) abort$/;"	f
+ale_linters#go#govet#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/go/govet.vim	/^function! ale_linters#go#govet#GetCommand(buffer) abort$/;"	f
+ale_linters#go#staticcheck#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/go/staticcheck.vim	/^function! ale_linters#go#staticcheck#GetCommand(buffer) abort$/;"	f
 ale_linters#haml#hamllint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/haml/hamllint.vim	/^function! ale_linters#haml#hamllint#GetCommand(buffer) abort$/;"	f
 ale_linters#haml#hamllint#Handle	pack/plugins/start/w0rp-ale/ale_linters/haml/hamllint.vim	/^function! ale_linters#haml#hamllint#Handle(buffer, lines) abort$/;"	f
 ale_linters#handlebars#embertemplatelint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/handlebars/embertemplatelint.vim	/^function! ale_linters#handlebars#embertemplatelint#GetCommand(buffer) abort$/;"	f
@@ -1991,8 +2034,11 @@ ale_linters#lua#luacheck#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/lua/
 ale_linters#lua#luacheck#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/lua/luacheck.vim	/^function! ale_linters#lua#luacheck#GetExecutable(buffer) abort$/;"	f
 ale_linters#lua#luacheck#Handle	pack/plugins/start/w0rp-ale/ale_linters/lua/luacheck.vim	/^function! ale_linters#lua#luacheck#Handle(buffer, lines) abort$/;"	f
 ale_linters#make#checkmake#Handle	pack/plugins/start/w0rp-ale/ale_linters/make/checkmake.vim	/^function! ale_linters#make#checkmake#Handle(buffer, lines) abort$/;"	f
+ale_linters#markdown#mdl#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/markdown/mdl.vim	/^function! ale_linters#markdown#mdl#GetCommand(buffer) abort$/;"	f
+ale_linters#markdown#mdl#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/markdown/mdl.vim	/^function! ale_linters#markdown#mdl#GetExecutable(buffer) abort$/;"	f
 ale_linters#markdown#mdl#Handle	pack/plugins/start/w0rp-ale/ale_linters/markdown/mdl.vim	/^function! ale_linters#markdown#mdl#Handle(buffer, lines) abort$/;"	f
 ale_linters#markdown#remark_lint#Handle	pack/plugins/start/w0rp-ale/ale_linters/markdown/remark_lint.vim	/^function! ale_linters#markdown#remark_lint#Handle(buffer, lines) abort$/;"	f
+ale_linters#markdown#textlint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/markdown/textlint.vim	/^function! ale_linters#markdown#textlint#GetCommand(buffer) abort$/;"	f
 ale_linters#matlab#mlint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^function! ale_linters#matlab#mlint#GetCommand(buffer) abort$/;"	f
 ale_linters#matlab#mlint#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^function! ale_linters#matlab#mlint#GetExecutable(buffer) abort$/;"	f
 ale_linters#matlab#mlint#Handle	pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^function! ale_linters#matlab#mlint#Handle(buffer, lines) abort$/;"	f
@@ -2151,6 +2197,7 @@ argument_error	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwi
 asmfmt_autosave	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:asmfmt_autosave()$/;"	f
 assert	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^function! s:assert(a1, a2, kind) abort$/;"	f
 async_guru	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:async_guru(args) abort$/;"	f
+async_info	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:async_info(auto)$/;"	f
 asyncdo#lrun	pack/plugins/start/hauleth-asyncdo-vim/autoload/asyncdo.vim	/^func! asyncdo#lrun(...) abort$/;"	f
 asyncdo#lstop	pack/plugins/start/hauleth-asyncdo-vim/autoload/asyncdo.vim	/^func! asyncdo#lstop(...) abort$/;"	f
 asyncdo#run	pack/plugins/start/hauleth-asyncdo-vim/autoload/asyncdo.vim	/^func! asyncdo#run(...) abort$/;"	f
@@ -2160,6 +2207,9 @@ asyncomplete#sources#tmuxcomplete#register	pack/plugins/start/wellle-tmux-comple
 auto_sameids	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:auto_sameids()$/;"	f
 auto_type_info	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:auto_type_info()$/;"	f
 b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^let b:current_syntax = "go"$/;"	v
+b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/godebugoutput.vim	/^let b:current_syntax = "godebugoutput"$/;"	v
+b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/godebugstacktrace.vim	/^let b:current_syntax = "godebugoutput"$/;"	v
+b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/godebugvariables.vim	/^let b:current_syntax = "godebugvariables"$/;"	v
 b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/godefstack.vim	/^let b:current_syntax = "godefstack"$/;"	v
 b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/gohtmltmpl.vim	/^let b:current_syntax = "gohtmltmpl"$/;"	v
 b:current_syntax	pack/plugins/start/fatih-vim-go/syntax/gotexttmpl.vim	/^let b:current_syntax = "gotexttmpl"$/;"	v
@@ -2222,15 +2272,17 @@ build_command	pack/plugins/start/wellle-tmux-complete-vim/autoload/tmuxcomplete.
 c	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:c()$/;"	f
 c2p	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/lib.vim	/^function! s:c2p(coord) abort  "{{{$/;"	f
 cache_project_root	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! s:cache_project_root(path) abort$/;"	f
+call_jsonrpc	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:call_jsonrpc(method, ...) abort$/;"	f
+callback	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function! s:callback(chan, msg) dict$/;"	f
 callback_handlers_on_exit	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^function! s:callback_handlers_on_exit(job, exit_status, data) abort$/;"	f
 callbacks	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^  let callbacks = go#job#Spawn(a:args)$/;"	v
 callbacks	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^  let callbacks = go#job#Spawn(a:args)$/;"	v
 camelcase	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:camelcase(word)$/;"	f
 can_diffoff	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:can_diffoff(buf) abort$/;"	f
 cancel_highlight	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highlight.vim	/^function! s:cancel_highlight(id) abort  "{{{$/;"	f
-cbs.callback	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function cbs.callback(chan, msg) dict closure$/;"	f
-cbs.close_cb	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function cbs.close_cb(ch) dict closure$/;"	f
-cbs.exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function cbs.exit_cb(job, exitval) dict closure$/;"	f
+cbs	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  let cbs.callback = function('s:callback', [], state)$/;"	v
+cbs	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  let cbs.close_cb = function('s:close_cb', [], state)$/;"	v
+cbs	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  let cbs.exit_cb = function('s:exit_cb', [], state)$/;"	v
 cd	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd ' : 'cd '$/;"	v
 cd	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd ' : 'cd '$/;"	v
 cd	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd ' : 'cd '$/;"	v
@@ -2245,8 +2297,10 @@ check_errors	pack/plugins/start/w0rp-ale/test/script/custom-linting-rules	/^chec
 check_ket	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/t.vim	/^function! s:check_ket(itemlist, i) abort  "{{{$/;"	f
 check_textobj_diff	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/stuff.vim	/^function! s:check_textobj_diff(head, tail, candidate, opt_noremap) abort  "{{{$/;"	f
 chomp	pack/plugins/start/fatih-vim-go/autoload/go/keyify.vim	/^function! s:chomp(string)$/;"	f
+cleanlist	pack/plugins/start/fatih-vim-go/autoload/go/term.vim	/^function! s:cleanlist(winid, listtype) abort$/;"	f
 clear	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! s:clear(bufnr)$/;"	f
 clearPack	get-plugins.go	/^func clearPack() {$/;"	f
+clearState	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:clearState() abort$/;"	f
 clear_autocmds	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highlight.vim	/^function! s:clear_autocmds() abort "{{{$/;"	f
 clock.elapsed	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/clock.vim	/^function! s:clock.elapsed() dict abort "{{{$/;"	f
 clock.pause	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/clock.vim	/^function! s:clock.pause() dict abort "{{{$/;"	f
@@ -2255,11 +2309,15 @@ clock.stop	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/clock.vim
 closeChildren	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:closeChildren(node)$/;"	f
 closeCurrentDir	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:closeCurrentDir(node)$/;"	f
 closeTreeWindow	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:closeTreeWindow()$/;"	f
-close_cb	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function! s:close_cb(ch) closure$/;"	f
-close_cb	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  function! s:close_cb(ch) closure$/;"	f
-close_cb	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  function! s:close_cb(ch) closure$/;"	f
-close_cb	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^  function! s:close_cb(ch) closure$/;"	f
-closed	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  let closed = 0$/;"	v
+close_cb	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  function! s:close_cb(ch) dict$/;"	f
+close_cb	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function! s:close_cb(ch) dict$/;"	f
+close_cb	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function! s:close_cb(ch) dict$/;"	f
+close_cb	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  function! s:close_cb(ch) dict$/;"	f
+close_cb	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  function! s:close_cb(ch) dict$/;"	f
+close_cb	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^  function! s:close_cb(ch) dict$/;"	f
+cmd	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  let cmd = s:gocodeCommand('autocomplete',$/;"	v
+cmd	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^    let cmd = ['\/bin\/sh', '-c', join(a:cmd, ' ') . ' <' . a:start_options.in_name]$/;"	v
+cmd	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  let cmd = a:cmd$/;"	v
 cmd_job	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^function s:cmd_job(args) abort$/;"	f
 cmdl_enter	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! s:cmdl_enter() abort$/;"	f
 cmdline_changed	pack/plugins/start/xtal8-traces-vim/plugin/traces.vim	/^function! s:cmdline_changed() abort$/;"	f
@@ -2282,7 +2340,6 @@ commands.substitute.process	pack/plugins/start/tpope-vim-abolish/plugin/abolish.
 compare	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/f.vim	/^function! s:compare(i1, i2) abort "{{{$/;"	f
 compare_buf_length	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/stuff.vim	/^  function! s:compare_buf_length(i1, i2) abort$/;"	f
 compare_buf_length	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/textobj.vim	/^function! s:compare_buf_length(i1, i2) abort  "{{{$/;"	f
-complete	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function! s:complete() closure$/;"	f
 complete	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^fun! s:complete(lead, cmdline, cursor)$/;"	f
 complete	pack/plugins/start/wellle-tmux-complete-vim/autoload/asyncomplete/sources/tmuxcomplete.vim	/^function! s:complete(params, candidates, incomplete)$/;"	f
 configured_tree	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:configured_tree(git_dir) abort$/;"	f
@@ -2322,6 +2379,7 @@ dashcase	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:d
 decho	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^function! s:decho(msg) "{{{1$/;"	f
 def_job	pack/plugins/start/fatih-vim-go/autoload/go/def.vim	/^function s:def_job(args) abort$/;"	f
 default	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^function! s:default() abort$/;"	f
+default_grep	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^let default_grep = 'grep'$/;"	v
 default_highlight	pack/plugins/start/machakann-vim-sandwich/plugin/operator/sandwich.vim	/^function! s:default_highlight() abort$/;"	f
 default_options	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich.vim	/^function! s:default_options(kind, motionwise) abort "{{{$/;"	f
 default_options	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich.vim	/^function! s:default_options(kind) abort "{{{$/;"	f
@@ -2329,6 +2387,7 @@ define_commands	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^func
 define_sign_line_highlights	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! s:define_sign_line_highlights() abort$/;"	f
 define_sign_text	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! s:define_sign_text() abort$/;"	f
 deleteBookmark	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:deleteBookmark(bookmark)$/;"	f
+delete_expands	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:delete_expands()$/;"	f
 delete_former	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/act.vim	/^function! s:delete_former(head, tail, latter_head, opt, ...) abort  "{{{$/;"	f
 delete_latter	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/act.vim	/^function! s:delete_latter(head, tail, former_head, opt) abort  "{{{$/;"	f
 delete_portion	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/act.vim	/^function! s:delete_portion(head, tail, undojoin_cmd) abort  "{{{$/;"	f
@@ -2352,24 +2411,28 @@ do	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich.vim	/^fu
 doautocmd	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! s:doautocmd(pattern) abort$/;"	f
 doautocmd	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich.vim	/^function! s:doautocmd(name) abort "{{{$/;"	f
 dotcase	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:dotcase(word)$/;"	f
-dovisual	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! s:dovisual(command) abort$/;"	f
+dovisual	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^  function! s:dovisual(command) abort$/;"	f
 ds	pack/plugins/start/machakann-vim-sandwich/macros/sandwich/keymap/surround.vim	/^nmap ds <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)$/;"	m
 dss	pack/plugins/start/machakann-vim-sandwich/macros/sandwich/keymap/surround.vim	/^nmap dss <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)$/;"	m
 echo	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! s:echo(msg, hi)$/;"	f
 echo_go_info	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:echo_go_info()$/;"	f
 egrep_pattern	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:egrep_pattern(dict,boundaries)$/;"	f
+elapsed	pack/plugins/start/airblade-vim-gitgutter/unplace.vim	/^let elapsed = reltime(start)$/;"	v
 enable_syntax	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^function! s:enable_syntax() abort$/;"	f
 enmasse#DisplayQuickfixEntryForCurrentLine	pack/plugins/start/olical-vim-enmasse/autoload/enmasse.vim	/^function! enmasse#DisplayQuickfixEntryForCurrentLine()$/;"	f
 enmasse#GetVersion	pack/plugins/start/olical-vim-enmasse/autoload/enmasse.vim	/^function! enmasse#GetVersion()$/;"	f
 enmasse#Open	pack/plugins/start/olical-vim-enmasse/autoload/enmasse.vim	/^function! enmasse#Open()$/;"	f
 enmasse#WriteCurrentBuffer	pack/plugins/start/olical-vim-enmasse/autoload/enmasse.vim	/^function! enmasse#WriteCurrentBuffer()$/;"	f
 entries	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:entries(path)$/;"	f
+env	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  let env = {$/;"	v
 errorformat	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^function! s:errorformat() abort$/;"	f
 escape	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/lib.vim	/^function! s:escape(string) abort  "{{{$/;"	f
 escape	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/t.vim	/^function! s:escape(string) abort  "{{{$/;"	f
 escape	pack/plugins/start/wincent-terminus/autoload/terminus/private.vim	/^function! s:escape(string) abort$/;"	f
 eunuch	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^augroup eunuch$/;"	a
+eval	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:eval(arg) abort$/;"	f
 eval	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/sandwich.vim	/^function! s:eval(expr, ...) abort "{{{$/;"	f
+eval_tree	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:eval_tree(var, nest) abort$/;"	f
 evalexpr	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/sandwich.vim	/^function! s:evalexpr(dough) abort "{{{$/;"	f
 evaluate_cmdl	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! s:evaluate_cmdl(string) abort$/;"	f
 evaluate_range	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! s:evaluate_range(range_structure) abort$/;"	f
@@ -2378,26 +2441,28 @@ executable	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function!
 execute_command	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/act.vim	/^function! s:execute_command(head, tail, command_list) abort "{{{$/;"	f
 exists	get-plugins.go	/^func exists(path string) (bool, error) {$/;"	f
 exists_file	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! s:exists_file(bufnr) abort$/;"	f
+exit	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:exit(job, status) abort$/;"	f
 exit	pack/plugins/start/wellle-tmux-complete-vim/autoload/asyncomplete/sources/tmuxcomplete.vim	/^function! s:exit(params, id, data, event) abort$/;"	f
-exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function! s:exit_cb(job, exitval) closure$/;"	f
-exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  function! s:exit_cb(job, exitval) closure$/;"	f
-exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  function! s:exit_cb(job, exitval) closure$/;"	f
-exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^  function! s:exit_cb(job, exitval) closure$/;"	f
-exited	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  let exited = 0$/;"	v
-exitval	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  let exitval = 0$/;"	v
+exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  function! s:exit_cb(job, exitval) dict$/;"	f
+exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function! s:exit_cb(job, exitval) dict$/;"	f
+exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function! s:exit_cb(job, exitval) dict$/;"	f
+exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  function! s:exit_cb(job, exitval) dict$/;"	f
+exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  function! s:exit_cb(job, exitval) dict$/;"	f
+exit_cb	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^  function! s:exit_cb(job, exitval) dict$/;"	f
 expand	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/t.vim	/^function! s:expand(text) abort  "{{{$/;"	f
 expand_braces	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:expand_braces(dict)$/;"	f
+expand_var	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:expand_var() abort$/;"	f
 expr_filter	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/operator.vim	/^function! s:expr_filter(candidate) abort  "{{{$/;"	f
 expr_filter	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/recipes.vim	/^function! s:expr_filter(candidate) abort  "{{{$/;"	f
 extract_pattern	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/f.vim	/^function! s:extract_pattern(string, pat) abort "{{{$/;"	f
 extract_pattern	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/i.vim	/^function! s:extract_pattern(string, pat) abort "{{{$/;"	f
 extract_patterns_from_lines	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/i.vim	/^function! s:extract_patterns_from_lines(lines, pat) abort "{{{$/;"	f
 extractopts	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:extractopts(list,opts)$/;"	f
-fetch	pack/plugins/start/kopischke-vim-fetch/plugin/fetch.vim	/^augroup fetch$/;"	a
-fetch#buffer	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! fetch#buffer(spec) abort " {{{$/;"	f
-fetch#cfile	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! fetch#cfile(count) abort " {{{$/;"	f
+fetch	pack/plugins/start/kopischke-vim-fetch/plugin/fetch.vim	/^  augroup fetch$/;"	a
+fetch#buffer	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! fetch#buffer(bufname) abort " ({{{$/;"	f
+fetch#cfile	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^  function! fetch#cfile(count) abort " {{{$/;"	f
 fetch#specs	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! fetch#specs() abort " {{{$/;"	f
-fetch#visual	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! fetch#visual(count) abort " {{{$/;"	f
+fetch#visual	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^    function! fetch#visual(count) abort " {{{$/;"	f
 ffsda[	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^normal ffsda[$/;"	m
 ffsra(c	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^normal ffsra(c$/;"	m
 filename	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! s:filename(bufnr) abort$/;"	f
@@ -2406,7 +2471,7 @@ finalize	pack/plugins/start/hauleth-asyncdo-vim/autoload/asyncdo.vim	/^func! s:f
 findAndRevealPath	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:findAndRevealPath(pathStr)$/;"	f
 find_command	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:find_command(cmd,flags,word)$/;"	f
 find_current_signs	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! s:find_current_signs(bufnr) abort$/;"	f
-fix_file_references	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! s:fix_file_references(bufnr, hunk_diff)$/;"	f
+fix_file_references	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! s:fix_file_references(filepath, hunk_diff)$/;"	f
 fmt_autosave	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^function! s:fmt_autosave()$/;"	f
 fmt_cmd	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^function! s:fmt_cmd(bin_name, source, target)$/;"	f
 fnameescape	pack/plugins/start/tpope-vim-eunuch/plugin/eunuch.vim	/^function! s:fnameescape(string) abort$/;"	f
@@ -2523,6 +2588,7 @@ g:ale_lint_on_insert_leave	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:al
 g:ale_lint_on_save	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_lint_on_save = get(g:, 'ale_lint_on_save', 1)$/;"	v
 g:ale_lint_on_text_changed	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_lint_on_text_changed = get(g:, 'ale_lint_on_text_changed', 'always')$/;"	v
 g:ale_linter_aliases	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_linter_aliases = get(g:, 'ale_linter_aliases', {})$/;"	v
+g:ale_list_vertical	pack/plugins/start/w0rp-ale/plugin/ale.vim	/^let g:ale_list_vertical = get(g:, 'ale_list_vertical', 0)$/;"	v
 g:ale_lsp_next_message_id	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^let g:ale_lsp_next_message_id = 1$/;"	v
 g:ale_lsp_next_version_id	pack/plugins/start/w0rp-ale/autoload/ale/lsp/message.vim	/^let g:ale_lsp_next_version_id = 1$/;"	v
 g:ale_lua_luacheck_executable	pack/plugins/start/w0rp-ale/ale_linters/lua/luacheck.vim	/^let g:ale_lua_luacheck_executable =$/;"	v
@@ -2607,6 +2673,9 @@ g:gitgutter_grep	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	
 g:gitgutter_grep	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    let g:gitgutter_grep = ''$/;"	v
 g:gitgutter_sign_column_always	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^  let g:gitgutter_sign_column_always = 0$/;"	v
 g:go_alternate_mode	pack/plugins/start/fatih-vim-go/autoload/go/alternate.vim	/^  let g:go_alternate_mode = "edit"$/;"	v
+g:go_debug_address	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^  let g:go_debug_address = '127.0.0.1:8181'$/;"	v
+g:go_debug_diag	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^    let g:go_debug_diag = s:state$/;"	v
+g:go_debug_windows	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^  let g:go_debug_windows = {$/;"	v
 g:go_decls_mode	pack/plugins/start/fatih-vim-go/autoload/go/decls.vim	/^  let g:go_decls_mode = ''$/;"	v
 g:go_doc_command	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^  let g:go_doc_command = ["godoc"]$/;"	v
 g:go_errcheck_bin	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let g:go_errcheck_bin = "errcheck"$/;"	v
@@ -2816,7 +2885,7 @@ g:vim_go_root	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^let g:vim_go
 g:vim_markdown_folding_disabled	vimrc	/^        let g:vim_markdown_folding_disabled=0$/;"	v
 g:vim_markdown_frontmatter	vimrc	/^        let g:vim_markdown_frontmatter=1$/;"	v
 g<LeftMouse>	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  nnoremap <buffer> <silent> g<LeftMouse> <LeftMouse>:GoDef<cr>$/;"	m
-gF	pack/plugins/start/kopischke-vim-fetch/plugin/fetch.vim	/^nnoremap gF :<C-u>call fetch#cfile(v:count1)<CR>$/;"	m
+gF	pack/plugins/start/kopischke-vim-fetch/plugin/fetch.vim	/^  nnoremap gF :<C-u>call fetch#cfile(v:count1)<CR>$/;"	m
 gather_candidates	pack/plugins/start/fatih-vim-go/rplugin/python3/denite/source/decls.py	/^    def gather_candidates(self, context):$/;"	m	class:Source
 gather_candidates	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/f.vim	/^function! s:gather_candidates(mode, count, pattern_list, opt) abort  "{{{$/;"	f
 gather_candidates	pack/plugins/start/wellle-tmux-complete-vim/rplugin/python3/deoplete/sources/tmuxcomplete.py	/^    def gather_candidates(self, context):$/;"	m	class:Source
@@ -2883,6 +2952,7 @@ gitgutter#diff#handler	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgut
 gitgutter#diff#hunk_diff	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#hunk_diff(bufnr, full_diff)$/;"	f
 gitgutter#diff#parse_diff	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#parse_diff(diff) abort$/;"	f
 gitgutter#diff#parse_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#parse_hunk(line) abort$/;"	f
+gitgutter#diff#process_hunks	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#process_hunks(bufnr, hunks) abort$/;"	f
 gitgutter#diff#run_diff	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! gitgutter#diff#run_diff(bufnr, preserve_full_diff) abort$/;"	f
 gitgutter#disable	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#disable() abort$/;"	f
 gitgutter#enable	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^function! gitgutter#enable() abort$/;"	f
@@ -2894,6 +2964,7 @@ gitgutter#highlight#line_disable	pack/plugins/start/airblade-vim-gitgutter/autol
 gitgutter#highlight#line_enable	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! gitgutter#highlight#line_enable() abort$/;"	f
 gitgutter#highlight#line_toggle	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/highlight.vim	/^function! gitgutter#highlight#line_toggle() abort$/;"	f
 gitgutter#hunk#cursor_in_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#cursor_in_hunk(hunk) abort$/;"	f
+gitgutter#hunk#fix_file_references	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^  function! gitgutter#hunk#fix_file_references(filepath, hunk_diff)$/;"	f
 gitgutter#hunk#hunks	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#hunks(bufnr) abort$/;"	f
 gitgutter#hunk#increment_lines_added	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#increment_lines_added(bufnr, count) abort$/;"	f
 gitgutter#hunk#increment_lines_modified	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! gitgutter#hunk#increment_lines_modified(bufnr, count) abort$/;"	f
@@ -2955,6 +3026,14 @@ go#coverage#Clear	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^fun
 go#coverage#genmatch	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^function! go#coverage#genmatch(cov) abort$/;"	f
 go#coverage#overlay	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^function! go#coverage#overlay(file) abort$/;"	f
 go#coverage#parsegocoverline	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^function! go#coverage#parsegocoverline(line) abort$/;"	f
+go#debug#BalloonExpr	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#BalloonExpr() abort$/;"	f
+go#debug#Breakpoint	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Breakpoint(...) abort$/;"	f
+go#debug#Print	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Print(arg) abort$/;"	f
+go#debug#Restart	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Restart() abort$/;"	f
+go#debug#Set	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Set(symbol, value) abort$/;"	f
+go#debug#Stack	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Stack(name) abort$/;"	f
+go#debug#Start	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Start(...) abort$/;"	f
+go#debug#Stop	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Stop() abort$/;"	f
 go#decls#Decls	pack/plugins/start/fatih-vim-go/autoload/go/decls.vim	/^function! go#decls#Decls(mode, ...) abort$/;"	f
 go#def#Jump	pack/plugins/start/fatih-vim-go/autoload/go/def.vim	/^function! go#def#Jump(mode) abort$/;"	f
 go#def#SelectStackEntry	pack/plugins/start/fatih-vim-go/autoload/go/def.vim	/^function! go#def#SelectStackEntry() abort$/;"	f
@@ -2982,7 +3061,6 @@ go#guru#Freevars	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function
 go#guru#Implements	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#Implements(selected) abort$/;"	f
 go#guru#Referrers	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#Referrers(selected) abort$/;"	f
 go#guru#SameIds	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#SameIds() abort$/;"	f
-go#guru#SameIdsTimer	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#SameIdsTimer() abort$/;"	f
 go#guru#Scope	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#Scope(...) abort$/;"	f
 go#guru#ToggleSameIds	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#ToggleSameIds() abort$/;"	f
 go#guru#Whicherrs	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! go#guru#Whicherrs(selected) abort$/;"	f
@@ -3000,9 +3078,10 @@ go#lint#Gometa	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^function! 
 go#lint#ToggleMetaLinterAutoSave	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^function! go#lint#ToggleMetaLinterAutoSave() abort$/;"	f
 go#lint#Vet	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^function! go#lint#Vet(bang, ...) abort$/;"	f
 go#list#Clean	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Clean(listtype) abort$/;"	f
+go#list#Close	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Close(listtype) abort$/;"	f
 go#list#Get	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Get(listtype) abort$/;"	f
 go#list#JumpToFirst	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#JumpToFirst(listtype) abort$/;"	f
-go#list#Parse	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Parse(listtype, items) abort$/;"	f
+go#list#Parse	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Parse(listtype, items, title) abort$/;"	f
 go#list#ParseFormat	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#ParseFormat(listtype, errformat, items, title) abort$/;"	f
 go#list#Populate	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Populate(listtype, items, title) abort$/;"	f
 go#list#Type	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! go#list#Type(for) abort$/;"	f
@@ -3056,6 +3135,7 @@ go#util#EchoSuccess	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^funct
 go#util#EchoWarning	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#EchoWarning(msg)$/;"	f
 go#util#Exec	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#Exec(cmd, ...) abort$/;"	f
 go#util#GetLines	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#GetLines()$/;"	f
+go#util#HasDebug	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#HasDebug(flag)$/;"	f
 go#util#IsMac	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#IsMac() abort$/;"	f
 go#util#IsUsingCygwinShell	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#IsUsingCygwinShell()$/;"	f
 go#util#IsWin	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#IsWin() abort$/;"	f
@@ -3088,10 +3168,9 @@ go#util#snippetcase	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^funct
 go#util#tempdir	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! go#util#tempdir(prefix) abort$/;"	f
 go_packages	pack/plugins/start/fatih-vim-go/autoload/go/impl.vim	/^function! s:go_packages(dirs) abort$/;"	f
 gocodeAutocomplete	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:gocodeAutocomplete() abort$/;"	f
-gocodeCommand	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:gocodeCommand(cmd, preargs, args) abort$/;"	f
-gocodeCurrentBuffer	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:gocodeCurrentBuffer() abort$/;"	f
-gocodeCurrentBufferOpt	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:gocodeCurrentBufferOpt(filename) abort$/;"	f
+gocodeCommand	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:gocodeCommand(cmd, args) abort$/;"	f
 gocodeEnableOptions	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:gocodeEnableOptions() abort$/;"	f
+gocodeFile	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:gocodeFile()$/;"	f
 godocWord	pack/plugins/start/fatih-vim-go/autoload/go/doc.vim	/^function! s:godocWord(args) abort$/;"	f
 gofiletype_post	pack/plugins/start/fatih-vim-go/ftdetect/gofiletype.vim	/^function! s:gofiletype_post()$/;"	f
 gofiletype_pre	pack/plugins/start/fatih-vim-go/ftdetect/gofiletype.vim	/^function! s:gofiletype_pre(type)$/;"	f
@@ -3102,10 +3181,13 @@ gotest#assert_fixture	pack/plugins/start/fatih-vim-go/autoload/gotest.vim	/^fun!
 gotest#assert_quickfix	pack/plugins/start/fatih-vim-go/autoload/gotest.vim	/^func! gotest#assert_quickfix(got, want) abort$/;"	f
 gotest#load_fixture	pack/plugins/start/fatih-vim-go/autoload/gotest.vim	/^fun! gotest#load_fixture(path) abort$/;"	f
 gotest#write_file	pack/plugins/start/fatih-vim-go/autoload/gotest.vim	/^fun! gotest#write_file(path, contents) abort$/;"	f
+goto_file	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:goto_file() abort$/;"	f
 goto_tab	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highlight.vim	/^function! s:goto_tab(tabnr) abort  "{{{$/;"	f
 goto_window	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highlight.vim	/^function! s:goto_window(winnr, ...) abort "{{{$/;"	f
+gotowin	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! s:gotowin(winnr) abort$/;"	f
 grep_command	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:grep_command(args,bang,flags,word)$/;"	f
 grep_version	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! s:grep_version()$/;"	f
+groutineID	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:groutineID() abort$/;"	f
 gsub	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:gsub(str,pat,rep) abort$/;"	f
 guru_cmd	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:guru_cmd(args) range abort$/;"	f
 gutentags#add_progress	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! gutentags#add_progress(module, file) abort$/;"	f
@@ -3160,6 +3242,7 @@ has_mode	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/op
 has_mode	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/recipes.vim	/^function! s:has_mode(candidate, mode) abort "{{{$/;"	f
 has_motionwise	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/operator.vim	/^function! s:has_motionwise(candidate, motionwise) abort "{{{$/;"	f
 helper	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/test/src/play/play_test.go	/^func helper(t *testing.T) {$/;"	f
+hi	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^fun! s:hi()$/;"	f
 hi	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^function! s:hi()$/;"	f
 highlight	pack/plugins/start/fatih-vim-go/rplugin/python3/denite/source/decls.py	/^    def highlight(self):$/;"	m	class:Source
 highlight	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! s:highlight(group, pattern, priority) abort$/;"	f
@@ -3178,6 +3261,8 @@ i	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^      let i += 1$/
 i	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^    let i = 0$/;"	v
 ic	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^    omap ic <Plug>GitGutterTextObjectInnerPending$/;"	m
 if	pack/plugins/start/fatih-vim-go/ftplugin/go.vim	/^  onoremap <buffer> <silent> if :<c-u>call go#textobj#Function('i')<cr>$/;"	m
+info_complete	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:info_complete(auto, result) abort$/;"	f
+info_filter	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:info_filter(auto, result) abort$/;"	f
 init	pack/plugins/start/wellle-tmux-complete-vim/plugin/tmuxcomplete.vim	/^function! s:init()$/;"	f
 initVariable	pack/plugins/start/scrooloose-nerdtree/plugin/NERD_tree.vim	/^function! s:initVariable(var, value)$/;"	f
 initialize_options	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich.vim	/^function! s:initialize_options(...) abort  "{{{$/;"	f
@@ -3185,6 +3270,7 @@ initialize_options	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sa
 input	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/i.vim	/^function! s:input(mes) abort "{{{$/;"	f
 instaweb_url	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:instaweb_url(opts) abort$/;"	f
 interface_list	pack/plugins/start/fatih-vim-go/autoload/go/impl.vim	/^function! s:interface_list(pkg) abort$/;"	f
+isActive	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:isActive()$/;"	f
 is_added	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! s:is_added(from_count, to_count) abort$/;"	f
 is_ahead	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/lib.vim	/^function! s:is_ahead(pos1, pos2) abort  "{{{$/;"	f
 is_ahead	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highlight.vim	/^function! s:is_ahead(pos1, pos2) abort  "{{{$/;"	f
@@ -3226,6 +3312,7 @@ j	vimrc	/^        nnoremap j gj$/;"	m
 j.	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^normal j.$/;"	m
 jh.	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^normal jh.$/;"	m
 jl.	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^normal jl.$/;"	m
+job_start	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:job_start(cmd, start_options) abort$/;"	f
 jobdir	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^  let jobdir = fnameescape(expand("%:p:h"))$/;"	v
 jobdir	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^  let jobdir = fnameescape(expand("%:p:h"))$/;"	v
 jobdir	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^  let jobdir = fnameescape(expand("%:p:h"))$/;"	v
@@ -3260,10 +3347,13 @@ listtype	pack/plugins/start/fatih-vim-go/autoload/go/list.vim	/^function! s:list
 live_global	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! s:live_global(cmdl) abort$/;"	f
 live_substitute	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! s:live_substitute(cmdl) abort$/;"	f
 loaded_nerd_tree	pack/plugins/start/scrooloose-nerdtree/plugin/NERD_tree.vim	/^let loaded_nerd_tree = 1$/;"	v
+logger	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:logger(prefix, ch, msg) abort$/;"	f
 main	get-plugins.go	/^func main() {$/;"	f
 main	get-plugins.go	/^package main$/;"	p
 main	pack/colors/start/robertmeta-nofrils/generate_colors.go	/^func main() {$/;"	f
 main	pack/colors/start/robertmeta-nofrils/generate_colors.go	/^package main$/;"	p
+main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/cmd/bad.go	/^func main() {$/;"	f
+main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/cmd/bad.go	/^package main$/;"	p
 main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/def/jump.go	/^func main() {$/;"	f
 main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/def/jump.go	/^package main$/;"	p
 main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/fmt/hello.go	/^  func main() {$/;"	f
@@ -3278,6 +3368,10 @@ main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/fmt/src/imports/g
 main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/fmt/src/imports/goimports.go	/^package main$/;"	p
 main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/fmt/src/imports/goimports_golden.go	/^func main() {$/;"	f
 main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/fmt/src/imports/goimports_golden.go	/^package main$/;"	p
+main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/lint/src/vet/vet.go	/^func main() {$/;"	f
+main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/lint/src/vet/vet.go	/^package main$/;"	p
+main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/term/term.go	/^func main() {$/;"	f
+main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/term/term.go	/^package main$/;"	p
 main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/test/src/compilerror/compilerror.go	/^func main() {$/;"	f
 main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/test/src/compilerror/compilerror.go	/^package main$/;"	p
 main	pack/plugins/start/fatih-vim-go/autoload/go/test-fixtures/test/src/showname/showname_test.go	/^package main$/;"	p
@@ -3356,6 +3450,8 @@ nofrilsTheme	pack/colors/start/robertmeta-nofrils/generate_colors.go	/^type nofr
 normalize_durations	pack/plugins/start/fatih-vim-go/autoload/go/test_test.vim	/^func! s:normalize_durations(str) abort$/;"	f
 normalize_options	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:normalize_options(flags)$/;"	f
 not_git_dir	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! s:not_git_dir(bufnr) abort$/;"	f
+not_tracked_by_git	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^  function! s:not_tracked_by_git(bufnr)$/;"	f
+num	pack/plugins/start/airblade-vim-gitgutter/unplace.vim	/^let num = 500$/;"	v
 o	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^    nnoremap <silent> <buffer> o <CR><C-w>p$/;"	m
 object.clone	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:object.clone(...)$/;"	f
 obsolete_gitgutter_signs_to_remove	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! s:obsolete_gitgutter_signs_to_remove(bufnr, new_gitgutter_signs_line_numbers) abort$/;"	f
@@ -3363,13 +3459,13 @@ of_for_add	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/opt.vim	/
 of_for_delete	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/opt.vim	/^function! s:of_for_delete(opt_name, ...) dict abort  "{{{$/;"	f
 of_for_replace	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/opt.vim	/^function! s:of_for_replace(opt_name, ...) dict abort  "{{{$/;"	f
 of_for_textobj	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/opt.vim	/^function! s:of_for_textobj(opt_name) dict abort  "{{{$/;"	f
+offset	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  let offset = go#util#OffsetCursor()+1$/;"	v
 offset_to_num	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! s:offset_to_num(string) abort$/;"	f
 on_exit	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^function! s:on_exit(job_id, exit_status, event) dict abort$/;"	f
 on_exit	pack/plugins/start/fatih-vim-go/autoload/go/term.vim	/^function! s:on_exit(job_id, exit_status, event) dict abort$/;"	f
 on_exit_nvim	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:on_exit_nvim(_job_id, exit_code, _event) dict abort$/;"	f
 on_exit_vim	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:on_exit_vim(_channel) dict abort$/;"	f
 on_stderr	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^function! s:on_stderr(job_id, data, event) dict abort$/;"	f
-on_stderr	pack/plugins/start/fatih-vim-go/autoload/go/term.vim	/^function! s:on_stderr(job_id, data, event) dict abort$/;"	f
 on_stderr_nvim	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:on_stderr_nvim(_job_id, _data, _event) dict abort$/;"	f
 on_stderr_vim	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^function! s:on_stderr_vim(channel, _data) dict abort$/;"	f
 on_stdout	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^function! s:on_stdout(job_id, data, event) dict abort$/;"	f
@@ -3442,6 +3538,9 @@ opt.update	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/opt.vim	/
 opt_syntax_affair	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/textobj.vim	/^function! s:opt_syntax_affair(sandwich) abort "{{{$/;"	f
 option	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! s:option(name)$/;"	f
 option_map	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:option_map(letter, option, mode) abort$/;"	f
+options	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  let options = {$/;"	v
+opts.on_exit	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function opts.on_exit(job_id, exit_code, event) closure$/;"	f
+opts.on_stderr	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function opts.on_stderr(job_id, data, event) closure$/;"	f
 output	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! s:output(text)$/;"	f
 overwrite	pack/plugins/start/machakann-vim-sandwich/test/test-magicchar-t-emmet.vim	/^function! s:overwrite(itemlist, name) abort "{{{$/;"	f
 p	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^    nnoremap <silent> <buffer> p :call qf#preview#PreviewFileUnderCursor()<CR>$/;"	m
@@ -3473,7 +3572,6 @@ previewNodeVSplit	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_gl
 print_help	pack/plugins/start/w0rp-ale/test/script/custom-linting-rules	/^function print_help() {$/;"	f
 process_added	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! s:process_added(modifications, from_count, to_count, to_line) abort$/;"	f
 process_hunk	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! s:process_hunk(bufnr, hunk) abort$/;"	f
-process_hunks	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! s:process_hunks(bufnr, hunks) abort$/;"	f
 process_modified	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! s:process_modified(modifications, from_count, to_count, to_line) abort$/;"	f
 process_modified_and_added	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! s:process_modified_and_added(modifications, from_count, to_count, to_line) abort$/;"	f
 process_modified_and_removed	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^function! s:process_modified_and_removed(modifications, from_count, to_count, to_line) abort$/;"	f
@@ -3564,6 +3662,7 @@ recall	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:r
 recipes._integrate	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/recipes.vim	/^function! s:recipes._integrate(kind, mode) dict abort  "{{{$/;"	f
 recipes.query	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/recipes.vim	/^function! s:recipes.query(opt, timeoutlen) dict abort "{{{$/;"	f
 recipes.uniq	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/recipes.vim	/^function! s:recipes.uniq(opt) dict abort "{{{$/;"	f
+reflect_kind	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:reflect_kind(k)$/;"	f
 refreshCurrent	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:refreshCurrent(node)$/;"	f
 refreshRoot	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:refreshRoot()$/;"	f
 remove_signs	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! s:remove_signs(bufnr, sign_ids, all_signs) abort$/;"	f
@@ -3659,6 +3758,7 @@ s:abstract_prototype	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/
 s:act	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/act.vim	/^let s:act = {$/;"	v
 s:added_db_files	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/gtags_cscope.vim	/^let s:added_db_files = {}$/;"	v
 s:added_dbs	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags/cscope.vim	/^let s:added_dbs = []$/;"	v
+s:async_info_job	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  let s:async_info_job = job_start(cmd, options)$/;"	v
 s:available	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/async.vim	/^let s:available = has('nvim') || ($/;"	v
 s:begin_failed_skip_pattern	pack/plugins/start/w0rp-ale/ale_linters/perl/perl.vim	/^let s:begin_failed_skip_pattern = '\\v' . join([$/;"	v
 s:bin_dir	pack/plugins/start/w0rp-ale/autoload/ale/python.vim	/^let s:bin_dir = has('unix') ? 'bin' : 'Scripts'$/;"	v
@@ -3692,6 +3792,7 @@ s:commands	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^let s:comma
 s:commands	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^let s:commands.substitute.options = {"word": 0, "variable": 0, "flags": "g"}$/;"	v
 s:commands	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:commands = []$/;"	v
 s:common_efm	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^let s:common_efm = ''$/;"	v
+s:completions	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^let s:completions = ""$/;"	v
 s:connections	pack/plugins/start/w0rp-ale/autoload/ale/lsp.vim	/^let s:connections = []$/;"	v
 s:constants	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich.vim	/^let s:constants = function('sandwich#constants#get')$/;"	v
 s:constants	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/act.vim	/^let s:constants = function('sandwich#constants#get')$/;"	v
@@ -3840,6 +3941,7 @@ s:hidden_all	vimrc	/^        let s:hidden_all = 0$/;"	v
 s:highlight	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highlight.vim	/^let s:highlight = {$/;"	v
 s:hunk_re	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^let s:hunk_re = '^@@ -\\(\\d\\+\\),\\?\\(\\d*\\) +\\(\\d\\+\\),\\?\\(\\d*\\) @@'$/;"	v
 s:id	pack/plugins/start/fatih-vim-go/autoload/ctrlp/decls.vim	/^let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)$/;"	v
+s:import_paths	pack/plugins/start/fatih-vim-go/autoload/go/package.vim	/^let s:import_paths = {}$/;"	v
 s:indent	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:indent = ''$/;"	v
 s:indent	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let s:indent = max(map(copy(s:tests), {_, val -> len(FriendlyName(val))}))$/;"	v
 s:info_priority	pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^let s:info_priority = 3$/;"	v
@@ -3857,7 +3959,6 @@ s:job_info_map	pack/plugins/start/w0rp-ale/autoload/ale/fix.vim	/^    let s:job_
 s:job_kill_timers	pack/plugins/start/w0rp-ale/autoload/ale/job.vim	/^    let s:job_kill_timers = {}$/;"	v
 s:job_map	pack/plugins/start/w0rp-ale/autoload/ale/job.vim	/^    let s:job_map = {}$/;"	v
 s:jobs	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^let s:jobs = {}$/;"	v
-s:jobs	pack/plugins/start/fatih-vim-go/autoload/go/term.vim	/^let s:jobs = {}$/;"	v
 s:known_files	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^let s:known_files = []$/;"	v
 s:known_projects	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^let s:known_projects = {}$/;"	v
 s:konsole	pack/plugins/start/wincent-terminus/plugin/terminus.vim	/^let s:konsole=$/;"	v
@@ -3885,7 +3986,6 @@ s:lsp_linter_map	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^    let s
 s:manual	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/manual.vim	/^let s:manual = {$/;"	v
 s:marks_recipes	pack/plugins/start/machakann-vim-sandwich/macros/sandwich/ftplugin/tex.vim	/^  let s:marks_recipes += [$/;"	v
 s:marks_recipes	pack/plugins/start/machakann-vim-sandwich/macros/sandwich/ftplugin/tex.vim	/^  let s:marks_recipes = []$/;"	v
-s:matchers	pack/plugins/start/kopischke-vim-fetch/plugin/fetch.vim	/^let s:matchers = {$/;"	v
 s:matchstrpos	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/f.vim	/^  let s:matchstrpos = function('matchstrpos')$/;"	v
 s:matchstrpos	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/i.vim	/^  let s:matchstrpos = function('matchstrpos')$/;"	v
 s:maybe_in_progress	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^    let s:maybe_in_progress[module] = {}$/;"	v
@@ -3999,6 +4099,7 @@ s:specs	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^let s:specs.
 s:specs	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^let s:specs.paren = {'pattern': '\\m(\\(\\d\\+\\%(:\\d\\+\\)\\?\\))'}$/;"	v
 s:specs	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^let s:specs.plan9 = {'pattern': '\\m:#\\(\\d\\+\\)'}$/;"	v
 s:specs	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^let s:specs.pytest = {'pattern': '\\m::\\(\\w\\+\\)'}$/;"	v
+s:start_args	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^  let s:start_args = []$/;"	v
 s:start_insert	pack/plugins/start/wincent-terminus/plugin/terminus.vim	/^      let s:start_insert="\\<Esc>[" . s:insert_shape . ' q'$/;"	v
 s:start_insert	pack/plugins/start/wincent-terminus/plugin/terminus.vim	/^      let s:start_insert="\\<Esc>]1337;CursorShape=" . s:insert_shape . "\\x7"$/;"	v
 s:start_insert	pack/plugins/start/wincent-terminus/plugin/terminus.vim	/^      let s:start_insert="\\<Esc>]50;CursorShape=" . s:insert_shape . "\\x7"$/;"	v
@@ -4008,6 +4109,7 @@ s:start_replace	pack/plugins/start/wincent-terminus/plugin/terminus.vim	/^      
 s:start_replace	pack/plugins/start/wincent-terminus/plugin/terminus.vim	/^      let s:start_replace="\\<Esc>]50;CursorShape=" . s:replace_shape . "\\x7"$/;"	v
 s:start_replace	pack/plugins/start/wincent-terminus/plugin/terminus.vim	/^      let s:start_replace=terminus#private#wrap(s:start_replace)$/;"	v
 s:started	pack/plugins/start/fatih-vim-go/scripts/runtest.vim	/^  let s:started = reltime()$/;"	v
+s:state	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^  let s:state = {$/;"	v
 s:statuses	pack/plugins/start/fatih-vim-go/autoload/go/statusline.vim	/^let s:statuses = {}$/;"	v
 s:stuff	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/stuff.vim	/^let s:stuff = {$/;"	v
 s:style_error_priority	pack/plugins/start/w0rp-ale/autoload/ale/sign.vim	/^let s:style_error_priority = 4$/;"	v
@@ -4023,9 +4125,8 @@ s:t	pack/plugins/start/machakann-vim-sandwich/test/test-magicchar-t-emmet.vim	/^
 s:t_string	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^let s:t_string = type('')$/;"	v
 s:tag	pack/plugins/start/t9md-vim-quickhl/autoload/quickhl/tag.vim	/^let s:tag = {$/;"	v
 s:temp_buffer	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^let s:temp_buffer = tempname()$/;"	v
-s:temp_dir	pack/plugins/start/w0rp-ale/autoload/ale/engine.vim	/^let s:temp_dir = fnamemodify(tempname(), ':h')$/;"	v
 s:temp_dir	pack/plugins/start/w0rp-ale/autoload/ale/handlers/haskell.vim	/^let s:temp_dir = fnamemodify(tempname(), ':h')$/;"	v
-s:temp_dir	pack/plugins/start/w0rp-ale/autoload/ale/path.vim	/^let s:temp_dir = fnamemodify(tempname(), ':h')$/;"	v
+s:temp_dir	pack/plugins/start/w0rp-ale/autoload/ale/path.vim	/^let s:temp_dir = ale#path#Simplify(fnamemodify(tempname(), ':h'))$/;"	v
 s:temp_files	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^  let s:temp_files = {}$/;"	v
 s:temp_index	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/diff.vim	/^let s:temp_index = tempname()$/;"	v
 s:temp_regex_prefix	pack/plugins/start/w0rp-ale/autoload/ale/handlers/haskell.vim	/^let s:temp_regex_prefix =$/;"	v
@@ -4083,7 +4184,7 @@ s:xterm	pack/plugins/start/wincent-terminus/plugin/terminus.vim	/^let s:xterm=&t
 saiw(	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^normal saiw($/;"	m
 saiw[	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^normal saiw[$/;"	m
 saiwc	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^normal saiwc$/;"	m
-same_ids_highlight	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:same_ids_highlight(exit_val, output) abort$/;"	f
+same_ids_highlight	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:same_ids_highlight(exit_val, output, mode) abort$/;"	f
 sandwich	pack/plugins/start/machakann-vim-sandwich/after/ftplugin/initex/sandwich.vim	/^augroup sandwich-event-FileType$/;"	a
 sandwich	pack/plugins/start/machakann-vim-sandwich/after/ftplugin/plaintex/sandwich.vim	/^augroup sandwich-event-FileType$/;"	a
 sandwich	pack/plugins/start/machakann-vim-sandwich/after/ftplugin/tex/sandwich.vim	/^augroup sandwich-event-FileType$/;"	a
@@ -4169,9 +4270,9 @@ shift_options	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highli
 shortest	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/stuff.vim	/^  function! s:shortest(list) abort$/;"	f
 showMenu	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:showMenu(node)$/;"	f
 show_errors	pack/plugins/start/fatih-vim-go/autoload/go/fmt.vim	/^function! s:show_errors(errors) abort$/;"	f
-show_errors	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function! s:show_errors(job, exit_status, data) closure$/;"	f
-show_errors	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  function! s:show_errors() closure$/;"	f
 show_errors	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^function! s:show_errors(args, exit_val, messages) abort$/;"	f
+show_stacktrace	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:show_stacktrace(res) abort$/;"	f
+show_variables	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:show_variables() abort$/;"	f
 signs	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function s:signs(filename)$/;"	f
 sink	pack/plugins/start/fatih-vim-go/autoload/fzf/decls.vim	/^function! s:sink(str) abort$/;"	f
 skip_space	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/stuff.vim	/^function! s:skip_space(head, tail) abort  "{{{$/;"	f
@@ -4185,25 +4286,33 @@ source.gather_candidates	pack/plugins/start/wellle-tmux-complete-vim/autoload/ne
 source.hooks.on_syntax	pack/plugins/start/fatih-vim-go/autoload/unite/sources/decls.vim	/^function! s:source.hooks.on_syntax(args, context) abort$/;"	f
 spacecase	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:spacecase(word)$/;"	f
 spawn	pack/plugins/start/fatih-vim-go/autoload/go/jobcontrol.vim	/^function! s:spawn(bang, desc, for, args) abort$/;"	f
-spec_to_abs	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! s:spec_to_abs(address, last_position, range_size) abort$/;"	f
+spec_to_abs	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! s:spec_to_abs(address, last_position) abort$/;"	f
 specs.colon.parse	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! s:specs.colon.parse(file) abort$/;"	f
 specs.paren.parse	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! s:specs.paren.parse(file) abort$/;"	f
 specs.plan9.parse	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! s:specs.plan9.parse(file) abort$/;"	f
 specs.pytest.parse	pack/plugins/start/kopischke-vim-fetch/autoload/fetch.vim	/^function! s:specs.pytest.parse(file) abort$/;"	f
 sr	pack/plugins/start/machakann-vim-sandwich/test/dot-repeat/test_dot.vim	/^nmap sr <Plug>(operator-sandwich-replace)$/;"	m
+stack_cb	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:stack_cb(ch, json) abort$/;"	f
 stage	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! s:stage(hunk_diff)$/;"	f
 stage_info	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:stage_info(lnum) abort$/;"	f
+start	pack/plugins/start/airblade-vim-gitgutter/unplace.vim	/^let start = reltime()$/;"	v
+start_cb	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:start_cb(ch, json) abort$/;"	f
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/cmd.vim	/^  let start_options = {$/;"	v
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/coverage.vim	/^  let start_options = {$/;"	v
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  let start_options = {$/;"	v
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let start_options = {$/;"	v
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let start_options = {$/;"	v
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^  let start_options = {$/;"	v
-status	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  let status = {}$/;"	v
-status_dir	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let status_dir =  expand('%:p:h')$/;"	v
+starting	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:starting(ch, msg) abort$/;"	f
+state	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^    let state.complete = a:args.complete$/;"	v
+state.complete	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  function state.complete() dict$/;"	f
+state.complete	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function state.complete() dict$/;"	f
+state.show_errors	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^  function state.show_errors(job, exit_status, data)$/;"	f
+state.show_errors	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  function state.show_errors()$/;"	f
 statusbump	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:statusbump() abort$/;"	f
 stay#integrate#fetch#setup	pack/plugins/start/kopischke-vim-fetch/autoload/stay/integrate/fetch.vim	/^function! stay#integrate#fetch#setup() abort$/;"	f
 stdout	pack/plugins/start/wellle-tmux-complete-vim/autoload/asyncomplete/sources/tmuxcomplete.vim	/^function! s:stdout(params, id, data, event) abort$/;"	f
+stop	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:stop() abort$/;"	f
 string_decode	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:string_decode(str)$/;"	f
 string_encode	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:string_encode(str)$/;"	f
 strip_trailing_new_line	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! s:strip_trailing_new_line(line) abort$/;"	f
@@ -4742,7 +4851,9 @@ summary	pack/plugins/start/airblade-vim-gitgutter/test/runner.vim	/^let summary 
 surroundings	pack/plugins/start/tpope-vim-commentary/plugin/commentary.vim	/^function! s:surroundings() abort$/;"	f
 sw	pack/plugins/start/fatih-vim-go/indent/go.vim	/^  func s:sw()$/;"	f
 switch_highlight	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/highlight.vim	/^function! s:switch_highlight(id) abort "{{{$/;"	f
+sync_gocode	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:sync_gocode(cmd, args, input) abort$/;"	f
 sync_guru	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^function! s:sync_guru(args) abort$/;"	f
+sync_info	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:sync_info(auto)$/;"	f
 system	pack/plugins/start/fatih-vim-go/autoload/go/util.vim	/^function! s:system(cmd, ...) abort$/;"	f
 t	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^    nnoremap <silent> <buffer> t <C-w><CR><C-w>T$/;"	m
 t_start	pack/plugins/start/xtal8-traces-vim/plugin/traces.vim	/^function! s:t_start() abort$/;"	f
@@ -4822,11 +4933,13 @@ traces#init	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! 
 traces.vim	pack/plugins/start/xtal8-traces-vim/README.md	/^# traces.vim$/;"	h
 traces_augroup	pack/plugins/start/xtal8-traces-vim/plugin/traces.vim	/^augroup traces_augroup$/;"	a
 track_cmdl	pack/plugins/start/xtal8-traces-vim/plugin/traces.vim	/^function! s:track_cmdl(...) abort$/;"	f
+trigger_gitgutter	pack/plugins/start/airblade-vim-gitgutter/test/test_gitgutter.vim	/^function s:trigger_gitgutter()$/;"	f
 trim	pack/plugins/start/xtal8-traces-vim/autoload/traces.vim	/^function! s:trim(...) abort$/;"	f
 trim_bracket	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^function! s:trim_bracket(val) abort$/;"	f
 u	pack/plugins/start/tpope-vim-repeat/autoload/repeat.vim	/^    nmap u <Plug>(RepeatUndo)$/;"	m
 unc_path	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! s:unc_path(bufnr)$/;"	f
 undo	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/hunk.vim	/^function! s:undo(hunk_diff)$/;"	f
+uniq	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter.vim	/^  function! s:uniq(list)$/;"	f
 uniq	pack/plugins/start/fatih-vim-go/autoload/go/impl.vim	/^  function! s:uniq(list)$/;"	f
 uniq	pack/plugins/start/machakann-vim-sandwich/test/test-magicchar-t-emmet.vim	/^function! s:uniq(list) abort  "{{{$/;"	f
 uniq_candidates	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/textobj.vim	/^function! s:uniq_candidates(candidates, a_or_i) abort "{{{$/;"	f
@@ -4838,8 +4951,11 @@ unplanned	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## unplanned$/;"	i
 upDirCurrentRootClosed	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:upDirCurrentRootClosed()$/;"	f
 upDirCurrentRootOpen	pack/plugins/start/scrooloose-nerdtree/autoload/nerdtree/ui_glue.vim	/^function! s:upDirCurrentRootOpen()$/;"	f
 updatePlugin	get-plugins.go	/^func updatePlugin(wg *sync.WaitGroup, org, plugin string) {$/;"	f
+update_breakpoint	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:update_breakpoint(res) abort$/;"	f
 update_is_in_cmdline_window	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich.vim	/^  function! s:update_is_in_cmdline_window() abort$/;"	f
+update_stacktrace	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:update_stacktrace() abort$/;"	f
 update_tags	pack/plugins/start/ludovicchabant-vim-gutentags/autoload/gutentags.vim	/^function! s:update_tags(bufno, module, write_mode, queue_mode) abort$/;"	f
+update_variables	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:update_variables() abort$/;"	f
 uppercase	pack/plugins/start/tpope-vim-abolish/plugin/abolish.vim	/^function! s:uppercase(word)$/;"	f
 upsert_new_gitgutter_signs	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/sign.vim	/^function! s:upsert_new_gitgutter_signs(bufnr, modified_lines) abort$/;"	f
 url_decode	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:url_decode(str)$/;"	f
@@ -4851,6 +4967,7 @@ use_raw_list	pack/plugins/start/ludovicchabant-vim-gutentags/plat/win32/update_t
 v	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^        nnoremap <silent> <expr> <buffer> v &splitright ? "\\<C-w>\\<CR>\\<C-w>L" : "\\<C-w>\\<CR>\\<C-w>H"$/;"	m
 v	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^        nnoremap <silent> <expr> <buffer> v &splitright ? "\\<C-w>\\<CR>\\<C-w>L\\<C-w>p\\<C-w>J\\<C-w>p" : "\\<C-w>\\<CR>\\<C-w>H\\<C-w>p\\<C-w>J\\<C-w>p"$/;"	m
 valid_buns	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/sandwich.vim	/^function! s:valid_buns(buns) abort  "{{{$/;"	f
+vim	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^augroup vim-go-breakpoint$/;"	a
 vim	pack/plugins/start/fatih-vim-go/plugin/go.vim	/^augroup vim-go$/;"	a
 vim	pack/plugins/start/fatih-vim-go/syntax/go.vim	/^augroup vim-go-hi$/;"	a
 vim-go [![Build Status](http://img.shields.io/travis/fatih/vim-go.svg?style=flat-square)](https://travis-ci.org/fatih/vim-go)	pack/plugins/start/fatih-vim-go/README.md	/^# vim-go [![Build Status](http:\/\/img.shields.io\/travis\/fatih\/vim-go.svg?style=flat-square)](https:\/\/travis-ci.org\/fatih\/vim-go)$/;"	h
@@ -4859,7 +4976,6 @@ vim-qf	pack/plugins/start/romainl-vim-qf/README.md	/^# vim-qf$/;"	h
 vim-qlist	pack/plugins/start/romainl-vim-qlist/README.md	/^# vim-qlist$/;"	h
 vimColorRow	pack/colors/start/robertmeta-nofrils/generate_colors.go	/^type vimColorRow struct {$/;"	t
 vim_version	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! s:vim_version()$/;"	f
-vimdiff	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/utility.vim	/^function! s:vimdiff(bufnr)$/;"	f
 visual_mode_affair	pack/plugins/start/machakann-vim-sandwich/autoload/textobj/sandwich/textobj.vim	/^function! s:visual_mode_affair(head, tail, a_or_i, cursor, visual) abort "{{{$/;"	f
 visualrepeat_set	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/operator.vim	/^function! s:visualrepeat_set(kind, count) abort  "{{{$/;"	f
 warn	pack/plugins/start/tpope-vim-fugitive/plugin/fugitive.vim	/^function! s:warn(str) abort$/;"	f
