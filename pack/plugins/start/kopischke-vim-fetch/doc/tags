@@ -3,6 +3,7 @@ BufFetchPosPre	vim-fetch.txt	/*BufFetchPosPre*
 b:fetch_lastpos	vim-fetch.txt	/*b:fetch_lastpos*
 vim-fetch	vim-fetch.txt	/*vim-fetch*
 vim-fetch-autocommands	vim-fetch.txt	/*vim-fetch-autocommands*
+vim-fetch-bugs	vim-fetch.txt	/*vim-fetch-bugs*
 vim-fetch-credits-license	vim-fetch.txt	/*vim-fetch-credits-license*
 vim-fetch-introduction	vim-fetch.txt	/*vim-fetch-introduction*
 vim-fetch-specs	vim-fetch.txt	/*vim-fetch-specs*

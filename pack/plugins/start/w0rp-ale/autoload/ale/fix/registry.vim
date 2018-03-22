@@ -23,6 +23,12 @@ let s:default_registry = {
 \       'description': 'Apply prettier-standard to a file.',
 \       'aliases': ['prettier-standard'],
 \   },
+\   'elm-format': {
+\       'function': 'ale#fixers#elm_format#Fix',
+\       'suggested_filetypes': ['elm'],
+\       'description': 'Apply elm-format to a file.',
+\       'aliases': ['format'],
+\   },
 \   'eslint': {
 \       'function': 'ale#fixers#eslint#Fix',
 \       'suggested_filetypes': ['javascript', 'typescript'],
@@ -32,11 +38,6 @@ let s:default_registry = {
 \       'function': 'ale#fixers#mix_format#Fix',
 \       'suggested_filetypes': ['elixir'],
 \       'description': 'Apply mix format to a file.',
-\   },
-\   'format': {
-\       'function': 'ale#fixers#format#Fix',
-\       'suggested_filetypes': ['elm'],
-\       'description': 'Apply elm-format to a file.',
 \   },
 \   'isort': {
 \       'function': 'ale#fixers#isort#Fix',
@@ -84,6 +85,11 @@ let s:default_registry = {
 \       'suggested_filetypes': ['ruby'],
 \       'description': 'Fix ruby files with rubocop --auto-correct.',
 \   },
+\   'rufo': {
+\       'function': 'ale#fixers#rufo#Fix',
+\       'suggested_filetypes': ['ruby'],
+\       'description': 'Fix ruby files with rufo',
+\   },
 \   'standard': {
 \       'function': 'ale#fixers#standard#Fix',
 \       'suggested_filetypes': ['javascript'],
@@ -103,6 +109,11 @@ let s:default_registry = {
 \       'function': 'ale#fixers#phpcbf#Fix',
 \       'suggested_filetypes': ['php'],
 \       'description': 'Fix PHP files with phpcbf.',
+\   },
+\   'php_cs_fixer': {
+\       'function': 'ale#fixers#php_cs_fixer#Fix',
+\       'suggested_filetypes': ['php'],
+\       'description': 'Fix PHP files with php-cs-fixer.',
 \   },
 \   'clang-format': {
 \       'function': 'ale#fixers#clangformat#Fix',

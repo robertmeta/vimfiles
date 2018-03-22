@@ -54,6 +54,8 @@ function! ale#fix#ApplyQueuedFixes() abort
         let l:should_lint = l:data.changes_made
     endif
 
+    silent doautocmd <nomodeline> User ALEFixPost
+
     " If ALE linting is enabled, check for problems with the file again after
     " fixing problems.
     if g:ale_enabled
@@ -392,7 +394,13 @@ function! s:GetCallbacks() abort
             endif
         endif
 
-        call add(l:corrected_list, ale#util#GetFunction(l:Item))
+        try
+            call add(l:corrected_list, ale#util#GetFunction(l:Item))
+        catch /E475/
+            " Rethrow exceptions for failing to get a function so we can print
+            " a friendly message about it.
+            throw 'BADNAME ' . v:exception
+        endtry
     endfor
 
     return l:corrected_list
@@ -427,7 +435,7 @@ function! ale#fix#Fix(...) abort
 
     try
         let l:callback_list = s:GetCallbacks()
-    catch /E700/
+    catch /E700\|BADNAME/
         let l:function_name = join(split(split(v:exception, ':')[3]))
         let l:echo_message = printf(
         \   'There is no fixer named `%s`. Check :ALEFixSuggest',
@@ -456,6 +464,8 @@ function! ale#fix#Fix(...) abort
     " Clean up any files we might have left behind from a previous run.
     call ale#fix#RemoveManagedFiles(l:buffer)
     call ale#fix#InitBufferData(l:buffer, l:fixing_flag)
+
+    silent doautocmd <nomodeline> User ALEFixPre
 
     call s:RunFixer({
     \   'buffer': l:buffer,

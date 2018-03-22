@@ -41,6 +41,22 @@ Given (Ten lines):
   14  four
 
 Execute (Range):
+  call traces#init('5;10s/.')
+  Assert line('.') == 5
+
+Execute (Range):
+  call traces#init('5;10s?.')
+  Assert line('.') == 10
+
+Execute (Range):
+  call traces#init('10;5s/.')
+  Assert line('.') == 5
+
+Execute (Range):
+  call traces#init('10;5s?.')
+  Assert line('.') == 10
+
+Execute (Range):
   call traces#init('/three')
   Assert line('.') == 3
 
@@ -214,6 +230,67 @@ Given (Ten lines):
   14  four
 
 Execute (Range):
+  6
+  call traces#init('/./')
+  AssertEqual '\%>6l\%<8l\_.', Group('Visual')
+  call traces#init('/.//')
+  AssertEqual '\%>6l\%<8l\_.', Group('Visual')
+
+Execute (Range):
+  6
+  call traces#init('?.?')
+  AssertEqual '\%>4l\%<6l\_.', Group('Visual')
+  call traces#init('?.??')
+  AssertEqual '\%>4l\%<6l\_.', Group('Visual')
+
+Execute (Range):
+  6
+  call traces#init('/.')
+  AssertEqual '\%>6l\%<8l\_.', Group('Visual')
+  call traces#init('/')
+  Assert empty(getmatches())
+
+Execute (Range):
+  6
+  call traces#init('?.')
+  AssertEqual '\%>4l\%<6l\_.', Group('Visual')
+  call traces#init('?')
+  Assert empty(getmatches())
+
+Execute (Range):
+  6
+  call traces#init('/ten/;?four')
+  AssertEqual '\m\%>3l\%<5l\%(\mfour\m\)', Group('Search')
+
+Execute (Range):
+  6
+  call traces#init('?.?;?.?;?')
+  AssertEqual '\%>3l\%<5l\_.', Group('Visual')
+  call traces#init('')
+  Assert empty(getmatches())
+
+Execute (Range):
+  6
+  call traces#init('/./;/./;/')
+  AssertEqual '\%>7l\%<9l\_.', Group('Visual')
+  call traces#init('')
+  Assert empty(getmatches())
+
+Execute (Range):
+  call traces#init('22;g')
+  AssertEqual 0, Group('Visual')
+  call traces#init('')
+  Assert empty(getmatches())
+
+
+Execute (Range):
+  call traces#init(';+++s')
+  AssertEqual '\%>0l\%<5l\_.', Group('Visual')
+  call traces#init('')
+  Assert empty(getmatches())
+
+
+Execute (Range):
   call traces#init('/one/;/eight/')
   AssertEqual '\%>0l\%<9l\_.', Group('Visual')
   call traces#init('')
@@ -222,6 +299,18 @@ Execute (Range):
 Execute (Range):
   call traces#init('1;/eight/')
   AssertEqual '\%>0l\%<9l\_.', Group('Visual')
+
+Execute (Range):
+  call traces#init(';/eight/')
+  AssertEqual '\%>0l\%<9l\_.', Group('Visual')
+
+Execute (Range):
+  call traces#init(',/eight/')
+  AssertEqual '\%>0l\%<9l\_.', Group('Visual')
+
+Execute (Range):
+  call traces#init(';/eight/;')
+  AssertEqual '\%>7l\%<9l\_.', Group('Visual')
 
 Execute (Range):
   call traces#init('3;/seven/')
@@ -253,6 +342,32 @@ Execute (Range):
   call traces#init('7;/four/')
   AssertEqual '\%>6l\%<15l\_.', Group('Visual')
 
+Execute (Substitute):
+  call traces#init('3;5s/\w\+/foobar')
+  AssertEqual '\%>2l\%<6l\_.', Group('Visual')
+
+Execute (Substitute):
+  call traces#init('3;5s/\w\+/\r')
+  AssertEqual '\%>2l\%<9l\_.', Group('Visual')
+
+
+Given (Three paragraphs):
+  paragraph1
+  paragraph1
+  paragraph1
+
+  paragraph2
+  paragraph2
+  paragraph2
+
+  paragraph3
+  paragraph3
+  paragraph3
+
+Execute (Substitute):
+  call traces#init(',''}s')
+  call traces#init(',''}s/')
+  AssertEqual '\%>0l\%<5l\_.', Group('Visual')
 
 #######################
 # Test substitute     #
@@ -384,6 +499,26 @@ Execute (Test concealcursor):
   AssertEqual &concealcursor, 'c'
   call traces#cmdl_leave()
   AssertEqual &concealcursor, 'niv'
+
+#######################
+# Test undo history   #
+#######################
+Execute:
+  new
+  AssertEqual undotree().seq_last, 0
+  call traces#init('s/^/foobar')
+  AssertEqual getline('.'), 'foobar'
+  call traces#cmdl_leave()
+  AssertEqual undotree().seq_last, 1
+  AssertEqual getline('.'), ''
+
+
+  call traces#init('s/^/foobar')
+  AssertEqual getline('.'), 'foobar'
+  call traces#cmdl_leave()
+  AssertEqual undotree().seq_last, 1
+  AssertEqual getline('.'), ''
+  bd
 
 #######################
 # Cleanup             #

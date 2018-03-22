@@ -3,7 +3,7 @@ let s:placeholder_texts = []
 function! minisnip#ShouldTrigger() abort
     silent! unlet! s:snippetfile
     let s:cword = matchstr(getline('.'), '\v\f+%' . col('.') . 'c')
-    let s:begcol = col('.')
+    let s:begcol = virtcol('.')
 
     " look for a snippet by that name
     for l:dir in split(g:minisnip_dir, s:pathsep())
@@ -26,7 +26,7 @@ function! minisnip#ShouldTrigger() abort
         endif
     endfor
 
-    return search(g:minisnip_delimpat, 'e')
+    return search(g:minisnip_delimpat . '\|' . g:minisnip_finaldelimpat, 'e')
 endfunction
 
 " main function, called on press of Tab (or whatever key Minisnip is bound to)
@@ -45,7 +45,7 @@ function! minisnip#Minisnip() abort
         " delete the snippet
         execute ':normal! '.strchars(s:cword).'x'
 
-        if col('.') >= (s:begcol - strchars(s:cword))
+        if virtcol('.') >= (s:begcol - strchars(s:cword))
            " there is something following the snippet
            let l:keepEndOfLine = 1
            let l:endOfLine = strpart(getline(line('.')), (col('.') - 1))
@@ -106,23 +106,33 @@ function! s:SelectPlaceholder() abort
         " gn misbehaves when 'wrapscan' isn't set (see vim's #1683)
         let [l:ws, &wrapscan] = [&wrapscan, 1]
         silent keeppatterns execute 'normal! /' . g:minisnip_delimpat . "/e\<cr>gn\"sy"
+        " save length of entire placeholder for reference later
+        let l:slen = len(@s)
+        " remove the start and end delimiters
+        let @s=substitute(@s, '\V' . g:minisnip_startdelim, '', '')
+        let @s=substitute(@s, '\V' . g:minisnip_enddelim, '', '')
     catch /E486:/
-        " There's no placeholder at all, enter insert mode
-        call feedkeys('i', 'n')
-        return
+         " There's no normal placeholder at all
+        try
+            silent keeppatterns execute 'normal! /' . g:minisnip_finaldelimpat . "/e\<cr>gn\"sy"
+            " save length of entire placeholder for reference later
+            let l:slen = len(@s)
+            " remove the start and end delimiters
+            let @s=substitute(@s, '\V' . g:minisnip_finalstartdelim, '', '')
+            let @s=substitute(@s, '\V' . g:minisnip_finalenddelim, '', '')
+        catch /E486:/
+            " There's no placeholder at all, enter insert mode
+            call feedkeys('i', 'n')
+            return
+        finally
+            let &wrapscan = l:ws
+        endtry
     finally
         let &wrapscan = l:ws
     endtry
 
     " save the contents of the previous placeholder (for backrefs)
     call add(s:placeholder_texts, s:placeholder_text)
-
-    " save length of entire placeholder for reference later
-    let l:slen = len(@s)
-
-    " remove the start and end delimiters
-    let @s=substitute(@s, '\V' . g:minisnip_startdelim, '', '')
-    let @s=substitute(@s, '\V' . g:minisnip_enddelim, '', '')
 
     if @s =~ '\V\^' . g:minisnip_evalmarker
        let l:skip = 1

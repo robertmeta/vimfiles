@@ -77,7 +77,6 @@ function! s:Rename_complete(A, L, P) abort
   let sep = s:separator()
   let prefix = expand('%:p:h').sep
   let files = split(glob(prefix.a:A.'*'), "\n")
-  call filter(files, 'simplify(v:val) !=# simplify(expand("%:p"))')
   call map(files, 'v:val[strlen(prefix) : -1] . (isdirectory(v:val) ? sep : "")')
   return join(files + ['..'.s:separator()], "\n")
 endfunction
@@ -121,14 +120,15 @@ endfunction
 
 function! s:SilentSudoCmd(editor) abort
   let cmd = 'env SUDO_EDITOR=' . a:editor . ' VISUAL=' . a:editor . ' sudo -e'
-  if !has('gui_running')
+  let local_nvim = has('nvim') && len($DISPLAY . $SECURITYSESSIONID)
+  if !has('gui_running') && !local_nvim
     return ['silent', cmd]
   elseif !empty($SUDO_ASKPASS) ||
         \ filereadable('/etc/sudo.conf') &&
         \ len(filter(readfile('/etc/sudo.conf', 50), 'v:val =~# "^Path askpass "'))
     return ['silent', cmd . ' -A']
   else
-    return ['', cmd]
+    return [local_nvim ? 'silent' : '', cmd]
 endfunction
 
 function! s:SudoSetup(file) abort

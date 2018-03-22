@@ -3,6 +3,8 @@
 'g:minisnip_donotskipmarker'	minisnip.txt	/*'g:minisnip_donotskipmarker'*
 'g:minisnip_enddelim'	minisnip.txt	/*'g:minisnip_enddelim'*
 'g:minisnip_evalmarker'	minisnip.txt	/*'g:minisnip_evalmarker'*
+'g:minisnip_finalenddelim'	minisnip.txt	/*'g:minisnip_finalenddelim'*
+'g:minisnip_finalstartdelim'	minisnip.txt	/*'g:minisnip_finalstartdelim'*
 'g:minisnip_startdelim'	minisnip.txt	/*'g:minisnip_startdelim'*
 'g:minisnip_trigger'	minisnip.txt	/*'g:minisnip_trigger'*
 minisnip	minisnip.txt	/*minisnip*

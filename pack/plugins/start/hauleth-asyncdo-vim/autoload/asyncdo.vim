@@ -1,14 +1,17 @@
 func! s:finalize(scope, prefix, settitle) abort
-    let l:job = a:scope.asyncdo
+    let l:job = get(a:scope, 'asyncdo')
+    if type(l:job) isnot v:t_dict
+        return
+    endif
     try
         let l:tmp = &errorformat
-        if get(l:job, 'errorformat')
+        if has_key(l:job, 'errorformat')
             let &errorformat = l:job.errorformat
         endif
         exe a:prefix.(l:job.jump ? '' : 'get').'file '.l:job.file
         call a:settitle(l:job.cmd, l:job.nr)
-        let &errorformat = l:tmp
     finally
+        let &errorformat = l:tmp
         unlet! a:scope.asyncdo
         call delete(l:job.file)
     endtry
@@ -53,7 +56,7 @@ func! s:build(scope, prefix, reset, settitle) abort
 
     func! Stop() abort closure
         let l:job = get(a:scope, 'asyncdo')
-        if l:job
+        if type(l:job) is v:t_dict
             if has('nvim')
                 call jobstop(l:job.id)
             else

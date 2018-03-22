@@ -11,6 +11,8 @@ ALEErrorLine	ale.txt	/*ALEErrorLine*
 ALEErrorSign	ale.txt	/*ALEErrorSign*
 ALEFirst	ale.txt	/*ALEFirst*
 ALEFix	ale.txt	/*ALEFix*
+ALEFixPost-autocmd	ale.txt	/*ALEFixPost-autocmd*
+ALEFixPre-autocmd	ale.txt	/*ALEFixPre-autocmd*
 ALEFixSuggest	ale.txt	/*ALEFixSuggest*
 ALEGoToDefinition	ale.txt	/*ALEGoToDefinition*
 ALEGoToDefinitionInTab	ale.txt	/*ALEGoToDefinitionInTab*
@@ -30,6 +32,7 @@ ALEPrevious	ale.txt	/*ALEPrevious*
 ALEPreviousWrap	ale.txt	/*ALEPreviousWrap*
 ALEReset	ale.txt	/*ALEReset*
 ALEResetBuffer	ale.txt	/*ALEResetBuffer*
+ALEStopAllLSPs	ale.txt	/*ALEStopAllLSPs*
 ALEStyleError	ale.txt	/*ALEStyleError*
 ALEStyleErrorSign	ale.txt	/*ALEStyleErrorSign*
 ALEStyleWarning	ale.txt	/*ALEStyleWarning*
@@ -44,6 +47,7 @@ ale#Queue()	ale.txt	/*ale#Queue()*
 ale#engine#CreateDirectory()	ale.txt	/*ale#engine#CreateDirectory()*
 ale#engine#EscapeCommandPart()	ale.txt	/*ale#engine#EscapeCommandPart()*
 ale#engine#GetLoclist()	ale.txt	/*ale#engine#GetLoclist()*
+ale#engine#IsCheckingBuffer()	ale.txt	/*ale#engine#IsCheckingBuffer()*
 ale#engine#ManageDirectory()	ale.txt	/*ale#engine#ManageDirectory()*
 ale#engine#ManageFile()	ale.txt	/*ale#engine#ManageFile()*
 ale#fix#registry#Add()	ale.txt	/*ale#fix#registry#Add()*
@@ -61,6 +65,7 @@ ale-c-clang	ale-c.txt	/*ale-c-clang*
 ale-c-clangformat	ale-c.txt	/*ale-c-clangformat*
 ale-c-clangtidy	ale-c.txt	/*ale-c-clangtidy*
 ale-c-cppcheck	ale-c.txt	/*ale-c-cppcheck*
+ale-c-flawfinder	ale-c.txt	/*ale-c-flawfinder*
 ale-c-gcc	ale-c.txt	/*ale-c-gcc*
 ale-c-options	ale-c.txt	/*ale-c-options*
 ale-chef-foodcritic	ale-chef.txt	/*ale-chef-foodcritic*
@@ -82,6 +87,7 @@ ale-cpp-clangformat	ale-cpp.txt	/*ale-cpp-clangformat*
 ale-cpp-clangtidy	ale-cpp.txt	/*ale-cpp-clangtidy*
 ale-cpp-cppcheck	ale-cpp.txt	/*ale-cpp-cppcheck*
 ale-cpp-cpplint	ale-cpp.txt	/*ale-cpp-cpplint*
+ale-cpp-flawfinder	ale-cpp.txt	/*ale-cpp-flawfinder*
 ale-cpp-gcc	ale-cpp.txt	/*ale-cpp-gcc*
 ale-cpp-options	ale-cpp.txt	/*ale-cpp-options*
 ale-cs-mcs	ale-cs.txt	/*ale-cs-mcs*
@@ -98,6 +104,7 @@ ale-dockerfile-hadolint	ale-dockerfile.txt	/*ale-dockerfile-hadolint*
 ale-dockerfile-options	ale-dockerfile.txt	/*ale-dockerfile-options*
 ale-elixir-dialyxir	ale-elixir.txt	/*ale-elixir-dialyxir*
 ale-elixir-mix	ale-elixir.txt	/*ale-elixir-mix*
+ale-elixir-mix-format	ale-elixir.txt	/*ale-elixir-mix-format*
 ale-elixir-options	ale-elixir.txt	/*ale-elixir-options*
 ale-elm-elm-format	ale-elm.txt	/*ale-elm-elm-format*
 ale-elm-elm-make	ale-elm.txt	/*ale-elm-elm-make*
@@ -124,6 +131,7 @@ ale-go-gobuild	ale-go.txt	/*ale-go-gobuild*
 ale-go-gofmt	ale-go.txt	/*ale-go-gofmt*
 ale-go-gometalinter	ale-go.txt	/*ale-go-gometalinter*
 ale-go-options	ale-go.txt	/*ale-go-options*
+ale-go-staticcheck	ale-go.txt	/*ale-go-staticcheck*
 ale-go-to-definition	ale.txt	/*ale-go-to-definition*
 ale-graphql-eslint	ale-graphql.txt	/*ale-graphql-eslint*
 ale-graphql-gqlint	ale-graphql.txt	/*ale-graphql-gqlint*
@@ -192,6 +200,7 @@ ale-lsp-linters	ale.txt	/*ale-lsp-linters*
 ale-lua-luac	ale-lua.txt	/*ale-lua-luac*
 ale-lua-luacheck	ale-lua.txt	/*ale-lua-luacheck*
 ale-lua-options	ale-lua.txt	/*ale-lua-options*
+ale-markdown-mdl	ale-markdown.txt	/*ale-markdown-mdl*
 ale-markdown-options	ale-markdown.txt	/*ale-markdown-options*
 ale-markdown-prettier	ale-markdown.txt	/*ale-markdown-prettier*
 ale-markdown-write-good	ale-markdown.txt	/*ale-markdown-write-good*
@@ -214,6 +223,7 @@ ale-php-hackfmt	ale-php.txt	/*ale-php-hackfmt*
 ale-php-langserver	ale-php.txt	/*ale-php-langserver*
 ale-php-options	ale-php.txt	/*ale-php-options*
 ale-php-phan	ale-php.txt	/*ale-php-phan*
+ale-php-php-cs-fixer	ale-php.txt	/*ale-php-php-cs-fixer*
 ale-php-phpcbf	ale-php.txt	/*ale-php-phpcbf*
 ale-php-phpcs	ale-php.txt	/*ale-php-phpcs*
 ale-php-phpmd	ale-php.txt	/*ale-php-phpmd*
@@ -222,6 +232,8 @@ ale-po-options	ale-po.txt	/*ale-po-options*
 ale-po-write-good	ale-po.txt	/*ale-po-write-good*
 ale-pod-options	ale-pod.txt	/*ale-pod-options*
 ale-pod-write-good	ale-pod.txt	/*ale-pod-write-good*
+ale-pony-options	ale-pony.txt	/*ale-pony-options*
+ale-pony-ponyc	ale-pony.txt	/*ale-pony-ponyc*
 ale-proto-options	ale-proto.txt	/*ale-proto-options*
 ale-proto-protoc-gen-lint	ale-proto.txt	/*ale-proto-protoc-gen-lint*
 ale-pug-options	ale-pug.txt	/*ale-pug-options*
@@ -252,6 +264,7 @@ ale-ruby-rails_best_practices	ale-ruby.txt	/*ale-ruby-rails_best_practices*
 ale-ruby-reek	ale-ruby.txt	/*ale-ruby-reek*
 ale-ruby-rubocop	ale-ruby.txt	/*ale-ruby-rubocop*
 ale-ruby-ruby	ale-ruby.txt	/*ale-ruby-ruby*
+ale-ruby-rufo	ale-ruby.txt	/*ale-ruby-rufo*
 ale-rust-cargo	ale-rust.txt	/*ale-rust-cargo*
 ale-rust-options	ale-rust.txt	/*ale-rust-options*
 ale-rust-rls	ale-rust.txt	/*ale-rust-rls*
@@ -316,6 +329,8 @@ ale-yaml-options	ale-yaml.txt	/*ale-yaml-options*
 ale-yaml-swaglint	ale-yaml.txt	/*ale-yaml-swaglint*
 ale-yaml-yamllint	ale-yaml.txt	/*ale-yaml-yamllint*
 ale.txt	ale.txt	/*ale.txt*
+b:ale-c-flawfinder	ale-c.txt	/*b:ale-c-flawfinder*
+b:ale-cpp-flawfinder	ale-cpp.txt	/*b:ale-cpp-flawfinder*
 b:ale_asm_gcc_executable	ale-asm.txt	/*b:ale_asm_gcc_executable*
 b:ale_asm_gcc_options	ale-asm.txt	/*b:ale_asm_gcc_options*
 b:ale_awk_gawk_executable	ale-awk.txt	/*b:ale_awk_gawk_executable*
@@ -331,6 +346,9 @@ b:ale_c_clangtidy_executable	ale-c.txt	/*b:ale_c_clangtidy_executable*
 b:ale_c_clangtidy_options	ale-c.txt	/*b:ale_c_clangtidy_options*
 b:ale_c_cppcheck_executable	ale-c.txt	/*b:ale_c_cppcheck_executable*
 b:ale_c_cppcheck_options	ale-c.txt	/*b:ale_c_cppcheck_options*
+b:ale_c_flawfinder_error_severity	ale-c.txt	/*b:ale_c_flawfinder_error_severity*
+b:ale_c_flawfinder_executable	ale-c.txt	/*b:ale_c_flawfinder_executable*
+b:ale_c_flawfinder_minlevel	ale-c.txt	/*b:ale_c_flawfinder_minlevel*
 b:ale_c_gcc_executable	ale-c.txt	/*b:ale_c_gcc_executable*
 b:ale_c_gcc_options	ale-c.txt	/*b:ale_c_gcc_options*
 b:ale_chef_foodcritic_executable	ale-chef.txt	/*b:ale_chef_foodcritic_executable*
@@ -349,6 +367,8 @@ b:ale_cpp_cppcheck_executable	ale-cpp.txt	/*b:ale_cpp_cppcheck_executable*
 b:ale_cpp_cppcheck_options	ale-cpp.txt	/*b:ale_cpp_cppcheck_options*
 b:ale_cpp_cpplint_executable	ale-cpp.txt	/*b:ale_cpp_cpplint_executable*
 b:ale_cpp_cpplint_options	ale-cpp.txt	/*b:ale_cpp_cpplint_options*
+b:ale_cpp_flawfinder_executable	ale-cpp.txt	/*b:ale_cpp_flawfinder_executable*
+b:ale_cpp_flawfinder_minlevel	ale-cpp.txt	/*b:ale_cpp_flawfinder_minlevel*
 b:ale_cpp_gcc_executable	ale-cpp.txt	/*b:ale_cpp_gcc_executable*
 b:ale_cpp_gcc_options	ale-cpp.txt	/*b:ale_cpp_gcc_options*
 b:ale_cs_mcs_options	ale-cs.txt	/*b:ale_cs_mcs_options*
@@ -366,6 +386,7 @@ b:ale_dockerfile_hadolint_image	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_i
 b:ale_dockerfile_hadolint_use_docker	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_use_docker*
 b:ale_echo_delay	ale.txt	/*b:ale_echo_delay*
 b:ale_echo_msg_format	ale.txt	/*b:ale_echo_msg_format*
+b:ale_elixir_mix_format_options	ale-elixir.txt	/*b:ale_elixir_mix_format_options*
 b:ale_elixir_mix_options	ale-elixir.txt	/*b:ale_elixir_mix_options*
 b:ale_elm_format_executable	ale-elm.txt	/*b:ale_elm_format_executable*
 b:ale_elm_format_options	ale-elm.txt	/*b:ale_elm_format_options*
@@ -393,6 +414,9 @@ b:ale_go_gobuild_options	ale-go.txt	/*b:ale_go_gobuild_options*
 b:ale_go_gofmt_options	ale-go.txt	/*b:ale_go_gofmt_options*
 b:ale_go_gometalinter_executable	ale-go.txt	/*b:ale_go_gometalinter_executable*
 b:ale_go_gometalinter_options	ale-go.txt	/*b:ale_go_gometalinter_options*
+b:ale_go_gometalinter_package	ale-go.txt	/*b:ale_go_gometalinter_package*
+b:ale_go_staticcheck_options	ale-go.txt	/*b:ale_go_staticcheck_options*
+b:ale_go_staticcheck_package	ale-go.txt	/*b:ale_go_staticcheck_package*
 b:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*b:ale_handlebars_embertemplatelint_executable*
 b:ale_handlebars_embertemplatelint_use_global	ale-handlebars.txt	/*b:ale_handlebars_embertemplatelint_use_global*
 b:ale_haskell_brittany_executable	ale-haskell.txt	/*b:ale_haskell_brittany_executable*
@@ -454,14 +478,18 @@ b:ale_less_lessc_use_global	ale-less.txt	/*b:ale_less_lessc_use_global*
 b:ale_less_stylelint_executable	ale-less.txt	/*b:ale_less_stylelint_executable*
 b:ale_less_stylelint_options	ale-less.txt	/*b:ale_less_stylelint_options*
 b:ale_less_stylelint_use_global	ale-less.txt	/*b:ale_less_stylelint_use_global*
+b:ale_linted	ale.txt	/*b:ale_linted*
 b:ale_linter_aliases	ale.txt	/*b:ale_linter_aliases*
 b:ale_linters	ale.txt	/*b:ale_linters*
+b:ale_list_vertical	ale.txt	/*b:ale_list_vertical*
 b:ale_list_window_size	ale.txt	/*b:ale_list_window_size*
 b:ale_llvm_llc_executable	ale-llvm.txt	/*b:ale_llvm_llc_executable*
 b:ale_loclist_msg_format	ale.txt	/*b:ale_loclist_msg_format*
 b:ale_lua_luac_executable	ale-lua.txt	/*b:ale_lua_luac_executable*
 b:ale_lua_luacheck_executable	ale-lua.txt	/*b:ale_lua_luacheck_executable*
 b:ale_lua_luacheck_options	ale-lua.txt	/*b:ale_lua_luacheck_options*
+b:ale_markdown_mdl_executable	ale-markdown.txt	/*b:ale_markdown_mdl_executable*
+b:ale_markdown_mdl_options	ale-markdown.txt	/*b:ale_markdown_mdl_options*
 b:ale_max_signs	ale.txt	/*b:ale_max_signs*
 b:ale_maximum_file_size	ale.txt	/*b:ale_maximum_file_size*
 b:ale_objc_clang_options	ale-objc.txt	/*b:ale_objc_clang_options*
@@ -474,6 +502,8 @@ b:ale_perl_perl_options	ale-perl.txt	/*b:ale_perl_perl_options*
 b:ale_perl_perlcritic_executable	ale-perl.txt	/*b:ale_perl_perlcritic_executable*
 b:ale_perl_perlcritic_options	ale-perl.txt	/*b:ale_perl_perlcritic_options*
 b:ale_perl_perlcritic_profile	ale-perl.txt	/*b:ale_perl_perlcritic_profile*
+b:ale_php_cs_fixer_executable	ale-php.txt	/*b:ale_php_cs_fixer_executable*
+b:ale_php_cs_fixer_use_global	ale-php.txt	/*b:ale_php_cs_fixer_use_global*
 b:ale_php_hackfmt_options	ale-php.txt	/*b:ale_php_hackfmt_options*
 b:ale_php_langserver_executable	ale-php.txt	/*b:ale_php_langserver_executable*
 b:ale_php_langserver_use_global	ale-php.txt	/*b:ale_php_langserver_use_global*
@@ -489,6 +519,8 @@ b:ale_php_phpmd_ruleset	ale-php.txt	/*b:ale_php_phpmd_ruleset*
 b:ale_php_phpstan_configuration	ale-php.txt	/*b:ale_php_phpstan_configuration*
 b:ale_php_phpstan_executable	ale-php.txt	/*b:ale_php_phpstan_executable*
 b:ale_php_phpstan_level	ale-php.txt	/*b:ale_php_phpstan_level*
+b:ale_pony_ponyc_executable	ale-pony.txt	/*b:ale_pony_ponyc_executable*
+b:ale_pony_ponyc_options	ale-pony.txt	/*b:ale_pony_ponyc_options*
 b:ale_pug_puglint_executable	ale-pug.txt	/*b:ale_pug_puglint_executable*
 b:ale_pug_puglint_options	ale-pug.txt	/*b:ale_pug_puglint_options*
 b:ale_pug_puglint_use_global	ale-pug.txt	/*b:ale_pug_puglint_use_global*
@@ -533,6 +565,7 @@ b:ale_ruby_reek_show_wiki_link	ale-ruby.txt	/*b:ale_ruby_reek_show_wiki_link*
 b:ale_ruby_rubocop_executable	ale-ruby.txt	/*b:ale_ruby_rubocop_executable*
 b:ale_ruby_rubocop_options	ale-ruby.txt	/*b:ale_ruby_rubocop_options*
 b:ale_ruby_ruby_executable	ale-ruby.txt	/*b:ale_ruby_ruby_executable*
+b:ale_ruby_rufo_executable	ale-ruby.txt	/*b:ale_ruby_rufo_executable*
 b:ale_rust_cargo_check_all_targets	ale-rust.txt	/*b:ale_rust_cargo_check_all_targets*
 b:ale_rust_cargo_default_feature_behavior	ale-rust.txt	/*b:ale_rust_cargo_default_feature_behavior*
 b:ale_rust_cargo_include_features	ale-rust.txt	/*b:ale_rust_cargo_include_features*
@@ -592,6 +625,8 @@ b:ale_yaml_swaglint_use_global	ale-yaml.txt	/*b:ale_yaml_swaglint_use_global*
 b:ale_yaml_yamllint_executable	ale-yaml.txt	/*b:ale_yaml_yamllint_executable*
 b:ale_yaml_yamllint_options	ale-yaml.txt	/*b:ale_yaml_yamllint_options*
 g:airline#extensions#ale#enabled	ale.txt	/*g:airline#extensions#ale#enabled*
+g:ale-c-flawfinder	ale-c.txt	/*g:ale-c-flawfinder*
+g:ale-cpp-flawfinder	ale-cpp.txt	/*g:ale-cpp-flawfinder*
 g:ale_asm_gcc_executable	ale-asm.txt	/*g:ale_asm_gcc_executable*
 g:ale_asm_gcc_options	ale-asm.txt	/*g:ale_asm_gcc_options*
 g:ale_awk_gawk_executable	ale-awk.txt	/*g:ale_awk_gawk_executable*
@@ -607,6 +642,9 @@ g:ale_c_clangtidy_executable	ale-c.txt	/*g:ale_c_clangtidy_executable*
 g:ale_c_clangtidy_options	ale-c.txt	/*g:ale_c_clangtidy_options*
 g:ale_c_cppcheck_executable	ale-c.txt	/*g:ale_c_cppcheck_executable*
 g:ale_c_cppcheck_options	ale-c.txt	/*g:ale_c_cppcheck_options*
+g:ale_c_flawfinder_error_severity	ale-c.txt	/*g:ale_c_flawfinder_error_severity*
+g:ale_c_flawfinder_executable	ale-c.txt	/*g:ale_c_flawfinder_executable*
+g:ale_c_flawfinder_minlevel	ale-c.txt	/*g:ale_c_flawfinder_minlevel*
 g:ale_c_gcc_executable	ale-c.txt	/*g:ale_c_gcc_executable*
 g:ale_c_gcc_options	ale-c.txt	/*g:ale_c_gcc_options*
 g:ale_cache_executable_check_failures	ale.txt	/*g:ale_cache_executable_check_failures*
@@ -630,6 +668,8 @@ g:ale_cpp_cppcheck_executable	ale-cpp.txt	/*g:ale_cpp_cppcheck_executable*
 g:ale_cpp_cppcheck_options	ale-cpp.txt	/*g:ale_cpp_cppcheck_options*
 g:ale_cpp_cpplint_executable	ale-cpp.txt	/*g:ale_cpp_cpplint_executable*
 g:ale_cpp_cpplint_options	ale-cpp.txt	/*g:ale_cpp_cpplint_options*
+g:ale_cpp_flawfinder_executable	ale-cpp.txt	/*g:ale_cpp_flawfinder_executable*
+g:ale_cpp_flawfinder_minlevel	ale-cpp.txt	/*g:ale_cpp_flawfinder_minlevel*
 g:ale_cpp_gcc_executable	ale-cpp.txt	/*g:ale_cpp_gcc_executable*
 g:ale_cpp_gcc_options	ale-cpp.txt	/*g:ale_cpp_gcc_options*
 g:ale_cs_mcs_options	ale-cs.txt	/*g:ale_cs_mcs_options*
@@ -651,6 +691,7 @@ g:ale_echo_msg_error_str	ale.txt	/*g:ale_echo_msg_error_str*
 g:ale_echo_msg_format	ale.txt	/*g:ale_echo_msg_format*
 g:ale_echo_msg_info_str	ale.txt	/*g:ale_echo_msg_info_str*
 g:ale_echo_msg_warning_str	ale.txt	/*g:ale_echo_msg_warning_str*
+g:ale_elixir_mix_format_options	ale-elixir.txt	/*g:ale_elixir_mix_format_options*
 g:ale_elixir_mix_options	ale-elixir.txt	/*g:ale_elixir_mix_options*
 g:ale_elm_format_executable	ale-elm.txt	/*g:ale_elm_format_executable*
 g:ale_elm_format_options	ale-elm.txt	/*g:ale_elm_format_options*
@@ -679,6 +720,9 @@ g:ale_go_gobuild_options	ale-go.txt	/*g:ale_go_gobuild_options*
 g:ale_go_gofmt_options	ale-go.txt	/*g:ale_go_gofmt_options*
 g:ale_go_gometalinter_executable	ale-go.txt	/*g:ale_go_gometalinter_executable*
 g:ale_go_gometalinter_options	ale-go.txt	/*g:ale_go_gometalinter_options*
+g:ale_go_gometalinter_package	ale-go.txt	/*g:ale_go_gometalinter_package*
+g:ale_go_staticcheck_options	ale-go.txt	/*g:ale_go_staticcheck_options*
+g:ale_go_staticcheck_package	ale-go.txt	/*g:ale_go_staticcheck_package*
 g:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*g:ale_handlebars_embertemplatelint_executable*
 g:ale_handlebars_embertemplatelint_use_global	ale-handlebars.txt	/*g:ale_handlebars_embertemplatelint_use_global*
 g:ale_haskell_brittany_executable	ale-haskell.txt	/*g:ale_haskell_brittany_executable*
@@ -760,12 +804,15 @@ g:ale_lint_on_text_changed	ale.txt	/*g:ale_lint_on_text_changed*
 g:ale_linter_aliases	ale.txt	/*g:ale_linter_aliases*
 g:ale_linters	ale.txt	/*g:ale_linters*
 g:ale_linters_explicit	ale.txt	/*g:ale_linters_explicit*
+g:ale_list_vertical	ale.txt	/*g:ale_list_vertical*
 g:ale_list_window_size	ale.txt	/*g:ale_list_window_size*
 g:ale_llvm_llc_executable	ale-llvm.txt	/*g:ale_llvm_llc_executable*
 g:ale_loclist_msg_format	ale.txt	/*g:ale_loclist_msg_format*
 g:ale_lua_luac_executable	ale-lua.txt	/*g:ale_lua_luac_executable*
 g:ale_lua_luacheck_executable	ale-lua.txt	/*g:ale_lua_luacheck_executable*
 g:ale_lua_luacheck_options	ale-lua.txt	/*g:ale_lua_luacheck_options*
+g:ale_markdown_mdl_executable	ale-markdown.txt	/*g:ale_markdown_mdl_executable*
+g:ale_markdown_mdl_options	ale-markdown.txt	/*g:ale_markdown_mdl_options*
 g:ale_max_buffer_history_size	ale.txt	/*g:ale_max_buffer_history_size*
 g:ale_max_signs	ale.txt	/*g:ale_max_signs*
 g:ale_maximum_file_size	ale.txt	/*g:ale_maximum_file_size*
@@ -782,6 +829,8 @@ g:ale_perl_perlcritic_executable	ale-perl.txt	/*g:ale_perl_perlcritic_executable
 g:ale_perl_perlcritic_options	ale-perl.txt	/*g:ale_perl_perlcritic_options*
 g:ale_perl_perlcritic_profile	ale-perl.txt	/*g:ale_perl_perlcritic_profile*
 g:ale_perl_perlcritic_showrules	ale-perl.txt	/*g:ale_perl_perlcritic_showrules*
+g:ale_php_cs_fixer_executable	ale-php.txt	/*g:ale_php_cs_fixer_executable*
+g:ale_php_cs_fixer_use_global	ale-php.txt	/*g:ale_php_cs_fixer_use_global*
 g:ale_php_hackfmt_options	ale-php.txt	/*g:ale_php_hackfmt_options*
 g:ale_php_langserver_executable	ale-php.txt	/*g:ale_php_langserver_executable*
 g:ale_php_langserver_use_global	ale-php.txt	/*g:ale_php_langserver_use_global*
@@ -797,6 +846,8 @@ g:ale_php_phpmd_ruleset	ale-php.txt	/*g:ale_php_phpmd_ruleset*
 g:ale_php_phpstan_configuration	ale-php.txt	/*g:ale_php_phpstan_configuration*
 g:ale_php_phpstan_executable	ale-php.txt	/*g:ale_php_phpstan_executable*
 g:ale_php_phpstan_level	ale-php.txt	/*g:ale_php_phpstan_level*
+g:ale_pony_ponyc_executable	ale-pony.txt	/*g:ale_pony_ponyc_executable*
+g:ale_pony_ponyc_options	ale-pony.txt	/*g:ale_pony_ponyc_options*
 g:ale_proto_protoc_gen_lint_options	ale-proto.txt	/*g:ale_proto_protoc_gen_lint_options*
 g:ale_pug_puglint_executable	ale-pug.txt	/*g:ale_pug_puglint_executable*
 g:ale_pug_puglint_options	ale-pug.txt	/*g:ale_pug_puglint_options*
@@ -842,6 +893,7 @@ g:ale_ruby_reek_show_wiki_link	ale-ruby.txt	/*g:ale_ruby_reek_show_wiki_link*
 g:ale_ruby_rubocop_executable	ale-ruby.txt	/*g:ale_ruby_rubocop_executable*
 g:ale_ruby_rubocop_options	ale-ruby.txt	/*g:ale_ruby_rubocop_options*
 g:ale_ruby_ruby_executable	ale-ruby.txt	/*g:ale_ruby_ruby_executable*
+g:ale_ruby_rufo_executable	ale-ruby.txt	/*g:ale_ruby_rufo_executable*
 g:ale_rust_cargo_check_all_targets	ale-rust.txt	/*g:ale_rust_cargo_check_all_targets*
 g:ale_rust_cargo_default_feature_behavior	ale-rust.txt	/*g:ale_rust_cargo_default_feature_behavior*
 g:ale_rust_cargo_include_features	ale-rust.txt	/*g:ale_rust_cargo_include_features*
