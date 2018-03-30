@@ -139,6 +139,7 @@ CONTENTS                                                         *ale-contents*
     markdown..............................|ale-markdown-options|
       mdl.................................|ale-markdown-mdl|
       prettier............................|ale-markdown-prettier|
+      textlint............................|ale-markdown-textlint|
       write-good..........................|ale-markdown-write-good|
     nroff.................................|ale-nroff-options|
       write-good..........................|ale-nroff-write-good|
@@ -234,6 +235,7 @@ CONTENTS                                                         *ale-contents*
     texinfo...............................|ale-texinfo-options|
       write-good..........................|ale-texinfo-write-good|
     text..................................|ale-text-options|
+      textlint............................|ale-text-textlint|
       write-good..........................|ale-text-write-good|
     thrift................................|ale-thrift-options|
       thrift..............................|ale-thrift-thrift|
@@ -346,7 +348,7 @@ Notes:
 * Lua: `luac`, `luacheck`
 * Mail: `alex`!!, `proselint`, `vale`
 * Make: `checkmake`
-* Markdown: `alex`!!, `markdownlint`!!, `mdl`, `prettier`, `proselint`, `redpen`, `remark-lint`, `vale`, `write-good`, `textlint`
+* Markdown: `alex`!!, `markdownlint`!!, `mdl`, `prettier`, `proselint`, `redpen`, `remark-lint`, `textlint`, `vale`, `write-good`
 * MATLAB: `mlint`
 * Nim: `nim check`!!
 * nix: `nix-instantiate`
@@ -363,6 +365,7 @@ Notes:
 * Pug: `pug-lint`
 * Puppet: `puppet`, `puppet-lint`
 * Python: `autopep8`, `flake8`, `isort`, `mypy`, `prospector`, `pycodestyle`, `pyls`, `pylint`!!, `yapf`
+* QML: `qmllint`
 * R: `lintr`
 * ReasonML: `merlin`, `ols`, `refmt`
 * reStructuredText: `alex`!!, `proselint`, `redpen`, `rstcheck`, `vale`, `write-good`
@@ -382,7 +385,7 @@ Notes:
 * Tcl: `nagelfar`!!
 * Terraform: `tflint`
 * Texinfo: `alex`!!, `proselint`, `write-good`
-* Text^: `alex`!!, `proselint`, `vale`, `write-good`, `redpen`
+* Text^: `alex`!!, `proselint`, `redpen`, `textlint`, `vale`, `write-good`
 * Thrift: `thrift`
 * TypeScript: `eslint`, `prettier`, `tslint`, `tsserver`, `typecheck`
 * Verilog: `iverilog`, `verilator`
@@ -1260,7 +1263,7 @@ g:ale_pattern_options                                   *g:ale_pattern_options*
   let g:ale_pattern_options = {
   \   '\.foo\.js$': {
   \       'ale_linters': ['eslint'],
-  \       'ale_fixers: ['eslint'],
+  \       'ale_fixers': ['eslint'],
   \   },
   \}
 <
@@ -1288,13 +1291,19 @@ g:ale_pattern_options_enabled                   *g:ale_pattern_options_enabled*
 
 
 g:ale_set_balloons                                         *g:ale_set_balloons*
+                                                           *b:ale_set_balloons*
 
   Type: |Number|
   Default: `has('balloon_eval')`
 
   When this option is set to `1`, balloon messages will be displayed for
   problems. Problems nearest to the cursor on the line the cursor is over will
-  be displayed.
+  be displayed. Balloons will not be shown when either |g:ale_enabled| is `0`
+  or |b:ale_enabled| is `0`.
+
+  `b:ale_set_balloons` can be set to `0` to disable balloons for a buffer.
+  Balloons cannot be enabled for a specific buffer when not initially enabled
+  globally.
 
 
 g:ale_set_highlights                                     *g:ale_set_highlights*

@@ -64,6 +64,7 @@ $TMPDIR	pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 1.14 - (August 6, 2017)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.14 - (August 6, 2017)$/;"	i
 1.15 - (October 3, 2017)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.15 - (October 3, 2017)$/;"	i
 1.16 - (December 29, 2017)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.16 - (December 29, 2017)$/;"	i
+1.17 - (March 27, 2018)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.17 - (March 27, 2018)$/;"	i
 1.2 (Oct 2, 2015)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.2 (Oct 2, 2015)$/;"	i
 1.3 (Nov 22, 2015)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.3 (Nov 22, 2015)$/;"	i
 1.4 (Jan 18, 2016)	pack/plugins/start/fatih-vim-go/CHANGELOG.md	/^## 1.4 (Jan 18, 2016)$/;"	i
@@ -267,6 +268,15 @@ $TMPDIR	pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 <Plug>(operator-sandwich-replace-visualrepeat)	pack/plugins/start/machakann-vim-sandwich/plugin/operator/sandwich.vim	/^noremap <silent> <Plug>(operator-sandwich-replace-visualrepeat) :<C-u>call operator#sandwich#visualrepeat('replace')<CR>$/;"	m
 <Plug>(operator-sandwich-squash-count)	pack/plugins/start/machakann-vim-sandwich/plugin/operator/sandwich.vim	/^onoremap <expr><silent> <Plug>(operator-sandwich-squash-count)  operator#sandwich#squash_count()$/;"	m
 <Plug>(operator-sandwich-synchro-count)	pack/plugins/start/machakann-vim-sandwich/plugin/operator/sandwich.vim	/^onoremap <expr><silent> <Plug>(operator-sandwich-synchro-count) operator#sandwich#synchro_count()$/;"	m
+<Plug>(qf_loc_next)	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>(qf_loc_next)        :<C-u> call qf#wrap#WrapCommand('down', 'l')<CR>$/;"	m
+<Plug>(qf_loc_previous)	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>(qf_loc_previous)    :<C-u> call qf#wrap#WrapCommand('up', 'l')<CR>$/;"	m
+<Plug>(qf_loc_toggle)	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>(qf_loc_toggle)      :<C-u> call qf#toggle#ToggleLocWindow(0)<CR>$/;"	m
+<Plug>(qf_loc_toggle_stay)	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>(qf_loc_toggle_stay) :<C-u> call qf#toggle#ToggleLocWindow(1)<CR>$/;"	m
+<Plug>(qf_qf_next)	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>(qf_qf_next)         :<C-u> call qf#wrap#WrapCommand('down', 'c')<CR>$/;"	m
+<Plug>(qf_qf_previous)	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>(qf_qf_previous)     :<C-u> call qf#wrap#WrapCommand('up', 'c')<CR>$/;"	m
+<Plug>(qf_qf_switch)	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent> <expr> <Plug>(qf_qf_switch)       &filetype ==# 'qf' ? '<C-w>p' : '<C-w>b'$/;"	m
+<Plug>(qf_qf_toggle)	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>(qf_qf_toggle)       :<C-u> call qf#toggle#ToggleQfWindow(0)<CR>$/;"	m
+<Plug>(qf_qf_toggle_stay)	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>(qf_qf_toggle_stay)  :<C-u> call qf#toggle#ToggleQfWindow(1)<CR>$/;"	m
 <Plug>(quickhl-cword-disable)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-cword-disable) :call quickhl#cword#disable()<CR>$/;"	m
 <Plug>(quickhl-cword-enable)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-cword-enable)  :call quickhl#cword#enable()<CR>$/;"	m
 <Plug>(quickhl-cword-toggle)	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^nnoremap <silent> <Plug>(quickhl-cword-toggle)  :call quickhl#cword#toggle()<CR>$/;"	m
@@ -324,26 +334,17 @@ $TMPDIR	pack/plugins/start/w0rp-ale/test/vimrc	/^let $TMPDIR = ''$/;"	v
 <Plug>GitGutterTextObjectInnerPending	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^onoremap <silent> <Plug>GitGutterTextObjectInnerPending :<C-U>call gitgutter#hunk#text_object(1)<CR>$/;"	m
 <Plug>GitGutterTextObjectOuterPending	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^onoremap <silent> <Plug>GitGutterTextObjectOuterPending :<C-U>call gitgutter#hunk#text_object(0)<CR>$/;"	m
 <Plug>GitGutterUndoHunk	pack/plugins/start/airblade-vim-gitgutter/plugin/gitgutter.vim	/^nnoremap <silent> <Plug>GitGutterUndoHunk    :GitGutterUndoHunk<CR>$/;"	m
-<Plug>QfCnext	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfCnext     <Plug>qf_qf_next$/;"	m
-<Plug>QfCprevious	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfCprevious <Plug>qf_qf_previous$/;"	m
-<Plug>QfCtoggle	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfCtoggle   <Plug>qf_qf_toggle$/;"	m
-<Plug>QfLnext	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfLnext     <Plug>qf_loc_next$/;"	m
-<Plug>QfLprevious	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfLprevious <Plug>qf_loc_previous$/;"	m
-<Plug>QfLtoggle	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfLtoggle   <Plug>qf_loc_toggle$/;"	m
+<Plug>QfCnext	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfCnext     <Plug>(qf_qf_next)$/;"	m
+<Plug>QfCprevious	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfCprevious <Plug>(qf_qf_previous)$/;"	m
+<Plug>QfCtoggle	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfCtoggle   <Plug>(qf_qf_toggle)$/;"	m
+<Plug>QfLnext	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfLnext     <Plug>(qf_loc_next)$/;"	m
+<Plug>QfLprevious	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfLprevious <Plug>(qf_loc_previous)$/;"	m
+<Plug>QfLtoggle	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent>        <Plug>QfLtoggle   <Plug>(qf_loc_toggle)$/;"	m
 <Plug>QfSwitch	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nmap <silent> <expr> <Plug>QfSwitch    &filetype ==# 'qf' ? '<C-w>p' : '<C-w>b'$/;"	m
 <Plug>QlistDefinefromhere	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^nnoremap <silent> <Plug>QlistDefinefromhere        :call <sid>Qlist("d", 0, 1, 0)<CR>$/;"	m
 <Plug>QlistDefinefromtop	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^nnoremap <silent> <Plug>QlistDefinefromtop         :call <sid>Qlist("d", 0, 0, 0)<CR>$/;"	m
 <Plug>QlistIncludefromhere	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^nnoremap <silent> <Plug>QlistIncludefromhere       :call <sid>Qlist("i", 0, 1, 0)<CR>$/;"	m
 <Plug>QlistIncludefromtop	pack/plugins/start/romainl-vim-qlist/plugin/qlist.vim	/^nnoremap <silent> <Plug>QlistIncludefromtop        :call <sid>Qlist("i", 0, 0, 0)<CR>$/;"	m
-<Plug>qf_loc_next	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>qf_loc_next        :<C-u> call qf#wrap#WrapCommand('down', 'l')<CR>$/;"	m
-<Plug>qf_loc_previous	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>qf_loc_previous    :<C-u> call qf#wrap#WrapCommand('up', 'l')<CR>$/;"	m
-<Plug>qf_loc_stay_toggle	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>qf_loc_stay_toggle :<C-u> call qf#toggle#ToggleLocWindow(1)<CR>$/;"	m
-<Plug>qf_loc_toggle	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>qf_loc_toggle      :<C-u> call qf#toggle#ToggleLocWindow(0)<CR>$/;"	m
-<Plug>qf_qf_next	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>qf_qf_next         :<C-u> call qf#wrap#WrapCommand('down', 'c')<CR>$/;"	m
-<Plug>qf_qf_previous	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>qf_qf_previous     :<C-u> call qf#wrap#WrapCommand('up', 'c')<CR>$/;"	m
-<Plug>qf_qf_stay_toggle	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>qf_qf_stay_toggle  :<C-u> call qf#toggle#ToggleQfWindow(1)<CR>$/;"	m
-<Plug>qf_qf_switch	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent> <expr> <Plug>qf_qf_switch       &filetype ==# 'qf' ? '<C-w>p' : '<C-w>b'$/;"	m
-<Plug>qf_qf_toggle	pack/plugins/start/romainl-vim-qf/plugin/qf.vim	/^nnoremap <silent>        <Plug>qf_qf_toggle       :<C-u> call qf#toggle#ToggleQfWindow(0)<CR>$/;"	m
 <Plug>unimpairedBlankDown	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedBlankDown :<C-U>call <SID>BlankDown(v:count1)<CR>$/;"	m
 <Plug>unimpairedBlankUp	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedBlankUp   :<C-U>call <SID>BlankUp(v:count1)<CR>$/;"	m
 <Plug>unimpairedContextNext	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^nnoremap <silent> <Plug>unimpairedContextNext     :call <SID>Context(0)<CR>$/;"	m
@@ -761,7 +762,8 @@ GoCoverageBrowser	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^com
 GoCoverageClear	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -bang GoCoverageClear call go#coverage#Clear()$/;"	c
 GoCoverageToggle	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -bang GoCoverageToggle call go#coverage#BufferToggle(<bang>0, <f-args>)$/;"	c
 GoDebugBreakpoint	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^  command! -nargs=? GoDebugBreakpoint call go#debug#Breakpoint(<f-args>)$/;"	c
-GoDebugStart	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^  command! -nargs=* -complete=customlist,go#package#Complete GoDebugStart call go#debug#Start(<f-args>)$/;"	c
+GoDebugStart	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^  command! -nargs=* -complete=customlist,go#package#Complete GoDebugStart call go#debug#Start(0, <f-args>)$/;"	c
+GoDebugTest	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^  command! -nargs=* -complete=customlist,go#package#Complete GoDebugTest  call go#debug#Start(1, <f-args>)$/;"	c
 GoDecls	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=? -complete=file GoDecls call go#decls#Decls(0, <q-args>)$/;"	c
 GoDeclsDir	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=? -complete=dir GoDeclsDir call go#decls#Decls(1, <q-args>)$/;"	c
 GoDef	pack/plugins/start/fatih-vim-go/ftplugin/go/commands.vim	/^command! -nargs=* -range GoDef :call go#def#Jump('')$/;"	c
@@ -1560,7 +1562,11 @@ ale#balloon#MessageForPos	pack/plugins/start/w0rp-ale/autoload/ale/balloon.vim	/
 ale#c#FindCompileCommands	pack/plugins/start/w0rp-ale/autoload/ale/c.vim	/^function! ale#c#FindCompileCommands(buffer) abort$/;"	f
 ale#c#FindLocalHeaderPaths	pack/plugins/start/w0rp-ale/autoload/ale/c.vim	/^function! ale#c#FindLocalHeaderPaths(buffer) abort$/;"	f
 ale#c#FindProjectRoot	pack/plugins/start/w0rp-ale/autoload/ale/c.vim	/^function! ale#c#FindProjectRoot(buffer) abort$/;"	f
+ale#c#GetCFlags	pack/plugins/start/w0rp-ale/autoload/ale/c.vim	/^function! ale#c#GetCFlags(buffer, output) abort$/;"	f
+ale#c#GetMakeCommand	pack/plugins/start/w0rp-ale/autoload/ale/c.vim	/^function! ale#c#GetMakeCommand(buffer) abort$/;"	f
 ale#c#IncludeOptions	pack/plugins/start/w0rp-ale/autoload/ale/c.vim	/^function! ale#c#IncludeOptions(include_paths) abort$/;"	f
+ale#c#ParseCFlags	pack/plugins/start/w0rp-ale/autoload/ale/c.vim	/^function! ale#c#ParseCFlags(buffer, stdout_make) abort$/;"	f
+ale#c#ParseCFlagsToList	pack/plugins/start/w0rp-ale/autoload/ale/c.vim	/^function! ale#c#ParseCFlagsToList(path_prefix, cflags) abort$/;"	f
 ale#command#FormatCommand	pack/plugins/start/w0rp-ale/autoload/ale/command.vim	/^function! ale#command#FormatCommand(buffer, command, pipe_file_if_needed) abort$/;"	f
 ale#completion#Disable	pack/plugins/start/w0rp-ale/autoload/ale/completion.vim	/^function! ale#completion#Disable() abort$/;"	f
 ale#completion#Done	pack/plugins/start/w0rp-ale/autoload/ale/completion.vim	/^function! ale#completion#Done() abort$/;"	f
@@ -1723,6 +1729,8 @@ ale#handlers#sml#GetCmFile	pack/plugins/start/w0rp-ale/autoload/ale/handlers/sml
 ale#handlers#sml#GetExecutableSmlnjCm	pack/plugins/start/w0rp-ale/autoload/ale/handlers/sml.vim	/^function! ale#handlers#sml#GetExecutableSmlnjCm(buffer) abort$/;"	f
 ale#handlers#sml#GetExecutableSmlnjFile	pack/plugins/start/w0rp-ale/autoload/ale/handlers/sml.vim	/^function! ale#handlers#sml#GetExecutableSmlnjFile(buffer) abort$/;"	f
 ale#handlers#sml#Handle	pack/plugins/start/w0rp-ale/autoload/ale/handlers/sml.vim	/^function! ale#handlers#sml#Handle(buffer, lines) abort$/;"	f
+ale#handlers#textlint#GetCommand	pack/plugins/start/w0rp-ale/autoload/ale/handlers/textlint.vim	/^function! ale#handlers#textlint#GetCommand(buffer) abort$/;"	f
+ale#handlers#textlint#GetExecutable	pack/plugins/start/w0rp-ale/autoload/ale/handlers/textlint.vim	/^function! ale#handlers#textlint#GetExecutable(buffer) abort$/;"	f
 ale#handlers#textlint#HandleTextlintOutput	pack/plugins/start/w0rp-ale/autoload/ale/handlers/textlint.vim	/^function! ale#handlers#textlint#HandleTextlintOutput(buffer, lines) abort$/;"	f
 ale#handlers#unix#HandleAsError	pack/plugins/start/w0rp-ale/autoload/ale/handlers/unix.vim	/^function! ale#handlers#unix#HandleAsError(buffer, lines) abort$/;"	f
 ale#handlers#unix#HandleAsWarning	pack/plugins/start/w0rp-ale/autoload/ale/handlers/unix.vim	/^function! ale#handlers#unix#HandleAsWarning(buffer, lines) abort$/;"	f
@@ -1871,7 +1879,7 @@ ale_linters#asm#gcc#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/asm/gc
 ale_linters#asm#gcc#Handle	pack/plugins/start/w0rp-ale/ale_linters/asm/gcc.vim	/^function! ale_linters#asm#gcc#Handle(buffer, lines) abort$/;"	f
 ale_linters#awk#gawk#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/awk/gawk.vim	/^function! ale_linters#awk#gawk#GetCommand(buffer) abort$/;"	f
 ale_linters#awk#gawk#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/awk/gawk.vim	/^function! ale_linters#awk#gawk#GetExecutable(buffer) abort$/;"	f
-ale_linters#c#clang#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/clang.vim	/^function! ale_linters#c#clang#GetCommand(buffer) abort$/;"	f
+ale_linters#c#clang#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/clang.vim	/^function! ale_linters#c#clang#GetCommand(buffer, output) abort$/;"	f
 ale_linters#c#clang#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/c/clang.vim	/^function! ale_linters#c#clang#GetExecutable(buffer) abort$/;"	f
 ale_linters#c#clangtidy#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/clangtidy.vim	/^function! ale_linters#c#clangtidy#GetCommand(buffer) abort$/;"	f
 ale_linters#c#clangtidy#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/c/clangtidy.vim	/^function! ale_linters#c#clangtidy#GetExecutable(buffer) abort$/;"	f
@@ -1879,7 +1887,7 @@ ale_linters#c#cppcheck#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/cppc
 ale_linters#c#cppcheck#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/c/cppcheck.vim	/^function! ale_linters#c#cppcheck#GetExecutable(buffer) abort$/;"	f
 ale_linters#c#flawfinder#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/flawfinder.vim	/^function! ale_linters#c#flawfinder#GetCommand(buffer) abort$/;"	f
 ale_linters#c#flawfinder#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/c/flawfinder.vim	/^function! ale_linters#c#flawfinder#GetExecutable(buffer) abort$/;"	f
-ale_linters#c#gcc#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/gcc.vim	/^function! ale_linters#c#gcc#GetCommand(buffer) abort$/;"	f
+ale_linters#c#gcc#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/c/gcc.vim	/^function! ale_linters#c#gcc#GetCommand(buffer, output) abort$/;"	f
 ale_linters#c#gcc#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/c/gcc.vim	/^function! ale_linters#c#gcc#GetExecutable(buffer) abort$/;"	f
 ale_linters#chef#foodcritic#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/chef/foodcritic.vim	/^function! ale_linters#chef#foodcritic#GetCommand(buffer) abort$/;"	f
 ale_linters#chef#foodcritic#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/chef/foodcritic.vim	/^function! ale_linters#chef#foodcritic#GetExecutable(buffer) abort$/;"	f
@@ -1892,7 +1900,7 @@ ale_linters#coffee#coffee#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/
 ale_linters#coffee#coffeelint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/coffee/coffeelint.vim	/^function! ale_linters#coffee#coffeelint#GetCommand(buffer) abort$/;"	f
 ale_linters#coffee#coffeelint#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/coffee/coffeelint.vim	/^function! ale_linters#coffee#coffeelint#GetExecutable(buffer) abort$/;"	f
 ale_linters#coffee#coffeelint#Handle	pack/plugins/start/w0rp-ale/ale_linters/coffee/coffeelint.vim	/^function! ale_linters#coffee#coffeelint#Handle(buffer, lines) abort$/;"	f
-ale_linters#cpp#clang#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/clang.vim	/^function! ale_linters#cpp#clang#GetCommand(buffer) abort$/;"	f
+ale_linters#cpp#clang#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/clang.vim	/^function! ale_linters#cpp#clang#GetCommand(buffer, output) abort$/;"	f
 ale_linters#cpp#clang#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/cpp/clang.vim	/^function! ale_linters#cpp#clang#GetExecutable(buffer) abort$/;"	f
 ale_linters#cpp#clangcheck#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/clangcheck.vim	/^function! ale_linters#cpp#clangcheck#GetCommand(buffer) abort$/;"	f
 ale_linters#cpp#clangcheck#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/cpp/clangcheck.vim	/^function! ale_linters#cpp#clangcheck#GetExecutable(buffer) abort$/;"	f
@@ -1904,7 +1912,7 @@ ale_linters#cpp#cpplint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/c
 ale_linters#cpp#cpplint#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/cpp/cpplint.vim	/^function! ale_linters#cpp#cpplint#GetExecutable(buffer) abort$/;"	f
 ale_linters#cpp#flawfinder#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/flawfinder.vim	/^function! ale_linters#cpp#flawfinder#GetCommand(buffer) abort$/;"	f
 ale_linters#cpp#flawfinder#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/cpp/flawfinder.vim	/^function! ale_linters#cpp#flawfinder#GetExecutable(buffer) abort$/;"	f
-ale_linters#cpp#gcc#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/gcc.vim	/^function! ale_linters#cpp#gcc#GetCommand(buffer) abort$/;"	f
+ale_linters#cpp#gcc#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/cpp/gcc.vim	/^function! ale_linters#cpp#gcc#GetCommand(buffer, output) abort$/;"	f
 ale_linters#cpp#gcc#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/cpp/gcc.vim	/^function! ale_linters#cpp#gcc#GetExecutable(buffer) abort$/;"	f
 ale_linters#crystal#crystal#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/crystal/crystal.vim	/^function! ale_linters#crystal#crystal#GetCommand(buffer) abort$/;"	f
 ale_linters#crystal#crystal#Handle	pack/plugins/start/w0rp-ale/ale_linters/crystal/crystal.vim	/^function! ale_linters#crystal#crystal#Handle(buffer, lines) abort$/;"	f
@@ -2038,7 +2046,6 @@ ale_linters#markdown#mdl#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/mark
 ale_linters#markdown#mdl#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/markdown/mdl.vim	/^function! ale_linters#markdown#mdl#GetExecutable(buffer) abort$/;"	f
 ale_linters#markdown#mdl#Handle	pack/plugins/start/w0rp-ale/ale_linters/markdown/mdl.vim	/^function! ale_linters#markdown#mdl#Handle(buffer, lines) abort$/;"	f
 ale_linters#markdown#remark_lint#Handle	pack/plugins/start/w0rp-ale/ale_linters/markdown/remark_lint.vim	/^function! ale_linters#markdown#remark_lint#Handle(buffer, lines) abort$/;"	f
-ale_linters#markdown#textlint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/markdown/textlint.vim	/^function! ale_linters#markdown#textlint#GetCommand(buffer) abort$/;"	f
 ale_linters#matlab#mlint#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^function! ale_linters#matlab#mlint#GetCommand(buffer) abort$/;"	f
 ale_linters#matlab#mlint#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^function! ale_linters#matlab#mlint#GetExecutable(buffer) abort$/;"	f
 ale_linters#matlab#mlint#Handle	pack/plugins/start/w0rp-ale/ale_linters/matlab/mlint.vim	/^function! ale_linters#matlab#mlint#Handle(buffer, lines) abort$/;"	f
@@ -2102,6 +2109,7 @@ ale_linters#python#pylint#Handle	pack/plugins/start/w0rp-ale/ale_linters/python/
 ale_linters#python#pyls#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/python/pyls.vim	/^function! ale_linters#python#pyls#GetCommand(buffer) abort$/;"	f
 ale_linters#python#pyls#GetExecutable	pack/plugins/start/w0rp-ale/ale_linters/python/pyls.vim	/^function! ale_linters#python#pyls#GetExecutable(buffer) abort$/;"	f
 ale_linters#python#pyls#GetLanguage	pack/plugins/start/w0rp-ale/ale_linters/python/pyls.vim	/^function! ale_linters#python#pyls#GetLanguage(buffer) abort$/;"	f
+ale_linters#qml#qmllint#Handle	pack/plugins/start/w0rp-ale/ale_linters/qml/qmllint.vim	/^function! ale_linters#qml#qmllint#Handle(buffer, lines) abort$/;"	f
 ale_linters#r#lintr#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/r/lintr.vim	/^function! ale_linters#r#lintr#GetCommand(buffer) abort$/;"	f
 ale_linters#reason#merlin#Handle	pack/plugins/start/w0rp-ale/ale_linters/reason/merlin.vim	/^function! ale_linters#reason#merlin#Handle(buffer, lines) abort$/;"	f
 ale_linters#rst#rstcheck#GetCommand	pack/plugins/start/w0rp-ale/ale_linters/rst/rstcheck.vim	/^function! ale_linters#rst#rstcheck#GetCommand(buffer) abort$/;"	f
@@ -2425,6 +2433,7 @@ enmasse#Open	pack/plugins/start/olical-vim-enmasse/autoload/enmasse.vim	/^functi
 enmasse#WriteCurrentBuffer	pack/plugins/start/olical-vim-enmasse/autoload/enmasse.vim	/^function! enmasse#WriteCurrentBuffer()$/;"	f
 entries	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^function! s:entries(path)$/;"	f
 env	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  let env = {$/;"	v
+err_cb	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:err_cb(ch, msg) abort$/;"	f
 errorformat	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^function! s:errorformat() abort$/;"	f
 escape	pack/plugins/start/machakann-vim-sandwich/autoload/operator/sandwich/lib.vim	/^function! s:escape(string) abort  "{{{$/;"	f
 escape	pack/plugins/start/machakann-vim-sandwich/autoload/sandwich/magicchar/t.vim	/^function! s:escape(string) abort  "{{{$/;"	f
@@ -2855,6 +2864,7 @@ g:prettier#config#use_tabs	pack/plugins/start/prettier-vim-prettier/plugin/prett
 g:prettier#exec_cmd_async	pack/plugins/start/prettier-vim-prettier/plugin/prettier.vim	/^let g:prettier#exec_cmd_async = get(g:, 'prettier#exec_cmd_async', 0)$/;"	v
 g:prettier#exec_cmd_path	pack/plugins/start/prettier-vim-prettier/plugin/prettier.vim	/^let g:prettier#exec_cmd_path = get(g:, 'prettier#exec_cmd_path', 0)$/;"	v
 g:prettier#nvim_unstable_async	pack/plugins/start/prettier-vim-prettier/plugin/prettier.vim	/^let g:prettier#nvim_unstable_async = get(g:,'prettier#nvim_unstable_async', 0)$/;"	v
+g:prettier#quickfix_auto_focus	pack/plugins/start/prettier-vim-prettier/plugin/prettier.vim	/^let g:prettier#quickfix_auto_focus = get(g:, 'prettier#quickfix_auto_focus', 1)$/;"	v
 g:prettier#quickfix_enabled	pack/plugins/start/prettier-vim-prettier/plugin/prettier.vim	/^let g:prettier#quickfix_enabled = get(g:, 'prettier#quickfix_enabled', 1)$/;"	v
 g:quickhl_debug	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_debug = 0$/;"	v
 g:quickhl_manual_colors	pack/plugins/start/t9md-vim-quickhl/plugin/quickhl.vim	/^  let g:quickhl_manual_colors = [$/;"	v
@@ -3032,7 +3042,7 @@ go#debug#Print	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function!
 go#debug#Restart	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Restart() abort$/;"	f
 go#debug#Set	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Set(symbol, value) abort$/;"	f
 go#debug#Stack	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Stack(name) abort$/;"	f
-go#debug#Start	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Start(...) abort$/;"	f
+go#debug#Start	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Start(is_test, ...) abort$/;"	f
 go#debug#Stop	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! go#debug#Stop() abort$/;"	f
 go#decls#Decls	pack/plugins/start/fatih-vim-go/autoload/go/decls.vim	/^function! go#decls#Decls(mode, ...) abort$/;"	f
 go#def#Jump	pack/plugins/start/fatih-vim-go/autoload/go/def.vim	/^function! go#def#Jump(mode) abort$/;"	f
@@ -3113,6 +3123,7 @@ go#test#Func	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^function! go
 go#test#Test	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^function! go#test#Test(bang, compile, ...) abort$/;"	f
 go#textobj#Function	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^function! go#textobj#Function(mode) abort$/;"	f
 go#textobj#FunctionJump	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^function! go#textobj#FunctionJump(mode, direction) abort$/;"	f
+go#textobj#FunctionLocation	pack/plugins/start/fatih-vim-go/autoload/go/textobj.vim	/^function! go#textobj#FunctionLocation(direction, cnt) abort$/;"	f
 go#tool#Deps	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Deps() abort$/;"	f
 go#tool#ExecuteInDir	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#ExecuteInDir(cmd) abort$/;"	f
 go#tool#Exists	pack/plugins/start/fatih-vim-go/autoload/go/tool.vim	/^function! go#tool#Exists(importpath) abort$/;"	f
@@ -3541,6 +3552,7 @@ option_map	pack/plugins/start/tpope-vim-unimpaired/plugin/unimpaired.vim	/^funct
 options	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  let options = {$/;"	v
 opts.on_exit	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function opts.on_exit(job_id, exit_code, event) closure$/;"	f
 opts.on_stderr	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function opts.on_stderr(job_id, data, event) closure$/;"	f
+out_cb	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:out_cb(ch, msg) abort$/;"	f
 output	pack/plugins/start/airblade-vim-gitgutter/autoload/gitgutter/debug.vim	/^function! s:output(text)$/;"	f
 overwrite	pack/plugins/start/machakann-vim-sandwich/test/test-magicchar-t-emmet.vim	/^function! s:overwrite(itemlist, name) abort "{{{$/;"	f
 p	pack/plugins/start/romainl-vim-qf/after/ftplugin/qf.vim	/^    nnoremap <silent> <buffer> p :call qf#preview#PreviewFileUnderCursor()<CR>$/;"	m
@@ -4303,7 +4315,6 @@ start_options	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  let start
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/lint.vim	/^  let start_options = {$/;"	v
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/rename.vim	/^  let start_options = {$/;"	v
 start_options	pack/plugins/start/fatih-vim-go/autoload/go/test.vim	/^  let start_options = {$/;"	v
-starting	pack/plugins/start/fatih-vim-go/autoload/go/debug.vim	/^function! s:starting(ch, msg) abort$/;"	f
 state	pack/plugins/start/fatih-vim-go/autoload/go/job.vim	/^    let state.complete = a:args.complete$/;"	v
 state.complete	pack/plugins/start/fatih-vim-go/autoload/go/complete.vim	/^  function state.complete() dict$/;"	f
 state.complete	pack/plugins/start/fatih-vim-go/autoload/go/guru.vim	/^  function state.complete() dict$/;"	f

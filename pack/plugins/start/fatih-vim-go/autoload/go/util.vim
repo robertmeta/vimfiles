@@ -330,6 +330,7 @@ function! go#util#EchoWarning(msg)
   call s:echo(a:msg, 'WarningMsg')
 endfunction
 function! go#util#EchoProgress(msg)
+  redraw
   call s:echo(a:msg, 'Identifier')
 endfunction
 function! go#util#EchoInfo(msg)

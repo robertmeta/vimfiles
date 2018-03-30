@@ -157,6 +157,7 @@
 :GoDebugStep	vim-go.txt	/*:GoDebugStep*
 :GoDebugStepOut	vim-go.txt	/*:GoDebugStepOut*
 :GoDebugStop	vim-go.txt	/*:GoDebugStop*
+:GoDebugTest	vim-go.txt	/*:GoDebugTest*
 :GoDecls	vim-go.txt	/*:GoDecls*
 :GoDeclsDir	vim-go.txt	/*:GoDeclsDir*
 :GoDef	vim-go.txt	/*:GoDef*
