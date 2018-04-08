@@ -205,6 +205,8 @@ ale-markdown-options	ale-markdown.txt	/*ale-markdown-options*
 ale-markdown-prettier	ale-markdown.txt	/*ale-markdown-prettier*
 ale-markdown-textlint	ale-markdown.txt	/*ale-markdown-textlint*
 ale-markdown-write-good	ale-markdown.txt	/*ale-markdown-write-good*
+ale-mercury-mmc	ale-mercury.txt	/*ale-mercury-mmc*
+ale-mercury-options	ale-mercury.txt	/*ale-mercury-options*
 ale-navigation-commands	ale.txt	/*ale-navigation-commands*
 ale-nroff-options	ale-nroff.txt	/*ale-nroff-options*
 ale-nroff-write-good	ale-nroff.txt	/*ale-nroff-write-good*
@@ -242,6 +244,7 @@ ale-pug-puglint	ale-pug.txt	/*ale-pug-puglint*
 ale-puppet-options	ale-puppet.txt	/*ale-puppet-options*
 ale-puppet-puppetlint	ale-puppet.txt	/*ale-puppet-puppetlint*
 ale-python-autopep8	ale-python.txt	/*ale-python-autopep8*
+ale-python-black	ale-python.txt	/*ale-python-black*
 ale-python-flake8	ale-python.txt	/*ale-python-flake8*
 ale-python-isort	ale-python.txt	/*ale-python-isort*
 ale-python-mypy	ale-python.txt	/*ale-python-mypy*
@@ -251,6 +254,8 @@ ale-python-pycodestyle	ale-python.txt	/*ale-python-pycodestyle*
 ale-python-pylint	ale-python.txt	/*ale-python-pylint*
 ale-python-pyls	ale-python.txt	/*ale-python-pyls*
 ale-python-yapf	ale-python.txt	/*ale-python-yapf*
+ale-qml-options	ale-qml.txt	/*ale-qml-options*
+ale-qml-qmlfmt	ale-qml.txt	/*ale-qml-qmlfmt*
 ale-r-lintr	ale-r.txt	/*ale-r-lintr*
 ale-r-options	ale-r.txt	/*ale-r-options*
 ale-reasonml-merlin	ale-reasonml.txt	/*ale-reasonml-merlin*
@@ -495,6 +500,8 @@ b:ale_markdown_mdl_executable	ale-markdown.txt	/*b:ale_markdown_mdl_executable*
 b:ale_markdown_mdl_options	ale-markdown.txt	/*b:ale_markdown_mdl_options*
 b:ale_max_signs	ale.txt	/*b:ale_max_signs*
 b:ale_maximum_file_size	ale.txt	/*b:ale_maximum_file_size*
+b:ale_mercury_mmc_executable	ale-mercury.txt	/*b:ale_mercury_mmc_executable*
+b:ale_mercury_mmc_options	ale-mercury.txt	/*b:ale_mercury_mmc_options*
 b:ale_objc_clang_options	ale-objc.txt	/*b:ale_objc_clang_options*
 b:ale_objcpp_clang_options	ale-objcpp.txt	/*b:ale_objcpp_clang_options*
 b:ale_ocaml_ols_executable	ale-ocaml.txt	/*b:ale_ocaml_ols_executable*
@@ -506,6 +513,7 @@ b:ale_perl_perlcritic_executable	ale-perl.txt	/*b:ale_perl_perlcritic_executable
 b:ale_perl_perlcritic_options	ale-perl.txt	/*b:ale_perl_perlcritic_options*
 b:ale_perl_perlcritic_profile	ale-perl.txt	/*b:ale_perl_perlcritic_profile*
 b:ale_php_cs_fixer_executable	ale-php.txt	/*b:ale_php_cs_fixer_executable*
+b:ale_php_cs_fixer_options	ale-php.txt	/*b:ale_php_cs_fixer_options*
 b:ale_php_cs_fixer_use_global	ale-php.txt	/*b:ale_php_cs_fixer_use_global*
 b:ale_php_hackfmt_options	ale-php.txt	/*b:ale_php_hackfmt_options*
 b:ale_php_langserver_executable	ale-php.txt	/*b:ale_php_langserver_executable*
@@ -532,6 +540,9 @@ b:ale_puppet_puppetlint_options	ale-puppet.txt	/*b:ale_puppet_puppetlint_options
 b:ale_python_autopep8_executable	ale-python.txt	/*b:ale_python_autopep8_executable*
 b:ale_python_autopep8_options	ale-python.txt	/*b:ale_python_autopep8_options*
 b:ale_python_autopep8_use_global	ale-python.txt	/*b:ale_python_autopep8_use_global*
+b:ale_python_black_executable	ale-python.txt	/*b:ale_python_black_executable*
+b:ale_python_black_options	ale-python.txt	/*b:ale_python_black_options*
+b:ale_python_black_use_global	ale-python.txt	/*b:ale_python_black_use_global*
 b:ale_python_flake8_executable	ale-python.txt	/*b:ale_python_flake8_executable*
 b:ale_python_flake8_options	ale-python.txt	/*b:ale_python_flake8_options*
 b:ale_python_flake8_use_global	ale-python.txt	/*b:ale_python_flake8_use_global*
@@ -554,6 +565,7 @@ b:ale_python_pyls_executable	ale-python.txt	/*b:ale_python_pyls_executable*
 b:ale_python_pyls_use_global	ale-python.txt	/*b:ale_python_pyls_use_global*
 b:ale_python_yapf_executable	ale-python.txt	/*b:ale_python_yapf_executable*
 b:ale_python_yapf_use_global	ale-python.txt	/*b:ale_python_yapf_use_global*
+b:ale_qml_qmlfmt_executable	ale-qml.txt	/*b:ale_qml_qmlfmt_executable*
 b:ale_r_lintr_lint_package	ale-r.txt	/*b:ale_r_lintr_lint_package*
 b:ale_r_lintr_options	ale-r.txt	/*b:ale_r_lintr_options*
 b:ale_reason_ols_executable	ale-reasonml.txt	/*b:ale_reason_ols_executable*
@@ -824,6 +836,8 @@ g:ale_markdown_mdl_options	ale-markdown.txt	/*g:ale_markdown_mdl_options*
 g:ale_max_buffer_history_size	ale.txt	/*g:ale_max_buffer_history_size*
 g:ale_max_signs	ale.txt	/*g:ale_max_signs*
 g:ale_maximum_file_size	ale.txt	/*g:ale_maximum_file_size*
+g:ale_mercury_mmc_executable	ale-mercury.txt	/*g:ale_mercury_mmc_executable*
+g:ale_mercury_mmc_options	ale-mercury.txt	/*g:ale_mercury_mmc_options*
 g:ale_objc_clang_options	ale-objc.txt	/*g:ale_objc_clang_options*
 g:ale_objcpp_clang_options	ale-objcpp.txt	/*g:ale_objcpp_clang_options*
 g:ale_ocaml_ols_executable	ale-ocaml.txt	/*g:ale_ocaml_ols_executable*
@@ -838,6 +852,7 @@ g:ale_perl_perlcritic_options	ale-perl.txt	/*g:ale_perl_perlcritic_options*
 g:ale_perl_perlcritic_profile	ale-perl.txt	/*g:ale_perl_perlcritic_profile*
 g:ale_perl_perlcritic_showrules	ale-perl.txt	/*g:ale_perl_perlcritic_showrules*
 g:ale_php_cs_fixer_executable	ale-php.txt	/*g:ale_php_cs_fixer_executable*
+g:ale_php_cs_fixer_options	ale-php.txt	/*g:ale_php_cs_fixer_options*
 g:ale_php_cs_fixer_use_global	ale-php.txt	/*g:ale_php_cs_fixer_use_global*
 g:ale_php_hackfmt_options	ale-php.txt	/*g:ale_php_hackfmt_options*
 g:ale_php_langserver_executable	ale-php.txt	/*g:ale_php_langserver_executable*
@@ -865,6 +880,9 @@ g:ale_puppet_puppetlint_options	ale-puppet.txt	/*g:ale_puppet_puppetlint_options
 g:ale_python_autopep8_executable	ale-python.txt	/*g:ale_python_autopep8_executable*
 g:ale_python_autopep8_options	ale-python.txt	/*g:ale_python_autopep8_options*
 g:ale_python_autopep8_use_global	ale-python.txt	/*g:ale_python_autopep8_use_global*
+g:ale_python_black_executable	ale-python.txt	/*g:ale_python_black_executable*
+g:ale_python_black_options	ale-python.txt	/*g:ale_python_black_options*
+g:ale_python_black_use_global	ale-python.txt	/*g:ale_python_black_use_global*
 g:ale_python_flake8_executable	ale-python.txt	/*g:ale_python_flake8_executable*
 g:ale_python_flake8_options	ale-python.txt	/*g:ale_python_flake8_options*
 g:ale_python_flake8_use_global	ale-python.txt	/*g:ale_python_flake8_use_global*
@@ -887,6 +905,7 @@ g:ale_python_pyls_executable	ale-python.txt	/*g:ale_python_pyls_executable*
 g:ale_python_pyls_use_global	ale-python.txt	/*g:ale_python_pyls_use_global*
 g:ale_python_yapf_executable	ale-python.txt	/*g:ale_python_yapf_executable*
 g:ale_python_yapf_use_global	ale-python.txt	/*g:ale_python_yapf_use_global*
+g:ale_qml_qmlfmt_executable	ale-qml.txt	/*g:ale_qml_qmlfmt_executable*
 g:ale_r_lintr_lint_package	ale-r.txt	/*g:ale_r_lintr_lint_package*
 g:ale_r_lintr_options	ale-r.txt	/*g:ale_r_lintr_options*
 g:ale_reason_ols_executable	ale-reasonml.txt	/*g:ale_reason_ols_executable*

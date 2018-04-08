@@ -122,6 +122,7 @@
 (go-install)	vim-go.txt	/*(go-install)*
 (go-lint)	vim-go.txt	/*(go-lint)*
 (go-metalinter)	vim-go.txt	/*(go-metalinter)*
+(go-pointsto)	vim-go.txt	/*(go-pointsto)*
 (go-referrers)	vim-go.txt	/*(go-referrers)*
 (go-rename)	vim-go.txt	/*(go-rename)*
 (go-run)	vim-go.txt	/*(go-run)*
@@ -191,9 +192,11 @@
 :GoMetaLinterAutoSaveToggle	vim-go.txt	/*:GoMetaLinterAutoSaveToggle*
 :GoPath	vim-go.txt	/*:GoPath*
 :GoPlay	vim-go.txt	/*:GoPlay*
+:GoPointsTo	vim-go.txt	/*:GoPointsTo*
 :GoReferrers	vim-go.txt	/*:GoReferrers*
 :GoRemoveTags	vim-go.txt	/*:GoRemoveTags*
 :GoRename	vim-go.txt	/*:GoRename*
+:GoReportGitHubIssue	vim-go.txt	/*:GoReportGitHubIssue*
 :GoRun	vim-go.txt	/*:GoRun*
 :GoSameIds	vim-go.txt	/*:GoSameIds*
 :GoSameIdsAutoToggle	vim-go.txt	/*:GoSameIdsAutoToggle*
