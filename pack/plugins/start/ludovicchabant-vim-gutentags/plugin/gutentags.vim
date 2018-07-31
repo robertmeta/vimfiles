@@ -1,6 +1,6 @@
 " gutentags.vim - Automatic ctags management for Vim
 " Maintainer:   Ludovic Chabant <http://ludovic.chabant.com>
-" Version:      0.0.1
+" Version:      2.0.0
 
 " Globals {{{
 
@@ -10,6 +10,11 @@ endif
 
 if v:version < 704
     echoerr "gutentags: this plugin requires vim >= 7.4."
+    finish
+endif
+
+if !(has('job') || (has('nvim') && exists('*jobwait')))
+    echoerr "gutentags: this plugin requires the job API from Vim8 or Neovim."
     finish
 endif
 
@@ -53,6 +58,8 @@ let g:gutentags_generate_on_write = get(g:, 'gutentags_generate_on_write', 1)
 let g:gutentags_generate_on_empty_buffer = get(g:, 'gutentags_generate_on_empty_buffer', 0)
 let g:gutentags_file_list_command = get(g:, 'gutentags_file_list_command', '')
 
+let g:gutentags_use_jobs = get(g:, 'gutentags_use_jobs', has('job'))
+
 if !exists('g:gutentags_cache_dir')
     let g:gutentags_cache_dir = ''
 elseif !empty(g:gutentags_cache_dir)
@@ -91,8 +98,6 @@ augroup end
 " }}}
 
 " Toggles and Miscellaneous Commands {{{
-
-command! GutentagsUnlock :call gutentags#delete_lock_files()
 
 if g:gutentags_define_advanced_commands
     command! GutentagsToggleEnabled :let g:gutentags_enabled=!g:gutentags_enabled

@@ -40,14 +40,14 @@ function! s:GoMinisnip() abort
   endif
 
   if exists('g:minisnip_dir')
-    let g:minisnip_dir .= ':' . globpath(&rtp, 'gosnippets/minisnip')
+    let g:minisnip_dir .= go#util#PathListSep() . globpath(&rtp, 'gosnippets/minisnip')
   else
     let g:minisnip_dir = globpath(&rtp, 'gosnippets/minisnip')
   endif
 endfunction
 
 
-let s:engine = get(g:, 'go_snippet_engine', 'automatic')
+let s:engine = go#config#SnippetEngine()
 if s:engine is? "automatic"
   if get(g:, 'did_plugin_ultisnips') is 1
     call s:GoUltiSnips()

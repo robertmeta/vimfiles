@@ -1,6 +1,11 @@
 " Author: w0rp <devw0rp@gmail.com>
 " Description: Echoes lint message for the current line, if any
 
+" Controls the milliseconds delay before echoing a message.
+let g:ale_echo_delay = get(g:, 'ale_echo_delay', 10)
+" A string format for the echoed message.
+let g:ale_echo_msg_format = get(g:, 'ale_echo_msg_format', '%code: %%s')
+
 let s:cursor_timer = -1
 let s:last_pos = [0, 0, 0]
 
@@ -51,10 +56,6 @@ function! s:StopCursorTimer() abort
 endfunction
 
 function! ale#cursor#EchoCursorWarning(...) abort
-    return ale#CallWithCooldown('dont_echo_until', function('s:EchoImpl'), [])
-endfunction
-
-function! s:EchoImpl() abort
     if !g:ale_echo_cursor
         return
     endif

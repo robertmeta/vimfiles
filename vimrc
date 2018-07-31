@@ -514,4 +514,17 @@
 	nnoremap <silent> zP :<c-u>call ZeroPaste('P')<cr>
 " }}}
 
+function! SSS(words)
+    return '.*'.substitute(escape(a:words, '.'), '\s\+', '\\\&.*', &gdefault ? 'gg' : 'g')
+endfunction
+
+function! FileOpenSSS(cmd, words)
+    let rawout = split(system(a:cmd), "\n")
+    execute "e" matchstr(rawout, "\c" . SSS(a:words))
+endfunction
+
+" sample commands using this function
+command! -nargs=* G :call FileOpenSSS("git ls-files --exclude-standard -co", <q-args>)
+command! -nargs=* F :call FileOpenSSS("find . -type f", <q-args>)
+
 " vim: foldmethod=marker:sw=8:

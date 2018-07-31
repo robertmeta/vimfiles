@@ -23,7 +23,7 @@ let b:undo_ftplugin = "setl fo< com< ofu<"
 
 " text wrapping is pretty much useless in the quickfix window
 " but some users may still want it
-execute get(g:, "qf_nowrap") ? "setlocal nowrap" : "setlocal wrap"
+execute get(g:, "qf_nowrap", 1) ? "setlocal nowrap" : "setlocal wrap"
 
 " relative line numbers don't make much sense either
 " but absolute numbers definitely do
@@ -77,17 +77,17 @@ endif
 " usage:
 "   :Filter foo     <-- same as :Keep foo
 "   :Filter! foo    <-- same as :Reject foo
-command! -buffer -nargs=1 -bang Filter call qf#filter#FilterList(<q-args>, expand("<bang>") == "!" ? 1 : 0)
+command! -buffer -range -nargs=1 -bang Filter call qf#filter#FilterList(<q-args>, expand("<bang>") == "!" ? 1 : 0)
 
 " keep entries matching the argument
 " usage:
 "   :Keep foo
-command! -buffer -nargs=? Keep call qf#filter#FilterList(<q-args>, 0)
+command! -buffer -range -nargs=? Keep call qf#filter#FilterList(<q-args>, 0)
 
 " reject entries matching the argument
 " usage:
 "   :Reject foo
-command! -buffer -nargs=? Reject call qf#filter#FilterList(<q-args>, 1)
+command! -buffer -range -nargs=? Reject call qf#filter#FilterList(<q-args>, 1)
 
 " restore the location/quickfix list
 " usage:
@@ -126,9 +126,8 @@ nnoremap <silent> <buffer> } :call qf#filegroup#NextFile()<CR>
 nnoremap <silent> <buffer> { :call qf#filegroup#PreviousFile()<CR>
 
 " quit Vim if the last window is a quickfix window
-
-autocmd qf BufEnter    <buffer> if get(g:, 'qf_auto_quit', 1) | if winnr('$') < 2 | q | endif | endif
-autocmd qf BufWinEnter <buffer> if get(g:, 'qf_auto_quit', 1) | call qf#filter#ReuseTitle() | endif
+autocmd qf BufEnter    <buffer> nested if get(g:, 'qf_auto_quit', 1) | if winnr('$') < 2 | q | endif | endif
+autocmd qf BufWinEnter <buffer> nested if get(g:, 'qf_auto_quit', 1) | call qf#filter#ReuseTitle() | endif
 
 " decide where to open the location/quickfix window
 if (b:qf_isLoc == 1 && get(g:, 'qf_loclist_window_bottom', 1))

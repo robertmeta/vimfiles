@@ -25,19 +25,38 @@ let s:temp_buffer = tempname()
 "
 "     git show :myfile > myfileA
 "
-" and myfileB is the buffer contents.  Ideally we would pass this to
-" git-diff on stdin via the second argument to vim's system() function.
-" Unfortunately git-diff does not do CRLF conversion for input received on
-" stdin, and git-show never performs CRLF conversion, so repos with CRLF
-" conversion report that every line is modified due to mismatching EOLs.
-"
-" Instead, we write the buffer contents to a temporary file - myfileB in this
-" example.  Note the file extension must be preserved for the CRLF
-" conversion to work.
+" and myfileB is the buffer contents.
 "
 " After running the diff we pass it through grep where available to reduce
 " subsequent processing by the plugin.  If grep is not available the plugin
 " does the filtering instead.
+"
+"
+" Regarding line endings:
+"
+" git-show does not convert line endings.
+" git-diff FILE FILE does convert line endings for the given files.
+"
+" If a file has CRLF line endings and git's core.autocrlf is true,
+" the file in git's object store will have LF line endings.  Writing
+" it out via git-show will produce a file with LF line endings.
+"
+" If this last file is one of the files passed to git-diff, git-diff will
+" convert its line endings to CRLF before diffing -- which is what we want --
+" but also by default output a warning on stderr.
+"
+"   warning: LF will be replace by CRLF in <temp file>.
+"   The file will have its original line endings in your working directory.
+"
+" When running the diff asynchronously, the warning message triggers the stderr
+" callbacks which assume the overall command has failed and reset all the
+" signs.  As this is not what we want, and we can safely ignore the warning,
+" we turn it off by passing the '-c "core.safecrlf=false"' argument to
+" git-diff.
+"
+" When writing the temporary files we preserve the original file's extension
+" so that repos using .gitattributes to control EOL conversion continue to
+" convert correctly.
 function! gitgutter#diff#run_diff(bufnr, preserve_full_diff) abort
   while gitgutter#utility#repo_path(a:bufnr, 0) == -1
     sleep 5m
@@ -52,29 +71,42 @@ function! gitgutter#diff#run_diff(bufnr, preserve_full_diff) abort
   " bash doesn't mind the parentheses.
   let cmd = '('
 
-  let blob_file = s:temp_index
-  let buff_file = s:temp_buffer
+  " Append buffer number to avoid race conditions between writing and reading
+  " the files when asynchronously processing multiple buffers.
+  "
+  " Without the buffer number, index_file would have a race in the shell
+  " between the second process writing it (with git-show) and the first
+  " reading it (with git-diff).
+  let index_file = s:temp_index.'.'.a:bufnr
+
+  " Without the buffer number, buff_file would have a race between the
+  " second gitgutter#process_buffer() writing the file (synchronously, below)
+  " and the first gitgutter#process_buffer()'s async job reading it (with
+  " git-diff).
+  let buff_file = s:temp_buffer.'.'.a:bufnr
 
   let extension = gitgutter#utility#extension(a:bufnr)
   if !empty(extension)
-    let blob_file .= '.'.extension
+    let index_file .= '.'.extension
     let buff_file .= '.'.extension
   endif
 
   " Write file from index to temporary file.
-  let blob_name = g:gitgutter_diff_base.':'.gitgutter#utility#repo_path(a:bufnr, 1)
-  let cmd .= g:gitgutter_git_executable.' show '.blob_name.' > '.blob_file.' && '
+  let index_name = g:gitgutter_diff_base.':'.gitgutter#utility#repo_path(a:bufnr, 1)
+  let cmd .= g:gitgutter_git_executable.' --no-pager show '.index_name.' > '.index_file.' && '
 
   " Write buffer to temporary file.
+  " Note: this is synchronous.
   call s:write_buffer(a:bufnr, buff_file)
 
   " Call git-diff with the temporary files.
-  let cmd .= g:gitgutter_git_executable
+  let cmd .= g:gitgutter_git_executable.' --no-pager '.g:gitgutter_git_args
   if s:c_flag
     let cmd .= ' -c "diff.autorefreshindex=0"'
     let cmd .= ' -c "diff.noprefix=false"'
+    let cmd .= ' -c "core.safecrlf=false"'
   endif
-  let cmd .= ' diff --no-ext-diff --no-color -U0 '.g:gitgutter_diff_args.' -- '.blob_file.' '.buff_file
+  let cmd .= ' diff --no-ext-diff --no-color -U0 '.g:gitgutter_diff_args.' -- '.index_file.' '.buff_file
 
   " Pipe git-diff output into grep.
   if !a:preserve_full_diff && !empty(g:gitgutter_grep)
@@ -114,11 +146,18 @@ endfunction
 function! gitgutter#diff#handler(bufnr, diff) abort
   call gitgutter#debug#log(a:diff)
 
-  call gitgutter#hunk#set_hunks(a:bufnr, gitgutter#diff#parse_diff(a:diff))
-  let modified_lines = s:process_hunks(a:bufnr, gitgutter#hunk#hunks(a:bufnr))
+  if !bufexists(a:bufnr)
+    return
+  endif
 
-  if len(modified_lines) > g:gitgutter_max_signs
-    call gitgutter#utility#warn_once('exceeded maximum number of signs (configured by g:gitgutter_max_signs).', 'max_signs')
+  call gitgutter#hunk#set_hunks(a:bufnr, gitgutter#diff#parse_diff(a:diff))
+  let modified_lines = gitgutter#diff#process_hunks(a:bufnr, gitgutter#hunk#hunks(a:bufnr))
+
+  let signs_count = len(modified_lines)
+  if signs_count > g:gitgutter_max_signs
+    call gitgutter#utility#warn_once(a:bufnr, printf(
+          \ 'exceeded maximum number of signs (%d > %d, configured by g:gitgutter_max_signs).',
+          \ signs_count, g:gitgutter_max_signs), 'max_signs')
     call gitgutter#sign#clear_signs(a:bufnr)
 
   else
@@ -128,7 +167,11 @@ function! gitgutter#diff#handler(bufnr, diff) abort
   endif
 
   call s:save_last_seen_change(a:bufnr)
-  execute "silent doautocmd" s:nomodeline "User GitGutter"
+  if exists('#User#GitGutter')
+    let g:gitgutter_hook_context = {'bufnr': a:bufnr}
+    execute 'doautocmd' s:nomodeline 'User GitGutter'
+    unlet g:gitgutter_hook_context
+  endif
 endfunction
 
 
@@ -156,7 +199,9 @@ function! gitgutter#diff#parse_hunk(line) abort
   end
 endfunction
 
-function! s:process_hunks(bufnr, hunks) abort
+" This function is public so it may be used by other plugins
+" e.g. vim-signature.
+function! gitgutter#diff#process_hunks(bufnr, hunks) abort
   let modified_lines = []
   for hunk in a:hunks
     call extend(modified_lines, s:process_hunk(a:bufnr, hunk))
@@ -289,31 +334,22 @@ endfunction
 
 
 function! s:write_buffer(bufnr, file)
-  let _write = &write
-  set write
+  let bufcontents = getbufline(a:bufnr, 1, '$')
 
-  " Write specified buffer (which may not be the current buffer) to buff_file.
-  " There doesn't seem to be a clean way to write a buffer that isn't the current
-  " to a file; we have to switch to it, write it, then switch back.
-  let current_buffer = bufnr('')
-  execute 'noautocmd buffer' a:bufnr
+  if getbufvar(a:bufnr, '&fileformat') ==# 'dos'
+    call map(bufcontents, 'v:val."\r"')
+  endif
 
-  " Writing the whole buffer resets the '[ and '] marks and also the
-  " 'modified' flag (if &cpoptions includes '+').  These are unwanted
-  " side-effects so we save and restore the values ourselves.
-  let modified      = getbufvar(a:bufnr, "&mod")
-  let op_mark_start = getpos("'[")
-  let op_mark_end   = getpos("']")
+  let fenc = getbufvar(a:bufnr, '&fileencoding')
+  if fenc !=# &encoding
+    call map(bufcontents, 'iconv(v:val, &encoding, "'.fenc.'")')
+  endif
 
-  execute 'keepalt noautocmd silent write!' a:file
+  if getbufvar(a:bufnr, '&bomb')
+    let bufcontents[0]='﻿'.bufcontents[0]
+  endif
 
-  call setbufvar(a:bufnr, "&mod", modified)
-  call setpos("'[", op_mark_start)
-  call setpos("']", op_mark_end)
-
-  execute 'noautocmd buffer' current_buffer
-
-  let &write = _write
+  call writefile(bufcontents, a:file)
 endfunction
 
 

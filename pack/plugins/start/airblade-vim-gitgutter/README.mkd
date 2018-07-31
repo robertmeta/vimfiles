@@ -1,6 +1,6 @@
 ## vim-gitgutter
 
-A Vim plugin which shows a git diff in the 'gutter' (sign column).  It shows which lines have been added, modified, or removed.  You can also preview, stage, and undo individual hunks.
+A Vim plugin which shows a git diff in the 'gutter' (sign column).  It shows which lines have been added, modified, or removed.  You can also preview, stage, and undo individual hunks.  The plugin also provides a hunk text object.
 
 The signs are always up to date and the plugin never saves your buffer.
 
@@ -23,9 +23,8 @@ Features:
 
 Constraints:
 
-* Supports git only.
-
-If you work with other version control systems, I recommend [vim-signify](https://github.com/mhinz/vim-signify).
+* Supports git only.  If you work with other version control systems, I recommend [vim-signify](https://github.com/mhinz/vim-signify).
+* Relies on the `FocusGained` event.  If your terminal doesn't report focus events, either use something like [Terminus][] or set `let g:gitgutter_terminal_reports_focus=0`.
 
 
 ### Screenshot
@@ -108,7 +107,7 @@ When you make a change to a file tracked by git, the diff markers should appear 
 
 You can jump between hunks with `[c` and `]c`.  You can preview, stage, and undo hunks with `<leader>hp`, `<leader>hs`, and `<leader>hu` respectively.
 
-You cannot currently unstage a staged hunk.
+You cannot unstage a staged hunk.
 
 
 #### Activation
@@ -213,6 +212,7 @@ You can customise:
 * The signs' colours and symbols
 * Line highlights
 * The base of the diff
+* Extra arguments for `git` when running `git diff`
 * Extra arguments for `git diff`
 * Key mappings
 * Whether or not vim-gitgutter is on initially (defaults to on)
@@ -297,6 +297,14 @@ By default buffers are diffed against the index.  However you can diff against a
 let g:gitgutter_diff_base = '<commit SHA>'
 ```
 
+
+#### Extra arguments for `git` when running `git diff`
+
+If you want to pass extra arguments to `git` when running `git diff`, do so like this:
+
+```viml
+let g:gitgutter_git_args = '--git-dir-""'
+```
 
 #### Extra arguments for `git diff`
 
@@ -462,23 +470,26 @@ nmap <silent> [c :call PrevHunkAllBuffers()<CR>
 
 ### FAQ
 
+> How can I turn off realtime updates?
+
+Add this to your vim configuration (in an `/after/plugin` directory):
+
+```viml
+" .vim/after/plugin/gitgutter.vim
+autocmd! gitgutter CursorHold,CursorHoldI
+```
+
+> I turned off realtime updates, how can I have signs updated when I save a file?
+
+If you really want to update the signs when you save a file, add this to your vimrc:
+
+```viml
+autocmd BufWritePost * GitGutter
+```
+
 > Why can't I unstage staged changes?
 
-Unstaging staged hunks is feasible but not quite as easy as it sounds.  There are three relevant versions of a file at any one time:
-
-1. The version at HEAD in the repo.
-2. The version staged in the index.
-3. The version in the working tree, in your vim buffer.
-
-`git-diff` without arguments shows you how 2 and 3 differ; this is what vim-gitgutter shows too.
-
-`git-diff --staged` shows you how 1 and 2 differ.
-
-Let's say you are looking at a file in vim which has some unstaged changes.  Now you stage a hunk, either via vim-gitgutter or another means.  The hunk is no longer marked in vim-gitgutter because it is the same in 2 and 3.
-
-Now you want to unstage that hunk.  To see it, you need the difference between 1 and 2.  For vim-gitgutter to show those differences, it would need to show you 2 instead of 3 in your vim buffer.  But 2 is virtual so vim-gitgutter would need to handle it without touching 3.
-
-I intend to implement this but I can't commit to any deadline.
+This plugin is for showing changes between the working tree and the index (and staging/undoing those changes).  Unstaging a staged hunk would require showing changes between the index and HEAD, which is out of scope.
 
 > Why are the colours in the sign column weird?
 
@@ -505,6 +516,14 @@ Here are some things you can check:
 
 * If you use zsh, and you set `CDPATH`, make sure `CDPATH` doesn't include the current directory.
 
+#### When signs take a few seconds to appear
+
+* Try reducing `updatetime`, e.g. `set updatetime=100`.
+
+#### When signs don't update after focusing Vim
+
+* Your terminal probably isn't reporting focus events.  Either try installing [Terminus][] or set `let g:gitgutter_terminal_reports_focus=0`.
+
 
 ### Shameless Plug
 
@@ -525,3 +544,4 @@ Copyright Andrew Stewart, AirBlade Software Ltd.  Released under the MIT licence
   [pathogen]: https://github.com/tpope/vim-pathogen
   [siv]: http://pluralsight.com/training/Courses/TableOfContents/smash-into-vim
   [airblade]: http://airbladesoftware.com/peepcode-vim
+  [terminus]: https://github.com/wincent/terminus

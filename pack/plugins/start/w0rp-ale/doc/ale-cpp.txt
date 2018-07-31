@@ -5,8 +5,12 @@ ALE C++ Integration                                           *ale-cpp-options*
 ===============================================================================
 Global Options
 
-The |g:ale_c_build_dir_names| and |g:ale_c_build_dir| also apply to some C++
-linters too.
+The following C options also apply to some C++ linters too.
+
+* |g:ale_c_build_dir_names|
+* |g:ale_c_build_dir|
+* |g:ale_c_parse_makefile|
+* |g:ale_c_parse_compile_commands|
 
 
 ===============================================================================
@@ -151,6 +155,53 @@ g:ale_cpp_cpplint_options                           *g:ale_cpp_cpplint_options*
   Default: `''`
 
   This variable can be changed to modify flags given to cpplint.
+
+
+===============================================================================
+cquery                                                         *ale-cpp-cquery*
+
+g:ale_cpp_cquery_executable                       *g:ale_cpp_cquery_executable*
+                                                  *b:ale_cpp_cquery_executable*
+  Type: |String|
+  Default: `'cquery'`
+
+  This variable can be changed to use a different executable for cquery.
+
+
+g:ale_cpp_cquery_cache_directory             *g:ale_cpp_cquery_cache_directory*
+                                             *b:ale_cpp_cquery_cache_directory*
+  Type: |String|
+  Default: `'~/.cache/cquery'`
+
+  This variable can be changed to decide which directory cquery uses for its
+  cache.
+
+
+===============================================================================
+flawfinder                                                 *ale-cpp-flawfinder*
+
+g:ale_cpp_flawfinder_executable               *g:ale_cpp_flawfinder_executable*
+                                              *b:ale_cpp_flawfinder_executable*
+  Type: |String|
+  Default: `'flawfinder'`
+
+  This variable can be changed to use a different executable for flawfinder.
+
+
+g:ale_cpp_flawfinder_minlevel                   *g:ale_cpp_flawfinder_minlevel*
+                                                *b:ale_cpp_flawfinder_minlevel*
+  Type: |Number|
+  Default: `1`
+
+  This variable can be changed to ignore risks under the given risk threshold.
+
+
+g:ale_cpp_flawfinder_options                             *g:ale-cpp-flawfinder*
+                                                         *b:ale-cpp-flawfinder*
+  Type: |String|
+  Default: `''`
+
+  This variable can be used to pass extra options into the flawfinder command.
 
 
 ===============================================================================

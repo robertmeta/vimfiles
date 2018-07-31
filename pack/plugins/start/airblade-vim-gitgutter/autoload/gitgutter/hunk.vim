@@ -108,8 +108,7 @@ function! gitgutter#hunk#cursor_in_hunk(hunk) abort
 endfunction
 
 function! gitgutter#hunk#text_object(inner) abort
-  let bufnr = bufnr('')
-  let hunk = s:current_hunk(bufnr)
+  let hunk = s:current_hunk()
 
   if empty(hunk)
     return
@@ -222,19 +221,34 @@ endfunction
 
 
 function! s:adjust_header(bufnr, hunk_diff)
-  return s:adjust_hunk_summary(s:fix_file_references(a:bufnr, a:hunk_diff))
+  let filepath = gitgutter#utility#repo_path(a:bufnr, 0)
+  return s:adjust_hunk_summary(s:fix_file_references(filepath, a:hunk_diff))
 endfunction
 
 
 " Replaces references to temp files with the actual file.
-function! s:fix_file_references(bufnr, hunk_diff)
-  let filepath = gitgutter#utility#repo_path(a:bufnr, 0)
-  let diff = a:hunk_diff
-  for tmp in matchlist(diff, '\vdiff --git a/(\S+) b/(\S+)\n')[1:2]
-    let diff = substitute(diff, tmp, filepath, 'g')
-  endfor
-  return diff
+function! s:fix_file_references(filepath, hunk_diff)
+  let lines = split(a:hunk_diff, '\n')
+
+  let left_prefix  = matchstr(lines[2], '[abciow12]').'/'
+  let right_prefix = matchstr(lines[3], '[abciow12]').'/'
+  let quote        = lines[0][11] == '"' ? '"' : ''
+
+  let left_file  = quote.left_prefix.a:filepath.quote
+  let right_file = quote.right_prefix.a:filepath.quote
+
+  let lines[0] = 'diff --git '.left_file.' '.right_file
+  let lines[2] = '--- '.left_file
+  let lines[3] = '+++ '.right_file
+
+  return join(lines, "\n")."\n"
 endfunction
+
+if $VIM_GITGUTTER_TEST
+  function! gitgutter#hunk#fix_file_references(filepath, hunk_diff)
+    return s:fix_file_references(a:filepath, a:hunk_diff)
+  endfunction
+endif
 
 
 function! s:adjust_hunk_summary(hunk_diff) abort

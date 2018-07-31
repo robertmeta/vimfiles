@@ -1,7 +1,18 @@
+function! gitgutter#utility#supports_overscore_sign()
+  if gitgutter#utility#windows()
+    return &encoding ==? 'utf-8'
+  else
+    return &termencoding ==? &encoding || &termencoding == ''
+  endif
+endfunction
+
 function! gitgutter#utility#setbufvar(buffer, varname, val)
   let dict = get(getbufvar(a:buffer, ''), 'gitgutter', {})
+  let needs_setting = empty(dict)
   let dict[a:varname] = a:val
-  call setbufvar(a:buffer, 'gitgutter', dict)
+  if needs_setting
+    call setbufvar(+a:buffer, 'gitgutter', dict)
+  endif
 endfunction
 
 function! gitgutter#utility#getbufvar(buffer, varname, ...)
@@ -22,11 +33,11 @@ function! gitgutter#utility#warn(message) abort
   let v:warningmsg = a:message
 endfunction
 
-function! gitgutter#utility#warn_once(message, key) abort
-  if empty(gitgutter#utility#getbufvar(s:bufnr, a:key))
-    call gitgutter#utility#setbufvar(s:bufnr, a:key, '1')
+function! gitgutter#utility#warn_once(bufnr, message, key) abort
+  if empty(gitgutter#utility#getbufvar(a:bufnr, a:key))
+    call gitgutter#utility#setbufvar(a:bufnr, a:key, '1')
     echohl WarningMsg
-    redraw | echo 'vim-gitgutter: ' . a:message
+    redraw | echom 'vim-gitgutter: ' . a:message
     echohl None
     let v:warningmsg = a:message
   endif
@@ -103,13 +114,27 @@ function! gitgutter#utility#set_repo_path(bufnr) abort
   " *               -2 - not tracked by git
 
   call gitgutter#utility#setbufvar(a:bufnr, 'path', -1)
-  let cmd = gitgutter#utility#cd_cmd(a:bufnr, g:gitgutter_git_executable.' ls-files --error-unmatch --full-name '.gitgutter#utility#shellescape(s:filename(a:bufnr)))
+  let cmd = gitgutter#utility#cd_cmd(a:bufnr, g:gitgutter_git_executable.' ls-files --error-unmatch --full-name -- '.gitgutter#utility#shellescape(s:filename(a:bufnr)))
 
   if g:gitgutter_async && gitgutter#async#available()
-    call gitgutter#async#execute(cmd, a:bufnr, {
-          \   'out': {bufnr, path -> gitgutter#utility#setbufvar(bufnr, 'path', s:strip_trailing_new_line(path))},
-          \   'err': {bufnr       -> gitgutter#utility#setbufvar(bufnr, 'path', -2)},
-          \ })
+    if has('lambda')
+      call gitgutter#async#execute(cmd, a:bufnr, {
+            \   'out': {bufnr, path -> gitgutter#utility#setbufvar(bufnr, 'path', s:strip_trailing_new_line(path))},
+            \   'err': {bufnr       -> gitgutter#utility#setbufvar(bufnr, 'path', -2)},
+            \ })
+    else
+      if has('nvim') && !has('nvim-0.2.0')
+        call gitgutter#async#execute(cmd, a:bufnr, {
+              \   'out': function('s:set_path'),
+              \   'err': function('s:not_tracked_by_git')
+              \ })
+      else
+        call gitgutter#async#execute(cmd, a:bufnr, {
+              \   'out': function('s:set_path'),
+              \   'err': function('s:set_path', [-2])
+              \ })
+      endif
+    endif
   else
     let path = gitgutter#utility#system(cmd)
     if v:shell_error
@@ -120,8 +145,28 @@ function! gitgutter#utility#set_repo_path(bufnr) abort
   endif
 endfunction
 
+if has('nvim') && !has('nvim-0.2.0')
+  function! s:not_tracked_by_git(bufnr)
+    call s:set_path(a:bufnr, -2)
+  endfunction
+endif
+
+function! s:set_path(bufnr, path)
+  if a:bufnr == -2
+    let [bufnr, path] = [a:path, a:bufnr]
+    call gitgutter#utility#setbufvar(bufnr, 'path', path)
+  else
+    call gitgutter#utility#setbufvar(a:bufnr, 'path', s:strip_trailing_new_line(a:path))
+  endif
+endfunction
+
 function! gitgutter#utility#cd_cmd(bufnr, cmd) abort
-  return 'cd '.s:dir(a:bufnr).' && '.a:cmd
+  let cd = s:unc_path(a:bufnr) ? 'pushd' : (gitgutter#utility#windows() ? 'cd /d' : 'cd')
+  return cd.' '.s:dir(a:bufnr).' && '.a:cmd
+endfunction
+
+function! s:unc_path(bufnr)
+  return s:abs_path(a:bufnr, 0) =~ '^\\\\'
 endfunction
 
 function! s:use_known_shell() abort
@@ -158,4 +203,8 @@ endfunction
 
 function! s:strip_trailing_new_line(line) abort
   return substitute(a:line, '\n$', '', '')
+endfunction
+
+function! gitgutter#utility#windows()
+  return has('win64') || has('win32') || has('win16')
 endfunction

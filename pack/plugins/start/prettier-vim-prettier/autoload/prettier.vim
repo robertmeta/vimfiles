@@ -5,7 +5,7 @@
 " Name Of File: prettier.vim
 "  Description: A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
 "   Maintainer: Mitermayer Reis <mitermayer.reis at gmail.com>
-"      Version: 0.2.6
+"      Version: 0.2.7
 "        Usage: Use :help vim-prettier-usage, or visit https://github.com/prettier/vim-prettier
 "
 "==========================================================================================================
@@ -48,7 +48,7 @@ function! prettier#Prettier(...) abort
 
     " close quickfix if it is opened
     if s:prettier_quickfix_open
-      call setqflist([])
+      call setqflist([], 'r')
       cclose
       let s:prettier_quickfix_open = 0
     endif
@@ -168,14 +168,14 @@ function! s:Prettier_Exec_Async(cmd, startSelection, endSelection) abort
 
   if s:prettier_job_running != 1
       let s:prettier_job_running = 1
-      call job_start([&shell, &shellcmdflag, l:async_cmd], {
-        \ 'in_io': 'buffer',
-        \ 'in_top': a:startSelection,
-        \ 'in_bot': a:endSelection,
-        \ 'in_name': l:bufferName,
+      let l:job =  job_start([&shell, &shellcmdflag, l:async_cmd], {
+        \ 'out_io': 'buffer',
         \ 'err_cb': {channel, msg -> s:Prettier_Job_Error(msg)},
         \ 'close_cb': {channel -> s:Prettier_Job_Close(channel, a:startSelection, a:endSelection, l:bufferName)}})
-  endif
+      let l:stdin = job_getchannel(l:job)
+      call ch_sendraw(l:stdin, join(getbufline(bufnr(l:bufferName), a:startSelection,a:endSelection), "\n"))
+      call ch_close_in(l:stdin)
+    endif
 endfunction
 
 function! s:Prettier_Job_Close(channel, startSelection, endSelection, bufferName) abort
@@ -183,13 +183,14 @@ function! s:Prettier_Job_Close(channel, startSelection, endSelection, bufferName
   let l:currentBufferName = bufname('%')
   let l:isInsideAnotherBuffer = a:bufferName != l:currentBufferName ? 1 : 0
 
-  while ch_status(a:channel) ==# 'buffered'
-    call add(l:out, ch_read(a:channel))
-  endwhile
+  let l:buff = ch_getbufnr(a:channel, 'out')
+  let l:out = getbufline(l:buff, 2, '$')
+  execute 'bd!' . l:buff
 
   " nothing to update
   if (s:Has_Content_Changed(l:out, a:startSelection, a:endSelection) == 0)
     let s:prettier_job_running = 0
+    redraw!
     return
   endif
 
@@ -248,8 +249,13 @@ function! s:Handle_Parsing_Errors(out) abort
   endfor
 
   if len(l:errors)
-    call setqflist(l:errors)
+    let l:winnr = winnr()
+    call setqflist(l:errors, 'r')
     botright copen
+    if !g:prettier#quickfix_auto_focus
+      " Return the cursor back to the main buffer.
+      exe l:winnr . 'wincmd w'
+    endif
     let s:prettier_quickfix_open = 1
   endif
 endfunction
@@ -273,11 +279,18 @@ function! s:Apply_Prettier_Format(lines, startSelection, endSelection) abort
   endif
 
   " delete all lines on the current buffer
-  silent! execute len(l:newBuffer) . ',' . line('$') . 'delete _'
+  silent! execute '%delete _'
 
   " replace all lines from the current buffer with output from prettier
-  call setline(1, l:newBuffer)
-
+  let l:idx = 0
+  for l:line in l:newBuffer
+    silent! call append(l:idx, l:line)
+    let l:idx += 1
+  endfor
+  
+  " delete trailing newline introduced by the above append procedure
+  silent! execute '$delete _'
+  
   " Restore view
   call winrestview(l:winview)
 endfunction
@@ -313,7 +326,6 @@ function! s:Get_Prettier_Exec_Args(config) abort
           \ get(a:config, 'proseWrap', g:prettier#config#prose_wrap) .
           \ ' --stdin-filepath ' .
           \ simplify(expand('%:p')) .
-          \ ' --no-editorconfig '.
           \ ' --loglevel error '.
           \ ' --stdin '
   return l:cmd

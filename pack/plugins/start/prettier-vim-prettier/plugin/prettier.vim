@@ -5,7 +5,7 @@
 " Name Of File: prettier.vim
 "  Description: A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
 "   Maintainer: Mitermayer Reis <mitermayer.reis at gmail.com>
-"      Version: 0.2.6
+"      Version: 0.2.7
 "        Usage: Use :help vim-prettier-usage, or visit https://github.com/prettier/vim-prettier
 "
 "==========================================================================================================
@@ -69,6 +69,9 @@ let g:prettier#config#config_precedence = get(g:, 'prettier#config#config_preced
 " always|never|preserve
 let g:prettier#config#prose_wrap = get(g:, 'prettier#config#prose_wrap', 'preserve')
 
+" Don't leave the quicklist focused on error.
+let g:prettier#quickfix_auto_focus = get(g:, 'prettier#quickfix_auto_focus', 1)
+
 " synchronous by default
 command! -nargs=? -range=% Prettier call prettier#Prettier(g:prettier#exec_cmd_async, <line1>, <line2>)
 
@@ -76,7 +79,7 @@ command! -nargs=? -range=% Prettier call prettier#Prettier(g:prettier#exec_cmd_a
 command! -nargs=? -range=% PrettierAsync call prettier#Prettier(1, <line1>, <line2>)
 
 " prints vim-prettier version
-command! -nargs=? -range=% PrettierVersion echom '0.2.6'
+command! -nargs=? -range=% PrettierVersion echom '0.2.7'
 
 " call prettier cli
 command! -nargs=? -range=% PrettierCli call prettier#PrettierCli(<q-args>)

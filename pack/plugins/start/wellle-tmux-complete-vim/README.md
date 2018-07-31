@@ -59,7 +59,7 @@ Tmux complete is automatically integrated with the following plugins:
                 \     'filter_prefix':   1,
                 \     'show_incomplete': 1,
                 \     'sort_candidates': 0,
-                \     'scrollback':      0
+                \     'scrollback':      0,
                 \     'truncate':        0
                 \     }
                 \ }
@@ -93,6 +93,10 @@ Tmux complete is automatically integrated with the following plugins:
     If 'truncate' is positive, then only prefixes of the matches up to this
     length are shown in the completion pop-up. Upon selection the full match is
     completed of course.
+
+- [ncm2](https://github.com/ncm2/ncm2)
+
+    You can see tmux completions right in your ncm2 pop-up.
 
 - [neocomplete](https://github.com/Shougo/neocomplete.vim)
 

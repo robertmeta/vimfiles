@@ -1,26 +1,10 @@
-if !exists("g:go_gorename_bin")
-  let g:go_gorename_bin = "gorename"
-endif
-
-" Set the default value. A value of "1" is a shortcut for this, for
-" compatibility reasons.
-function! s:default() abort
-  if !exists("g:go_gorename_prefill") || g:go_gorename_prefill == 1
-    let g:go_gorename_prefill = 'expand("<cword>") =~# "^[A-Z]"' .
-          \ '? go#util#pascalcase(expand("<cword>"))' .
-          \ ': go#util#camelcase(expand("<cword>"))'
-  endif
-endfunction
-call s:default()
-
 function! go#rename#Rename(bang, ...) abort
-  call s:default()
-
   let to_identifier = ""
   if a:0 == 0
     let ask = printf("vim-go: rename '%s' to: ", expand("<cword>"))
-    if g:go_gorename_prefill != ''
-      let to_identifier = input(ask, eval(g:go_gorename_prefill))
+    let prefill = go#config#GorenamePrefill()
+    if prefill != ''
+      let to_identifier = input(ask, eval(prefill))
     else
       let to_identifier = input(ask)
     endif
@@ -33,7 +17,7 @@ function! go#rename#Rename(bang, ...) abort
   endif
 
   " return with a warning if the bin doesn't exist
-  let bin_path = go#path#CheckBinPath(g:go_gorename_bin)
+  let bin_path = go#path#CheckBinPath(go#config#GorenameBin())
   if empty(bin_path)
     return
   endif
@@ -41,19 +25,7 @@ function! go#rename#Rename(bang, ...) abort
   let fname = expand('%:p')
   let pos = go#util#OffsetCursor()
   let offset = printf('%s:#%d', fname, pos)
-
-  " no need to escape for job call
-  let bin_path = go#util#has_job() ? bin_path : shellescape(bin_path)
-  let offset = go#util#has_job() ? offset : shellescape(offset)
-  let to_identifier = go#util#has_job() ? to_identifier : shellescape(to_identifier)
-
-  let cmd = [bin_path, "-offset", offset, "-to", to_identifier]
-
-  " check for any tags
-  if exists('g:go_build_tags')
-    let tags = get(g:, 'go_build_tags')
-    call extend(cmd, ["-tags", tags])
-  endif
+  let cmd = [bin_path, "-offset", offset, "-to", to_identifier, '-tags', go#config#BuildTags()]
 
   if go#util#has_job()
     call go#util#EchoProgress(printf("renaming to '%s' ...", to_identifier))
@@ -64,28 +36,27 @@ function! go#rename#Rename(bang, ...) abort
     return
   endif
 
-  let command = join(cmd, " ")
-  let out = go#tool#ExecuteInDir(command)
-
-  let splitted = split(out, '\n')
-  call s:parse_errors(go#util#ShellError(), a:bang, splitted)
+  let [l:out, l:err] = go#tool#ExecuteInDir(l:cmd)
+  call s:parse_errors(l:err, a:bang, split(l:out, '\n'))
 endfunction
 
 function s:rename_job(args)
-  let exited = 0
-  let closed = 0
-  let exitval = 0
-  let messages = []
+  let state = {
+        \ 'exited': 0,
+        \ 'closed': 0,
+        \ 'exitval': 0,
+        \ 'messages': [],
+        \ 'status_dir': expand('%:p:h'),
+        \ 'bang': a:args.bang
+      \ }
 
-  function! s:callback(chan, msg) closure
-    call add(messages, a:msg)
+  function! s:callback(chan, msg) dict
+    call add(self.messages, a:msg)
   endfunction
 
-  let status_dir =  expand('%:p:h')
-
-  function! s:exit_cb(job, exitval) closure
-    let exited = 1
-    let exitval = a:exitval
+  function! s:exit_cb(job, exitval) dict
+    let self.exited = 1
+    let self.exitval = a:exitval
 
     let status = {
           \ 'desc': 'last status',
@@ -97,28 +68,30 @@ function s:rename_job(args)
       let status.state = "failed"
     endif
 
-    call go#statusline#Update(status_dir, status)
+    call go#statusline#Update(self.status_dir, status)
 
-    if closed
-      call s:parse_errors(a:exitval, a:args.bang, messages)
+    if self.closed
+      call s:parse_errors(self.exitval, self.bang, self.messages)
     endif
   endfunction
 
-  function! s:close_cb(ch) closure
-    let closed = 1
+  function! s:close_cb(ch) dict
+    let self.closed = 1
 
-    if exited
-      call s:parse_errors(exitval, a:args.bang, messages)
+    if self.exited
+      call s:parse_errors(self.exitval, self.bang, self.messages)
     endif
   endfunction
 
+  " explicitly bind the callbacks to state so that self within them always
+  " refers to state. See :help Partial for more information.
   let start_options = {
-        \ 'callback': funcref("s:callback"),
-        \ 'exit_cb': funcref("s:exit_cb"),
-        \ 'close_cb': funcref("s:close_cb"),
+        \ 'callback': funcref("s:callback", [], state),
+        \ 'exit_cb': funcref("s:exit_cb", [], state),
+        \ 'close_cb': funcref("s:close_cb", [], state),
         \ }
 
-  call go#statusline#Update(status_dir, {
+  call go#statusline#Update(state.status_dir, {
         \ 'desc': "current status",
         \ 'type': "gorename",
         \ 'state': "started",
@@ -156,7 +129,6 @@ function s:parse_errors(exit_val, bang, out)
   " strip out newline on the end that gorename puts. If we don't remove, it
   " will trigger the 'Hit ENTER to continue' prompt
   call go#list#Clean(l:listtype)
-  call go#list#Window(l:listtype)
   call go#util#EchoSuccess(a:out[0])
 
   " refresh the buffer so we can see the new content

@@ -7,10 +7,6 @@
 " ============================================================================
 
 
-" This constant is used throughout this script for sorting purposes.
-let s:NERDTreeSortStarIndex = index(g:NERDTreeSortOrder, '*')
-lockvar s:NERDTreeSortStarIndex
-
 let s:Path = {}
 let g:NERDTreePath = s:Path
 
@@ -246,7 +242,13 @@ function! s:Path.delete()
             throw "NERDTree.PathDeletionError: Could not delete directory: '" . self.str() . "'"
         endif
     else
-        let success = delete(self.str())
+        if exists('g:NERDTreeRemoveFileCmd')
+            let cmd = g:NERDTreeRemoveFileCmd . self.str({'escape': 1})
+            let success = system(cmd)
+        else
+            let success = delete(self.str())
+        endif
+
         if success != 0
             throw "NERDTree.PathDeletionError: Could not delete file: '" . self.str() . "'"
         endif
@@ -368,7 +370,8 @@ function! s:Path.getSortOrderIndex()
         endif
         let i = i + 1
     endwhile
-    return s:NERDTreeSortStarIndex
+
+    return index(g:NERDTreeSortOrder, '*')
 endfunction
 
 " FUNCTION: Path._splitChunks(path) {{{1
@@ -389,7 +392,7 @@ endfunction
 " FUNCTION: Path.getSortKey() {{{1
 " returns a key used in compare function for sorting
 function! s:Path.getSortKey()
-    if !exists("self._sortKey")
+    if !exists("self._sortKey") || g:NERDTreeSortOrder !=# g:NERDTreeOldSortOrder
         let path = self.getLastPathComponent(1)
         if !g:NERDTreeSortHiddenFirst
             let path = substitute(path, '^[._]', '', '')
@@ -409,7 +412,7 @@ endfunction
 
 " FUNCTION: Path.isHiddenUnder(path) {{{1
 function! s:Path.isHiddenUnder(path)
-    
+
     if !self.isUnder(a:path)
         return 0
     endif
@@ -418,7 +421,7 @@ function! s:Path.isHiddenUnder(path)
     let l:segments = self.pathSegments[l:startIndex : ]
 
     for l:segment in l:segments
-        
+
         if l:segment =~# '^\.'
             return 1
         endif
@@ -657,6 +660,8 @@ function! s:Path.rename(newPath)
         throw "NERDTree.InvalidArgumentsError: Invalid newPath for renaming = ". a:newPath
     endif
 
+    call s:Path.createParentDirectories(a:newPath)
+
     let success =  rename(self.str(), a:newPath)
     if success != 0
         throw "NERDTree.PathRenameError: Could not rename: '" . self.str() . "'" . 'to:' . a:newPath
@@ -713,8 +718,10 @@ function! s:Path.str(...)
 
     if has_key(options, 'truncateTo')
         let limit = options['truncateTo']
-        if len(toReturn) > limit-1
-            let toReturn = toReturn[(len(toReturn)-limit+1):]
+        if strdisplaywidth(toReturn) > limit-1
+            while strdisplaywidth(toReturn) > limit-1 && strchars(toReturn) > 0
+                let toReturn = substitute(toReturn, '^.', '', '')
+            endwhile
             if len(split(toReturn, '/')) > 1
                 let toReturn = '</' . join(split(toReturn, '/')[1:], '/') . '/'
             else

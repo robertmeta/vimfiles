@@ -1,7 +1,13 @@
-## vim-prettier [![Travis CI Build Status](https://travis-ci.org/prettier/vim-prettier.svg?branch=master)](https://travis-ci.org/prettier/vim-prettier)
+## vim-prettier [![Travis CI Build Status](https://travis-ci.org/prettier/vim-prettier.svg?branch=master)](https://travis-ci.org/prettier/vim-prettier) [![Discord](https://img.shields.io/discord/435481502113857536.svg)](https://discord.gg/9bWM9PH)
 
 A vim plugin wrapper for prettier, pre-configured with custom default prettier
 settings.
+
+---
+
+**Note:** We are currently working towards a major release on branch `release/1.x`, while under development bugfixes will be applied to master branch and then ported back to `release/1.x` branch.
+
+If you have feature request and/or suggestions please comment on issue [1.0 release](https://github.com/prettier/vim-prettier/issues/126)
 
 ---
 
@@ -26,7 +32,7 @@ Plug 'prettier/vim-prettier', {
 or simply enable for all formats by:
 
 ```vim
-" post install (yarn install | npm install) then load plugin only for editing supported files
+" post install (yarn install | npm install)
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 ```
 
@@ -48,10 +54,10 @@ vim-prettier.
 
 vim-prettier executable resolution:
 
-1. Look for user defined prettier cli path from vim configuration file
-2. Traverse parents and search for Prettier installation inside `node_modules`
-3. Look for a global prettier installation
-4. Use locally installed vim-prettier prettier executable
+1.  Look for user defined prettier cli path from vim configuration file
+2.  Traverse parents and search for Prettier installation inside `node_modules`
+3.  Look for a global prettier installation
+4.  Use locally installed vim-prettier prettier executable
 
 ### USAGE
 
@@ -129,6 +135,12 @@ By default parsing errors will open the quickfix but can also be disabled
 let g:prettier#quickfix_enabled = 0
 ```
 
+By default we auto focus on the quickfix when there are errors but can also be disabled
+
+```vim
+let g:prettier#quickfix_auto_focus = 0
+```
+
 To enable vim-prettier to run in files without requiring the "@format" doc tag.
 First disable the default autoformat, then update to your own custom behaviour
 
@@ -136,7 +148,7 @@ Running before saving sync:
 
 ```vim
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md, *.vue Prettier
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
 ```
 
 Running before saving async (vim 8+):
@@ -164,49 +176,49 @@ However they can be configured by:
 ```vim
 " max line length that prettier will wrap on
 " Prettier default: 80
-g:prettier#config#print_width = 80
+let g:prettier#config#print_width = 80
 
 " number of spaces per indentation level
 " Prettier default: 2
-g:prettier#config#tab_width = 2
+let g:prettier#config#tab_width = 2
 
 " use tabs over spaces
 " Prettier default: false
-g:prettier#config#use_tabs = 'false'
+let g:prettier#config#use_tabs = 'false'
 
 " print semicolons
 " Prettier default: true
-g:prettier#config#semi = 'true'
+let g:prettier#config#semi = 'true'
 
 " single quotes over double quotes
 " Prettier default: false
-g:prettier#config#single_quote = 'true'
+let g:prettier#config#single_quote = 'true'
 
 " print spaces between brackets
 " Prettier default: true
-g:prettier#config#bracket_spacing = 'false'
+let g:prettier#config#bracket_spacing = 'false'
 
 " put > on the last line instead of new line
 " Prettier default: false
-g:prettier#config#jsx_bracket_same_line = 'true'
+let g:prettier#config#jsx_bracket_same_line = 'true'
 
 " avoid|always
 " Prettier default: avoid
-g:prettier#config#arrow_parens = 'always'
+let g:prettier#config#arrow_parens = 'always'
 
 " none|es5|all
 " Prettier default: none
-g:prettier#config#trailing_comma = 'all'
+let g:prettier#config#trailing_comma = 'all'
 
 " flow|babylon|typescript|css|less|scss|json|graphql|markdown
 " Prettier default: babylon
-g:prettier#config#parser = 'flow'
+let g:prettier#config#parser = 'flow'
 
 " cli-override|file-override|prefer-file
-g:prettier#config#config_precedence = 'prefer-file'
+let g:prettier#config#config_precedence = 'prefer-file'
 
 " always|never|preserve
-g:prettier#config#prose_wrap = 'preserve'
+let g:prettier#config#prose_wrap = 'preserve'
 ```
 
 ### REQUIREMENT(S)

@@ -172,26 +172,18 @@ Some debugging/troubleshooting commands are also available if the
                         Gutentags redirect the output of the tag generation
                         script to a `.log` file in the project root.
 
-                                                *:GutentagsUnlock*
-:GutentagsUnlock
-                        Gutentags uses a `.lock` file to know when tag
-                        generation is running. If something goes wrong with
-                        that process, that lock file could be left behind. You
-                        could just remove it manually from the root of your
-                        project, but you can also run |:GutentagsUnlock| so
-                        that Vim does it for you.
-                        If you find that you need to use this more than a
-                        couple times ever, there's probably a bug with
-                        Gutentags, or something otherwise wrong or unexpected
-                        with your system. Please file a bug.
-
 
 Gutentags also has some user auto-commands (see |User| and |:doautocmd|):
+
+                                                *GutentagsUpdating*
+GutentagsUpdating
+                        This auto-command is triggered when a background
+                        update job has started.
 
                                                 *GutentagsUpdated*
 GutentagsUpdated
                         This auto-command is triggered when a background
-                        update job has been started.
+                        update job has finished.
 
 
 =============================================================================
@@ -202,21 +194,62 @@ enough. In that case, you may want to know when `ctags` is running, so you
 have a heads up if some of the tags aren't recognized yet.
 
                                                 *gutentags#statusline()*
-You can display and indicator of tag generation progress in your |status-line|
+You can display an indicator of tag generation progress in your |status-line|
 with the following function: >
         :set statusline+=%{gutentags#statusline()}
 
-This won't print anything unless Gutentags figures that `ctags` is running in
-the background. This is done by checking a `.lock` file next to the tag file,
-but there's also some optimization before that to not slow down Vim. Note that
-the `.lock` file can sometimes be left around incorrectly by the background
-process, and you may need to clean it up. See |:GutentagsUnlock|.
+The function will, by default, print a list of modules in the status line. So
+if the `ctags` module (see |g:gutentags_modules|) is currently generating
+a tags file, you will see "ctags" printed in the status line. If nothing is
+happening, nothing will be printed in the status line.
 
-When Gutentags thinks `ctags` is still running, it will print the string
-"TAGS" by default. You can customize it: >
-        :set statusline+=%{gutentags#statusline('[Generating...]')}
+You can pass some parameters to customize this:
 
-This will print the string "[Generating...]" when tags are being generated.
+1. A prefix string (defaults to `""`).
+2. A suffix string (defaults to `""`).
+3. The text to print (defaults to the names of modules currently generating
+   something).
+
+So using `gutentags#statusline('[', ']')` would print `"[ctags]"` instead of
+`"ctags"`.
+
+Because Gutentags runs the tag generation in the background, the statusline
+indicator might stay there even after the background process has ended. It
+would only go away when Vim decides to refresh the statusline. You can force
+refresh it in a callback on |GutentagsUpdating| and |GutentagsUpdated|.
+
+For instance, with the `lightline` plugin:
+
+        augroup MyGutentagsStatusLineRefresher
+            autocmd!
+            autocmd User GutentagsUpdating call lightline#update()
+            autocmd User GutentagsUpdated call lightline#update()
+        augroup END
+
+                                                *gutentags#statusline_cb*
+As an alternative to the previous function, `gutentags#statusline_cb` takes
+a single parameter which should be a |Funcref| or a function name. This
+function should take a list of active module names, and return a string. This
+lets you completely control what the status line will print.
+
+For instance:
+        function! s:get_gutentags_status(mods) abort
+            let l:msg = ''
+            if index(a:mods, 'ctags') >= 0
+               let l:msg .= '♨'
+             endif
+             if index(a:mods, 'cscope') >= 0
+               let l:msg .= '♺'
+             endif
+             return l:msg
+        endfunction
+
+        :set statusline+=%{gutentags#statusline_cb(
+                    \function('<SID>get_gutentags_status'))}
+
+By default, the callback function doesn't get called if no tags generation is
+currently happening. You can pass `1` as a second argument so that the
+callback function is always called.
 
 
 =============================================================================
@@ -247,28 +280,24 @@ g:gutentags_dont_load
                         works on Vim startup and will prevent Gutentags from
                         loading at all, as if it wasn't there.
 
-                                                *gutentags_ctags_executable*
-g:gutentags_ctags_executable
-                        Specifies the ctags executable to launch.
-                        Defaults to `ctags`.
+                                                *gutentags_modules*
+g:gutentags_modules
+                        A list of modules to load with Gutentags. Each module
+                        is responsible for generating a specific type of tags
+                        file.
+                        Valid values are:
 
-                                     *gutentags_ctags_executable_{filetype}*
-g:gutentags_ctags_executable_{type}
-                        Specifies the ctags executable to launch for a project
-                        of type {type}. See |gutentags_project_info| for more
-                        information.
-                        IMPORTANT: please see |gutentags-ctags-requirements|.
-                        Example: >
-                         let g:gutentags_ctags_executable_ruby = 'foobar'
-<
+                        - `ctags`: generates a `tags` file using
+                          a `ctags`-compatible program like Exhuberant Ctags
+                          or Universal Ctags.
 
-                                                *gutentags_ctags_tagfile*
-g:gutentags_ctags_tagfile
-                        Specifies the name of the tag file to create. This
-                        will be appended to the project's root. See
-                        |gutentags_project_root| for how Gutentags locates the
-                        project.
-                        Defaults to `tags`.
+                        - `cscope`: generates a code database file using
+                          `cscope`.
+
+                        - `gtags_cscope`: same as `cscope` but uses GNU's
+                          `gtags` executable and database.
+
+                        Defaults to `[ctags]`.
 
                                                 *gutentags_project_root*
 g:gutentags_project_root
@@ -321,35 +350,6 @@ g:gutentags_project_root_finder
                         Defaults to `''`.
                         Note: when set, the called implementation will most 
                         likely ignore |g:gutentags_project_root|.
-
-                                                *gutentags_ctags_exclude*
-g:gutentags_ctags_exclude
-                        A list of file patterns to pass to the
-                        |gutentags_ctags_executable| so that they will be
-                        excluded from parsing for the tags generation.
-                        See also |gutentags_ctags_exclude_wildignore|.
-                        Defaults to `[]` (an empty |List|).
-
-                                                *gutentags_ctags_exclude_wildignore*
-g:gutentags_ctags_exclude_wildignore
-                        When 1, Gutentags will automatically pass your
-                        'wildignore' file patterns to the 
-                        |gutentags_ctags_executable| so that they are ignored.
-                        Set also |gutentags_ctags_exclude| to pass custom
-                        patterns.
-                        Defaults to 1.
-
-                                                *gutentags_ctags_auto_set_tags*
-g:gutentags_ctags_auto_set_tags
-                        If set to 1, Gutentags will automatically prepend
-                        'tags' with the exact path to the tag file for the
-                        current project. See |gutentags_project_root| for how
-                        Gutentags locates the project.
-                        When set to 0, Gutentags doesn't change 'tags', and
-                        this means that whatever tag file it generates may
-                        not be picked up by Vim. See |tagfiles()| to know what
-                        tag files Vim knows about.
-                        Defaults to 1.
 
                                                 *gutentags_generate_on_missing*
 g:gutentags_generate_on_missing
@@ -520,6 +520,121 @@ g:gutentags_file_list_command
                         must support the '-L' command line option in order to
                         read the list of files to be examined.
 
+
+The following settings are valid for the `ctags` module.
+
+                                                *gutentags_ctags_executable*
+g:gutentags_ctags_executable
+                        Specifies the ctags executable to launch.
+                        Defaults to `ctags`.
+
+                                     *gutentags_ctags_executable_{filetype}*
+g:gutentags_ctags_executable_{type}
+                        Specifies the ctags executable to launch for a project
+                        of type {type}. See |gutentags_project_info| for more
+                        information.
+                        IMPORTANT: please see |gutentags-ctags-requirements|.
+                        Example: >
+                         let g:gutentags_ctags_executable_ruby = 'foobar'
+<
+
+                                                *gutentags_ctags_tagfile*
+g:gutentags_ctags_tagfile
+                        Specifies the name of the tag file to create. This
+                        will be appended to the project's root. See
+                        |gutentags_project_root| for how Gutentags locates the
+                        project.
+                        Defaults to `tags`.
+
+                                                *gutentags_ctags_exclude*
+g:gutentags_ctags_exclude
+                        A list of file patterns to pass to the
+                        |gutentags_ctags_executable| so that they will be
+                        excluded from parsing for the tags generation.
+                        See also |gutentags_ctags_exclude_wildignore|.
+                        Defaults to `[]` (an empty |List|).
+
+                                                *gutentags_ctags_exclude_wildignore*
+g:gutentags_ctags_exclude_wildignore
+                        When 1, Gutentags will automatically pass your
+                        'wildignore' file patterns to the 
+                        |gutentags_ctags_executable| so that they are ignored.
+                        Set also |gutentags_ctags_exclude| to pass custom
+                        patterns.
+                        Defaults to 1.
+
+                                                *gutentags_ctags_auto_set_tags*
+g:gutentags_ctags_auto_set_tags
+                        If set to 1, Gutentags will automatically prepend
+                        'tags' with the exact path to the tag file for the
+                        current project. See |gutentags_project_root| for how
+                        Gutentags locates the project.
+                        When set to 0, Gutentags doesn't change 'tags', and
+                        this means that whatever tag file it generates may
+                        not be picked up by Vim. See |tagfiles()| to know what
+                        tag files Vim knows about.
+                        Defaults to 1.
+
+                                                *gutentags_ctags_extra_args*
+g:gutentags_ctags_extra_args
+                        A list of arguments to pass to `ctags`.
+                        Defaults to `[]`.
+
+                                                *gutentags_ctags_post_process_cmd*
+g:gutentags_ctags_post_process_cmd
+                        If defined, the tags generation script will run the
+                        command with an argument that points to a temporary
+                        copy of the tags file. If the post-process step is
+                        modifying the tags file, it needs to do so in-place.
+                        This is useful for cleaning up a tags file that may
+                        contain tags with non-ASCII names that somehow upsets
+                        Vim.
+                        Defaults to `""` (an empty |String|).
+
+
+The following settings are valid for the `cscope` module.
+
+                                                *gutentags_cscope_executable*
+g:gutentags_cscope_executable
+                        Specifies the name or path of the `cscope` executable
+                        to use to generate the code database.
+                        Defaults to `"cscope"`.
+
+                                                *gutentags_auto_add_cscope*
+g:gutentags_auto_add_cscope
+                        If set to 1, Gutentags will automatically add the
+                        generated code database to Vim by running `:cs add`
+                        (see |:cscope|).
+                        Defaults to 1.
+
+
+The following settings are valid for the `gtags_cscope` module.
+
+                                                *gutentags_gtags_executable*
+g:gutentags_gtags_executable
+                        Specifies the name or path of the `gtags` executable
+                        to use to generate the code database.
+                        Default to `"gtags"`.
+
+                                                *gutentags_gtags_options_file*
+g:gutentags_gtags_options_file
+                        The name of a file that will be looked for in
+                        a project root directory. The file is expected to
+                        contain `gtags` options (one per line).
+                        Defaults to `".gutgtags"`.
+
+                                                *gutentags_auto_add_gtags_cscope*
+g:gutentags_auto_add_gtags_cscope
+                        If set to 1, Gutentags will automatically add the
+                        generated code database to Vim by running `:cs add`
+                        (see |:cscope|).
+                        Defaults to 1.
+
+People using `cscope` or `gtags_cscope` across multiple projects in the same
+Vim instance might be interested in the `gutentags_plus` plugin, which handles
+switching databases automatically before performing a query. 
+See https://github.com/skywind3000/gutentags_plus.
+      
 =============================================================================
 5. Project Settings                             *gutentags-project-settings*
 
