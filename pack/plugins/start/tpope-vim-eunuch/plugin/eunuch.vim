@@ -1,6 +1,6 @@
 " eunuch.vim - Helpers for UNIX
 " Maintainer:   Tim Pope <http://tpo.pe/>
-" Version:      1.1
+" Version:      1.2
 
 if exists('g:loaded_eunuch') || &cp || v:version < 700
   finish
@@ -29,6 +29,7 @@ function! s:ffn(fn, path) abort
   let fn = ns . a:fn
   if len(ns) && !exists('*' . fn) && !has_key(s:loaded, ns) && len(findfile('autoload/' . ns[0:-2] . '.vim', escape(&rtp, ' ')))
     exe 'runtime! autoload/' . ns[0:-2] . '.vim'
+    let s:loaded[ns] = 1
   endif
   if len(ns) && exists('*' . fn)
     return fn
@@ -41,7 +42,7 @@ function! s:fcall(fn, path, ...) abort
   return call(s:ffn(a:fn, a:path), [a:path] + a:000)
 endfunction
 
-function! s:rename(src, dst) abort
+function! EunuchRename(src, dst) abort
   if a:src !~# '^\a\a\+:' && a:dst !~# '^\a\a\+:'
     return rename(a:src, a:dst)
   endif
@@ -78,11 +79,7 @@ command! -bar -bang Unlink
       \   edit! |
       \ endif
 
-command! -bar -bang Remove
-      \ silent Unlink<bang> |
-      \ echohl WarningMsg |
-      \ echo "File deleted. Use :Delete instead of :Remove to delete the buffer too." |
-      \ echohl NONE
+command! -bar -bang Remove Unlink<bang>
 
 command! -bar -bang Delete
       \ let s:file = fnamemodify(bufname(<q-args>),':p') |
@@ -103,7 +100,7 @@ command! -bar -nargs=1 -bang -complete=file Move
       \ let s:dst = substitute(s:fcall('simplify', s:dst), '^\.\'.s:separator(), '', '') |
       \ if <bang>1 && s:fcall('filereadable', s:dst) |
       \   exe 'keepalt saveas '.s:fnameescape(s:dst) |
-      \ elseif s:rename(s:src, s:dst) |
+      \ elseif EunuchRename(s:src, s:dst) |
       \   echoerr 'Failed to rename "'.s:src.'" to "'.s:dst.'"' |
       \ else |
       \   setlocal modified |
@@ -155,7 +152,7 @@ command! -bar -bang -nargs=+ Chmod
       \ exe s:Chmod(<bang>0, <f-args>) |
 
 command! -bar -bang -nargs=? -complete=dir Mkdir
-      \ call mkdir(empty(<q-args>) ? expand('%:h') : <q-args>, <bang>0 ? 'p' : '') |
+      \ call call(<bang>0 ? 's:mkdir_p' : 'mkdir', [empty(<q-args>) ? expand('%:h') : <q-args>]) |
       \ if empty(<q-args>) |
       \  silent keepalt execute 'file' s:fnameescape(expand('%')) |
       \ endif

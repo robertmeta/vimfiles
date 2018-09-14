@@ -27,10 +27,9 @@
 'g:go_fmt_options'	vim-go.txt	/*'g:go_fmt_options'*
 'g:go_fold_enable'	vim-go.txt	/*'g:go_fold_enable'*
 'g:go_get_update'	vim-go.txt	/*'g:go_get_update'*
-'g:go_gocode_autobuild'	vim-go.txt	/*'g:go_gocode_autobuild'*
 'g:go_gocode_propose_builtins'	vim-go.txt	/*'g:go_gocode_propose_builtins'*
+'g:go_gocode_propose_source'	vim-go.txt	/*'g:go_gocode_propose_source'*
 'g:go_gocode_socket_type'	vim-go.txt	/*'g:go_gocode_socket_type'*
-'g:go_gocode_unimported_packages'	vim-go.txt	/*'g:go_gocode_unimported_packages'*
 'g:go_gorename_prefill'	vim-go.txt	/*'g:go_gorename_prefill'*
 'g:go_guru_scope'	vim-go.txt	/*'g:go_guru_scope'*
 'g:go_highlight_array_whitespace_error'	vim-go.txt	/*'g:go_highlight_array_whitespace_error'*
@@ -62,6 +61,7 @@
 'g:go_metalinter_deadline'	vim-go.txt	/*'g:go_metalinter_deadline'*
 'g:go_metalinter_disabled'	vim-go.txt	/*'g:go_metalinter_disabled'*
 'g:go_metalinter_enabled'	vim-go.txt	/*'g:go_metalinter_enabled'*
+'g:go_mod_fmt_autosave'	vim-go.txt	/*'g:go_mod_fmt_autosave'*
 'g:go_play_browser_command'	vim-go.txt	/*'g:go_play_browser_command'*
 'g:go_play_open_browser'	vim-go.txt	/*'g:go_play_open_browser'*
 'g:go_snippet_engine'	vim-go.txt	/*'g:go_snippet_engine'*
@@ -123,6 +123,7 @@
 (go-install)	vim-go.txt	/*(go-install)*
 (go-lint)	vim-go.txt	/*(go-lint)*
 (go-metalinter)	vim-go.txt	/*(go-metalinter)*
+(go-mod-fmt)	vim-go.txt	/*(go-mod-fmt)*
 (go-pointsto)	vim-go.txt	/*(go-pointsto)*
 (go-referrers)	vim-go.txt	/*(go-referrers)*
 (go-rename)	vim-go.txt	/*(go-rename)*
@@ -192,6 +193,8 @@
 :GoLint	vim-go.txt	/*:GoLint*
 :GoMetaLinter	vim-go.txt	/*:GoMetaLinter*
 :GoMetaLinterAutoSaveToggle	vim-go.txt	/*:GoMetaLinterAutoSaveToggle*
+:GoModFmt	vim-go.txt	/*:GoModFmt*
+:GoModFmtAutoSaveToggle	vim-go.txt	/*:GoModFmtAutoSaveToggle*
 :GoPath	vim-go.txt	/*:GoPath*
 :GoPlay	vim-go.txt	/*:GoPlay*
 :GoPointsTo	vim-go.txt	/*:GoPointsTo*
@@ -214,6 +217,7 @@
 denite-decls	vim-go.txt	/*denite-decls*
 ft-go-syntax	vim-go.txt	/*ft-go-syntax*
 ft-gohtmltmpl-syntax	vim-go.txt	/*ft-gohtmltmpl-syntax*
+ft-gomod-syntax	vim-go.txt	/*ft-gomod-syntax*
 ft-gotexttmpl-syntax	vim-go.txt	/*ft-gotexttmpl-syntax*
 go#complete#GetInfo()	vim-go.txt	/*go#complete#GetInfo()*
 go#statusline#Show()	vim-go.txt	/*go#statusline#Show()*
@@ -248,6 +252,7 @@ go-v_af	vim-go.txt	/*go-v_af*
 go-v_ic	vim-go.txt	/*go-v_ic*
 go-v_if	vim-go.txt	/*go-v_if*
 gohtmltmpl	vim-go.txt	/*gohtmltmpl*
+gomod	vim-go.txt	/*gomod*
 gotexttmpl	vim-go.txt	/*gotexttmpl*
 hl-GoDebugBreakpoint	vim-go.txt	/*hl-GoDebugBreakpoint*
 hl-GoDebugCurrent	vim-go.txt	/*hl-GoDebugCurrent*

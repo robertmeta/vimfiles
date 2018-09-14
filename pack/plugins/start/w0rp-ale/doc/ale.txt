@@ -33,6 +33,7 @@ CONTENTS                                                         *ale-contents*
       cquery..............................|ale-c-cquery|
       flawfinder..........................|ale-c-flawfinder|
       gcc.................................|ale-c-gcc|
+      uncrustify..........................|ale-c-uncrustify|
     chef..................................|ale-chef-options|
       foodcritic..........................|ale-chef-foodcritic|
     clojure...............................|ale-clojure-options|
@@ -43,22 +44,28 @@ CONTENTS                                                         *ale-contents*
       cmakelint...........................|ale-cmake-cmakelint|
     cpp...................................|ale-cpp-options|
       clang...............................|ale-cpp-clang|
+      clangd..............................|ale-cpp-clangd|
       clangcheck..........................|ale-cpp-clangcheck|
       clang-format........................|ale-cpp-clangformat|
       clangtidy...........................|ale-cpp-clangtidy|
+      clazy...............................|ale-cpp-clazy|
       cppcheck............................|ale-cpp-cppcheck|
       cpplint.............................|ale-cpp-cpplint|
       cquery..............................|ale-cpp-cquery|
       flawfinder..........................|ale-cpp-flawfinder|
       gcc.................................|ale-cpp-gcc|
+      uncrustify..........................|ale-cpp-uncrustify|
     c#....................................|ale-cs-options|
       mcs.................................|ale-cs-mcs|
       mcsc................................|ale-cs-mcsc|
+      uncrustify..........................|ale-cs-uncrustify|
     css...................................|ale-css-options|
       prettier............................|ale-css-prettier|
       stylelint...........................|ale-css-stylelint|
     cuda..................................|ale-cuda-options|
       nvcc................................|ale-cuda-nvcc|
+    d.....................................|ale-d-options|
+      uncrustify..........................|ale-d-uncrustify|
     dart..................................|ale-dart-options|
       dartanalyzer........................|ale-dart-dartanalyzer|
       dartfmt.............................|ale-dart-dartfmt|
@@ -90,12 +97,19 @@ CONTENTS                                                         *ale-contents*
     go....................................|ale-go-options|
       gobuild.............................|ale-go-gobuild|
       gofmt...............................|ale-go-gofmt|
+      govet...............................|ale-go-govet|
       gometalinter........................|ale-go-gometalinter|
       staticcheck.........................|ale-go-staticcheck|
+      golangserver........................|ale-go-golangserver|
+      golangci-lint.......................|ale-go-golangci-lint|
     graphql...............................|ale-graphql-options|
       eslint..............................|ale-graphql-eslint|
       gqlint..............................|ale-graphql-gqlint|
       prettier............................|ale-graphql-prettier|
+    hack..................................|ale-hack-options|
+      hack................................|ale-hack-hack|
+      hackfmt.............................|ale-hack-hackfmt|
+      hhast...............................|ale-hack-hhast|
     handlebars............................|ale-handlebars-options|
       ember-template-lint.................|ale-handlebars-embertemplatelint|
     haskell...............................|ale-haskell-options|
@@ -104,10 +118,14 @@ CONTENTS                                                         *ale-contents*
       cabal-ghc...........................|ale-haskell-cabal-ghc|
       hdevtools...........................|ale-haskell-hdevtools|
       hfmt................................|ale-haskell-hfmt|
+      hlint...............................|ale-haskell-hlint|
       stack-build.........................|ale-haskell-stack-build|
+      stylish-haskell.....................|ale-haskell-stylish-haskell|
+      hie.................................|ale-haskell-hie|
     html..................................|ale-html-options|
       htmlhint............................|ale-html-htmlhint|
       tidy................................|ale-html-tidy|
+      stylelint...........................|ale-html-stylelint|
       write-good..........................|ale-html-write-good|
     idris.................................|ale-idris-options|
       idris...............................|ale-idris-idris|
@@ -116,6 +134,8 @@ CONTENTS                                                         *ale-contents*
       javac...............................|ale-java-javac|
       google-java-format..................|ale-java-google-java-format|
       pmd.................................|ale-java-pmd|
+      javalsp.............................|ale-java-javalsp|
+      uncrustify..........................|ale-java-uncrustify|
     javascript............................|ale-javascript-options|
       eslint..............................|ale-javascript-eslint|
       flow................................|ale-javascript-flow|
@@ -132,6 +152,8 @@ CONTENTS                                                         *ale-contents*
       jsonlint............................|ale-json-jsonlint|
       jq..................................|ale-json-jq|
       prettier............................|ale-json-prettier|
+    julia.................................|ale-julia-options|
+      languageserver......................|ale-julia-languageserver|
     kotlin................................|ale-kotlin-options|
       kotlinc.............................|ale-kotlin-kotlinc|
       ktlint..............................|ale-kotlin-ktlint|
@@ -161,18 +183,23 @@ CONTENTS                                                         *ale-contents*
       write-good..........................|ale-nroff-write-good|
     objc..................................|ale-objc-options|
       clang...............................|ale-objc-clang|
+      clangd..............................|ale-objc-clangd|
+      uncrustify..........................|ale-objc-uncrustify|
     objcpp................................|ale-objcpp-options|
       clang...............................|ale-objcpp-clang|
+      clangd..............................|ale-objcpp-clangd|
+      uncrustify..........................|ale-objcpp-uncrustify|
     ocaml.................................|ale-ocaml-options|
       merlin..............................|ale-ocaml-merlin|
       ols.................................|ale-ocaml-ols|
+      ocamlformat.........................|ale-ocaml-ocamlformat|
+    pawn..................................|ale-pawn-options|
+      uncrustify..........................|ale-pawn-uncrustify|
     perl..................................|ale-perl-options|
       perl................................|ale-perl-perl|
       perlcritic..........................|ale-perl-perlcritic|
       perltidy............................|ale-perl-perltidy|
     php...................................|ale-php-options|
-      hack................................|ale-php-hack|
-      hackfmt.............................|ale-php-hackfmt|
       langserver..........................|ale-php-langserver|
       phan................................|ale-php-phan|
       phpcbf..............................|ale-php-phpcbf|
@@ -191,6 +218,7 @@ CONTENTS                                                         *ale-contents*
     pug...................................|ale-pug-options|
       puglint.............................|ale-pug-puglint|
     puppet................................|ale-puppet-options|
+      puppet..............................|ale-puppet-puppet|
       puppetlint..........................|ale-puppet-puppetlint|
       puppet-languageserver...............|ale-puppet-languageserver|
     pyrex (cython)........................|ale-pyrex-options|
@@ -226,6 +254,7 @@ CONTENTS                                                         *ale-contents*
       rubocop.............................|ale-ruby-rubocop|
       ruby................................|ale-ruby-ruby|
       rufo................................|ale-ruby-rufo|
+      solargraph..........................|ale-ruby-solargraph|
     rust..................................|ale-rust-options|
       cargo...............................|ale-rust-cargo|
       rls.................................|ale-rust-rls|
@@ -234,6 +263,7 @@ CONTENTS                                                         *ale-contents*
     sass..................................|ale-sass-options|
       stylelint...........................|ale-sass-stylelint|
     scala.................................|ale-scala-options|
+      sbtserver...........................|ale-scala-sbtserver|
       scalafmt............................|ale-scala-scalafmt|
       scalastyle..........................|ale-scala-scalastyle|
     scss..................................|ale-scss-options|
@@ -251,6 +281,8 @@ CONTENTS                                                         *ale-contents*
       solium..............................|ale-solidity-solium|
     spec..................................|ale-spec-options|
       rpmlint.............................|ale-spec-rpmlint|
+    sql...................................|ale-sql-options|
+      sqlfmt..............................|ale-sql-sqlfmt|
     stylus................................|ale-stylus-options|
       stylelint...........................|ale-stylus-stylelint|
     tcl...................................|ale-tcl-options|
@@ -272,6 +304,8 @@ CONTENTS                                                         *ale-contents*
       prettier............................|ale-typescript-prettier|
       tslint..............................|ale-typescript-tslint|
       tsserver............................|ale-typescript-tsserver|
+    vala..................................|ale-vala-options|
+      uncrustify..........................|ale-vala-uncrustify|
     verilog/systemverilog.................|ale-verilog-options|
       iverilog............................|ale-verilog-iverilog|
       verilator...........................|ale-verilog-verilator|
@@ -287,8 +321,11 @@ CONTENTS                                                         *ale-contents*
     xml...................................|ale-xml-options|
       xmllint.............................|ale-xml-xmllint|
     yaml..................................|ale-yaml-options|
+      prettier............................|ale-yaml-prettier|
       swaglint............................|ale-yaml-swaglint|
       yamllint............................|ale-yaml-yamllint|
+    yang..................................|ale-yang-options|
+      yang-lsp............................|ale-yang-lsp|
   8. Commands/Keybinds....................|ale-commands|
   9. API..................................|ale-api|
   10. Special Thanks......................|ale-special-thanks|
@@ -338,10 +375,10 @@ Notes:
 * Awk: `gawk`
 * Bash: `language-server`, `shell` (-n flag), `shellcheck`, `shfmt`
 * Bourne Shell: `shell` (-n flag), `shellcheck`, `shfmt`
-* C: `cppcheck`, `cpplint`!!, `clang`, `clangd`, `clangtidy`!!, `clang-format`, `cquery`, `flawfinder`, `gcc`
-* C++ (filetype cpp): `clang`, `clangcheck`!!, `clangtidy`!!, `clang-format`, `cppcheck`, `cpplint`!!, `cquery`, `flawfinder`, `gcc`
+* C: `cppcheck`, `cpplint`!!, `clang`, `clangd`, `clangtidy`!!, `clang-format`, `cquery`, `flawfinder`, `gcc`, `uncrustify`
+* C++ (filetype cpp): `clang`, `clangd`, `clangcheck`!!, `clangtidy`!!, `clang-format`, `clazy`!!, `cppcheck`, `cpplint`!!, `cquery`, `flawfinder`, `gcc`, `uncrustify`
 * CUDA: `nvcc`!!
-* C#: `mcs`, `mcsc`!!
+* C#: `mcs`, `mcsc`!!, `uncrustify`
 * Chef: `foodcritic`
 * Clojure: `joker`
 * CloudFormation: `cfn-python-lint`
@@ -351,7 +388,7 @@ Notes:
 * CSS: `csslint`, `prettier`, `stylelint`
 * Cucumber: `cucumber`
 * Cython (pyrex filetype): `cython`
-* D: `dmd`
+* D: `dmd`, `uncrustify`
 * Dafny: `dafny`!!
 * Dart: `dartanalyzer`!!, `language_server`, dartfmt!!
 * Dockerfile: `hadolint`
@@ -365,16 +402,18 @@ Notes:
 * FusionScript: `fusion-lint`
 * Git Commit Messages: `gitlint`
 * GLSL: glslang, `glslls`
-* Go: `gofmt`, `goimports`, `go vet`!!, `golint`, `gotype`!!, `gometalinter`!!, `go build`!!, `gosimple`!!, `staticcheck`!!
+* Go: `gofmt`, `goimports`, `go vet`!!, `golint`, `gotype`!!, `gometalinter`!!, `go build`!!, `gosimple`!!, `staticcheck`!!, `golangserver`, `golangci-lint`!!
 * GraphQL: `eslint`, `gqlint`, `prettier`
+* Hack: `hack`, `hackfmt`, `hhast`
 * Haml: `haml-lint`
 * Handlebars: `ember-template-lint`
-* Haskell: `brittany`, `ghc`, `cabal-ghc`, `stack-ghc`, `stack-build`!!, `ghc-mod`, `stack-ghc-mod`, `hlint`, `hdevtools`, `hfmt`
+* Haskell: `brittany`, `ghc`, `cabal-ghc`, `stylish-haskell`, `stack-ghc`, `stack-build`!!, `ghc-mod`, `stack-ghc-mod`, `hlint`, `hdevtools`, `hfmt`, `hie`
 * HTML: `alex`!!, `HTMLHint`, `proselint`, `tidy`, `write-good`
 * Idris: `idris`
-* Java: `checkstyle`, `javac`, `google-java-format`, `PMD`
+* Java: `checkstyle`, `javac`, `google-java-format`, `PMD`, `javalsp`, `uncrustify`
 * JavaScript: `eslint`, `flow`, `jscs`, `jshint`, `prettier`, `prettier-eslint`, `prettier-standard`, `standard`, `xo`
 * JSON: `fixjson`, `jsonlint`, `jq`, `prettier`
+* Julia: `languageserver`
 * Kotlin: `kotlinc`!!, `ktlint`!!, `languageserver`
 * LaTeX (tex): `alex`!!, `chktex`, `lacheck`, `proselint`, `redpen`, `vale`, `write-good`
 * Less: `lessc`, `prettier`, `stylelint`
@@ -389,11 +428,12 @@ Notes:
 * Nim: `nim check`!!
 * nix: `nix-instantiate`
 * nroff: `alex`!!, `proselint`, `write-good`
-* Objective-C: `clang`
-* Objective-C++: `clang`
-* OCaml: `merlin` (see |ale-ocaml-merlin|), `ols`
+* Objective-C: `clang`, `clangd`, `uncrustify`
+* Objective-C++: `clang`, `clangd`, `uncrustify`
+* OCaml: `merlin` (see |ale-ocaml-merlin|), `ols`, `ocamlformat`
+* Pawn: `uncrustify`
 * Perl: `perl -c`, `perl-critic`, `perltidy`
-* PHP: `hack`, `hackfmt`, `langserver`, `phan`, `php -l`, `phpcs`, `phpmd`, `phpstan`, `phpcbf`, `php-cs-fixer`
+* PHP: `langserver`, `phan`, `php -l`, `phpcs`, `phpmd`, `phpstan`, `phpcbf`, `php-cs-fixer`
 * PO: `alex`!!, `msgfmt`, `proselint`, `write-good`
 * Pod: `alex`!!, `proselint`, `write-good`
 * Pony: `ponyc`
@@ -407,16 +447,16 @@ Notes:
 * reStructuredText: `alex`!!, `proselint`, `redpen`, `rstcheck`, `vale`, `write-good`
 * Re:VIEW: `redpen`
 * RPM spec: `rpmlint`
-* Ruby: `brakeman`, `rails_best_practices`!!, `reek`, `rubocop`, `ruby`, `rufo`
+* Ruby: `brakeman`, `rails_best_practices`!!, `reek`, `rubocop`, `ruby`, `rufo`, `solargraph`
 * Rust: `cargo`!!, `rls`, `rustc` (see |ale-integration-rust|), `rustfmt`
 * SASS: `sass-lint`, `stylelint`
 * SCSS: `prettier`, `sass-lint`, `scss-lint`, `stylelint`
-* Scala: `fsc`, `scalac`, `scalafmt`, `scalastyle`
+* Scala: `fsc`, `sbtserver`, `scalac`, `scalafmt`, `scalastyle`
 * Slim: `slim-lint`
 * SML: `smlnj`
 * Solidity: `solhint`, `solium`
 * Stylus: `stylelint`
-* SQL: `sqlint`
+* SQL: `sqlint`, `sqlfmt`
 * Swift: `swiftlint`, `swiftformat`
 * Tcl: `nagelfar`!!
 * Terraform: `tflint`
@@ -424,13 +464,15 @@ Notes:
 * Text^: `alex`!!, `proselint`, `redpen`, `textlint`, `vale`, `write-good`
 * Thrift: `thrift`
 * TypeScript: `eslint`, `prettier`, `tslint`, `tsserver`, `typecheck`
+* VALA: `uncrustify`
 * Verilog: `iverilog`, `verilator`
 * Vim: `vint`
 * Vim help^: `alex`!!, `proselint`, `write-good`
 * Vue: `prettier`, `vls`
 * XHTML: `alex`!!, `proselint`, `write-good`
 * XML: `xmllint`
-* YAML: `swaglint`, `yamllint`
+* YAML: `prettier`, `swaglint`, `yamllint`
+* YANG: `yang-lsp`
 
 ===============================================================================
 3. Linting                                                           *ale-lint*
@@ -646,10 +688,10 @@ servers. LSP linters can be used in combination with any other linter, and
 will automatically connect to LSP servers when needed. ALE also supports
 `tsserver` for TypeScript, which uses a different but very similar protocol.
 
-ALE supports the following LSP/tsserver features.
+ALE supports the following LSP/tsserver features:
 
 1. Diagnostics/linting - Enabled via selecting linters as usual.
-2. Completion (Only for tsserver)
+2. Completion
 3. Go to definition
 
 
@@ -657,7 +699,7 @@ ALE supports the following LSP/tsserver features.
 5.1 Completion                                                 *ale-completion*
 
 ALE offers limited support for automatic completion of code while you type.
-Completion is only supported while a least one LSP linter is enabled. ALE
+Completion is only supported while at least one LSP linter is enabled. ALE
 will only suggest symbols provided by the LSP servers.
 
 Suggestions will be made while you type after completion is enabled.
@@ -1211,6 +1253,7 @@ g:ale_linters                                                   *g:ale_linters*
   {
   \   'csh': ['shell'],
   \   'go': ['gofmt', 'golint', 'go vet'],
+  \   'hack': ['hack'],
   \   'help': [],
   \   'perl': ['perlcritic'],
   \   'python': ['flake8', 'mypy', 'pylint'],
@@ -2328,6 +2371,13 @@ ale#linter#Define(filetype, linter)                       *ale#linter#Define()*
                          `type` - Defaults to `'E'`.
                          `nr` - Defaults to `-1`.
 
+                           Numeric error code. If `nr` is not `-1`, `code`
+                           likely should contain the string representation of
+                           the same value.
+                         `code` - No default; may be unset.
+
+                           Human-readable |String| error code.
+
   `executable`             A |String| naming the executable itself which
                          will be run. This value will be used to check if the
                          program requested is installed or not.
@@ -2672,7 +2722,7 @@ ALEFixPost                                                 *ALEFixPost-autocmd*
     augroup ALEProgress
         autocmd!
         autocmd User ALELintPre  hi Statusline ctermfg=darkgrey
-        autocmd User ALELintPOST hi Statusline ctermfg=NONE
+        autocmd User ALELintPost hi Statusline ctermfg=NONE
     augroup end
 <
   Or to display the progress in the statusline:

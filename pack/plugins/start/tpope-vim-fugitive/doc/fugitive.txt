@@ -63,6 +63,7 @@ that are part of Git repositories).
                         U     |:Git| checkout HEAD (staged files)
                         U     |:Git| clean (untracked files)
                         U     |:Git| rm (unmerged files)
+                        .     enter |:| command line with file prepopulated
 
                                                 *fugitive-:Gcommit*
 :Gcommit [args]         A wrapper around git-commit.  If there is nothing
@@ -89,7 +90,7 @@ that are part of Git repositories).
 
                                                 *fugitive-:Grebase*
 :Grebase [args]         Like |:Gmerge|, but for git-rebase.  Interactive
-                        rebase not suppported.
+                        rebase not supported.
 
                                                 *fugitive-:Gpush*
 :Gpush [args]           Invoke git-push, load the results into the |quickfix|
@@ -246,18 +247,17 @@ that are part of Git repositories).
                         supported by installing rhubarb.vim, available at
                         <https://github.com/tpope/vim-rhubarb>.
 
-:Gbrowse {object}       Like :Gbrowse, but for a given |fugitive-object|.  A
-                        useful value here is -, which ties the URL to the
-                        latest commit rather than a volatile branch.
+:Gbrowse {object}       Like :Gbrowse, but for a given |fugitive-object|.
 
 :Gbrowse [...]@{remote} Force using the given remote rather than the remote
                         for the current branch.  The remote is used to
-                        determine which GitHub repository to link to.
+                        determine which upstream repository to link to.
 
 :{range}Gbrowse [args]  Appends an anchor to the URL that emphasizes the
-                        selected lines.  You almost certainly want to give a
-                        "-" argument in this case to force the URL to include
-                        an exact commit.
+                        selected lines. This also forces the URL to include a
+                        commit rather than a branch name so it remains valid
+                        if the file changes.  You can give a range of "0" to
+                        force this behavior without including an anchor.
 
 :[range]Gbrowse! [args] Like :Gbrowse, but put the URL on the clipboard rather
                         than opening it.
@@ -305,10 +305,6 @@ P                       Go to the current file in the [count]th parent.
                                                 *fugitive-C*
 C                       Go to the commit containing the current file.
 
-                                                *fugitive-.*
-.                       Start a |:| command line with the current
-                        |fugitive-object| prepopulated at the end of the line.
-
                                                 *fugitive-a*
 a                       Show the current tag, commit, or tree in an alternate
                         format.
@@ -316,30 +312,31 @@ a                       Show the current tag, commit, or tree in an alternate
 SPECIFYING OBJECTS                      *fugitive-object* *fugitive-revision*
 
 Fugitive objects are either work tree files or Git revisions as defined in the
-"SPECIFYING REVISIONS" section in the git-rev-parse man page, with a few
-convenience notations thrown in for good measure.  For commands that accept an
+"SPECIFYING REVISIONS" section in the git-rev-parse man page, with expansions
+inspired by |cmdline-special| layered on top.  For commands that accept an
 optional object, the default is the file in the index for work tree files and
 the work tree file for everything else.  Example objects follow.
 
 Object          Meaning ~
 HEAD            .git/HEAD
-refs/heads/x    .git/refs/heads/x
+refs/heads/x    .git/refs/heads/x (in "common dir" if present)
 @               The commit referenced by @ aka HEAD
 master^         The parent of the commit referenced by master
 master:         The tree referenced by master
-./master        The file named master in the work tree
+./master        The file named master in the working directory
 Makefile        The file named Makefile in the work tree
 @^:Makefile     The file named Makefile in the parent of HEAD
 :Makefile       The file named Makefile in the index (writable)
-@:%             The current file in HEAD
--               The current file in HEAD
-^               The current file in the previous commit
-~3              The current file 3 commits ago
-:               .git/index (Same as |:Gstatus|)
+@~2:%           The current file in the grandparent of HEAD
 :%              The current file in the index
 :1:%            The current file's common ancestor during a conflict
-:2:%            The current file in the target branch during a conflict
-:3:%            The current file in the merged branch during a conflict
+:2:#            The alternate file in the target branch during a conflict
+:3:#5           The file from buffer #5 in the merged branch during a conflict
+!               The commit owning the current file
+!:Makefile      The file named Makefile in the commit owning the current file
+!3^2            The second parent of the commit owning buffer #3
+.git/config     The repo config file
+:               Same as |:Gstatus|
 
 STATUSLINE                                      *fugitive-statusline*
 

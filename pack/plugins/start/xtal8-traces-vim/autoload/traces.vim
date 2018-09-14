@@ -562,7 +562,11 @@ function! s:pos_range(end, pattern) abort
     return
   endif
   if exists('s:buf[s:nr].pre_cmdl_view')
-    call winrestview(s:buf[s:nr].pre_cmdl_view)
+    if get(s:buf[s:nr].pre_cmdl_view, 'mode', '') =~# "^[vV\<C-V>]"
+          \ && (a:end > line('w$') || a:end < line('w0'))
+      unlet s:buf[s:nr].pre_cmdl_view.mode
+      call winrestview(s:buf[s:nr].pre_cmdl_view)
+    endif
     unlet s:buf[s:nr].pre_cmdl_view
   endif
   call cursor([a:end, 1])
@@ -666,16 +670,17 @@ function! s:format_command(cmdl) abort
   let c .= a:cmdl.cmd.args.delimiter
   let c .= a:cmdl.cmd.args.pattern_org
   let c .= a:cmdl.cmd.args.delimiter
+  let s_mark = s:buf[s:nr].s_mark
   if a:cmdl.cmd.args.string =~# '^\\='
-    let c .= '\=' . "'" . s:buf[s:nr].s_mark . "'" . '
-          \ . (' . substitute(a:cmdl.cmd.args.string, '^\\=', '', '') . ')
-          \ . ' . "'" . s:buf[s:nr].s_mark . "'"
+    let c .= printf("\\='%s' . printf('%%s', %s) . '%s'",
+          \ s_mark, empty(a:cmdl.cmd.args.string[2:]) ?
+          \ '''''' : a:cmdl.cmd.args.string[2:], s_mark)
   else
     " make ending single backslash literal or else it will escape s_mark
     if substitute(a:cmdl.cmd.args.string, '\\\\', '', 'g') =~# '\\$'
-      let c .= s:buf[s:nr].s_mark . a:cmdl.cmd.args.string . '\' . s:buf[s:nr].s_mark
+      let c .= s_mark . a:cmdl.cmd.args.string . '\' . s_mark
     else
-      let c .= s:buf[s:nr].s_mark . a:cmdl.cmd.args.string . s:buf[s:nr].s_mark
+      let c .= s_mark . a:cmdl.cmd.args.string . s_mark
     endif
   endif
   let c .= a:cmdl.cmd.args.delimiter
@@ -1078,7 +1083,7 @@ function! traces#init(cmdl, view) abort
       " after patch 8.0.1449, necessary for linux cui, otherwise highlighting
       " is not drawn properly, fixed by 8.0.1476
       if has('unix') && !has('gui_running') && has("patch-8.0.1449") && !has("patch-8.0.1476")
-        silent! call feedkeys("\<left>\<right>", 'tn')
+        silent! call feedkeys(getcmdpos() is 1 ? "\<right>\<left>" : "\<left>\<right>", 'tn')
       endif
     endif
   endif

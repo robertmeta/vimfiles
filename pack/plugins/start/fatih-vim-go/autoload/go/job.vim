@@ -14,8 +14,6 @@ endfunction
 " logic.
 "
 " args is a dictionary with the these keys:
-"   'cmd':
-"     The value to pass to job_start().
 "   'bang':
 "     Set to 0 to jump to the first error in the error list.
 "     Defaults to 0.
@@ -24,6 +22,7 @@ endfunction
 "     See statusline.vim.
 "   'for':
 "     The g:go_list_type_command key to use to get the error list type to use.
+"     Errors will not be handled when the value is '_'.
 "     Defaults to '_job'
 "   'errorformat':
 "     The errorformat string to use when parsing errors. Defaults to
@@ -32,9 +31,12 @@ endfunction
 "   'complete':
 "     A function to call after the job exits and the channel is closed. The
 "     function will be passed three arguments: the job, its exit code, and the
-"     list of messages received from the channel. The default value will
-"     process the messages and manage the error list after the job exits and
-"     the channel is closed.
+"     list of messages received from the channel. The default is a no-op. A
+"     custom value can modify the messages before they are processed by the
+"     returned exit_cb and close_cb callbacks. When the function is called,
+"     the current window will be the window that was hosting the buffer when
+"     the job was started. After it returns, the current window will be
+"     restored to what it was before the function was called.
 
 " The return value is a dictionary with these keys:
 "   'callback':
@@ -47,7 +49,9 @@ endfunction
 "     A function suitable to be passed as a job close_cb handler. See
 "     job-close_cb.
 "   'cwd':
-"     The path to the directory which contains the current buffer.
+"     The path to the directory which contains the current buffer. The
+"     callbacks are configured to expect this directory is the working
+"     directory for the job; it should not be modified by callers.
 function! go#job#Options(args)
   let cbs = {}
   let state = {
@@ -86,23 +90,32 @@ function! go#job#Options(args)
 
   " do nothing in state.complete by default.
   function state.complete(job, exit_status, data)
+    if has_key(self, 'custom_complete')
+      let l:winid = win_getid(winnr())
+      " Always set the active window to the window that was active when the job
+      " was started. Among other things, this makes sure that the correct
+      " window's location list will be populated when the list type is
+      " 'location' and the user has moved windows since starting the job.
+      call win_gotoid(self.winid)
+      call self.custom_complete(a:job, a:exit_status, a:data)
+      call win_gotoid(l:winid)
+    endif
+
+    call self.show_errors(a:job, a:exit_status, a:data)
   endfunction
 
   function state.show_status(job, exit_status) dict
+    if self.statustype == ''
+      return
+    endif
+
     if go#config#EchoCommandInfo()
-      let prefix = ""
-      if self.statustype != ''
-        let prefix = '[' . self.statustype . '] '
-      endif
+      let prefix = '[' . self.statustype . '] '
       if a:exit_status == 0
         call go#util#EchoSuccess(prefix . "SUCCESS")
       else
         call go#util#EchoError(prefix . "FAIL")
       endif
-    endif
-
-    if self.statustype == ''
-      return
     endif
 
     let status = {
@@ -126,10 +139,15 @@ function! go#job#Options(args)
   endfunction
 
   if has_key(a:args, 'complete')
-    let state.complete = a:args.complete
+    let state.custom_complete = a:args.complete
   endif
 
   function! s:start(args) dict
+    if go#config#EchoCommandInfo() && self.statustype != ""
+      let prefix = '[' . self.statustype . '] '
+      call go#util#EchoSuccess(prefix . "dispatched")
+    endif
+
     if self.statustype != ''
       let status = {
             \ 'desc': 'current status',
@@ -163,7 +181,6 @@ function! go#job#Options(args)
 
     if self.closed || has('nvim')
       call self.complete(a:job, self.exit_status, self.messages)
-      call self.show_errors(a:job, self.exit_status, self.messages)
     endif
   endfunction
   " explicitly bind exit_cb to state so that within it, self will always refer
@@ -176,7 +193,6 @@ function! go#job#Options(args)
     if self.exited
       let job = ch_getjob(a:ch)
       call self.complete(job, self.exit_status, self.messages)
-      call self.show_errors(job, self.exit_status, self.messages)
     endif
   endfunction
   " explicitly bind close_cb to state so that within it, self will
@@ -184,7 +200,15 @@ function! go#job#Options(args)
   let cbs.close_cb = function('s:close_cb', [], state)
 
   function state.show_errors(job, exit_status, data)
+    if self.for == '_'
+      return
+    endif
+
     let l:winid = win_getid(winnr())
+    " Always set the active window to the window that was active when the job
+    " was started. Among other things, this makes sure that the correct
+    " window's location list will be populated when the list type is
+    " 'location' and the user has moved windows since starting the job.
     call win_gotoid(self.winid)
 
     let l:listtype = go#list#Type(self.for)
@@ -216,11 +240,13 @@ function! go#job#Options(args)
 
     if empty(errors)
       " failed to parse errors, output the original content
-      call go#util#EchoError(self.messages + [self.dir])
+      call go#util#EchoError([self.dir] + self.messages)
       call win_gotoid(l:winid)
       return
     endif
 
+    " only open the error window if user was still in the window from which
+    " the job was started.
     if self.winid == l:winid
       call go#list#Window(l:listtype, len(errors))
       if !self.bang
@@ -229,29 +255,44 @@ function! go#job#Options(args)
     endif
   endfunction
 
-  if has('nvim')
-    return s:neooptions(cbs)
-  endif
-
   return cbs
 endfunction
 
+" go#job#Start runs a job. The options are expected to be the options
+" suitable for Vim8 jobs. When called from Neovim, Vim8 options will be
+" transformed to their Neovim equivalents.
 function! go#job#Start(cmd, options)
   let l:cd = exists('*haslocaldir') && haslocaldir() ? 'lcd' : 'cd'
   let l:options = copy(a:options)
 
+  if has('nvim')
+    let l:options = s:neooptions(l:options)
+  endif
+
+  " Verify that the working directory for the job actually exists. Return
+  " early if the directory does not exist. This helps avoid errors when
+  " working with plugins that use virtual files that don't actually exist on
+  " the file system.
+  let dir = expand("%:p:h")
+  if has_key(l:options, 'cwd') && !isdirectory(l:options.cwd)
+      return
+  elseif !isdirectory(dir)
+    return
+  endif
+
   if !has_key(l:options, 'cwd')
     " pre start
     let dir = getcwd()
-    execute l:cd fnameescape(expand("%:p:h"))
+    execute l:cd fnameescape(dir)
   endif
 
   if has_key(l:options, '_start')
     call l:options._start()
     " remove _start to play nicely with vim (when vim encounters an unexpected
-    " job option it reports an "E475: invalid argument" error.
+    " job option it reports an "E475: invalid argument" error).
     unlet l:options._start
   endif
+
 
   if has('nvim')
     let l:input = []
@@ -286,6 +327,11 @@ function! s:neooptions(options)
   let l:options['stderr_buf'] = ''
 
   for key in keys(a:options)
+      if key == 'cwd'
+        let l:options['cwd'] = a:options['cwd']
+        continue
+      endif
+
       if key == 'callback'
         let l:options['callback'] = a:options['callback']
 
@@ -401,6 +447,5 @@ function! s:neooptions(options)
   endfor
   return l:options
 endfunction
-
 
 " vim: sw=2 ts=2 et

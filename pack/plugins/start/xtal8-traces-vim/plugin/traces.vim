@@ -87,7 +87,14 @@ augroup traces_augroup
   autocmd CmdlineLeave : call traces#cmdl_leave()
   " s:view is used to restore correct view when entering command line from
   " visual mode
-  autocmd CursorMoved * let s:view = winsaveview()
+  autocmd CursorMoved * let s:view = extend(winsaveview(), {'mode': mode()})
+
+  " https://github.com/vim/vim/commit/b0acacd767a2b0618a7f3c08087708f4329580d0
+  if has("patch-8.1.0271")
+    autocmd CmdlineEnter,CmdwinLeave : let s:incsearch = &incsearch
+          \| noautocmd let &incsearch = 0
+    autocmd CmdlineLeave,CmdwinEnter : noautocmd let &incsearch = s:incsearch
+  endif
 augroup END
 
 highlight default link TracesSearch Search
