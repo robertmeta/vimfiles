@@ -1440,13 +1440,14 @@ function! fugitive#BufReadCmd(...) abort
         let b:fugitive_type = 'tree'
       endif
       if v:shell_error
+        let error = b:fugitive_type
         unlet b:fugitive_type
         if rev =~# '^:\d:'
           let &readonly = !filewritable(dir . '/index')
           return 'silent doautocmd BufNewFile '.s:fnameescape(amatch)
         else
           setlocal readonly nomodifiable
-          return ''
+          return 'echo ' . string(error)
         endif
       elseif b:fugitive_type !~# '^\%(tag\|commit\|tree\|blob\)$'
         return "echoerr ".string("fugitive: unrecognized git type '".b:fugitive_type."'")
@@ -1493,13 +1494,13 @@ function! fugitive#BufReadCmd(...) abort
           if getline('.') ==# 'parent '
             silent keepjumps delete_
           else
-            silent exe 'keepjumps s/\m\C\%(^parent\)\@<! /\rparent /e' . (&gdefault ? '' : 'g')
+            silent exe (exists(':keeppatterns') ? 'keeppatterns' : '') 'keepjumps s/\m\C\%(^parent\)\@<! /\rparent /e' . (&gdefault ? '' : 'g')
           endif
           keepjumps let lnum = search('^encoding \%(<unknown>\)\=$','W',line('.')+3)
           if lnum
             silent keepjumps delete_
           end
-          silent keepjumps 1,/^diff --git\|\%$/g/\r$/s///
+          silent exe (exists(':keeppatterns') ? 'keeppatterns' : '') 'keepjumps 1,/^diff --git\|\%$/g/\r$/s///'
           keepjumps 1
         endif
       elseif b:fugitive_type ==# 'stage'
@@ -3345,8 +3346,11 @@ function! s:Browse(bang,line1,count,...) abort
       else
         let commit = ''
         if len(merge)
-          let remotehead = cdir . '/refs/remotes/' . remote . '/' . merge
-          let commit = filereadable(remotehead) ? get(readfile(remotehead), 0, '') : ''
+          let owner = s:Owner(@%)
+          let commit = s:TreeChomp('merge-base', 'refs/remotes/' . remote . '/' . merge, empty(owner) ? 'HEAD' : owner, '--')
+          if v:shell_error
+            let commit = ''
+          endif
           if a:count && !a:0 && commit =~# '^\x\{40\}$'
             let blame_list = tempname()
             call writefile([commit, ''], blame_list, 'b')

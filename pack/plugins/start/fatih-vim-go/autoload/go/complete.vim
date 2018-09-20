@@ -67,7 +67,7 @@ function! go#complete#GetInfo() abort
 endfunction
 
 function! go#complete#Info(showstatus) abort
-  if go#util#has_job(1) || has('nvim')
+  if go#util#has_job(1)
     return s:async_info(1, a:showstatus)
   else
     return s:sync_info(1)
@@ -85,7 +85,7 @@ function! s:async_info(echo, showstatus)
     if &encoding != 'utf-8'
       let i = 0
       while i < len(a:messages)
-        let a:messages[i] = iconv(a:messages[i], 'utf-i', &encoding)
+        let a:messages[i] = iconv(a:messages[i], 'utf-8', &encoding)
         let i += 1
       endwhile
     endif
