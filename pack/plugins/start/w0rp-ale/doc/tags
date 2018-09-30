@@ -68,6 +68,7 @@ ale-asm-gcc	ale-asm.txt	/*ale-asm-gcc*
 ale-asm-options	ale-asm.txt	/*ale-asm-options*
 ale-awk-gawk	ale-awk.txt	/*ale-awk-gawk*
 ale-awk-options	ale-awk.txt	/*ale-awk-options*
+ale-c-ccls	ale-c.txt	/*ale-c-ccls*
 ale-c-clang	ale-c.txt	/*ale-c-clang*
 ale-c-clangd	ale-c.txt	/*ale-c-clangd*
 ale-c-clangformat	ale-c.txt	/*ale-c-clangformat*
@@ -95,6 +96,7 @@ ale-completion-completopt-bug	ale.txt	/*ale-completion-completopt-bug*
 ale-contact	ale.txt	/*ale-contact*
 ale-contents	ale.txt	/*ale-contents*
 ale-cool-down	ale.txt	/*ale-cool-down*
+ale-cpp-ccls	ale-cpp.txt	/*ale-cpp-ccls*
 ale-cpp-clang	ale-cpp.txt	/*ale-cpp-clang*
 ale-cpp-clangcheck	ale-cpp.txt	/*ale-cpp-clangcheck*
 ale-cpp-clangd	ale-cpp.txt	/*ale-cpp-clangd*
@@ -180,6 +182,7 @@ ale-handlebars-options	ale-handlebars.txt	/*ale-handlebars-options*
 ale-haskell-brittany	ale-haskell.txt	/*ale-haskell-brittany*
 ale-haskell-cabal-ghc	ale-haskell.txt	/*ale-haskell-cabal-ghc*
 ale-haskell-ghc	ale-haskell.txt	/*ale-haskell-ghc*
+ale-haskell-ghc-mod	ale-haskell.txt	/*ale-haskell-ghc-mod*
 ale-haskell-hdevtools	ale-haskell.txt	/*ale-haskell-hdevtools*
 ale-haskell-hfmt	ale-haskell.txt	/*ale-haskell-hfmt*
 ale-haskell-hie	ale-haskell.txt	/*ale-haskell-hie*
@@ -245,6 +248,7 @@ ale-lint-file-linters	ale.txt	/*ale-lint-file-linters*
 ale-lint-settings-on-startup	ale.txt	/*ale-lint-settings-on-startup*
 ale-linter-loading-behavior	ale.txt	/*ale-linter-loading-behavior*
 ale-linter-loading-behaviour	ale.txt	/*ale-linter-loading-behaviour*
+ale-linting-interrupts-mapping	ale.txt	/*ale-linting-interrupts-mapping*
 ale-llvm-llc	ale-llvm.txt	/*ale-llvm-llc*
 ale-llvm-options	ale-llvm.txt	/*ale-llvm-options*
 ale-loclist-format	ale.txt	/*ale-loclist-format*
@@ -266,6 +270,7 @@ ale-nasm-options	ale-nasm.txt	/*ale-nasm-options*
 ale-navigation-commands	ale.txt	/*ale-navigation-commands*
 ale-nroff-options	ale-nroff.txt	/*ale-nroff-options*
 ale-nroff-write-good	ale-nroff.txt	/*ale-nroff-write-good*
+ale-objc-ccls	ale-objc.txt	/*ale-objc-ccls*
 ale-objc-clang	ale-objc.txt	/*ale-objc-clang*
 ale-objc-clangd	ale-objc.txt	/*ale-objc-clangd*
 ale-objc-options	ale-objc.txt	/*ale-objc-options*
@@ -293,6 +298,7 @@ ale-php-phpcbf	ale-php.txt	/*ale-php-phpcbf*
 ale-php-phpcs	ale-php.txt	/*ale-php-phpcs*
 ale-php-phpmd	ale-php.txt	/*ale-php-phpmd*
 ale-php-phpstan	ale-php.txt	/*ale-php-phpstan*
+ale-php-psalm	ale-php.txt	/*ale-php-psalm*
 ale-po-options	ale-po.txt	/*ale-po-options*
 ale-po-write-good	ale-po.txt	/*ale-po-write-good*
 ale-pod-options	ale-pod.txt	/*ale-pod-options*
@@ -426,6 +432,8 @@ b:ale_awk_gawk_executable	ale-awk.txt	/*b:ale_awk_gawk_executable*
 b:ale_awk_gawk_options	ale-awk.txt	/*b:ale_awk_gawk_options*
 b:ale_c_build_dir	ale-c.txt	/*b:ale_c_build_dir*
 b:ale_c_build_dir_names	ale-c.txt	/*b:ale_c_build_dir_names*
+b:ale_c_ccls_executable	ale-c.txt	/*b:ale_c_ccls_executable*
+b:ale_c_ccls_init_options	ale-c.txt	/*b:ale_c_ccls_init_options*
 b:ale_c_clang_executable	ale-c.txt	/*b:ale_c_clang_executable*
 b:ale_c_clang_options	ale-c.txt	/*b:ale_c_clang_options*
 b:ale_c_clangd_executable	ale-c.txt	/*b:ale_c_clangd_executable*
@@ -454,6 +462,8 @@ b:ale_cmake_cmakelint_executable	ale-cmake.txt	/*b:ale_cmake_cmakelint_executabl
 b:ale_cmake_cmakelint_options	ale-cmake.txt	/*b:ale_cmake_cmakelint_options*
 b:ale_command_wrapper	ale.txt	/*b:ale_command_wrapper*
 b:ale_completion_excluded_words	ale.txt	/*b:ale_completion_excluded_words*
+b:ale_cpp_ccls_executable	ale-cpp.txt	/*b:ale_cpp_ccls_executable*
+b:ale_cpp_ccls_init_options	ale-cpp.txt	/*b:ale_cpp_ccls_init_options*
 b:ale_cpp_clang_executable	ale-cpp.txt	/*b:ale_cpp_clang_executable*
 b:ale_cpp_clang_options	ale-cpp.txt	/*b:ale_cpp_clang_options*
 b:ale_cpp_clangcheck_executable	ale-cpp.txt	/*b:ale_cpp_clangcheck_executable*
@@ -540,6 +550,7 @@ b:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*b:ale_handleb
 b:ale_handlebars_embertemplatelint_use_global	ale-handlebars.txt	/*b:ale_handlebars_embertemplatelint_use_global*
 b:ale_haskell_brittany_executable	ale-haskell.txt	/*b:ale_haskell_brittany_executable*
 b:ale_haskell_cabal_ghc_options	ale-haskell.txt	/*b:ale_haskell_cabal_ghc_options*
+b:ale_haskell_ghc_mod_executable	ale-haskell.txt	/*b:ale_haskell_ghc_mod_executable*
 b:ale_haskell_ghc_options	ale-haskell.txt	/*b:ale_haskell_ghc_options*
 b:ale_haskell_hdevtools_executable	ale-haskell.txt	/*b:ale_haskell_hdevtools_executable*
 b:ale_haskell_hdevtools_options	ale-haskell.txt	/*b:ale_haskell_hdevtools_options*
@@ -631,6 +642,8 @@ b:ale_mercury_mmc_executable	ale-mercury.txt	/*b:ale_mercury_mmc_executable*
 b:ale_mercury_mmc_options	ale-mercury.txt	/*b:ale_mercury_mmc_options*
 b:ale_nasm_nasm_executable	ale-nasm.txt	/*b:ale_nasm_nasm_executable*
 b:ale_nasm_nasm_options	ale-nasm.txt	/*b:ale_nasm_nasm_options*
+b:ale_objc_ccls_executable	ale-objc.txt	/*b:ale_objc_ccls_executable*
+b:ale_objc_ccls_init_options	ale-objc.txt	/*b:ale_objc_ccls_init_options*
 b:ale_objc_clang_options	ale-objc.txt	/*b:ale_objc_clang_options*
 b:ale_objc_clangd_executable	ale-objc.txt	/*b:ale_objc_clangd_executable*
 b:ale_objc_clangd_options	ale-objc.txt	/*b:ale_objc_clangd_options*
@@ -668,6 +681,7 @@ b:ale_php_phpmd_ruleset	ale-php.txt	/*b:ale_php_phpmd_ruleset*
 b:ale_php_phpstan_configuration	ale-php.txt	/*b:ale_php_phpstan_configuration*
 b:ale_php_phpstan_executable	ale-php.txt	/*b:ale_php_phpstan_executable*
 b:ale_php_phpstan_level	ale-php.txt	/*b:ale_php_phpstan_level*
+b:ale_php_psalm_executable	ale-php.txt	/*b:ale_php_psalm_executable*
 b:ale_pony_ponyc_executable	ale-pony.txt	/*b:ale_pony_ponyc_executable*
 b:ale_pony_ponyc_options	ale-pony.txt	/*b:ale_pony_ponyc_options*
 b:ale_pug_puglint_executable	ale-pug.txt	/*b:ale_pug_puglint_executable*
@@ -766,6 +780,7 @@ b:ale_scala_scalafmt_options	ale-scala.txt	/*b:ale_scala_scalafmt_options*
 b:ale_scala_scalastyle_config	ale-scala.txt	/*b:ale_scala_scalastyle_config*
 b:ale_scala_scalastyle_options	ale-scala.txt	/*b:ale_scala_scalastyle_options*
 b:ale_scss_stylelint_executable	ale-scss.txt	/*b:ale_scss_stylelint_executable*
+b:ale_scss_stylelint_options	ale-scss.txt	/*b:ale_scss_stylelint_options*
 b:ale_scss_stylelint_use_global	ale-scss.txt	/*b:ale_scss_stylelint_use_global*
 b:ale_set_balloons	ale.txt	/*b:ale_set_balloons*
 b:ale_set_balloons_legacy_echo	ale.txt	/*b:ale_set_balloons_legacy_echo*
@@ -835,6 +850,8 @@ g:ale_awk_gawk_executable	ale-awk.txt	/*g:ale_awk_gawk_executable*
 g:ale_awk_gawk_options	ale-awk.txt	/*g:ale_awk_gawk_options*
 g:ale_c_build_dir	ale-c.txt	/*g:ale_c_build_dir*
 g:ale_c_build_dir_names	ale-c.txt	/*g:ale_c_build_dir_names*
+g:ale_c_ccls_executable	ale-c.txt	/*g:ale_c_ccls_executable*
+g:ale_c_ccls_init_options	ale-c.txt	/*g:ale_c_ccls_init_options*
 g:ale_c_clang_executable	ale-c.txt	/*g:ale_c_clang_executable*
 g:ale_c_clang_options	ale-c.txt	/*g:ale_c_clang_options*
 g:ale_c_clangd_executable	ale-c.txt	/*g:ale_c_clangd_executable*
@@ -869,6 +886,8 @@ g:ale_completion_delay	ale.txt	/*g:ale_completion_delay*
 g:ale_completion_enabled	ale.txt	/*g:ale_completion_enabled*
 g:ale_completion_excluded_words	ale.txt	/*g:ale_completion_excluded_words*
 g:ale_completion_max_suggestions	ale.txt	/*g:ale_completion_max_suggestions*
+g:ale_cpp_ccls_executable	ale-cpp.txt	/*g:ale_cpp_ccls_executable*
+g:ale_cpp_ccls_init_options	ale-cpp.txt	/*g:ale_cpp_ccls_init_options*
 g:ale_cpp_clang_executable	ale-cpp.txt	/*g:ale_cpp_clang_executable*
 g:ale_cpp_clang_options	ale-cpp.txt	/*g:ale_cpp_clang_options*
 g:ale_cpp_clangcheck_executable	ale-cpp.txt	/*g:ale_cpp_clangcheck_executable*
@@ -960,6 +979,7 @@ g:ale_handlebars_embertemplatelint_executable	ale-handlebars.txt	/*g:ale_handleb
 g:ale_handlebars_embertemplatelint_use_global	ale-handlebars.txt	/*g:ale_handlebars_embertemplatelint_use_global*
 g:ale_haskell_brittany_executable	ale-haskell.txt	/*g:ale_haskell_brittany_executable*
 g:ale_haskell_cabal_ghc_options	ale-haskell.txt	/*g:ale_haskell_cabal_ghc_options*
+g:ale_haskell_ghc_mod_executable	ale-haskell.txt	/*g:ale_haskell_ghc_mod_executable*
 g:ale_haskell_ghc_options	ale-haskell.txt	/*g:ale_haskell_ghc_options*
 g:ale_haskell_hdevtools_executable	ale-haskell.txt	/*g:ale_haskell_hdevtools_executable*
 g:ale_haskell_hdevtools_options	ale-haskell.txt	/*g:ale_haskell_hdevtools_options*
@@ -1070,6 +1090,8 @@ g:ale_mercury_mmc_executable	ale-mercury.txt	/*g:ale_mercury_mmc_executable*
 g:ale_mercury_mmc_options	ale-mercury.txt	/*g:ale_mercury_mmc_options*
 g:ale_nasm_nasm_executable	ale-nasm.txt	/*g:ale_nasm_nasm_executable*
 g:ale_nasm_nasm_options	ale-nasm.txt	/*g:ale_nasm_nasm_options*
+g:ale_objc_ccls_executable	ale-objc.txt	/*g:ale_objc_ccls_executable*
+g:ale_objc_ccls_init_options	ale-objc.txt	/*g:ale_objc_ccls_init_options*
 g:ale_objc_clang_options	ale-objc.txt	/*g:ale_objc_clang_options*
 g:ale_objc_clangd_executable	ale-objc.txt	/*g:ale_objc_clangd_executable*
 g:ale_objc_clangd_options	ale-objc.txt	/*g:ale_objc_clangd_options*
@@ -1110,6 +1132,7 @@ g:ale_php_phpmd_ruleset	ale-php.txt	/*g:ale_php_phpmd_ruleset*
 g:ale_php_phpstan_configuration	ale-php.txt	/*g:ale_php_phpstan_configuration*
 g:ale_php_phpstan_executable	ale-php.txt	/*g:ale_php_phpstan_executable*
 g:ale_php_phpstan_level	ale-php.txt	/*g:ale_php_phpstan_level*
+g:ale_php_psalm_executable	ale-php.txt	/*g:ale_php_psalm_executable*
 g:ale_pony_ponyc_executable	ale-pony.txt	/*g:ale_pony_ponyc_executable*
 g:ale_pony_ponyc_options	ale-pony.txt	/*g:ale_pony_ponyc_options*
 g:ale_proto_protoc_gen_lint_options	ale-proto.txt	/*g:ale_proto_protoc_gen_lint_options*
@@ -1209,6 +1232,7 @@ g:ale_scala_scalafmt_options	ale-scala.txt	/*g:ale_scala_scalafmt_options*
 g:ale_scala_scalastyle_config	ale-scala.txt	/*g:ale_scala_scalastyle_config*
 g:ale_scala_scalastyle_options	ale-scala.txt	/*g:ale_scala_scalastyle_options*
 g:ale_scss_stylelint_executable	ale-scss.txt	/*g:ale_scss_stylelint_executable*
+g:ale_scss_stylelint_options	ale-scss.txt	/*g:ale_scss_stylelint_options*
 g:ale_scss_stylelint_use_global	ale-scss.txt	/*g:ale_scss_stylelint_use_global*
 g:ale_set_balloons	ale.txt	/*g:ale_set_balloons*
 g:ale_set_balloons_legacy_echo	ale.txt	/*g:ale_set_balloons_legacy_echo*

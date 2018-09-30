@@ -53,6 +53,8 @@ IMPROVEMENTS:
   [[GH-1964]](https://github.com/fatih/vim-go/pull/1964)
 * Handle go1.11 test output.
   [[GH-1978]](https://github.com/fatih/vim-go/pull/1978)
+* Internal: install tools by their custom names
+  [[GH-1984]](https://github.com/fatih/vim-go/pull/1984)
 
 
 BUG FIXES:

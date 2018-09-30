@@ -563,7 +563,7 @@ function! s:pos_range(end, pattern) abort
   endif
   if exists('s:buf[s:nr].pre_cmdl_view')
     if get(s:buf[s:nr].pre_cmdl_view, 'mode', '') =~# "^[vV\<C-V>]"
-          \ && (a:end > line('w$') || a:end < line('w0'))
+          \ && a:end > line('w$')
       unlet s:buf[s:nr].pre_cmdl_view.mode
       call winrestview(s:buf[s:nr].pre_cmdl_view)
     endif
@@ -571,7 +571,7 @@ function! s:pos_range(end, pattern) abort
   endif
   call cursor([a:end, 1])
   if !empty(a:pattern)
-    call search(a:pattern, 'c', a:end, s:s_timeout)
+    silent! call search(a:pattern, 'c', a:end, s:s_timeout)
   endif
   let s:moved = 1
 endfunction
