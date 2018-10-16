@@ -19,6 +19,7 @@ func main() {
 		"robertmeta/nofrils",
 		"romainl/Apprentice",
 		"romainl/Disciple",
+		"cormacrelf/vim-colors-github",
 	}
 	plugins := []string{
 		"airblade/vim-gitgutter",

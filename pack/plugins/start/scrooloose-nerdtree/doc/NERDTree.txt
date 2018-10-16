@@ -145,6 +145,9 @@ The following features and functionality are provided by the NERD tree:
     Change the NERDTree root to the current working directory.  If no
     NERDTree exists for this tab, a new one is opened.
 
+:NERDTreeRefreshRoot                                    *:NERDTreeRefreshRoot*
+    Refreshes the NERD tree root node.
+
 ------------------------------------------------------------------------------
 2.2. Bookmarks                                             *NERDTreeBookmarks*
 
@@ -1014,7 +1017,7 @@ Defines the value for the |'statusline'| setting in NERDTree windows.
 Note: The setting is actually applied using |:let-&|, not |:set|, so
 escaping spaces is not necessary.
 
-Setting this option to -1 will will deactivate it so that your global
+Setting this option to -1 will deactivate it so that your global
 |'statusline'| setting is used.
 
 ------------------------------------------------------------------------------

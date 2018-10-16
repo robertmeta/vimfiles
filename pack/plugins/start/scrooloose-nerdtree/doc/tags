@@ -33,6 +33,7 @@
 :NERDTreeFocus	NERDTree.txt	/*:NERDTreeFocus*
 :NERDTreeFromBookmark	NERDTree.txt	/*:NERDTreeFromBookmark*
 :NERDTreeMirror	NERDTree.txt	/*:NERDTreeMirror*
+:NERDTreeRefreshRoot	NERDTree.txt	/*:NERDTreeRefreshRoot*
 :NERDTreeToggle	NERDTree.txt	/*:NERDTreeToggle*
 NERDTree	NERDTree.txt	/*NERDTree*
 NERDTree-?	NERDTree.txt	/*NERDTree-?*

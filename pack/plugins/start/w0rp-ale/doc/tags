@@ -134,6 +134,7 @@ ale-development.txt	ale-development.txt	/*ale-development.txt*
 ale-dockerfile-hadolint	ale-dockerfile.txt	/*ale-dockerfile-hadolint*
 ale-dockerfile-options	ale-dockerfile.txt	/*ale-dockerfile-options*
 ale-elixir-dialyxir	ale-elixir.txt	/*ale-elixir-dialyxir*
+ale-elixir-elixir-ls	ale-elixir.txt	/*ale-elixir-elixir-ls*
 ale-elixir-mix	ale-elixir.txt	/*ale-elixir-mix*
 ale-elixir-mix-format	ale-elixir.txt	/*ale-elixir-mix-format*
 ale-elixir-options	ale-elixir.txt	/*ale-elixir-options*
@@ -503,6 +504,7 @@ b:ale_dockerfile_hadolint_image	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_i
 b:ale_dockerfile_hadolint_use_docker	ale-dockerfile.txt	/*b:ale_dockerfile_hadolint_use_docker*
 b:ale_echo_delay	ale.txt	/*b:ale_echo_delay*
 b:ale_echo_msg_format	ale.txt	/*b:ale_echo_msg_format*
+b:ale_elixir_elixir_ls_release	ale-elixir.txt	/*b:ale_elixir_elixir_ls_release*
 b:ale_elixir_mix_format_options	ale-elixir.txt	/*b:ale_elixir_mix_format_options*
 b:ale_elixir_mix_options	ale-elixir.txt	/*b:ale_elixir_mix_options*
 b:ale_elm_format_executable	ale-elm.txt	/*b:ale_elm_format_executable*
@@ -610,6 +612,7 @@ b:ale_json_fixjson_executable	ale-json.txt	/*b:ale_json_fixjson_executable*
 b:ale_json_fixjson_options	ale-json.txt	/*b:ale_json_fixjson_options*
 b:ale_json_fixjson_use_global	ale-json.txt	/*b:ale_json_fixjson_use_global*
 b:ale_json_jq_executable	ale-json.txt	/*b:ale_json_jq_executable*
+b:ale_json_jq_filters	ale-json.txt	/*b:ale_json_jq_filters*
 b:ale_json_jq_options	ale-json.txt	/*b:ale_json_jq_options*
 b:ale_julia_executable	ale-julia.txt	/*b:ale_julia_executable*
 b:ale_keep_list_window_open	ale.txt	/*b:ale_keep_list_window_open*
@@ -932,6 +935,7 @@ g:ale_echo_msg_error_str	ale.txt	/*g:ale_echo_msg_error_str*
 g:ale_echo_msg_format	ale.txt	/*g:ale_echo_msg_format*
 g:ale_echo_msg_info_str	ale.txt	/*g:ale_echo_msg_info_str*
 g:ale_echo_msg_warning_str	ale.txt	/*g:ale_echo_msg_warning_str*
+g:ale_elixir_elixir_ls_release	ale-elixir.txt	/*g:ale_elixir_elixir_ls_release*
 g:ale_elixir_mix_format_options	ale-elixir.txt	/*g:ale_elixir_mix_format_options*
 g:ale_elixir_mix_options	ale-elixir.txt	/*g:ale_elixir_mix_options*
 g:ale_elm_format_executable	ale-elm.txt	/*g:ale_elm_format_executable*
@@ -1041,6 +1045,7 @@ g:ale_json_fixjson_executable	ale-json.txt	/*g:ale_json_fixjson_executable*
 g:ale_json_fixjson_options	ale-json.txt	/*g:ale_json_fixjson_options*
 g:ale_json_fixjson_use_global	ale-json.txt	/*g:ale_json_fixjson_use_global*
 g:ale_json_jq_executable	ale-json.txt	/*g:ale_json_jq_executable*
+g:ale_json_jq_filters	ale-json.txt	/*g:ale_json_jq_filters*
 g:ale_json_jq_options	ale-json.txt	/*g:ale_json_jq_options*
 g:ale_julia_executable	ale-julia.txt	/*g:ale_julia_executable*
 g:ale_keep_list_window_open	ale.txt	/*g:ale_keep_list_window_open*
