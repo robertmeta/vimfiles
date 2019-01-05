@@ -34,6 +34,7 @@ gutentags_ctags_tagfile	gutentags.txt	/*gutentags_ctags_tagfile*
 gutentags_define_advanced_commands	gutentags.txt	/*gutentags_define_advanced_commands*
 gutentags_dont_load	gutentags.txt	/*gutentags_dont_load*
 gutentags_enabled	gutentags.txt	/*gutentags_enabled*
+gutentags_exclude_filetypes	gutentags.txt	/*gutentags_exclude_filetypes*
 gutentags_exclude_project_root	gutentags.txt	/*gutentags_exclude_project_root*
 gutentags_file_list_command	gutentags.txt	/*gutentags_file_list_command*
 gutentags_generate_on_empty_buffer	gutentags.txt	/*gutentags_generate_on_empty_buffer*
@@ -48,3 +49,4 @@ gutentags_project_info	gutentags.txt	/*gutentags_project_info*
 gutentags_project_root	gutentags.txt	/*gutentags_project_root*
 gutentags_project_root_finder	gutentags.txt	/*gutentags_project_root_finder*
 gutentags_resolve_symlinks	gutentags.txt	/*gutentags_resolve_symlinks*
+gutentags_trace	gutentags.txt	/*gutentags_trace*

@@ -160,6 +160,9 @@ Some debugging/troubleshooting commands are also available if the
                         that they can start working again when you re-enable
                         Gutentags.
 
+                        {only available when
+                        |gutentags_define_advanced_commands| is set}
+
                                                 *GutentagsToggleTrace*
 :GutentagsToggleTrace
                         If you want to keep an eye on what Gutentags is doing,
@@ -171,6 +174,9 @@ Some debugging/troubleshooting commands are also available if the
                         In addition to messages in Vim, it will also make
                         Gutentags redirect the output of the tag generation
                         script to a `.log` file in the project root.
+
+                        {only available when
+                        |gutentags_define_advanced_commands| is set}
 
 
 Gutentags also has some user auto-commands (see |User| and |:doautocmd|):
@@ -266,7 +272,21 @@ g:gutentags_enabled
                         re-enable Gutentags, you won't have some buffers
                         mysteriously working while others (those open last)
                         don't.
-                        Defaults to 1.
+                        Defaults to `1`.
+
+                                                *gutentags_trace*
+g:gutentags_trace
+                        When true, Gutentags will spit out debugging
+                        information as Vim messages (which you can later read
+                        with |:messages|). It also runs its background scripts
+                        with extra parameters to log activity to a `tags.log`
+                        file that you can also inspect for more information.
+
+                        Note: you can run `:verbose GutentagsUpdate` to
+                        temporarily set |g:gutentags_trace| to `1` for that
+                        update only.
+
+                        Defaults to `0`.
 
                                                 *gutentags_dont_load*
 g:gutentags_dont_load
@@ -322,6 +342,14 @@ g:gutentags_add_default_project_roots
                         when Gutentags searches for a project root.
                         The default markers are:
                         `['.git', '.hg', '.bzr', '_darcs', '_darcs', '_FOSSIL_', '.fslckout']`
+
+                                                *gutentags_exclude_filetypes*
+g:gutentags_exclude_filetypes
+                        A |List| of file types (see |'filetype'|) that Gutentags
+                        should ignore. When a buffer is opened, if its
+                        'filetype' is found in this list, Gutentags features
+                        won't be available for this buffer.
+                        Defaults to an empty list (`[]`).
 
                                                 *gutentags_exclude_project_root*
 g:gutentags_exclude_project_root

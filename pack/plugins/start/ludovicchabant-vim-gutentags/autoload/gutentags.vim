@@ -31,10 +31,10 @@ endfunction
 
 " Prints a message if debug tracing is enabled.
 function! gutentags#trace(message, ...)
-   if g:gutentags_trace || (a:0 && a:1)
-       let l:message = "gutentags: " . a:message
-       echom l:message
-   endif
+    if g:gutentags_trace || (a:0 && a:1)
+        let l:message = "gutentags: " . a:message
+        echom l:message
+    endif
 endfunction
 
 " Strips the ending slash in a path.
@@ -248,6 +248,12 @@ function! gutentags#setup_gutentags() abort
         return
     endif
 
+    " Don't setup gutentags for things that don't need it, or that could
+    " cause problems.
+    if index(g:gutentags_exclude_filetypes, &filetype) >= 0
+        return
+    endif
+
     " Let the user specify custom ways to disable Gutentags.
     if g:gutentags_init_user_func != '' &&
                 \!call(g:gutentags_init_user_func, [expand('%:p')])
@@ -420,11 +426,24 @@ endfunction
 
 " (Re)Generate the tags file for the current buffer's file.
 function! s:manual_update_tags(bang) abort
-    let l:bn = bufnr('%')
-    for module in g:gutentags_modules
-        call s:update_tags(l:bn, module, a:bang, 0)
-    endfor
-    silent doautocmd User GutentagsUpdating
+    let l:restore_prev_trace = 0
+    let l:prev_trace = g:gutentags_trace
+    if &verbose > 0
+        let g:gutentags_trace = 1
+        let l:restore_prev_trace = 1
+    endif
+
+    try
+        let l:bn = bufnr('%')
+        for module in g:gutentags_modules
+            call s:update_tags(l:bn, module, a:bang, 0)
+        endfor
+        silent doautocmd User GutentagsUpdating
+    finally
+        if l:restore_prev_trace
+            let g:gutentags_trace = l:prev_trace
+        endif
+    endtry
 endfunction
 
 " (Re)Generate the tags file for a buffer that just go saved.
@@ -549,7 +568,7 @@ function! gutentags#fake(...)
 endfunction
 
 function! gutentags#default_io_cb(chan, msg) abort
-   call gutentags#trace(string(a:msg))
+    call gutentags#trace('[job output]: '.string(a:msg))
 endfunction
 
 if has('nvim')
@@ -601,21 +620,21 @@ endif
 " Returns which modules are currently generating something for the
 " current buffer.
 function! gutentags#inprogress()
-   " Does this buffer have gutentags enabled?
-   if !exists('b:gutentags_files')
-      return []
-   endif
+    " Does this buffer have gutentags enabled?
+    if !exists('b:gutentags_files')
+        return []
+    endif
 
-   " Find any module that has a job in progress for any of this buffer's
-   " tags files.
-   let l:modules_in_progress = []
-   for [module, tags_file] in items(b:gutentags_files)
-      let l:jobidx = gutentags#find_job_index_by_tags_file(module, tags_file)
-      if l:jobidx >= 0
-         call add(l:modules_in_progress, module)
-      endif
-   endfor
-   return l:modules_in_progress
+    " Find any module that has a job in progress for any of this buffer's
+    " tags files.
+    let l:modules_in_progress = []
+    for [module, tags_file] in items(b:gutentags_files)
+        let l:jobidx = gutentags#find_job_index_by_tags_file(module, tags_file)
+        if l:jobidx >= 0
+            call add(l:modules_in_progress, module)
+        endif
+    endfor
+    return l:modules_in_progress
 endfunction
 
 " }}}
