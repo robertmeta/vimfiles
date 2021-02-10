@@ -28,6 +28,9 @@ else
   let s:has_patch_7_4_310 = v:version == 704 && has('patch310')
 endif
 
+" functions
+let s:exists_reg_executing = exists('*reg_executing')
+
 " features
 let s:has_gui_running = has('gui_running')
 let s:has_timer       = has('timers')
@@ -102,7 +105,6 @@ function! s:operator.execute(motionwise) dict abort  "{{{
   finally
     call self.finalize()
     call s:restore_options(self.kind, self.mode, options)
-    redraw
   endtry
 endfunction
 "}}}
@@ -460,7 +462,7 @@ function! s:operator.query() dict abort  "{{{
   if filter(recipes, 's:is_input_matched(v:val, input, opt, 1)') != []
     let recipe = recipes[0]
   else
-    if input ==# "\<Esc>" || input ==# ''
+    if input ==# "\<Esc>" || input ==# '' || input =~# '^[\x80]'
       let recipe = {}
     else
       let c = split(input, '\zs')[0]
@@ -498,7 +500,7 @@ endfunction
 "}}}
 function! s:operator.show(place, hi_group, ...) dict abort "{{{
   let forcibly = get(a:000, 0, 0)
-  if !self.opt.of('highlight') && !forcibly
+  if !forcibly && (!self.opt.of('highlight') || s:reg_executing() isnot# '')
     return 1
   endif
 
@@ -726,10 +728,9 @@ endfunction
 function! s:has_action(candidate, action) abort "{{{
   if !has_key(a:candidate, 'action')
     return 1
-  else
-    let filter = 'v:val ==# a:action || v:val ==# "all"'
-    return filter(copy(a:candidate['action']), filter) != []
   endif
+  let filter = 'v:val ==# a:action || v:val ==# "all"'
+  return filter(copy(a:candidate['action']), filter) != []
 endfunction
 "}}}
 function! s:expr_filter(candidate) abort  "{{{
@@ -762,6 +763,7 @@ function! s:shift_options(kind, mode) abort "{{{
   let options.virtualedit = &virtualedit
   let options.whichwrap   = &whichwrap
   let options.cpoptions   = &cpoptions
+  let options.formatoptions = &formatoptions
 
   """ tweak appearance
   " hide_cursor
@@ -790,6 +792,7 @@ function! s:shift_options(kind, mode) abort "{{{
   set whichwrap=h,l
   set cpoptions-=l
   set cpoptions-=\
+  setlocal formatoptions=
   return options
 endfunction
 "}}}
@@ -808,6 +811,7 @@ function! s:restore_options(kind, mode, options) abort "{{{
   let &virtualedit = a:options.virtualedit
   let &whichwrap   = a:options.whichwrap
   let &cpoptions   = a:options.cpoptions
+  let &l:formatoptions = a:options.formatoptions
 endfunction
 "}}}
 function! s:get_assigned_region(kind, motionwise) abort "{{{
@@ -1021,6 +1025,12 @@ function! s:get_tailstart_cursor_pos(tail, inner_tail) abort  "{{{
   return tailstart
 endfunction
 "}}}
+function! s:reg_executing() abort "{{{
+  if s:exists_reg_executing
+    return reg_executing()
+  endif
+  return ''
+endfunction "}}}
 
 let [s:get_left_pos, s:get_right_pos, s:c2p, s:is_valid_2pos, s:is_ahead, s:is_equal_or_ahead, s:get]
       \ = operator#sandwich#lib#funcref(['get_left_pos', 'get_right_pos', 'c2p', 'is_valid_2pos', 'is_ahead', 'is_equal_or_ahead', 'get'])

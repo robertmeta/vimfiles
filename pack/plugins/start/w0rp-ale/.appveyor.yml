@@ -5,6 +5,11 @@ clone_depth: 10
 # Use the directory C:\testplugin so test directories will mostly work.
 clone_folder: C:\testplugin
 
+branches:
+  only:
+    - master
+    - /v\d+\.\d+\.(x|\d+)/
+
 # Cache the vim and vader directories between builds.
 cache:
   - C:\vim -> .appveyor.yml
@@ -13,6 +18,9 @@ cache:
 init:
   # Stop git from changing newlines
   - git config --global core.autocrlf input
+
+# NOTE: If you change the Vim or Vader versions here, please also update the
+# instructions for running tests on Windows in ale-development.txt
 
 install:
   # Download and unpack Vim

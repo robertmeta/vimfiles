@@ -31,10 +31,14 @@ setlocal number
 " we don't want quickfix buffers to pop up when doing :bn or :bp
 set nobuflisted
 
-let b:undo_ftplugin .= "| setl wrap< rnu< nu< bl<"
+if exists("b:undo_ftplugin")
+    let b:undo_ftplugin .= "| setl wrap< rnu< nu< bl<"
+else
+    let b:undo_ftplugin = "setl wrap< rnu< nu< bl<"
+endif
 
 " are we in a location list or a quickfix list?
-let b:qf_isLoc = !empty(getloclist(0))
+let b:qf_isLoc = get(get(getwininfo(win_getid()), 0, {}), 'loclist', 0)
 
 " customize the statusline
 if exists("g:qf_statusline")
@@ -43,16 +47,29 @@ endif
 
 " inspired by Ack.vim
 if exists("g:qf_mapping_ack_style")
-    " open entry in a new horizontal window
-    nnoremap <silent> <buffer> s <C-w><CR>
+    let qf_at_bottom = (b:qf_isLoc == 1 && get(g:, 'qf_loclist_window_bottom', 1))
+                \ || (b:qf_isLoc == 0 && get(g:, 'qf_window_bottom', 1))
 
     " open entry in a new vertical window.
-    if (b:qf_isLoc == 1 && get(g:, 'qf_loclist_window_bottom', 1))
-                \ || (b:qf_isLoc == 0 && get(g:, 'qf_window_bottom', 1))
+    if qf_at_bottom
         nnoremap <silent> <expr> <buffer> v &splitright ? "\<C-w>\<CR>\<C-w>L\<C-w>p\<C-w>J\<C-w>p" : "\<C-w>\<CR>\<C-w>H\<C-w>p\<C-w>J\<C-w>p"
     else
         " don't move quickfix to bottom if qf_loclist_window_bottom is 0
         nnoremap <silent> <expr> <buffer> v &splitright ? "\<C-w>\<CR>\<C-w>L" : "\<C-w>\<CR>\<C-w>H"
+    endif
+
+    if qf_at_bottom && &splitbelow
+        " open entry in a new horizontal window and move quickfix to bottom
+        nnoremap <silent> <buffer> s <C-w><CR><C-w>p<C-w>J<C-w>p
+
+        " preview entry under the cursor and move quickfix to bottom
+        nnoremap <silent> <buffer> p :call qf#preview#PreviewFileUnderCursor()<CR><C-w>J
+    else
+        " open entry in a new horizontal window
+        nnoremap <silent> <buffer> s <C-w><CR>
+
+        " preview entry under the cursor
+        nnoremap <silent> <buffer> p :call qf#preview#PreviewFileUnderCursor()<CR>
     endif
 
     " open entry in a new tab.
@@ -67,9 +84,6 @@ if exists("g:qf_mapping_ack_style")
     else
         nnoremap <silent> <buffer> O <CR>:cclose<CR>
     endif
-
-    " preview entry under the cursor
-    nnoremap <silent> <buffer> p :call qf#preview#PreviewFileUnderCursor()<CR>
 
     let b:undo_ftplugin .= "| execute 'nunmap <buffer> s'"
                 \ . "| execute 'nunmap <buffer> v'"
@@ -127,6 +141,10 @@ command! -buffer ListLists call qf#namedlist#ListLists()
 " remove given lists or all
 command! -buffer -nargs=* -bang -complete=customlist,qf#namedlist#CompleteList RemoveList call qf#namedlist#RemoveList(expand("<bang>") == "!" ? 1 : 0, <q-args>)
 
+" navigate between older and newer lists
+nnoremap <silent> <buffer> <Left> :call qf#history#Older()<CR>
+nnoremap <silent> <buffer> <Right> :call qf#history#Newer()<CR>
+
 " TODO: allow customization
 " jump to previous/next file grouping
 nnoremap <silent> <buffer> } :call qf#filegroup#NextFile()<CR>
@@ -150,6 +168,8 @@ let b:undo_ftplugin .= "| delcommand Filter"
             \ . "| delcommand RemoveList"
             \ . "| execute 'nunmap <buffer> }'"
             \ . "| execute 'nunmap <buffer> {'"
+            \ . "| execute 'nunmap <buffer> <Left>'"
+            \ . "| execute 'nunmap <buffer> <Right>'"
             \ . "| unlet! b:qf_isLoc"
 
 " decide where to open the location/quickfix window

@@ -1,6 +1,22 @@
 " Author: w0rp <devw0rp@gmail.com>
 " Description: Preview windows for showing whatever information in.
 
+if !has_key(s:, 'last__list')
+    let s:last_list = []
+endif
+
+if !has_key(s:, 'last_options')
+    let s:last_options = {}
+endif
+
+function! ale#preview#SetLastSelection(item_list, options) abort
+    let s:last_list = a:item_list
+    let s:last_options = {
+    \   'open_in': get(a:options, 'open_in', 'current-buffer'),
+    \   'use_relative_paths': get(a:options, 'use_relative_paths', 0),
+    \}
+endfunction
+
 " Open a preview window and show some lines in it.
 " A second argument can be passed as a Dictionary with options. They are...
 "
@@ -23,6 +39,10 @@ function! ale#preview#Show(lines, ...) abort
     setlocal readonly
     let &l:filetype = get(l:options, 'filetype', 'ale-preview')
 
+    for l:command in get(l:options, 'commands', [])
+        call execute(l:command)
+    endfor
+
     if get(l:options, 'stay_here')
         wincmd p
     endif
@@ -41,16 +61,24 @@ endfunction
 
 " Show a location selection preview window, given some items.
 " Each item should have 'filename', 'line', and 'column' keys.
-function! ale#preview#ShowSelection(item_list) abort
+function! ale#preview#ShowSelection(item_list, ...) abort
+    let l:options = get(a:000, 0, {})
+    let l:sep = has('win32') ? '\' : '/'
     let l:lines = []
 
     " Create lines to display to users.
     for l:item in a:item_list
         let l:match = get(l:item, 'match', '')
+        let l:filename = l:item.filename
+
+        if get(l:options, 'use_relative_paths')
+            let l:cwd = getcwd() " no-custom-checks
+            let l:filename = substitute(l:filename, '^' . l:cwd . l:sep, '', '')
+        endif
 
         call add(
         \   l:lines,
-        \   l:item.filename
+        \   l:filename
         \       . ':' . l:item.line
         \       . ':' . l:item.column
         \       . (!empty(l:match) ? ' ' . l:match : ''),
@@ -59,32 +87,40 @@ function! ale#preview#ShowSelection(item_list) abort
 
     call ale#preview#Show(l:lines, {'filetype': 'ale-preview-selection'})
     let b:ale_preview_item_list = a:item_list
+    let b:ale_preview_item_open_in = get(l:options, 'open_in', 'current-buffer')
+
+    " Remember preview state, so we can repeat it later.
+    call ale#preview#SetLastSelection(a:item_list, l:options)
 endfunction
 
-function! s:Open(open_in_tab) abort
+function! ale#preview#RepeatSelection() abort
+    if !empty(s:last_list)
+        call ale#preview#ShowSelection(s:last_list, s:last_options)
+    endif
+endfunction
+
+function! s:Open(open_in) abort
     let l:item_list = get(b:, 'ale_preview_item_list', [])
-    let l:item = get(l:item_list, getcurpos()[1] - 1, {})
+    let l:item = get(l:item_list, getpos('.')[1] - 1, {})
 
     if empty(l:item)
         return
     endif
 
-    if !a:open_in_tab
-        :q!
-    endif
+    :q!
 
     call ale#util#Open(
     \   l:item.filename,
     \   l:item.line,
     \   l:item.column,
-    \   {'open_in_tab': a:open_in_tab},
+    \   {'open_in': a:open_in},
     \)
 endfunction
 
-function! ale#preview#OpenSelectionInBuffer() abort
-    call s:Open(0)
+function! ale#preview#OpenSelection() abort
+    call s:Open(b:ale_preview_item_open_in)
 endfunction
 
 function! ale#preview#OpenSelectionInTab() abort
-    call s:Open(1)
+    call s:Open('tab')
 endfunction

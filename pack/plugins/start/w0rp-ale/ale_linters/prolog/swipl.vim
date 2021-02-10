@@ -35,9 +35,10 @@ function! s:Subst(format, vars) abort
 endfunction
 
 function! ale_linters#prolog#swipl#Handle(buffer, lines) abort
-    let l:pattern = '\v^(ERROR|Warning)+%(:\s*[^:]+:(\d+)%(:(\d+))?)?:\s*(.*)$'
     let l:output = []
     let l:i = 0
+
+    let l:pattern = '\v^(ERROR|Warning)+%(:\s*[^:]+:(\d+)%(:(\d+))?)?:\s*(.*)$'
 
     while l:i < len(a:lines)
         let l:match = matchlist(a:lines[l:i], l:pattern)
@@ -72,8 +73,17 @@ function! s:GetErrMsg(i, lines, text) abort
     let l:i = a:i + 1
     let l:text = []
 
-    while l:i < len(a:lines) && a:lines[l:i] =~# '^\s'
-        call add(l:text, s:Trim(a:lines[l:i]))
+    let l:pattern = '\v^(ERROR|Warning)?:?(.*)$'
+
+    while l:i < len(a:lines)
+        let l:match = matchlist(a:lines[l:i], l:pattern)
+
+        if empty(l:match) || empty(l:match[2])
+            let l:i += 1
+            break
+        endif
+
+        call add(l:text, s:Trim(l:match[2]))
         let l:i += 1
     endwhile
 
@@ -87,14 +97,14 @@ endfunction
 " Skip sandbox error which is caused by directives
 " because what we want is syntactic or semantic check.
 function! s:Ignore(item) abort
-    return a:item.type is# 'E' &&
-    \      a:item.text =~# '\vNo permission to (call|directive|assert) sandboxed'
+    return a:item.type is# 'E'
+    \   && a:item.text =~# '\vNo permission to (call|directive|assert) sandboxed'
 endfunction
 
 call ale#linter#Define('prolog', {
 \   'name': 'swipl',
 \   'output_stream': 'stderr',
-\   'executable_callback': ale#VarFunc('prolog_swipl_executable'),
-\   'command_callback': 'ale_linters#prolog#swipl#GetCommand',
+\   'executable': {b -> ale#Var(b, 'prolog_swipl_executable')},
+\   'command': function('ale_linters#prolog#swipl#GetCommand'),
 \   'callback': 'ale_linters#prolog#swipl#Handle',
 \})

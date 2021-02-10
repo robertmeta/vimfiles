@@ -8,6 +8,7 @@
 'g:qf_max_height'	qf.txt	/*'g:qf_max_height'*
 'g:qf_nowrap'	qf.txt	/*'g:qf_nowrap'*
 'g:qf_save_win_view'	qf.txt	/*'g:qf_save_win_view'*
+'g:qf_shorten_path'	qf.txt	/*'g:qf_shorten_path'*
 'g:qf_statusline'	qf.txt	/*'g:qf_statusline'*
 'g:qf_window_bottom'	qf.txt	/*'g:qf_window_bottom'*
 :Dofile	qf.txt	/*:Dofile*
@@ -25,11 +26,17 @@
 <Plug>(qf_loc_previous)	qf.txt	/*<Plug>(qf_loc_previous)*
 <Plug>(qf_loc_toggle)	qf.txt	/*<Plug>(qf_loc_toggle)*
 <Plug>(qf_loc_toggle_stay)	qf.txt	/*<Plug>(qf_loc_toggle_stay)*
+<Plug>(qf_newer)	qf.txt	/*<Plug>(qf_newer)*
+<Plug>(qf_next_file)	qf.txt	/*<Plug>(qf_next_file)*
+<Plug>(qf_older)	qf.txt	/*<Plug>(qf_older)*
+<Plug>(qf_previous_file)	qf.txt	/*<Plug>(qf_previous_file)*
 <Plug>(qf_qf_next)	qf.txt	/*<Plug>(qf_qf_next)*
 <Plug>(qf_qf_previous)	qf.txt	/*<Plug>(qf_qf_previous)*
 <Plug>(qf_qf_switch)	qf.txt	/*<Plug>(qf_qf_switch)*
 <Plug>(qf_qf_toggle)	qf.txt	/*<Plug>(qf_qf_toggle)*
 <Plug>(qf_qf_toggle_stay)	qf.txt	/*<Plug>(qf_qf_toggle_stay)*
+QfHistoryNewer	qf.txt	/*QfHistoryNewer*
+QfHistoryOlder	qf.txt	/*QfHistoryOlder*
 QfNextFile	qf.txt	/*QfNextFile*
 QfPreviousFile	qf.txt	/*QfPreviousFile*
 qf	qf.txt	/*qf*

@@ -1,13 +1,13 @@
-# Asynchronous Lint Engine [![Travis CI Build Status](https://travis-ci.org/w0rp/ale.svg?branch=master)](https://travis-ci.org/w0rp/ale) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/r0ef1xu8xjmik58d/branch/master?svg=true)](https://ci.appveyor.com/project/w0rp/ale) [![Join the chat at https://gitter.im/vim-ale/Lobby](https://badges.gitter.im/vim-ale/Lobby.svg)](https://gitter.im/vim-ale/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Asynchronous Lint Engine [![GitHub Build Status](https://github.com/dense-analysis/ale/workflows/CI/badge.svg)](https://github.com/dense-analysis/ale/actions?query=event%3Apush+workflow%3ACI+branch%3Amaster++) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/r0ef1xu8xjmik58d/branch/master?svg=true)](https://ci.appveyor.com/project/dense-analysis/ale) [![Join the chat at https://gitter.im/vim-ale/Lobby](https://badges.gitter.im/vim-ale/Lobby.svg)](https://gitter.im/vim-ale/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-![ALE Logo by Mark Grealish - https://www.bhalash.com/](img/logo.jpg?raw=true)
+![ALE Logo by Mark Grealish - https://www.bhalash.com/](https://user-images.githubusercontent.com/3518142/59195920-2c339500-8b85-11e9-9c22-f6b7f69637b8.jpg)
 
-ALE (Asynchronous Lint Engine) is a plugin for providing linting in NeoVim
-0.2.0+ and Vim 8 while you edit your text files, and acts as a Vim
-[Language Server Protocol](https://langserver.org/) client.
+ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking
+and semantic errors) in NeoVim 0.2.0+ and Vim 8 while you edit your text files,
+and acts as a Vim [Language Server Protocol](https://langserver.org/) client.
 
-<img src="img/example.gif?raw=true" alt="A linting example with the darkspectrum color scheme in GVim." title="A linting example with the darkspectrum color scheme in GVim.">
+<img src="https://user-images.githubusercontent.com/3518142/59195938-3a81b100-8b85-11e9-8e8d-6a601b1db908.gif" alt="A linting example with the darkspectrum color scheme in GVim." title="A linting example with the darkspectrum color scheme in GVim.">
 
 ALE makes use of NeoVim and Vim 8 job control functions and timers to
 run linters on the contents of text buffers and return errors as
@@ -26,7 +26,7 @@ features, including:
 
 * Diagnostics (via Language Server Protocol linters)
 * Go To Definition (`:ALEGoToDefinition`)
-* Completion (`let g:ale_completion_enabled = 1` before ALE is loaded)
+* Completion (Built in completion support, or with Deoplete)
 * Finding references (`:ALEFindReferences`)
 * Hover information (`:ALEHover`)
 * Symbol search (`:ALESymbolSearch`)
@@ -34,6 +34,10 @@ features, including:
 If you don't care about Language Server Protocol, ALE won't load any of the code
 for working with it unless needed. One of ALE's general missions is that you
 won't pay for the features that you don't use.
+
+**Help Wanted:** If you would like to help maintain this plugin by managing the
+many issues and pull requests that are submitted, please send the author an
+email at [dev@w0rp.com](mailto:dev@w0rp.com?subject=Helping%20with%20ALE).
 
 If you enjoy this plugin, feel free to contribute or check out the author's
 other content at [w0rp.com](https://w0rp.com).
@@ -49,6 +53,7 @@ other content at [w0rp.com](https://w0rp.com).
     5. [Find References](#usage-find-references)
     6. [Hovering](#usage-hover)
     7. [Symbol Search](#usage-symbol-search)
+    8. [Refactoring: Rename, Actions](#usage-refactoring)
 3. [Installation](#installation)
     1. [Installation with Vim package management](#standard-installation)
     2. [Installation with Pathogen](#installation-with-pathogen)
@@ -57,157 +62,33 @@ other content at [w0rp.com](https://w0rp.com).
 4. [Contributing](#contributing)
 5. [FAQ](#faq)
     1. [How do I disable particular linters?](#faq-disable-linters)
-    2. [How can I keep the sign gutter open?](#faq-keep-signs)
-    3. [How can I change the signs ALE uses?](#faq-change-signs)
-    4. [How can I change or disable the highlights ALE uses?](#faq-change-highlights)
-    5. [How can I show errors or warnings in my statusline?](#faq-statusline)
-    6. [How can I show errors or warnings in my lightline?](#faq-lightline)
-    7. [How can I change the format for echo messages?](#faq-echo-format)
-    8. [How can I execute some code when ALE starts or stops linting?](#faq-autocmd)
-    9. [How can I navigate between errors quickly?](#faq-navigation)
-    10. [How can I run linters only when I save files?](#faq-lint-on-save)
-    11. [How can I use the quickfix list instead of the loclist?](#faq-quickfix)
-    12. [How can I check JSX files with both stylelint and eslint?](#faq-jsx-stylelint-eslint)
-    13. [How can I check Vue files with ESLint?](#faq-vue-eslint)
-    14. [Will this plugin eat all of my laptop battery power?](#faq-my-battery-is-sad)
-    15. [How can I configure my C or C++ project?](#faq-c-configuration)
-    16. [How can I configure ALE differently for different buffers?](#faq-buffer-configuration)
-    17. [How can I configure the height of the list in which ALE displays errors?](#faq-list-window-height)
+    2. [How can I see what ALE has configured for the current file?](#faq-get-info)
+    3. [How can I use ALE and coc.nvim together?](#faq-coc-nvim)
+    4. [How can I keep the sign gutter open?](#faq-keep-signs)
+    5. [How can I change the signs ALE uses?](#faq-change-signs)
+    6. [How can I change or disable the highlights ALE uses?](#faq-change-highlights)
+    7. [How can I show errors or warnings in my statusline?](#faq-statusline)
+    8. [How can I show errors or warnings in my lightline?](#faq-lightline)
+    9. [How can I change the format for echo messages?](#faq-echo-format)
+    10. [How can I execute some code when ALE starts or stops linting?](#faq-autocmd)
+    11. [How can I navigate between errors quickly?](#faq-navigation)
+    12. [How can I run linters only when I save files?](#faq-lint-on-save)
+    13. [How can I use the quickfix list instead of the loclist?](#faq-quickfix)
+    14. [How can I check JSX files with both stylelint and eslint?](#faq-jsx-stylelint-eslint)
+    15. [How can I check Vue files with ESLint?](#faq-vue-eslint)
+    16. [Will this plugin eat all of my laptop battery power?](#faq-my-battery-is-sad)
+    17. [How can I configure my C or C++ project?](#faq-c-configuration)
+    18. [How can I configure ALE differently for different buffers?](#faq-buffer-configuration)
+    19. [How can I configure the height of the list in which ALE displays errors?](#faq-list-window-height)
+    20. [How can I run linters or fixers via Docker or a VM?](#faq-vm)
 
 <a name="supported-languages"></a>
 
 ## 1. Supported Languages and Tools
 
-This plugin supports the following languages and tools. All available
-tools will be run in combination, so they can be complementary.
-
-<!--
-Keep the table rows sorted alphabetically by the language name,
-and the tools in the tools column sorted alphabetically by the tool
-name. That seems to be the fairest way to arrange this table.
-
-Remember to also update doc/ale.txt, which has a similar list with different
-formatting.
--->
-
-**Notes:**
-
-* *^ No linters for text or Vim help filetypes are enabled by default.*
-* *!! These linters check only files on disk. See `:help ale-lint-file-linters`*
-
-| Language | Tools |
-| -------- | ----- |
-| Ada | [gcc](https://gcc.gnu.org) |
-| ASM | [gcc](https://gcc.gnu.org) |
-| Ansible | [ansible-lint](https://github.com/willthames/ansible-lint) |
-| API Blueprint | [drafter](https://github.com/apiaryio/drafter) |
-| AsciiDoc | [alex](https://github.com/wooorm/alex) !!, [proselint](http://proselint.com/), [redpen](http://redpen.cc/), [write-good](https://github.com/btford/write-good), [vale](https://github.com/ValeLint/vale) |
-| Awk | [gawk](https://www.gnu.org/software/gawk/)|
-| Bash | [language-server](https://github.com/mads-hartmann/bash-language-server), shell [-n flag](https://www.gnu.org/software/bash/manual/bash.html#index-set), [shellcheck](https://www.shellcheck.net/), [shfmt](https://github.com/mvdan/sh) |
-| BibTeX | [bibclean](http://ftp.math.utah.edu/pub/bibclean/) |
-| Bourne Shell | shell [-n flag](http://linux.die.net/man/1/sh), [shellcheck](https://www.shellcheck.net/), [shfmt](https://github.com/mvdan/sh) |
-| C | [cppcheck](http://cppcheck.sourceforge.net), [cpplint](https://github.com/google/styleguide/tree/gh-pages/cpplint), [clang](http://clang.llvm.org/), [clangd](https://clang.llvm.org/extra/clangd.html), [clangtidy](http://clang.llvm.org/extra/clang-tidy/) !!, [clang-format](https://clang.llvm.org/docs/ClangFormat.html), [cquery](https://github.com/cquery-project/cquery), [flawfinder](https://www.dwheeler.com/flawfinder/), [gcc](https://gcc.gnu.org/), [uncrustify](https://github.com/uncrustify/uncrustify), [ccls](https://github.com/MaskRay/ccls) |
-| C++ (filetype cpp) | [clang](http://clang.llvm.org/), [clangd](https://clang.llvm.org/extra/clangd.html), [clangcheck](http://clang.llvm.org/docs/ClangCheck.html) !!, [clangtidy](http://clang.llvm.org/extra/clang-tidy/) !!, [clang-format](https://clang.llvm.org/docs/ClangFormat.html), [clazy](https://github.com/KDE/clazy) !!, [cppcheck](http://cppcheck.sourceforge.net), [cpplint](https://github.com/google/styleguide/tree/gh-pages/cpplint) !!, [cquery](https://github.com/cquery-project/cquery), [flawfinder](https://www.dwheeler.com/flawfinder/), [gcc](https://gcc.gnu.org/), [uncrustify](https://github.com/uncrustify/uncrustify), [ccls](https://github.com/MaskRay/ccls) |
-| CUDA | [nvcc](http://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html) |
-| C# | [mcs](http://www.mono-project.com/docs/about-mono/languages/csharp/) see:`help ale-cs-mcs` for details, [mcsc](http://www.mono-project.com/docs/about-mono/languages/csharp/) !! see:`help ale-cs-mcsc` for details and configuration, [uncrustify](https://github.com/uncrustify/uncrustify) |
-| Chef | [foodcritic](http://www.foodcritic.io/) |
-| Clojure | [joker](https://github.com/candid82/joker) |
-| CloudFormation | [cfn-python-lint](https://github.com/awslabs/cfn-python-lint) |
-| CMake | [cmakelint](https://github.com/richq/cmake-lint) |
-| CoffeeScript | [coffee](http://coffeescript.org/), [coffeelint](https://www.npmjs.com/package/coffeelint) |
-| Crystal | [crystal](https://crystal-lang.org/) !! |
-| CSS | [csslint](http://csslint.net/), [prettier](https://github.com/prettier/prettier), [stylelint](https://github.com/stylelint/stylelint) |
-| Cucumber | [cucumber](https://cucumber.io/) |
-| Cython (pyrex filetype) | [cython](http://cython.org/) |
-| D | [dls](https://github.com/d-language-server/dls), [dmd](https://dlang.org/dmd-linux.html), [uncrustify](https://github.com/uncrustify/uncrustify) |
-| Dafny | [dafny](https://rise4fun.com/Dafny) !! |
-| Dart | [dartanalyzer](https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli) !!, [language_server](https://github.com/natebosch/dart_language_server), [dartfmt](https://github.com/dart-lang/sdk/tree/master/utils/dartfmt) |
-| Dockerfile | [dockerfile_lint](https://github.com/projectatomic/dockerfile_lint), [hadolint](https://github.com/hadolint/hadolint) |
-| Elixir | [credo](https://github.com/rrrene/credo), [dialyxir](https://github.com/jeremyjh/dialyxir), [dogma](https://github.com/lpil/dogma), [mix](https://hexdocs.pm/mix/Mix.html) !!, [elixir-ls](https://github.com/JakeBecker/elixir-ls) |
-| Elm | [elm-format](https://github.com/avh4/elm-format), [elm-make](https://github.com/elm-lang/elm-make) |
-| Erb | [erb](https://apidock.com/ruby/ERB), [erubi](https://github.com/jeremyevans/erubi), [erubis](https://github.com/kwatch/erubis), [ruumba](https://github.com/ericqweinstein/ruumba) |
-| Erlang | [erlc](http://erlang.org/doc/man/erlc.html), [SyntaxErl](https://github.com/ten0s/syntaxerl) |
-| Fish | fish [-n flag](https://linux.die.net/man/1/fish)
-| Fortran | [gcc](https://gcc.gnu.org/), [language_server](https://github.com/hansec/fortran-language-server) |
-| Fountain | [proselint](http://proselint.com/) |
-| FusionScript | [fusion-lint](https://github.com/RyanSquared/fusionscript) |
-| Git Commit Messages | [gitlint](https://github.com/jorisroovers/gitlint) |
-| GLSL | [glslang](https://github.com/KhronosGroup/glslang), [glslls](https://github.com/svenstaro/glsl-language-server) |
-| Go | [gofmt](https://golang.org/cmd/gofmt/), [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports), [go mod](https://golang.org/cmd/go/) !!, [go vet](https://golang.org/cmd/vet/) !!, [golint](https://godoc.org/github.com/golang/lint), [gotype](https://godoc.org/golang.org/x/tools/cmd/gotype) !!, [gometalinter](https://github.com/alecthomas/gometalinter) !!, [go build](https://golang.org/cmd/go/) !!, [gosimple](https://github.com/dominikh/go-tools/tree/master/cmd/gosimple) !!, [staticcheck](https://github.com/dominikh/go-tools/tree/master/cmd/staticcheck) !!, [golangserver](https://github.com/sourcegraph/go-langserver), [golangci-lint](https://github.com/golangci/golangci-lint) !!, [bingo](https://github.com/saibing/bingo) |
-| GraphQL | [eslint](http://eslint.org/), [gqlint](https://github.com/happylinks/gqlint), [prettier](https://github.com/prettier/prettier) |
-| Hack | [hack](http://hacklang.org/), [hackfmt](https://github.com/facebook/hhvm/tree/master/hphp/hack/hackfmt), [hhast](https://github.com/hhvm/hhast) (disabled by default; see `:help ale-integration-hack`) |
-| Haml | [haml-lint](https://github.com/brigade/haml-lint) |
-| Handlebars | [ember-template-lint](https://github.com/rwjblue/ember-template-lint) |
-| Haskell | [brittany](https://github.com/lspitzner/brittany), [ghc](https://www.haskell.org/ghc/), [cabal-ghc](https://www.haskell.org/cabal/), [stylish-haskell](https://github.com/jaspervdj/stylish-haskell), [stack-ghc](https://haskellstack.org/), [stack-build](https://haskellstack.org/) !!, [ghc-mod](https://github.com/DanielG/ghc-mod), [hlint](https://hackage.haskell.org/package/hlint), [hdevtools](https://hackage.haskell.org/package/hdevtools), [hfmt](https://github.com/danstiner/hfmt), [hie](https://github.com/haskell/haskell-ide-engine) |
-| HCL | [terraform-fmt](https://github.com/hashicorp/terraform) |
-| HTML | [alex](https://github.com/wooorm/alex) !!, [HTMLHint](http://htmlhint.com/), [proselint](http://proselint.com/), [tidy](http://www.html-tidy.org/), [prettier](https://github.com/prettier/prettier), [write-good](https://github.com/btford/write-good) |
-| Idris | [idris](http://www.idris-lang.org/) |
-| ISPC | [ispc](https://ispc.github.io/) !! |
-| Java | [checkstyle](http://checkstyle.sourceforge.net), [javac](http://www.oracle.com/technetwork/java/javase/downloads/index.html), [google-java-format](https://github.com/google/google-java-format), [PMD](https://pmd.github.io/), [javalsp](https://github.com/georgewfraser/vscode-javac), [uncrustify](https://github.com/uncrustify/uncrustify) |
-| JavaScript | [eslint](http://eslint.org/), [flow](https://flowtype.org/), [jscs](http://jscs.info/), [jshint](http://jshint.com/), [prettier](https://github.com/prettier/prettier), [prettier-eslint](https://github.com/prettier/prettier-eslint-cli), [prettier-standard](https://github.com/sheerun/prettier-standard), [standard](http://standardjs.com/), [xo](https://github.com/sindresorhus/xo)
-| JSON | [fixjson](https://github.com/rhysd/fixjson), [jsonlint](http://zaa.ch/jsonlint/), [jq](https://stedolan.github.io/jq/), [prettier](https://github.com/prettier/prettier) |
-| Julia | [languageserver](https://github.com/JuliaEditorSupport/LanguageServer.jl) |
-| Kotlin | [kotlinc](https://kotlinlang.org) !!, [ktlint](https://ktlint.github.io) !!, [languageserver](https://github.com/fwcd/KotlinLanguageServer) see `:help ale-integration-kotlin` for configuration instructions |
-| LaTeX | [alex](https://github.com/wooorm/alex) !!, [chktex](http://www.nongnu.org/chktex/), [lacheck](https://www.ctan.org/pkg/lacheck), [proselint](http://proselint.com/), [redpen](http://redpen.cc/), [vale](https://github.com/ValeLint/vale), [write-good](https://github.com/btford/write-good) |
-| Less | [lessc](https://www.npmjs.com/package/less), [prettier](https://github.com/prettier/prettier), [stylelint](https://github.com/stylelint/stylelint) |
-| LLVM | [llc](https://llvm.org/docs/CommandGuide/llc.html) |
-| Lua | [luac](https://www.lua.org/manual/5.1/luac.html), [luacheck](https://github.com/mpeterv/luacheck) |
-| Mail | [alex](https://github.com/wooorm/alex) !!, [proselint](http://proselint.com/), [vale](https://github.com/ValeLint/vale) |
-| Make | [checkmake](https://github.com/mrtazz/checkmake) |
-| Markdown | [alex](https://github.com/wooorm/alex) !!, [markdownlint](https://github.com/DavidAnson/markdownlint) !!, [mdl](https://github.com/mivok/markdownlint), [prettier](https://github.com/prettier/prettier), [proselint](http://proselint.com/), [redpen](http://redpen.cc/), [remark-lint](https://github.com/wooorm/remark-lint), [textlint](https://textlint.github.io/), [vale](https://github.com/ValeLint/vale), [write-good](https://github.com/btford/write-good) |
-| MATLAB | [mlint](https://www.mathworks.com/help/matlab/ref/mlint.html) |
-| Mercury | [mmc](http://mercurylang.org) !! |
-| NASM | [nasm](https://www.nasm.us/) !! |
-| Nim | [nim check](https://nim-lang.org/docs/nimc.html) !! |
-| nix | [nix-instantiate](http://nixos.org/nix/manual/#sec-nix-instantiate) |
-| nroff | [alex](https://github.com/wooorm/alex) !!, [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good)|
-| Objective-C | [clang](http://clang.llvm.org/), [clangd](https://clang.llvm.org/extra/clangd.html), [uncrustify](https://github.com/uncrustify/uncrustify), [ccls](https://github.com/MaskRay/ccls) |
-| Objective-C++ | [clang](http://clang.llvm.org/), [clangd](https://clang.llvm.org/extra/clangd.html), [uncrustify](https://github.com/uncrustify/uncrustify) |
-| OCaml | [merlin](https://github.com/the-lambda-church/merlin) see `:help ale-ocaml-merlin` for configuration instructions, [ols](https://github.com/freebroccolo/ocaml-language-server), [ocamlformat](https://github.com/ocaml-ppx/ocamlformat) |
-| Pawn | [uncrustify](https://github.com/uncrustify/uncrustify) |
-| Perl | [perl -c](https://perl.org/), [perl-critic](https://metacpan.org/pod/Perl::Critic), [perltidy](https://metacpan.org/pod/distribution/Perl-Tidy/bin/perltidy) |
-| Perl6 | [perl6 -c](https://perl6.org) |
-| PHP | [langserver](https://github.com/felixfbecker/php-language-server), [phan](https://github.com/phan/phan) see `:help ale-php-phan` to instructions, [php -l](https://secure.php.net/), [phpcs](https://github.com/squizlabs/PHP_CodeSniffer), [phpmd](https://phpmd.org), [phpstan](https://github.com/phpstan/phpstan), [phpcbf](https://github.com/squizlabs/PHP_CodeSniffer), [php-cs-fixer](http://cs.sensiolabs.org/), [psalm](https://getpsalm.org) !!  |
-| PO | [alex](https://github.com/wooorm/alex) !!, [msgfmt](https://www.gnu.org/software/gettext/manual/html_node/msgfmt-Invocation.html), [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good) |
-| Pod | [alex](https://github.com/wooorm/alex) !!, [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good) |
-| Pony | [ponyc](https://github.com/ponylang/ponyc) |
-| Prolog | [swipl](https://github.com/SWI-Prolog/swipl-devel) |
-| proto | [protoc-gen-lint](https://github.com/ckaznocha/protoc-gen-lint) |
-| Pug | [pug-lint](https://github.com/pugjs/pug-lint) |
-| Puppet | [languageserver](https://github.com/lingua-pupuli/puppet-editor-services), [puppet](https://puppet.com), [puppet-lint](https://puppet-lint.com) |
-| Python | [autopep8](https://github.com/hhatto/autopep8), [black](https://github.com/ambv/black), [flake8](http://flake8.pycqa.org/en/latest/), [isort](https://github.com/timothycrosley/isort), [mypy](http://mypy-lang.org/), [prospector](https://github.com/PyCQA/prospector), [pycodestyle](https://github.com/PyCQA/pycodestyle), [pydocstyle](https://www.pydocstyle.org/), [pyls](https://github.com/palantir/python-language-server), [pyre](https://github.com/facebook/pyre-check), [pylint](https://www.pylint.org/) !!, [vulture](https://github.com/jendrikseipp/vulture) !!, [yapf](https://github.com/google/yapf) |
-| QML | [qmlfmt](https://github.com/jesperhh/qmlfmt), [qmllint](https://github.com/qt/qtdeclarative/tree/5.11/tools/qmllint) |
-| R | [lintr](https://github.com/jimhester/lintr) |
-| ReasonML | [merlin](https://github.com/the-lambda-church/merlin) see `:help ale-reasonml-ols` for configuration instructions, [ols](https://github.com/freebroccolo/ocaml-language-server), [refmt](https://github.com/reasonml/reason-cli) |
-| reStructuredText | [alex](https://github.com/wooorm/alex) !!, [proselint](http://proselint.com/), [redpen](http://redpen.cc/), [rstcheck](https://github.com/myint/rstcheck), [vale](https://github.com/ValeLint/vale), [write-good](https://github.com/btford/write-good) |
-| Re:VIEW | [redpen](http://redpen.cc/) |
-| RPM spec | [rpmlint](https://github.com/rpm-software-management/rpmlint) (disabled by default; see `:help ale-integration-spec`) |
-| Ruby | [brakeman](http://brakemanscanner.org/) !!, [rails_best_practices](https://github.com/flyerhzm/rails_best_practices) !!, [reek](https://github.com/troessner/reek), [rubocop](https://github.com/bbatsov/rubocop), [ruby](https://www.ruby-lang.org), [rufo](https://github.com/ruby-formatter/rufo), [solargraph](https://solargraph.org), [standardrb](https://github.com/testdouble/standard) |
-| Rust |  [cargo](https://github.com/rust-lang/cargo) !! (see `:help ale-integration-rust` for configuration instructions), [rls](https://github.com/rust-lang-nursery/rls), [rustc](https://www.rust-lang.org/), [rustfmt](https://github.com/rust-lang-nursery/rustfmt) |
-| SASS | [sass-lint](https://www.npmjs.com/package/sass-lint), [stylelint](https://github.com/stylelint/stylelint) |
-| SCSS | [prettier](https://github.com/prettier/prettier), [sass-lint](https://www.npmjs.com/package/sass-lint), [scss-lint](https://github.com/brigade/scss-lint), [stylelint](https://github.com/stylelint/stylelint) |
-| Scala | [fsc](https://www.scala-lang.org/old/sites/default/files/linuxsoft_archives/docu/files/tools/fsc.html), [sbtserver](https://www.scala-sbt.org/1.x/docs/sbt-server.html), [scalac](http://scala-lang.org), [scalafmt](https://scalameta.org/scalafmt/), [scalastyle](http://www.scalastyle.org)|
-| Slim | [slim-lint](https://github.com/sds/slim-lint) |
-| SML | [smlnj](http://www.smlnj.org/) |
-| Solidity | [solhint](https://github.com/protofire/solhint), [solium](https://github.com/duaraghav8/Solium) |
-| Stylus | [stylelint](https://github.com/stylelint/stylelint) |
-| SQL | [sqlint](https://github.com/purcell/sqlint), [sqlfmt](https://github.com/jackc/sqlfmt) |
-| Swift | [swiftlint](https://github.com/realm/SwiftLint), [swiftformat](https://github.com/nicklockwood/SwiftFormat) |
-| Tcl | [nagelfar](http://nagelfar.sourceforge.net) !! |
-| Terraform | [fmt](https://github.com/hashicorp/terraform), [tflint](https://github.com/wata727/tflint) |
-| Texinfo | [alex](https://github.com/wooorm/alex) !!, [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good)|
-| Text^ | [alex](https://github.com/wooorm/alex) !!, [proselint](http://proselint.com/), [redpen](http://redpen.cc/), [textlint](https://textlint.github.io/), [vale](https://github.com/ValeLint/vale), [write-good](https://github.com/btford/write-good) |
-| Thrift | [thrift](http://thrift.apache.org/) |
-| TypeScript | [eslint](http://eslint.org/), [prettier](https://github.com/prettier/prettier), [tslint](https://github.com/palantir/tslint), [tsserver](https://github.com/Microsoft/TypeScript/wiki/Standalone-Server-%28tsserver%29), typecheck |
-| VALA | [uncrustify](https://github.com/uncrustify/uncrustify) |
-| Verilog | [iverilog](https://github.com/steveicarus/iverilog), [verilator](http://www.veripool.org/projects/verilator/wiki/Intro) |
-| Vim | [vint](https://github.com/Kuniwak/vint) |
-| Vim help^ | [alex](https://github.com/wooorm/alex) !!, [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good) |
-| Vue | [prettier](https://github.com/prettier/prettier), [vls](https://github.com/vuejs/vetur/tree/master/server) |
-| XHTML | [alex](https://github.com/wooorm/alex) !!, [proselint](http://proselint.com/), [write-good](https://github.com/btford/write-good) |
-| XML | [xmllint](http://xmlsoft.org/xmllint.html) |
-| YAML | [prettier](https://github.com/prettier/prettier), [swaglint](https://github.com/byCedric/swaglint), [yamllint](https://yamllint.readthedocs.io/) |
-| YANG | [yang-lsp](https://github.com/theia-ide/yang-lsp) |
+ALE supports a wide variety of languages and tools. See the
+[full list](supported-tools.md) in the
+[Supported Languages and Tools](supported-tools.md) page.
 
 <a name="usage"></a>
 
@@ -224,10 +105,10 @@ programs for checking the syntax and semantics of your programs. By default,
 linters will be re-run in the background to check your syntax when you open
 new buffers or as you make edits to your files.
 
-The behaviour of linting can be configured with a variety of options,
+The behavior of linting can be configured with a variety of options,
 documented in [the Vim help file](doc/ale.txt). For more information on the
 options ALE offers, consult `:help ale-options` for global options and `:help
-ale-linter-options` for options specified to particular linters.
+ale-integration-options` for options specified to particular linters.
 
 <a name="usage-fixing"></a>
 
@@ -285,10 +166,41 @@ ALE offers some support for completion via hijacking of omnicompletion while you
 type. All of ALE's completion information must come from Language Server
 Protocol linters, or from `tsserver` for TypeScript.
 
+ALE integrates with [Deoplete](https://github.com/Shougo/deoplete.nvim) as a
+completion source, named `'ale'`. You can configure Deoplete to only use ALE as
+the source of completion information, or mix it with other sources.
+
+```vim
+" Use ALE and also some plugin 'foobar' as completion sources for all code.
+call deoplete#custom#option('sources', {
+\ '_': ['ale', 'foobar'],
+\})
+```
+
+ALE also offers its own automatic completion support, which does not require any
+other plugins, and can be enabled by changing a setting before ALE is loaded.
+
 ```vim
 " Enable completion where available.
 " This setting must be set before ALE is loaded.
+"
+" You should not turn this setting on if you wish to use ALE as a completion
+" source for other completion plugins, like Deoplete.
 let g:ale_completion_enabled = 1
+```
+
+ALE provides an omni-completion function you can use for triggering
+completion manually with `<C-x><C-o>`.
+
+```vim
+set omnifunc=ale#completion#OmniFunc
+```
+
+ALE supports automatic imports from external modules. This behavior is disabled
+by default and can be enabled by setting:
+
+```vim
+let g:ale_completion_autoimport = 1
 ```
 
 See `:help ale-completion` for more information.
@@ -321,6 +233,9 @@ ALE supports "hover" information for printing brief information about symbols at
 the cursor taken from Language Server Protocol linters and `tsserver` with the
 `ALEHover` command.
 
+Truncated information will be displayed when the cursor rests on a symbol by
+default, as long as there are no problems on the same line.
+
 The information can be displayed in a `balloon` tooltip in Vim or GVim by
 hovering your mouse over symbols. Mouse hovering is enabled by default in GVim,
 and needs to be configured for Vim 8.1+ in terminals.
@@ -338,6 +253,18 @@ Search queries can be performed to find functions, types, and more which are
 similar to a given query string.
 
 See `:help ale-symbol-search` for more information.
+
+<a name="usage-refactoring"></a>
+
+### 2.viii Refactoring: Rename, Actions
+
+ALE supports renaming symbols in symbols in code such as variables or class
+names with the `ALERename` command.
+
+`ALECodeAction` will execute actions on the cursor or applied to a visual
+range selection, such as automatically fixing errors.
+
+See `:help ale-refactor` for more information.
 
 <a name="installation"></a>
 
@@ -360,14 +287,14 @@ any other tools. Simply clone the plugin into your `pack` directory.
 
 ```bash
 mkdir -p ~/.vim/pack/git-plugins/start
-git clone https://github.com/w0rp/ale.git ~/.vim/pack/git-plugins/start/ale
+git clone --depth 1 https://github.com/dense-analysis/ale.git ~/.vim/pack/git-plugins/start/ale
 ```
 
 #### NeoVim on Unix
 
 ```bash
 mkdir -p ~/.local/share/nvim/site/pack/git-plugins/start
-git clone https://github.com/w0rp/ale.git ~/.local/share/nvim/site/pack/git-plugins/start/ale
+git clone --depth 1 https://github.com/dense-analysis/ale.git ~/.local/share/nvim/site/pack/git-plugins/start/ale
 ```
 
 #### Vim 8 on Windows
@@ -375,7 +302,7 @@ git clone https://github.com/w0rp/ale.git ~/.local/share/nvim/site/pack/git-plug
 ```bash
 # Run these commands in the "Git for Windows" Bash terminal
 mkdir -p ~/vimfiles/pack/git-plugins/start
-git clone https://github.com/w0rp/ale.git ~/vimfiles/pack/git-plugins/start/ale
+git clone --depth 1 https://github.com/dense-analysis/ale.git ~/vimfiles/pack/git-plugins/start/ale
 ```
 
 #### Generating Vim help files
@@ -406,7 +333,7 @@ You can run the following commands in your terminal to do so:
 
 ```bash
 cd ~/.vim/bundle
-git clone https://github.com/w0rp/ale.git
+git clone https://github.com/dense-analysis/ale.git
 ```
 
 <a name="installation-with-vundle"></a>
@@ -414,11 +341,13 @@ git clone https://github.com/w0rp/ale.git
 ### 3.iii. Installation with Vundle
 
 You can install this plugin using [Vundle](https://github.com/VundleVim/Vundle.vim)
-by using the path on GitHub for this repository.
+by adding the GitHub path for this repository to your `~/.vimrc`:
 
 ```vim
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 ```
+
+Then run the command `:PluginInstall` in Vim.
 
 See the Vundle documentation for more information.
 
@@ -427,26 +356,29 @@ See the Vundle documentation for more information.
 ### 3.iiii. Installation with Vim-Plug
 
 You can install this plugin using [Vim-Plug](https://github.com/junegunn/vim-plug)
-by adding the GitHub path for this repository to your `~/.vimrc`
-and running `:PlugInstall`.
+by adding the GitHub path for this repository to your `~/.vimrc`:
 
 ```vim
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 ```
+
+Then run the command `:PlugInstall` in Vim.
+
+See the Vim-Plug documentation for more information.
 
 <a name="contributing"></a>
 
 ## 4. Contributing
 
 If you would like to see support for more languages and tools, please
-[create an issue](https://github.com/w0rp/ale/issues)
-or [create a pull request](https://github.com/w0rp/ale/pulls).
+[create an issue](https://github.com/dense-analysis/ale/issues)
+or [create a pull request](https://github.com/dense-analysis/ale/pulls).
 If your tool can read from stdin or you have code to suggest which is good,
 support can be happily added for it.
 
 If you are interested in the general direction of the project, check out the
-[wiki home page](https://github.com/w0rp/ale/wiki). The wiki includes a
-Roadmap for the future, and more.
+[wiki home page](https://github.com/dense-analysis/ale/wiki). The wiki includes
+a Roadmap for the future, and more.
 
 If you'd liked to discuss the project more directly, check out the `#vim-ale` channel
 on Freenode. Web chat is available [here](https://webchat.freenode.net/?channels=vim-ale).
@@ -503,9 +435,56 @@ This plugin will look for linters in the [`ale_linters`](ale_linters) directory.
 Each directory within corresponds to a particular filetype in Vim, and each file
 in each directory corresponds to the name of a particular linter.
 
+<a name="faq-get-info"></a>
+
+### 5.ii. How can I see what ALE has configured for the current file?
+
+Run the following to see what is currently configured:
+
+```vim
+:ALEInfo
+```
+
+<a name="faq-coc-nvim"></a>
+
+### 5.iii. How can I use ALE and coc.nvim together?
+
+[coc.nvim](https://github.com/neoclide/coc.nvim) is a popular Vim plugin written
+in TypeScript and dependent on the [npm](https://www.npmjs.com/) ecosystem for
+providing full IDE features to Vim. Both ALE and coc.nvim implement
+[Language Server Protocol](https://microsoft.github.io/language-server-protocol/)
+(LSP) clients for supporting diagnostics (linting with a live server), and other
+features like auto-completion, and others listed above.
+
+ALE is primarily focused on integrating with external programs through virtually
+any means, provided the plugin remains almost entirely written in Vim script.
+coc.nvim is primarily focused on bringing IDE features to Vim. If you want to
+run external programs on your files to check for errors, and also use the most
+advanced IDE features, you might want to use both plugins at the same time.
+
+The easiest way to get both plugins to work together is to configure coc.nvim to
+send diagnostics to ALE, so ALE controls how all problems are presented to you,
+and to disable all LSP features in ALE, so ALE doesn't try to provide LSP
+features already provided by coc.nvim, such as auto-completion.
+
+1. Open your coc.nvim configuration file with `:CocConfig` and add
+   `"diagnostic.displayByAle": true` to your settings.
+2. Add `let g:ale_disable_lsp = 1` to your vimrc file, before plugins are
+   loaded.
+
+You can also use `b:ale_disable_lsp` in your ftplugin files to enable or disable
+LSP features in ALE for different filetypes. After you configure coc.nvim and
+ALE this way, you can further configure how problems appear to you by using all
+of the settings mentioned in ALE's help file, including how often diagnostics
+are requested. See `:help ale-lint`.
+
+The integration between ALE and coc.nvim works using an API ALE offers for
+letting any other plugin integrate with ALE. If you are interested in writing a
+similar integration, see `:help ale-lint-other-sources`.
+
 <a name="faq-keep-signs"></a>
 
-### 5.ii. How can I keep the sign gutter open?
+### 5.iv. How can I keep the sign gutter open?
 
 You can keep the sign gutter open at all times by setting the
 `g:ale_sign_column_always` to 1
@@ -516,7 +495,7 @@ let g:ale_sign_column_always = 1
 
 <a name="faq-change-signs"></a>
 
-### 5.iii. How can I change the signs ALE uses?
+### 5.v. How can I change the signs ALE uses?
 
 Use these options to specify what text should be used for signs:
 
@@ -536,7 +515,7 @@ highlight clear ALEWarningSign
 
 <a name="faq-change-highlights"></a>
 
-### 5.iv. How can I change or disable the highlights ALE uses?
+### 5.vi. How can I change or disable the highlights ALE uses?
 
 ALE's highlights problems with highlight groups which link to `SpellBad`,
 `SpellCap`, `error`, and `todo` groups by default. The characters that are
@@ -562,7 +541,7 @@ See `:help ale-highlights` for more information.
 
 <a name="faq-statusline"></a>
 
-### 5.v. How can I show errors or warnings in my statusline?
+### 5.vii. How can I show errors or warnings in my statusline?
 
 [vim-airline](https://github.com/vim-airline/vim-airline) integrates with ALE
 for displaying error information in the status bar. If you want to see the
@@ -575,8 +554,16 @@ let g:airline#extensions#ale#enabled = 1
 ```
 
 If you don't want to use vim-airline, you can implement your own statusline
-function without adding any other plugins. ALE provides a function for counting
-the number of problems for this purpose, named `ale#statusline#Count`.
+function without adding any other plugins. ALE provides some functions to
+assist in this endeavour, including:
+
+* `ale#statusline#Count`: Which returns the number of problems found by ALE
+  for a specified buffer.
+* `ale#statusline#FirstProblem`: Which returns a dictionary containing the
+  full loclist details of the first problem of a specified type found by ALE
+  in a buffer. (e.g. The first style warning in the current buffer.)
+  This can be useful for displaying more detailed information such as the
+  line number of the first problem in a file.
 
 Say you want to display all errors as one figure, and all non-errors as another
 figure. You can do the following:
@@ -598,11 +585,12 @@ endfunction
 set statusline=%{LinterStatus()}
 ```
 
-See `:help ale#statusline#Count()` for more information.
+See `:help ale#statusline#Count()` or `:help ale#statusline#FirstProblem()`
+for more information.
 
 <a name="faq-lightline"></a>
 
-### 5.vi. How can I show errors or warnings in my lightline?
+### 5.viii. How can I show errors or warnings in my lightline?
 
 [lightline](https://github.com/itchyny/lightline.vim) does not have built-in
 support for ALE, nevertheless there is a plugin that adds this functionality: [maximbaz/lightline-ale](https://github.com/maximbaz/lightline-ale).
@@ -611,7 +599,7 @@ For more information, check out the sources of that plugin, `:help ale#statuslin
 
 <a name="faq-echo-format"></a>
 
-### 5.vii. How can I change the format for echo messages?
+### 5.ix. How can I change the format for echo messages?
 
 There are 3 global options that allow customizing the echoed message.
 
@@ -620,7 +608,7 @@ There are 3 global options that allow customizing the echoed message.
     * `%...code...%` is an optional error code, and most characters can be
       written between the `%` characters.
     * `%linter%` is the linter name
-    * `%severity` is the severity type
+    * `%severity%` is the severity type
 - `g:ale_echo_msg_error_str` is the string used for error severity.
 - `g:ale_echo_msg_warning_str` is the string used for warning severity.
 
@@ -634,13 +622,13 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 Will give you:
 
-![Echoed message](img/echo.png)
+![Echoed message](https://user-images.githubusercontent.com/3518142/59195927-348bd000-8b85-11e9-88b6-508a094f1548.png)
 
 See `:help g:ale_echo_msg_format` for more information.
 
 <a name="faq-autocmd"></a>
 
-### 5.viii. How can I execute some code when ALE starts or stops linting?
+### 5.x. How can I execute some code when ALE starts or stops linting?
 
 ALE runs its own [autocmd](http://vimdoc.sourceforge.net/htmldoc/autocmd.html)
 events when a lint or fix cycle are started and stopped. There is also an event
@@ -663,7 +651,7 @@ augroup END
 
 <a name="faq-navigation"></a>
 
-### 5.ix. How can I navigate between errors quickly?
+### 5.xi. How can I navigate between errors quickly?
 
 ALE offers some commands with `<Plug>` keybinds for moving between warnings and
 errors quickly. You can map the keys Ctrl+j and Ctrl+k to moving between errors
@@ -679,7 +667,7 @@ For more information, consult the online documentation with
 
 <a name="faq-lint-on-save"></a>
 
-### 5.x. How can I run linters only when I save files?
+### 5.xii. How can I run linters only when I save files?
 
 ALE offers an option `g:ale_lint_on_save` for enabling running the linters
 when files are saved. This option is enabled by default. If you only
@@ -689,6 +677,7 @@ options off.
 ```vim
 " Write this in your vimrc file
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
@@ -699,7 +688,7 @@ files, you can set `g:ale_lint_on_save` to `0`.
 
 <a name="faq-quickfix"></a>
 
-### 5.xi. How can I use the quickfix list instead of the loclist?
+### 5.xiii. How can I use the quickfix list instead of the loclist?
 
 The quickfix list can be enabled by turning the `g:ale_set_quickfix`
 option on. If you wish to also disable the loclist, you can disable
@@ -729,7 +718,7 @@ instead of the default horizontally.
 
 <a name="faq-jsx-stylelint-eslint"></a>
 
-### 5.xii. How can I check JSX files with both stylelint and eslint?
+### 5.xiv. How can I check JSX files with both stylelint and eslint?
 
 If you configure ALE options correctly in your vimrc file, and install
 the right tools, you can check JSX files with stylelint and eslint.
@@ -760,7 +749,7 @@ Or if you want, you can configure the linters from your vimrc file.
 
 ```vim
 " In ~/.vim/vimrc, or somewhere similar.
-let g:ale_linter_aliases = {'jsx': ['css, 'javascript']}
+let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
 let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
 ```
 
@@ -771,7 +760,7 @@ no linter will be run twice for the same file.
 
 <a name="faq-vue-eslint"></a>
 
-### 5.xiii. How can I check Vue files with ESLint?
+### 5.xv. How can I check Vue files with ESLint?
 
 To check Vue files with ESLint, your ESLint project configuration file must be
 configured to use the [Vue plugin](https://github.com/vuejs/eslint-plugin-vue).
@@ -802,7 +791,7 @@ let g:ale_linters = {'vue': ['eslint', 'vls']}
 
 <a name="faq-my-battery-is-sad"></a>
 
-### 5.xiv. Will this plugin eat all of my laptop battery power?
+### 5.xvi. Will this plugin eat all of my laptop battery power?
 
 ALE takes advantage of the power of various tools to check your code. This of
 course means that CPU time will be used to continuously check your code. If you
@@ -815,11 +804,10 @@ while you type. ALE uses a timeout which is cancelled and reset every time you
 type, and this delay can be increased so linters are run less often. See
 `:help g:ale_lint_delay` for more information.
 
-If you don't wish to run linters while you type, you can disable that
-behaviour. Set `g:ale_lint_on_text_changed` to `never` or `normal`. You won't
-get as frequent error checking, but ALE shouldn't block your ability to edit a
-document after you save a file, so the asynchronous nature of the plugin will
-still be an advantage.
+If you don't wish to run linters while you type, you can disable that behavior.
+Set `g:ale_lint_on_text_changed` to `never`. You won't get as frequent error
+checking, but ALE shouldn't block your ability to edit a document after you save
+a file, so the asynchronous nature of the plugin will still be an advantage.
 
 If you are still concerned, you can turn the automatic linting off altogether,
 including the option `g:ale_lint_on_enter`, and you can run ALE manually with
@@ -827,7 +815,7 @@ including the option `g:ale_lint_on_enter`, and you can run ALE manually with
 
 <a name="faq-c-configuration"></a>
 
-### 5.xv. How can I configure my C or C++ project?
+### 5.xvii. How can I configure my C or C++ project?
 
 The structure of C and C++ projects varies wildly from project to project, with
 many different build tools being used for building them, and many different
@@ -847,13 +835,24 @@ setting.  Consult the documentation for that setting for more information.
 `b:ale_linters` can be used to select which tools you want to run, say if you
 want to use only `gcc` for one project, and only `clang` for another.
 
+ALE will attempt to parse `compile_commands.json` files to discover compiler
+flags to use when linting code. See `:help g:ale_c_parse_compile_commands` for
+more information. See Clang's documentation for
+[compile_commands.json files](https://clang.llvm.org/docs/JSONCompilationDatabase.html).
+You should strongly consider generating them in your builds, which is easy to do
+with CMake.
+
+You can also configure ALE to automatically run `make -n` to run dry runs on
+`Makefile`s to discover compiler flags. This can execute arbitrary code, so the
+option is disabled by default. See `:help g:ale_c_parse_makefile`.
+
 You may also configure buffer-local settings for linters with project-specific
 vimrc files. [local_vimrc](https://github.com/LucHermitte/local_vimrc) can be
 used for executing local vimrc files which can be shared in your project.
 
 <a name="faq-buffer-configuration"></a>
 
-### 5.xvi. How can I configure ALE differently for different buffers?
+### 5.xviii. How can I configure ALE differently for different buffers?
 
 ALE offers various ways to configure which linters or fixers are run, and
 other settings. For the majority of ALE's settings, they can either be
@@ -889,7 +888,7 @@ Buffer-local variables for settings always override the global settings.
 
 <a name="faq-list-window-height"></a>
 
-### 5.xvii. How can I configure the height of the list in which ALE displays errors?
+### 5.xix. How can I configure the height of the list in which ALE displays errors?
 
 To set a default height for the error list, use the `g:ale_list_window_size` variable.
 
@@ -897,3 +896,14 @@ To set a default height for the error list, use the `g:ale_list_window_size` var
 " Show 5 lines of errors (default: 10)
 let g:ale_list_window_size = 5
 ```
+
+<a name="faq-vm"></a>
+
+### 5.xx. How can I run linters or fixers via Docker or a VM?
+
+ALE supports running linters or fixers via Docker, virtual machines, or in
+combination with any remote machine with a different file system, so long as the
+tools are well-integrated with ALE, and ALE is properly configured to run the
+correct commands and map filename paths between different file systems. See
+`:help ale-lint-other-machines` for the full documentation on how to configure
+ALE to support this.

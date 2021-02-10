@@ -1,50 +1,118 @@
 Before:
   Save g:ale_buffer_info
   Save g:ale_cache_executable_check_failures
+  Save g:ale_change_sign_column_color
+  Save g:ale_command_wrapper
   Save g:ale_completion_delay
   Save g:ale_completion_enabled
   Save g:ale_completion_max_suggestions
+  Save g:ale_disable_lsp
+  Save g:ale_echo_cursor
+  Save g:ale_echo_msg_error_str
+  Save g:ale_echo_msg_format
+  Save g:ale_echo_msg_info_str
+  Save g:ale_echo_msg_warning_str
+  Save g:ale_fix_on_save
   Save g:ale_fixers
+  Save g:ale_history_enabled
   Save g:ale_history_log_output
+  Save g:ale_keep_list_window_open
+  Save g:ale_lint_delay
+  Save g:ale_lint_on_enter
+  Save g:ale_lint_on_filetype_changed
   Save g:ale_lint_on_insert_leave
+  Save g:ale_lint_on_save
   Save g:ale_lint_on_text_changed
   Save g:ale_linters
+  Save g:ale_linters_explicit
+  Save g:ale_linters_ignore
+  Save g:ale_list_vertical
+  Save g:ale_list_window_size
+  Save g:ale_loclist_msg_format
   Save g:ale_lsp_error_messages
+  Save g:ale_lsp_root
+  Save g:ale_max_buffer_history_size
+  Save g:ale_max_signs
   Save g:ale_maximum_file_size
+  Save g:ale_open_list
   Save g:ale_pattern_options
   Save g:ale_pattern_options_enabled
   Save g:ale_set_balloons
+  Save g:ale_set_highlights
+  Save g:ale_set_loclist
+  Save g:ale_set_quickfix
+  Save g:ale_set_signs
+  Save g:ale_sign_column_always
   Save g:ale_sign_error
   Save g:ale_sign_info
+  Save g:ale_sign_offset
   Save g:ale_sign_style_error
   Save g:ale_sign_style_warning
   Save g:ale_sign_warning
+  Save g:ale_sign_highlight_linenrs
   Save g:ale_statusline_format
   Save g:ale_type_map
+  Save g:ale_use_global_executables
+  Save g:ale_virtualtext_cursor
+  Save g:ale_warn_about_trailing_blank_lines
   Save g:ale_warn_about_trailing_whitespace
 
   unlet! b:ale_history
 
   let g:ale_buffer_info = {}
   let g:ale_cache_executable_check_failures = 0
+  let g:ale_change_sign_column_color = 0
+  let g:ale_command_wrapper = ''
   let g:ale_completion_delay = 100
   let g:ale_completion_enabled = 0
   let g:ale_completion_max_suggestions = 50
+  let g:ale_disable_lsp = 0
+  let g:ale_echo_cursor = 1
+  let g:ale_echo_msg_error_str = 'Error'
+  let g:ale_echo_msg_format = '%code: %%s'
+  let g:ale_echo_msg_info_str = 'Info'
+  let g:ale_echo_msg_warning_str = 'Warning'
+  let g:ale_fix_on_save = 0
+  let g:ale_history_enabled = 1
   let g:ale_history_log_output = 1
-  let g:ale_lint_on_insert_leave = 0
-  let g:ale_lint_on_text_changed = 'always'
+  let g:ale_keep_list_window_open = 0
+  let g:ale_lint_delay = 200
+  let g:ale_lint_on_enter = 1
+  let g:ale_lint_on_filetype_changed = 1
+  let g:ale_lint_on_insert_leave = 1
+  let g:ale_lint_on_save = 1
+  let g:ale_lint_on_text_changed = 'normal'
+  let g:ale_linters_explicit = 0
+  let g:ale_linters_ignore = {'python': ['pyright']}
+  let g:ale_list_vertical = 0
+  let g:ale_list_window_size = 10
+  let g:ale_loclist_msg_format = '%code: %%s'
   let g:ale_lsp_error_messages = {}
+  let g:ale_lsp_root = {}
+  let g:ale_max_buffer_history_size = 20
+  let g:ale_max_signs = -1
   let g:ale_maximum_file_size = 0
+  let g:ale_open_list = 0
   let g:ale_pattern_options = {}
   let g:ale_pattern_options_enabled = 0
   let g:ale_set_balloons = 0
+  let g:ale_set_highlights = 1
+  let g:ale_set_loclist = 1
+  let g:ale_set_quickfix = 0
+  let g:ale_set_signs = 1
+  let g:ale_sign_column_always = 0
   let g:ale_sign_error = '>>'
   let g:ale_sign_info = '--'
+  let g:ale_sign_offset = 1000000
   let g:ale_sign_style_error = '>>'
   let g:ale_sign_style_warning = '--'
   let g:ale_sign_warning = '--'
+  let g:ale_sign_highlight_linenrs = 0
   let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', 'OK']
   let g:ale_type_map = {}
+  let g:ale_use_global_executables = v:null
+  let g:ale_virtualtext_cursor = 0
+  let g:ale_warn_about_trailing_blank_lines = 1
   let g:ale_warn_about_trailing_whitespace = 1
 
   let g:testlinter1 = {'name': 'testlinter1', 'executable': 'testlinter1', 'command': 'testlinter1', 'callback': 'testCB1', 'output_stream': 'stdout'}
@@ -74,6 +142,7 @@ Before:
   \  'let g:ale_completion_delay = 100',
   \  'let g:ale_completion_enabled = 0',
   \  'let g:ale_completion_max_suggestions = 50',
+  \  'let g:ale_disable_lsp = 0',
   \  'let g:ale_echo_cursor = 1',
   \  'let g:ale_echo_msg_error_str = ''Error''',
   \  'let g:ale_echo_msg_format = ''%code: %%s''',
@@ -88,15 +157,17 @@ Before:
   \  'let g:ale_lint_delay = 200',
   \  'let g:ale_lint_on_enter = 1',
   \  'let g:ale_lint_on_filetype_changed = 1',
-  \  'let g:ale_lint_on_insert_leave = 0',
+  \  'let g:ale_lint_on_insert_leave = 1',
   \  'let g:ale_lint_on_save = 1',
-  \  'let g:ale_lint_on_text_changed = ''always''',
+  \  'let g:ale_lint_on_text_changed = ''normal''',
   \  'let g:ale_linter_aliases = {}',
   \  'let g:ale_linters = {}',
   \  'let g:ale_linters_explicit = 0',
+  \  'let g:ale_linters_ignore = {''python'': [''pyright'']}',
   \  'let g:ale_list_vertical = 0',
   \  'let g:ale_list_window_size = 10',
   \  'let g:ale_loclist_msg_format = ''%code: %%s''',
+  \  'let g:ale_lsp_root = {}',
   \  'let g:ale_max_buffer_history_size = 20',
   \  'let g:ale_max_signs = -1',
   \  'let g:ale_maximum_file_size = 0',
@@ -115,6 +186,7 @@ Before:
   \  'let g:ale_sign_style_error = ''>>''',
   \  'let g:ale_sign_style_warning = ''--''',
   \  'let g:ale_sign_warning = ''--''',
+  \  'let g:ale_sign_highlight_linenrs = 0',
   \  'let g:ale_statusline_format = [''%d error(s)'', ''%d warning(s)'', ''OK'']',
   \  'let g:ale_type_map = {}',
   \  'let g:ale_use_global_executables = v:null',
@@ -144,9 +216,12 @@ Before:
 After:
   Restore
 
+  if exists('g:info_test_file') && filereadable(g:info_test_file)
+    call delete(g:info_test_file)
+  endif
+
   unlet! g:testlinter1
   unlet! g:testlinter2
-
   unlet! b:ale_history
   unlet! b:ale_linters
   unlet! g:output
@@ -159,6 +234,9 @@ After:
   unlet! g:ale_testft2_testlinter2_foo
   unlet! b:ale_testft2_testlinter2_foo
   unlet! g:ale_testft2_testlinter2_bar
+  unlet! g:info_test_file
+  unlet! g:ale_testft_build_dir_names
+  unlet! g:ale_testft_testlinter2_option
   delfunction CheckInfo
 
   call ale#test#RestoreDirectory()
@@ -171,6 +249,7 @@ Execute (ALEInfo with no linters should return the right output):
   \   ' Current Filetype: nolintersft',
   \   'Available Linters: []',
   \   '  Enabled Linters: []',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -193,6 +272,7 @@ Execute (ALEInfo should return buffer-local global ALE settings):
   \   ' Current Filetype: ',
   \   'Available Linters: []',
   \   '  Enabled Linters: []',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -207,6 +287,7 @@ Execute (ALEInfo with no filetype should return the right output):
   \   ' Current Filetype: ',
   \   'Available Linters: []',
   \   '  Enabled Linters: []',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -223,6 +304,7 @@ Execute (ALEInfo with a single linter should return the right output):
   \   ' Current Filetype: testft',
   \   'Available Linters: [''testlinter1'']',
   \   '  Enabled Linters: [''testlinter1'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -240,6 +322,7 @@ Execute (ALEInfo with two linters should return the right output):
   \   ' Current Filetype: testft',
   \   'Available Linters: [''testlinter1'', ''testlinter2'']',
   \   '  Enabled Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -261,6 +344,7 @@ Execute (ALEInfo should calculate enabled linters correctly):
   \   ' Current Filetype: testft',
   \   'Available Linters: [''testlinter1'', ''testlinter2'']',
   \   '  Enabled Linters: [''testlinter2'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -278,6 +362,7 @@ Execute (ALEInfo should only return linters for current filetype):
   \   ' Current Filetype: testft',
   \   'Available Linters: [''testlinter1'']',
   \   '  Enabled Linters: [''testlinter1'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -295,6 +380,7 @@ Execute (ALEInfo with compound filetypes should return linters for both of them)
   \   ' Current Filetype: testft.testft2',
   \   'Available Linters: [''testlinter1'', ''testlinter2'']',
   \   '  Enabled Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -317,6 +403,7 @@ Execute (ALEInfo should return appropriately named global variables):
   \   ' Current Filetype: testft.testft2',
   \   'Available Linters: [''testlinter1'', ''testlinter2'']',
   \   '  Enabled Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + [
@@ -332,10 +419,6 @@ Execute (ALEInfo should return appropriately named global variables):
   \)
 
 Execute (ALEInfoToFile should write to a file correctly):
-  if filereadable(g:dir . '/ale-info-test-file')
-    call delete(g:dir . '/ale-info-test-file')
-  endif
-
   let g:ale_testft_testlinter1_foo = 'abc'
   let g:ale_testft_testlinter1_bar = ['abc']
   let g:ale_testft2_testlinter2_foo = 123
@@ -344,13 +427,15 @@ Execute (ALEInfoToFile should write to a file correctly):
   call ale#linter#Define('testft', g:testlinter1)
   call ale#linter#Define('testft2', g:testlinter2)
 
-  execute 'ALEInfoToFile ' . fnameescape(g:dir . '/ale-info-test-file')
+  let g:info_test_file = tempname()
+  execute 'ALEInfoToFile ' . fnameescape(g:info_test_file)
 
   AssertEqual
   \ [
   \   ' Current Filetype: testft.testft2',
   \   'Available Linters: [''testlinter1'', ''testlinter2'']',
   \   '  Enabled Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + [
@@ -363,7 +448,7 @@ Execute (ALEInfoToFile should write to a file correctly):
   \ ]
   \ + g:globals_lines
   \ + g:command_header,
-  \ readfile(g:dir . '/ale-info-test-file')
+  \ readfile(g:info_test_file)
 
 Given testft.testft2 (Empty buffer with two filetypes):
 Execute (ALEInfo should buffer-local linter variables):
@@ -378,6 +463,7 @@ Execute (ALEInfo should buffer-local linter variables):
   \   ' Current Filetype: testft.testft2',
   \   'Available Linters: [''testlinter1'', ''testlinter2'']',
   \   '  Enabled Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + [
@@ -409,6 +495,7 @@ Execute (ALEInfo should output linter aliases):
   \   '''testlinter1'' -> [''testftalias1'', ''testftalias2'']',
   \   '''testlinter2'' -> [''testftalias3'', ''testftalias4'']',
   \   '  Enabled Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + [
@@ -436,6 +523,7 @@ Execute (ALEInfo should return command history):
   \   ' Current Filetype: testft.testft2',
   \   'Available Linters: [''testlinter1'', ''testlinter2'']',
   \   '  Enabled Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -463,6 +551,7 @@ Execute (ALEInfo command history should print exit codes correctly):
   \   ' Current Filetype: testft.testft2',
   \   'Available Linters: [''testlinter1'', ''testlinter2'']',
   \   '  Enabled Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -511,6 +600,7 @@ Execute (ALEInfo command history should print command output if logging is on):
   \   ' Current Filetype: testft.testft2',
   \   'Available Linters: [''testlinter1'', ''testlinter2'']',
   \   '  Enabled Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -549,6 +639,7 @@ Execute (ALEInfo should include executable checks in the history):
   \   ' Current Filetype: testft.testft2',
   \   'Available Linters: [''testlinter1'']',
   \   '  Enabled Linters: [''testlinter1'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -578,6 +669,7 @@ Execute (The option for caching failing executable checks should work):
   \   ' Current Filetype: testft.testft2',
   \   'Available Linters: [''testlinter1'']',
   \   '  Enabled Linters: [''testlinter1'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -600,6 +692,7 @@ Execute (LSP errors for a linter should be outputted):
   \   ' Current Filetype: testft',
   \   'Available Linters: [''testlinter1'']',
   \   '  Enabled Linters: [''testlinter1'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
@@ -624,9 +717,61 @@ Execute (LSP errors for other linters shouldn't appear):
   \   ' Current Filetype: testft',
   \   'Available Linters: [''testlinter1'']',
   \   '  Enabled Linters: [''testlinter1'']',
+  \   '  Ignored Linters: []',
   \ ]
   \ + g:fixer_lines
   \ + g:variables_lines
   \ + g:globals_lines
   \ + g:command_header
   \)
+
+Given testft.testft2 (Empty buffer with two filetypes):
+Execute (ALEInfo should include linter global options):
+  call ale#linter#Define('testft', g:testlinter1)
+  call ale#linter#Define('testft2', g:testlinter2)
+
+  " eg: like g:c_build_dir_names
+  let g:ale_testft_build_dir_names = ['build', 'bin']
+
+  call add(g:variables_lines, 'let g:ale_testft_build_dir_names = [''build'', ''bin'']')
+
+  call CheckInfo(
+  \ [
+  \   ' Current Filetype: testft.testft2',
+  \   'Available Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Enabled Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Ignored Linters: []',
+  \ ]
+  \ + g:fixer_lines
+  \ + g:variables_lines
+  \ + g:globals_lines
+  \ + g:command_header
+  \)
+
+Given testft (Empty buffer with two filetypes):
+Execute (ALEInfo should include linter global options for enabled linters):
+  call ale#linter#Define('testft', g:testlinter1)
+  call ale#linter#Define('testft', g:testlinter2)
+
+  let g:ale_linters = {'testft': ['testlinter1']}
+
+  " should not appear, since not enabled
+  let g:ale_testft_testlinter2_option = 'test'
+
+  let g:globals_lines[index(g:globals_lines, 'let g:ale_linters = {}')]
+  \ = 'let g:ale_linters = {''testft'': [''testlinter1'']}'
+
+  call CheckInfo(
+  \ [
+  \   ' Current Filetype: testft',
+  \   'Available Linters: [''testlinter1'', ''testlinter2'']',
+  \   '  Enabled Linters: [''testlinter1'']',
+  \   '  Ignored Linters: []',
+  \ ]
+  \ + g:fixer_lines
+  \ + g:variables_lines
+  \ + g:globals_lines
+  \ + g:command_header
+  \)
+
+

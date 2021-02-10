@@ -6,9 +6,9 @@ function! gutentags#chdir(path)
     if has('nvim')
         let chdir = haslocaldir() ? 'lcd' : haslocaldir(-1, 0) ? 'tcd' : 'cd'
     else
-        let chdir = haslocaldir() ? 'lcd' : 'cd'
+        let chdir = haslocaldir() ? ((haslocaldir() == 1) ? 'lcd' : 'tcd') : 'cd'
     endif
-    execute chdir a:path
+    execute chdir fnameescape(a:path)
 endfunction
 
 " Throw an exception message.
@@ -84,6 +84,7 @@ function! gutentags#get_cachefile(root_dir, filename) abort
         let l:tag_path = g:gutentags_cache_dir . '/' .
                     \tr(l:tag_path, '\/: ', '---_')
         let l:tag_path = substitute(l:tag_path, '/\-', '/', '')
+        let l:tag_path = substitute(l:tag_path, '[\-_]*$', '', '')
     endif
     let l:tag_path = gutentags#normalizepath(l:tag_path)
     return l:tag_path
@@ -113,7 +114,9 @@ else
             let l:arglen = strlen(cmdarg)
             if (cmdarg[0] == '"' && cmdarg[l:arglen - 1] == '"') || 
                         \(cmdarg[0] == "'" && cmdarg[l:arglen - 1] == "'")
-                call add(l:outcmd, cmdarg[1:-2])
+                " This was quoted, so there are probably things to escape.
+                let l:escapedarg = cmdarg[1:-2] " substitute(cmdarg[1:-2], '\ ', '\\ ', 'g')
+                call add(l:outcmd, l:escapedarg)
             else
                 call add(l:outcmd, cmdarg)
             endif
@@ -184,11 +187,17 @@ function! gutentags#get_project_root(path) abort
     if g:gutentags_project_root_finder != ''
         return call(g:gutentags_project_root_finder, [a:path])
     endif
+    return gutentags#default_get_project_root(a:path)
+endfunction
 
+" Default implementation for finding project markers... useful when a custom
+" finder (`g:gutentags_project_root_finder`) wants to fallback to the default
+" behaviour.
+function! gutentags#default_get_project_root(path) abort
     let l:path = gutentags#stripslash(a:path)
     let l:previous_path = ""
     let l:markers = g:gutentags_project_root[:]
-    if exists('g:ctrlp_root_markers')
+    if g:gutentags_add_ctrlp_root_markers && exists('g:ctrlp_root_markers')
         for crm in g:ctrlp_root_markers
             if index(l:markers, crm) < 0
                 call add(l:markers, crm)
@@ -272,6 +281,10 @@ function! gutentags#setup_gutentags() abort
         if !exists('b:gutentags_root')
             let b:gutentags_root = gutentags#get_project_root(l:buf_dir)
         endif
+        if !len(b:gutentags_root)
+            call gutentags#trace("no valid project root.. no gutentags support.")
+            return
+        endif
         if filereadable(b:gutentags_root . '/.notags')
             call gutentags#trace("'.notags' file found... no gutentags support.")
             return
@@ -334,6 +347,11 @@ function! gutentags#setup_gutentags() abort
             endif
         endif
     endfor
+endfunction
+
+" Set a variable on exit so that we don't complain when a job gets killed.
+function! gutentags#on_vim_leave_pre() abort
+    let g:__gutentags_vim_is_leaving = 1
 endfunction
 
 " }}}
@@ -507,7 +525,7 @@ function! s:update_tags(bufno, module, write_mode, queue_mode) abort
     " it possible to get the relative path of the filename to parse if we're
     " doing an incremental update.
     let l:prev_cwd = getcwd()
-    call gutentags#chdir(fnameescape(l:proj_dir))
+    call gutentags#chdir(l:proj_dir)
     try
         call call("gutentags#".a:module."#generate",
                     \[l:proj_dir, l:tags_file,
@@ -519,7 +537,7 @@ function! s:update_tags(bufno, module, write_mode, queue_mode) abort
         echom v:exception
     finally
         " Restore the current directory...
-        call gutentags#chdir(fnameescape(l:prev_cwd))
+        call gutentags#chdir(l:prev_cwd)
     endtry
 endfunction
 
@@ -567,8 +585,12 @@ function! gutentags#fake(...)
     echom ""
 endfunction
 
-function! gutentags#default_io_cb(chan, msg) abort
-    call gutentags#trace('[job output]: '.string(a:msg))
+function! gutentags#default_stdout_cb(chan, msg) abort
+    call gutentags#trace('[job stdout]: '.string(a:msg))
+endfunction
+
+function! gutentags#default_stderr_cb(chan, msg) abort
+    call gutentags#trace('[job stderr]: '.string(a:msg))
 endfunction
 
 if has('nvim')
@@ -589,10 +611,10 @@ if has('nvim')
                 \    ['gutentags#'.a:module.'#on_job_exit']),
                 \'on_stdout': function(
                 \    '<SID>nvim_job_out_wrapper',
-                \    ['gutentags#default_io_cb']),
+                \    ['gutentags#default_stdout_cb']),
                 \'on_stderr': function(
                 \    '<SID>nvim_job_out_wrapper',
-                \    ['gutentags#default_io_cb'])
+                \    ['gutentags#default_stderr_cb'])
                 \}
        return l:job_opts
     endfunction
@@ -605,8 +627,8 @@ else
     function! gutentags#build_default_job_options(module) abort
         let l:job_opts = {
                  \'exit_cb': 'gutentags#'.a:module.'#on_job_exit',
-                 \'out_cb': 'gutentags#default_io_cb',
-                 \'err_cb': 'gutentags#default_io_cb',
+                 \'out_cb': 'gutentags#default_stdout_cb',
+                 \'err_cb': 'gutentags#default_stderr_cb',
                  \'stoponexit': 'term'
                  \}
         return l:job_opts

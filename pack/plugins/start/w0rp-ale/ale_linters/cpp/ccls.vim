@@ -3,12 +3,13 @@
 
 call ale#Set('cpp_ccls_executable', 'ccls')
 call ale#Set('cpp_ccls_init_options', {})
+call ale#Set('c_build_dir', '')
 
 call ale#linter#Define('cpp', {
 \   'name': 'ccls',
 \   'lsp': 'stdio',
-\   'executable_callback': ale#VarFunc('cpp_ccls_executable'),
+\   'executable': {b -> ale#Var(b, 'cpp_ccls_executable')},
 \   'command': '%e',
-\   'project_root_callback': 'ale#handlers#ccls#GetProjectRoot',
-\   'initialization_options_callback': ale#VarFunc('cpp_ccls_init_options'),
+\   'project_root': function('ale#handlers#ccls#GetProjectRoot'),
+\   'initialization_options': {b -> ale#handlers#ccls#GetInitOpts(b, 'cpp_ccls_init_options')},
 \})

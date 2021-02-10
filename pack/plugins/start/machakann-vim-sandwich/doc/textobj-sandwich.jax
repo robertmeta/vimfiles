@@ -1,5 +1,5 @@
 *textobj-sandwich.jax*	『挟まれた』テキストを選択する。
-						Last change:16-Aug-2016.
+						Last change:15-Dec-2020.
 
 書いた人   : machakann <mckn{at}outlook.jp>
 ライセンス : NYSL license
@@ -34,7 +34,6 @@ CONFIGURATION			|textobj-sandwich-configuration|
     skip_regex_tail
     quoteescape
     expr
-    synchro
     noremap
     syntax
     inner_syntax
@@ -545,6 +544,26 @@ mode
 
 
 
+action
+	編集の種類によってレシピを選別するフィルターです。"add" 及び "delete"
+	が |operator-sandwich| のために用意されています。"all" は先の二つを包
+	含します。"add" のみが指定されている場合は |textobj-sandwich| では無効
+	になります。しかし、"delete" か "all" が含まれた場合は有効になります。
+	これは削除においてそれらのテキストオブジェクトが連動するためです。
+>
+	" This recipe does not take effect for textobjects
+	let g:sandwich#recipes += [
+	  \    {'buns': ['"""', '"""'], 'action': ['add'], 'input': ['"']}
+	  \  ]
+
+	" This recipe is valid for delete actions and textobjects
+	let g:sandwich#recipes += [
+	  \    {'buns': ['"""', '"""'], 'action': ['delete'], 'input': ['"']}
+	  \  ]
+<
+
+
+
 expr_filter
 	ユーザーがフィルターを自作して使うことができます。リストの要素は式
 	|expression| として評価され、評価値が真 (1) の場合にはそのレシピは有効
@@ -630,7 +649,6 @@ g:textobj#sandwich#options		*g:textobj#sandwich#options*
 	    - skip_regex_tail
 	    - quoteescape
 	    - expr
-	    - synchro
 	    - noremap
 	    - syntax
 	    - inner_syntax
@@ -831,24 +849,6 @@ expr
 	デフォルト値
 	  * query: 0
 	  * auto : 0
-
-
-
-synchro
-	このオプションが真の場合、|<Plug>(operator-sandwich-delete)| 及び
-	|<Plug>(operator-sandwich-replace)| と組み合わせて使われると、マッチし
-	たレシピがこれらのオペレータに渡され高い優先度で削除/置換されます。こ
-	のオプションは |g:textobj#sandwich#recipes| 内の "expr" オプションで評
-	価されたレシピをこれらのオペレータと連携させるのに役にたつでしょう。
-
-	NOTE: この機能はビジュアル選択に対しては意味を持ちません。
-	NOTE: レシピをオペレータに渡すとき "action" フィルタは "delete" に固定
-	      されます。こちらの項もご覧ください。
-	      |operator-sandwich-configuration|
-
-	デフォルト値
-	  * query: 1
-	  * auto : 1
 
 
 

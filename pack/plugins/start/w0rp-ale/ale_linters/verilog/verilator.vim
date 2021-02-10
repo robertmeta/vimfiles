@@ -10,7 +10,7 @@ function! ale_linters#verilog#verilator#GetCommand(buffer) abort
     let l:filename = ale#util#Tempname() . '_verilator_linted.v'
 
     " Create a special filename, so we can detect it in the handler.
-    call ale#engine#ManageFile(a:buffer, l:filename)
+    call ale#command#ManageFile(a:buffer, l:filename)
     let l:lines = getbufline(a:buffer, 1, '$')
     call ale#util#Writefile(a:buffer, l:lines, l:filename)
 
@@ -28,21 +28,30 @@ function! ale_linters#verilog#verilator#Handle(buffer, lines) abort
     " %Warning-UNDRIVEN: test.v:3: Signal is not driven: clk
     " %Warning-UNUSED: test.v:4: Signal is not used: dout
     " %Warning-BLKSEQ: test.v:10: Blocking assignments (=) in sequential (flop or latch) block; suggest delayed assignments (<=).
-    let l:pattern = '^%\(Warning\|Error\)[^:]*:\([^:]\+\):\(\d\+\): \(.\+\)$'
+    " Since version 4.032 (04/2020) verilator linter messages also contain the column number,
+    " and look like:
+    " %Error: /tmp/test.sv:3:1: syntax error, unexpected endmodule, expecting ';'
+    "
+    " to stay compatible with old versions of the tool, the column number is
+    " optional in the researched pattern
+    let l:pattern = '^%\(Warning\|Error\)[^:]*:\([^:]\+\):\(\d\+\):\(\d\+\)\?:\? \(.\+\)$'
     let l:output = []
 
     for l:match in ale#util#GetMatches(a:lines, l:pattern)
-        let l:line = l:match[3] + 0
-        let l:type = l:match[1] is# 'Error' ? 'E' : 'W'
-        let l:text = l:match[4]
+        let l:item = {
+        \   'lnum': str2nr(l:match[3]),
+        \   'text': l:match[5],
+        \   'type': l:match[1] is# 'Error' ? 'E' : 'W',
+        \}
+
+        if !empty(l:match[4])
+            let l:item.col = str2nr(l:match[4])
+        endif
+
         let l:file = l:match[2]
 
         if l:file =~# '_verilator_linted.v'
-            call add(l:output, {
-            \   'lnum': l:line,
-            \   'text': l:text,
-            \   'type': l:type,
-            \})
+            call add(l:output, l:item)
         endif
     endfor
 
@@ -53,7 +62,7 @@ call ale#linter#Define('verilog', {
 \   'name': 'verilator',
 \   'output_stream': 'stderr',
 \   'executable': 'verilator',
-\   'command_callback': 'ale_linters#verilog#verilator#GetCommand',
+\   'command': function('ale_linters#verilog#verilator#GetCommand'),
 \   'callback': 'ale_linters#verilog#verilator#Handle',
 \   'read_buffer': 0,
 \})

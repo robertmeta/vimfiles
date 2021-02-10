@@ -1,6 +1,7 @@
 Before:
   Save g:ale_go_gofmt_executable
   Save g:ale_go_gofmt_options
+  Save g:ale_go_go111module
 
   " Use an invalid global executable, so we don't match it.
   let g:ale_go_gofmt_executable = 'xxxinvalid'
@@ -11,6 +12,8 @@ Before:
 After:
   Restore
 
+  unlet! b:ale_go_go111module
+
   call ale#test#RestoreDirectory()
 
 Execute(The gofmt callback should return the correct default values):
@@ -18,23 +21,30 @@ Execute(The gofmt callback should return the correct default values):
 
   AssertEqual
   \ {
-  \   'read_temporary_file': 1,
-  \   'command': ale#Escape('xxxinvalid')
-  \     . ' -l -w'
-  \     . ' %t',
+  \   'command': ale#Escape('xxxinvalid'),
   \ },
   \ ale#fixers#gofmt#Fix(bufnr(''))
 
 Execute(The gofmt callback should include custom gofmt options):
   let g:ale_go_gofmt_options = "-r '(a) -> a'"
+
   call ale#test#SetFilename('../go_files/testfile.go')
 
   AssertEqual
   \ {
-  \   'read_temporary_file': 1,
   \   'command': ale#Escape('xxxinvalid')
-  \     . ' -l -w'
-  \     . ' ' . g:ale_go_gofmt_options
-  \     . ' %t',
+  \     . ' ' . g:ale_go_gofmt_options,
+  \ },
+  \ ale#fixers#gofmt#Fix(bufnr(''))
+
+Execute(The gofmt callback should support Go environment variables):
+  let g:ale_go_go111module = 'off'
+
+  call ale#test#SetFilename('../go_files/testfile.go')
+
+  AssertEqual
+  \ {
+  \   'command': ale#Env('GO111MODULE', 'off')
+  \     . ale#Escape('xxxinvalid')
   \ },
   \ ale#fixers#gofmt#Fix(bufnr(''))

@@ -5,6 +5,7 @@ set -e
 PROG_NAME=$0
 CTAGS_EXE=ctags
 CTAGS_ARGS=
+CTAGS_OPT_FILE=
 TAGS_FILE=tags
 PROJECT_ROOT=
 LOG_FILE=
@@ -35,7 +36,6 @@ ShowUsage() {
     echo ""
 }
 
-
 while getopts "h?e:x:t:p:l:L:s:o:O:P:cA" opt; do
     case $opt in
         h|\?)
@@ -43,40 +43,40 @@ while getopts "h?e:x:t:p:l:L:s:o:O:P:cA" opt; do
             exit 0
             ;;
         e)
-            CTAGS_EXE=$OPTARG
+            CTAGS_EXE="$OPTARG"
             ;;
         x)
             CTAGS_ARGS="$CTAGS_ARGS --exclude=$OPTARG"
             ;;
         t)
-            TAGS_FILE=$OPTARG
+            TAGS_FILE="$OPTARG"
             ;;
         p)
-            PROJECT_ROOT=$OPTARG
+            PROJECT_ROOT="$OPTARG"
             ;;
         l)
-            LOG_FILE=$OPTARG
+            LOG_FILE="$OPTARG"
             ;;
         L)
-            FILE_LIST_CMD=$OPTARG
+            FILE_LIST_CMD="$OPTARG"
             ;;
         A)
             FILE_LIST_CMD_IS_ABSOLUTE=1
             ;;
         s)
-            UPDATED_SOURCE=$OPTARG
+            UPDATED_SOURCE="$OPTARG"
             ;;
         c)
             PAUSE_BEFORE_EXIT=1
             ;;
         o)
-            CTAGS_ARGS="$CTAGS_ARGS --options=$OPTARG"
+            CTAGS_OPT_FILE="--options=$OPTARG"
             ;;
         O)
             CTAGS_ARGS="$CTAGS_ARGS $OPTARG"
             ;;
         P)
-            POST_PROCESS_CMD=$OPTARG
+            POST_PROCESS_CMD="$OPTARG"
             ;;
     esac
 done
@@ -120,18 +120,29 @@ if [ $INDEX_WHOLE_PROJECT -eq 1 ]; then
                 echo "${PROJECT_ROOT%/}/${l}"
             done > "${TAGS_FILE}.files"
         fi
-        CTAGS_ARGS="${CTAGS_ARGS} -L "${TAGS_FILE}.files""
+        CTAGS_ARGS="${CTAGS_ARGS} -L"
+        CTAGS_ARG_LAST="${TAGS_FILE}.files"
     else
-        CTAGS_ARGS="${CTAGS_ARGS} "${PROJECT_ROOT}""
+        CTAGS_ARG_LAST="${PROJECT_ROOT}"
     fi
 
     echo "Running ctags on whole project"
-    echo "$CTAGS_EXE -f \"$TAGS_FILE.temp\" $CTAGS_ARGS"
-    $CTAGS_EXE -f "$TAGS_FILE.temp" $CTAGS_ARGS
+    if [ "$CTAGS_OPT_FILE" != "" ]; then
+        echo "$CTAGS_EXE -f \"$TAGS_FILE.temp\" \"$CTAGS_OPT_FILE\" $CTAGS_ARGS \"$CTAGS_ARG_LAST\""
+        "$CTAGS_EXE" -f "$TAGS_FILE.temp" "$CTAGS_OPT_FILE" $CTAGS_ARGS "$CTAGS_ARG_LAST"
+    else
+        echo "$CTAGS_EXE -f \"$TAGS_FILE.temp\" $CTAGS_ARGS \"$CTAGS_ARG_LAST\""
+        "$CTAGS_EXE" -f "$TAGS_FILE.temp" $CTAGS_ARGS "$CTAGS_ARG_LAST"
+    fi
 else
     echo "Running ctags on \"$UPDATED_SOURCE\""
-    echo "$CTAGS_EXE -f \"$TAGS_FILE.temp\" $CTAGS_ARGS --append \"$UPDATED_SOURCE\""
-    $CTAGS_EXE -f "$TAGS_FILE.temp" $CTAGS_ARGS --append "$UPDATED_SOURCE"
+    if [ "$CTAGS_OPT_FILE" != "" ]; then
+        echo "$CTAGS_EXE -f \"$TAGS_FILE.temp\" \"$CTAGS_OPT_FILE\" $CTAGS_ARGS --append \"$UPDATED_SOURCE\""
+        "$CTAGS_EXE" -f "$TAGS_FILE.temp" "$CTAGS_OPT_FILE" $CTAGS_ARGS --append "$UPDATED_SOURCE"
+    else
+        echo "$CTAGS_EXE -f \"$TAGS_FILE.temp\" $CTAGS_ARGS --append \"$UPDATED_SOURCE\""
+        "$CTAGS_EXE" -f "$TAGS_FILE.temp" $CTAGS_ARGS --append "$UPDATED_SOURCE"
+    fi
 fi
 
 if [ "$POST_PROCESS_CMD" != "" ]; then
@@ -142,7 +153,9 @@ fi
 
 echo "Replacing tags file"
 echo "mv -f \"$TAGS_FILE.temp\" \"$TAGS_FILE\""
-mv -f "$TAGS_FILE.temp" "$TAGS_FILE"
+if [ -f "$TAGS_FILE.temp" ]; then
+    mv -f "$TAGS_FILE.temp" "$TAGS_FILE"
+fi
 
 echo "Unlocking tags file..."
 rm -f "$TAGS_FILE.lock"

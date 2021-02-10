@@ -62,9 +62,11 @@ operator-sandwich-introduction	operator-sandwich.txt	/*operator-sandwich-introdu
 operator-sandwich-keymappings	operator-sandwich.txt	/*operator-sandwich-keymappings*
 operator-sandwich-miscellaneous	operator-sandwich.txt	/*operator-sandwich-miscellaneous*
 operator-sandwich.txt	operator-sandwich.txt	/*operator-sandwich.txt*
+sandwich#util#addlocal()	sandwich.txt	/*sandwich#util#addlocal()*
 sandwich-configuration	sandwich.txt	/*sandwich-configuration*
 sandwich-contents	sandwich.txt	/*sandwich-contents*
 sandwich-filetype-recipes	sandwich.txt	/*sandwich-filetype-recipes*
+sandwich-functions	sandwich.txt	/*sandwich-functions*
 sandwich-introduction	sandwich.txt	/*sandwich-introduction*
 sandwich-keymappings	sandwich.txt	/*sandwich-keymappings*
 sandwich-magiccharacters	sandwich.txt	/*sandwich-magiccharacters*

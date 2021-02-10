@@ -6,38 +6,51 @@ let s:classpath_sep = has('unix') ? ':' : ';'
 call ale#Set('java_javac_executable', 'javac')
 call ale#Set('java_javac_options', '')
 call ale#Set('java_javac_classpath', '')
+call ale#Set('java_javac_sourcepath', '')
 
-function! ale_linters#java#javac#GetImportPaths(buffer) abort
-    let l:pom_path = ale#path#FindNearestFile(a:buffer, 'pom.xml')
+function! ale_linters#java#javac#RunWithImportPaths(buffer) abort
+    let l:command = ale#maven#BuildClasspathCommand(a:buffer)
 
-    if !empty(l:pom_path) && executable('mvn')
-        return ale#path#CdString(fnamemodify(l:pom_path, ':h'))
-        \ . 'mvn dependency:build-classpath'
+    " Try to use Gradle if Maven isn't available.
+    if empty(l:command)
+        let l:command = ale#gradle#BuildClasspathCommand(a:buffer)
     endif
 
-    let l:classpath_command = ale#gradle#BuildClasspathCommand(a:buffer)
-
-    if !empty(l:classpath_command)
-        return l:classpath_command
+    " Try to use Ant if Gradle and Maven aren't available
+    if empty(l:command)
+        let l:command = ale#ant#BuildClasspathCommand(a:buffer)
     endif
 
-    return ''
+    if empty(l:command)
+        return ale_linters#java#javac#GetCommand(a:buffer, [], {})
+    endif
+
+    return ale#command#Run(
+    \   a:buffer,
+    \   l:command,
+    \   function('ale_linters#java#javac#GetCommand')
+    \)
 endfunction
 
 function! s:BuildClassPathOption(buffer, import_paths) abort
     " Filter out lines like [INFO], etc.
     let l:class_paths = filter(a:import_paths[:], 'v:val !~# ''[''')
-    call extend(
-    \   l:class_paths,
-    \   split(ale#Var(a:buffer, 'java_javac_classpath'), s:classpath_sep),
-    \)
+    let l:cls_path = ale#Var(a:buffer, 'java_javac_classpath')
+
+    if !empty(l:cls_path) && type(l:cls_path) is v:t_string
+        call extend(l:class_paths, split(l:cls_path, s:classpath_sep))
+    endif
+
+    if !empty(l:cls_path) && type(l:cls_path) is v:t_list
+        call extend(l:class_paths, l:cls_path)
+    endif
 
     return !empty(l:class_paths)
     \   ? '-cp ' . ale#Escape(join(l:class_paths, s:classpath_sep))
     \   : ''
 endfunction
 
-function! ale_linters#java#javac#GetCommand(buffer, import_paths) abort
+function! ale_linters#java#javac#GetCommand(buffer, import_paths, meta) abort
     let l:cp_option = s:BuildClassPathOption(a:buffer, a:import_paths)
     let l:sp_option = ''
 
@@ -55,16 +68,36 @@ function! ale_linters#java#javac#GetCommand(buffer, import_paths) abort
         if isdirectory(l:jaxb_dir)
             call add(l:sp_dirs, l:jaxb_dir)
         endif
+    endif
 
-        " Automatically include the test directory, but only for test code.
-        if expand('#' . a:buffer . ':p') =~? '\vsrc[/\\]test[/\\]java'
-            let l:test_dir = fnamemodify(l:src_dir, ':h:h:h')
-            \   . (has('win32') ? '\test\java\' : '/test/java/')
+    " Automatically include the test directory, but only for test code.
+    if expand('#' . a:buffer . ':p') =~? '\vsrc[/\\]test[/\\]java'
+        let l:test_dir = ale#path#FindNearestDirectory(a:buffer, 'src/test/java')
 
-            if isdirectory(l:test_dir)
-                call add(l:sp_dirs, l:test_dir)
-            endif
+        if isdirectory(l:test_dir)
+            call add(l:sp_dirs, l:test_dir)
         endif
+    endif
+
+    let l:source_paths = []
+    let l:source_path = ale#Var(a:buffer, 'java_javac_sourcepath')
+
+    if !empty(l:source_path) && type(l:source_path) is v:t_string
+        let l:source_paths = split(l:source_path, s:classpath_sep)
+    endif
+
+    if !empty(l:source_path) && type(l:source_path) is v:t_list
+        let l:source_paths = l:source_path
+    endif
+
+    if !empty(l:source_paths)
+        for l:path in l:source_paths
+            let l:sp_path = ale#path#FindNearestDirectory(a:buffer, l:path)
+
+            if !empty(l:sp_path)
+                call add(l:sp_dirs, l:sp_path)
+            endif
+        endfor
     endif
 
     if !empty(l:sp_dirs)
@@ -73,7 +106,7 @@ function! ale_linters#java#javac#GetCommand(buffer, import_paths) abort
     endif
 
     " Create .class files in a temporary directory, which we will delete later.
-    let l:class_file_directory = ale#engine#CreateDirectory(a:buffer)
+    let l:class_file_directory = ale#command#CreateDirectory(a:buffer)
 
     " Always run javac from the directory the file is in, so we can resolve
     " relative paths correctly.
@@ -92,7 +125,7 @@ function! ale_linters#java#javac#Handle(buffer, lines) abort
     " Main.java:13: warning: [deprecation] donaught() in Testclass has been deprecated
     " Main.java:16: error: ';' expected
     let l:directory = expand('#' . a:buffer . ':p:h')
-    let l:pattern = '\v^(.*):(\d+): (.+):(.+)$'
+    let l:pattern = '\v^(.*):(\d+): (.{-1,}):(.+)$'
     let l:col_pattern = '\v^(\s*\^)$'
     let l:symbol_pattern = '\v^ +symbol: *(class|method) +([^ ]+)'
     let l:output = []
@@ -120,10 +153,8 @@ endfunction
 
 call ale#linter#Define('java', {
 \   'name': 'javac',
-\   'executable_callback': ale#VarFunc('java_javac_executable'),
-\   'command_chain': [
-\       {'callback': 'ale_linters#java#javac#GetImportPaths', 'output_stream': 'stdout'},
-\       {'callback': 'ale_linters#java#javac#GetCommand', 'output_stream': 'stderr'},
-\   ],
+\   'executable': {b -> ale#Var(b, 'java_javac_executable')},
+\   'command': function('ale_linters#java#javac#RunWithImportPaths'),
+\   'output_stream': 'stderr',
 \   'callback': 'ale_linters#java#javac#Handle',
 \})

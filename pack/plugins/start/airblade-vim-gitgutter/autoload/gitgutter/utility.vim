@@ -9,26 +9,22 @@ endfunction
 function! gitgutter#utility#setbufvar(buffer, varname, val)
   let buffer = +a:buffer
   " Default value for getbufvar() was introduced in Vim 7.3.831.
-  let bvars = getbufvar(buffer, '')
-  if empty(bvars)
-    let bvars = {}
+  let ggvars = getbufvar(buffer, 'gitgutter')
+  if type(ggvars) == type('')
+    unlet ggvars
+    let ggvars = {}
+    call setbufvar(buffer, 'gitgutter', ggvars)
   endif
-  let dict = get(bvars, 'gitgutter', {})
-  let needs_setting = empty(dict)
-  let dict[a:varname] = a:val
-  if needs_setting
-    call setbufvar(buffer, 'gitgutter', dict)
-  endif
+  let ggvars[a:varname] = a:val
 endfunction
 
 function! gitgutter#utility#getbufvar(buffer, varname, ...)
-  let dict = get(getbufvar(a:buffer, ''), 'gitgutter', {})
-  if has_key(dict, a:varname)
-    return dict[a:varname]
-  else
-    if a:0
-      return a:1
-    endif
+  let ggvars = getbufvar(a:buffer, 'gitgutter')
+  if type(ggvars) == type({}) && has_key(ggvars, a:varname)
+    return ggvars[a:varname]
+  endif
+  if a:0
+    return a:1
   endif
 endfunction
 
@@ -53,6 +49,7 @@ endfunction
 " This function does not and should not make any system calls.
 function! gitgutter#utility#is_active(bufnr) abort
   return g:gitgutter_enabled &&
+        \ gitgutter#utility#getbufvar(a:bufnr, 'enabled', 1) &&
         \ !pumvisible() &&
         \ s:is_file_buffer(a:bufnr) &&
         \ s:exists_file(a:bufnr) &&
@@ -102,6 +99,10 @@ function! gitgutter#utility#system(cmd, ...) abort
   return output
 endfunction
 
+function! gitgutter#utility#has_repo_path(bufnr)
+  return index(['', -1, -2], gitgutter#utility#repo_path(a:bufnr, 0)) == -1
+endfunction
+
 " Path of file relative to repo root.
 "
 " *     empty string - not set
@@ -109,65 +110,59 @@ endfunction
 " *               -1 - pending
 " *               -2 - not tracked by git
 function! gitgutter#utility#repo_path(bufnr, shellesc) abort
-  let p = gitgutter#utility#getbufvar(a:bufnr, 'path')
+  let p = gitgutter#utility#getbufvar(a:bufnr, 'path', '')
   return a:shellesc ? gitgutter#utility#shellescape(p) : p
 endfunction
 
-function! gitgutter#utility#set_repo_path(bufnr) abort
+
+let s:set_path_handler = {}
+
+function! s:set_path_handler.out(buffer, path) abort
+  let path = s:strip_trailing_new_line(a:path)
+  call gitgutter#utility#setbufvar(a:buffer, 'path', path)
+
+  if type(self.continuation) == type(function('tr'))
+    call self.continuation()
+  else
+    call call(self.continuation.function, self.continuation.arguments)
+  endif
+endfunction
+
+function! s:set_path_handler.err(buffer) abort
+  call gitgutter#utility#setbufvar(a:buffer, 'path', -2)
+endfunction
+
+
+" continuation - a funcref or hash to call after setting the repo path asynchronously.
+"
+" Returns 'async' if the the path is set asynchronously, 0 otherwise.
+function! gitgutter#utility#set_repo_path(bufnr, continuation) abort
   " Values of path:
   " * non-empty string - path
   " *               -1 - pending
   " *               -2 - not tracked by git
 
   call gitgutter#utility#setbufvar(a:bufnr, 'path', -1)
-  let cmd = gitgutter#utility#cd_cmd(a:bufnr, g:gitgutter_git_executable.' ls-files --error-unmatch --full-name -z -- '.gitgutter#utility#shellescape(s:filename(a:bufnr)))
+  let cmd = gitgutter#utility#cd_cmd(a:bufnr, g:gitgutter_git_executable.' '.g:gitgutter_git_args.' ls-files --error-unmatch --full-name -z -- '.gitgutter#utility#shellescape(s:filename(a:bufnr)))
 
-  if g:gitgutter_async && gitgutter#async#available()
-    if has('lambda')
-      call gitgutter#async#execute(cmd, a:bufnr, {
-            \   'out': {bufnr, path -> gitgutter#utility#setbufvar(bufnr, 'path', s:strip_trailing_new_line(path))},
-            \   'err': {bufnr       -> gitgutter#utility#setbufvar(bufnr, 'path', -2)},
-            \ })
-    else
-      if has('nvim') && !has('nvim-0.2.0')
-        call gitgutter#async#execute(cmd, a:bufnr, {
-              \   'out': function('s:set_path'),
-              \   'err': function('s:not_tracked_by_git')
-              \ })
-      else
-        call gitgutter#async#execute(cmd, a:bufnr, {
-              \   'out': function('s:set_path'),
-              \   'err': function('s:set_path', [-2])
-              \ })
-      endif
-    endif
+  if g:gitgutter_async && gitgutter#async#available() && !has('vim_starting')
+    let handler = copy(s:set_path_handler)
+    let handler.continuation = a:continuation
+    call gitgutter#async#execute(cmd, a:bufnr, handler)
+    return 'async'
+  endif
+
+  let path = gitgutter#utility#system(cmd)
+  if v:shell_error
+    call gitgutter#utility#setbufvar(a:bufnr, 'path', -2)
   else
-    let path = gitgutter#utility#system(cmd)
-    if v:shell_error
-      call gitgutter#utility#setbufvar(a:bufnr, 'path', -2)
-    else
-      call gitgutter#utility#setbufvar(a:bufnr, 'path', s:strip_trailing_new_line(path))
-    endif
+    call gitgutter#utility#setbufvar(a:bufnr, 'path', s:strip_trailing_new_line(path))
   endif
 endfunction
 
-if has('nvim') && !has('nvim-0.2.0')
-  function! s:not_tracked_by_git(bufnr)
-    call s:set_path(a:bufnr, -2)
-  endfunction
-endif
-
-function! s:set_path(bufnr, path)
-  if a:bufnr == -2
-    let [bufnr, path] = [a:path, a:bufnr]
-    call gitgutter#utility#setbufvar(bufnr, 'path', path)
-  else
-    call gitgutter#utility#setbufvar(a:bufnr, 'path', s:strip_trailing_new_line(a:path))
-  endif
-endfunction
 
 function! gitgutter#utility#cd_cmd(bufnr, cmd) abort
-  let cd = s:unc_path(a:bufnr) ? 'pushd' : (gitgutter#utility#windows() ? 'cd /d' : 'cd')
+  let cd = s:unc_path(a:bufnr) ? 'pushd' : (gitgutter#utility#windows() && s:dos_shell() ? 'cd /d' : 'cd')
   return cd.' '.s:dir(a:bufnr).' && '.a:cmd
 endfunction
 
@@ -175,22 +170,44 @@ function! s:unc_path(bufnr)
   return s:abs_path(a:bufnr, 0) =~ '^\\\\'
 endfunction
 
+function! s:dos_shell()
+  return &shell == 'cmd.exe' || &shell == 'command.com'
+endfunction
+
 function! s:use_known_shell() abort
   if has('unix') && &shell !=# 'sh'
-    let [s:shell, s:shellcmdflag, s:shellredir] = [&shell, &shellcmdflag, &shellredir]
+    let [s:shell, s:shellcmdflag, s:shellredir, s:shellpipe, s:shellquote, s:shellxquote] = [&shell, &shellcmdflag, &shellredir, &shellpipe, &shellquote, &shellxquote]
     let &shell = 'sh'
     set shellcmdflag=-c shellredir=>%s\ 2>&1
+  endif
+  if has('win32') && (&shell ==# 'pwsh' || &shell ==# 'powershell')
+    let [s:shell, s:shellcmdflag, s:shellredir, s:shellpipe, s:shellquote, s:shellxquote] = [&shell, &shellcmdflag, &shellredir, &shellpipe, &shellquote, &shellxquote]
+    let &shell = 'cmd.exe'
+    set shellcmdflag=/s\ /c shellredir=>%s\ 2>&1 shellpipe=>%s\ 2>&1 shellquote= shellxquote="
   endif
 endfunction
 
 function! s:restore_shell() abort
-  if has('unix') && exists('s:shell')
-    let [&shell, &shellcmdflag, &shellredir] = [s:shell, s:shellcmdflag, s:shellredir]
+  if (has('unix') || has('win32')) && exists('s:shell')
+    let [&shell, &shellcmdflag, &shellredir, &shellpipe, &shellquote, &shellxquote] = [s:shell, s:shellcmdflag, s:shellredir, s:shellpipe, s:shellquote, s:shellxquote]
   endif
+endfunction
+
+function! gitgutter#utility#get_diff_base(bufnr)
+  let p = resolve(expand('#'.a:bufnr.':p'))
+  let ml = matchlist(p, '\v^fugitive:/.*/(\x{40,})/')
+  if !empty(ml) && !empty(ml[1])
+    return ml[1].'^'
+  endif
+  return g:gitgutter_diff_base
 endfunction
 
 function! s:abs_path(bufnr, shellesc)
   let p = resolve(expand('#'.a:bufnr.':p'))
+
+  " Remove extra parts from fugitive's filepaths
+  let p = substitute(substitute(p, '^fugitive:', '', ''), '\v\.git/\x{40,}/', '', '')
+
   return a:shellesc ? gitgutter#utility#shellescape(p) : p
 endfunction
 

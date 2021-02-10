@@ -11,7 +11,7 @@ CONTENTS                                                    *terminus-contents*
 7. FAQ              |terminus-faq|
 8. Website          |terminus-website|
 9. License          |terminus-license|
-10. Development      |terminus-development|
+10. Development     |terminus-development|
 11. Authors         |terminus-authors|
 12. History         |terminus-history|
 
@@ -402,6 +402,7 @@ order):
   Jan Christoph Ebersbach
   Joe Lencioni
   Jon Parise
+  Peteris Krumins
   Rastislav Barlik
 
 
@@ -409,8 +410,12 @@ HISTORY                                                      *terminus-history*
 
 master (not yet released) ~
 
+- Make Bracketed Paste mode work in urxvt (patch from Peteris Krumins,
+  https://github.com/wincent/terminus/pull/43).
 - Suppress |E11| errors when switching focus and the |command-line-window| is
   open (https://github.com/wincent/terminus/issues/33).
+- Avoid unwanted characters appearing in Vim terminal on focus (patch from
+  "Neui", https://github.com/wincent/terminus/pull/39).
 
 1.3 (6 June 2017) ~
 

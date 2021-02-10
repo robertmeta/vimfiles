@@ -25,24 +25,22 @@ endfunction
 " the code. Calling it again reruns the tests and shows the last updated
 " coverage.
 function! go#coverage#Buffer(bang, ...) abort
-  " we use matchaddpos() which was introduce with 7.4.330, be sure we have
-  " it: http://ftp.vim.org/vim/patches/7.4/7.4.330
+
+  " check if the version of Vim being tested supports matchaddpos()
   if !exists("*matchaddpos")
-    call go#util#EchoError("GoCoverage is supported with Vim version 7.4-330 or later")
+    call go#util#EchoError("GoCoverage is not supported by your version of Vim.")
     return -1
   endif
 
   " check if there is any test file, if not we just return
-  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd ' : 'cd '
-  let dir = getcwd()
   try
-    execute cd . fnameescape(expand("%:p:h"))
+    let l:dir = go#util#Chdir(expand("%:p:h"))
     if empty(glob("*_test.go"))
       call go#util#EchoError("no test files available")
       return
     endif
   finally
-    execute cd . fnameescape(dir)
+    call go#util#Chdir(l:dir)
   endtry
 
   let s:toggle = 1
@@ -112,7 +110,7 @@ function! go#coverage#Browser(bang, ...) abort
   let id = call('go#test#Test', args)
 
   if go#util#ShellError() == 0
-    call go#tool#ExecuteInDir(['go', 'tool', 'cover', '-html=' . l:tmpname])
+    call go#util#ExecInDir(['go', 'tool', 'cover', '-html=' . l:tmpname])
   endif
 
   call delete(l:tmpname)
@@ -284,7 +282,7 @@ endfunction
 
 function! s:coverage_browser_callback(coverfile, job, exit_status, data)
   if a:exit_status == 0
-    call go#tool#ExecuteInDir(['go', 'tool', 'cover', '-html=' . a:coverfile])
+    call go#util#ExecInDir(['go', 'tool', 'cover', '-html=' . a:coverfile])
   endif
 
   call delete(a:coverfile)

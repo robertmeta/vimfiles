@@ -49,7 +49,6 @@ let g:sandwich#recipes = [
       \   {
       \     'buns':         ['<', '>'],
       \     'expand_range': 0,
-      \     'match_syntax': 1,
       \     'input':        ['>', 'a'],
       \   },
       \
@@ -59,7 +58,6 @@ let g:sandwich#recipes = [
       \     'expand_range': 0,
       \     'nesting':      0,
       \     'linewise':     0,
-      \     'match_syntax': 1,
       \   },
       \
       \   {
@@ -68,7 +66,6 @@ let g:sandwich#recipes = [
       \     'expand_range': 0,
       \     'nesting':      0,
       \     'linewise':     0,
-      \     'match_syntax': 1,
       \   },
       \
       \   {
@@ -77,13 +74,11 @@ let g:sandwich#recipes = [
       \     'expand_range': 0,
       \     'nesting':      0,
       \     'linewise':     0,
-      \     'match_syntax': 1,
       \   },
       \
       \   {
       \     'buns':         ['{', '}'],
       \     'nesting':      1,
-      \     'match_syntax': 1,
       \     'skip_break':   1,
       \     'input':        ['{', '}', 'B'],
       \   },
@@ -91,14 +86,12 @@ let g:sandwich#recipes = [
       \   {
       \     'buns':         ['[', ']'],
       \     'nesting':      1,
-      \     'match_syntax': 1,
       \     'input':        ['[', ']', 'r'],
       \   },
       \
       \   {
       \     'buns':         ['(', ')'],
       \     'nesting':      1,
-      \     'match_syntax': 1,
       \     'input':        ['(', ')', 'b'],
       \   },
       \
@@ -107,7 +100,7 @@ let g:sandwich#recipes = [
       \     'listexpr': 1,
       \     'kind': ['add'],
       \     'action': ['add'],
-      \     'input': ['t'],
+      \     'input': ['t', 'T'],
       \   },
       \
       \   {
@@ -127,21 +120,19 @@ let g:sandwich#recipes = [
       \   },
       \
       \   {
-      \     'external': ['it', 'at'],
-      \     'noremap': 1,
+      \     'external': ["\<Plug>(textobj-sandwich-tag-i)", "\<Plug>(textobj-sandwich-tag-a)"],
+      \     'noremap': 0,
       \     'kind': ['delete', 'textobj'],
       \     'expr_filter': ['operator#sandwich#kind() !=# "replace"'],
-      \     'synchro': 1,
       \     'linewise': 1,
       \     'input': ['t', 'T', '<'],
       \   },
       \
       \   {
-      \     'external': ['it', 'at'],
-      \     'noremap': 1,
+      \     'external': ["\<Plug>(textobj-sandwich-tag-i)", "\<Plug>(textobj-sandwich-tag-a)"],
+      \     'noremap': 0,
       \     'kind': ['replace', 'query'],
       \     'expr_filter': ['operator#sandwich#kind() ==# "replace"'],
-      \     'synchro': 1,
       \     'input': ['T', '<'],
       \   },
       \
@@ -150,7 +141,6 @@ let g:sandwich#recipes = [
       \     'noremap': 0,
       \     'kind': ['replace', 'textobj'],
       \     'expr_filter': ['operator#sandwich#kind() ==# "replace"'],
-      \     'synchro': 1,
       \     'input': ['t'],
       \   },
       \
@@ -189,7 +179,6 @@ let g:sandwich#recipes = [
       \     'kind': ['delete', 'replace', 'query'],
       \     'listexpr': 1,
       \     'regex': 1,
-      \     'synchro': 1,
       \     'input': ['i'],
       \   },
       \
@@ -206,7 +195,6 @@ let g:sandwich#recipes = [
       \     'kind': ['delete', 'replace', 'query'],
       \     'listexpr': 1,
       \     'regex': 1,
-      \     'synchro': 1,
       \     'input': ['I'],
       \   },
       \ ]

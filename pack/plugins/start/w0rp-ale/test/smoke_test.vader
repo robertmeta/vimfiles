@@ -1,8 +1,10 @@
 Before:
+  Save g:ale_enabled
   Save g:ale_set_lists_synchronously
   Save g:ale_buffer_info
   Save &shell
 
+  let g:ale_enabled = 1
   let g:ale_buffer_info = {}
   let g:ale_set_lists_synchronously = 1
 
@@ -62,11 +64,11 @@ Execute(Linters should run with the default options):
   \   'valid': 1,
   \ }]
 
-  " Try the test a few times over in NeoVim 0.3 or Windows,
+  " Try the test a few times over in NeoVim 0.3 or Windows or Vim 8.2,
   " where tests fail randomly.
-  for g:i in range(has('nvim-0.3') || has('win32') ? 5 : 1)
+  for g:i in range(has('nvim-0.3') || has('win32') || has('patch-8.2.2401') ? 5 : 1)
     call ale#Queue(0, '')
-    call ale#engine#WaitForJobs(2000)
+    call ale#test#WaitForJobs(2000)
 
     let g:results = ale#test#GetLoclistWithoutModule()
 
@@ -110,7 +112,7 @@ Execute(Linters should run in PowerShell too):
     \})
 
     call ale#Queue(0, '')
-    call ale#engine#WaitForJobs(4000)
+    call ale#test#WaitForJobs(4000)
 
     AssertEqual [
     \ {
@@ -140,7 +142,7 @@ Execute(Linters should run in PowerShell too):
 
 Execute(Previous errors should be removed when linters change):
   call ale#Queue(0, '')
-  call ale#engine#WaitForJobs(2000)
+  call ale#test#WaitForJobs(2000)
 
   call ale#linter#Reset()
 
@@ -163,11 +165,11 @@ Execute(Previous errors should be removed when linters change):
   \ 'valid': 1,
   \}]
 
-  " Try the test a few times over in NeoVim 0.3 or Windows,
+  " Try the test a few times over in NeoVim 0.3 or VIm 8.2 or Windows,
   " where tests fail randomly.
-  for g:i in range(has('nvim-0.3') || has('win32') ? 5 : 1)
+  for g:i in range(has('nvim-0.3') || has('win32') || has('patch-8.2.2401') ? 5 : 1)
     call ale#Queue(0, '')
-    call ale#engine#WaitForJobs(2000)
+    call ale#test#WaitForJobs(2000)
 
     let g:results = ale#test#GetLoclistWithoutModule()
 

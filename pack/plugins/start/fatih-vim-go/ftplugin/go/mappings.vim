@@ -11,7 +11,7 @@ endif
 " Some handy plug mappings
 nnoremap <silent> <Plug>(go-run) :<C-u>call go#cmd#Run(!g:go_jump_to_error)<CR>
 
-if has("nvim")
+if has("nvim") || has("terminal")
   nnoremap <silent> <Plug>(go-run-vertical) :<C-u>call go#cmd#RunTerm(!g:go_jump_to_error, 'vsplit', [])<CR>
   nnoremap <silent> <Plug>(go-run-split) :<C-u>call go#cmd#RunTerm(!g:go_jump_to_error, 'split', [])<CR>
   nnoremap <silent> <Plug>(go-run-tab) :<C-u>call go#cmd#RunTerm(!g:go_jump_to_error, 'tabe', [])<CR>
@@ -35,14 +35,14 @@ nnoremap <silent> <Plug>(go-info) :<C-u>call go#tool#Info(1)<CR>
 nnoremap <silent> <Plug>(go-import) :<C-u>call go#import#SwitchImport(1, '', expand('<cword>'), '')<CR>
 nnoremap <silent> <Plug>(go-imports) :<C-u>call go#fmt#Format(1)<CR>
 
-nnoremap <silent> <Plug>(go-implements) :<C-u>call go#guru#Implements(-1)<CR>
+nnoremap <silent> <Plug>(go-implements) :<C-u>call go#implements#Implements(-1)<CR>
 nnoremap <silent> <Plug>(go-callees) :<C-u>call go#guru#Callees(-1)<CR>
-nnoremap <silent> <Plug>(go-callers) :<C-u>call go#guru#Callers(-1)<CR>
+nnoremap <silent> <Plug>(go-callers) :<C-u>call go#calls#Callers()<CR>
 nnoremap <silent> <Plug>(go-describe) :<C-u>call go#guru#Describe(-1)<CR>
 nnoremap <silent> <Plug>(go-callstack) :<C-u>call go#guru#Callstack(-1)<CR>
 xnoremap <silent> <Plug>(go-freevars) :<C-u>call go#guru#Freevars(0)<CR>
 nnoremap <silent> <Plug>(go-channelpeers) :<C-u>call go#guru#ChannelPeers(-1)<CR>
-nnoremap <silent> <Plug>(go-referrers) :<C-u>call go#guru#Referrers(-1)<CR>
+nnoremap <silent> <Plug>(go-referrers) :<C-u>call go#referrers#Referrers(-1)<CR>
 nnoremap <silent> <Plug>(go-sameids) :<C-u>call go#guru#SameIds(1)<CR>
 nnoremap <silent> <Plug>(go-pointsto) :<C-u>call go#guru#PointsTo(-1)<CR>
 nnoremap <silent> <Plug>(go-whicherrs) :<C-u>call go#guru#Whicherrs(-1)<CR>
@@ -53,10 +53,15 @@ nnoremap <silent> <Plug>(go-rename) :<C-u>call go#rename#Rename(!g:go_jump_to_er
 nnoremap <silent> <Plug>(go-decls) :<C-u>call go#decls#Decls(0, '')<CR>
 nnoremap <silent> <Plug>(go-decls-dir) :<C-u>call go#decls#Decls(1, '')<CR>
 
-nnoremap <silent> <Plug>(go-def) :<C-u>call go#def#Jump('')<CR>
-nnoremap <silent> <Plug>(go-def-vertical) :<C-u>call go#def#Jump("vsplit")<CR>
-nnoremap <silent> <Plug>(go-def-split) :<C-u>call go#def#Jump("split")<CR>
-nnoremap <silent> <Plug>(go-def-tab) :<C-u>call go#def#Jump("tab")<CR>
+nnoremap <silent> <Plug>(go-def) :<C-u>call go#def#Jump('', 0)<CR>
+nnoremap <silent> <Plug>(go-def-vertical) :<C-u>call go#def#Jump("vsplit", 0)<CR>
+nnoremap <silent> <Plug>(go-def-split) :<C-u>call go#def#Jump("split", 0)<CR>
+nnoremap <silent> <Plug>(go-def-tab) :<C-u>call go#def#Jump("tab", 0)<CR>
+
+nnoremap <silent> <Plug>(go-def-type) :<C-u>call go#def#Jump('', 1)<CR>
+nnoremap <silent> <Plug>(go-def-type-vertical) :<C-u>call go#def#Jump("vsplit", 1)<CR>
+nnoremap <silent> <Plug>(go-def-type-split) :<C-u>call go#def#Jump("split", 1)<CR>
+nnoremap <silent> <Plug>(go-def-type-tab) :<C-u>call go#def#Jump("tab", 1)<CR>
 
 nnoremap <silent> <Plug>(go-def-pop) :<C-u>call go#def#StackPop()<CR>
 nnoremap <silent> <Plug>(go-def-stack) :<C-u>call go#def#Stack()<CR>
@@ -77,5 +82,7 @@ nnoremap <silent> <Plug>(go-alternate-vertical) :<C-u>call go#alternate#Switch(0
 nnoremap <silent> <Plug>(go-alternate-split) :<C-u>call go#alternate#Switch(0, "split")<CR>
 
 nnoremap <silent> <Plug>(go-iferr) :<C-u>call go#iferr#Generate()<CR>
+
+nnoremap <silent> <Plug>(go-diagnostics) :<C-u>call go#lint#Diagnostics(!g:go_jump_to_error)<CR>
 
 " vim: sw=2 ts=2 et

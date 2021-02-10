@@ -3,7 +3,7 @@
        .oooooo.		       o8o	    oooo       oooo	  oooo	~
       d8P'  `Y8b	       `"'	    `888       `888	  `888	~
      888      888  oooo  oooo oooo  .ooooo.  888  oooo	888 .oo.   888	~
-     888      888  `888  `888 `888 d88' `"Y8 888 .8P'	888P"Y88b  888	
+     888      888 ` ``888 ` ``888 `888 d88' `"Y8 888 .8P'   888P"Y88b  888
      888      888   888   888  888 888	     888888.	888   888  888	 >
      `88b    d88b   888   888  888 888	 .o8 888 `88b.	888   888  888	
       `Y8bood8P'Ybd'`V88V"V8P'o888o`Y8bod8P'o888o o888oo888o o888oo888o
@@ -50,6 +50,10 @@ n   <Plug>(quickhl-manual-toggle)
 v   <Plug>(quickhl-manual-toggle)
 	  Toggle global lock
 
+n   <Plug>(quickhl-manual-go-to-next)
+n   <Plug>(quickhl-manual-go-to-prev)
+	  Jump to next/previous highlight
+
 n   <Plug>(quickhl-cword-toggle)
 n   <Plug>(quickhl-cword-enable)
 n   <Plug>(quickhl-cword-disable)
@@ -84,6 +88,10 @@ COMMANDS						*quickhl-commands*
 *:QuickhlManualLockWindow*	Lock version of current window.
 *:QuickhlManualUnlockWindow*	Unlock current window.
 *:QuickhlManualLockWindowToggle*  Toggle window lock.
+*:QuickhlManualGoToNext* {flags}	Jump to next highlight.
+*:QuickhlManualGoToPrev* {flags}	Jump to previous highlight.
+					{flags} is passed |search()|.
+					see ":help search()"
 
 *:QuickhlCwordEnable*	Enable highlighting <cword> (updated on |CursorMoved|).
 *:QuickhlCwordDisable*	Disable.

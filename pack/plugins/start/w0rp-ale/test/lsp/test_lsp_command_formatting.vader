@@ -1,5 +1,9 @@
 Before:
+  Save g:ale_command_wrapper
+
   runtime autoload/ale/lsp.vim
+
+  let g:ale_command_wrapper = ''
 
   let g:args = []
 
@@ -9,6 +13,8 @@ Before:
   endfunction
 
 After:
+  Restore
+
   unlet! g:args
 
   runtime autoload/ale/lsp.vim
@@ -17,12 +23,14 @@ Execute(Command formatting should be applied correctly for LSP linters):
   call ale#lsp_linter#StartLSP(
   \ bufnr(''),
   \ {
-  \   'language_callback': {-> 'x'},
-  \   'project_root_callback': {-> '/foo/bar'},
+  \   'name': 'linter',
+  \   'language': {-> 'x'},
+  \   'project_root': {-> '/foo/bar'},
   \   'lsp': 'stdio',
   \   'executable': has('win32') ? 'cmd': 'true',
   \   'command': '%e --foo',
   \ },
+  \ {-> 0}
   \)
 
   if has('win32')

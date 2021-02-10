@@ -47,6 +47,16 @@ endfunction
 
 cnoremap <expr> <C-T> <SID>transpose()
 
+function! s:ctrl_u()
+  if getcmdpos() > 1
+    let @- = getcmdline()[:getcmdpos()-2]
+  endif
+  return "\<C-U>"
+endfunction
+
+cnoremap <expr> <C-U> <SID>ctrl_u()
+cnoremap <expr> <C-Y> pumvisible() ? "\<C-Y>" : "\<C-R>-"
+
 if exists('g:rsi_no_meta')
   finish
 endif
@@ -55,32 +65,38 @@ if &encoding ==# 'latin1' && has('gui_running') && !empty(findfile('plugin/sensi
   set encoding=utf-8
 endif
 
-noremap!        <M-b> <S-Left>
-noremap!        <M-d> <C-O>dw
-cnoremap        <M-d> <S-Right><C-W>
-noremap!        <M-BS> <C-W>
-noremap!        <M-f> <S-Right>
-noremap!        <M-n> <Down>
-noremap!        <M-p> <Up>
+function! s:MapMeta() abort
+  noremap!        <M-b> <S-Left>
+  noremap!        <M-f> <S-Right>
+  noremap!        <M-d> <C-O>dw
+  cnoremap        <M-d> <S-Right><C-W>
+  noremap!        <M-n> <Down>
+  noremap!        <M-p> <Up>
+  noremap!        <M-BS> <C-W>
+  noremap!        <M-C-h> <C-W>
+endfunction
 
-if !has("gui_running") && !has('nvim')
-  silent! exe "set <S-Left>=\<Esc>b"
-  silent! exe "set <S-Right>=\<Esc>f"
+if has("gui_running") || has('nvim')
+  call s:MapMeta()
+else
+  silent! exe "set <F29>=\<Esc>b"
+  silent! exe "set <F30>=\<Esc>f"
   silent! exe "set <F31>=\<Esc>d"
   silent! exe "set <F32>=\<Esc>n"
   silent! exe "set <F33>=\<Esc>p"
   silent! exe "set <F34>=\<Esc>\<C-?>"
   silent! exe "set <F35>=\<Esc>\<C-H>"
-  map! <F31> <M-d>
-  map! <F32> <M-n>
-  map! <F33> <M-p>
-  map! <F34> <M-BS>
-  map! <F35> <M-BS>
-  map <F31> <M-d>
-  map <F32> <M-n>
-  map <F33> <M-p>
-  map <F34> <M-BS>
-  map <F35> <M-BS>
+  noremap!        <F29> <S-Left>
+  noremap!        <F30> <S-Right>
+  noremap!        <F31> <C-O>dw
+  cnoremap        <F31> <S-Right><C-W>
+  noremap!        <F32> <Down>
+  noremap!        <F33> <Up>
+  noremap!        <F34> <C-W>
+  noremap!        <F35> <C-W>
+  augroup rsi_gui
+    autocmd GUIEnter * call s:MapMeta()
+  augroup END
 endif
 
 " vim:set et sw=2:

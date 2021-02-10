@@ -52,7 +52,21 @@ g:ale_json_fixjson_use_global                   *g:ale_json_fixjson_use_global*
 ===============================================================================
 jsonlint                                                    *ale-json-jsonlint*
 
-There are no options available.
+g:ale_json_jsonlint_executable                 *g:ale_json_jsonlint_executable*
+                                               *b:ale_json_jsonlint_executable*
+
+  Type: |String|
+  Default: `'jsonlint'`
+
+  The executable that will be run for jsonlint.
+
+g:ale_json_jsonlint_use_global                  *g:ale_json_jsonlint_use_global*
+                                                *b:ale_json_jsonlint_use_global*
+
+  Type: |Number|
+  Default: `get(g:, 'ale_use_global_executables', 0)`
+
+  See |ale-integrations-local-executables|
 
 
 ===============================================================================
@@ -85,6 +99,38 @@ g:ale_json_jq_filters                                   *g:ale_json_jq_filters*
 prettier                                                    *ale-json-prettier*
 
 See |ale-javascript-prettier| for information about the available options.
+
+
+===============================================================================
+spectral                                                    *ale-json-spectral*
+
+Website: https://github.com/stoplightio/spectral
+
+Installation
+-------------------------------------------------------------------------------
+
+Install spectral either globally or locally: >
+
+  npm install @stoplight/spectral -g  # global
+  npm install @stoplight/spectral     # local
+<
+
+Options
+-------------------------------------------------------------------------------
+
+g:ale_json_spectral_executable                 *g:ale_json_spectral_executable*
+                                               *b:ale_json_spectral_executable*
+  Type: |String|
+  Default: `'spectral'`
+
+  This variable can be set to change the path to spectral.
+
+g:ale_json_spectral_use_global                 *g:ale_json_spectral_use_global*
+                                               *b:ale_json_spectral_use_global*
+  Type: |String|
+  Default: `get(g:, 'ale_use_global_executables', 0)`
+
+  See |ale-integrations-local-executables|
 
 
 ===============================================================================

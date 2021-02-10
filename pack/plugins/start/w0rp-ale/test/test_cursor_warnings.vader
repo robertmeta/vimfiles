@@ -1,6 +1,10 @@
 Before:
   Save g:ale_echo_msg_format
   Save g:ale_echo_cursor
+  Save b:ale_lint_on_insert_leave
+
+  let g:ale_echo_msg_format = '%code: %%s'
+  let b:ale_lint_on_insert_leave = 0
 
   " We should prefer the error message at column 10 instead of the warning.
   let g:ale_buffer_info = {
@@ -11,7 +15,7 @@ Before:
   \       'col': 10,
   \       'bufnr': bufnr('%'),
   \       'vcol': 0,
-  \       'linter_name': 'eslint',
+  \       'linter_name': 'bettercode',
   \       'nr': -1,
   \       'type': 'W',
   \       'code': 'semi',
@@ -22,11 +26,11 @@ Before:
   \       'col': 10,
   \       'bufnr': bufnr('%'),
   \       'vcol': 0,
-  \       'linter_name': 'eslint',
+  \       'linter_name': 'bettercode',
   \       'nr': -1,
   \       'type': 'E',
   \       'code': 'semi',
-  \       'text': 'Missing semicolon.',
+  \       'text': "Missing semicolon.\r",
   \       'detail': "Every statement should end with a semicolon\nsecond line",
   \     },
   \     {
@@ -34,7 +38,7 @@ Before:
   \       'col': 14,
   \       'bufnr': bufnr('%'),
   \       'vcol': 0,
-  \       'linter_name': 'eslint',
+  \       'linter_name': 'bettercode',
   \       'nr': -1,
   \       'type': 'I',
   \       'text': 'Some information',
@@ -44,7 +48,7 @@ Before:
   \       'col': 10,
   \       'bufnr': bufnr('%'),
   \       'vcol': 0,
-  \       'linter_name': 'eslint',
+  \       'linter_name': 'bettercode',
   \       'nr': -1,
   \       'type': 'W',
   \       'code': 'space-infix-ops',
@@ -55,7 +59,7 @@ Before:
   \       'col': 15,
   \       'bufnr': bufnr('%'),
   \       'vcol': 0,
-  \       'linter_name': 'eslint',
+  \       'linter_name': 'bettercode',
   \       'nr': -1,
   \       'type': 'E',
   \       'code': 'radix',
@@ -66,7 +70,7 @@ Before:
   \       'col': 1,
   \       'bufnr': bufnr('%'),
   \       'vcol': 0,
-  \       'linter_name': 'eslint',
+  \       'linter_name': 'bettercode',
   \       'nr': -1,
   \       'type': 'E',
   \       'text': 'lowercase error',
@@ -90,6 +94,9 @@ Before:
 
     return empty(l:lines) ? '' : l:lines[-1]
   endfunction
+
+  call ale#linter#Reset()
+  call ale#linter#PreventLoading('javascript')
 
 After:
   Restore
@@ -116,6 +123,8 @@ After:
   if &filetype is# 'ale-preview'
     noautocmd :q!
   endif
+
+  call ale#linter#Reset()
 
 Given javascript(A Javscript file with warnings/errors):
   var x = 3 + 12345678
@@ -187,7 +196,7 @@ Execute(The linter name should be formatted into the message correctly):
   call ale#cursor#EchoCursorWarning()
 
   AssertEqual
-  \ 'eslint: Infix operators must be spaced.',
+  \ 'bettercode: Infix operators must be spaced.',
   \ GetLastMessage()
 
 Execute(The severity should be formatted into the message correctly):

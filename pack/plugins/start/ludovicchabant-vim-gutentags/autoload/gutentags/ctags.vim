@@ -36,7 +36,7 @@ call s:_handleOldOptions()
 " Gutentags Module Interface {{{
 
 let s:did_check_exe = 0
-let s:runner_exe = gutentags#get_plat_file('update_tags')
+let s:runner_exe = '"' . gutentags#get_plat_file('update_tags') . '"'
 let s:unix_redir = (&shellredir =~# '%s') ? &shellredir : &shellredir . ' %s'
 let s:wildignores_options_path = ''
 let s:last_wildignores = ''
@@ -53,7 +53,13 @@ function! gutentags#ctags#init(project_root) abort
 
     " Set the tags file for Vim to use.
     if g:gutentags_ctags_auto_set_tags
-        execute 'setlocal tags^=' . fnameescape(b:gutentags_files['ctags'])
+        if has('win32') || has('win64')
+            execute 'setlocal tags^=' . fnameescape(b:gutentags_files['ctags'])
+        else
+            " spaces must be literally escaped in tags path
+            let l:literal_space_escaped = substitute(fnameescape(b:gutentags_files['ctags']), '\ ', '\\\\ ', 'g')
+            execute 'setlocal tags^=' . l:literal_space_escaped
+        endif
     endif
 
     " Check if the ctags executable exists.
@@ -72,9 +78,9 @@ function! gutentags#ctags#generate(proj_dir, tags_file, gen_opts) abort
     let l:write_mode = a:gen_opts['write_mode']
 
     let l:tags_file_exists = filereadable(a:tags_file)
-    let l:tags_file_relative = fnamemodify(a:tags_file, ':.')
-    let l:tags_file_is_local = len(l:tags_file_relative) < len(a:tags_file)
 
+    " If the tags file exists, we may want to do a sanity check to prevent
+    " weird errors that are hard to troubleshoot.
     if l:tags_file_exists && g:gutentags_ctags_check_tagfile
         let l:first_lines = readfile(a:tags_file, '', 1)
         if len(l:first_lines) == 0 || stridx(l:first_lines[0], '!_TAG_') != 0
@@ -86,6 +92,17 @@ function! gutentags#ctags#generate(proj_dir, tags_file, gen_opts) abort
         endif
     endif
 
+    " Get a tags file path relative to the current directory, which 
+    " happens to be the project root in this case.
+    " Since the given tags file path is absolute, and since Vim won't
+    " change the path if it is not inside the current directory, we
+    " know that the tags file is "local" (i.e. inside the project)
+    " if the path was shortened (an absolute path will always be
+    " longer than a true relative path).
+    let l:tags_file_relative = fnamemodify(a:tags_file, ':.')
+    let l:tags_file_is_local = len(l:tags_file_relative) < len(a:tags_file)
+    let l:use_tag_relative_opt = 0
+
     if empty(g:gutentags_cache_dir) && l:tags_file_is_local
         " If we don't use the cache directory, we can pass relative paths
         " around.
@@ -93,10 +110,27 @@ function! gutentags#ctags#generate(proj_dir, tags_file, gen_opts) abort
         " Note that if we don't do this and pass a full path for the project
         " root, some `ctags` implementations like Exhuberant Ctags can get
         " confused if the paths have spaces -- but not if you're *in* the root 
-        " directory, for some reason... (which we are, our caller in
-        " `autoload/gutentags.vim` changed it).
+        " directory, for some reason... (which will be the case, we're running
+        " the jobs from the project root).
         let l:actual_proj_dir = '.'
         let l:actual_tags_file = l:tags_file_relative
+
+        let l:tags_file_dir = fnamemodify(l:actual_tags_file, ':h')
+        if l:tags_file_dir != '.'
+            " Ok so now the tags file is stored in a subdirectory of the 
+            " project root, instead of at the root. This happens if, say,
+            " someone set `gutentags_ctags_tagfile` to `.git/tags`, which
+            " seems to be fairly popular.
+            "
+            " By default, `ctags` writes paths relative to the current 
+            " directory (the project root) but in this case we need it to
+            " be relative to the tags file (e.g. adding `../` in front of
+            " everything if the tags file is `.git/tags`).
+            "
+            " Thankfully most `ctags` implementations support an option
+            " just for this.
+            let l:use_tag_relative_opt = 1
+        endif
     else
         " else: the tags file goes in a cache directory, so we need to specify
         " all the paths absolutely for `ctags` to do its job correctly.
@@ -135,9 +169,12 @@ function! gutentags#ctags#generate(proj_dir, tags_file, gen_opts) abort
         " Omit --recursive if this project uses a file list command.
         let l:cmd += ['-o', '"' . gutentags#get_res_file('ctags_recursive.options') . '"']
     endif
-    if !empty(g:gutentags_ctags_extra_args)
-        let l:cmd += ['-O', shellescape(join(g:gutentags_ctags_extra_args))]
+    if l:use_tag_relative_opt
+        let l:cmd += ['-O', shellescape("--tag-relative=yes")]
     endif
+    for extra_arg in g:gutentags_ctags_extra_args
+        let l:cmd += ['-O', shellescape(extra_arg)]
+    endfor
     if !empty(g:gutentags_ctags_post_process_cmd)
         let l:cmd += ['-P', shellescape(g:gutentags_ctags_post_process_cmd)]
     endif
@@ -179,8 +216,8 @@ endfunction
 function! gutentags#ctags#on_job_exit(job, exit_val) abort
     call gutentags#remove_job_by_data('ctags', a:job)
 
-    if a:exit_val != 0
-        call gutentags#warning("gutentags: ctags job failed, returned: ".
+    if a:exit_val != 0 && !g:__gutentags_vim_is_leaving
+        call gutentags#warning("ctags job failed, returned: ".
                     \string(a:exit_val))
     endif
 endfunction

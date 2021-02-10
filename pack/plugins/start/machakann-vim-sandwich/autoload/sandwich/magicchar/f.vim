@@ -17,29 +17,9 @@ endif
 "}}}
 
 " default patterns
-let s:patterns = {}
-let s:patterns['_'] = [
+let g:sandwich#magicchar#f#default_patterns = [
       \   {
       \     'header' : '\<\h\k*',
-      \     'bra'    : '(',
-      \     'ket'    : ')',
-      \     'footer' : '',
-      \   },
-      \ ]
-
-let s:patterns['vim'] = [
-      \   {
-      \     'header' : '\C\<\%(\h\|[sa]:\h\|g:[A-Z]\)\k*',
-      \     'bra'    : '(',
-      \     'ket'    : ')',
-      \     'footer' : '',
-      \   },
-      \ ]
-
-" To include multibyte characters
-let s:patterns['julia'] = [
-      \   {
-      \     'header' : '\%#=2\<[[:upper:][:lower:]_]\k*',
       \     'bra'    : '(',
       \     'ket'    : ')',
       \     'footer' : '',
@@ -272,25 +252,24 @@ function! s:search_key_bra(mode, orig_pos, bra, ket, head, tail, upper_line, low
 endfunction
 "}}}
 function! s:get_range(mode, count, candidates) abort "{{{
-  let head = copy(s:null_pos)
-  let tail = copy(s:null_pos)
-  if a:candidates != []
-    let line_numbers = map(copy(a:candidates), 'v:val[0][0]') + map(copy(a:candidates), 'v:val[3][0]')
-    let top_line     = min(line_numbers)
-    let bottom_line  = max(line_numbers)
+  if a:candidates == []
+    return [s:null_pos, s:null_pos]
+  endif
 
-    let sorted_candidates = s:sort_candidates(a:candidates, top_line, bottom_line)
-    if len(sorted_candidates) > a:count - 1
-      let [head_pos, bra_pos, ket_pos, tail_pos, _, _] = sorted_candidates[a:count - 1]
-      if a:mode[1] ==# 'p'
-        if !(bra_pos == ket_pos || (bra_pos[0] == ket_pos[0] && bra_pos[1]+1 == ket_pos[1]-1))
-          let [head, tail] = s:get_narrower_region(bra_pos, ket_pos)
-        endif
-      else
-        let head = head_pos
-        let tail = tail_pos
-      endif
-    endif
+  let line_numbers = map(copy(a:candidates), 'v:val[0][0]') + map(copy(a:candidates), 'v:val[3][0]')
+  let top_line = min(line_numbers)
+  let bottom_line = max(line_numbers)
+  let sorted_candidates = s:sort_candidates(a:candidates, top_line, bottom_line)
+  if len(sorted_candidates) < a:count
+    return [s:null_pos, s:null_pos]
+  endif
+
+  let [head_pos, bra_pos, ket_pos, tail_pos, _, _] = sorted_candidates[a:count - 1]
+  if a:mode[1] ==# 'p'
+    let [head, tail] = s:get_narrower_region(bra_pos, ket_pos)
+  else
+    let head = head_pos
+    let tail = tail_pos
   endif
   return [head, tail]
 endfunction
@@ -340,11 +319,20 @@ function! s:is_continuous_syntax(bra_pos, ket_pos) abort  "{{{
 endfunction
 "}}}
 function! s:resolve_patterns() abort  "{{{
-  let pattern_dict = deepcopy(s:get('sandwich_function_patterns', s:patterns))
-  return has_key(pattern_dict, &filetype) ? pattern_dict[&filetype] : pattern_dict['_']
+  return deepcopy(get(b:, 'sandwich_magicchar_f_patterns',
+                \ get(g:, 'sandwich#magicchar#f#patterns',
+                \ g:sandwich#magicchar#f#default_patterns)))
 endfunction
 "}}}
 function! s:get_narrower_region(head_edge, tail_edge) abort "{{{
+  if a:head_edge == a:tail_edge
+    return [s:null_pos, s:null_pos]
+  endif
+  if a:head_edge[0] == a:tail_edge[0] && a:head_edge[1]+1 == a:tail_edge[1]
+    " head_edge and tail_edge are just adjucent, no narrower
+    return [s:null_pos, s:null_pos]
+  endif
+
   let whichwrap  = &whichwrap
   let &whichwrap = 'h,l'
   try

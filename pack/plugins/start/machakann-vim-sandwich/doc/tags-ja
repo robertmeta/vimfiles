@@ -63,9 +63,11 @@ operator-sandwich-introduction	operator-sandwich.jax	/*operator-sandwich-introdu
 operator-sandwich-keymappings	operator-sandwich.jax	/*operator-sandwich-keymappings*
 operator-sandwich-miscellaneous	operator-sandwich.jax	/*operator-sandwich-miscellaneous*
 operator-sandwich.jax	operator-sandwich.jax	/*operator-sandwich.jax*
+sandwich#util#addlocal()	sandwich.jax	/*sandwich#util#addlocal()*
 sandwich-configuration	sandwich.jax	/*sandwich-configuration*
 sandwich-contents	sandwich.jax	/*sandwich-contents*
 sandwich-filetype-recipes	sandwich.jax	/*sandwich-filetype-recipes*
+sandwich-functions	sandwich.jax	/*sandwich-functions*
 sandwich-introduction	sandwich.jax	/*sandwich-introduction*
 sandwich-keymappings	sandwich.jax	/*sandwich-keymappings*
 sandwich-magiccharacters	sandwich.jax	/*sandwich-magiccharacters*

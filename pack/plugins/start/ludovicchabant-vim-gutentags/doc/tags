@@ -17,11 +17,13 @@ gutentags-settings	gutentags.txt	/*gutentags-settings*
 gutentags-similar-plugins	gutentags.txt	/*gutentags-similar-plugins*
 gutentags-status-line	gutentags.txt	/*gutentags-status-line*
 gutentags.txt	gutentags.txt	/*gutentags.txt*
+gutentags_add_ctrlp_root_markers	gutentags.txt	/*gutentags_add_ctrlp_root_markers*
 gutentags_add_default_project_roots	gutentags.txt	/*gutentags_add_default_project_roots*
 gutentags_auto_add_cscope	gutentags.txt	/*gutentags_auto_add_cscope*
 gutentags_auto_add_gtags_cscope	gutentags.txt	/*gutentags_auto_add_gtags_cscope*
 gutentags_background_update	gutentags.txt	/*gutentags_background_update*
 gutentags_cache_dir	gutentags.txt	/*gutentags_cache_dir*
+gutentags_cscope_build_inverted_index	gutentags.txt	/*gutentags_cscope_build_inverted_index*
 gutentags_cscope_executable	gutentags.txt	/*gutentags_cscope_executable*
 gutentags_ctags_auto_set_tags	gutentags.txt	/*gutentags_ctags_auto_set_tags*
 gutentags_ctags_exclude	gutentags.txt	/*gutentags_ctags_exclude*
@@ -41,6 +43,8 @@ gutentags_generate_on_empty_buffer	gutentags.txt	/*gutentags_generate_on_empty_b
 gutentags_generate_on_missing	gutentags.txt	/*gutentags_generate_on_missing*
 gutentags_generate_on_new	gutentags.txt	/*gutentags_generate_on_new*
 gutentags_generate_on_write	gutentags.txt	/*gutentags_generate_on_write*
+gutentags_gtags_cscope_executable	gutentags.txt	/*gutentags_gtags_cscope_executable*
+gutentags_gtags_dbpath	gutentags.txt	/*gutentags_gtags_dbpath*
 gutentags_gtags_executable	gutentags.txt	/*gutentags_gtags_executable*
 gutentags_gtags_options_file	gutentags.txt	/*gutentags_gtags_options_file*
 gutentags_init_user_func	gutentags.txt	/*gutentags_init_user_func*
@@ -49,4 +53,5 @@ gutentags_project_info	gutentags.txt	/*gutentags_project_info*
 gutentags_project_root	gutentags.txt	/*gutentags_project_root*
 gutentags_project_root_finder	gutentags.txt	/*gutentags_project_root_finder*
 gutentags_resolve_symlinks	gutentags.txt	/*gutentags_resolve_symlinks*
+gutentags_scopefile	gutentags.txt	/*gutentags_scopefile*
 gutentags_trace	gutentags.txt	/*gutentags_trace*

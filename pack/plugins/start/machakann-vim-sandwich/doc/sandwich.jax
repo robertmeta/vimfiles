@@ -1,4 +1,4 @@
-*sandwich.jax*	日本語ヘルプ		Last change:21-Aug-2017.
+*sandwich.jax*	日本語ヘルプ		Last change:25-Jul-2020.
 
 “挟まれた”テキストを編集するためのオペレータとテキストオブジェクトの詰め合わせ
 です。
@@ -21,8 +21,10 @@ KEYMAPPINGS			|sandwich-keymappings|
 CONFIGURATION			|sandwich-configuration|
 MAGICCHARACTERS			|sandwich-magiccharacters|
 FILETYPE RECIPES		|sandwich-filetype-recipes|
+FUNCTIONS			|sandwich-functions|
 MISCELLANEOUS			|sandwich-miscellaneous|
   vim-surround のキ－マッピングを使う
+  magicchar-f の挙動を変更する
 
 ==============================================================================
 QUICK START				*sandwich-quick-start*
@@ -235,7 +237,7 @@ g:sandwich#default_recipes		*g:sandwich#default_recipes*
 `[`, `]`
 `{`, `}`
 `<`, `>`
-	開き/閉じ括弧は同様に機能します。例えば、 `sa(iw` と `sa)iw` は同様の
+	開き/閉じ括弧は同様に機能します。例えば、 `saiw(` と `saiw)` は同様の
 	結果を与えます。
 >
 		foo -> (foo)
@@ -304,7 +306,7 @@ I~
 	`foowordbar` という文字列を `word` にします。これは |.| コマンドによっ
 	て繰り返すことができるので、編集対象の文字列が多く存在する場合に便利か
 	もしれません。
-	`sd{textobj}I` や `sdI` は最後の入力を再利用します。
+	`sa{textobj}I` や `sdI` は最後の入力を再利用します。
 
 
 t~
@@ -393,7 +395,21 @@ tex~
 	(あるいは存在すれば `b:sandwich#filetype#tex#environments`) から読み込
 	まれます。
 
-------------------------------------------------------------------------------
+
+==============================================================================
+FUNCTIONS				*sandwich-functions*
+
+sandwich#util#addlocal({recipes})	*sandwich#util#addlocal()*
+	レシピのリスト {recipes} をそのバッファにのみ有効な設定として追加しま
+	す。この際、既存のグローバルな設定はそのまま受け継がれます。この関数は
+	グローバルな設定をきれいに保ったままファイルタイプに特有な設定を追加す
+	る、などの用途に使えます。{recipes} はレシピのリスト |List| である点は
+	注意してください。
+>
+	autocmd FileType python call sandwich#util#addlocal([
+	  \   {'buns': ['"""', '"""'], 'nesting': 0, 'input': ['3"']},
+	  \ ])
+<
 
 ==============================================================================
 MISCELLANEOUS				*sandwich-miscellaneous*
@@ -467,6 +483,59 @@ vim-surround のキーマッピングを使う~
 	omap im <Plug>(textobj-sandwich-literal-query-i)
 	omap am <Plug>(textobj-sandwich-literal-query-a)
 <
+
+------------------------------------------------------------------------------
+magicchar-f の挙動を変更する~
+
+`magicchar-f` は単純な関数呼び出しを削除できます。
+>
+	     func(arg)          -- sdf -->             arg
+<
+もし、もっと複雑なパターンにも対応させたい場合、例えば、
+>
+	     obj.method(arg)    -- sdf -->             arg
+<
+このような場合に対応させるには `g:sandwich#magicchar#f#patterns` か
+`b:sandwich_magicchar_f_patterns` を使います。 これらは次のようなパターンのリ
+ストです。
+>
+	let g:sandwich#magicchar#f#patterns = [
+	\   {
+	\     'header' : '\<\h\k*',
+	\     'bra'    : '(',
+	\     'ket'    : ')',
+	\     'footer' : '',
+	\   },
+	\ ]
+<
+四つの文字列はすべて正規表現パターンで、開括弧の前の文字列、開括弧、閉括弧、
+閉括弧の後に続く文字列にマッチします。すなわち、先に述べたようなパターンに対応
+するには以下のような設定をします。
+>
+	let g:sandwich#magicchar#f#patterns = [
+	\   {
+	\     'header' : '\<\%(\h\k*\.\)*\h\k*',
+	\     'bra'    : '(',
+	\     'ket'    : ')',
+	\     'footer' : '',
+	\   },
+	\ ]
+<
+`b:sandwich_magicchar_f_patterns` はファイルタイプ毎の設定を定義するのに使えま
+す。
+>
+	augroup sandwich-ft-python
+	  autocmd Filetype python let b:sandwich_magicchar_f_patterns = [
+	                              \   {
+	                              \     'header' : '\<\%(\h\k*\.\)*\h\k*',
+	                              \     'bra'    : '(',
+	                              \     'ket'    : ')',
+	                              \     'footer' : '',
+	                              \   },
+	                              \ ]
+	augroup END
+<
+デフォルトの設定は `g:sandwich#magicchar#f#default_patterns` にあります。
 
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:noet:

@@ -8,6 +8,8 @@
 :QuickhlManualDelete!	quickhl.txt	/*:QuickhlManualDelete!*
 :QuickhlManualDisable	quickhl.txt	/*:QuickhlManualDisable*
 :QuickhlManualEnable	quickhl.txt	/*:QuickhlManualEnable*
+:QuickhlManualGoToNext	quickhl.txt	/*:QuickhlManualGoToNext*
+:QuickhlManualGoToPrev	quickhl.txt	/*:QuickhlManualGoToPrev*
 :QuickhlManualList	quickhl.txt	/*:QuickhlManualList*
 :QuickhlManualLock	quickhl.txt	/*:QuickhlManualLock*
 :QuickhlManualLockToggle	quickhl.txt	/*:QuickhlManualLockToggle*
