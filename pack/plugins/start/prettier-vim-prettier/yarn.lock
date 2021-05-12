@@ -25,14 +25,14 @@
   dependencies:
     luaparse "0.2.1"
 
-"@prettier/plugin-php@^0.10.2":
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/@prettier/plugin-php/-/plugin-php-0.10.2.tgz#324b7bc4dc7305c7e43f864234e82a9cc0c862a4"
-  integrity sha512-FCzNR2kqlS9YV81JguX4vYnpwFn6cOlLwUZaEB0jIjPcrEgqqBwk6KSERTA5cE+lX5Ynip5rkV1hydGufwyJ7A==
+"@prettier/plugin-php@^0.11.1":
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/@prettier/plugin-php/-/plugin-php-0.11.2.tgz#2eca5d836c9782e958a1f37874d78f419e3aad36"
+  integrity sha512-LWT3VY0+Xd2fGNqOfv7B2boBIomUJmSaBA3YFPIrz7Yzg8Yu8V9Vs6p19aXPezFVqJGTh1NT3/6b1dah2gmu/Q==
   dependencies:
     linguist-languages "^6.3.0"
     mem "^4.0.0"
-    php-parser glayzzle/php-parser#71485979b688d12fb130d3e853fdc00348671e00
+    php-parser "github:glayzzle/php-parser#71485979b688d12fb130d3e853fdc00348671e00"
 
 "@prettier/plugin-ruby@^0.8.0":
   version "0.8.0"
@@ -2131,9 +2131,9 @@ lodash.sortby@^4.7.0:
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
 lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4:
-  version "4.17.19"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
-  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 loose-envify@^1.0.0:
   version "1.4.0"
@@ -2610,8 +2610,9 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-php-parser@glayzzle/php-parser#71485979b688d12fb130d3e853fdc00348671e00:
+"php-parser@github:glayzzle/php-parser#71485979b688d12fb130d3e853fdc00348671e00":
   version "3.0.0-prerelease.8"
+  uid "71485979b688d12fb130d3e853fdc00348671e00"
   resolved "https://codeload.github.com/glayzzle/php-parser/tar.gz/71485979b688d12fb130d3e853fdc00348671e00"
 
 pify@^2.0.0:
